@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Roboto Flex';
+  src: url(./RobotoFlex-VariableFont.woff2) format('woff2');
+  font-style: normal; 
+  font-weight: 100 1000;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto Flex';
+  src: url(./RobotoFlex-VariableFont.woff2) format('woff2');
+  font-style: italic;
+  font-weight: 100 1000;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto Mono';
+  src: url(./RobotoMono-VariableFont.woff2) format('woff2');
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto Mono';
+  src: url(./RobotoMono-Italic-VariableFont.woff2) format('woff2');
+  font-style: italic;
+  font-weight: 100 700;
+  font-display: swap;
+}

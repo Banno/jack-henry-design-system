@@ -1,0 +1,131 @@
+import {Meta, ArgTypes} from '@storybook/blocks';
+import * as stories from './toast.stories.js';
+
+<Meta title="Components/Toast" of={stories} />
+
+# Toast
+
+[Guidelines](https://jackhenry.design/pages/components/toast/)
+
+<hr />
+
+The toast component displays a message that informs users on the outcome of an action. They are temporary by default, but can be modified to remain when needed.
+
+## Usage
+
+Import the `<jh-toast>` component:
+
+```javascript
+import '@jack-henry/jh-ui/components/toast/toast.js';
+```
+
+To use `<jh-toast>`:
+
+```html
+<jh-toast timeout="8000">
+  Toast message
+</jh-toast>
+```
+
+## Dependencies
+The toast component makes use of both required compositional and suggested content related dependencies.
+
+1. Composition - the following required dependencies are automatically imported:
+
+- `<jh-notification>`. [Notification component documentation](/docs/components-notification--docs).
+- `<jh-button>`. [Button component documentation](/docs/components-button--docs).
+- `<jh-icon-xmark>` . [Iconography documentation](/docs/iconography-overview--docs).
+
+2. Content -  the following suggested dependencies should be imported when needed: 
+
+- `<jh-icon>`. [Iconography documentation](/docs/iconography-overview--docs).
+
+## Toast and Live Regions
+
+When using a stand alone toast, consider adding the toast to an existing live region in order for the contents to be announced to the user. The live region allows the browser to watch for changes and alert the user of toasts according to the defined timing (via aria-live attribute) and whether all, or only parts of, the changed region should be announced (via aria-atomic attribute).
+
+The following roles should be considered for the live-region depending on the purpose and severity of the toast. Note that the following roles also have implicit aria-live and aria-atomic attribute values as defined below, which can be overridden by setting them directly on the live region.
+
+- `role=”alert”` may be appropriate when the toast includes important, and usually time-sensitive, information. Elements with the role of alert have an implicit aria-live value of assertive, and an implicit aria-atomic value of true.
+- `role=”status”` may be appropriate when the toast contains advisory information for the user but is not important enough to justify an alert. Elements with the role status have an implicit aria-live value of polite and an implicit aria-atomic value of true.
+
+Additionally, authors can specify which types of changes to the live region should be announced via the aria-relevant attribute. Visit [MDN for information on supported aria-relevant values](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-relevant).
+
+## Action Slot Guidance
+
+- The action slot is intended to be a wrapper for action buttons for which we encourage the use of the `jh-button` component to streamline styles as well as to enhance the accessibility of the component as outlined in the Accessibility documentation.
+- The toast component will override the size of any slotted `jh-button` to `size="small"` in order to ensure consistent alignment of buttons within the action slot. 
+- When using action buttons, avoid setting long labels and instead opt to use language that is specific and concise.
+
+
+## Accessibility
+
+This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria.
+The following success criteria are of concern:
+
+- [WCAG 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html):
+  Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element.
+- [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html): Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.
+- [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html):
+  All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes, except where the underlying function requires input that depends on the path of the user's movement and not just the endpoints.
+- [WCAG 2.1.2 No Keyboard Trap](https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html):
+  If keyboard focus can be moved to a component of the page using a keyboard interface, then focus can be moved away from that component using only a keyboard interface, and, if it requires more than unmodified arrow or tab keys or other standard exit methods, the user is advised of the method for moving focus away.
+- [WCAG 2.2.1](https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html):
+  For each time limit that is set by the content, at least one of the following is true:
+  - The user is allowed to turn off the time limit before encountering it;
+  - The user is allowed to adjust the time limit before encountering it over a wide range that is at least ten times the length of the default setting;
+  - The user is warned before time expires and given at least 20 seconds to extend the time limit with a simple action (for example, "press the space bar"), and the user is allowed to extend the time limit at least ten times;
+  - The time limit is a required part of a real-time event (for example, an auction), and no alternative to the time limit is possible;
+  - The time limit is essential and extending it would invalidate the activity;
+  - The time limit is longer than 20 hours.
+- [WCAG 2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html):
+  Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.
+- [WCAG 2.4.11 Focus Not Obscured (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html):
+  When a user interface component receives keyboard focus, the component is not entirely hidden due to author-created content.
+- [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html): The size of the target for pointer inputs is at least 24 by 24 CSS pixels, except where:
+  - Spacing: Undersized targets (those less than 24 by 24 CSS pixels) are positioned so that if a 24 CSS pixel diameter circle is centered on the bounding box of each, the circles do not intersect another target or the circle for another undersized target;
+  - Equivalent: The function can be achieved through a different control on the same page that meets this criterion;
+  - Inline: The target is in a sentence or its size is otherwise constrained by the line-height of non-target text;
+  - User agent control: The size of the target is determined by the user agent and is not modified by the author;
+  - Essential: A particular presentation of the target is essential or is legally required for the information being conveyed.
+- [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html):
+  For all user interface components, the name and role can be programmatically determined; states, properties, and values
+  that can be set by the user can be programmatically set; and notification of changes to these items is available
+  to user agents, including assistive technologies.
+- [WCAG 4.1.3 Status Messages](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html):
+  In content implemented using markup languages, status messages can be programmatically determined through role or properties such that they can be presented to the user by assistive technologies without receiving focus.
+
+### What we provide
+
+- To satisfy [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html), Toast can be resized without assistive technology up to 200 percent without loss of content or functionality.
+- To satisfy [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html), the dismiss button is keyboard operable and can be activated via the `Spacebar` and `Enter` keys.
+- To satisfy [WCAG 2.1.2 No Keyboard Trap](https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html), the toast does not trap users in content.
+- To satisfy [WCAG 2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html), the dismiss button contains focus visible styles to help users determine which element has keyboard focus.
+- To satisfy [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html), the target size of the dismiss button is at least 24 by 24 pixels for users to easily activate it.
+
+### Author Guidance
+
+- To satisfy [WCAG 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html), ensure that information conveyed through the toast appearance is also available in text.
+- To satisfy [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html) when slotting buttons within the action slot, ensure that the buttons are keyboard operable and can be activated via the `Spacebar` and `Enter` keys. Use of the `jh-button` component will also satisfy this success criterion.
+- To satisfy [WCAG 2.2.1 Timing Adjustable](https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html), when auto dismissing the toast, authors should provide a way for users to either: turn off or adjust the the time limit before encountering it, or provide users a way to extend the time limit by at least 20 seconds before the time expires.
+- To satisfy [WCAG 2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html) when slotting buttons within the action slot, ensure that the buttons contain focus visible styles to help users determine which element has keyboard focus. Use of the `jh-button` component will also satisfy this success criterion.
+- To satisfy [WCAG 2.4.11 Focus Not Obscured (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html), ensure that when a toast is opened, it does not completely obscure the component that has keyboard focus.
+- To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html), ensure that when using a dismiss button an `accessible-label` is set to support screen readers.
+- To satisfy [WCAG 4.1.3 Status Messages](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html), ensure the following:
+<ol>
+  <li>Toasts are presented to users without receiving focus</li>
+  <li>The live region in which the toast is added to has either the role of "status" when the toast represents the result of a successful action or the state of an application, or the role of "alert" when the toast conveys a suggestion, or a warning on the existence of an error. </li>
+</ol>
+
+## Component API
+
+For boolean attributes, true indicates that the attribute has been set without a value: `<jh-toast hide-dismiss-button></jh-toast>`. While false indicates the attribute does not exist in the DOM: `<jh-toast></jh-toast>`.
+
+<ArgTypes />
+
+## Feedback
+
+Have an idea that will improve this component or have an issue to report? Let us know by submitting 
+an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
+
+Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

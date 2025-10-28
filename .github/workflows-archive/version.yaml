@@ -1,0 +1,34 @@
+name: Version
+on:
+  push:
+    branches: next
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  version:
+    permissions:
+      contents: write
+      pull-requests: write
+    name: Version
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Fetch all history for all branches and tags - Needed for Changsets to generate changelogs with commits
+          fetch-depth: 0
+          
+      - name: Install dependencies
+        uses: ./.github/workflows/actions/install-dependencies
+      
+      - name: Create version PR
+        id: changesets
+        uses: changesets/action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          title: "Version Packages"
+          commit: "Version Packages"
+          version: "pnpm run changeset:version"

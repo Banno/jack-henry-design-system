@@ -1,0 +1,4 @@
+packages:  
+- 'packages/jh-ui'
+- 'packages/jh-core'
+- 'packages/jh-icons'

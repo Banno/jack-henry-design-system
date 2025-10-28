@@ -1,0 +1,83 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Iconography/Overview" />
+
+# Overview
+
+The Jack Henry Design System includes a robust set of icons that cover widely recognized metaphors. Our icons are designed 
+to provide a consistent look and feel across your products. The icons are available as an npm package which is currently
+installed as a dependency in the jh-ui package. The icon package includes the following:
+
+- SVG icon files
+- ES module based web components for each icon
+- A utility to convert your own SVG icons to web components.
+
+Our icon set is continuously growing and updated with new icons frequently.
+
+## Using our icons
+
+We provide icons in two formats.
+
+### SVG icons
+
+SVG icons can be used throughout your application if you need complete control. Doing so however, will require building in 
+your own support for our design tokens if you want to ensure consistency.
+
+### Web component icons
+
+Using our web component icons is the preferred path. Using component based icons provide the following benefits:
+
+- Supports component driven developent and makes it easy to reuse icons throughout your app.
+- Helps ensure consistency by hooking into our design tokens.
+- Supports build processes such as tree shaking and code splitting via ES modules.
+
+Here's how to use one. [Search our icon set](https://jackhenry.design/pages/foundations/icons/) for an icon.
+Take note of its name as that will be the file name you import. Import the desired icon component and use it:
+
+```javascript
+import { LitElement, html } from 'lit';
+import '@jack-henry/jh-icons/icons-wc/icon-arrow-left.js';
+
+class MyWidget extends LitElement {
+
+  render() {
+    return html`<jh-icon-arrow-left size="large"></jh-icon-arrow-left>`;
+  }
+}
+```
+
+Our web component icons expose a size property and a number of component level styling hooks to help with theming.
+The api is identical to our [jh-icon component](/docs/components-icon--docs).
+
+## Using your own icons
+
+We recognize that there will be times where you want to use your own icon set. Or perhaps use several, including ours. We
+have you covered with two options to help you include your own icons.
+
+### Jh-icon
+
+We built a discrete `jh-icon` component that enables slotting your own SVG code and still hook into our design tokens, 
+ensuring consistency across your iconography. You can view the [jh-icon component docs](/docs/components-icon--docs) to learn more.
+
+### Converting SVGs to Web Components
+
+We've included a conversion utility to help you convert your own icons to web components and leverage our
+design tokens.
+
+The generate-wc.js utility accepts the following arguments:
+- sourcePath - The path to the directory where your raw SVG icons are stored.
+- outputPath - The destination folder where the created web components will be output.
+- prefix - A string that will be prepended to each icon name. This establishes a namespace for your icons to ensure
+no naming collisions. A `-` dash character will be inserted after the provided prefix.
+
+Usage example:
+
+```
+node @jack-henry/jh-icons/bin/generate-wc.js sourcePath outputPath prefix
+```
+
+Please note that any files with the same filename as the output web component will be overwritten in the outputPath.
+
+## Contributing
+
+Have an idea for an icon or created one you would like included? [Submit an issue](https://github.com/Banno/jack-henry-design-system/issues).

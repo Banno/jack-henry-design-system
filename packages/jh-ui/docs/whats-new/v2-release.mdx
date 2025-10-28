@@ -1,0 +1,432 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="What's New/V2 Release" tags={['new']}  />
+<div className="toc-ignore">
+# V2 Release
+
+**Warning!** This page is continuously changing. We may add or remove scope as needed. All v2 pages can be viewed [here](https://release-v2--60b69cf9d763ec0039a5ac96.chromatic.com/?path=/docs/welcome-about-jh--docs)
+
+## Summary
+
+The Design System team has been heavily focused on delivering the next iteration in Jack Henry's design system, with V2 representing a significant step 
+forward in the evolution of the system. We've focused on establishing a more standardized and robust foundation by embracing the W3C Design Token Specification, 
+introduced a suite of new and improved components, and prioritized the tools and documentation you need to work efficiently and effectively.
+
+Read on to learn more about what's new in v2!
+
+**Note: v2 is current in pre-release and will continue to undergo significant breaking changes.**
+
+## Working with Pre-releases
+
+### Installing packages
+
+Design System packages follow semantic versioning conventions, which extend to pre-release cycles. This involves a progression from alpha -> beta -> release candidate (rc) -> 
+general availability (ga). Refer to our [release process](https://github.com/Banno/jack-henry-design-system) for more info.
+
+Due to the volatility of pre-release code, it is recommended that you pin the exact version of the package dependency in your package.json to prevent inadvertently introducing new breaking changes. 
+This is also necessary as the pre-release tag will change as our confidence in the release increases and so the package version will need to be manually updated.
+
+Yarn
+
+```bash
+yarn install @jack-henry/jh-elements
+```
+
+NPM
+
+```bash
+npm install @jack-henry/jh-elements
+```
+
+PNPM
+
+```bash
+pnpm install @jack-henry/jh-elements
+```
+
+### Updating to v2
+
+Version 2 introduces extensive breaking changes to `jh-core` and `jh-ui` packages. Follow our [migration guide](/docs/what-s-new-migrating--docs) to assist in updating your codebase to work with v2.
+
+### Early feedback
+
+Your feedback is an essential part of the pre-release process. As we work to refine the release and improve its overall quality, field testing with engineers is helpful
+in identifying issues early on before releasing code at scale. Our focus is always to produce the best developer experience possible and minimize impacts to your workflows.
+To report an issue, log a [new issue](https://github.com/Banno/jack-henry-design-system/issues) on GitHub or open a [GitHub discussion](https://github.com/Banno/jack-henry-design-system/discussions).
+
+## Package Organization 
+
+Package naming has been updated to better reflect the purpose and contents of each package. We will also be introducing two new packages that reduce the amount of code needed to work with the system. 
+
+Package Changes:
+
+* `jh-ui` is renamed to `jh-elements`: Contains foundational elements used to compose complex UX patterns. This aligns with future plans to address pattern specific component implementations.
+*  `jh-core` is renamed to `jh-tokens`: Contains all global and alias design tokens for the system as well as light and dark themes.
+* The `jh-tokens` package no longer includes the font files. They are now available in the assets/fonts folder at the project root directory. 
+
+New Packages (Coming Soon):
+
+* `jh-element`: A base class that all design system components extend off.
+* `jh-validate`: Introduces our form validation mixin.
+
+## jh-tokens
+
+Tokens 2.0 realigns our design tokens with the W3C Design Token Specification. This specification is being adopted by all tooling vendors and is expected to become the single standard
+for defining design tokens. Adopting the DTCG token specification requires updates to our core tooling and the way we organize our data. Tokens 2.0 includes a number of improvements
+including a simplified color system, support for shadow and overlay tokens, typography updates, improved platform files, and more.
+
+Learn more about the DTCG specification [here](https://tr.designtokens.org/format/).
+
+### Consolidate Dimension-based tokens
+
+In v1, size and space tokens exist to assist in scaling dimensions. These tokens both utilize the same scale creating an unnecessary redundancy. Beyond eliminating redundant tokens,
+the DTCG specification defines a token `type` named `dimension`. In order to simplify token usage and align with the DTCG we are deprecating both size and space tokens and 
+consolidating into a single token set prefixed with `dimension`. The new dimension token set will follow the same scale as the size and space tokens.
+
+### Color families
+
+To align with the DTCG, we are updating all color tokens to use HEX8 format, as opposed to the RGB and RGBA formats that we were using in v1.
+In addition we have made the following changes to our color families:
+
+- Introduced new color families for black and white colors with alpha channels.
+- Updated the gray color family to use more neutral colors.
+- Removed 3 color families (lime, blue and rose) to help create more disctinction between the available color families.
+- Renamed the `azure` color family to `blue`. 
+
+#### New Black and White Color Tokens
+
+<table>
+  <thead>
+    <tr>
+      <th>New Token</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>--jh-color-white-alpha-10</td>
+      <td>#ffffff1a</td>
+    </tr>
+    <tr>
+      <td>--jh-color-white-alpha-20</td>
+      <td>#ffffff33</td>
+    </tr>
+    <tr>
+      <td>--jh-color-white-alpha-30</td>
+      <td>#ffffff4d</td>
+    </tr>
+    <tr>
+      <td>--jh-color-white-alpha-40</td>
+      <td>#ffffff66</td>
+    </tr>
+    <tr>
+      <td>--jh-color-white-alpha-50</td>
+      <td>#ffffff80</td>
+    </tr>
+    <tr>
+      <td>--jh-color-white-alpha-60</td>
+      <td>#ffffff99</td>
+    </tr>
+    <tr>
+      <td>--jh-color-white-alpha-70</td>
+      <td>#ffffffb3</td>
+    </tr>
+    <tr>
+      <td>--jh-color-white-alpha-80</td>
+      <td>#ffffffcc</td>
+    </tr>
+    <tr>
+      <td>--jh-color-white-alpha-90</td>
+      <td>#ffffffe6</td>
+    </tr>
+     <tr>
+      <td>--jh-color-black-alpha-10</td>
+      <td>#0000001a</td>
+    </tr>
+    <tr>
+      <td>--jh-color-black-alpha-20</td>
+      <td>#00000033</td>
+    </tr>
+    <tr>
+      <td>--jh-color-black-alpha-30</td>
+      <td>#0000004d</td>
+    </tr>
+    <tr>
+      <td>--jh-color-black-alpha-40</td>
+      <td>#00000066</td>
+    </tr>
+    <tr>
+      <td>--jh-color-black-alpha-50</td>
+      <td>#00000080</td>
+    </tr>
+    <tr>
+      <td>--jh-color-black-alpha-60</td>
+      <td>#00000099</td>
+    </tr>
+    <tr>
+      <td>--jh-color-black-alpha-70</td>
+      <td>#000000b3</td>
+    </tr>
+    <tr>
+      <td>--jh-color-black-alpha-80</td>
+      <td>#000000cc</td>
+    </tr>
+    <tr>
+      <td>--jh-color-black-alpha-90</td>
+      <td>#000000e6</td>
+    </tr>
+    <tr>
+      <td>--jh-color-shadow-primary</td>
+      <td>--jh-color-black-alpha-30</td>
+    </tr>
+    <tr>
+      <td>--jh-color-shadow-secondary</td>
+      <td>--jh-color-black-alpha-10</td>
+    </tr>
+  </tbody>
+</table>
+
+### Border Tokens
+
+In v1, only the color of borders was cusomizable by authors via tokens. 
+In v2, we introduce a new set of composite border tokens that align with the DTCG specification, which define the width, style, and color of borders individually. 
+We have named these tokens according to their usage, to make it easier for authors to idenfiy the appropriate token for their use case.
+
+#### New Border Tokens
+
+<table>
+  <thead>
+    <tr>
+      <th>New Token</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>--jh-border-decorative-color</td>
+      <td>--jh-color-divider-secondary</td>
+    </tr>
+    <tr>
+      <td>--jh-border-decorative-width</td>
+      <td>--jh-dimension-25</td>
+    </tr>
+    <tr>
+      <td>--jh-border-decorative-style</td>
+      <td>solid</td>
+    </tr>
+     <tr>
+      <td>--jh-border-control-color</td>
+      <td>--jh-color-divider-primary</td>
+    </tr>
+    <tr>
+      <td>--jh-border-control-width</td>
+      <td>--jh-dimension-25</td>
+    </tr>
+    <tr>
+      <td>--jh-border-control-style</td>
+      <td>solid</td>
+    </tr>
+     <tr>
+      <td>--jh-border-action-color</td>
+      <td>--jh-color-content-brand-enabled</td>
+    </tr>
+    <tr>
+      <td>--jh-border-action-width</td>
+      <td>--jh-dimension-25</td>
+    </tr>
+    <tr>
+      <td>--jh-border-action-style</td>
+      <td>solid</td>
+    </tr>
+     <tr>
+      <td>--jh-border-focus-color</td>
+      <td>--jh-color-interactive-focus-outer</td>
+    </tr>
+    <tr>
+      <td>--jh-border-focus-width</td>
+      <td>--jh-dimension-50</td>
+    </tr>
+    <tr>
+      <td>--jh-border-focus-style</td>
+      <td>solid</td>
+    </tr>
+     <tr>
+      <td>--jh-border-selected-color</td>
+      <td>--jh-color-content-brand-enabled</td>
+    </tr>
+    <tr>
+      <td>--jh-border-selected-width</td>
+      <td>--jh-dimension-200</td>
+    </tr>
+    <tr>
+      <td>--jh-border-selected-style</td>
+      <td>solid</td>
+    </tr>
+         <tr>
+      <td>--jh-border-error-color</td>
+      <td>--jh-color-content-negative-enabled</td>
+    </tr>
+    <tr>
+      <td>--jh-border-error-width</td>
+      <td>--jh-dimension-25</td>
+    </tr>
+    <tr>
+      <td>--jh-border-error-style</td>
+      <td>solid</td>
+    </tr>
+  </tbody>
+</table>
+
+### Composite Tokens
+
+The DTCG defines a set of composite token types, such as typography, borders and shadow. Composite tokens are made up of multiple properties that target different aspects of the token.
+In v1, we used the css shorthand properties `font`, `border` and `box-shadow`, which made overriding such tokens cumbersome and error-prone.
+In v2, we break out composite tokens for fonts and borders into their individual properties, which enables targeting a specific property for override rather than needing to redefine the full shorthand in CSS.
+
+- **Typography**: The `font` composite token has been broken out into `font-family`, `font-size`, `font-weight`, and `line-height` tokens.
+- **Borders**: The `border` composite token has been broken out into `border-width`, `border-style`, and `border-color` tokens.
+- **Shadow**: The `box-shadow` composite token cannot be broken out into individual properties in CSS, as it is a single property that defines multiple values. 
+This means that the usage and override method remains the same as in v1.
+
+### Shadow & Overlay Tokens
+
+Shadow and overlay tokens are now alias tokens that make use of the new black and white alpha color families.
+Moreover, shadow tokens are now defined as composite tokens as per the DTCG specification.
+
+### js-css
+
+We are renaming the folder that contains these token files to `esm` to better reflect its platform target.
+
+### JSON flat file (coming soon)
+
+The JSON flat file has been rebuilt to follow the DTCG specification. Token deprecation information has been added to it.
+
+
+## jh-elements
+
+### jh-input
+
+In version 1, the design system offered a single input component (jh-input) that supported multiple specialized types, including text, search, email, password, tel, url, and textarea. This approach led to scalability and maintainability issues due to the complexity of managing all unique properties and logic within a single component.
+
+The `jh-input` has been refactored into a base class that is comprised of common properties and features, significantly reducing API overhead. This base class is designed to be extensible, allowing authors to utilize `jh-input` as a foundation for their own specialized input components.
+
+#### Enhanced Slot Support
+
+The `jh-input` component's left and right slots have been refactored to support a broader range of content. The input will automatically adjust to accommodate elements of varying heights and widths.
+
+#### Deprecated Property:
+- The `type` property has been deprecated, and specialized types are now separated into the following discrete components:
+
+  - `jh-input-search`
+   
+  - `jh-input-password`
+   
+  - `jh-input-textarea`
+   
+  - `jh-input-email`
+   
+  - `jh-input-url`
+  
+  - `jh-input-telephone`
+    
+- The `placeholder` property has been deprecated due to accessibility concerns. Users should leverage the `helper-text` and `label` properties to provide guidance on the expected type of user data. 
+
+#### New Properties: 
+- The `show-char-count` property displays a character counter at the bottom right corner of the input field. A `jh-maxlength` event is dispatched when the maxlength is reached, allowing authors to apply the `invalid` property along with the corresponding `error-text` attribute, helping to inform the user that the character limit has been reached.
+- The `input-mask` property restricts the format of the input field data, providing better control over input validation.
+
+###### Example Usage of input-mask Property:
+
+For instance, to restrict the input to a phone number format, set the input-mask property to a pattern that matches the desired phone number format.
+
+``` javascript
+
+<jh-input input-mask="(999) 999-9999"></jh-input>
+
+```
+
+#### Deprecated Styling Hooks:
+
+- `jh-input-field-dimension-padding-top`
+- `jh-input-field-dimension-padding-bottom`
+- `jh-input-field-dimension-padding-left`
+- `jh-input-field-dimension-padding-right`
+
+Review the [jh-input documentation](/docs/components-input--docs) for more information on its features. 
+
+### jh-list-item and jh-tag
+
+In version 1, the text in `jh-list-item` and `jh-tag` would atuomatically truncate at a certain width of the component. In V2 we deprecated the truncation behavior of these components. 
+This behavior was removed due to accessibility and design concerns. The text in `jh-list-item` does now wrap to a new line, while `jh-tag` will expand to contain the full text.
+
+### New Components
+
+#### jh-input-search
+
+A single-line text field for queries, featuring a magnifying-glass icon in the left slot that can be overridden. 
+
+#### jh-input-password
+
+A single-line text field designed for password entry, featuring a toggle visibility button.
+
+#### jh-input-textarea
+
+A multi-line text field for longer text input.
+
+#### jh-input-email
+
+A single-line text field for email entry.
+
+#### jh-input-url
+
+A single-line text field for URL entry.
+
+#### jh-input-telephone
+
+A single-line text field for telephone number entry.
+
+#### Table Component & Sub-components
+
+An enhanced HTML table component, which includes sorting hooks, and all its supcomponents:
+
+- `jh-table`: the table component, which also includes caption, toolbar and pagination slots.
+- `jh-table-row`: the table row component, which contains header and data cells.
+- `jh-table-header-cell`: the table header cell component.
+- `jh-table-data-cell`: the table data cell component.
+
+## Developer experience
+
+DX was a major focus of this release and we introduce a number of enhancements and new packages to help authors quickly build high quality applications.
+
+### jh-validate package (coming soon)
+
+We're introducing our validation library mixin that authors can use to add validation to their non design system components. This mixin is utilized by our form components, providing validation support. 
+
+### jh-element component (coming soon)
+
+A common base that all components extend off of. This enables us to promote code reuse, share dependencies one time, etc. All components now officially extend off this component.
+
+### Lit 3.0 Upgraded
+
+All components are now leveraging Lit 3.3.1. The upgrade is considered a potential breaking change as some build tools, particularly Webpack 4, may encounter compatibility issues. See our migration guide for additional details.
+
+### Improved TypeScript Support (coming soon)
+
+In v2 we've improved our TypeScript support by adding type definitions for all components and properties in dedicated d.ts files.
+In addition, we provide instructions for authors on how to leverage `lit-plugin` in VSCode to make the most of the TypeScript support.
+
+## Improved documentation
+
+We've made significant updates to our documentation including new sections for Accessibility and a guide for extending design system components.
+
+We have added a searchable icon gallery in Storybook, so authors can easily find the icon they need and copy its code to the clipboard. 
+
+## Infra & Tooling
+
+We've upgraded our StyleDictionary tooling, monorepo tooling, and adopted the W3C Token Specification. Some notable internal changes that we made:
+
+* Striped all CSS specific details from the tokens to ensure they remain platform agnostic
+* Moved from RGB to hex8
+* Composite tokens are now broken out by property for typography and border.
+
+</div>

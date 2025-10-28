@@ -1,0 +1,83 @@
+import {LitElement, css, html} from 'lit';
+
+export default class JhIconCircleDollar extends LitElement {
+  /** @type {ElementInternals} */
+  #internals;
+
+  static get styles() {
+    return css`
+      :host {
+        fill: var(
+          --jh-icon-color-fill,
+          var(--jh-color-content-secondary-enabled)
+        );
+        width: var(--icon-size);
+        height: var(--icon-size);
+        display: inline-block;
+      }
+      :host([size='x-small']) {
+        --icon-size: var(
+          --jh-icon-size-extra-small,
+          var(--jh-size-400)
+        );
+      }
+      :host([size='small']) {
+        --icon-size: var(
+          --jh-icon-size-small,
+          var(--jh-size-500)
+        );
+      }
+      :host([size='medium']) {
+        --icon-size: var(
+          --jh-icon-size-medium,
+          var(--jh-size-600)
+        );
+      }
+      :host([size='large']) {
+        --icon-size: var(
+          --jh-icon-size-large,
+          var(--jh-size-900)
+        );
+      }
+      :host([size='x-large']) {
+        --icon-size: var(
+          --jh-icon-size-extra-large,
+          var(--jh-size-1400)
+        );
+      }
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    `;
+  }
+
+  static get properties() {
+    return {
+      /**
+      * The size of the icon.
+      */
+      size: {
+        type: String, reflect: true 
+      }
+    }
+  }
+
+  constructor() {
+    super();
+    this.#internals = this.attachInternals();
+    this.#internals.role = 'graphics-symbol';
+    this.#internals.ariaHidden = 'true';
+
+    /** @type {'x-small'|'small'|'medium'|'large'|'x-large'} */
+    this.size = 'medium';
+  }
+
+  render() {
+    return html`
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">   <path fill-rule="evenodd" d="M3.75 12a8.25 8.25 0 1 1 16.5 0 8.25 8.25 0 0 1-16.5 0ZM12 2.25c-5.385 0-9.75 4.366-9.75 9.75 0 5.385 4.365 9.75 9.75 9.75s9.75-4.365 9.75-9.75c0-5.384-4.365-9.75-9.75-9.75ZM12.75 7v-.75h-1.5v1.086c-.385.09-.758.251-1.08.497a2.306 2.306 0 0 0-.92 1.882c0 .956.327 1.643.877 2.132.479.426 1.091.659 1.556.836l.05.018c.53.202.89.35 1.144.574.2.179.373.443.373 1.011a.81.81 0 0 1-.33.69c-.22.167-.552.274-.92.274-.369 0-.7-.107-.92-.275a.81.81 0 0 1-.33-.689v-.75h-1.5v.75c0 .82.37 1.463.92 1.883.322.245.695.407 1.08.496v1.085h1.5v-1.085c.385-.09.758-.251 1.08-.496.55-.42.92-1.064.92-1.883 0-.955-.327-1.643-.877-2.132-.48-.426-1.091-.658-1.556-.835l-.05-.02c-.53-.201-.89-.348-1.144-.573-.2-.178-.373-.443-.373-1.011a.81.81 0 0 1 .33-.69c.22-.167.551-.274.92-.274.368 0 .7.107.92.275.2.152.33.365.33.689v.75h1.5v-.75c0-.819-.37-1.463-.92-1.882a2.838 2.838 0 0 0-1.08-.497V7Z" clip-rule="evenodd"/> </svg> 
+    `;
+  }
+}
+
+customElements.define('jh-icon-circle-dollar', JhIconCircleDollar);

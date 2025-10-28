@@ -1,0 +1,74 @@
+import {Meta, ArgTypes} from '@storybook/blocks';
+import * as stories from './list-group.stories.js';
+
+<Meta title="Components/List Group" of={stories} />
+
+# List Group
+
+[Guidelines](https://jackhenry.design/pages/components/list-group/)
+
+<hr />
+
+ The list group component is a container used to group together list items within a list.
+ List items and list groups are used as building blocks in complex
+ components such as lists, menus, and dropdowns.
+
+## Usage
+
+Import the `<jh-list-group>` component: 
+
+```javascript
+import '@jack-henry/jh-ui/components/list-group/list-group.js';
+```
+
+To use `jh-list-group`, place jh-list-items into the default slot. Use the label attribute to provide an optional subheader.
+
+```html
+<jh-list-group label="subheader">
+    <jh-list-item>List item 1</jh-list-item>
+    <jh-list-item>List item 2</jh-list-item>
+    <jh-list-item>List item 3</jh-list-item>
+</jh-list-group>
+```
+
+## Dependencies
+The list group component makes use of suggested content dependencies.
+
+1. Content -  the following suggested dependencies should be imported when needed: 
+
+- `<jh-list-item>`. [List item component documentation](/docs/components-list-item--docs).
+
+## Accessibility
+
+This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria. The following success criteria are of concern:
+
+- [WCAG 1.3.1 Information and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html): Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.
+- [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html): Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.
+- [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html):
+For all user interface components, the name and role can be programmatically determined; states, properties, and values 
+that can be set by the user can be programmatically set; and notification of changes to these items is available 
+to user agents, including assistive technologies.
+
+### What we provide
+
+ - To satisfy [WCAG 1.3.1 Information and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) and 
+ [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html), list-group has a role of `group`.
+ - To satisfy [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html), List Group can be resized without assistive technology up to 200 percent without loss of content or functionality.
+ - To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html), when the `label` attribute is present, an `id` is auto-generated to connect it to the group.
+ - If no subheader is desired, use the `accessible-label` attribute, which will generate an `aria-label`.
+
+### Author guidance
+
+- The group role and its boundaries are not announced by screen readers for groups without an accessible name. 
+To provide an accessible name, either use the `label` attribute to provide a subheader, or, if no subheader is desired, 
+use the `accessible-label` attribute, which will generate an `aria-label`.
+
+## Component API
+
+<ArgTypes />
+
+## Feedback
+
+Have an idea that will improve this component or have an issue to report? Let us know by submitting an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
+
+Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

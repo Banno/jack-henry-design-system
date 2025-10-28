@@ -1,0 +1,11 @@
+{
+  "opacity": {
+    "disabled": {
+      "value": "{opacity.300.value}",
+      "alias": true,
+      "description": "Used on interactive elements to denote when they are disabled",
+      "deprecated": false,
+      "deprecatedMessage": ""
+    }
+  }
+}

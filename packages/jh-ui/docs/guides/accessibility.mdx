@@ -1,0 +1,134 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Guides/Accessibility" tags={['new']} />
+
+# Accessibility
+
+## Understanding Web Accessibility
+Web accessibility means building websites and tools usable by everyone, including people with visual, 
+auditory, motor, or cognitive disabilities. Many rely on Assistive Technologies (AT) like screen 
+readers, magnifiers, and keyboard-only navigation.
+
+The goal is simple: make digital content perceivable, operable, understandable, and robust (POUR). 
+This isn't just about fairness; it's a legal and business imperative. Millions in the U.S. live with 
+disabilities, representing a significant market.
+
+Key laws include:
+
+* **Americans with Disabilities Act (ADA):** A broad civil rights law applying to public and 
+business websites.
+* **Section 508 of the Rehabilitation Act:** Specifically mandates accessible digital tech for 
+federal agencies and contractors.
+* **European Accessibility Act (EAA):** Effective June 28, 2025, this EU law explicitly covers a 
+wide range of products and services (e.g., e-commerce, banking, smartphones), directly impacting 
+U.S. companies operating in Europe. Unlike the ADA's broad interpretation, the EAA specifies clear, 
+uniform requirements across the EU market.
+
+These laws use the **Web Content Accessibility Guidelines (WCAG)**—a global W3C standard—for 
+compliance. WCAG sets out testable criteria at levels A, AA, and AAA. To comply with these laws, 
+our design system aims to satisfy WCAG 2.2 levels A and AA success criteria.
+
+## Accessibility in the JH Design System
+
+### Design Principles
+
+Accessibility begins with thoughtful design decisions:
+
+* **WCAG-Compliant Design**: Our design team creates components following WCAG standards for 
+contrast, sizing, and more.
+* **Design Tokens for Consistency**: We use a meticulously maintained design token system (with 
+light and dark themes) to ensure consistent adherence to WCAG contrast requirements and optimal 
+font readability (sizing, spacing) across all components.
+* **Interactive Element Standards:** Ensures pointer targets (like buttons) meet minimum sizing, 
+and all interactive elements have visible focus indicators and logical keyboard navigation flows.
+
+### Engineering for Web Components
+
+Using Web Components introduces distinct accessibility considerations compared to native HTML 
+elements. Native HTML elements offer built-in AT support (ARIA roles, keyboard interaction, focus). 
+Web Components lack these defaults, and Shadow DOM can complicate AT understanding of component 
+structure.
+
+To address these, we leverage:
+
+#### ElementInternals: Bridging the Accessibility Gap
+
+The `ElementInternals` API is crucial for making our custom elements robust and accessible.
+
+* **Purpose & AOM:** This API allows custom elements to directly participate in the browser's 
+Accessibility Object Model (AOM). The AOM is how browsers expose semantic information (roles, 
+states, properties) about UI elements to assistive technologies. By using `ElementInternals`, our 
+custom components can declare their accessibility properties to ATs just like native HTML elements. 
+This establishes default accessibility properties on our components, and allows us to 
+override or extend these properties as needed for specific component behaviors.
+* **Integration with `jh-element` (Coming Soon):** The `ElementInternals` object will be 
+integrated directly into our base `jh-element`. Any component extending `jh-element` will 
+automatically inherit the `ElementInternals` object. This simplifies development, as engineers 
+won't need to manually implement `ElementInternals` for every component.
+
+[Learn more about ElementInternals on MDN](https://developer.mozilla.org/en-US/docs/Web/API/ElementInternals)
+
+#### Custom ARIA Attribute Propagation (`accessible-*`)
+
+The Shadow DOM can block standard ARIA attributes from reaching elements inside. To ensure ARIA 
+attributes are correctly applied within Shadow DOM, we provide the `accessible-*` namespace. 
+Authors use attributes like `accessible-label` on our components, and our code then maps these to 
+the appropriate standard `aria-*` attributes for AT.
+
+* **Example:** For an icon-only button, an `aria-label` is crucial for screen readers to announce 
+it correctly. Using `jh-button`:
+    ```html
+    <jh-button accessible-label="Print"><jh-icon-printer></jh-icon-printer></jh-button>
+    ```
+
+#### Robust Keyboard Navigation & Focus
+
+We implement keyboard interaction flows and focus behavior that matches native HTML for simple components.
+
+## Achieving Component Accessibility
+
+Our design system components are rigorously tested against WCAG 2.2 levels A and AA criteria.
+
+We use [Axe-core](https://github.com/dequelabs/axe-core), a powerful, open-source accessibility testing engine developed by Deque Systems, 
+as our primary automated benchmark. Axe-core runs automated checks directly within web applications 
+and is known for its speed, accuracy, and ability to detect a significant portion of WCAG 
+violations early in the development cycle.
+
+All our components undergo testing using:
+
+* **Automated Testing:** Utilizing Axe-core to identify common accessibility issues.
+* **Manual Testing with AT:** Using screen readers and magnifiers in all supported browsers.
+* **Manual Keyboard Testing:** Ensuring all interactive elements are reachable, show focus 
+indicators, and are fully usable via keyboard.
+
+## Component Accessibility Documentation
+
+Our documentation provides extensive accessibility information for each component, including:
+
+1.  A list of relevant WCAG 2.2 success criteria the component needs to meet.
+2.  A **"What We Provide"** section, with detailed information on built-in accessibility features and how to use 
+them.
+3.  An **"Author Guidance"** section, with instructions on any additional steps authors must take to 
+ensure the component is accessible in their context.
+
+## Accessibility Beyond the Design System
+
+While our components are accessible, integrating them into a fully accessible webpage requires 
+attention to overall structure, content, and user experience. Here are key tips for page authors:
+
+* **Semantic HTML:** Use HTML5 semantic elements (`<header>`, `<nav>`, `<main>`, `<article>`, 
+etc.) to structure content meaningfully.
+* **Logical Focus Order:** Ensure interactive elements (links, buttons, form fields) follow a 
+logical flow matching the visual layout.
+* **Keyboard Usability:** All interactive elements must be reachable with the keyboard, show a 
+clear focus indicator, and avoid keyboard traps.
+* **Alt Text for Images:** Provide appropriate `alt` text for all images to convey their content 
+or purpose.
+* **Descriptive Links:** Ensure link text is descriptive and provides context about its destination 
+or action.
+* **Form Labels & Feedback:** Associate all form fields with clear labels, and provide actionable 
+error messages.
+
+**Important Note on Testing:** Automated tools like Axe-core are vital, but on average only catch 
+**around 57% of accessibility issues**. Manual testing with screen readers and keyboard navigation is 
+essential to ensure a truly accessible experience for all users.

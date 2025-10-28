@@ -1,0 +1,334 @@
+{
+  "font": {
+    "family": {
+      "primary": {
+        "value": "{font.family.sans.value}",
+        "alias": true,
+        "description": "Used to set the default typeface for the system",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "micro": {
+      "regular": {
+        "value": "{font.weight.400.value} {font.size.250.value}/{font.line-height.300.value} {font.family.primary.value}",
+        "alias": true,
+        "description": "Used for fine-print text and small snippets of text with limited space within a component",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "medium": {
+        "value": "{font.weight.500.value} {font.size.250.value}/{font.line-height.300.value} {font.family.primary.value}",
+        "alias": true,
+        "description": "Used for fine-print text and small snippets of text with limited space within a component",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "bold": {
+        "value": "{font.weight.700.value} {font.size.250.value}/{font.line-height.300.value} {font.family.primary.value}",
+        "alias": true,
+        "description": "Used for fine-print text and small snippets of text with limited space within a component",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "helper": {
+      "regular": {
+        "value": "{font.weight.400.value} {font.size.300.value}/{font.line-height.400.value} {font.family.primary.value}",
+        "alias": true,
+        "description": "Used for secondary or explanatory text as well as field labels",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "medium": {
+        "value": "{font.weight.500.value} {font.size.300.value}/{font.line-height.400.value} {font.family.primary.value}",
+        "alias": true,
+        "description": "Used for secondary or explanatory text as well as field labels",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "bold": {
+        "value": "{font.weight.700.value} {font.size.300.value}/{font.line-height.400.value} {font.family.primary.value}",
+        "alias": true,
+        "description": "Used for secondary or explanatory text as well as field labels.",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "body": {
+      "regular": {
+        "1": {
+          "value": "{font.weight.400.value} {font.size.350.value}/{font.line-height.500.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used for blocks of text and most content displayed within components",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        },
+        "2": {
+          "value": "{font.weight.400.value} {font.size.400.value}/{font.line-height.600.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used for intro or leading blocks of text",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "medium": {
+        "1": {
+          "value": "{font.weight.500.value} {font.size.350.value}/{font.line-height.500.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used for blocks of text and most content displayed within components",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        },
+        "2": {
+          "value": "{font.weight.500.value} {font.size.400.value}/{font.line-height.600.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used for intro or leading blocks of text",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "bold": {
+        "1": {
+          "value": "{font.weight.700.value} {font.size.350.value}/{font.line-height.500.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used for blocks of text and most content displayed within components",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        },
+        "2": {
+          "value": "{font.weight.700.value} {font.size.400.value}/{font.line-height.600.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used for intro or leading blocks of text",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "regular-italic": {
+        "1": {
+          "value": "{font.weight.400.value} italic {font.size.350.value}/{font.line-height.500.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used for blocks of text and most content displayed within components",
+          "deprecated": true,
+          "deprecatedMessage": "This token will be removed in v2. Use `font-style: italic` instead."
+        },
+        "2": {
+          "value": "{font.weight.400.value} italic {font.size.400.value}/{font.line-height.600.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used for intro or leading blocks of text",
+          "deprecated": true,
+          "deprecatedMessage": "This token will be removed in v2. Use `font-style: italic` instead."
+        }
+      },
+      "medium-italic": {
+        "1": {
+          "value": "{font.weight.500.value} italic {font.size.350.value}/{font.line-height.500.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used for blocks of text and most content displayed within components",
+          "deprecated": true,
+          "deprecatedMessage": "This token will be removed in v2. Use `font-style: italic` instead."
+        },
+        "2": {
+          "value": "{font.weight.500.value} italic {font.size.400.value}/{font.line-height.600.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used for intro or leading blocks of text",
+          "deprecated": true,
+          "deprecatedMessage": "This token will be removed in v2. Use `font-style: italic` instead."
+        }
+      },
+      "bold-italic": {
+        "1": {
+          "value": "{font.weight.700.value} italic {font.size.350.value}/{font.line-height.500.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used for blocks of text and most content displayed within components",
+          "deprecated": true,
+          "deprecatedMessage": "This token will be removed in v2. Use `font-style: italic` instead."
+        },
+        "2": {
+          "value": "{font.weight.700.value} italic {font.size.400.value}/{font.line-height.600.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used for intro or leading blocks of text",
+          "deprecated": true,
+          "deprecatedMessage": "This token will be removed in v2. Use `font-style: italic` instead."
+        }
+      }
+    },
+    "code": {
+      "regular": {
+        "1": {
+          "value": "{font.weight.400.value} {font.size.350.value}/{font.line-height.500.value} {font.family.mono.value}",
+          "alias": true,
+          "description": "Used for code references in standard blocks of text",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        },
+        "2": {
+          "value": "{font.weight.400.value} {font.size.400.value}/{font.line-height.600.value} {font.family.mono.value}",
+          "alias": true,
+          "description": "Used for code references in intro or leading blocks of text",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      }
+    },
+    "display": {
+      "light": {
+        "1": {
+          "value": "{font.weight.300.value} {font.size.1050.value}/{font.line-height.1300.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used to create visual emphasis through size without being misconstrued as a heading",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        },
+        "2": {
+          "value": "{font.weight.300.value} {font.size.1350.value}/{font.line-height.1600.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used to create visual emphasis through size without being misconstrued as a heading",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        },
+        "3": {
+          "value": "{font.weight.300.value} {font.size.2300.value}/{font.line-height.2700.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used to create visual emphasis through size without being misconstrued as a heading",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      }
+    },
+    "heading": {
+      "regular": {
+        "1": {
+          "value": "{font.weight.400.value} {font.size.350.value}/{font.line-height.500.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used to create visual hierarchy on a page and within a component",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        },
+        "2": {
+          "value": "{font.weight.400.value} {font.size.400.value}/{font.line-height.600.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used to create visual hierarchy on a page and within a component",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        },
+        "3": {
+          "value": "{font.weight.400.value} {font.size.500.value}/{font.line-height.700.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used to create visual hierarchy on a page and within a component",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        },
+        "4": {
+          "value": "{font.weight.400.value} {font.size.700.value}/{font.line-height.900.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used to create visual hierarchy on a page and within a component",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        },
+        "5": {
+          "value": "{font.weight.400.value} {font.size.800.value}/{font.line-height.1000.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used to create visual hierarchy on a page and within a component",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        },
+        "6": {
+          "value": "{font.weight.400.value} {font.size.900.value}/{font.line-height.1100.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used to create visual hierarchy on a page and within a component",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "medium": {
+        "1": {
+          "value": "{font.weight.500.value} {font.size.350.value}/{font.line-height.500.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used to create visual hierarchy on a page and within a component",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        },
+        "2": {
+          "value": "{font.weight.500.value} {font.size.400.value}/{font.line-height.600.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used to create visual hierarchy on a page and within a component",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        },
+        "3": {
+          "value": "{font.weight.500.value} {font.size.500.value}/{font.line-height.700.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used to create visual hierarchy on a page and within a component",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        },
+        "4": {
+          "value": "{font.weight.500.value} {font.size.700.value}/{font.line-height.900.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used to create visual hierarchy on a page and within a component",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        },
+        "5": {
+          "value": "{font.weight.500.value} {font.size.800.value}/{font.line-height.1000.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used to create visual hierarchy on a page and within a component",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        },
+        "6": {
+          "value": "{font.weight.500.value} {font.size.900.value}/{font.line-height.1100.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used to create visual hierarchy on a page and within a component",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "bold": {
+        "1": {
+          "value": "{font.weight.700.value} {font.size.350.value}/{font.line-height.500.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used to create visual hierarchy on a page and within a component",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        },
+        "2": {
+          "value": "{font.weight.700.value} {font.size.400.value}/{font.line-height.600.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used to create visual hierarchy on a page and within a component",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        },
+        "3": {
+          "value": "{font.weight.700.value} {font.size.500.value}/{font.line-height.700.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used to create visual hierarchy on a page and within a component",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        },
+        "4": {
+          "value": "{font.weight.700.value} {font.size.700.value}/{font.line-height.900.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used to create visual hierarchy on a page and within a component",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        },
+        "5": {
+          "value": "{font.weight.700.value} {font.size.800.value}/{font.line-height.1000.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used to create visual hierarchy on a page and within a component",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        },
+        "6": {
+          "value": "{font.weight.700.value} {font.size.900.value}/{font.line-height.1100.value} {font.family.primary.value}",
+          "alias": true,
+          "description": "Used to create visual hierarchy on a page and within a component",
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      }
+    }
+  }
+}

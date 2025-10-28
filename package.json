@@ -1,0 +1,32 @@
+{
+  "name": "jack-henry-design-system",
+  "description": "Jack Henry's design system web components.",
+  "version": "0.0.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Banno/jack-henry-design-system.git"
+  },  
+  "contributors": [
+    "Audrey Bissiere-Grote",
+    "Brad McCormick",
+    "Maya Buser De"
+  ],
+  "license": "Apache-2.0",
+  "scripts": {
+    "install:all": "pnpm install",
+    "install:jh-ui": "pnpm install --filter @jack-henry/jh-ui",
+    "install:jh-core": "pnpm install --filter @jack-henry/jh-core",
+    "install:jh-icons": "pnpm install --filter @jack-henry/jh-icons",
+    "generate:jh-ui": "pnpm run --filter @jack-henry/jh-ui generate",
+    "storybook:jh-ui": "pnpm run --filter @jack-henry/jh-ui storybook",
+    "analyze:jh-ui": "pnpm run --filter @jack-henry/jh-ui analyze",
+    "build:jh-core": "pnpm run --filter @jack-henry/jh-core build",
+    "build:jh-icons": "pnpm run --filter @jack-henry/jh-icons build-wc",
+    "changeset:version": "changeset version && pnpm install --lockfile-only"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "0.4.8",
+    "@changesets/cli": "2.26.2"
+  }
+}

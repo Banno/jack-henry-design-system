@@ -1,0 +1,186 @@
+{
+  "space": {
+    "0": {
+      "value": "0px",
+      "alias": false,
+      "description": "Space 0",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "50": {
+      "value": "2px",
+      "alias": false,
+      "description": "Space 50",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "100": {
+      "value": "4px",
+      "alias": false,
+      "description": "Space 100",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "200": {
+      "value": "8px",
+      "alias": false,
+      "description": "Space 200",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "300": {
+      "value": "12px",
+      "alias": false,
+      "description": "Space 300",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "400": {
+      "value": "16px",
+      "alias": false,
+      "description": "Space 400",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "500": {
+      "value": "20px",
+      "alias": false,
+      "description": "Space 500",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "600": {
+      "value": "24px",
+      "alias": false,
+      "description": "Space 600",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "700": {
+      "value": "28px",
+      "alias": false,
+      "description": "Space 700",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "800": {
+      "value": "32px",
+      "alias": false,
+      "description": "Space 800",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "900": {
+      "value": "36px",
+      "alias": false,
+      "description": "Space 900",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "1000": {
+      "value": "40px",
+      "alias": false,
+      "description": "Space 1000",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "1100": {
+      "value": "44px",
+      "alias": false,
+      "description": "Space 1100",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "1200": {
+      "value": "48px",
+      "alias": false,
+      "description": "Space 1200",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "1300": {
+      "value": "52px",
+      "alias": false,
+      "description": "Space 1300",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "1400": {
+      "value": "56px",
+      "alias": false,
+      "description": "Space 1400",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "1500": {
+      "value": "60px",
+      "alias": false,
+      "description": "Space 1500",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "1600": {
+      "value": "64px",
+      "alias": false,
+      "description": "Space 1600",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "1700": {
+      "value": "68px",
+      "alias": false,
+      "description": "Space 1700",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "1800": {
+      "value": "72px",
+      "alias": false,
+      "description": "Space 1800",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "1900": {
+      "value": "76px",
+      "alias": false,
+      "description": "Space 1900",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "2000": {
+      "value": "80px",
+      "alias": false,
+      "description": "Space 2000",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "2100": {
+      "value": "84px",
+      "alias": false,
+      "description": "Space 2100",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "2200": {
+      "value": "88px",
+      "alias": false,
+      "description": "Space 2200",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "2300": {
+      "value": "92px",
+      "alias": false,
+      "description": "Space 2300",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    },
+    "2400": {
+      "value": "96px",
+      "alias": false,
+      "description": "Space 2400",
+      "deprecated": true,
+      "deprecatedMessage": "Space tokens will be replaced with similarly-scaled `dimension` tokens in v2."
+    }
+  }
+}

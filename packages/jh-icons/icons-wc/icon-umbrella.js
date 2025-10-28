@@ -1,0 +1,83 @@
+import {LitElement, css, html} from 'lit';
+
+export default class JhIconUmbrella extends LitElement {
+  /** @type {ElementInternals} */
+  #internals;
+
+  static get styles() {
+    return css`
+      :host {
+        fill: var(
+          --jh-icon-color-fill,
+          var(--jh-color-content-secondary-enabled)
+        );
+        width: var(--icon-size);
+        height: var(--icon-size);
+        display: inline-block;
+      }
+      :host([size='x-small']) {
+        --icon-size: var(
+          --jh-icon-size-extra-small,
+          var(--jh-size-400)
+        );
+      }
+      :host([size='small']) {
+        --icon-size: var(
+          --jh-icon-size-small,
+          var(--jh-size-500)
+        );
+      }
+      :host([size='medium']) {
+        --icon-size: var(
+          --jh-icon-size-medium,
+          var(--jh-size-600)
+        );
+      }
+      :host([size='large']) {
+        --icon-size: var(
+          --jh-icon-size-large,
+          var(--jh-size-900)
+        );
+      }
+      :host([size='x-large']) {
+        --icon-size: var(
+          --jh-icon-size-extra-large,
+          var(--jh-size-1400)
+        );
+      }
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    `;
+  }
+
+  static get properties() {
+    return {
+      /**
+      * The size of the icon.
+      */
+      size: {
+        type: String, reflect: true 
+      }
+    }
+  }
+
+  constructor() {
+    super();
+    this.#internals = this.attachInternals();
+    this.#internals.role = 'graphics-symbol';
+    this.#internals.ariaHidden = 'true';
+
+    /** @type {'x-small'|'small'|'medium'|'large'|'x-large'} */
+    this.size = 'medium';
+  }
+
+  render() {
+    return html`
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">   <path fill-rule="evenodd" d="M12.75 2.875a.75.75 0 0 0-1.5 0v.77A8.86 8.86 0 0 0 3 12.35a.753.753 0 0 0 .55.748.751.751 0 0 0 .854-.356c.165-.278.425-.569.73-.787.313-.223.616-.33.866-.33s.553.107.866.33c.305.218.566.51.73.788a.75.75 0 0 0 1.135.207c.765-.63 1.621-1.086 2.519-1.254v7.18c0 .589-.181.958-.383 1.174a1.01 1.01 0 0 1-1.484 0C9.181 19.834 9 19.465 9 18.875a.75.75 0 0 0-1.5 0c0 .91.288 1.666.789 2.2a2.51 2.51 0 0 0 3.672 0c.501-.534.789-1.29.789-2.2v-7.18c.898.168 1.754.625 2.519 1.255a.748.748 0 0 0 1.135-.207c.163-.277.424-.568.73-.787.314-.223.618-.33.866-.33s.552.107.866.33c.306.219.566.51.73.786a.754.754 0 0 0 .854.356.752.752 0 0 0 .55-.748 8.859 8.859 0 0 0-8.25-8.705v-.77ZM9.23 5.61l-.076.03a7.36 7.36 0 0 0-4.359 4.778A2.775 2.775 0 0 1 6 10.125c.604 0 1.163.228 1.62.529.165-1.258.498-2.59.967-3.74.187-.459.402-.901.644-1.305Zm9.67 3.96c.119.278.22.561.305.85A2.771 2.771 0 0 0 18 10.124c-.604 0-1.163.229-1.62.53-.165-1.258-.497-2.591-.967-3.74a9.578 9.578 0 0 0-.644-1.306l.077.03a7.36 7.36 0 0 1 4.053 3.93Zm-4.876-2.088c.427 1.044.728 2.271.875 3.415-.871-.47-1.85-.77-2.899-.77-1.05 0-2.028.3-2.899.77.147-1.144.448-2.37.875-3.415.31-.759.668-1.378 1.045-1.794.376-.415.703-.56.974-.562h.01c.271.002.598.147.974.562.377.416.736 1.035 1.045 1.794Z" clip-rule="evenodd"/> </svg> 
+    `;
+  }
+}
+
+customElements.define('jh-icon-umbrella', JhIconUmbrella);

@@ -1,0 +1,44 @@
+import {Meta, ArgTypes} from '@storybook/blocks';
+import * as stories from './divider.stories.js';
+
+<Meta title="Components/Divider" of={stories} /> 
+
+# Divider
+
+[Guidelines](https://jackhenry.design/pages/components/divider/)
+
+<hr />
+
+Dividers are used to group content vertically at the page or component level and should be used when whitespace does not provide a clear enough separation. 
+
+## Usage
+
+Import the `<jh-divider>` component.
+
+```javascript
+import '@jack-henry/jh-ui/components/divider/divider.js';
+```
+
+Declaring a `jh-divider`:
+
+```html
+<jh-divider inset="8"></jh-divider>
+```
+
+## Inset Override
+
+There are thirteen left-inset options available to help align the divider with its associated content. If an inset outside of the thirteen provided options is desired, use the `--jh-divider-inset-space` component token. Note that if both the `inset` property and `--jh-divider-inset-space` component token are present, the `inset` property will take priority for that instance of the component. 
+
+## Accessibility
+
+Because Divider is non-focusable and decorative there are no accessibility concerns. 
+
+## Component API
+
+<ArgTypes />
+
+## Feedback
+
+Have an idea that will improve this component or have an issue to report? Let us know by submitting an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
+
+Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

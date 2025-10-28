@@ -1,0 +1,83 @@
+import {LitElement, css, html} from 'lit';
+
+export default class JhIconBuildingColumn extends LitElement {
+  /** @type {ElementInternals} */
+  #internals;
+
+  static get styles() {
+    return css`
+      :host {
+        fill: var(
+          --jh-icon-color-fill,
+          var(--jh-color-content-secondary-enabled)
+        );
+        width: var(--icon-size);
+        height: var(--icon-size);
+        display: inline-block;
+      }
+      :host([size='x-small']) {
+        --icon-size: var(
+          --jh-icon-size-extra-small,
+          var(--jh-size-400)
+        );
+      }
+      :host([size='small']) {
+        --icon-size: var(
+          --jh-icon-size-small,
+          var(--jh-size-500)
+        );
+      }
+      :host([size='medium']) {
+        --icon-size: var(
+          --jh-icon-size-medium,
+          var(--jh-size-600)
+        );
+      }
+      :host([size='large']) {
+        --icon-size: var(
+          --jh-icon-size-large,
+          var(--jh-size-900)
+        );
+      }
+      :host([size='x-large']) {
+        --icon-size: var(
+          --jh-icon-size-extra-large,
+          var(--jh-size-1400)
+        );
+      }
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    `;
+  }
+
+  static get properties() {
+    return {
+      /**
+      * The size of the icon.
+      */
+      size: {
+        type: String, reflect: true 
+      }
+    }
+  }
+
+  constructor() {
+    super();
+    this.#internals = this.attachInternals();
+    this.#internals.role = 'graphics-symbol';
+    this.#internals.ariaHidden = 'true';
+
+    /** @type {'x-small'|'small'|'medium'|'large'|'x-large'} */
+    this.size = 'medium';
+  }
+
+  render() {
+    return html`
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">   <path fill-rule="evenodd" d="M11.584 3.376a.75.75 0 0 1 .832 0l7.5 5A.75.75 0 0 1 19.5 9.75h-2.25v5.5h1.25a.75.75 0 0 1 0 1.5h-13a.75.75 0 0 1 0-1.5h1.25v-5.5H4.5a.75.75 0 0 1-.416-1.374l7.5-5ZM15.75 9.75v5.5h-1.5v-5.5h1.5Zm-3 0v5.5h-1.5v-5.5h1.5Zm-3 0v5.5h-1.5v-5.5h1.5Zm6.75-1.5h.523L12 4.902 6.977 8.25H16.5Zm-12 9.5a.75.75 0 0 0 0 1.5h15a.75.75 0 0 0 0-1.5h-15Z" clip-rule="evenodd"/> </svg> 
+    `;
+  }
+}
+
+customElements.define('jh-icon-building-columns', JhIconBuildingColumn);

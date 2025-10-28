@@ -1,0 +1,2022 @@
+{
+  "color": {
+    "gray": {
+      "0": {
+        "value": "rgb({color.gray.0.rgb})",
+        "rgb": "255, 255, 255",
+        "alias": false,
+        "description": "Gray 0",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be replaced with `--jh-color-white-alpha-100` in v2."
+      },
+      "50": {
+        "value": "rgb({color.gray.50.rgb})",
+        "rgb": "240, 245, 249",
+        "alias": false,
+        "description": "Gray 50",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "100": {
+        "value": "rgb({color.gray.100.rgb})",
+        "rgb": "231, 236, 240",
+        "alias": false,
+        "description": "Gray 100; Brand color: Light cool gray",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "150": {
+        "value": "rgb({color.gray.150.rgb})",
+        "rgb": "211, 216, 220",
+        "alias": false,
+        "description": "Gray 150",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "200": {
+        "value": "rgb({color.gray.200.rgb})",
+        "rgb": "201, 206, 211",
+        "alias": false,
+        "description": "Gray 200",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "250": {
+        "value": "rgb({color.gray.250.rgb})",
+        "rgb": "182, 187, 192",
+        "alias": false,
+        "description": "Gray 250; Brand color: Medium cool gray",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "300": {
+        "value": "rgb({color.gray.300.rgb})",
+        "rgb": "169, 176, 182",
+        "alias": false,
+        "description": "Gray 300",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "350": {
+        "value": "rgb({color.gray.350.rgb})",
+        "rgb": "156, 163, 170",
+        "alias": false,
+        "description": "Gray 350",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "400": {
+        "value": "rgb({color.gray.400.rgb})",
+        "rgb": "147, 153, 159",
+        "alias": false,
+        "description": "Gray 400",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "450": {
+        "value": "rgb({color.gray.450.rgb})",
+        "rgb": "134, 139, 145",
+        "alias": false,
+        "description": "Gray 450",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "500": {
+        "value": "rgb({color.gray.500.rgb})",
+        "rgb": "112, 117, 122",
+        "alias": false,
+        "description": "Gray 500",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "550": {
+        "value": "rgb({color.gray.550.rgb})",
+        "rgb": "102, 107, 111",
+        "alias": false,
+        "description": "Gray 550",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "600": {
+        "value": "rgb({color.gray.600.rgb})",
+        "rgb": "95, 100, 104",
+        "alias": false,
+        "description": "Gray 600",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "650": {
+        "value": "rgb({color.gray.650.rgb})",
+        "rgb": "87, 90, 93",
+        "alias": false,
+        "description": "Gray 650; Brand color: Dark cool gray",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "700": {
+        "value": "rgb({color.gray.700.rgb})",
+        "rgb": "78, 81, 85",
+        "alias": false,
+        "description": "Gray 700",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "750": {
+        "value": "rgb({color.gray.750.rgb})",
+        "rgb": "68, 72, 75",
+        "alias": false,
+        "description": "Gray 750",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "800": {
+        "value": "rgb({color.gray.800.rgb})",
+        "rgb": "59, 62, 65",
+        "alias": false,
+        "description": "Gray 800",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "850": {
+        "value": "rgb({color.gray.850.rgb})",
+        "rgb": "49, 52, 55",
+        "alias": false,
+        "description": "Gray 850",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "900": {
+        "value": "rgb({color.gray.900.rgb})",
+        "rgb": "42, 44, 46",
+        "alias": false,
+        "description": "Gray 900",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "950": {
+        "value": "rgb({color.gray.950.rgb})",
+        "rgb": "30, 32, 33",
+        "alias": false,
+        "description": "Gray 950",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "1000": {
+        "value": "rgb({color.gray.1000.rgb})",
+        "rgb": "0, 0, 0",
+        "alias": false,
+        "description": "Gray 1000",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be replaced with `--jh-color-black-alpha-100` in v2."
+      }
+    },
+    "red": {
+      "50": {
+        "value": "rgb({color.red.50.rgb})",
+        "rgb": "253, 241, 238",
+        "alias": false,
+        "description": "Red 50",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "100": {
+        "value": "rgb({color.red.100.rgb})",
+        "rgb": "250, 231, 226",
+        "alias": false,
+        "description": "Red 100",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "150": {
+        "value": "rgb({color.red.150.rgb})",
+        "rgb": "245, 207, 196",
+        "alias": false,
+        "description": "Red 150",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "200": {
+        "value": "rgb({color.red.200.rgb})",
+        "rgb": "251, 191, 174",
+        "alias": false,
+        "description": "Red 200",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "250": {
+        "value": "rgb({color.red.250.rgb})",
+        "rgb": "248, 164, 142",
+        "alias": false,
+        "description": "Red 250",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "300": {
+        "value": "rgb({color.red.300.rgb})",
+        "rgb": "250, 145, 118",
+        "alias": false,
+        "description": "Red 300",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "350": {
+        "value": "rgb({color.red.350.rgb})",
+        "rgb": "249, 123, 94",
+        "alias": false,
+        "description": "Red 350",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "400": {
+        "value": "rgb({color.red.400.rgb})",
+        "rgb": "249, 103, 73",
+        "alias": false,
+        "description": "Red 400",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "450": {
+        "value": "rgb({color.red.450.rgb})",
+        "rgb": "241, 81, 53",
+        "alias": false,
+        "description": "Red 450",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "500": {
+        "value": "rgb({color.red.500.rgb})",
+        "rgb": "219, 53, 32",
+        "alias": false,
+        "description": "Red 500",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "550": {
+        "value": "rgb({color.red.550.rgb})",
+        "rgb": "202, 37, 21",
+        "alias": false,
+        "description": "Red 550",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "600": {
+        "value": "rgb({color.red.600.rgb})",
+        "rgb": "189, 33, 19",
+        "alias": false,
+        "description": "Red 600",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "650": {
+        "value": "rgb({color.red.650.rgb})",
+        "rgb": "174, 24, 13",
+        "alias": false,
+        "description": "Red 650",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "700": {
+        "value": "rgb({color.red.700.rgb})",
+        "rgb": "158, 21, 11",
+        "alias": false,
+        "description": "Red 700",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "750": {
+        "value": "rgb({color.red.750.rgb})",
+        "rgb": "139, 21, 10",
+        "alias": false,
+        "description": "Red 750",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "800": {
+        "value": "rgb({color.red.800.rgb})",
+        "rgb": "119, 25, 13",
+        "alias": false,
+        "description": "Red 800",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "850": {
+        "value": "rgb({color.red.850.rgb})",
+        "rgb": "96, 27, 14",
+        "alias": false,
+        "description": "Red 850",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "900": {
+        "value": "rgb({color.red.900.rgb})",
+        "rgb": "78, 26, 15",
+        "alias": false,
+        "description": "Red 900",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "950": {
+        "value": "rgb({color.red.950.rgb})",
+        "rgb": "57, 19, 7",
+        "alias": false,
+        "description": "Red 950",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "orange": {
+      "50": {
+        "value": "rgb({color.orange.50.rgb})",
+        "rgb": "250, 242, 235",
+        "alias": false,
+        "description": "Orange 50",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "100": {
+        "value": "rgb({color.orange.100.rgb})",
+        "rgb": "251, 232, 213",
+        "alias": false,
+        "description": "Orange 100",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "150": {
+        "value": "rgb({color.orange.150.rgb})",
+        "rgb": "245, 208, 169",
+        "alias": false,
+        "description": "Orange 150",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "200": {
+        "value": "rgb({color.orange.200.rgb})",
+        "rgb": "252, 193, 127",
+        "alias": false,
+        "description": "Orange 200",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "250": {
+        "value": "rgb({color.orange.250.rgb})",
+        "rgb": "240, 171, 88",
+        "alias": false,
+        "description": "Orange 250",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "300": {
+        "value": "rgb({color.orange.300.rgb})",
+        "rgb": "232, 158, 62",
+        "alias": false,
+        "description": "Orange 300",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "350": {
+        "value": "rgb({color.orange.350.rgb})",
+        "rgb": "219, 145, 44",
+        "alias": false,
+        "description": "Orange 350",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "400": {
+        "value": "rgb({color.orange.400.rgb})",
+        "rgb": "207, 135, 34",
+        "alias": false,
+        "description": "Orange 400",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "450": {
+        "value": "rgb({color.orange.450.rgb})",
+        "rgb": "191, 122, 23",
+        "alias": false,
+        "description": "Orange 450",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "500": {
+        "value": "rgb({color.orange.500.rgb})",
+        "rgb": "164, 103, 12",
+        "alias": false,
+        "description": "Orange 500",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "550": {
+        "value": "rgb({color.orange.550.rgb})",
+        "rgb": "147, 93, 17",
+        "alias": false,
+        "description": "Orange 550",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "600": {
+        "value": "rgb({color.orange.600.rgb})",
+        "rgb": "136, 88, 24",
+        "alias": false,
+        "description": "Orange 600",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "650": {
+        "value": "rgb({color.orange.650.rgb})",
+        "rgb": "122, 80, 25",
+        "alias": false,
+        "description": "Orange 650",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "700": {
+        "value": "rgb({color.orange.700.rgb})",
+        "rgb": "110, 72, 24",
+        "alias": false,
+        "description": "Orange 700",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "750": {
+        "value": "rgb({color.orange.750.rgb})",
+        "rgb": "96, 64, 24",
+        "alias": false,
+        "description": "Orange 750",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "800": {
+        "value": "rgb({color.orange.800.rgb})",
+        "rgb": "82, 55, 20",
+        "alias": false,
+        "description": "Orange 800",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "850": {
+        "value": "rgb({color.orange.850.rgb})",
+        "rgb": "70, 46, 17",
+        "alias": false,
+        "description": "Orange 850",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "900": {
+        "value": "rgb({color.orange.900.rgb})",
+        "rgb": "59, 39, 15",
+        "alias": false,
+        "description": "Orange 900",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "950": {
+        "value": "rgb({color.orange.950.rgb})",
+        "rgb": "44, 28, 4",
+        "alias": false,
+        "description": "Orange 950",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "yellow": {
+      "50": {
+        "value": "rgb({color.yellow.50.rgb})",
+        "rgb": "249, 243, 231",
+        "alias": false,
+        "description": "Yellow 50",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "100": {
+        "value": "rgb({color.yellow.100.rgb})",
+        "rgb": "248, 234, 199",
+        "alias": false,
+        "description": "Yellow 100",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "150": {
+        "value": "rgb({color.yellow.150.rgb})",
+        "rgb": "236, 213, 149",
+        "alias": false,
+        "description": "Yellow 150",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "200": {
+        "value": "rgb({color.yellow.200.rgb})",
+        "rgb": "233, 202, 101",
+        "alias": false,
+        "description": "Yellow 200",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "250": {
+        "value": "rgb({color.yellow.250.rgb})",
+        "rgb": "216, 182, 59",
+        "alias": false,
+        "description": "Yellow 250",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "300": {
+        "value": "rgb({color.yellow.300.rgb})",
+        "rgb": "204, 171, 40",
+        "alias": false,
+        "description": "Yellow 300",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "350": {
+        "value": "rgb({color.yellow.350.rgb})",
+        "rgb": "190, 158, 31",
+        "alias": false,
+        "description": "Yellow 350",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "400": {
+        "value": "rgb({color.yellow.400.rgb})",
+        "rgb": "177, 149, 36",
+        "alias": false,
+        "description": "Yellow 400",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "450": {
+        "value": "rgb({color.yellow.450.rgb})",
+        "rgb": "162, 136, 35",
+        "alias": false,
+        "description": "Yellow 450",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "500": {
+        "value": "rgb({color.yellow.500.rgb})",
+        "rgb": "138, 115, 24",
+        "alias": false,
+        "description": "Yellow 500",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "550": {
+        "value": "rgb({color.yellow.550.rgb})",
+        "rgb": "125, 104, 21",
+        "alias": false,
+        "description": "Yellow 550",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "600": {
+        "value": "rgb({color.yellow.600.rgb})",
+        "rgb": "116, 97, 24",
+        "alias": false,
+        "description": "Yellow 600",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "650": {
+        "value": "rgb({color.yellow.650.rgb})",
+        "rgb": "105, 87, 22",
+        "alias": false,
+        "description": "Yellow 650",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "700": {
+        "value": "rgb({color.yellow.700.rgb})",
+        "rgb": "95, 79, 19",
+        "alias": false,
+        "description": "Yellow 700",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "750": {
+        "value": "rgb({color.yellow.750.rgb})",
+        "rgb": "84, 69, 17",
+        "alias": false,
+        "description": "Yellow 750",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "800": {
+        "value": "rgb({color.yellow.800.rgb})",
+        "rgb": "72, 59, 15",
+        "alias": false,
+        "description": "Yellow 800",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "850": {
+        "value": "rgb({color.yellow.850.rgb})",
+        "rgb": "61, 50, 12",
+        "alias": false,
+        "description": "Yellow 850",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "900": {
+        "value": "rgb({color.yellow.900.rgb})",
+        "rgb": "51, 42, 13",
+        "alias": false,
+        "description": "Yellow 900",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "950": {
+        "value": "rgb({color.yellow.950.rgb})",
+        "rgb": "38, 31, 4",
+        "alias": false,
+        "description": "Yellow 950",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "lime": {
+      "50": {
+        "value": "rgb({color.lime.50.rgb})",
+        "rgb": "241, 246, 229",
+        "alias": false,
+        "description": "Lime 50",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "100": {
+        "value": "rgb({color.lime.100.rgb})",
+        "rgb": "226, 241, 190",
+        "alias": false,
+        "description": "Lime 100",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "150": {
+        "value": "rgb({color.lime.150.rgb})",
+        "rgb": "199, 225, 139",
+        "alias": false,
+        "description": "Lime 150",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "200": {
+        "value": "rgb({color.lime.200.rgb})",
+        "rgb": "179, 218, 95",
+        "alias": false,
+        "description": "Lime 200",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "250": {
+        "value": "rgb({color.lime.250.rgb})",
+        "rgb": "154, 201, 55",
+        "alias": false,
+        "description": "Lime 250",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "300": {
+        "value": "rgb({color.lime.300.rgb})",
+        "rgb": "142, 189, 38",
+        "alias": false,
+        "description": "Lime 300",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "350": {
+        "value": "rgb({color.lime.350.rgb})",
+        "rgb": "131, 176, 31",
+        "alias": false,
+        "description": "Lime 350",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "400": {
+        "value": "rgb({color.lime.400.rgb})",
+        "rgb": "123, 165, 33",
+        "alias": false,
+        "description": "Lime 400",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "450": {
+        "value": "rgb({color.lime.450.rgb})",
+        "rgb": "113, 150, 33",
+        "alias": false,
+        "description": "Lime 450",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "500": {
+        "value": "rgb({color.lime.500.rgb})",
+        "rgb": "95, 127, 28",
+        "alias": false,
+        "description": "Lime 500",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "550": {
+        "value": "rgb({color.lime.550.rgb})",
+        "rgb": "88, 115, 31",
+        "alias": false,
+        "description": "Lime 550",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "600": {
+        "value": "rgb({color.lime.600.rgb})",
+        "rgb": "84, 106, 36",
+        "alias": false,
+        "description": "Lime 600",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "650": {
+        "value": "rgb({color.lime.650.rgb})",
+        "rgb": "76, 96, 33",
+        "alias": false,
+        "description": "Lime 650",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "700": {
+        "value": "rgb({color.lime.700.rgb})",
+        "rgb": "69, 87, 30",
+        "alias": false,
+        "description": "Lime 700",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "750": {
+        "value": "rgb({color.lime.750.rgb})",
+        "rgb": "61, 76, 28",
+        "alias": false,
+        "description": "Lime 750",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "800": {
+        "value": "rgb({color.lime.800.rgb})",
+        "rgb": "54, 67, 26",
+        "alias": false,
+        "description": "Lime 800",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "850": {
+        "value": "rgb({color.lime.850.rgb})",
+        "rgb": "44, 55, 20",
+        "alias": false,
+        "description": "Lime 850",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "900": {
+        "value": "rgb({color.lime.900.rgb})",
+        "rgb": "37, 47, 17",
+        "alias": false,
+        "description": "Lime 900",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "950": {
+        "value": "rgb({color.lime.950.rgb})",
+        "rgb": "27, 34, 8",
+        "alias": false,
+        "description": "Lime 950",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      }
+    },
+    "green": {
+      "50": {
+        "value": "rgb({color.green.50.rgb})",
+        "rgb": "236, 247, 231",
+        "alias": false,
+        "description": "Green 50",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "100": {
+        "value": "rgb({color.green.100.rgb})",
+        "rgb": "209, 245, 195",
+        "alias": false,
+        "description": "Green 100",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "150": {
+        "value": "rgb({color.green.150.rgb})",
+        "rgb": "169, 231, 148",
+        "alias": false,
+        "description": "Green 150",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "200": {
+        "value": "rgb({color.green.200.rgb})",
+        "rgb": "136, 226, 110",
+        "alias": false,
+        "description": "Green 200",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "250": {
+        "value": "rgb({color.green.250.rgb})",
+        "rgb": "106, 209, 80",
+        "alias": false,
+        "description": "Green 250",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "300": {
+        "value": "rgb({color.green.300.rgb})",
+        "rgb": "95, 196, 69",
+        "alias": false,
+        "description": "Green 300",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "350": {
+        "value": "rgb({color.green.350.rgb})",
+        "rgb": "87, 182, 64",
+        "alias": false,
+        "description": "Green 350",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "400": {
+        "value": "rgb({color.green.400.rgb})",
+        "rgb": "86, 170, 65",
+        "alias": false,
+        "description": "Green 400",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "450": {
+        "value": "rgb({color.green.450.rgb})",
+        "rgb": "83, 155, 64",
+        "alias": false,
+        "description": "Green 450",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "500": {
+        "value": "rgb({color.green.500.rgb})",
+        "rgb": "67, 131, 50",
+        "alias": false,
+        "description": "Green 500",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "550": {
+        "value": "rgb({color.green.550.rgb})",
+        "rgb": "62, 119, 47",
+        "alias": false,
+        "description": "Green 550",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "600": {
+        "value": "rgb({color.green.600.rgb})",
+        "rgb": "59, 111, 45",
+        "alias": false,
+        "description": "Green 600",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "650": {
+        "value": "rgb({color.green.650.rgb})",
+        "rgb": "54, 100, 41",
+        "alias": false,
+        "description": "Green 650",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "700": {
+        "value": "rgb({color.green.700.rgb})",
+        "rgb": "50, 90, 38",
+        "alias": false,
+        "description": "Green 700",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "750": {
+        "value": "rgb({color.green.750.rgb})",
+        "rgb": "45, 79, 35",
+        "alias": false,
+        "description": "Green 750",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "800": {
+        "value": "rgb({color.green.800.rgb})",
+        "rgb": "40, 69, 31",
+        "alias": false,
+        "description": "Green 800",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "850": {
+        "value": "rgb({color.green.850.rgb})",
+        "rgb": "34, 57, 26",
+        "alias": false,
+        "description": "Green 850",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "900": {
+        "value": "rgb({color.green.900.rgb})",
+        "rgb": "29, 48, 23",
+        "alias": false,
+        "description": "Green 900",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "950": {
+        "value": "rgb({color.green.950.rgb})",
+        "rgb": "18, 36, 10",
+        "alias": false,
+        "description": "Green 950",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "mint": {
+      "50": {
+        "value": "rgb({color.mint.50.rgb})",
+        "rgb": "231, 248, 238",
+        "alias": false,
+        "description": "Mint 50",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "100": {
+        "value": "rgb({color.mint.100.rgb})",
+        "rgb": "192, 248, 219",
+        "alias": false,
+        "description": "Mint 100",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "150": {
+        "value": "rgb({color.mint.150.rgb})",
+        "rgb": "144, 234, 190",
+        "alias": false,
+        "description": "Mint 150",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "200": {
+        "value": "rgb({color.mint.200.rgb})",
+        "rgb": "101, 228, 172",
+        "alias": false,
+        "description": "Mint 200",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "250": {
+        "value": "rgb({color.mint.250.rgb})",
+        "rgb": "52, 211, 149",
+        "alias": false,
+        "description": "Mint 250",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "300": {
+        "value": "rgb({color.mint.300.rgb})",
+        "rgb": "24, 199, 137",
+        "alias": false,
+        "description": "Mint 300",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "350": {
+        "value": "rgb({color.mint.350.rgb})",
+        "rgb": "2, 185, 126",
+        "alias": false,
+        "description": "Mint 350",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "400": {
+        "value": "rgb({color.mint.400.rgb})",
+        "rgb": "20, 173, 119",
+        "alias": false,
+        "description": "Mint 400",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "450": {
+        "value": "rgb({color.mint.450.rgb})",
+        "rgb": "26, 158, 109",
+        "alias": false,
+        "description": "Mint 450",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "500": {
+        "value": "rgb({color.mint.500.rgb})",
+        "rgb": "7, 134, 91",
+        "alias": false,
+        "description": "Mint 500",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "550": {
+        "value": "rgb({color.mint.550.rgb})",
+        "rgb": "23, 121, 84",
+        "alias": false,
+        "description": "Mint 550",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "600": {
+        "value": "rgb({color.mint.600.rgb})",
+        "rgb": "35, 112, 80",
+        "alias": false,
+        "description": "Mint 600",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "650": {
+        "value": "rgb({color.mint.650.rgb})",
+        "rgb": "35, 101, 72",
+        "alias": false,
+        "description": "Mint 650",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "700": {
+        "value": "rgb({color.mint.700.rgb})",
+        "rgb": "32, 91, 65",
+        "alias": false,
+        "description": "Mint 700",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "750": {
+        "value": "rgb({color.mint.750.rgb})",
+        "rgb": "31, 80, 58",
+        "alias": false,
+        "description": "Mint 750",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "800": {
+        "value": "rgb({color.mint.800.rgb})",
+        "rgb": "28, 70, 51",
+        "alias": false,
+        "description": "Mint 800",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "850": {
+        "value": "rgb({color.mint.850.rgb})",
+        "rgb": "23, 58, 42",
+        "alias": false,
+        "description": "Mint 850",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "900": {
+        "value": "rgb({color.mint.900.rgb})",
+        "rgb": "22, 49, 36",
+        "alias": false,
+        "description": "Mint 900",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "950": {
+        "value": "rgb({color.mint.950.rgb})",
+        "rgb": "14, 35, 25",
+        "alias": false,
+        "description": "Mint 950",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "cyan": {
+      "50": {
+        "value": "rgb({color.cyan.50.rgb})",
+        "rgb": "232, 247, 247",
+        "alias": false,
+        "description": "Cyan 50; Brand color: Open sky",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "100": {
+        "value": "rgb({color.cyan.100.rgb})",
+        "rgb": "204, 242, 251",
+        "alias": false,
+        "description": "Cyan 100",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "150": {
+        "value": "rgb({color.cyan.150.rgb})",
+        "rgb": "156, 227, 252",
+        "alias": false,
+        "description": "Cyan 150",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "200": {
+        "value": "rgb({color.cyan.200.rgb})",
+        "rgb": "118, 220, 253",
+        "alias": false,
+        "description": "Cyan 200; Brand color: Tech blue",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "250": {
+        "value": "rgb({color.cyan.250.rgb})",
+        "rgb": "72, 202, 240",
+        "alias": false,
+        "description": "Cyan 250",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "300": {
+        "value": "rgb({color.cyan.300.rgb})",
+        "rgb": "41, 191, 230",
+        "alias": false,
+        "description": "Cyan 300",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "350": {
+        "value": "rgb({color.cyan.350.rgb})",
+        "rgb": "24, 178, 215",
+        "alias": false,
+        "description": "Cyan 350",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "400": {
+        "value": "rgb({color.cyan.400.rgb})",
+        "rgb": "26, 167, 201",
+        "alias": false,
+        "description": "Cyan 400",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "450": {
+        "value": "rgb({color.cyan.450.rgb})",
+        "rgb": "32, 152, 183",
+        "alias": false,
+        "description": "Cyan 450",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "500": {
+        "value": "rgb({color.cyan.500.rgb})",
+        "rgb": "27, 128, 154",
+        "alias": false,
+        "description": "Cyan 500",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "550": {
+        "value": "rgb({color.cyan.550.rgb})",
+        "rgb": "37, 116, 139",
+        "alias": false,
+        "description": "Cyan 550",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "600": {
+        "value": "rgb({color.cyan.600.rgb})",
+        "rgb": "38, 108, 129",
+        "alias": false,
+        "description": "Cyan 600",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "650": {
+        "value": "rgb({color.cyan.650.rgb})",
+        "rgb": "36, 97, 116",
+        "alias": false,
+        "description": "Cyan 650",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "700": {
+        "value": "rgb({color.cyan.700.rgb})",
+        "rgb": "32, 88, 105",
+        "alias": false,
+        "description": "Cyan 700",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "750": {
+        "value": "rgb({color.cyan.750.rgb})",
+        "rgb": "30, 77, 92",
+        "alias": false,
+        "description": "Cyan 750",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "800": {
+        "value": "rgb({color.cyan.800.rgb})",
+        "rgb": "27, 67, 80",
+        "alias": false,
+        "description": "Cyan 800",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "850": {
+        "value": "rgb({color.cyan.850.rgb})",
+        "rgb": "21, 56, 67",
+        "alias": false,
+        "description": "Cyan 850",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "900": {
+        "value": "rgb({color.cyan.900.rgb})",
+        "rgb": "13, 48, 58",
+        "alias": false,
+        "description": "Cyan 900",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "950": {
+        "value": "rgb({color.cyan.950.rgb})",
+        "rgb": "3, 35, 44",
+        "alias": false,
+        "description": "Cyan 950",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "azure": {
+      "50": {
+        "value": "rgb({color.azure.50.rgb})",
+        "rgb": "236, 245, 254",
+        "alias": false,
+        "description": "Azure 50",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be replaced with `--jh-color-blue-50` in v2."
+      },
+      "100": {
+        "value": "rgb({color.azure.100.rgb})",
+        "rgb": "218, 238, 255",
+        "alias": false,
+        "description": "Azure 100",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be replaced with `--jh-color-blue-100` in v2."
+      },
+      "150": {
+        "value": "rgb({color.azure.150.rgb})",
+        "rgb": "186, 220, 251",
+        "alias": false,
+        "description": "Azure 150",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be replaced with `--jh-color-blue-150` in v2."
+      },
+      "200": {
+        "value": "rgb({color.azure.200.rgb})",
+        "rgb": "163, 212, 255",
+        "alias": false,
+        "description": "Azure 200",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be replaced with `--jh-color-blue-200` in v2."
+      },
+      "250": {
+        "value": "rgb({color.azure.250.rgb})",
+        "rgb": "134, 193, 248",
+        "alias": false,
+        "description": "Azure 250",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be replaced with `--jh-color-blue-250` in v2."
+      },
+      "300": {
+        "value": "rgb({color.azure.300.rgb})",
+        "rgb": "118, 180, 248",
+        "alias": false,
+        "description": "Azure 300",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be replaced with `--jh-color-blue-300` in v2."
+      },
+      "350": {
+        "value": "rgb({color.azure.350.rgb})",
+        "rgb": "103, 166, 248",
+        "alias": false,
+        "description": "Azure 350",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be replaced with `--jh-color-blue-350` in v2."
+      },
+      "400": {
+        "value": "rgb({color.azure.400.rgb})",
+        "rgb": "92, 154, 252",
+        "alias": false,
+        "description": "Azure 400",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be replaced with `--jh-color-blue-400` in v2."
+      },
+      "450": {
+        "value": "rgb({color.azure.450.rgb})",
+        "rgb": "74, 138, 251",
+        "alias": false,
+        "description": "Azure 450",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be replaced with `--jh-color-blue-450` in v2."
+      },
+      "500": {
+        "value": "rgb({color.azure.500.rgb})",
+        "rgb": "20, 112, 235",
+        "alias": false,
+        "description": "Azure 500",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be replaced with `--jh-color-blue-500` in v2."
+      },
+      "550": {
+        "value": "rgb({color.azure.550.rgb})",
+        "rgb": "22, 101, 235",
+        "alias": false,
+        "description": "Azure 550",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be replaced with `--jh-color-blue-550` in v2."
+      },
+      "600": {
+        "value": "rgb({color.azure.600.rgb})",
+        "rgb": "8, 92, 229",
+        "alias": false,
+        "description": "Azure 600; Brand color: Vibrant cobalt",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be replaced with `--jh-color-blue-600` in v2."
+      },
+      "650": {
+        "value": "rgb({color.azure.650.rgb})",
+        "rgb": "38, 79, 213",
+        "alias": false,
+        "description": "Azure 650",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be replaced with `--jh-color-blue-650` in v2."
+      },
+      "700": {
+        "value": "rgb({color.azure.700.rgb})",
+        "rgb": "51, 67, 196",
+        "alias": false,
+        "description": "Azure 700",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be replaced with `--jh-color-blue-700` in v2."
+      },
+      "750": {
+        "value": "rgb({color.azure.750.rgb})",
+        "rgb": "42, 59, 177",
+        "alias": false,
+        "description": "Azure 750",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be replaced with `--jh-color-blue-750` in v2."
+      },
+      "800": {
+        "value": "rgb({color.azure.800.rgb})",
+        "rgb": "35, 51, 158",
+        "alias": false,
+        "description": "Azure 800",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be replaced with `--jh-color-blue-800` in v2."
+      },
+      "850": {
+        "value": "rgb({color.azure.850.rgb})",
+        "rgb": "25, 42, 137",
+        "alias": false,
+        "description": "Azure 850",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be replaced with `--jh-color-blue-850` in v2."
+      },
+      "900": {
+        "value": "rgb({color.azure.900.rgb})",
+        "rgb": "19, 35, 119",
+        "alias": false,
+        "description": "Azure 900",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be replaced with `--jh-color-blue-900` in v2."
+      },
+      "950": {
+        "value": "rgb({color.azure.950.rgb})",
+        "rgb": "6, 24, 95",
+        "alias": false,
+        "description": "Azure 950; Brand color: Legacy navy",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be replaced with `--jh-color-blue-950` in v2."
+      }
+    },
+    "blue": {
+      "50": {
+        "value": "rgb({color.blue.50.rgb})",
+        "rgb": "243, 243, 252",
+        "alias": false,
+        "description": "Blue 50",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be updated with the comparable color value from the azure color family in v2."
+      },
+      "100": {
+        "value": "rgb({color.blue.100.rgb})",
+        "rgb": "233, 234, 251",
+        "alias": false,
+        "description": "Blue 100",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be updated with the comparable color value from the azure color family in v2."
+      },
+      "150": {
+        "value": "rgb({color.blue.150.rgb})",
+        "rgb": "212, 214, 246",
+        "alias": false,
+        "description": "Blue 150",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be updated with the comparable color value from the azure color family in v2."
+      },
+      "200": {
+        "value": "rgb({color.blue.200.rgb})",
+        "rgb": "199, 203, 249",
+        "alias": false,
+        "description": "Blue 200",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be updated with the comparable color value from the azure color family in v2."
+      },
+      "250": {
+        "value": "rgb({color.blue.250.rgb})",
+        "rgb": "177, 183, 243",
+        "alias": false,
+        "description": "Blue 250",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be updated with the comparable color value from the azure color family in v2."
+      },
+      "300": {
+        "value": "rgb({color.blue.300.rgb})",
+        "rgb": "162, 171, 244",
+        "alias": false,
+        "description": "Blue 300",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be updated with the comparable color value from the azure color family in v2."
+      },
+      "350": {
+        "value": "rgb({color.blue.350.rgb})",
+        "rgb": "152, 155, 245",
+        "alias": false,
+        "description": "Blue 350",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be updated with the comparable color value from the azure color family in v2."
+      },
+      "400": {
+        "value": "rgb({color.blue.400.rgb})",
+        "rgb": "138, 142, 248",
+        "alias": false,
+        "description": "Blue 400",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be updated with the comparable color value from the azure color family in v2."
+      },
+      "450": {
+        "value": "rgb({color.blue.450.rgb})",
+        "rgb": "125, 127, 252",
+        "alias": false,
+        "description": "Blue 450",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be updated with the comparable color value from the azure color family in v2."
+      },
+      "500": {
+        "value": "rgb({color.blue.500.rgb})",
+        "rgb": "108, 96, 239",
+        "alias": false,
+        "description": "Blue 500",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be updated with the comparable color value from the azure color family in v2."
+      },
+      "550": {
+        "value": "rgb({color.blue.550.rgb})",
+        "rgb": "104, 84, 235",
+        "alias": false,
+        "description": "Blue 550",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be updated with the comparable color value from the azure color family in v2."
+      },
+      "600": {
+        "value": "rgb({color.blue.600.rgb})",
+        "rgb": "95, 77, 227",
+        "alias": false,
+        "description": "Blue 600",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be updated with the comparable color value from the azure color family in v2."
+      },
+      "650": {
+        "value": "rgb({color.blue.650.rgb})",
+        "rgb": "85, 69, 209",
+        "alias": false,
+        "description": "Blue 650",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be updated with the comparable color value from the azure color family in v2."
+      },
+      "700": {
+        "value": "rgb({color.blue.700.rgb})",
+        "rgb": "76, 61, 190",
+        "alias": false,
+        "description": "Blue 700",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be updated with the comparable color value from the azure color family in v2."
+      },
+      "750": {
+        "value": "rgb({color.blue.750.rgb})",
+        "rgb": "66, 53, 173",
+        "alias": false,
+        "description": "Blue 750",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be updated with the comparable color value from the azure color family in v2."
+      },
+      "800": {
+        "value": "rgb({color.blue.800.rgb})",
+        "rgb": "55, 44, 154",
+        "alias": false,
+        "description": "Blue 800",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be updated with the comparable color value from the azure color family in v2."
+      },
+      "850": {
+        "value": "rgb({color.blue.850.rgb})",
+        "rgb": "45, 36, 137",
+        "alias": false,
+        "description": "Blue 850",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be updated with the comparable color value from the azure color family in v2."
+      },
+      "900": {
+        "value": "rgb({color.blue.900.rgb})",
+        "rgb": "36, 29, 121",
+        "alias": false,
+        "description": "Blue 900",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be updated with the comparable color value from the azure color family in v2."
+      },
+      "950": {
+        "value": "rgb({color.blue.950.rgb})",
+        "rgb": "20, 18, 101",
+        "alias": false,
+        "description": "Blue 950",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be updated with the comparable color value from the azure color family in v2."
+      }
+    },
+    "violet": {
+      "50": {
+        "value": "rgb({color.violet.50.rgb})",
+        "rgb": "247, 242, 250",
+        "alias": false,
+        "description": "Violet 50",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "100": {
+        "value": "rgb({color.violet.100.rgb})",
+        "rgb": "244, 231, 250",
+        "alias": false,
+        "description": "Violet 100",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "150": {
+        "value": "rgb({color.violet.150.rgb})",
+        "rgb": "232, 207, 246",
+        "alias": false,
+        "description": "Violet 150",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "200": {
+        "value": "rgb({color.violet.200.rgb})",
+        "rgb": "229, 192, 250",
+        "alias": false,
+        "description": "Violet 200",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "250": {
+        "value": "rgb({color.violet.250.rgb})",
+        "rgb": "216, 169, 244",
+        "alias": false,
+        "description": "Violet 250",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "300": {
+        "value": "rgb({color.violet.300.rgb})",
+        "rgb": "210, 152, 246",
+        "alias": false,
+        "description": "Violet 300",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "350": {
+        "value": "rgb({color.violet.350.rgb})",
+        "rgb": "202, 135, 245",
+        "alias": false,
+        "description": "Violet 350",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "400": {
+        "value": "rgb({color.violet.400.rgb})",
+        "rgb": "198, 118, 252",
+        "alias": false,
+        "description": "Violet 400",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "450": {
+        "value": "rgb({color.violet.450.rgb})",
+        "rgb": "189, 95, 254",
+        "alias": false,
+        "description": "Violet 450",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "500": {
+        "value": "rgb({color.violet.500.rgb})",
+        "rgb": "168, 61, 243",
+        "alias": false,
+        "description": "Violet 500",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "550": {
+        "value": "rgb({color.violet.550.rgb})",
+        "rgb": "158, 42, 239",
+        "alias": false,
+        "description": "Violet 550",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "600": {
+        "value": "rgb({color.violet.600.rgb})",
+        "rgb": "150, 30, 231",
+        "alias": false,
+        "description": "Violet 600",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "650": {
+        "value": "rgb({color.violet.650.rgb})",
+        "rgb": "136, 24, 211",
+        "alias": false,
+        "description": "Violet 650",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "700": {
+        "value": "rgb({color.violet.700.rgb})",
+        "rgb": "123, 23, 191",
+        "alias": false,
+        "description": "Violet 700",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "750": {
+        "value": "rgb({color.violet.750.rgb})",
+        "rgb": "109, 20, 170",
+        "alias": false,
+        "description": "Violet 750",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "800": {
+        "value": "rgb({color.violet.800.rgb})",
+        "rgb": "94, 12, 150",
+        "alias": false,
+        "description": "Violet 800",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "850": {
+        "value": "rgb({color.violet.850.rgb})",
+        "rgb": "81, 9, 129",
+        "alias": false,
+        "description": "Violet 850",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "900": {
+        "value": "rgb({color.violet.900.rgb})",
+        "rgb": "69, 8, 110",
+        "alias": false,
+        "description": "Violet 900",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "950": {
+        "value": "rgb({color.violet.950.rgb})",
+        "rgb": "52, 2, 87",
+        "alias": false,
+        "description": "Violet 950",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "magenta": {
+      "50": {
+        "value": "rgb({color.magenta.50.rgb})",
+        "rgb": "255, 239, 251",
+        "alias": false,
+        "description": "Magenta 50",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "100": {
+        "value": "rgb({color.magenta.100.rgb})",
+        "rgb": "255, 227, 248",
+        "alias": false,
+        "description": "Magenta 100",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "150": {
+        "value": "rgb({color.magenta.150.rgb})",
+        "rgb": "250, 201, 239",
+        "alias": false,
+        "description": "Magenta 150",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "200": {
+        "value": "rgb({color.magenta.200.rgb})",
+        "rgb": "253, 184, 237",
+        "alias": false,
+        "description": "Magenta 200",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "250": {
+        "value": "rgb({color.magenta.250.rgb})",
+        "rgb": "251, 153, 232",
+        "alias": false,
+        "description": "Magenta 250",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "300": {
+        "value": "rgb({color.magenta.300.rgb})",
+        "rgb": "252, 130, 230",
+        "alias": false,
+        "description": "Magenta 300",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "350": {
+        "value": "rgb({color.magenta.350.rgb})",
+        "rgb": "247, 109, 223",
+        "alias": false,
+        "description": "Magenta 350",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "400": {
+        "value": "rgb({color.magenta.400.rgb})",
+        "rgb": "243, 89, 218",
+        "alias": false,
+        "description": "Magenta 400",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "450": {
+        "value": "rgb({color.magenta.450.rgb})",
+        "rgb": "229, 71, 205",
+        "alias": false,
+        "description": "Magenta 450",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "500": {
+        "value": "rgb({color.magenta.500.rgb})",
+        "rgb": "202, 42, 180",
+        "alias": false,
+        "description": "Magenta 500",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "550": {
+        "value": "rgb({color.magenta.550.rgb})",
+        "rgb": "189, 28, 168",
+        "alias": false,
+        "description": "Magenta 550",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "600": {
+        "value": "rgb({color.magenta.600.rgb})",
+        "rgb": "177, 26, 157",
+        "alias": false,
+        "description": "Magenta 600",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "650": {
+        "value": "rgb({color.magenta.650.rgb})",
+        "rgb": "160, 24, 142",
+        "alias": false,
+        "description": "Magenta 650",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "700": {
+        "value": "rgb({color.magenta.700.rgb})",
+        "rgb": "143, 26, 127",
+        "alias": false,
+        "description": "Magenta 700",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "750": {
+        "value": "rgb({color.magenta.750.rgb})",
+        "rgb": "127, 23, 113",
+        "alias": false,
+        "description": "Magenta 750",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "800": {
+        "value": "rgb({color.magenta.800.rgb})",
+        "rgb": "110, 22, 98",
+        "alias": false,
+        "description": "Magenta 800",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "850": {
+        "value": "rgb({color.magenta.850.rgb})",
+        "rgb": "93, 17, 83",
+        "alias": false,
+        "description": "Magenta 850",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "900": {
+        "value": "rgb({color.magenta.900.rgb})",
+        "rgb": "80, 14, 70",
+        "alias": false,
+        "description": "Magenta 900",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      },
+      "950": {
+        "value": "rgb({color.magenta.950.rgb})",
+        "rgb": "63, 2, 55",
+        "alias": false,
+        "description": "Magenta 950",
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "rose": {
+      "50": {
+        "value": "rgb({color.rose.50.rgb})",
+        "rgb": "253, 241, 242",
+        "alias": false,
+        "description": "Rose 50",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "100": {
+        "value": "rgb({color.rose.100.rgb})",
+        "rgb": "245, 232, 233",
+        "alias": false,
+        "description": "Rose 100",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "150": {
+        "value": "rgb({color.rose.150.rgb})",
+        "rgb": "240, 207, 210",
+        "alias": false,
+        "description": "Rose 150",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "200": {
+        "value": "rgb({color.rose.200.rgb})",
+        "rgb": "247, 190, 197",
+        "alias": false,
+        "description": "Rose 200",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "250": {
+        "value": "rgb({color.rose.250.rgb})",
+        "rgb": "245, 163, 174",
+        "alias": false,
+        "description": "Rose 250",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "300": {
+        "value": "rgb({color.rose.300.rgb})",
+        "rgb": "249, 142, 158",
+        "alias": false,
+        "description": "Rose 300",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "350": {
+        "value": "rgb({color.rose.350.rgb})",
+        "rgb": "248, 120, 143",
+        "alias": false,
+        "description": "Rose 350",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "400": {
+        "value": "rgb({color.rose.400.rgb})",
+        "rgb": "250, 97, 130",
+        "alias": false,
+        "description": "Rose 400",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "450": {
+        "value": "rgb({color.rose.450.rgb})",
+        "rgb": "242, 73, 115",
+        "alias": false,
+        "description": "Rose 450",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "500": {
+        "value": "rgb({color.rose.500.rgb})",
+        "rgb": "220, 43, 95",
+        "alias": false,
+        "description": "Rose 500",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "550": {
+        "value": "rgb({color.rose.550.rgb})",
+        "rgb": "204, 19, 84",
+        "alias": false,
+        "description": "Rose 550",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "600": {
+        "value": "rgb({color.rose.600.rgb})",
+        "rgb": "191, 20, 78",
+        "alias": false,
+        "description": "Rose 600",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "650": {
+        "value": "rgb({color.rose.650.rgb})",
+        "rgb": "171, 25, 71",
+        "alias": false,
+        "description": "Rose 650",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "700": {
+        "value": "rgb({color.rose.700.rgb})",
+        "rgb": "153, 26, 64",
+        "alias": false,
+        "description": "Rose 700",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "750": {
+        "value": "rgb({color.rose.750.rgb})",
+        "rgb": "134, 26, 57",
+        "alias": false,
+        "description": "Rose 750",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "800": {
+        "value": "rgb({color.rose.800.rgb})",
+        "rgb": "118, 22, 49",
+        "alias": false,
+        "description": "Rose 800",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "850": {
+        "value": "rgb({color.rose.850.rgb})",
+        "rgb": "99, 19, 41",
+        "alias": false,
+        "description": "Rose 850",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "900": {
+        "value": "rgb({color.rose.900.rgb})",
+        "rgb": "85, 15, 34",
+        "alias": false,
+        "description": "Rose 900",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      },
+      "950": {
+        "value": "rgb({color.rose.950.rgb})",
+        "rgb": "67, 5, 23",
+        "alias": false,
+        "description": "Rose 950",
+        "deprecated": true,
+        "deprecatedMessage": "This token will be removed in v2."
+      }
+    }
+  }
+}

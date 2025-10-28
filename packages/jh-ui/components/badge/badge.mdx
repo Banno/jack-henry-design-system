@@ -1,0 +1,70 @@
+import { Meta, ArgTypes } from '@storybook/blocks';
+import * as stories from './badge.stories.js';
+
+<Meta title="Components/Badge" of={stories} />
+
+# Badge
+
+[Guidelines](https://jackhenry.design/pages/components/badge/)
+
+<hr />
+
+A Badge is a visual indicator that represents numbers, such as counters. Badge also supports a dot-only variant in cases where an explicit count does not need to be displayed. Authors should refer to the [tag component](/docs/components-tag--docs) when needing to render non-numerical-related information.
+
+## Usage
+
+Import the `<jh-badge>` component:
+
+```javascript
+import '@jack-henry/jh-ui/components/badge/badge.js';
+```
+
+To use `<jh-badge>`: 
+
+```html
+<jh-badge count="3"></jh-badge>
+```
+
+## Count Behavior
+- Badges display the `count` when set to a numerical value greater than or equal to 0. 
+- When the `max-count` is set and surpassed by the `count`, the `max-count` will render with an appended `+` character as such: `max-count+`
+- Authors can omit the `count` property to render a dot-only badge in cases where `count` does not need to be displayed. 
+
+
+## Accessibility
+
+This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria. 
+The following success criteria are of concern:
+
+- [WCAG 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html): Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element.
+
+- [WCAG 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html): The visual presentation of text and images of text has a contrast ratio of at least 4.5:1.
+
+- [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html): Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.
+
+### What we provide
+
+- To satisfy [WCAG 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html), the text and background color meet the minimum contrast of 4.5:1.
+
+- To satisfy [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html), Badge can be resized without assistive technology up to 200 percent without loss of content or functionality.
+
+### Author Guidance
+
+- To satisfy [WCAG 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html) when using color to convey information, ensure the information is also conveyed in text via the originating element. 
+
+- To satisfy [WCAG 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) when using custom colors, be sure the minimum contrast requirements are met.
+
+- When using the dot-only variant to represent the presence of items, for example unread messages, ensure that the meaning of the badge is also conveyed to users in text via the originating element.
+
+- When badge is used to indicate a change on the page, for example a new chat message, authors should be sure to set up an appropriate live region in order to communicate those changes to screen reader users.
+
+## Component API
+
+<ArgTypes />
+
+## Feedback
+
+Have an idea that will improve this component or have an issue to report? Let us know by submitting 
+an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
+
+Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

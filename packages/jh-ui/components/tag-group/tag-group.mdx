@@ -1,0 +1,77 @@
+import { Meta, ArgTypes } from '@storybook/blocks';
+import * as stories from './tag-group.stories.js';
+
+<Meta title="Components/Tag Group" of={stories} />
+
+# Tag Group
+
+[Guidelines](https://jackhenry.design/pages/components/tag-group/)
+
+<hr />
+
+A tag group is used to group `<jh-tag>` components to provide layout and alignment support. 
+
+## Usage
+
+Import the `<jh-tag-group>` component:
+
+```javascript
+import '@jack-henry/jh-ui/components/tag-group/tag-group.js';
+```
+
+To use `<jh-tag-group>`: 
+
+```html
+<jh-tag-group alignment="start">
+    <jh-tag label="label 1"></jh-tag>
+    <jh-tag label="label 2"></jh-tag>
+    <jh-tag label="label 3"></jh-tag>
+</jh-tag-group>
+```
+
+## Tag truncation
+
+- By default, tag groups will grow to accommodate the size of their content. Authors can set a width or max-width on tag-group but should note that setting a width on tag-group that is smaller than the default `max-width` of jh-tag (200px) will cause tag(s) to truncate. 
+- The tag max-width can also be adjusted by setting the `--jh-tag-size-max-width` token. If the token value is set to `auto`, the tag(s) will automatically truncate at the width of the tag-group.
+
+## Dependencies
+The tag group component makes use of suggested content dependencies.
+
+1. Content -  the following suggested dependencies should be imported when needed: 
+
+- `<jh-tag>`. [Tag component documentation](/docs/components-tag--docs).
+
+## Accessibility
+
+This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria. 
+The following success criteria are of concern:
+
+- [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html): 
+  Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.
+- [WCAG 4.1.3 Status Messages](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html):
+  In content implemented using markup languages, status messages can be programmatically determined through role or properties such that they can be presented to the user by assistive technologies without receiving focus.
+
+### What we provide
+
+- To satisfy [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html), the tag group has a role of `group`.
+
+### Author Guidance
+
+- To satisfy [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html), authors should provide adequate roles to the `jh-tag`s inside the tag group.
+- To satisfy [WCAG 4.1.3 Status Messages](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html), when tags are added and/or removed
+dynamically from the tag group, authors should ensure that the tag group is set up as a live region:
+    - setting `aria-live` to `polite`is preferred, so announcements will not disrupt the user's work flow.
+    - setting `aria-relevant` to `additions removals` will announce both tag additions and removals. If it is omitted, only additions will be announced.
+    - setting `aria-atomic` to `true` is only needed if the whole live-region needs to be announced. If it is omitted, only new addtions and removals will be announced.
+- To ensure that tag groups are announced correctly by screen readers, authors should provide an `aria-label`.
+
+## Component API
+
+<ArgTypes />
+
+## Feedback
+
+Have an idea that will improve this component or have an issue to report? Let us know by submitting 
+an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
+
+Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

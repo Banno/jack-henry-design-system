@@ -1,0 +1,33 @@
+{
+  "name": "@jack-henry/jh-icons",
+  "description": "Jack Henry icon library",
+  "version": "1.2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Banno/jack-henry-design-system.git"
+  },
+  "contributors": [
+    "Audrey Bissiere-Grote",
+    "Brad McCormick",
+    "Chris Austin",
+    "Maya Buser De"
+  ],
+  "license": "Apache-2.0",
+  "files": [
+    "bin",
+    "icons-svg",
+    "icons-wc",
+    "NOTICE"
+  ],
+  "scripts": {
+    "build-wc": "node ./bin/generate-wc.js ./icons-svg/ ./icons-wc/ jh",
+    "prepack": "cp ../../NOTICE .",
+    "postpack": "rm -f NOTICE"
+  },
+  "dependencies": {
+    "lit": "2.1.1"
+  },
+  "devDependencies": {
+    "hygen": "6.2.11"
+  }
+}

@@ -1,0 +1,102 @@
+import { Meta, ArgTypes } from '@storybook/blocks';
+import * as stories from './toast-controller.stories.js';
+
+<Meta title="Components/Toast Controller" of={stories} />
+
+# Toast Controller
+
+[Guidelines](https://jackhenry.design/pages/components/toast/)
+
+<hr />
+
+The toast controller component manages multiple toasts. Toasts can be generated and appended to the controller either by a(n):
+
+1. DOM based method: authors are responsible for creating `<jh-toast>` element(s) and appending it to the controller themselves. 
+2. Event based method: authors can create `<jh-toast>` element(s) by dispatching a `jh-create-toast` event with corresponding toast properties. The toast controller will then append toast(s) automatically. See [Event Based Controller](#event-based-controller) section for more information. 
+
+## Usage
+
+Import the `<jh-toast-controller>` component:
+
+```javascript
+import '@jack-henry/jh-ui/components/toast-controller/toast-controller.js';
+```
+
+To use `<jh-toast-controller>`, generated `<jh-toast>` should be inserted into the default slot:
+
+```html
+<jh-toast-controller max-count="4">
+  <jh-toast>Toast message</jh-toast>
+</jh-toast-controller>
+```
+
+While not enforced, it is advised that authors utilize only one instance of `<jh-toast-controller>` as multiple instances may cause unintended consequences. 
+
+## Dependencies
+The toast controller component makes use of required content dependencies.
+
+1. Content - the following required dependencies are already imported: 
+
+- `<jh-toast>`. [Toast component documentation](/docs/components-toast--docs).
+
+## Event Based Controller
+
+Authors can create toasts by dispatching a `jh-create-toast` event with the assigned toast properties within the event details. The toast controller will then create the toast element with the provided properties and append the toast to itself. 
+
+The event detail properties should the map to `<jh-toast>` properties, and are listed in the example below. Be sure to include corresponding slot names when slotting content. 
+
+Both the `bubbles` and `composed` properties should be set to `true` in order to permit event bubbling and the ability for the custom event to cross the shadow DOM. 
+
+```html
+   const createToast = new CustomEvent('jh-create-toast', {
+      detail: {
+        appearance: 'positive',
+        stacked: false,
+        text: 'Toast',
+        timeout: 0,
+        hideDismissButton: false,
+        dismissButtonAccessibleLabel: 'dismiss toast',
+        toastDismissIcon: '<jh-icon-circle-xmark slot="jh-toast-dismiss-icon"></jh-icon-circle-xmark>',
+        toastIcon: '<jh-icon-circle-info slot="jh-toast-icon"></jh-icon-circle-info>',
+        toastAction: '<jh-button slot="jh-toast-action" label="Label"></jh-button>',
+      },
+      bubbles: true,
+      composed: true,
+    });
+
+    e.target.dispatchEvent(createToast);
+```
+
+## Accessibility
+
+This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria.
+The following success criteria are of concern:
+
+- [WCAG 2.4.11 Focus Not Obscured (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html):
+  When a user interface component receives keyboard focus, the component is not entirely hidden due to author-created content.
+- [WCAG 4.1.3 Status Messages](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html):
+  In content implemented using markup languages, status messages can be programmatically determined through role or properties such that they can be presented to the user by assistive technologies without receiving focus.
+
+### What we provide
+
+- To satisfy [WCAG 4.1.3 Status Messages](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html),
+the `role='status'` property is set by default in order to allow changes to be announced via screen readers without receiving focus or interupting the user flow. If the toast(s) added to the toast controller contain important, time-sensitive information, see the author guidance section below. 
+
+### Author Guidance
+
+- To satisfy [WCAG 2.4.11 Focus Not Obscured (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html), ensure that when toasts are opened, they do not completely obscure the component that has keyboard focus.
+- To satisfy [WCAG 4.1.3 Status Messages](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html) when a status message conveys a warning, rather than the success or result of an action, set `role='alert'` in order to allow changes to be announced via screen readers immediately. 
+- Both the `role='status'` and `role='alert'` have an implicit `aria-atomic` value of true. This means a screen reader will present the entire changed region when new toasts are added. Consider setting `aria-atomic='false'` on the toast controller for instances in which the entire region does not need to be announced with each incoming toast. [Visit MDN for more information on the aria-atomic attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-atomic).
+- Authors can utilize an `aria-relevant` attribute to further specify which types of changes to the live region should be announced. [Visit MDN for information on supported aria-relevant values](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-relevant).
+- Authors should consider placing the `<jh-toast-controller>` either at the beginning or end of the page as to not disturb user flow for those dependent on keyboard navigation. 
+
+## Component API
+
+<ArgTypes />
+
+## Feedback
+
+Have an idea that will improve this component or have an issue to report? Let us know by submitting 
+an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
+
+Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

@@ -1,0 +1,3626 @@
+{
+  "version": "experimental",
+  "tags": [
+    {
+      "name": "jh-badge",
+      "path": "./components/badge/badge.js",
+      "attributes": [
+        {
+          "name": "count",
+          "description": "Number to show within the badge. If no `count` is supplied, Badge will render as a dot.",
+          "type": "?string"
+        },
+        {
+          "name": "max-count",
+          "description": "Sets the max count to show. Appends `+` to the `max-count` when value is exceeded.",
+          "type": "?number"
+        }
+      ],
+      "properties": [
+        {
+          "name": "count",
+          "attribute": "count",
+          "description": "Number to show within the badge. If no `count` is supplied, Badge will render as a dot.",
+          "type": "?string"
+        },
+        {
+          "name": "maxCount",
+          "attribute": "max-count",
+          "description": "Sets the max count to show. Appends `+` to the `max-count` when value is exceeded.",
+          "type": "?number"
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--jh-badge-border-radius",
+          "description": "The badge border radius. Defaults to `--jh-border-radius-pill`."
+        },
+        {
+          "name": "--jh-badge-color-background-enabled",
+          "description": "The badge background color. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-badge-color-text-enabled",
+          "description": "The badge text color. Defaults to `--jh-color-content-on-brand-enabled`."
+        }
+      ]
+    },
+    {
+      "name": "jh-button",
+      "path": "./components/button/button.js",
+      "attributes": [
+        {
+          "name": "accessible-disabled",
+          "description": "Sets an `aria-disabled` to signify to screen readers that the disabled button should remain perceivable while disabled.",
+          "type": "'true'|'false'"
+        },
+        {
+          "name": "accessible-label",
+          "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+          "type": "?string"
+        },
+        {
+          "name": "appearance",
+          "description": "Determines the button color.",
+          "type": "'primary'|'secondary'|'tertiary'|'danger'",
+          "default": "\"secondary\""
+        },
+        {
+          "name": "block",
+          "description": "Expands the button to fill the width of its parent container. When false, button width is intrinsic and does not respond to container size.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "description": "Disables the button and prevents all user interactions. May cause button to be ignored by assistive technologies(AT). See `accessible-disabled` attribute if the button should remain perceivable to AT.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "href",
+          "description": "Sets the link's destination.",
+          "type": "?string"
+        },
+        {
+          "name": "icon-position",
+          "description": "Sets location of icon in relation to the label.",
+          "type": "'before'|'after'",
+          "default": "\"before\""
+        },
+        {
+          "name": "pending",
+          "description": "Displays a progress indicator.",
+          "type": "?boolean",
+          "default": "false"
+        },
+        {
+          "name": "label",
+          "description": "Describes the intent of the button.",
+          "type": "?string"
+        },
+        {
+          "name": "name",
+          "description": "Sets the name of the button data when submitted in a form.",
+          "type": "?string"
+        },
+        {
+          "name": "size",
+          "description": "Sets the size of the button.",
+          "type": "'small'|'medium'|'large'",
+          "default": "\"medium\""
+        },
+        {
+          "name": "submit",
+          "description": "Sets button `type='submit'`. Button defaults to `type='button'`.",
+          "type": "?boolean",
+          "default": "false"
+        },
+        {
+          "name": "target",
+          "description": "Specifies where to display the linked URL set by the `href` property.",
+          "type": "'_blank'|'_self'|'_parent'|'_top'"
+        },
+        {
+          "name": "value",
+          "description": "Sets the value of the button.",
+          "type": "?string"
+        }
+      ],
+      "properties": [
+        {
+          "name": "accessibleDisabled",
+          "attribute": "accessible-disabled",
+          "description": "Sets an `aria-disabled` to signify to screen readers that the disabled button should remain perceivable while disabled.",
+          "type": "'true'|'false'"
+        },
+        {
+          "name": "accessibleLabel",
+          "attribute": "accessible-label",
+          "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+          "type": "?string"
+        },
+        {
+          "name": "appearance",
+          "attribute": "appearance",
+          "description": "Determines the button color.",
+          "type": "'primary'|'secondary'|'tertiary'|'danger'",
+          "default": "\"secondary\""
+        },
+        {
+          "name": "block",
+          "attribute": "block",
+          "description": "Expands the button to fill the width of its parent container. When false, button width is intrinsic and does not respond to container size.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "Disables the button and prevents all user interactions. May cause button to be ignored by assistive technologies(AT). See `accessible-disabled` attribute if the button should remain perceivable to AT.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "href",
+          "attribute": "href",
+          "description": "Sets the link's destination.",
+          "type": "?string"
+        },
+        {
+          "name": "iconPosition",
+          "attribute": "icon-position",
+          "description": "Sets location of icon in relation to the label.",
+          "type": "'before'|'after'",
+          "default": "\"before\""
+        },
+        {
+          "name": "pending",
+          "attribute": "pending",
+          "description": "Displays a progress indicator.",
+          "type": "?boolean",
+          "default": "false"
+        },
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "Describes the intent of the button.",
+          "type": "?string"
+        },
+        {
+          "name": "name",
+          "attribute": "name",
+          "description": "Sets the name of the button data when submitted in a form.",
+          "type": "?string"
+        },
+        {
+          "name": "size",
+          "attribute": "size",
+          "description": "Sets the size of the button.",
+          "type": "'small'|'medium'|'large'",
+          "default": "\"medium\""
+        },
+        {
+          "name": "submit",
+          "attribute": "submit",
+          "description": "Sets button `type='submit'`. Button defaults to `type='button'`.",
+          "type": "?boolean",
+          "default": "false"
+        },
+        {
+          "name": "target",
+          "attribute": "target",
+          "description": "Specifies where to display the linked URL set by the `href` property.",
+          "type": "'_blank'|'_self'|'_parent'|'_top'"
+        },
+        {
+          "name": "value",
+          "attribute": "value",
+          "description": "Sets the value of the button.",
+          "type": "?string"
+        }
+      ],
+      "slots": [
+        {
+          "name": "jh-button-icon",
+          "description": "Use to insert an icon."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--jh-button-color-background-primary-enabled",
+          "description": "The button container background-color when enabled and `appearance=\"primary\"`. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-button-color-border-primary-enabled",
+          "description": "The button container border-color when enabled and `appearance=\"primary\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-color-background-primary-focus",
+          "description": "The button container background-color when in focus and `appearance=\"primary\"`. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-button-color-border-primary-focus",
+          "description": "The button container border-color when in focus and `appearance=\"primary\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-color-background-primary-hover",
+          "description": "The button container background-color when hovered and `appearance=\"primary\"`. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-button-color-border-primary-hover",
+          "description": "The button container border-color when hovered and `appearance=\"primary\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-color-background-primary-active",
+          "description": "The button container background-color when active and `appearance=\"primary\"`. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-button-color-border-primary-active",
+          "description": "The button container border-color when active and `appearance=\"primary\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-color-background-primary-disabled",
+          "description": "The button container background-color when disabled and `appearance=\"primary\"`. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-button-color-border-primary-disabled",
+          "description": "The button container border-color when disabled and `appearance=\"primary\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-color-background-primary-pending",
+          "description": "The button container background-color when pending and `appearance=\"primary\"`. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-button-color-border-primary-pending",
+          "description": "The button container border-color when pending and `appearance=\"primary\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-label-color-text-primary-enabled",
+          "description": "The label text color when enabled and `appearance=\"primary\"`. Defaults to `--jh-color-content-on-brand-enabled`."
+        },
+        {
+          "name": "--jh-button-label-color-text-primary-focus",
+          "description": "The label text color when in focus and `appearance=\"primary\"`. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-button-label-color-text-primary-hover",
+          "description": "The label text color when hovered and `appearance=\"primary\"`. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-button-label-color-text-primary-active",
+          "description": "The label text color when active and `appearance=\"primary\"`. Defaults to `--jh-color-content-on-brand-active`."
+        },
+        {
+          "name": "--jh-button-label-color-text-primary-disabled",
+          "description": "The label text color when disabled and `appearance=\"primary\"`. Defaults to `--jh-color-content-on-brand-enabled`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-primary-enabled",
+          "description": "The icon color when enabled and `appearance=\"primary\"`. Defaults to `--jh-color-content-on-brand-enabled`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-primary-focus",
+          "description": "The icon color when in focus and `appearance=\"primary\"`. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-primary-hover",
+          "description": "The icon color when hovered and `appearance=\"primary\"`. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-primary-active",
+          "description": "The icon color when active and `appearance=\"primary\"`. Defaults to `--jh-color-content-on-brand-active`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-primary-disabled",
+          "description": "The icon color when disabled and `appearance=\"primary\"`. Defaults to `--jh-color-content-on-brand-enabled`."
+        },
+        {
+          "name": "--jh-button-progress-color-border-primary-pending",
+          "description": "The progress indicator border-color when `appearance=\"primary\"`. Defaults to `--jh-color-content-on-brand-enabled`."
+        },
+        {
+          "name": "--jh-button-color-background-secondary-enabled",
+          "description": "The button container background-color when enabled and `appearance=\"secondary\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-color-border-secondary-enabled",
+          "description": "The button container border-color when enabled and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-button-color-background-secondary-focus",
+          "description": "The button container background-color when in focus and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-button-color-border-secondary-focus",
+          "description": "The button container border-color when in focus and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-button-color-background-secondary-hover",
+          "description": "The button container background-color when hovered and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-button-color-border-secondary-hover",
+          "description": "The button container border-color when hovered and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-button-color-background-secondary-active",
+          "description": "The button container background-color when active and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-button-color-border-secondary-active",
+          "description": "The button container border-color when active and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-button-color-background-secondary-disabled",
+          "description": "The button container background-color when disabled and `appearance=\"secondary\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-color-border-secondary-disabled",
+          "description": "The button container border-color when disabled and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-button-color-background-secondary-pending",
+          "description": "The button container background-color when pending and `appearance=\"secondary\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-color-border-secondary-pending",
+          "description": "The button container border-color when pending and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-button-label-color-text-secondary-enabled",
+          "description": "The label text color when enabled and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-button-label-color-text-secondary-focus",
+          "description": "The label text color when in focus and `appearance=\"secondary\"`. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-button-label-color-text-secondary-hover",
+          "description": "The label text color when hovered and `appearance=\"secondary\"`. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-button-label-color-text-secondary-active",
+          "description": "The label text color when active and `appearance=\"secondary\"`. Defaults to `--jh-color-content-on-brand-active`."
+        },
+        {
+          "name": "--jh-button-label-color-text-secondary-disabled",
+          "description": "The label text color when disabled and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-secondary-enabled",
+          "description": "The icon color when enabled and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-secondary-focus",
+          "description": "The icon color when in focus and `appearance=\"secondary\"`. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-secondary-hover",
+          "description": "The icon color when hovered and `appearance=\"secondary\"`. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-secondary-active",
+          "description": "The icon color when active and `appearance=\"secondary\"`. Defaults to `--jh-color-content-on-brand-active`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-secondary-disabled",
+          "description": "The icon color when disabled and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-button-progress-color-border-secondary-pending",
+          "description": "The progress indicator border-color when `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-button-color-background-tertiary-enabled",
+          "description": "The button container background-color when enabled and `appearance=\"tertiary\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-color-border-tertiary-enabled",
+          "description": "The button container border-color when enabled and `appearance=\"tertiary\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-color-background-tertiary-focus",
+          "description": "The button container background-color when in focus and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-button-color-border-tertiary-focus",
+          "description": "The button container border-color when in focus and `appearance=\"tertiary\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-color-background-tertiary-hover",
+          "description": "The button container background-color when hovered and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-button-color-border-tertiary-hover",
+          "description": "The button container border-color when hovered and `appearance=\"tertiary\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-color-background-tertiary-active",
+          "description": "The button container background-color when active and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-button-color-border-tertiary-active",
+          "description": "The button container border-color when active and `appearance=\"tertiary\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-color-background-tertiary-disabled",
+          "description": "The button container background-color when disabled and `appearance=\"tertiary\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-color-border-tertiary-disabled",
+          "description": "The button container border-color when disabled and `appearance=\"tertiary\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-color-background-tertiary-pending",
+          "description": "The button container background-color when pending and `appearance=\"tertiary\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-color-border-tertiary-pending",
+          "description": "The button container border-color when pending and `appearance=\"tertiary\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-label-color-text-tertiary-enabled",
+          "description": "The label text color when enabled and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-button-label-color-text-tertiary-focus",
+          "description": "The label text color when in focus and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-button-label-color-text-tertiary-hover",
+          "description": "The label text color when hovered and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-button-label-color-text-tertiary-active",
+          "description": "The label text color when active and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-on-brand-active`."
+        },
+        {
+          "name": "--jh-button-label-color-text-tertiary-disabled",
+          "description": "The label text color when disabled and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-tertiary-enabled",
+          "description": "The icon color when enabled and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-tertiary-focus",
+          "description": "The icon color when in focus and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-tertiary-hover",
+          "description": "The icon color when hovered and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-tertiary-active",
+          "description": "The icon color when active and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-on-brand-active`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-tertiary-disabled",
+          "description": "The icon color when disabled and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-button-progress-color-border-tertiary-pending",
+          "description": "The progress indicator border-color when `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-button-color-background-danger-enabled",
+          "description": "The button container background-color when enabled and `appearance=\"danger\"`. Defaults to `--jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-button-color-border-danger-enabled",
+          "description": "The button container border-color when enabled and `appearance=\"danger\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-color-background-danger-focus",
+          "description": "The button container background-color when in focus and `appearance=\"danger\"`. Defaults to `--jh-color-content-negative-hover`."
+        },
+        {
+          "name": "--jh-button-color-border-danger-focus",
+          "description": "The button container border-color when in focus and `appearance=\"danger\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-color-background-danger-hover",
+          "description": "The button container background-color when hovered and `appearance=\"danger\"`. Defaults to `--jh-color-content-negative-hover`."
+        },
+        {
+          "name": "--jh-button-color-border-danger-hover",
+          "description": "The button container border-color when hovered and `appearance=\"danger\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-color-background-danger-active",
+          "description": "The button container background-color when active and `appearance=\"danger\"`. Defaults to `--jh-color-content-negative-active`."
+        },
+        {
+          "name": "--jh-button-color-border-danger-active",
+          "description": "The button container border-color when active and `appearance=\"danger\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-color-background-danger-disabled",
+          "description": "The button container background-color when disabled and `appearance=\"danger\"`. Defaults to `--jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-button-color-border-danger-disabled",
+          "description": "The button container border-color when disabled and `appearance=\"danger\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-color-background-danger-pending",
+          "description": "The button container background-color when pending and `appearance=\"danger\"`. Defaults to `--jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-button-color-border-danger-pending",
+          "description": "The button container border-color when pending and `appearance=\"danger\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-label-color-text-danger-enabled",
+          "description": "The label text color when enabled and `appearance=\"danger\"`. Defaults to `--jh-color-content-on-negative-enabled`."
+        },
+        {
+          "name": "--jh-button-label-color-text-danger-focus",
+          "description": "The label text color when in focus and `appearance=\"danger\"`. Defaults to `--jh-color-content-on-negative-hover`."
+        },
+        {
+          "name": "--jh-button-label-color-text-danger-hover",
+          "description": "The label text color when hovered and `appearance=\"danger\"`. Defaults to `--jh-color-content-on-negative-hover`."
+        },
+        {
+          "name": "--jh-button-label-color-text-danger-active",
+          "description": "The label text color when active and `appearance=\"danger\"`. Defaults to `--jh-color-content-on-negative-active`."
+        },
+        {
+          "name": "--jh-button-label-color-text-danger-disabled",
+          "description": "The label text color when disabled and `appearance=\"danger\"`. Defaults to `--jh-color-content-on-negative-enabled`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-danger-enabled",
+          "description": "The icon color when enabled and `appearance=\"danger\"`. Defaults to `--jh-color-content-on-negative-enabled`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-danger-focus",
+          "description": "The icon color when in focus and `appearance=\"danger\"`. Defaults to `--jh-color-content-on-negative-hover`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-danger-hover",
+          "description": "The icon color when hovered and `appearance=\"danger\"`. Defaults to `--jh-color-content-on-negative-hover`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-danger-active",
+          "description": "The icon color when active and `appearance=\"danger\"`. Defaults to `--jh-color-content-on-negative-active`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-danger-disabled",
+          "description": "The icon color when disabled and `appearance=\"danger\"`. Defaults to `--jh-color-content-on-negative-enabled`."
+        },
+        {
+          "name": "--jh-button-progress-color-border-danger-pending",
+          "description": "The progress indicator border-color when `appearance=\"danger\"`. Defaults to `--jh-color-content-on-negative-enabled`."
+        },
+        {
+          "name": "--jh-button-border-radius",
+          "description": "The button container border-radius. Defaults to `--jh-border-radius-100`."
+        },
+        {
+          "name": "--jh-button-opacity-disabled",
+          "description": "The button container opacity when disabled. Defaults to `--jh-opacity-disabled`."
+        },
+        {
+          "name": "--jh-button-shadow-focus",
+          "description": "The button container box-shadow when in focus. Defaults to `--jh-shadow-focus`."
+        },
+        {
+          "name": "--jh-button-size",
+          "description": "The button width when no label is set, and the button height. Button width and height defaults to `--jh-size-1000` when `size=\"small\"`, `--jh-size-1200` when `size=\"medium\"`, and `--jh-size-1400` when `size=\"large\"`."
+        }
+      ]
+    },
+    {
+      "name": "jh-card",
+      "path": "./components/card/card.js",
+      "attributes": [
+        {
+          "name": "footer-divider-inset",
+          "description": "Sets the alignment of the left edge of the divider above the footer.",
+          "type": "0|8|16|24|32|40|48|56|64|72|80|88|96"
+        },
+        {
+          "name": "header-divider-inset",
+          "description": "Sets the alignment of the left edge of the divider below the header.",
+          "type": "0|8|16|24|32|40|48|56|64|72|80|88|96"
+        },
+        {
+          "name": "title-heading-level",
+          "description": "Informs assistive technologies what heading level the card title represents. Defaults to h2.",
+          "type": "1|2|3|4|5|6",
+          "default": "2"
+        },
+        {
+          "name": "padding",
+          "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
+          "type": "'small'|'medium'|'none'",
+          "default": "\"medium\""
+        },
+        {
+          "name": "show-footer-divider",
+          "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "show-header-divider",
+          "description": "Adds a divider below the header to create a clearer definition between the header and body.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "header-subtitle",
+          "description": "Adds additional information about the card below the title.",
+          "type": "?string"
+        },
+        {
+          "name": "header-title",
+          "description": "Provides context for the content of the card.",
+          "type": "?string"
+        }
+      ],
+      "properties": [
+        {
+          "name": "footerDividerInset",
+          "attribute": "footer-divider-inset",
+          "description": "Sets the alignment of the left edge of the divider above the footer.",
+          "type": "0|8|16|24|32|40|48|56|64|72|80|88|96"
+        },
+        {
+          "name": "headerDividerInset",
+          "attribute": "header-divider-inset",
+          "description": "Sets the alignment of the left edge of the divider below the header.",
+          "type": "0|8|16|24|32|40|48|56|64|72|80|88|96"
+        },
+        {
+          "name": "titleHeadingLevel",
+          "attribute": "title-heading-level",
+          "description": "Informs assistive technologies what heading level the card title represents. Defaults to h2.",
+          "type": "1|2|3|4|5|6",
+          "default": "2"
+        },
+        {
+          "name": "padding",
+          "attribute": "padding",
+          "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
+          "type": "'small'|'medium'|'none'",
+          "default": "\"medium\""
+        },
+        {
+          "name": "showFooterDivider",
+          "attribute": "show-footer-divider",
+          "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "showHeaderDivider",
+          "attribute": "show-header-divider",
+          "description": "Adds a divider below the header to create a clearer definition between the header and body.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "headerSubtitle",
+          "attribute": "header-subtitle",
+          "description": "Adds additional information about the card below the title.",
+          "type": "?string"
+        },
+        {
+          "name": "headerTitle",
+          "attribute": "header-title",
+          "description": "Provides context for the content of the card.",
+          "type": "?string"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "Use to insert card body content."
+        },
+        {
+          "name": "jh-card-media",
+          "description": "Use to insert media content in the top section of the card. User may need to add addtional styling to elements such as border, object-fit, etc."
+        },
+        {
+          "name": "jh-card-header",
+          "description": "Use to insert custom card header layout. Default layout includes `headerTitle` and `headerSubtitle` properties."
+        },
+        {
+          "name": "jh-card-footer",
+          "description": "Use to insert card footer content."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--jh-card-color-background",
+          "description": "The card background-color. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-card-border-radius",
+          "description": "The card border-radius. Defaults to `--jh-border-radius-400`."
+        },
+        {
+          "name": "--jh-card-shadow",
+          "description": "The card box-shadow. Defaults to `--jh-shadow-100`."
+        },
+        {
+          "name": "--jh-card-media-aspect-ratio",
+          "description": "The media slot aspect-ratio. Defaults to `auto`."
+        },
+        {
+          "name": "--jh-card-media-space-padding",
+          "description": "The media slot padding. Defaults to `0`."
+        },
+        {
+          "name": "--jh-card-header-color-text",
+          "description": "The header text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-card-header-space-padding",
+          "description": "The header slot padding. Defaults to `--jh-space-400 --jh-space-600 0`. When `padding=\"small\"`, defaults to\n`--jh-space-400 --jh-space-400 0`. When `padding=\"small\"` and `show-header-divider`, defaults to `--jh-space-400`. When `padding=\"medium\"` or\n`padding=\"none'` and `show-header-divider`, defaults to `--jh-space-400 --jh-space-600`."
+        },
+        {
+          "name": "--jh-card-default-color-text",
+          "description": "The default slot text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-card-default-space-padding",
+          "description": "The default slot padding. Defaults to `--jh-space-400 --jh-space-600`. When `padding=\"small\"`, defaults\nto `--jh-space-400`. When `padding=\"none\"`, defaults to `--jh-space-400 0`."
+        },
+        {
+          "name": "--jh-card-footer-color-text",
+          "description": "The footer slot text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-card-footer-space-padding",
+          "description": "The footer slot padding. Defaults to `0 --jh-space-600 --jh-space-400`. When `padding=\"small\"`, defaults to\n`0 --jh-space-400 --jh-space-400`. When `padding=\"small\"` and `show-footer-divider`, defaults to `--jh-space-400`. When `padding=\"medium\"` or\n`padding=\"none\"` and `show-footer-divider`, defaults to `--jh-space-400 --jh-space-600`."
+        },
+        {
+          "name": "--jh-card-header-title-color-text",
+          "description": "The header title text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-card-header-subtitle-color-text",
+          "description": "The header subtitle text color. Defaults to `--jh-color-content-secondary-enabled`."
+        }
+      ]
+    },
+    {
+      "name": "jh-checkbox-group",
+      "path": "./components/checkbox-group/checkbox-group.js",
+      "attributes": [
+        {
+          "name": "accessible-label",
+          "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+          "type": "?string"
+        },
+        {
+          "name": "error-text",
+          "description": "Text to be displayed when checkbox group has failed validation and `invalid` is true.",
+          "type": "?string"
+        },
+        {
+          "name": "helper-text",
+          "description": "Provides additional context or guidance for using the checkbox group. For `helper-text` to be displayed, the `label` property must also be set.",
+          "type": "?string"
+        },
+        {
+          "name": "invalid",
+          "description": "Sets an `aria-invalid` on the checkbox group to indicate the value supplied was invalid and displays `error-text` when set.",
+          "type": "?Boolean",
+          "default": "false"
+        },
+        {
+          "name": "label",
+          "description": "Describes the type of data to be collected.",
+          "type": "?string"
+        },
+        {
+          "name": "required",
+          "description": "Indicates a value is required.",
+          "type": "?Boolean",
+          "default": "false"
+        },
+        {
+          "name": "orientation",
+          "description": "Determines the orientation of the checkbox group.",
+          "type": "'vertical'|'horizontal'",
+          "default": "\"vertical\""
+        },
+        {
+          "name": "show-indicator",
+          "description": "Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required` property is also set. For the indicator to be displayed, the `label` property must also be set.",
+          "type": "?boolean",
+          "default": "false"
+        }
+      ],
+      "properties": [
+        {
+          "name": "accessibleLabel",
+          "attribute": "accessible-label",
+          "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+          "type": "?string"
+        },
+        {
+          "name": "errorText",
+          "attribute": "error-text",
+          "description": "Text to be displayed when checkbox group has failed validation and `invalid` is true.",
+          "type": "?string"
+        },
+        {
+          "name": "helperText",
+          "attribute": "helper-text",
+          "description": "Provides additional context or guidance for using the checkbox group. For `helper-text` to be displayed, the `label` property must also be set.",
+          "type": "?string"
+        },
+        {
+          "name": "invalid",
+          "attribute": "invalid",
+          "description": "Sets an `aria-invalid` on the checkbox group to indicate the value supplied was invalid and displays `error-text` when set.",
+          "type": "?Boolean",
+          "default": "false"
+        },
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "Describes the type of data to be collected.",
+          "type": "?string"
+        },
+        {
+          "name": "required",
+          "attribute": "required",
+          "description": "Indicates a value is required.",
+          "type": "?Boolean",
+          "default": "false"
+        },
+        {
+          "name": "orientation",
+          "attribute": "orientation",
+          "description": "Determines the orientation of the checkbox group.",
+          "type": "'vertical'|'horizontal'",
+          "default": "\"vertical\""
+        },
+        {
+          "name": "showIndicator",
+          "attribute": "show-indicator",
+          "description": "Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required` property is also set. For the indicator to be displayed, the `label` property must also be set.",
+          "type": "?boolean",
+          "default": "false"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "Use to insert `<jh-checkbox>` component(s)."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--jh-checkbox-group-label-color-text",
+          "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-group-required-color-text",
+          "description": "The required indicator color.\nDefaults to `--jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-group-required-color-text-optional",
+          "description": "The optional indicator text color.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-group-helper-color-text",
+          "description": "The helper-text text color.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-group-error-color-text",
+          "description": "The error-text text color.\nDefaults to `--jh-color-content-negative-enabled`."
+        }
+      ]
+    },
+    {
+      "name": "jh-checkbox",
+      "path": "./components/checkbox/checkbox.js",
+      "attributes": [
+        {
+          "name": "checked",
+          "description": "Sets the selected or 'checked' state on the checkbox.",
+          "type": "?Boolean",
+          "default": "false"
+        },
+        {
+          "name": "indeterminate",
+          "description": "Sets the indeterminate state on the checkbox.",
+          "type": "?Boolean",
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "description": "Disables the checkbox and prevents all user interactions. May cause checkbox to be ignored by assistive technologies(AT).",
+          "type": "?boolean",
+          "default": "false"
+        },
+        {
+          "name": "label",
+          "description": "Sets the value of the data to be collected when selected.",
+          "type": "?string"
+        },
+        {
+          "name": "helper-text",
+          "description": "Provides additional context or guidance for using the checkbox. For `helper-text` to be displayed, the `label` property must also be set.",
+          "type": "?string"
+        },
+        {
+          "name": "name",
+          "description": "Sets the name of the checkbox data when submitted in a form.",
+          "type": "?string"
+        },
+        {
+          "name": "value",
+          "description": "Sets the value of the checkbox.",
+          "type": "?string"
+        },
+        {
+          "name": "accessible-label",
+          "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+          "type": "?string"
+        }
+      ],
+      "properties": [
+        {
+          "name": "form",
+          "description": "Returns the checkbox's parent form element.",
+          "type": "?HTMLFormElement"
+        },
+        {
+          "name": "checked",
+          "attribute": "checked",
+          "description": "Sets the selected or 'checked' state on the checkbox.",
+          "type": "?Boolean",
+          "default": "false"
+        },
+        {
+          "name": "indeterminate",
+          "attribute": "indeterminate",
+          "description": "Sets the indeterminate state on the checkbox.",
+          "type": "?Boolean",
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "Disables the checkbox and prevents all user interactions. May cause checkbox to be ignored by assistive technologies(AT).",
+          "type": "?boolean",
+          "default": "false"
+        },
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "Sets the value of the data to be collected when selected.",
+          "type": "?string"
+        },
+        {
+          "name": "helperText",
+          "attribute": "helper-text",
+          "description": "Provides additional context or guidance for using the checkbox. For `helper-text` to be displayed, the `label` property must also be set.",
+          "type": "?string"
+        },
+        {
+          "name": "name",
+          "attribute": "name",
+          "description": "Sets the name of the checkbox data when submitted in a form.",
+          "type": "?string"
+        },
+        {
+          "name": "value",
+          "attribute": "value",
+          "description": "Sets the value of the checkbox.",
+          "type": "?string"
+        },
+        {
+          "name": "accessibleLabel",
+          "attribute": "accessible-label",
+          "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+          "type": "?string"
+        }
+      ],
+      "events": [
+        {
+          "name": "jh-change",
+          "description": "Dispatched when the state of the checkbox has changed."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--jh-checkbox-opacity-disabled",
+          "description": "The checkbox opacity when disabled. Defaults to `--jh-opacity-disabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-border-radius",
+          "description": "The checkbox border radius. Defaults to `--jh-border-radius-50`."
+        },
+        {
+          "name": "--jh-checkbox-input-shadow-focus",
+          "description": "The checkbox box shadow when focused. Defaults to `--jh-shadow-focus`."
+        },
+        {
+          "name": "--jh-checkbox-helper-color-text",
+          "description": "The helper text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-label-color-text",
+          "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-unselected-enabled",
+          "description": "The checkbox background-color when unselected. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-unselected-enabled",
+          "description": "The checkbox border-color when unselected. Defaults to `--jh-color-divider-primary`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-unselected-focus",
+          "description": "The checkbox background-color when unselected and focused. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-unselected-focus",
+          "description": "The checkbox border-color when unselected and focused. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-unselected-hover",
+          "description": "The checkbox background-color when unselected and hovered. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-unselected-hover",
+          "description": "The checkbox border-color when unselected and hovered. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-unselected-active",
+          "description": "The checkbox background-color when unselected and active. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-unselected-active",
+          "description": "The checkbox border-color when unselected and active. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-unselected-disabled",
+          "description": "The  checkbox background-color when unselected and disabled. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-unselected-disabled",
+          "description": "The checkbox border-color when unselected and disabled. Defaults to `--jh-color-divider-primary`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-selected-enabled",
+          "description": "The checkbox background-color when selected. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-selected-enabled",
+          "description": "The checkbox border-color when selected. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-selected-enabled",
+          "description": "The status mark color when selected. Defaults to `--jh-color-content-on-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-selected-focus",
+          "description": "The checkbox background-color when selected and focused. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-selected-focus",
+          "description": "The checkbox border-color when selected and focused. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-selected-focus",
+          "description": "The status mark color when selected and focused. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-selected-hover",
+          "description": "The checkbox background-color when selected and hovered. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-selected-hover",
+          "description": "The checkbox border-color when selected and hovered. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-selected-hover",
+          "description": "The status mark color when selected and hovered. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-selected-active",
+          "description": "The checkbox background-color when selected and active. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-selected-active",
+          "description": "The checkbox border-color when selected and active. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-selected-active",
+          "description": "The status mark color when selected and active. Defaults to `--jh-color-content-on-brand-active`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-selected-disabled",
+          "description": "The checkbox background-color when selected and disabled. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-selected-disabled",
+          "description": "The checkbox border-color when selected and disabled. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-selected-disabled",
+          "description": "The status mark color when selected and disabled. Defaults to `--jh-color-content-on-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-indeterminate-enabled",
+          "description": "The checkbox background-color when indeterminate. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-indeterminate-enabled",
+          "description": "The border-color when indeterminate checkbox. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-indeterminate-enabled",
+          "description": "The status mark color when indeterminate. Defaults to `--jh-color-content-on-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-indeterminate-focus",
+          "description": "The checkbox background-color when indeterminate and focused. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-indeterminate-focus",
+          "description": "The checkbox border-color when indeterminate and focused. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-indeterminate-focus",
+          "description": "The checkbox color when indeterminate status mark when focused. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-indeterminate-hover",
+          "description": "The checkbox background-color when indeterminate and hovered. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-indeterminate-hover",
+          "description": "The checkbox border-color when indeterminate and hovered. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-indeterminate-hover",
+          "description": "The checkbox color when indeterminate status mark when hovered. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-indeterminate-active",
+          "description": "The checkbox background-color when indeterminate and active. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-indeterminate-active",
+          "description": "The checkbox border-color when indeterminate and active. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-indeterminate-active",
+          "description": "The checkbox color when indeterminate status mark when active. Defaults to `--jh-color-content-on-brand-active`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-indeterminate-disabled",
+          "description": "The checkbox background-color when indeterminate and disabled. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-indeterminate-disabled",
+          "description": "The checkbox border-color when indeterminate and disabled. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-indeterminate-disabled",
+          "description": "The checkbox color when indeterminate status mark when disabled. Defaults to `--jh-color-content-on-brand-enabled`."
+        }
+      ]
+    },
+    {
+      "name": "jh-divider",
+      "path": "./components/divider/divider.js",
+      "attributes": [
+        {
+          "name": "inset",
+          "description": "The alignment of the left edge of the divider.",
+          "type": "0|8|16|24|32|40|48|56|64|72|80|88|96"
+        }
+      ],
+      "properties": [
+        {
+          "name": "inset",
+          "attribute": "inset",
+          "description": "The alignment of the left edge of the divider.",
+          "type": "0|8|16|24|32|40|48|56|64|72|80|88|96"
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--jh-divider-border-width",
+          "description": "The divider width. Defaults to `1px`."
+        },
+        {
+          "name": "--jh-divider-border-style",
+          "description": "The divider style. Defaults to solid."
+        },
+        {
+          "name": "--jh-divider-color-border",
+          "description": "The divider color. Defaults to `--jh-color-divider-secondary`."
+        },
+        {
+          "name": "--jh-divider-space-inset",
+          "description": "The divider margin-left. Defaults to `0`."
+        }
+      ]
+    },
+    {
+      "name": "jh-icon",
+      "path": "./components/icon/icon.js",
+      "attributes": [
+        {
+          "name": "size",
+          "description": "Sets the size of the icon.",
+          "type": "'x-small'|'small'|'medium'|'large'|'x-large'",
+          "default": "\"medium\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "size",
+          "attribute": "size",
+          "description": "Sets the size of the icon.",
+          "type": "'x-small'|'small'|'medium'|'large'|'x-large'",
+          "default": "\"medium\""
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "Use to insert the icon SVG content."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--jh-icon-color-fill",
+          "description": "The icon color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-icon-size-extra-small",
+          "description": "The icon size when `size=\"extra-small\"`. Defaults to `--jh-size-400`."
+        },
+        {
+          "name": "--jh-icon-size-small",
+          "description": "The icon size when `size=\"small\"`. Defaults to `--jh-size-500`."
+        },
+        {
+          "name": "--jh-icon-size-medium",
+          "description": "The icon size when `size=\"medium\"`. Defaults to `--jh-size-600`."
+        },
+        {
+          "name": "--jh-icon-size-large",
+          "description": "The icon size when `size=\"large\"`. Defaults to `--jh-size-900`."
+        },
+        {
+          "name": "--jh-icon-size-extra-large",
+          "description": "The icon size when `size=\"extra-large\"`. Defaults to `--jh-size-1400`."
+        }
+      ]
+    },
+    {
+      "name": "jh-input",
+      "path": "./components/input/input.js",
+      "attributes": [
+        {
+          "name": "accessible-label-input",
+          "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
+          "type": "?string"
+        },
+        {
+          "name": "accessible-label-clear-button",
+          "description": "Sets an `aria-label` on the clear button to assist screen reader users. Indicates that clicking on the button will clear the input field.",
+          "type": "?string"
+        },
+        {
+          "name": "accessible-label-hide-password",
+          "description": "Sets an `aria-label` on the button encapsulating the `jh-input-password-visible` slot to assist screen reader users. Present when input `type=\"password\"` and `password-visible` is false. Indicates that\nclicking on the button will result in a masked password.",
+          "type": "?string"
+        },
+        {
+          "name": "accessible-label-show-password",
+          "description": "Sets an `aria-label` on the button encapsulating `jh-input-password-hidden` slot to assist screen reader users. Present when input `type=\"password\"` and `password-visible` is true. Indicates that\nclicking on the button will result in an unmasked password.",
+          "type": "?string"
+        },
+        {
+          "name": "autocomplete",
+          "description": "Determines whether the browser can provide assistance in filling out the input value and what type of information is expected.\nThis property will override any autocomplete attribute present on the input's parent form\nelement.\n\n[Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)",
+          "type": "?string"
+        },
+        {
+          "name": "auto-grow",
+          "description": "Enables the input height to grow automatically to accomodate user input when `type=\"textarea\"`.\n`auto-grow` will also remove the textarea's native resize capability.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "cols",
+          "description": "Sets the width of input when `type=”textarea”`.",
+          "type": "?string"
+        },
+        {
+          "name": "disabled",
+          "description": "Disables the input and prevents all user interactions. May cause the input to be ignored by assistive technologies (AT). Removes the clear button and password show/hide buttons if set.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "enterkeyhint",
+          "description": "Specifies which action label or icon to present for the enter key on virtual keyboards.\n\n[Visit MDN for information on supported enterkeyhint values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint)",
+          "type": "?string"
+        },
+        {
+          "name": "error-text",
+          "description": "Text to be displayed when input has failed validation and `invalid` is true.",
+          "type": "?string"
+        },
+        {
+          "name": "helper-text",
+          "description": "Provides additional context or guidance for using the input. For `helper-text` to be displayed, the `label` property must also be set.",
+          "type": "?string"
+        },
+        {
+          "name": "hide-left-slot",
+          "description": "Hides the left slot from input.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "password-visible",
+          "description": "Unmasks password when input `type=\"password\"`.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "hide-right-slot",
+          "description": "Hides the right slot from input.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "inputmode",
+          "description": "Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.\n\n[Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)",
+          "type": "?string"
+        },
+        {
+          "name": "invalid",
+          "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "label",
+          "description": "Identifies what data should be entered into the input.",
+          "type": "?string"
+        },
+        {
+          "name": "maxlength",
+          "description": "Sets the maximum number of characters a user can enter into the field.",
+          "type": "?string"
+        },
+        {
+          "name": "minlength",
+          "description": "Sets the minimum number of characters a user can enter into the field.",
+          "type": "?string"
+        },
+        {
+          "name": "name",
+          "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "no-resize",
+          "description": "Removes native resize capability when input `type=”textarea”`.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "placeholder",
+          "description": "Sets placeholder text.",
+          "type": "?string"
+        },
+        {
+          "name": "readonly",
+          "description": "Prevents users from changing the value of input. Removes all slotted content.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "required",
+          "description": "Indicates a value is required.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "rows",
+          "description": "The number of visible text lines when `type=”textarea”`.",
+          "type": "?string"
+        },
+        {
+          "name": "show-clear-button",
+          "description": "Displays a clear button once a value is set; when activated deletes input value.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "show-indicator",
+          "description": "Adds a visual indicator next to the label. Indicates that a value is optional(by default) or required if the `required`\nproperty is also set.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "size",
+          "description": "Sets the size of the input field.",
+          "type": "'small'|'medium'|'large'",
+          "default": "\"medium\""
+        },
+        {
+          "name": "spellcheck",
+          "description": "Defines whether to enable browser spell checking.",
+          "type": "'true'|'false'"
+        },
+        {
+          "name": "type",
+          "description": "Sets type of input control.",
+          "type": "'text'|'search'|'password'|'email'|'tel'|'url'|'textarea'",
+          "default": "\"text\""
+        },
+        {
+          "name": "value",
+          "description": "Sets the value of the input.",
+          "type": "?string"
+        },
+        {
+          "name": "wrap",
+          "description": "Specifies how text should be wrapped when submitted in a form and input `type=\"textarea\"`.",
+          "type": "'hard'|'soft'"
+        }
+      ],
+      "properties": [
+        {
+          "name": "accessibleLabelInput",
+          "attribute": "accessible-label-input",
+          "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
+          "type": "?string"
+        },
+        {
+          "name": "accessibleLabelClearButton",
+          "attribute": "accessible-label-clear-button",
+          "description": "Sets an `aria-label` on the clear button to assist screen reader users. Indicates that clicking on the button will clear the input field.",
+          "type": "?string"
+        },
+        {
+          "name": "accessibleLabelHidePassword",
+          "attribute": "accessible-label-hide-password",
+          "description": "Sets an `aria-label` on the button encapsulating the `jh-input-password-visible` slot to assist screen reader users. Present when input `type=\"password\"` and `password-visible` is false. Indicates that\nclicking on the button will result in a masked password.",
+          "type": "?string"
+        },
+        {
+          "name": "accessibleLabelShowPassword",
+          "attribute": "accessible-label-show-password",
+          "description": "Sets an `aria-label` on the button encapsulating `jh-input-password-hidden` slot to assist screen reader users. Present when input `type=\"password\"` and `password-visible` is true. Indicates that\nclicking on the button will result in an unmasked password.",
+          "type": "?string"
+        },
+        {
+          "name": "autocomplete",
+          "attribute": "autocomplete",
+          "description": "Determines whether the browser can provide assistance in filling out the input value and what type of information is expected.\nThis property will override any autocomplete attribute present on the input's parent form\nelement.\n\n[Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)",
+          "type": "?string"
+        },
+        {
+          "name": "autoGrow",
+          "attribute": "auto-grow",
+          "description": "Enables the input height to grow automatically to accomodate user input when `type=\"textarea\"`.\n`auto-grow` will also remove the textarea's native resize capability.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "cols",
+          "attribute": "cols",
+          "description": "Sets the width of input when `type=”textarea”`.",
+          "type": "?string"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "Disables the input and prevents all user interactions. May cause the input to be ignored by assistive technologies (AT). Removes the clear button and password show/hide buttons if set.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "enterkeyhint",
+          "attribute": "enterkeyhint",
+          "description": "Specifies which action label or icon to present for the enter key on virtual keyboards.\n\n[Visit MDN for information on supported enterkeyhint values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint)",
+          "type": "?string"
+        },
+        {
+          "name": "errorText",
+          "attribute": "error-text",
+          "description": "Text to be displayed when input has failed validation and `invalid` is true.",
+          "type": "?string"
+        },
+        {
+          "name": "helperText",
+          "attribute": "helper-text",
+          "description": "Provides additional context or guidance for using the input. For `helper-text` to be displayed, the `label` property must also be set.",
+          "type": "?string"
+        },
+        {
+          "name": "hideLeftSlot",
+          "attribute": "hide-left-slot",
+          "description": "Hides the left slot from input.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "passwordVisible",
+          "attribute": "password-visible",
+          "description": "Unmasks password when input `type=\"password\"`.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "hideRightSlot",
+          "attribute": "hide-right-slot",
+          "description": "Hides the right slot from input.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "inputmode",
+          "attribute": "inputmode",
+          "description": "Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.\n\n[Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)",
+          "type": "?string"
+        },
+        {
+          "name": "invalid",
+          "attribute": "invalid",
+          "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "Identifies what data should be entered into the input.",
+          "type": "?string"
+        },
+        {
+          "name": "maxlength",
+          "attribute": "maxlength",
+          "description": "Sets the maximum number of characters a user can enter into the field.",
+          "type": "?string"
+        },
+        {
+          "name": "minlength",
+          "attribute": "minlength",
+          "description": "Sets the minimum number of characters a user can enter into the field.",
+          "type": "?string"
+        },
+        {
+          "name": "name",
+          "attribute": "name",
+          "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "noResize",
+          "attribute": "no-resize",
+          "description": "Removes native resize capability when input `type=”textarea”`.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "placeholder",
+          "attribute": "placeholder",
+          "description": "Sets placeholder text.",
+          "type": "?string"
+        },
+        {
+          "name": "readonly",
+          "attribute": "readonly",
+          "description": "Prevents users from changing the value of input. Removes all slotted content.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "required",
+          "attribute": "required",
+          "description": "Indicates a value is required.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "rows",
+          "attribute": "rows",
+          "description": "The number of visible text lines when `type=”textarea”`.",
+          "type": "?string"
+        },
+        {
+          "name": "showClearButton",
+          "attribute": "show-clear-button",
+          "description": "Displays a clear button once a value is set; when activated deletes input value.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "showIndicator",
+          "attribute": "show-indicator",
+          "description": "Adds a visual indicator next to the label. Indicates that a value is optional(by default) or required if the `required`\nproperty is also set.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "size",
+          "attribute": "size",
+          "description": "Sets the size of the input field.",
+          "type": "'small'|'medium'|'large'",
+          "default": "\"medium\""
+        },
+        {
+          "name": "spellcheck",
+          "attribute": "spellcheck",
+          "description": "Defines whether to enable browser spell checking.",
+          "type": "'true'|'false'"
+        },
+        {
+          "name": "type",
+          "attribute": "type",
+          "description": "Sets type of input control.",
+          "type": "'text'|'search'|'password'|'email'|'tel'|'url'|'textarea'",
+          "default": "\"text\""
+        },
+        {
+          "name": "value",
+          "attribute": "value",
+          "description": "Sets the value of the input.",
+          "type": "?string"
+        },
+        {
+          "name": "wrap",
+          "attribute": "wrap",
+          "description": "Specifies how text should be wrapped when submitted in a form and input `type=\"textarea\"`.",
+          "type": "'hard'|'soft'"
+        }
+      ],
+      "events": [
+        {
+          "name": "jh-clear",
+          "description": "Dispatched when the clear button is activated."
+        },
+        {
+          "name": "jh-select",
+          "description": "Dispatched when text has been selected. Event payload includes the selected text and can be accessed via e.detail.selected."
+        },
+        {
+          "name": "jh-change",
+          "description": "Dispatched when the value of the input has changed and input loses focus."
+        }
+      ],
+      "slots": [
+        {
+          "name": "jh-input-left",
+          "description": "Use to insert an icon or button to the left of the default slot. Not supported by `type=\"textarea\"`."
+        },
+        {
+          "name": "jh-input-right",
+          "description": "Use to insert an icon or button to the right of the default slot. Not supported by `type=\"textarea\"`."
+        },
+        {
+          "name": "jh-input-password-visible",
+          "description": "Use to insert a custom icon to the right of the default slot when input `type=\"password\"` and `password-visible` is true."
+        },
+        {
+          "name": "jh-input-password-hidden",
+          "description": "Use to insert a custom icon to the right of the default slot when input `type=\"password\"` and `password-visible` is false."
+        },
+        {
+          "name": "jh-input-clear-button",
+          "description": "Use to insert a clear button icon, present when `show-clear-button` is true and input is neither\n`disabled` or in `readonly` state. Not supported by `type=\"textarea\"`."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--jh-input-left-icon-color-fill",
+          "description": "The left icon fill color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-input-right-icon-color-fill",
+          "description": "The right icon fill color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-input-label-color-text",
+          "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-input-placeholder-color-text",
+          "description": "The placeholder text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-input-color-background",
+          "description": "The input field background-color. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-input-color-border-enabled",
+          "description": "The input field border-color. Defaults to `--jh-color-divider-primary`."
+        },
+        {
+          "name": "--jh-input-border-radius",
+          "description": "The input field border radius. Defaults to `--jh-border-radius-100`."
+        },
+        {
+          "name": "--jh-input-shadow-focus",
+          "description": "The input field box shadow when in focus. Defaults to `--jh-shadow-focus`."
+        },
+        {
+          "name": "--jh-input-color-border-focus",
+          "description": "The input field border-color when in focus. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-input-color-border-hover",
+          "description": "The input field border-color when hovered. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-input-color-border-active",
+          "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-input-color-border-disabled",
+          "description": "The input field border-color when disabled. Defaults to `--jh-color-divider-primary`."
+        },
+        {
+          "name": "--jh-input-opacity-disabled",
+          "description": "The input opacity when disabled. Defaults to `--jh-opacity-300`."
+        },
+        {
+          "name": "--jh-input-color-border-error",
+          "description": "The input field border-color when invalid. Defaults to `--jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-input-size-min-height-text-area-small",
+          "description": "The input min-height when `type=\"textarea\"` and `size=\"small\"`. Defaults to `--jh-size-2000`."
+        },
+        {
+          "name": "--jh-input-size-min-height-text-area-medium",
+          "description": "The input min-height when `type=\"textarea\"` and `size=\"medium\"`. Defaults to `--jh-size-2200`."
+        },
+        {
+          "name": "--jh-input-size-min-height-text-area-large",
+          "description": "The input min-height when `type=\"textarea\"` and `size=\"large\"`. Defaults to `jh-size-2400`."
+        },
+        {
+          "name": "--jh-input-required-color-text",
+          "description": "The required indicator color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-input-optional-color-text",
+          "description": "The optional indicator text color. Defaults to `jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-input-helper-color-text",
+          "description": "The helper-text text color. Defaults to `jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-input-color-text",
+          "description": "The value text color. Defaults to `jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-input-error-color-text",
+          "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-input-clear-border-radius",
+          "description": "The clear button border-radius. Defaults to `jh-button-border-radius`."
+        },
+        {
+          "name": "--jh-input-clear-color-background-enabled",
+          "description": "The clear button background-color. Defaults to `jh-button-color-background-tertiary-enabled`."
+        },
+        {
+          "name": "--jh-input-clear-color-border-enabled",
+          "description": "The clear button border-color. Defaults to `jh-button-color-border-tertiary-enabled`."
+        },
+        {
+          "name": "--jh-input-clear-icon-color-fill-enabled",
+          "description": "The clear button icon fill color. Defaults to `jh-button-icon-color-fill-tertiary-enabled`."
+        },
+        {
+          "name": "--jh-input-clear-color-background-focus",
+          "description": "The clear button background-color when in focus. Defaults to\n`jh-button-color-background-tertiary-focus`."
+        },
+        {
+          "name": "--jh-input-clear-color-border-focus",
+          "description": "The clear button border-color when in focus. Defaults to `jh-button-color-border-tertiary-focus`."
+        },
+        {
+          "name": "--jh-input-clear-shadow-focus",
+          "description": "The clear button box-shadow when in focus. Defaults to `jh-button-shadow-focus`."
+        },
+        {
+          "name": "--jh-input-clear-icon-color-fill-focus",
+          "description": "The clear button icon fill color when in focus. Defaults to\n`jh-button-icon-color-fill-tertiary-focus`."
+        },
+        {
+          "name": "--jh-input-clear-color-background-hover",
+          "description": "The clear button background-color when hovered. Defaults to\n`jh-button-color-background-tertiary-hover`."
+        },
+        {
+          "name": "--jh-input-clear-color-border-hover",
+          "description": "The clear button border-color when hovered. Defaults to `jh-button-color-border-tertiary-hover`."
+        },
+        {
+          "name": "--jh-input-clear-icon-color-fill-hover",
+          "description": "The clear button icon fill color when hovered. Defaults to\n`jh-button-icon-color-fill-tertiary-hover`."
+        },
+        {
+          "name": "--jh-input-clear-color-background-active",
+          "description": "The clear button background-color when active. Defaults to\n`jh-button-color-background-tertiary-active`."
+        },
+        {
+          "name": "--jh-input-clear-color-border-active",
+          "description": "The clear button border-color when active. Defaults to `jh-button-color-border-tertiary-active`."
+        },
+        {
+          "name": "--jh-input-clear-icon-color-fill-active",
+          "description": "The clear button icon fill color when active. Defaults to\n`jh-button-icon-color-fill-tertiary-active`."
+        },
+        {
+          "name": "--jh-input-clear-color-background-disabled",
+          "description": "The clear button background-color when disabled. Defaults to `jh-button-color-background-tertiary-disabled`."
+        },
+        {
+          "name": "--jh-input-clear-color-border-disabled",
+          "description": "The clear button border-color when disabled. Defaults to `jh-button-color-border-tertiary-disabled`."
+        },
+        {
+          "name": "--jh-input-clear-icon-color-fill-disabled",
+          "description": "The clear button icon fill color when disabled. Defaults to\n`jh-button-icon-color-fill-tertiary-disabled`."
+        },
+        {
+          "name": "--jh-input-clear-opacity-disabled",
+          "description": "The clear button container when disabled. Defaults to `jh-button-opacity-disabled`."
+        }
+      ]
+    },
+    {
+      "name": "jh-list-group",
+      "path": "./components/list-group/list-group.js",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "Describes the type of data to be collected.",
+          "type": "?string"
+        },
+        {
+          "name": "accessible-label",
+          "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+          "type": "?string"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "Describes the type of data to be collected.",
+          "type": "?string"
+        },
+        {
+          "name": "accessibleLabel",
+          "attribute": "accessible-label",
+          "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+          "type": "?string"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "Use to insert `<jh-list-item>` component(s)."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--jh-list-group-subheader-color-background",
+          "description": "The subheader background-color.\nDefaults to `transparent`."
+        },
+        {
+          "name": "--jh-list-group-subheader-color-text",
+          "description": "The subheader text color.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-group-subheader-space-padding-right",
+          "description": "The subheader padding-right.\nDefaults to `--jh-space-600`"
+        },
+        {
+          "name": "--jh-list-group-subheader-space-padding-left",
+          "description": "The subheader padding-left.\nDefaults to `--jh-space-600`"
+        }
+      ]
+    },
+    {
+      "name": "jh-list-item",
+      "path": "./components/list-item/list-item.js",
+      "attributes": [
+        {
+          "name": "disabled",
+          "description": "Disables the list-item and prevents all user interactions. May cause list-item to be ignored by assistive technologies(AT).",
+          "type": "?boolean",
+          "default": "false"
+        },
+        {
+          "name": "divider-inset",
+          "description": "The inset of the optional divider. Omit to use the divider-inset token instead.",
+          "type": "null|0|8|16|24|32|40|48|56|64|72|80|88|96"
+        },
+        {
+          "name": "primary-metadata",
+          "description": "The text to show as primary metadata.",
+          "type": "?string"
+        },
+        {
+          "name": "primary-text",
+          "description": "The text to show as primary text.",
+          "type": "?string"
+        },
+        {
+          "name": "secondary-metadata",
+          "description": "The text to show as secondary metadata.",
+          "type": "?string"
+        },
+        {
+          "name": "secondary-text",
+          "description": "The text to show as secondary text.",
+          "type": "?string"
+        },
+        {
+          "name": "selected",
+          "description": "Determines whether an interactive list-item is selected.",
+          "type": "?boolean",
+          "default": "false"
+        },
+        {
+          "name": "show-divider",
+          "description": "Determines whether the divider is displayed below the list-item.",
+          "type": "?boolean",
+          "default": "false"
+        }
+      ],
+      "properties": [
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "Disables the list-item and prevents all user interactions. May cause list-item to be ignored by assistive technologies(AT).",
+          "type": "?boolean",
+          "default": "false"
+        },
+        {
+          "name": "dividerInset",
+          "attribute": "divider-inset",
+          "description": "The inset of the optional divider. Omit to use the divider-inset token instead.",
+          "type": "null|0|8|16|24|32|40|48|56|64|72|80|88|96"
+        },
+        {
+          "name": "primaryMetadata",
+          "attribute": "primary-metadata",
+          "description": "The text to show as primary metadata.",
+          "type": "?string"
+        },
+        {
+          "name": "primaryText",
+          "attribute": "primary-text",
+          "description": "The text to show as primary text.",
+          "type": "?string"
+        },
+        {
+          "name": "secondaryMetadata",
+          "attribute": "secondary-metadata",
+          "description": "The text to show as secondary metadata.",
+          "type": "?string"
+        },
+        {
+          "name": "secondaryText",
+          "attribute": "secondary-text",
+          "description": "The text to show as secondary text.",
+          "type": "?string"
+        },
+        {
+          "name": "selected",
+          "attribute": "selected",
+          "description": "Determines whether an interactive list-item is selected.",
+          "type": "?boolean",
+          "default": "false"
+        },
+        {
+          "name": "showDivider",
+          "attribute": "show-divider",
+          "description": "Determines whether the divider is displayed below the list-item.",
+          "type": "?boolean",
+          "default": "false"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "Use to insert fully customized content into the list-item. Cannot be used with the other slots."
+        },
+        {
+          "name": "jh-list-item-left",
+          "description": "Use to insert custom content on the left the list-item."
+        },
+        {
+          "name": "jh-list-item-right",
+          "description": "Use to insert custom content on the right the list-item."
+        },
+        {
+          "name": "jh-list-item-content",
+          "description": "Use to insert custom content into the list-item."
+        },
+        {
+          "name": "jh-list-item-metadata",
+          "description": "Use to insert custom metadata into the list-item."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--jh-list-item-color-background",
+          "description": "The list-item container's background-color.\nDefaults to `transparent`."
+        },
+        {
+          "name": "--jh-list-item-color-text",
+          "description": "The default, left, text, metadata, right, primary, and secondary slot text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-space-padding-right",
+          "description": "The right padding on the list-item container. Defaults to `--jh-space-600`."
+        },
+        {
+          "name": "--jh-list-item-space-padding-left",
+          "description": "The left padding on the list-item container. Defaults to `--jh-space-600`."
+        },
+        {
+          "name": "--jh-list-item-size-height",
+          "description": "The list-item's height. Defaults to `auto`."
+        },
+        {
+          "name": "--jh-list-item-color-text-primary",
+          "description": "The primary text color.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary",
+          "description": "The secondary text color.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-primary",
+          "description": "The primary metadata text color.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-secondary",
+          "description": "The secondary metadata text color.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-background-focus",
+          "description": "The list-item background-color when interactive and focused.\nDefaults to `--jh-color-container-primary-hover`."
+        },
+        {
+          "name": "--jh-list-item-color-outline-focus",
+          "description": "The list-item outline-color when interactive and focused.\nDefaults to `--jh-color-interactive-focus-outer`."
+        },
+        {
+          "name": "--jh-list-item-color-background-hover",
+          "description": "The list-item background-color when interactive and hovered.\nDefaults to `--jh-color-container-primary-hover`."
+        },
+        {
+          "name": "--jh-list-item-color-background-active",
+          "description": "The list-item background-color when interactive and active.\nDefaults to `--jh-color-container-primary-active`."
+        },
+        {
+          "name": "--jh-list-item-color-background-selected",
+          "description": "The list-item background-color when interactive and selected. Defaults to `--jh-color-container-primary-selected`."
+        },
+        {
+          "name": "--jh-list-item-color-border-selected",
+          "description": "The list-item border-left-color when interactive and selected.\nDefaults to `--jh-color-content-brand-enabled`."
+        }
+      ]
+    },
+    {
+      "name": "jh-menu",
+      "path": "./components/menu/menu.js",
+      "slots": [
+        {
+          "name": "default",
+          "description": "Use to insert menu items."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--jh-menu-z-index",
+          "description": "The menu z-index. Defaults to `--jh-z-index-positive-1000`."
+        },
+        {
+          "name": "--jh-menu-color-background",
+          "description": "The menu container background-color. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-menu-shadow",
+          "description": "The menu box-shadow. Defaults to `--jh-shadow-300`."
+        },
+        {
+          "name": "--jh-menu-border-radius",
+          "description": "The menu border-radius. Defaults to `--jh-border-radius-200`."
+        },
+        {
+          "name": "--jh-menu-space-padding",
+          "description": "The menu container padding. Defaults to `--jh-space-200 0`."
+        },
+        {
+          "name": "--jh-menu-color-text",
+          "description": "The text color. Defaults to `--jh-color-content-primary-enabled`."
+        }
+      ]
+    },
+    {
+      "name": "jh-notification",
+      "path": "./components/notification/notification.js",
+      "attributes": [
+        {
+          "name": "appearance",
+          "description": "Sets background color of container to convey message connotation.",
+          "type": "'positive'|'neutral'|'negative'",
+          "default": "\"neutral\""
+        },
+        {
+          "name": "dismiss-button-accessible-label",
+          "description": "Adds an aria-label to the dismiss button to assist screen readers.",
+          "type": "string"
+        },
+        {
+          "name": "hide-dismiss-button",
+          "description": "Removes dismiss button from notification.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "stacked",
+          "description": "Places action button(s) on new line, below default slot.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "type",
+          "description": "Determines where in viewport notification is displayed. Alerts will follow typical content flow, while banners will break out of standard flow and go edge-to-edge within a container.",
+          "type": "'alert'|'banner'",
+          "default": "\"alert\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "appearance",
+          "attribute": "appearance",
+          "description": "Sets background color of container to convey message connotation.",
+          "type": "'positive'|'neutral'|'negative'",
+          "default": "\"neutral\""
+        },
+        {
+          "name": "dismissButtonAccessibleLabel",
+          "attribute": "dismiss-button-accessible-label",
+          "description": "Adds an aria-label to the dismiss button to assist screen readers.",
+          "type": "string"
+        },
+        {
+          "name": "hideDismissButton",
+          "attribute": "hide-dismiss-button",
+          "description": "Removes dismiss button from notification.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "stacked",
+          "attribute": "stacked",
+          "description": "Places action button(s) on new line, below default slot.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "type",
+          "attribute": "type",
+          "description": "Determines where in viewport notification is displayed. Alerts will follow typical content flow, while banners will break out of standard flow and go edge-to-edge within a container.",
+          "type": "'alert'|'banner'",
+          "default": "\"alert\""
+        }
+      ],
+      "events": [
+        {
+          "name": "jh-dismiss",
+          "description": "Dispatched when the notification is dismissed."
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "Use to insert contextual information."
+        },
+        {
+          "name": "jh-notification-icon",
+          "description": "Use to insert a button or icon to the left of the default slot."
+        },
+        {
+          "name": "jh-notification-dismiss-icon",
+          "description": "Use to insert icon within the dismiss button."
+        },
+        {
+          "name": "jh-notification-action",
+          "description": "Use to insert action button(s). Placed to the right of the default slot. Set `stacked` property to place slot below default slot."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--jh-notification-border-radius-alert",
+          "description": "The notification border-radius when `type=\"alert\"`. Defaults to `--jh-border-radius-100`."
+        },
+        {
+          "name": "--jh-notification-border-radius-banner",
+          "description": "The notification border-radius when `type=\"banner\"`. Defaults to `--jh-border-radius-0`."
+        },
+        {
+          "name": "--jh-notification-color-background-neutral",
+          "description": "The notification background color when `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-notification-color-background-positive",
+          "description": "The notification background color when `appearance=\"positive\"`. Defaults to `--jh-color-content-positive-enabled`."
+        },
+        {
+          "name": "--jh-notification-color-background-negative",
+          "description": "The notification background color when `appearance=\"negative\"`. Defaults to `--jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-notification-color-text-neutral",
+          "description": "The notification text color when `appearance=\"neutral\"`. Defaults to `--jh-color-content-on-primary-enabled`."
+        },
+        {
+          "name": "--jh-notification-color-text-positive",
+          "description": "The notification text color when `appearance=\"positive\"`. Defaults to `--jh-color-content-on-positive-enabled`."
+        },
+        {
+          "name": "--jh-notification-color-text-negative",
+          "description": "The notification text color when `appearance=\"negative\"`. Defaults to `--jh-color-content-on-negative-enabled`."
+        },
+        {
+          "name": "--jh-notification-icon-color-fill-neutral",
+          "description": "The icon fill color when `appearance=\"neutral\"`. Defaults to `--jh-color-content-on-primary-enabled`."
+        },
+        {
+          "name": "--jh-notification-icon-color-fill-positive",
+          "description": "The icon fill color when `appearance=\"positive\"`. Defaults to `--jh-color-content-on-positive-enabled`."
+        },
+        {
+          "name": "--jh-notification-icon-color-fill-negative",
+          "description": "The icon fill color when `appearance=\"negative\"`. Defaults to `--jh-color-content-on-negative-enabled`."
+        },
+        {
+          "name": "--jh-notification-dismiss-icon-color-enabled",
+          "description": "The dismiss button icon fill color. Defaults to `--jh-color-content-inverse-enabled`."
+        },
+        {
+          "name": "--jh-notification-dismiss-color-background-enabled",
+          "description": "The dismiss button background color. Defaults to transparent."
+        },
+        {
+          "name": "--jh-notification-dismiss-color-border-enabled",
+          "description": "The dismiss button border color. Defaults to transparent."
+        },
+        {
+          "name": "--jh-notification-dismiss-shadow-neutral-focus",
+          "description": "The dismiss button box shadow when focused and `appearance=\"neutral\"`. Defaults to `0px 0px 0px 1px --jh-color-content-primary-enabled, 0px 0px 0px 3px --jh-color-content-inverse-hover`."
+        },
+        {
+          "name": "--jh-notification-dismiss-shadow-positive-focus",
+          "description": "The dismiss button box shadow when focused and `appearance=\"positive\"`. Defaults to `0px 0px 0px 1px --jh-color-content-positive-enabled, 0px 0px 0px 3px --jh-color-content-inverse-hover`."
+        },
+        {
+          "name": "--jh-notification-dismiss-shadow-negative-focus",
+          "description": "The dismiss button box shadow when focused and `appearance=\"negative\"`. Defaults to `0px 0px 0px 1px --jh-color-content-negative-enabled, 0px 0px 0px 3px --jh-color-content-inverse-hover`."
+        },
+        {
+          "name": "--jh-notification-dismiss-icon-color-focus",
+          "description": "The dismiss button icon fill color when focused. Defaults to `--jh-color-content-on-inverse-hover`."
+        },
+        {
+          "name": "--jh-notification-dismiss-color-background-focus",
+          "description": "The dismiss button background color when focused. Defaults to `--jh-color-content-inverse-hover`."
+        },
+        {
+          "name": "--jh-notification-dismiss-color-border-focus",
+          "description": "The dismiss button border color when focused. Defaults to transparent."
+        },
+        {
+          "name": "--jh-notification-dismiss-icon-color-hover",
+          "description": "The dismiss button icon fill color when hovered. Defaults to `--jh-color-content-on-inverse-hover`."
+        },
+        {
+          "name": "--jh-notification-dismiss-color-background-hover",
+          "description": "The dismiss button background color when hovered. Defaults to `--jh-color-content-inverse-hover`."
+        },
+        {
+          "name": "--jh-notification-dismiss-color-border-hover",
+          "description": "The dismiss button border color when hovered. Defaults to transparent."
+        },
+        {
+          "name": "--jh-notification-dismiss-icon-color-active",
+          "description": "The dismiss button icon fill color when activated. Defaults to `--jh-color-content-on-inverse-active`."
+        },
+        {
+          "name": "--jh-notification-dismiss-color-background-active",
+          "description": "The dismiss button background color when activated. Defaults to `--jh-color-content-inverse-active`."
+        },
+        {
+          "name": "--jh-notification-dismiss-color-border-active",
+          "description": "The dismiss button border color when activated. Defaults to transparent."
+        },
+        {
+          "name": "--jh-notification-action-label-color-text-enabled",
+          "description": "The action button(s) text color. Defaults to `--jh-color-content-inverse-enabled`."
+        },
+        {
+          "name": "--jh-notification-action-color-background-enabled",
+          "description": "The action button(s) background color. Defaults to transparent."
+        },
+        {
+          "name": "--jh-notification-action-color-border-enabled",
+          "description": "The action button(s) border color. Defaults to transparent."
+        },
+        {
+          "name": "--jh-notification-action-shadow-neutral-focus",
+          "description": "The action button(s) box shadow when focused and `appearance=\"neutral\"`. Defaults to `0px 0px 0px 1px --jh-color-content-primary-enabled, 0px 0px 0px 3px --jh-color-content-inverse-hover`."
+        },
+        {
+          "name": "--jh-notification-action-shadow-positive-focus",
+          "description": "The action button(s) box shadow when focused and `appearance=\"positive\"`. Defaults to `0px 0px 0px 1px --jh-color-content-positive-enabled), 0px 0px 0px 3px --jh-color-content-inverse-hover`."
+        },
+        {
+          "name": "--jh-notification-action-shadow-negative-focus",
+          "description": "The action button(s) box shadow when focused and `appearance=\"negative\"`. Defaults to `0px 0px 0px 1px --jh-color-content-negative-enabled), 0px 0px 0px 3px --jh-color-content-inverse-hover`."
+        },
+        {
+          "name": "--jh-notification-action-label-color-text-focus",
+          "description": "The action button(s) text color when focused. Defaults to `--jh-color-content-on-inverse-hover`."
+        },
+        {
+          "name": "--jh-notification-action-color-background-focus",
+          "description": "The action button(s) background color when focused. Defaults to `--jh-color-content-inverse-hover`."
+        },
+        {
+          "name": "--jh-notification-action-color-border-focus",
+          "description": "The action button(s) border color when focused. Defaults to transparent."
+        },
+        {
+          "name": "--jh-notification-action-label-color-text-hover",
+          "description": "The action button(s) text color when hovered. Defaults to `--jh-color-content-on-inverse-hover`."
+        },
+        {
+          "name": "--jh-notification-action-color-background-hover",
+          "description": "The action button(s) background color when hovered. Defaults to `--jh-color-content-inverse-hover`."
+        },
+        {
+          "name": "--jh-notification-action-color-border-hover",
+          "description": "The action button(s) border color when hovered. Defaults to transparent."
+        },
+        {
+          "name": "--jh-notification-action-label-color-text-active",
+          "description": "The action button(s) text color when active. Defaults to `--jh-color-content-on-inverse-active`."
+        },
+        {
+          "name": "--jh-notification-action-color-background-active",
+          "description": "The action button(s) background color when active. Defaults to `--jh-color-content-inverse-active`."
+        },
+        {
+          "name": "--jh-notification-action-color-border-active",
+          "description": "The action button(s) border color when active. Defaults to transparent."
+        },
+        {
+          "name": "--jh-notification-action-color-background-pending",
+          "description": "The action button(s) background color when pending. Defaults to transparent."
+        },
+        {
+          "name": "--jh-notification-action-color-border-pending",
+          "description": "The action button(s) border color when pending. Defaults to transparent."
+        },
+        {
+          "name": "--jh-notification-action-icon-color-fill-enabled",
+          "description": "The action button(s) icon fill color. Defaults to `--jh-color-content-inverse-enabled`."
+        },
+        {
+          "name": "--jh-notification-action-icon-color-fill-focus",
+          "description": "The action button(s) icon fill color when focused. Defaults to `--jh-color-content-on-inverse-hover`."
+        },
+        {
+          "name": "--jh-notification-action-icon-color-fill-hover",
+          "description": "The action button(s) icon fill color when hovered. Defaults to `--jh-color-content-on-inverse-hover`."
+        },
+        {
+          "name": "--jh-notification-action-icon-color-fill-active",
+          "description": "The action button(s) icon fill color when active. Defaults to `--jh-color-content-on-inverse-active`."
+        },
+        {
+          "name": "--jh-notification-action-progress-color-border-pending",
+          "description": "The action button(s) progress indicator color when pending. Defaults to `--jh-color-content-inverse-enabled`."
+        }
+      ]
+    },
+    {
+      "name": "jh-progress",
+      "path": "./components/progress/progress.js",
+      "attributes": [
+        {
+          "name": "indeterminate",
+          "description": "Sets the indeterminate state on progress. To be used when progress cannot be calculated.",
+          "type": "Boolean",
+          "default": "false"
+        },
+        {
+          "name": "label",
+          "description": "Provides information about the item which triggered the progress component.",
+          "type": "?string"
+        },
+        {
+          "name": "size",
+          "description": "Sets the size of the progress component.",
+          "type": "'small'|'medium'|'large'",
+          "default": "\"medium\""
+        },
+        {
+          "name": "type",
+          "description": "Determines the style of progress to display.",
+          "type": "'linear'|'circular'",
+          "default": "\"linear\""
+        },
+        {
+          "name": "hide-value",
+          "description": "Hides the `value` text.",
+          "type": "Boolean",
+          "default": "false"
+        },
+        {
+          "name": "accessible-label",
+          "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+          "type": "?string"
+        },
+        {
+          "name": "max",
+          "description": "Defines the maximum allowed value and sets `aria-valuemax` attribute.",
+          "type": "?number",
+          "default": "100"
+        },
+        {
+          "name": "min",
+          "description": "Defines the minimum allowed value and sets `aria-valuemin` attribute.",
+          "type": "?number",
+          "default": "0"
+        },
+        {
+          "name": "value",
+          "description": "Specifies how much of the task has been completed. This value is used to calculate the percentage complete based on the min and max values.",
+          "type": "?number",
+          "default": "0"
+        },
+        {
+          "name": "accessible-valuetext",
+          "description": "Sets `aria-valuetext` on progress indicator to provide text alternative of `aria-valuenow`. To be used when progress cannot be represented as a number.",
+          "type": "?string"
+        }
+      ],
+      "properties": [
+        {
+          "name": "indeterminate",
+          "attribute": "indeterminate",
+          "description": "Sets the indeterminate state on progress. To be used when progress cannot be calculated.",
+          "type": "Boolean",
+          "default": "false"
+        },
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "Provides information about the item which triggered the progress component.",
+          "type": "?string"
+        },
+        {
+          "name": "size",
+          "attribute": "size",
+          "description": "Sets the size of the progress component.",
+          "type": "'small'|'medium'|'large'",
+          "default": "\"medium\""
+        },
+        {
+          "name": "type",
+          "attribute": "type",
+          "description": "Determines the style of progress to display.",
+          "type": "'linear'|'circular'",
+          "default": "\"linear\""
+        },
+        {
+          "name": "hideValue",
+          "attribute": "hide-value",
+          "description": "Hides the `value` text.",
+          "type": "Boolean",
+          "default": "false"
+        },
+        {
+          "name": "accessibleLabel",
+          "attribute": "accessible-label",
+          "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+          "type": "?string"
+        },
+        {
+          "name": "max",
+          "attribute": "max",
+          "description": "Defines the maximum allowed value and sets `aria-valuemax` attribute.",
+          "type": "?number",
+          "default": "100"
+        },
+        {
+          "name": "min",
+          "attribute": "min",
+          "description": "Defines the minimum allowed value and sets `aria-valuemin` attribute.",
+          "type": "?number",
+          "default": "0"
+        },
+        {
+          "name": "value",
+          "attribute": "value",
+          "description": "Specifies how much of the task has been completed. This value is used to calculate the percentage complete based on the min and max values.",
+          "type": "?number",
+          "default": "0"
+        },
+        {
+          "name": "accessibleValueText",
+          "attribute": "accessible-valuetext",
+          "description": "Sets `aria-valuetext` on progress indicator to provide text alternative of `aria-valuenow`. To be used when progress cannot be represented as a number.",
+          "type": "?string"
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--jh-progress-label-color",
+          "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-progress-value-color",
+          "description": "The value text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-progress-track-color",
+          "description": "The track color. Defaults to `--jh-color-control-enabled`."
+        },
+        {
+          "name": "--jh-progress-track-border-radius",
+          "description": "The track border-radius. Defaults to `--jh-border-radius-50`."
+        },
+        {
+          "name": "--jh-progress-indicator-color",
+          "description": "The indicator color. Defaults to `--jh-color-content-brand-enabled`."
+        }
+      ]
+    },
+    {
+      "name": "jh-radio-group",
+      "path": "./components/radio-group/radio-group.js",
+      "attributes": [
+        {
+          "name": "accessible-label",
+          "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+          "type": "?string"
+        },
+        {
+          "name": "error-text",
+          "description": "Text to be displayed when radio group has failed validation and `invalid` is true.",
+          "type": "?string"
+        },
+        {
+          "name": "helper-text",
+          "description": "Provides additional context or guidance for using the radio group. For `helper-text` to be displayed, the `label` property must also be set.",
+          "type": "?string"
+        },
+        {
+          "name": "invalid",
+          "description": "Sets an `aria-invalid` on the radio group to indicate the value supplied was invalid and displays `error-text` when set.",
+          "type": "?Boolean",
+          "default": "false"
+        },
+        {
+          "name": "label",
+          "description": "Describes the type of data to be collected.",
+          "type": "?string"
+        },
+        {
+          "name": "name",
+          "description": "Sets the name of the radio group data when submitted in a form.",
+          "type": "?string"
+        },
+        {
+          "name": "required",
+          "description": "Indicates a value is required.",
+          "type": "?Boolean",
+          "default": "false"
+        },
+        {
+          "name": "orientation",
+          "description": "Determines the orientation of the radio group.",
+          "type": "'vertical'|'horizontal'",
+          "default": "\"vertical\""
+        },
+        {
+          "name": "show-indicator",
+          "description": "Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required`\nproperty is also set. For the indicator to be displayed, the `label` property must also be set.",
+          "type": "?boolean",
+          "default": "false"
+        },
+        {
+          "name": "value",
+          "description": "Sets the value of the radio group.",
+          "type": "?string"
+        }
+      ],
+      "properties": [
+        {
+          "name": "form",
+          "description": "Returns the radio group's parent form element.",
+          "type": "?HTMLFormElement"
+        },
+        {
+          "name": "accessibleLabel",
+          "attribute": "accessible-label",
+          "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+          "type": "?string"
+        },
+        {
+          "name": "errorText",
+          "attribute": "error-text",
+          "description": "Text to be displayed when radio group has failed validation and `invalid` is true.",
+          "type": "?string"
+        },
+        {
+          "name": "helperText",
+          "attribute": "helper-text",
+          "description": "Provides additional context or guidance for using the radio group. For `helper-text` to be displayed, the `label` property must also be set.",
+          "type": "?string"
+        },
+        {
+          "name": "invalid",
+          "attribute": "invalid",
+          "description": "Sets an `aria-invalid` on the radio group to indicate the value supplied was invalid and displays `error-text` when set.",
+          "type": "?Boolean",
+          "default": "false"
+        },
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "Describes the type of data to be collected.",
+          "type": "?string"
+        },
+        {
+          "name": "name",
+          "attribute": "name",
+          "description": "Sets the name of the radio group data when submitted in a form.",
+          "type": "?string"
+        },
+        {
+          "name": "required",
+          "attribute": "required",
+          "description": "Indicates a value is required.",
+          "type": "?Boolean",
+          "default": "false"
+        },
+        {
+          "name": "orientation",
+          "attribute": "orientation",
+          "description": "Determines the orientation of the radio group.",
+          "type": "'vertical'|'horizontal'",
+          "default": "\"vertical\""
+        },
+        {
+          "name": "showIndicator",
+          "attribute": "show-indicator",
+          "description": "Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required`\nproperty is also set. For the indicator to be displayed, the `label` property must also be set.",
+          "type": "?boolean",
+          "default": "false"
+        },
+        {
+          "name": "value",
+          "attribute": "value",
+          "description": "Sets the value of the radio group.",
+          "type": "?string"
+        }
+      ],
+      "events": [
+        {
+          "name": "jh-change",
+          "description": "Dispatched when the value of the radio group has changed."
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "Use to insert `<jh-radio>` components(s)."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--jh-radio-group-label-color-text",
+          "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-radio-group-required-color-text",
+          "description": "The required indicator color. \nDefaults to `--jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-radio-group-required-color-text-optional",
+          "description": "The optional indicator text color.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-radio-group-helper-color-text",
+          "description": "The helper-text text color. \nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-radio-group-error-color-text",
+          "description": "The error-text text color. \nDefaults to `--jh-color-content-negative-enabled`."
+        }
+      ]
+    },
+    {
+      "name": "jh-radio",
+      "path": "./components/radio/radio.js",
+      "attributes": [
+        {
+          "name": "accessible-label",
+          "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+          "type": "?string"
+        },
+        {
+          "name": "checked",
+          "description": "Sets the selected or 'checked' state on the radio.",
+          "type": "?boolean",
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "description": "Disables the radio and prevents all user interactions. May cause radio to be ignored by assistive technologies(AT).",
+          "type": "?boolean",
+          "default": "false"
+        },
+        {
+          "name": "helper-text",
+          "description": "Provides additional context or guidance for using the radio. For `helper-text` to be displayed, the `label` property must also be set.",
+          "type": "?string"
+        },
+        {
+          "name": "label",
+          "description": "Sets the value of the data to be collected when selected.",
+          "type": "?string"
+        },
+        {
+          "name": "value",
+          "description": "Sets the value of the radio.",
+          "type": "?string"
+        }
+      ],
+      "properties": [
+        {
+          "name": "accessibleLabel",
+          "attribute": "accessible-label",
+          "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+          "type": "?string"
+        },
+        {
+          "name": "checked",
+          "attribute": "checked",
+          "description": "Sets the selected or 'checked' state on the radio.",
+          "type": "?boolean",
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "Disables the radio and prevents all user interactions. May cause radio to be ignored by assistive technologies(AT).",
+          "type": "?boolean",
+          "default": "false"
+        },
+        {
+          "name": "helperText",
+          "attribute": "helper-text",
+          "description": "Provides additional context or guidance for using the radio. For `helper-text` to be displayed, the `label` property must also be set.",
+          "type": "?string"
+        },
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "Sets the value of the data to be collected when selected.",
+          "type": "?string"
+        },
+        {
+          "name": "value",
+          "attribute": "value",
+          "description": "Sets the value of the radio.",
+          "type": "?string"
+        }
+      ],
+      "events": [
+        {
+          "name": "jh-change",
+          "description": "Dispatched when the state of the radio has changed."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--jh-radio-opacity-disabled",
+          "description": "The radio opacity when disabled. Defaults to `--jh-opacity-disabled`."
+        },
+        {
+          "name": "--jh-radio-input-border-radius",
+          "description": "The radio and status mark border-radius.\nDefaults to `--jh-border-radius-circle`."
+        },
+        {
+          "name": "--jh-radio-input-shadow-focus",
+          "description": "The radio box-shadow when focused. Defaults to `--jh-shadow-focus`."
+        },
+        {
+          "name": "--jh-radio-helper-color-text",
+          "description": "The helper-text text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-radio-label-color-text",
+          "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-radio-input-color-background-unselected-enabled",
+          "description": "The radio background-color when unselected.\nDefaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-radio-input-color-border-unselected-enabled",
+          "description": "The radio border-color when unselected.\nDefaults to `--jh-color-divider-primary`."
+        },
+        {
+          "name": "--jh-radio-input-color-background-unselected-focus",
+          "description": "The radio background-color when unselected and focused. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-radio-input-color-border-unselected-focus",
+          "description": "The radio border-color when unselected and focused.\nDefaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-radio-input-color-background-unselected-hover",
+          "description": "The radio background-color when unselected and hovered.\nDefaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-radio-input-color-border-unselected-hover",
+          "description": "The radio border-color when unselected and hovered.\nDefaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-radio-input-color-background-unselected-active",
+          "description": "The radio background-color when unselected and active.\nDefaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-radio-input-color-border-unselected-active",
+          "description": "The radio border-color when unselected and active.\nDefaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-radio-input-color-background-unselected-disabled",
+          "description": "The radio background-color when unselected and disabled.\nDefaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-radio-input-color-border-unselected-disabled",
+          "description": "The radio border-color when unselected and disabled.\nDefaults to `--jh-color-divider-primary`."
+        },
+        {
+          "name": "--jh-radio-input-color-background-selected-enabled",
+          "description": "The radio background-color when selected The radio.\nDefaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-radio-input-color-border-selected-enabled",
+          "description": "The radio border-color when selected The radio.\nDefaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-radio-status-color-background-selected-enabled",
+          "description": "The status mark color when selected.\nDefaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-radio-input-color-background-selected-focus",
+          "description": "The radio background-color when selected and focused. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-radio-input-color-border-selected-focus",
+          "description": "The radio border-color when selected and focused.\nDefaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-radio-status-color-background-selected-focus",
+          "description": "The status mark color when selected and focused.\nDefaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-radio-input-color-background-selected-hover",
+          "description": "The radio background-color when selected and hovered. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-radio-input-color-border-selected-hover",
+          "description": "The radio border-color when selected and hovered.\nDefaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-radio-status-color-background-selected-hover",
+          "description": "The status mark color when selected and hovered.\nDefaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-radio-input-color-background-selected-active",
+          "description": "The background-color when selected and active.\nDefaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-radio-input-color-border-selected-active",
+          "description": "The border-color when selected and active.\nDefaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-radio-status-color-background-selected-active",
+          "description": "The status mark color when selected and active.\nDefaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-radio-input-color-background-selected-disabled",
+          "description": "The background-color when selected and disabled.\nDefaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-radio-input-color-border-selected-disabled",
+          "description": "The border-color when selected and disabled.\nDefaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-radio-status-color-background-selected-disabled",
+          "description": "The status mark color when selected and disabled. Defaults to `--jh-color-content-brand-enabled`."
+        }
+      ]
+    },
+    {
+      "name": "jh-switch",
+      "path": "./components/switch/switch.js",
+      "attributes": [
+        {
+          "name": "accessible-disabled",
+          "description": "Sets an `aria-disabled` to signify to screen readers that the disabled switch should remain perceivable while disabled.",
+          "type": "'true'|'false'"
+        },
+        {
+          "name": "accessible-label",
+          "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+          "type": "?string"
+        },
+        {
+          "name": "checked",
+          "description": "Sets the selected or 'checked' state on the switch",
+          "type": "?boolean",
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "description": "Disables the switch and prevents all user interactions. May cause switch to be ignored by assistive technologies(AT). See `accessible-disabled` if switch should remain perceivable to AT.",
+          "type": "?boolean",
+          "default": "false"
+        },
+        {
+          "name": "helper-text",
+          "description": "Provides additional context or guidance for using the switch. For `helper-text` to be displayed, the `label` property must also be set.",
+          "type": "?string"
+        },
+        {
+          "name": "label",
+          "description": "Describes the intent of the switch.",
+          "type": "?string"
+        }
+      ],
+      "properties": [
+        {
+          "name": "accessibleDisabled",
+          "attribute": "accessible-disabled",
+          "description": "Sets an `aria-disabled` to signify to screen readers that the disabled switch should remain perceivable while disabled.",
+          "type": "'true'|'false'"
+        },
+        {
+          "name": "accessibleLabel",
+          "attribute": "accessible-label",
+          "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+          "type": "?string"
+        },
+        {
+          "name": "checked",
+          "attribute": "checked",
+          "description": "Sets the selected or 'checked' state on the switch",
+          "type": "?boolean",
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "Disables the switch and prevents all user interactions. May cause switch to be ignored by assistive technologies(AT). See `accessible-disabled` if switch should remain perceivable to AT.",
+          "type": "?boolean",
+          "default": "false"
+        },
+        {
+          "name": "helperText",
+          "attribute": "helper-text",
+          "description": "Provides additional context or guidance for using the switch. For `helper-text` to be displayed, the `label` property must also be set.",
+          "type": "?string"
+        },
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "Describes the intent of the switch.",
+          "type": "?string"
+        }
+      ],
+      "events": [
+        {
+          "name": "jh-change",
+          "description": "Dispatched when the state of the switch has changed."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--jh-switch-opacity-disabled",
+          "description": "The switch opacity when disabled. Defaults to `--jh-opacity-disabled`."
+        },
+        {
+          "name": "--jh-switch-thumb-color-background",
+          "description": "The thumb background-color. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-switch-shadow-focus",
+          "description": "The switch box-shadow when focused. Defaults to `--jh-shadow-focus`."
+        },
+        {
+          "name": "--jh-switch-helper-color-text",
+          "description": "The helper-text text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-switch-label-color-text",
+          "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-switch-track-color-background-unselected-enabled",
+          "description": "The track color when unselected. Defaults to `--jh-color-control-enabled`."
+        },
+        {
+          "name": "--jh-switch-track-color-background-unselected-focus",
+          "description": "The track color when unselected and focused. Defaults to `--jh-color-control-hover`."
+        },
+        {
+          "name": "--jh-switch-track-color-background-unselected-hover",
+          "description": "The track color when unselected and hovered. Defaults to `--jh-color-control-hover`."
+        },
+        {
+          "name": "--jh-switch-track-color-background-unselected-active",
+          "description": "The track color when unselected and active. Defaults to `--jh-color-control-active`."
+        },
+        {
+          "name": "--jh-switch-track-color-background-unselected-disabled",
+          "description": "The track color when unselected and disabled. Defaults to `--jh-color-control-enabled`."
+        },
+        {
+          "name": "--jh-switch-track-color-background-selected-enabled",
+          "description": "The track color when selected. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-switch-track-color-background-selected-focus",
+          "description": "The track color when selected and focused. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-switch-track-color-background-selected-hover",
+          "description": "The track color when selected and hovered. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-switch-track-color-background-selected-active",
+          "description": "The track color when selected and active. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-switch-track-color-background-selected-disabled",
+          "description": "The track color when selected and disabled. Defaults to `--jh-color-content-brand-enabled`."
+        }
+      ]
+    },
+    {
+      "name": "jh-tag-group",
+      "path": "./components/tag-group/tag-group.js",
+      "description": "Tag Group",
+      "attributes": [
+        {
+          "name": "alignment",
+          "description": "Sets the alignment of the tags.",
+          "type": "'start'| 'end'",
+          "default": "\"start\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "alignment",
+          "attribute": "alignment",
+          "description": "Sets the alignment of the tags.",
+          "type": "'start'| 'end'",
+          "default": "\"start\""
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "Use to insert `<jh-tag>` component(s)."
+        }
+      ]
+    },
+    {
+      "name": "jh-tag",
+      "path": "./components/tag/tag.js",
+      "description": "Tag",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "Describes the intent of the tag.",
+          "type": "?string"
+        },
+        {
+          "name": "dismissible",
+          "description": "Adds a dismiss button to tag. See `remove-on-dismiss` attribute for tag removal.",
+          "type": "?Boolean",
+          "default": "false"
+        },
+        {
+          "name": "dismiss-button-accessible-label",
+          "description": "Adds an aria-label to the dismiss button to assist screen readers.",
+          "type": "?string"
+        },
+        {
+          "name": "tooltip-label",
+          "description": "Adds a tooltip with this string on the dismiss button.",
+          "type": "?string"
+        },
+        {
+          "name": "size",
+          "description": "Sets the size of the tag.",
+          "type": "'small'| 'medium'",
+          "default": "\"small\""
+        },
+        {
+          "name": "href",
+          "description": "Sets the link's destination.",
+          "type": "?string"
+        },
+        {
+          "name": "target",
+          "description": "Specifies where to display the linked URL set by the href property.",
+          "type": "?string"
+        },
+        {
+          "name": "remove-on-dismiss",
+          "description": "Removes the tag after the dismiss button is activated.",
+          "type": "?Boolean",
+          "default": "false"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "Describes the intent of the tag.",
+          "type": "?string"
+        },
+        {
+          "name": "dismissible",
+          "attribute": "dismissible",
+          "description": "Adds a dismiss button to tag. See `remove-on-dismiss` attribute for tag removal.",
+          "type": "?Boolean",
+          "default": "false"
+        },
+        {
+          "name": "dismissButtonAccessibleLabel",
+          "attribute": "dismiss-button-accessible-label",
+          "description": "Adds an aria-label to the dismiss button to assist screen readers.",
+          "type": "?string"
+        },
+        {
+          "name": "tooltipLabel",
+          "attribute": "tooltip-label",
+          "description": "Adds a tooltip with this string on the dismiss button.",
+          "type": "?string"
+        },
+        {
+          "name": "size",
+          "attribute": "size",
+          "description": "Sets the size of the tag.",
+          "type": "'small'| 'medium'",
+          "default": "\"small\""
+        },
+        {
+          "name": "href",
+          "attribute": "href",
+          "description": "Sets the link's destination.",
+          "type": "?string"
+        },
+        {
+          "name": "target",
+          "attribute": "target",
+          "description": "Specifies where to display the linked URL set by the href property.",
+          "type": "?string"
+        },
+        {
+          "name": "removeOnDismiss",
+          "attribute": "remove-on-dismiss",
+          "description": "Removes the tag after the dismiss button is activated.",
+          "type": "?Boolean",
+          "default": "false"
+        }
+      ],
+      "events": [
+        {
+          "name": "jh-dismiss",
+          "description": "Dispatched when the tag is dismissed."
+        }
+      ],
+      "slots": [
+        {
+          "name": "jh-tag-icon",
+          "description": "Use to insert an icon to the left of the tag."
+        },
+        {
+          "name": "jh-tag-dismiss-icon",
+          "description": "Use to insert a custom icon within the dismiss button."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--jh-tag-size-max-width",
+          "description": "The tag max width. Defaults to `200px`."
+        },
+        {
+          "name": "--jh-tag-shadow-focus",
+          "description": "The tag box shadow when in focus. Defaults to `--jh-shadow-focus`."
+        },
+        {
+          "name": "--jh-tag-border-radius",
+          "description": "The tag border radius. Defaults to `--jh-border-radius-pill`."
+        },
+        {
+          "name": "--jh-tag-color-background-enabled",
+          "description": "The tag background color. Defaults to `--jh-color-container-neutral-enabled`."
+        },
+        {
+          "name": "--jh-tag-color-background-focus",
+          "description": "The tag background color when focused. Defaults to `--jh-color-container-neutral-hover`."
+        },
+        {
+          "name": "--jh-tag-color-background-hover",
+          "description": "The tag background color when hovered. Defaults to `--jh-color-container-neutral-hover`."
+        },
+        {
+          "name": "--jh-tag-color-background-active",
+          "description": "The tag background color when active. Defaults to `--jh-color-container-neutral-active`."
+        },
+        {
+          "name": "--jh-tag-color-border-enabled",
+          "description": "The tag border color. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-tag-color-border-focus",
+          "description": "The tag border color when focused. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-tag-color-border-hover",
+          "description": "The tag border color when hovered. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-tag-color-border-active",
+          "description": "The tag border color when active. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-tag-icon-color-fill-enabled",
+          "description": "The tag icon fill color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-tag-icon-color-fill-focus",
+          "description": "The tag icon fill color when focused. Defaults to `--jh-color-content-secondary-hover`."
+        },
+        {
+          "name": "--jh-tag-icon-color-fill-hover",
+          "description": "The tag icon fill color when hovered. Defaults to `--jh-color-content-secondary-hover`."
+        },
+        {
+          "name": "--jh-tag-icon-color-fill-active",
+          "description": "The tag icon fill color when active. Defaults to `--jh-color-content-secondary-active`."
+        },
+        {
+          "name": "--jh-tag-color-text-enabled",
+          "description": "The tag font color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-tag-color-text-focus",
+          "description": "The tag font color when focused. Defaults to `--jh-color-content-secondary-hover`."
+        },
+        {
+          "name": "--jh-tag-color-text-hover",
+          "description": "The tag font color when hovered. Defaults to `--jh-color-content-secondary-hover`."
+        },
+        {
+          "name": "--jh-tag-color-text-active",
+          "description": "The tag font color when active. Defaults to `--jh-color-content-secondary-active`."
+        },
+        {
+          "name": "--jh-tag-dismiss-color-background-enabled",
+          "description": "The dismiss button background color. Defaults to `--jh-color-container-neutral-enabled`."
+        },
+        {
+          "name": "--jh-tag-dismiss-color-background-focus",
+          "description": "The dismiss button background color when focused. Defaults to `--jh-color-container-neutral-hover`."
+        },
+        {
+          "name": "--jh-tag-dismiss-color-background-hover",
+          "description": "The dismiss button background color when hovered. Defaults to `--jh-color-container-neutral-hover`."
+        },
+        {
+          "name": "--jh-tag-dismiss-color-background-active",
+          "description": "The dismiss button background color when active. Defaults to `--jh-color-container-neutral-active`."
+        },
+        {
+          "name": "--jh-tag-dismiss-color-background-disabled",
+          "description": "The dismiss button background color when disabled. Defaults to `--jh-color-container-neutral-enabled`."
+        },
+        {
+          "name": "--jh-tag-dismiss-icon-color-fill-enabled",
+          "description": "The dismiss button icon fill color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-tag-dismiss-icon-color-fill-focus",
+          "description": "The dismiss button icon fill color when focused. Defaults to `--jh-color-content-secondary-hover`."
+        },
+        {
+          "name": "--jh-tag-dismiss-icon-color-fill-hover",
+          "description": "The dismiss button icon fill color when hovered. Defaults to `--jh-color-content-secondary-hover`."
+        },
+        {
+          "name": "--jh-tag-dismiss-icon-color-fill-active",
+          "description": "The dismiss button icon fill color when active. Defaults to `--jh-color-content-secondary-active`."
+        },
+        {
+          "name": "--jh-tag-dismiss-icon-color-fill-disabled",
+          "description": "The dismiss button icon fill color when disabled. Defaults to `--jh-color-content-secondary-enabled`."
+        }
+      ]
+    },
+    {
+      "name": "jh-toast-controller",
+      "path": "./components/toast-controller/toast-controller.js",
+      "attributes": [
+        {
+          "name": "max-count",
+          "description": "Sets the maximum number of toasts to be displayed at a time.",
+          "type": "number",
+          "default": "3"
+        },
+        {
+          "name": "role",
+          "description": "Sets the role of the toast controller and establishes a live region to expose changes to assistive technologies.",
+          "type": "'status'|'alert'",
+          "default": "\"status\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "maxCount",
+          "attribute": "max-count",
+          "description": "Sets the maximum number of toasts to be displayed at a time.",
+          "type": "number",
+          "default": "3"
+        },
+        {
+          "name": "role",
+          "attribute": "role",
+          "description": "Sets the role of the toast controller and establishes a live region to expose changes to assistive technologies.",
+          "type": "'status'|'alert'",
+          "default": "\"status\""
+        }
+      ],
+      "events": [
+        {
+          "name": "jh-dismiss",
+          "description": "Dispatched when the toast controller dismisses the oldest toast, and when toasts are dismissed manually by the user."
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "Use to insert `<jh-toast>` components if appending toasts manually."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--jh-toast-controller-z-index",
+          "description": "The toast controller z-index. Defaults to `--jh-z-index-positive-1000`."
+        }
+      ]
+    },
+    {
+      "name": "jh-toast",
+      "path": "./components/toast/toast.js",
+      "attributes": [
+        {
+          "name": "timeout",
+          "description": "Sets a timer, in milliseconds, to auto-dismiss the toast. To disable timeout, set to 0.",
+          "type": "number",
+          "default": "5000"
+        },
+        {
+          "name": "appearance",
+          "description": "Sets the background color of the toast to convey message connotation.",
+          "type": "'positive'|'neutral'|'negative'",
+          "default": "\"neutral\""
+        },
+        {
+          "name": "dismiss-button-accessible-label",
+          "description": "Adds an aria-label to the dismiss button to assist screen readers.",
+          "type": "string"
+        },
+        {
+          "name": "hide-dismiss-button",
+          "description": "Removes dismiss button from toast.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "stacked",
+          "description": "Places action button(s) on new line, below default slot.",
+          "type": "boolean",
+          "default": "false"
+        }
+      ],
+      "properties": [
+        {
+          "name": "timeout",
+          "attribute": "timeout",
+          "description": "Sets a timer, in milliseconds, to auto-dismiss the toast. To disable timeout, set to 0.",
+          "type": "number",
+          "default": "5000"
+        },
+        {
+          "name": "appearance",
+          "attribute": "appearance",
+          "description": "Sets the background color of the toast to convey message connotation.",
+          "type": "'positive'|'neutral'|'negative'",
+          "default": "\"neutral\""
+        },
+        {
+          "name": "dismissButtonAccessibleLabel",
+          "attribute": "dismiss-button-accessible-label",
+          "description": "Adds an aria-label to the dismiss button to assist screen readers.",
+          "type": "string"
+        },
+        {
+          "name": "hideDismissButton",
+          "attribute": "hide-dismiss-button",
+          "description": "Removes dismiss button from toast.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "stacked",
+          "attribute": "stacked",
+          "description": "Places action button(s) on new line, below default slot.",
+          "type": "boolean",
+          "default": "false"
+        }
+      ],
+      "events": [
+        {
+          "name": "jh-dismiss",
+          "description": "Dispatched when the toast is dismissed."
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "Use to insert contextual information."
+        },
+        {
+          "name": "jh-toast-icon",
+          "description": "Use to insert a button or icon to the left of the default slot."
+        },
+        {
+          "name": "jh-toast-dismiss-icon",
+          "description": "Use to insert icon within the dismiss button."
+        },
+        {
+          "name": "jh-toast-action",
+          "description": "Use to insert action button(s). Placed to the right of the default slot. Set `stacked` property to place slot below default slot."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--jh-toast-shadow",
+          "description": "The toast box-shadow. Defaults to `--jh-shadow-200`."
+        },
+        {
+          "name": "--jh-toast-z-index",
+          "description": "The toast z-index. Defaults to `--jh-z-index-positive-1000`."
+        }
+      ]
+    },
+    {
+      "name": "jh-tooltip",
+      "path": "./components/tooltip/tooltip.js",
+      "attributes": [
+        {
+          "name": "flip-disabled",
+          "description": "Determines whether the tooltip flips to a different position when it reaches the edge of the viewport.",
+          "type": "?Boolean",
+          "default": "false"
+        },
+        {
+          "name": "label",
+          "description": "Provides information about the item which triggered the tooltip.",
+          "type": "?string"
+        },
+        {
+          "name": "open",
+          "description": "Determines whether the tooltip is open or closed. Can be set on the tooltip to force it open.",
+          "type": "?Boolean",
+          "default": "false"
+        },
+        {
+          "name": "position",
+          "description": "The position of the tooltip and its arrow.",
+          "type": "?string",
+          "default": "\"top-center\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "flipDisabled",
+          "attribute": "flip-disabled",
+          "description": "Determines whether the tooltip flips to a different position when it reaches the edge of the viewport.",
+          "type": "?Boolean",
+          "default": "false"
+        },
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "Provides information about the item which triggered the tooltip.",
+          "type": "?string"
+        },
+        {
+          "name": "open",
+          "attribute": "open",
+          "description": "Determines whether the tooltip is open or closed. Can be set on the tooltip to force it open.",
+          "type": "?Boolean",
+          "default": "false"
+        },
+        {
+          "name": "position",
+          "attribute": "position",
+          "description": "The position of the tooltip and its arrow.",
+          "type": "?string",
+          "default": "\"top-center\""
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "Use to insert the element that triggers the tooltip."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--jh-tooltip-color-background",
+          "description": "The tooltip and arrow background-color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-tooltip-color-text",
+          "description": "The tooltip text color. Defaults to `--jh-color-content-on-primary-enabled`."
+        }
+      ]
+    }
+  ]
+}

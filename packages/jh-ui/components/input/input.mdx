@@ -1,0 +1,120 @@
+import {Meta, ArgTypes} from '@storybook/blocks';
+import * as stories from './input.stories.js';
+
+<Meta title="Components/Input" of={stories} />
+
+# Input
+
+[Guidelines](https://jackhenry.design/pages/components/input/)
+
+<hr />
+
+Input provides a set of text based input components that support user input data collection. Available input types include:
+
+1. text - A single-line text field. Supports left and right icons or buttons via the `jh-input-left` and `jh-input-right` slots.
+2. textarea - A multiple-line text field. Does not support slotted content.
+3. search - A single-line text field. Includes default `<jh-icon-search>` icon in the left slot that can be overridden via the `jh-input-left` slot. Also supports a right icon or button via the `jh-input-right` slot.
+4. password - A single-line text field that allows for masking and unmasking of input value. Includes a default `<jh-icon-show>` icon in the `jh-input-password-hidden` slot when input is masked and a `<jh-icon-hide>` icon in the `jh-input-password-visible` slot when input is unmasked; both of which can be overriden. Also supports a left icon or button via the `jh-input-left` slot.
+5. email - A single-line text field that accepts an email address. Supports both a left and right icon or button via the `jh-input-left` and `jh-input-right` slots. 
+6. tel - A single-line text field that accepts a telephone number. Supports both a left and right icon or button via the `jh-input-left` and `jh-input-right` slots. 
+7. url - A single-line text field that accepts a URL. Supports both a left and right icon or button via the `jh-input-left` and `jh-input-right` slots. 	
+
+## Usage
+
+Import the `<jh-input>` component:
+
+```javascript
+import '@jack-henry/jh-ui/components/input/input.js';
+```
+
+To use `<jh-input>`, set desired properties, icons, and buttons as needed.
+
+```html
+<jh-input label="Full name" helper-text="Enter as it appears on ID">
+  <jh-icon-id-card
+    slot="jh-input-right"
+    aria-hidden="true"
+  ></jh-icon-id-card>
+</jh-input>
+```
+
+## Dependencies
+The input component makes use of both required compositional and suggested content related dependencies.
+
+1. Composition - the following required dependencies are automatically imported:
+
+- `<jh-button>`. [Button component documentation](/docs/components-button--docs).
+- `<jh-icon-magnifying-glass>`, `<jh-icon-circle-xmark>`, `<jh-icon-eye>`, and `<jh-icon-eye-slash>` . [Iconography documentation](/docs/iconography-overview--docs).
+
+2. Content -  the following suggested dependencies should be imported when needed: 
+
+- `<jh-icon>`. [Iconography documentation](/docs/iconography-overview--docs).
+
+## Slotting Buttons
+
+When slotting buttons, whether within the `jh-input-left` or `jh-input-right` slots, consider setting `appearance="tertiary"` and `size="small"` for consistent styles within the input component. 
+
+## Textarea Height and Width Override
+
+Input `type='textarea'` height and width can be adjusted via the following ways:
+1. Height can either be overriden via its corresponding alias token `--jh-input-size-min-height-text-area-small` when `size='small'`, `--jh-input-size-min-height-text-area-medium` when `size='medium'`, or `--jh-input-size-min-height-text-area-large` when `size='large'` or by setting the `rows` property. Note that the `rows` property overrides any token. 
+2. Width, which defaults to the width of the parent container, can be overriden by setting the `cols` property. 
+
+## Accessibility
+
+This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria.
+The following success criteria are of concern:
+
+- [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html): Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.
+- [WCAG 1.3.5 Identify Input Purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html): The purpose of each input field collecting information about the user can be programmatically determined when:
+  - The input field serves a purpose identified in the [Input Purposes for user interface components](https://www.w3.org/TR/WCAG22/#input-purposes) section; and
+  - The content is implemented using technologies with support for identifying the expected meaning for form input data.
+- [WCAG 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html): Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element.
+- [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html): Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.
+- [WCAG 1.4.11 Non-text Contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html): The visual presentation of the following have a contrast ratio of at least 3:1 against adjacent color(s):
+  - User Interface Components: visual information required to identify user interface components and states, except for inactive components or where the appearance of the component is determined by the user agent and not modified by the author;
+  - Graphical Objects: parts of graphics required to understand the content, except when a particular presentation of graphics is essential to the information being conveyed.
+- [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html): All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes, except where the underlying function requires input that depends on the path of the user's movement and not just the endpoints.
+- [WCAG 2.4.6 Headings and Labels](https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html): Headings and labels describe topic or purpose.
+- [WCAG 2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html): Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.
+- [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html): The size of the target for pointer inputs is at least 24 by 24 CSS pixels, except where:
+  - Spacing: Undersized targets (those less than 24 by 24 CSS pixels) are positioned so that if a 24 CSS pixel diameter circle is centered on the bounding box of each, the circles do not intersect another target or the circle for another undersized target;
+  - Equivalent: The function can be achieved through a different control on the same page that meets this criterion;
+  - Inline: The target is in a sentence or its size is otherwise constrained by the line-height of non-target text;
+  - User agent control: The size of the target is determined by the user agent and is not modified by the author;
+  - Essential: A particular presentation of the target is essential or is legally required for the information being conveyed.
+- [WCAG 3.3.1 Error Identification](https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html): If an input error is automatically detected, the item that is in error is identified and the error is described to the user in text.
+- [WCAG 3.3.2 Labels or Instructions](https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html): Labels or instructions are provided when content requires user input.
+- [WCAG 3.3.3 Error Suggestion](https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html): If an input error is automatically detected and suggestions for correction are known, then the suggestions are provided to the user, unless it would jeopardize the security or purpose of the content.
+- [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value): For all user interface components (including but not limited to: form elements, links and components generated by scripts), the name and role can be programmatically determined; states, properties, and values that can be set by the user can be programmatically set; and notification of changes to these items is available to user agents, including assistive technologies.
+
+### What we provide
+
+- To satisfy [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) and [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value), any `label`, `helper-text`, or `error-text` are associated with the input control by default.
+- To satisfy [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html), Input can be resized without assistive technology up to 200 percent without loss of content or functionality.
+- To satisfy [WCAG 1.4.11 Non-text Contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html) and [WCAG 2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html), interactive elements include focus styles.
+- To satisfy [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html), input replicates native input keyboard support. The right icon when `type="password"` and the clear button when `show-clear-button` is true are tab stops; `Enter` or `Space` will activate the buttons and emit a corresponding custom event.
+- To satisfy [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html), the target size for pointer inputs is at least 24 by 24 pixels for users to easily activate them.
+
+### Author Guidance
+
+- To satisfy [WCAG 1.3.5 Identify Input Purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html), use the `autocomplete` property to allow automated assistance in providing an input value.
+- To satisy [WCAG 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html), when using the `required` property and `show-indicator` attribute, include instructions at the top of the form to explain required inputs are marked with a red asterisk.
+- To satisfy [WCAG 2.4.6 Headings and Labels](https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html) and [WCAG 3.3.2 Labels or Instructions](https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html), ensure the `label` property or `accessible-label-input` attribute are descriptive.
+- To satisfy [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html), when using custom size tokens, ensure a minimum size of 24 by 24 pixels is maintained.
+- To satisfy [WCAG 3.3.1 Error Identification](https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html), set the `invalid` attribute to generate an `aria-invalid` attribute on Input to indicate an error. Utilize the `error-text` attribute to provide feedback on a failed value.
+- To satisfy [WCAG 3.3.3 Error Suggestion](https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html), use the `error-text` attribute to provide a suggestion to correct the input error when appropriate.
+- To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value), set the `accessible-label-input` attribute to generate an `aria-label` when a visible label cannot be used.
+
+## Component API
+
+For boolean attributes, true indicates that the attribute has been set without a value: `<jh-input show-indicator></jh-input>`. While false indicates the attribute does not exist in the DOM: `<jh-input></jh-input>`.
+
+<ArgTypes />
+
+## Feedback
+
+Have an idea that will improve this component or have an issue to report? Let us know by submitting 
+an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
+
+Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

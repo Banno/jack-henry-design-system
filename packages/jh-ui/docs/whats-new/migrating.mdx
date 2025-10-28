@@ -1,0 +1,820 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="What's New/Migrating" tags={['new']} />
+<div className="toc-ignore">
+
+# Upgrading to V2
+
+All features noted as deprecated will be removed in the v2 release.
+
+## Installing
+
+The `jh-ui` package has been renamed to `jh-elements`. To migrate:
+
+- Upgrade your `package.json`:
+  - Remove `@jack-henry/jh-ui`
+  - Add `@jack-henry/jh-elements`
+
+Install via your preferred package manager:
+
+```bash
+# Yarn
+yarn install @jack-henry/jh-elements
+
+# NPM
+npm install @jack-henry/jh-elements
+
+# PNPM
+pnpm install @jack-henry/jh-elements
+```
+  
+Installing `jh-elements` will also automatically include its dependencies: `jh-tokens`, `jh-icons`, and their respective dependencies.
+
+### Webpack 4 Compatibility
+
+The `jh-elements` package now depends on Lit v3.3.1, which introduces ES2021 syntax. This may result in compatibility issues with tooling that doesn’t support modern JavaScript features, including Webpack 4.
+
+To ensure smooth integration:
+- Consider upgrading your bundler.
+- Or adjust your transpilation settings to accommodate newer syntax.
+
+For detailed guidance on using Lit 3 with Webpack 4, refer to the [Lit upgrade guide](https://lit.dev/docs/releases/upgrade/#using-lit-3-with-webpack-4).
+
+## Migrating jh-tokens
+
+### Package Changes
+
+* Fonts have moved out of `jh-tokens` to a dedicated `Assets` folder and need to be dowloaded from there to be self-hosted.
+* The folder containing `esm` token files has been renamed from `js-css` to `esm`.
+
+### Deprecated Dimension Tokens
+
+<table>
+  <thead>
+    <tr>
+      <th colSpan="2">Deprecated Token</th>
+      <th>New Token</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>--jh-space-0</td>
+      <td>--jh-size-0</td>
+      <td>--jh-dimension-0</td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>--jh-dimension-25</td>
+    </tr>
+    <tr>
+      <td>--jh-space-50</td>
+      <td>--jh-size-50</td>
+      <td>--jh-dimension-50</td>
+    </tr>
+    <tr>
+      <td>--jh-space-100</td>
+      <td>--jh-size-100</td>
+      <td>--jh-dimension-100</td>
+    </tr>
+    <tr>
+      <td>--jh-space-200</td>
+      <td>--jh-size-200</td>
+      <td>--jh-dimension-200</td>
+    </tr>
+    <tr>
+      <td>--jh-space-300</td>
+      <td>--jh-size-300</td>
+      <td>--jh-dimension-300</td>
+    </tr>
+    <tr>
+      <td>--jh-space-400</td>
+      <td>--jh-size-400</td>
+      <td>--jh-dimension-400</td>
+    </tr>
+    <tr>
+      <td>--jh-space-500</td>
+      <td>--jh-size-500</td>
+      <td>--jh-dimension-500</td>
+    </tr>
+    <tr>
+      <td>--jh-space-600</td>
+      <td>--jh-size-600</td>
+      <td>--jh-dimension-600</td>
+    </tr>
+    <tr>
+      <td>--jh-space-700</td>
+      <td>--jh-size-700</td>
+      <td>--jh-dimension-700</td>
+    </tr>
+    <tr>
+      <td>--jh-space-800</td>
+      <td>--jh-size-800</td>
+      <td>--jh-dimension-800</td>
+    </tr>
+    <tr>
+      <td>--jh-space-900</td>
+      <td>--jh-size-900</td>
+      <td>--jh-dimension-900</td>
+    </tr>
+    <tr>
+      <td>--jh-space-1000</td>
+      <td>--jh-size-1000</td>
+      <td>--jh-dimension-1000</td>
+    </tr>
+    <tr>
+      <td>--jh-space-1100</td>
+      <td>--jh-size-1100</td>
+      <td>--jh-dimension-1100</td>
+    </tr>
+    <tr>
+      <td>--jh-space-1200</td>
+      <td>--jh-size-1200</td>
+      <td>--jh-dimension-1200</td>
+    </tr>
+    <tr>
+      <td>--jh-space-1300</td>
+      <td>--jh-size-1300</td>
+      <td>--jh-dimension-1300</td>
+    </tr>
+    <tr>
+      <td>--jh-space-1400</td>
+      <td>--jh-size-1400</td>
+      <td>--jh-dimension-1400</td>
+    </tr>
+    <tr>
+      <td>--jh-space-1500</td>
+      <td>--jh-size-1500</td>
+      <td>--jh-dimension-1500</td>
+    </tr>
+    <tr>
+      <td>--jh-space-1600</td>
+      <td>--jh-size-1600</td>
+      <td>--jh-dimension-1600</td>
+    </tr>
+    <tr>
+      <td>--jh-space-1700</td>
+      <td>--jh-size-1700</td>
+      <td>--jh-dimension-1700</td>
+    </tr>
+    <tr>
+      <td>--jh-space-1800</td>
+      <td>--jh-size-1800</td>
+      <td>--jh-dimension-1800</td>
+    </tr>
+    <tr>
+      <td>--jh-space-1900</td>
+      <td>--jh-size-1900</td>
+      <td>--jh-dimension-1900</td>
+    </tr>
+    <tr>
+      <td>--jh-space-2000</td>
+      <td>--jh-size-2000</td>
+      <td>--jh-dimension-2000</td>
+    </tr>
+    <tr>
+      <td>--jh-space-2100</td>
+      <td>--jh-size-2100</td>
+      <td>--jh-dimension-2100</td>
+    </tr>
+    <tr>
+      <td>--jh-space-2200</td>
+      <td>--jh-size-2200</td>
+      <td>--jh-dimension-2200</td>
+    </tr>
+    <tr>
+      <td>--jh-space-2300</td>
+      <td>--jh-size-2300</td>
+      <td>--jh-dimension-2300</td>
+    </tr>
+    <tr>
+      <td>--jh-space-2400</td>
+      <td>--jh-size-2400</td>
+      <td>--jh-dimension-2400</td>
+    </tr>
+  </tbody>
+</table>
+
+### Deprecated Color Tokens
+
+* All the color tokens in the **rose** family (`--jh-rose-50` to `--jh-rose-950`) have been deprecated.
+* All the color tokens in the **lime** family (`--jh-lime-50` to `--jh-lime-950`) have been deprecated.
+* All the color tokens in the **blue** family (`--jh-blue-50` to `--jh-blue-950`) have been deprecated.
+
+* All the colors in the **azure** family have been renamed to **blue**: `--jh-azure-50` to `--jh-azure-950` are now `--jh-blue-50` to `--jh-blue-950`.
+
+<table>
+  <thead>
+    <tr>
+      <th>Deprecated Token</th>
+      <th>New Token</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>--jh-color-gray-0</td>
+      <td>--jh-color-white-alpha-100</td>
+    </tr>
+    <tr>
+      <td>--jh-color-gray-1000</td>
+      <td>--jh-color-black-alpha-100</td>
+    </tr>
+  </tbody>
+</table>
+
+### Deprecated Shadow & Overlay Tokens
+
+<table>
+  <thead>
+    <tr>
+      <th>Deprecated Token</th>
+      <th>New Token</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>--jh-shadow-0</td>
+      <td>No replacement token</td>
+    </tr>
+    <tr>
+      <td>--jh-shadow-100</td>
+      <td>--jh-shadow-low</td>
+    </tr>
+    <tr>
+      <td>--jh-shadow-200</td>
+      <td>--jh-shadow-mid</td>
+    </tr>
+    <tr>
+      <td>--jh-shadow-300</td>
+      <td>--jh-shadow-high</td>
+    </tr>
+    <tr>
+      <td>--jh-shadow-400</td>
+      <td>--jh-shadow-overlay</td>
+    </tr>
+  </tbody>
+</table>
+
+### Deprecated Typography Tokens
+
+<table>
+  <thead>
+    <tr>
+      <th>Deprecated Token</th>
+      <th>New Token</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>--jh-font-body-regular-italic-1</td>
+      <td>Use CSS `font-style: italic`</td>
+    </tr>
+     <tr>
+      <td>--jh-font-body-medium-italic-1</td>
+      <td>Use CSS `font-style: italic`</td>
+    </tr>
+     <tr>
+      <td>--jh-font-body-bold-italic-1</td>
+      <td>Use CSS `font-style: italic`</td>
+    </tr>
+     <tr>
+      <td>--jh-font-body-regular-italic-2</td>
+      <td>Use CSS `font-style: italic`</td>
+    </tr>
+     <tr>
+      <td>--jh-font-body-medium-italic-2</td>
+      <td>Use CSS `font-style: italic`</td>
+    </tr>
+     <tr>
+      <td>--jh-font-body-bold-italic-2</td>
+      <td>Use CSS `font-style: italic`</td>
+    </tr>
+    <tr>
+      <td rowSpan="4">--jh-font-micro-regular</td>
+      <td>--jh-font-micro-regular-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-micro-regular-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-micro-regular-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-micro-regular-line-height</td>
+    </tr>
+    <tr>
+      <td rowSpan="4">--jh-font-micro-medium</td>
+      <td>--jh-font-micro-medium-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-micro-medium-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-micro-medium-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-micro-medium-line-height</td>
+    </tr>
+        <tr>
+      <td rowSpan="4">--jh-font-micro-bold</td>
+      <td>--jh-font-micro-bold-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-micro-bold-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-micro-bold-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-micro-bold-line-height</td>
+    </tr>
+        <tr>
+      <td rowSpan="4">--jh-font-helper-regular</td>
+      <td>--jh-font-helper-regular-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-helper-regular-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-helper-regular-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-helper-regular-line-height</td>
+    </tr>
+        <tr>
+      <td rowSpan="4">--jh-font-helper-medium</td>
+      <td>--jh-font-helper-medium-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-helper-medium-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-helper-medium-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-helper-medium-line-height</td>
+    </tr>
+        <tr>
+      <td rowSpan="4">--jh-font-helper-bold</td>
+      <td>--jh-font-helper-bold-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-helper-bold-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-helper-bold-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-helper-bold-line-height</td>
+    </tr>
+    <tr>
+      <td rowSpan="4">--jh-font-body-regular-1</td>
+      <td>--jh-font-body-regular-1-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-body-regular-1-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-body-regular-1-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-body-regular-1-line-height</td>
+    </tr>
+        <tr>
+      <td rowSpan="4">--jh-font-body-medium-1</td>
+      <td>--jh-font-body-medium-1-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-body-medium-1-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-body-medium-1-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-body-medium-1-line-height</td>
+    </tr>
+        <tr>
+      <td rowSpan="4">--jh-font-body-bold-1</td>
+      <td>--jh-font-body-bold-1-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-body-bold-1-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-body-bold-1-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-body-bold-1-line-height</td>
+    </tr>
+    <tr>
+      <td rowSpan="4">--jh-font-body-regular-2</td>
+      <td>--jh-font-body-regular-2-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-body-regular-2-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-body-regular-2-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-body-regular-2-line-height</td>
+    </tr>
+    <tr>
+      <td rowSpan="4">--jh-font-body-medium-2</td>
+      <td>--jh-font-body-medium-2-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-body-medium-2-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-body-medium-2-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-body-medium-2-line-height</td>
+    </tr>
+    <tr>
+      <td rowSpan="4">--jh-font-body-bold-2</td>
+      <td>--jh-font-body-bold-2-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-body-bold-2-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-body-bold-2-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-body-bold-2-line-height</td>
+    </tr>
+     <tr>
+      <td rowSpan="4">--jh-font-code-regular-1</td>
+      <td>--jh-font-code-regular-1-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-code-regular-1-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-code-regular-1-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-code-regular-1-line-height</td>
+    </tr>
+    <tr>
+      <td rowSpan="4">--jh-font-code-regular-2</td>
+      <td>--jh-font-code-regular-2-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-code-regular-2-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-code-regular-2-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-code-regular-2-line-height</td>
+    </tr>
+    <tr>
+      <td rowSpan="4">--jh-font-display-light-1</td>
+      <td>--jh-font-display-light-1-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-display-light-1-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-display-light-1-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-display-light-1-line-height</td>
+    </tr>
+    <tr>
+      <td rowSpan="4">--jh-font-display-light-2</td>
+      <td>--jh-font-display-light-2-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-display-light-2-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-display-light-2-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-display-light-2-line-height</td>
+    </tr>
+    <tr>
+      <td rowSpan="4">--jh-font-display-light-3</td>
+      <td>--jh-font-display-light-3-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-display-light-3-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-display-light-3-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-display-light-3-line-height</td>
+    </tr>
+    <tr>
+      <td rowSpan="4">--jh-font-heading-regular-1</td>
+      <td>--jh-font-heading-regular-1-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-heading-regular-1-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-heading-regular-1-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-heading-regular-1-line-height</td>
+    </tr>
+    <tr>
+      <td rowSpan="4">--jh-font-heading-medium-1</td>
+      <td>--jh-font-heading-medium-1-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-heading-medium-1-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-heading-medium-1-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-heading-medium-1-line-height</td>
+    </tr>
+        <tr>
+      <td rowSpan="4">--jh-font-heading-bold-1</td>
+      <td>--jh-font-heading-bold-1-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-heading-bold-1-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-heading-bold-1-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-heading-bold-1-line-height</td>
+    </tr>
+    <tr>
+      <td rowSpan="4">--jh-font-heading-regular-2</td>
+      <td>--jh-font-heading-regular-2-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-heading-regular-2-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-heading-regular-2-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-heading-regular-2-line-height</td>
+    </tr>
+    <tr>
+      <td rowSpan="4">--jh-font-heading-medium-2</td>
+      <td>--jh-font-heading-medium-2-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-heading-medium-2-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-heading-medium-2-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-heading-medium-2-line-height</td>
+    </tr>
+        <tr>
+      <td rowSpan="4">--jh-font-heading-bold-2</td>
+      <td>--jh-font-heading-bold-2-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-heading-bold-2-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-heading-bold-2-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-heading-bold-2-line-height</td>
+    </tr>
+    <tr>
+      <td rowSpan="4">--jh-font-heading-regular-3</td>
+      <td>--jh-font-heading-regular-3-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-heading-regular-3-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-heading-regular-3-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-heading-regular-3-line-height</td>
+    </tr>
+    <tr>
+      <td rowSpan="4">--jh-font-heading-medium-3</td>
+      <td>--jh-font-heading-medium-3-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-heading-medium-3-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-heading-medium-3-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-heading-medium-3-line-height</td>
+    </tr>
+        <tr>
+      <td rowSpan="4">--jh-font-heading-bold-3</td>
+      <td>--jh-font-heading-bold-3-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-heading-bold-3-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-heading-bold-3-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-heading-bold-3-line-height</td>
+    </tr>
+    <tr>
+      <td rowSpan="4">--jh-font-heading-regular-4</td>
+      <td>--jh-font-heading-regular-4-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-heading-regular-4-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-heading-regular-4-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-heading-regular-4-line-height</td>
+    </tr>
+    <tr>
+      <td rowSpan="4">--jh-font-heading-medium-4</td>
+      <td>--jh-font-heading-medium-4-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-heading-medium-4-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-heading-medium-4-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-heading-medium-4-line-height</td>
+    </tr>
+        <tr>
+      <td rowSpan="4">--jh-font-heading-bold-4</td>
+      <td>--jh-font-heading-bold-4-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-heading-bold-4-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-heading-bold-4-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-heading-bold-4-line-height</td>
+    </tr>
+    <tr>
+      <td rowSpan="4">--jh-font-heading-regular-5</td>
+      <td>--jh-font-heading-regular-5-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-heading-regular-5-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-heading-regular-5-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-heading-regular-5-line-height</td>
+    </tr>
+    <tr>
+      <td rowSpan="4">--jh-font-heading-medium-5</td>
+      <td>--jh-font-heading-medium-5-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-heading-medium-5-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-heading-medium-5-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-heading-medium-5-line-height</td>
+    </tr>
+        <tr>
+      <td rowSpan="4">--jh-font-heading-bold-5</td>
+      <td>--jh-font-heading-bold-5-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-heading-bold-5-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-heading-bold-5-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-heading-bold-5-line-height</td>
+    </tr>
+    <tr>
+      <td rowSpan="4">--jh-font-heading-regular-6</td>
+      <td>--jh-font-heading-regular-6-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-heading-regular-6-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-heading-regular-6-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-heading-regular-6-line-height</td>
+    </tr>
+    <tr>
+      <td rowSpan="4">--jh-font-heading-medium-6</td>
+      <td>--jh-font-heading-medium-6-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-heading-medium-6-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-heading-medium-6-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-heading-medium-6-line-height</td>
+    </tr>
+    <tr>
+      <td rowSpan="4">--jh-font-heading-bold-6</td>
+      <td>--jh-font-heading-bold-6-font-family</td>
+    </tr>
+    <tr>  
+      <td>--jh-font-heading-bold-6-font-size</td>
+    </tr>
+    <tr> 
+      <td>--jh-font-heading-bold-6-font-weight</td>
+    </tr>
+    <tr>
+      <td>--jh-font-heading-bold-6-line-height</td>
+    </tr>
+  </tbody>
+</table>
+
+## Migrating jh-elements
+
+The `jh-ui` package has been renamed to `jh-elements`. To complete the migration:
+
+1. Install the new package. Details outlined in the [Installing section](#installing). 
+
+2. Update all import paths. For example:
+
+```javascript
+// OLD
+import '@jack-henry/jh-ui/components/divider/divider.js';
+
+// NEW
+import '@jack-henry/jh-elements/components/divider/divider.js';
+```
+
+## Migrating jh-input 
+
+The `jh-input` component has been refactored into a base class to enhance its flexibility and reduce API overhead. In doing so, the `type` property is no longer supported. Specialized input types will become available as separate, discrete components. Users who rely on the `type` property will need to either:
+
+1. Migrate to the specialized input components as they become available. For example, if using `<jh-input type="search"></jh-input>` users can migrate to `<jh-input-search></jh-input-search>`. Refer to the migration table below:
+<table>
+  <thead>
+    <tr>
+      <th>Input `type`</th>
+      <th>Discrete Component</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>text</td>
+      <td>`jh-input`</td>
+    </tr>
+    <tr>
+      <td>search</td>
+      <td>`jh-input-search`</td>
+    </tr>
+    <tr>
+      <td>password</td>
+      <td>`jh-input-password`</td>
+    </tr>
+    <tr>
+      <td>textarea</td>
+      <td>`jh-input-textarea`</td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td>`jh-input-email`</td>
+    </tr>
+    <tr>
+      <td>url</td>
+      <td>`jh-input-url`</td>
+    </tr>
+    <tr>
+      <td>tel</td>
+      <td>`jh-input-telephone`</td>
+    </tr>
+  </tbody>
+</table>
+2. Extend the jh-input component to create the needed specialized input type. Refer to the [Extending Components Guide](/docs/guides-extending-components--docs) for information on how to extend components. 
+
+Additionally, the `placeholder` property has been deprecated due to accessibility concerns. Users should leverage the `helper-text` and `label` properties to provide guidance on the expected type of user data. 
+
+### Deprecated jh-input styling hooks
+
+* `jh-input-field-dimension-padding-top`
+* `jh-input-field-dimension-padding-bottom`
+* `jh-input-field-dimension-padding-left`
+* `jh-input-field-dimension-padding-right`
+
+</div>

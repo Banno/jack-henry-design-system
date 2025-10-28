@@ -1,0 +1,248 @@
+{
+  "dimension": {
+    "$type": "dimension",
+    "0": {
+      "$value": "0px",
+      "$description": "Dimension 0",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "25": {
+      "$value": "1px",
+      "$description": "Dimension 25",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "50": {
+      "$value": "2px",
+      "$description": "Dimension 50",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "100": {
+      "$value": "4px",
+      "$description": "Dimension 100",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "200": {
+      "$value": "8px",
+      "$description": "Dimension 200",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "300": {
+      "$value": "12px",
+      "$description": "Dimension 300",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "400": {
+      "$value": "16px",
+      "$description": "Dimension 400",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "500": {
+      "$value": "20px",
+      "$description": "Dimension 500",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "600": {
+      "$value": "24px",
+      "$description": "Dimension 600",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "700": {
+      "$value": "28px",
+      "$description": "Dimension 700",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "800": {
+      "$value": "32px",
+      "$description": "Dimension 800",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "900": {
+      "$value": "36px",
+      "$description": "Dimension 900",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "1000": {
+      "$value": "40px",
+      "$description": "Dimension 1000",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "1100": {
+      "$value": "44px",
+      "$description": "Dimension 1100",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "1200": {
+      "$value": "48px",
+      "$description": "Dimension 1200",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "1300": {
+      "$value": "52px",
+      "$description": "Dimension 1300",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "1400": {
+      "$value": "56px",
+      "$description": "Dimension 1400",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "1500": {
+      "$value": "60px",
+      "$description": "Dimension 1500",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "1600": {
+      "$value": "64px",
+      "$description": "Dimension 1600",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "1700": {
+      "$value": "68px",
+      "$description": "Dimension 1700",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "1800": {
+      "$value": "72px",
+      "$description": "Dimension 1800",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "1900": {
+      "$value": "76px",
+      "$description": "Dimension 1900",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "2000": {
+      "$value": "80px",
+      "$description": "Dimension 2000",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "2100": {
+      "$value": "84px",
+      "$description": "Dimension 2100",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "2200": {
+      "$value": "88px",
+      "$description": "Dimension 2200",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "2300": {
+      "$value": "92px",
+      "$description": "Dimension 2300",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "2400": {
+      "$value": "96px",
+      "$description": "Dimension 2400",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    }
+  }
+}

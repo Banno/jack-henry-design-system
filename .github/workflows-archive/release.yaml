@@ -4,7 +4,7 @@ on:
     branches: [main] # Adjust branch name as needed
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref }}
+  group: ${{ github.workflow }}-${{ github.head_ref }}  
   cancel-in-progress: true
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
 
       - name: Install dependencies
         uses: ./.github/workflows/actions/install-dependencies
-      
+
       - name: Publish all packages
         shell: bash
         env:

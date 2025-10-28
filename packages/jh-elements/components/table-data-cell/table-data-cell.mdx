@@ -1,0 +1,51 @@
+import { Meta, ArgTypes } from '@storybook/blocks';
+import * as stories from './table-data-cell.stories.js';
+
+<Meta title="Components/Table Data Cell" of={stories} />
+
+# Table Data Cell
+
+[Guidelines](https://jackhenry.design/pages/components/table-data-cell/)
+
+<hr />
+
+The table data cell is used to display one cell of table data. Table data cells can contain text or other content and have to be placed inside `<jh-table-row>`s.
+
+## Usage
+
+Import the `<jh-table-data-cell>` component:
+
+```javascript
+import '@jack-henry/jh-ui/components/table-data-cell/table-data-cell.js';
+```
+
+To use `<jh-table-data-cell>`, place it in the default slot of the relevant `<jh-table-row>`: 
+
+```html
+<jh-table> 
+    // [...]
+  <jh-table-row>
+    <jh-table-data-cell>Cell 1</jh-table-data-cell>
+    <jh-table-data-cell>Cell 2</jh-table-data-cell>
+    <jh-table-data-cell>Cell 3</jh-table-data-cell>
+  </jh-table-row>
+  // [...]
+</jh-table>
+```
+
+## Accessibility
+
+This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria. 
+
+For accessibility details refer to the Accessibility section of the [Table component](?path=/docs/components-table-table--docs) documentation.
+
+## Component API
+
+<ArgTypes />
+
+## Feedback
+
+Have an idea that will improve this component or have an issue to report? Let us know by submitting 
+an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
+
+Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

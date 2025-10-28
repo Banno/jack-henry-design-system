@@ -1,0 +1,69 @@
+import {Meta, ArgTypes} from '@storybook/blocks';
+import * as stories from './card.stories.js';
+
+<Meta title="Components/Card" of={stories} />
+
+# Card
+
+[Guidelines](https://jackhenry.design/pages/components/card/)
+
+<hr />
+
+Cards are content structures that provide an entry point for more complex and detailed information.
+
+## Usage
+
+Import the `<jh-card>` component.
+
+```javascript
+import '@jack-henry/jh-elements/components/card/card.js';
+```
+
+To use `jh-card`, supply desired properties and slot content within corresponding slot. 
+
+```html
+<jh-card header-title="Card Title">
+  <div>Card Default Slot</div>
+  <div slot="jh-card-footer">Card Footer</div>
+</jh-card>
+```
+
+## Dependencies
+The card component makes use of required compositional dependencies.
+
+1. Composition - the following required dependencies are automatically imported:
+
+- `<jh-divider>`. [Divider component documentation](/docs/components-divider--docs).
+
+## Divider Inset
+
+Card supports header and footer dividers to create a clearer definition before and after the card body. The left inset of the dividers can be adjusted via the following methods:
+- To adjust the left inset of each divider individually, use the `header-divider-inset` and `footer-divider-inset` attributes which supports a range from 0px to 96px with a step of 8px.
+- To set the left inset to a value outside of the divider-inset attribute range, or for multiple dividers at once, omit the divider-inset attributes and use the `--jh-divider-inset-space` component token instead.
+- For multiple dividers with varying inset requirements, use the divider-inset attribute in conjuction with the `--jh-divider-inset-space` component token. Note that the divider-inset attribute will override the component token where present.
+
+## Accessibility
+
+This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria. The following success criteria are of concern:
+
+- [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html): Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.
+
+- [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html): Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.
+
+### What we provide
+
+- To satisfy [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html), the `headerTitle` property is assigned to an h2 heading by default. To change the heading level, use the `title-heading-level` attribute.
+
+- To satisfy [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html), Card can be resized without assistive technology up to 200 percent without loss of content or functionality.
+
+## Component API
+
+For boolean attributes, true indicates that the attribute has been set without a value: `<jh-card show-header-divider></jh-card>`. While false indicates the attribute does not exist in the DOM: `<jh-card></jh-card>`.
+
+<ArgTypes />
+
+## Feedback
+
+Have an idea that will improve this component or have an issue to report? Let us know by submitting an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
+
+Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

@@ -59,8 +59,8 @@ review it's usage guidelines and style guide. If you're ready to dive into the t
 
 | Package Name         | Description                          |
 |----------------------|--------------------------------------|
-| [@jack-henry/jh-ui](./packages/jh-ui/)    | Web Components                       |
-| [@jack-henry/jh-core](./packages/jh-core/)  | Design Tokens                        |
+| [@jack-henry/jh-elements](./packages/jh-elements/)    | Web Components                       |
+| [@jack-henry/jh-tokens](./packages/jh-tokens/)  | Design Tokens                        |
 | [@jack-henry/jh-icons](./packages/jh-icons/) | SVG and Web Component icons |
 
 ## Documentation

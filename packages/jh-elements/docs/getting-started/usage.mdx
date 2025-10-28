@@ -1,0 +1,172 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Getting Started/Usage" />
+
+# Usage
+
+Each web component includes a custom element and an associated JavaScript class that defines its public interface, behaviors, styles, and
+any implicit features such as accessibilty. We ensure that our components follow as closely as possible any behaviors or conventions
+defined in the HTML standard or are generally considered expected by engineers, with few exceptions.
+All components and their public API are thouroughly documented. Please review in depth before using each component. 
+
+## Using components
+
+Import the desired component and declare it in your component's render method:
+
+```js
+import { LitElement, html } from 'lit';
+import '@jack-henry/jh-elements/components/button/button.js';
+
+class MyWidget extends LitElement {
+
+  render() {
+    return html`<jh-button appearance="primary" label="Save"></jh-button>`;
+  }
+}
+```
+
+## Using themes
+
+Included in our design system are themes, where we have defined both light and dark themed CSS custom properties. You are required to either import our themes or define your own in order for our web components to render properly with styles. For quick setup of our provided themes, you can import our themeProvider utility:
+
+```javascript
+import { setJhTheme } from '@jack-henry/jh-elements/utils/themeProvider.js';
+```
+
+and call setJhTheme in your main application component:
+
+```javascript
+setJhTheme();
+```
+
+This will place both light and dark themed design system CSS custom properties at the top of the document head within two separate style tags named `id="jh-theme-light”` and `id="jh-theme-dark”`. The light theme is scoped to `:root` and will automatically be applied to all components. Whereas the dark theme is scoped to `.jh-theme-dark` and will require `class="jh-theme-dark”` to be added at the top of your application in order to be applied. 
+
+Additionally, you can provide specific custom property overrides by appending your own style tag to the document head *below* the design system themes. This ensures that as the stylesheets cascade, your custom property will successfully override that defined by the design system. 
+
+## Using fonts
+
+The Roboto Flex variable font is our primary font. We strongly encourage self-hosting fonts rather than relying on google fonts' CDN. 
+
+The fonts and related css files are availabe for download from our [Github Repo - V2](https://github.com/Banno/design-system/tree/release/v2/assets/fonts).
+
+See the [Typography page](/docs/getting-started-typography--docs) for more detailed instructions and options for font hosting.
+
+## Conventions
+
+There are a number of conventions that authors must be aware of to effectively use the system.
+
+### Namespace
+
+To prevent collisions with your applications and other libraries, we use the `jh-` namespace present on:
+
+- Custom element names
+- CSS custom properties
+- Events
+- Slots
+
+### Reactive properties
+
+All of our components extend LitElement, which grants reactive property capabilities. With reactive properties,
+each time an attribute or property is changed that is being observed, an update cycle is triggered and a render
+occurs. This render pipeline is performant and efficiently managed by Lit.
+
+Learn more about [reactive properties](https://lit.dev/docs/components/properties/).
+
+### Attributes
+
+Given the declarative nature of our components, attributes will be the most common approach to effecting component
+state. Note that setting an invalid attribute will result in the component failing silently. Please refer to the 
+component level documentation if the component is not working as expected. Just as in native HTML, we support two 
+attribute types.
+
+Content attributes are those attributes that we set on the HTML element. They come in two flavors; string attributes and
+boolean attributes. Content attributes are bound to an equivalent JavaScript property. When the attribute is set, so is 
+the JavaScript property. If an attribute includes a dash `-` character, the JavaScript equivalent is camelCase. For example, 
+the attribute `divider-inset` sets the JavaScript property `dividerInset`.
+
+#### String Attributes
+
+String attribute values are always strings and are set in the following manner:
+
+```html
+<jh-button appearance="primary" label="Save"></jh-button>
+```
+
+#### Boolean Attributes
+
+Boolean attributes do not include a value. The presence of the attribute indicates true and its absence, false.
+Setting `is-pending="false"` would evaluate to true, because only the attribute itself need be present.
+
+```html
+<jh-button appearance="primary" label="Save" is-pending></jh-button>
+```
+
+### Properties
+
+In addition to setting attributes on the component, at times, you may need to set a property directly via JavaScript.
+Component properties are intended to function with the same behaviors as [IDL attributes](https://developer.mozilla.org/en-US/docs/Glossary/IDL) 
+and when set, many will reflect their value back to the DOM as a content attribute.
+
+```javascript
+el.appearance = 'secondary';
+el.isPending = false;
+el.label = 'Save'
+```
+
+Will result in:
+
+```html
+<jh-button appearance="secondary" label="Save"></jh-button>
+```
+
+JavaScript properties differ from content attributes which are always strings. A property may transform a bound string attribute value 
+into a desired data type and store the transformed value. For example, an attribute may have a value of "24", while the associated
+property has an integer value of 24. Review each component doc to better understand the data type each attribute will be transformed to.
+
+### Slots
+
+Slots are one of the features that are part of the web component technology suite. Their purpose is to provide content to a component.
+Our components include two types of slots; default and named slots.
+
+#### Default
+
+Many components include a default slot option that will accept any HTML an author provides. To use a default slot, simply declare your
+HTML between the component tags:
+
+```html
+<jh-list-item>
+  <div class="container">
+    <div>My list content</div>
+  </div>
+</jh-list-item>
+```
+
+#### Named
+
+Some components will include named slots. Named slots target specific regions of a component to render your HTML. Multiple named slots
+can be present along with a default slot in some cases. To target a slot, include the slot attribute with the targeted slot name:
+
+```html
+<jh-list-item>
+  <div slot="jh-list-item-content" class="container">
+    <div>My list content</div>
+  </div>
+</jh-list-item>
+```
+
+### Events
+
+You can attach listeners for global events (clicks, keyboard events, etc.) to the components as you normally would. In addition, some components will also emit their own `jh-`
+namespaced custom events (`jh-change`, `jh-clear`, etc.). 
+These work like standard events, and, when required, will include additional details. Refer to each component's documentation for a 
+list of custom events.
+
+#### Declarative Event listeners
+
+When listening for events on custom elements, favor Lit's declarative event listeners:
+
+```html
+<jh-button label="Save" @click=${this.#handleClick}></jh-button>
+```
+
+Learn more about [Events in Lit](https://lit.dev/docs/components/events/).

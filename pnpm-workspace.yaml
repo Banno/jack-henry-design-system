@@ -1,4 +1,4 @@
 packages:  
-- 'packages/jh-ui'
-- 'packages/jh-core'
+- 'packages/jh-elements'
+- 'packages/jh-tokens'
 - 'packages/jh-icons'

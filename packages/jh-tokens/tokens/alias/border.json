@@ -1,0 +1,83 @@
+{
+    "border": {
+        "$type": "border",
+        "decorative": {
+            "$value": {
+                "color": "{color.divider.secondary}",
+                "width": "{dimension.25}",
+                "style": "solid"
+            },
+            "$description": "used for purely decorative styling such as on table borders, dividers, and edges of layout elements; does not meet the contrast minimum against the primary container",
+            "$extensions" : {
+                "alias": true,
+                "deprecated": false,
+                "deprecatedMessage": ""
+            }
+        },
+        "control": {
+            "$value": {
+                "color": "{color.divider.primary}",
+                "width": "{dimension.25}",
+                "style": "solid"
+            },
+            "$description": "used on interactive elements such as form controls; meets the contrast minimum against the primary container",
+            "$extensions" : {
+                "alias": true,
+                "deprecated": false,
+                "deprecatedMessage": ""
+            }
+        },
+        "action": {
+            "$value": {
+                "color": "{color.content.brand.enabled}",
+                "width": "{dimension.25}",
+                "style": "solid"
+            },
+            "$description": "used to style containers with a border such as buttons; meets the contrast minimum against the primary container",
+            "$extensions" : {
+                "alias": true,
+                "deprecated": false,
+                "deprecatedMessage": ""
+            }
+        },
+        "focus": {
+            "$value": {
+                "color": "{color.interactive.focus}",
+                "width": "{dimension.50}",
+                "style": "solid"
+            },
+            "$description": "used to style bordered implementations of the focus ring",
+            "$extensions" : {
+                "alias": true,
+                "deprecated": false,
+                "deprecatedMessage": ""
+            }
+          },
+        "selected": {
+            "$value": {
+                "color": "{color.content.brand.enabled}",
+                "width": "{dimension.200}",
+                "style": "solid"
+            },
+            "$description": "used on selected elements such as list items and tabs",
+            "$extensions" : {
+                "alias": true,
+                "deprecated": false,
+                "deprecatedMessage": ""
+            }
+        },
+        "error": {
+            "$value": {
+                "color": "{color.content.negative.enabled}",
+                "width": "{dimension.25}",
+                "style": "solid"
+            },
+            "$description": "used to denote an error or invalid state on elements",
+            "$extensions" : {
+                "alias": true,
+                "deprecated": false,
+                "deprecatedMessage": ""
+            }
+        }
+    }
+}

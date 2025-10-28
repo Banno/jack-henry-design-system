@@ -1,0 +1,137 @@
+import { Meta, ArgTypes } from '@storybook/blocks';
+import * as stories from './table.stories.js';
+
+<Meta title="Components/Table" of={stories} />
+
+# Table
+
+[Guidelines](https://jackhenry.design/pages/components/table/)
+
+<hr />
+
+The table is used to display tabular data. It is made up of several subcomponents and slots to produce an enhanced version of the native html table. It also provides hooks for sorting.
+
+## Usage
+
+Import the `<jh-table>` component:
+
+```javascript
+import '@jack-henry/jh-ui/components/table/table.js';
+```
+
+To use `<jh-table>`:
+
+```html
+<jh-table vertical-align="top">
+  <div slot="jh-table-caption">Table Caption</div>
+  <jh-table-row slot="jh-table-header">
+    <jh-table-header-cell sortable sorted="none">Header 1</jh-table-header-cell>
+    <jh-table-header-cell sortable sorted="none">Header 2</jh-table-header-cell>
+    <jh-table-header-cell>Header 3</jh-table-header-cell>
+  </jh-table-row>
+  <jh-table-row>
+    <jh-table-data-cell>Cell 1</jh-table-data-cell>
+    <jh-table-data-cell>Cell 2</jh-table-data-cell>
+    <jh-table-data-cell>Cell 3</jh-table-data-cell>
+  </jh-table-row>
+  <jh-table-row slot="jh-table-footer">
+    <jh-table-data-cell>Footer 1</jh-table-data-cell>
+    <jh-table-data-cell>Footer 2</jh-table-data-cell>
+    <jh-table-data-cell>Footer 3</jh-table-data-cell>
+  </jh-table-row>
+</jh-table>
+```
+
+## Dependencies
+The table component makes use of suggested content related dependencies.
+
+1. Content -  the following suggested dependencies should be imported when needed: 
+
+- `<jh-table-row>`. [Table-row component documentation](?path=/docs/components-table-table-row--docs).
+
+- `<jh-table-data-cell>`. [Table-cell component documentation](?path=/docs/components-table-table-data-cell--docs).
+
+- `<jh-table-header-cell>`. [Table-header-cell component documentation](?path=/docs/components-table-table-header-cell--docs).
+
+## Layout
+
+The table component functions like a native HTML table with some variations:
+
+- `<jh-table-data-cell>` and `<jh-table-header-cell>` components are placed inside `<jh-table-row>` components. 
+- `<jh-table-row>` components are then placed inside slots of `<jh-table>`:
+  - `<jh-table-row>` components placed in the `jh-table-header` slot make up the header row.
+  - `<jh-table-row>` components placed in the default slot make up the table body.
+  - `<jh-table-row>` components placed in the `jh-table-footer` slot make up the footer row.
+- Additional slots are available:
+    - `jh-table-caption` to provide a short description of the table.
+    - `jh-table-toolbar` to add any action items, filtering, tagging, etc.
+    - `jh-table-pagination` to add pagination controls.
+
+## Sorting Event
+
+The table component is set up so that authors can implement sorting. 
+When a user clicks on a sortable header cell, the `jh-sort` event is dispatched, which contains information like the id of the sorted column and the sorting order. 
+The actual sorting logic has to be implemented by authors.
+
+To enable sorting, set the `sortable` attribute on the `<jh-table-header-cell>` element. 
+
+- When `sortable` is set, the header cell will become a button and display a sort icon. 
+- The `jh-sort` event is dispatched when the user clicks on the header cell.
+- The `sorted` attribute can be set to `none` (default), `ascending` or `descending` to indicate the current sort order.
+- The `sorted` attribute is updated automatically when the user clicks on the header cell. It cycles through the three states in the order `none` - `ascending` - `descending`.
+- Only one column can be sorted at a time. Whenever a new column is sorted, the previously sorted column is reset to `none`.
+
+
+## Accessibility
+
+This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria. 
+The following success criteria are of concern:
+
+- [WCAG 1.3.1 Information and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html): Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.
+- [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html): Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.
+- [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard): All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes, except where the underlying function requires input that depends on the path of the user's movement and not just the endpoints.
+- [WCAG 2.4.6 Headings and Labels](https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html): Headings and labels describe topic or purpose.
+- [WCAG 2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible): Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.
+- [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html): The size of the target for pointer inputs is at least 24 by 24 CSS pixels, except where:
+  - Spacing: Undersized targets (those less than 24 by 24 CSS pixels) are positioned so that if a 24 CSS pixel diameter circle is centered on the bounding box of each, the circles do not intersect another target or the circle for another undersized target;
+  - Equivalent: The function can be achieved through a different control on the same page that meets this criterion;
+  - Inline: The target is in a sentence or its size is otherwise constrained by the line-height of non-target text;
+  - User agent control: The size of the target is determined by the user agent and is not modified by the author;
+  - Essential: A particular presentation of the target is essential or is legally required for the information being conveyed.
+- [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html): For all user interface components (including but not limited to: form elements, links and components generated by scripts), the name and role can be programmatically determined; states, properties, and values that can be set by the user can be programmatically set; and notification of changes to these items is available to user agents, including assistive technologies.
+
+### What we provide
+
+- To satisfy [WCAG 1.3.1 Information and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html), we provide the following aria roles:
+  - `table` for the table element,
+  - `row` for the jh-table-row element,
+  - `rowgroup` for the header, body, and footer slots,
+  - `cell` for the jh-table-data-cell element,
+  - `columnheader` for the jh-table-header-cell element.
+  
+- To satisfy [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html), the table can be resized without assistive technology up to 200 percent without loss of content or functionality.
+- To satisfy [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard):
+  - sortable table-header-cells can be reached by tabbing to them and activated by using the `Enter` or `Space` keys.
+  - scrollable tables can be reached by tabbing and navigated using the arrow keys.
+- To satisfy [WCAG 2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible), we provide focus visible styles on sortable table-header-cells and scrollable tables.
+- To satisfy [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html), by making the whole jh-table-header-cell clickable, we ensure that the target size for pointer inputs is at least 24 by 24 pixels for users to easily activate them.
+- To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html), we set `aria-sort` on the jh-table-header-cell element to indicate the current sort order.
+- To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html), we provide a `jh-table-caption` slot that uses `aria-labelledby` to add an accessible name to the table.
+
+### Author Guidance
+
+- To satisfy [WCAG 2.4.6 Headings and Labels](https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html), ensure the caption and column headings are descriptive.
+- To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html), when not using the `jh-table-caption` slot, authors should set an `accessible-label` on the table to provide an accessible name.
+
+## Component API
+
+For boolean attributes, true indicates that the attribute has been set without a value: `<jh-table sticky-header></jh-table>`. While false indicates the attribute does not exist in the DOM: `<jh-table></jh-table>`.
+
+<ArgTypes />
+
+## Feedback
+
+Have an idea that will improve this component or have an issue to report? Let us know by submitting 
+an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
+
+Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

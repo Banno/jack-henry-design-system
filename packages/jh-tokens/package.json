@@ -1,0 +1,29 @@
+{
+  "name": "@jack-henry/jh-tokens",
+  "description": "Jack Henry design system core design tokens.",
+  "version": "2.0.0-beta.7",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Banno/jack-henry-design-system.git"
+  },
+  "contributors": [
+    "Audrey Bissiere-Grote",
+    "Chris Austin",
+    "Brad McCormick",
+    "Maya Buser De"
+  ],
+  "license": "Apache-2.0",
+  "type": "module",
+  "files": [
+    "platforms",
+    "utils"
+  ],
+  "scripts": {
+    "build:tokens": "node ./lib/build.js",
+    "merge": "node ./lib/merge.js",
+    "build": "npm run build:tokens && npm run merge"
+  },
+  "devDependencies": {
+    "style-dictionary": "4.1.1"
+  }
+}

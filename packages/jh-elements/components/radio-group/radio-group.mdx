@@ -1,0 +1,130 @@
+import {Meta, ArgTypes} from '@storybook/blocks';
+import * as stories from './radio-group.stories.js';
+
+<Meta title="Components/Radio Group" of={stories} />
+
+# Radio Group
+
+[Guidelines](https://jackhenry.design/pages/components/radio-group/)
+
+<hr />
+
+Radio groups contain sets of radios from which only one option can be selected. 
+
+## Usage
+
+Import the `<jh-radio-group>` component:
+
+```javascript
+import '@jack-henry/jh-elements/components/radio-group/radio-group.js';
+```
+
+To use `<jh-radio-group>`, add `<jh-radio>`s to its slot and any desired properties.
+
+```html
+<jh-radio-group label="Label" name="options">
+  <jh-radio label="radio 1" value="radio-1" checked></jh-radio>
+  <jh-radio label="radio 2" value="radio-2"></jh-radio>
+  <jh-radio label="radio 3" value="radio-3"></jh-radio>
+</jh-radio-group>
+```
+
+## Dependencies
+The radio group component makes use of suggested content dependencies.
+
+1. Content -  the following suggested dependencies should be imported when needed: 
+
+- `<jh-radio>`. [Radio component documentation](/docs/components-radio--docs).
+
+## Behaviors
+- To ensure that styling is applied correctly to the radio group, add only `<jh-radio>` components to the slot.
+- To ensure that form submission of the radio-group (`name=value`) happens correctly, 
+all radios need to have a `value` attribute set and the radio-group needs to have the `name` attribute set.
+  - If no radio is selected in the radio-group, no data is submitted in the form.
+  - If a radio that doesn't have a `value` attribute is checked, no data is submitted in the form.
+- There are 2 options to set one radio to a checked state on page load:
+  - Set the `checked` attribute on one individual radio.
+  - Set the attribute `value` on the radio group to the value of the desired radio.
+- Setting the `value` attribute on the radio group overrides setting `checked` on the individual radio.
+
+## Accessibility
+
+This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria. 
+The following success criteria are of concern:
+
+- [WCAG 1.3.1 Information and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html): Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.
+- [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html): Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.
+- [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html):
+  All functionality of the content is operable through a keyboard interface without requiring specific timings for
+   individual keystrokes, except where the underlying function requires input that depends on the path of the user's 
+   movement and not just the endpoints.
+- [WCAG 2.4.6 Headings and Labels](https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html):
+  Headings and labels describe topic or purpose.
+- [WCAG 2.4.7 Focus visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible):
+  Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.
+- [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html): The size of the target for pointer inputs is at least 24 by 24 CSS pixels, except where:
+  - Spacing: Undersized targets (those less than 24 by 24 CSS pixels) are positioned so that if a 24 CSS pixel diameter circle is centered on the bounding box of each, the circles do not intersect another target or the circle for another undersized target;
+  - Equivalent: The function can be achieved through a different control on the same page that meets this criterion;
+  - Inline: The target is in a sentence or its size is otherwise constrained by the line-height of non-target text;
+  - User agent control: The size of the target is determined by the user agent and is not modified by the author;
+  - Essential: A particular presentation of the target is essential or is legally required for the information being conveyed.
+- [WCAG 3.3.1 Error Identification](https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html):
+  If an input error is automatically detected, the item that is in error is identified and the error is described
+   to the user in text.
+- [WCAG 3.3.2 Labels or Instructions](https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html):
+  Labels or instructions are provided when content requires user input.
+- [WCAG 3.3.3 Error Suggestion](https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html):
+  If an input error is automatically detected and suggestions for correction are known, then the suggestions
+   are provided to the user, unless it would jeopardize the security or purpose of the content.
+- [WCAG 4.1.2 Name, role, value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html):
+  For all user interface components, the name and role can be programmatically determined; states, properties,
+  and values that can be set by the user can be programmatically set; and notification of changes to these items
+  is available to user agents, including assistive technologies.
+
+### What we provide
+
+
+- To satisfy [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) 
+and [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value), 
+any `label`, `helper-text`, or `error-text` are associated with the radio group by default.
+- To satisfy [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html), Radio Group can be resized without assistive technology up to 200 percent without loss of content or functionality.
+- To satisfy [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html), the radio group replicates 
+native input keyboard support. 
+  - `Arrow Down` and `Arrow Right` select the next radio in the group. 
+  - `Arrow Up` and `Arrow Left` select the previous radio in the group.
+  - `Space` will check an unchecked radio.
+  - `Tab` will move focus to the next element in the tab order.
+- To satisfy [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html), 
+adequate spacing between radios is provided to ensure the input target size meets the 24 by 24 pixels requirement.
+- To satisfy [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) 
+and [WCAG 3.3.3 Error Suggestion](https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html), 
+`aria-required=true` is set on radio groups with the attribute `required`.
+
+### Author Guidance
+
+- To satisy [WCAG 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html), 
+when using the `required` property and `show-indicator` attribute, include instructions at the top of 
+the form to explain required radio groups are marked with a red asterisk.
+- To satisfy [WCAG 2.4.6 Headings and Labels](https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html) 
+and [WCAG 3.3.2 Labels or Instructions](https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html), 
+ensure the `label` property or `accessible-label` attribute are descriptive.
+- To satisfy [WCAG 3.3.1 Error Identification](https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html), 
+set the `invalid` attribute to generate an `aria-invalid` attribute on radio group to indicate an error. 
+Utilize the `error-text` attribute to provide feedback on a failed value.
+- To satisfy [WCAG 3.3.3 Error Suggestion](https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html), 
+use the `error-text` attribute to provide a suggestion to correct the error when appropriate.
+- To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value), 
+set the `accessible-label` attribute to generate an `aria-label` when a visible label cannot be used.
+
+## Component API
+
+For boolean attributes, true indicates that the attribute has been set without a value: `<jh-radio-group required></jh-radio-group>`. While false indicates the attribute does not exist in the DOM: `<jh-radio-group></jh-radio-group>`.
+
+<ArgTypes />
+
+## Feedback
+
+Have an idea that will improve this component or have an issue to report? Let us know by submitting 
+an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
+
+Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

@@ -1,0 +1,80 @@
+{
+  "border": {
+    "$type": "dimension",
+    "radius": {
+      "0": {
+        "$value": "0px",
+        "$description": "No border radius",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "50": {
+        "$value": "2px",
+        "$description": "Border radius 50",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "100": {
+        "$value": "4px",
+        "$description": "Border radius 100",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "200": {
+        "$value": "8px",
+        "$description": "Border radius 200",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "300": {
+        "$value": "12px",
+        "$description": "Border radius 300",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "400": {
+        "$value": "16px",
+        "$description": "Border radius 400",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "circle": {
+        "$type": "number",
+        "$value": "50%",
+        "$description": "Circular border radius",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "pill": {
+        "$value": "9999px",
+        "$description": "Pill border radius",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      }
+    }
+  }
+}

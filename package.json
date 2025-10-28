@@ -6,7 +6,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Banno/jack-henry-design-system.git"
-  },  
+  },
   "contributors": [
     "Audrey Bissiere-Grote",
     "Brad McCormick",
@@ -15,13 +15,13 @@
   "license": "Apache-2.0",
   "scripts": {
     "install:all": "pnpm install",
-    "install:jh-ui": "pnpm install --filter @jack-henry/jh-ui",
-    "install:jh-core": "pnpm install --filter @jack-henry/jh-core",
+    "install:jh-elements": "pnpm install --filter @jack-henry/jh-elements",
+    "install:jh-tokens": "pnpm install --filter @jack-henry/jh-tokens",
     "install:jh-icons": "pnpm install --filter @jack-henry/jh-icons",
-    "generate:jh-ui": "pnpm run --filter @jack-henry/jh-ui generate",
-    "storybook:jh-ui": "pnpm run --filter @jack-henry/jh-ui storybook",
-    "analyze:jh-ui": "pnpm run --filter @jack-henry/jh-ui analyze",
-    "build:jh-core": "pnpm run --filter @jack-henry/jh-core build",
+    "generate:jh-elements": "pnpm run --filter @jack-henry/jh-elements generate",
+    "storybook:jh-elements": "pnpm run --filter @jack-henry/jh-elements storybook",
+    "analyze:jh-elements": "pnpm run --filter @jack-henry/jh-elements analyze",
+    "build:jh-tokens": "pnpm run --filter @jack-henry/jh-tokens build",
     "build:jh-icons": "pnpm run --filter @jack-henry/jh-icons build-wc",
     "changeset:version": "changeset version && pnpm install --lockfile-only"
   },

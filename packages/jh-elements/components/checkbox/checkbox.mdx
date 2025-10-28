@@ -1,0 +1,87 @@
+import {Meta, ArgTypes} from '@storybook/blocks';
+import * as stories from './checkbox.stories.js';
+
+<Meta title="Components/Checkbox" of={stories} />
+
+# Checkbox
+
+[Guidelines](https://jackhenry.design/pages/components/checkbox/)
+
+<hr />
+
+Checkboxes allow users to select one or more options from a group of options.
+
+## Usage
+
+Import the `<jh-checkbox>` component:
+
+```javascript
+import '@jack-henry/jh-elements/components/checkbox/checkbox.js';
+```
+
+To use `<jh-checkbox>`:
+
+```html
+<jh-checkbox checked></jh-checkbox>
+```
+
+## Indeterminate Checkboxes
+
+- A checkbox in an indeterminate state provides a visual indication that the actual state of the checkbox (checked or unchecked), cannot be determined.
+- Any interaction with an indeterminate checkbox will set its state to checked.
+- Indeterminate checkboxes do not participate in form submission, even if checked=true.
+
+## Accessibility
+
+This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria.
+The following success criteria are of concern:
+
+- [WCAG 1.3.1 Information and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html):
+  Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.
+- [WCAG 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color):
+  Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element.
+- [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html): Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.
+- [WCAG 2.4.6 Headings and Labels](https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html):
+  Headings and labels describe topic or purpose.
+- [WCAG 2.4.7 Focus visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible):
+  Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.
+- [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum):
+The size of the target for pointer inputs is at least 24 by 24 CSS pixels, except where:
+  - Spacing: Undersized targets (those less than 24 by 24 CSS pixels) are positioned so that if a 24 CSS pixel diameter circle is centered on the bounding box of each, the circles do not intersect another target or the circle for another undersized target;
+  - Equivalent: The function can be achieved through a different control on the same page that meets this criterion;
+  - Inline: The target is in a sentence or its size is otherwise constrained by the line-height of non-target text;
+  - User agent control: The size of the target is determined by the user agent and is not modified by the author;
+  - Essential: A particular presentation of the target is essential or is legally required for the information being conveyed.
+- [WCAG 3.3.2 Labels or Instructions](https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html):
+  Labels or instructions are provided when content requires user input.
+- [WCAG 4.1.2 Name, role, value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html):
+  For all user interface components, the name and role can be programmatically determined; states, properties,
+  and values that can be set by the user can be programmatically set; and notification of changes to these items
+  is available to user agents, including assistive technologies.
+
+### What we provide
+
+- To satisfy [WCAG 1.3.1 Information and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) and [WCAG 4.1.2 Name, role, value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html), the checkbox is programmatically connected to its label and helper text (when used).
+- To satisfy [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html), Checkbox can be resized without assistive technology up to 200 percent without loss of content or functionality.
+- To satisfy [WCAG 2.4.7 Focus visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible), the cursor changes shape to indicate that the checkbox can be operated and the checkbox receives a visible border when it is focused.
+- To satisfy [WCAG 4.1.2 Name, role, value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html), the state of the checkbox is communicated by the native input: checked/unchecked/mixed(indeterminate) and `aria-describedby` is used to connect the helper-text to the checkbox.
+
+### Author Guidance
+
+- To satisfy [WCAG 2.4.6 Headings and Labels](https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html) and [WCAG 3.3.2 Labels or Instructions](https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html), `label` and`helper-text` are made available to provide clear labels and instructions.
+- To satisfy [WCAG 2.4.6 Headings and Labels](https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html) and [WCAG 3.3.2 Labels or Instructions](https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html), when no visible label is provided, `accessible-label` should be used to provide an `aria-label` for the checkbox.
+- To satisfy [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum), 
+when using multiple checkboxes, use a `<jh-checkbox-group>`, which includes appropriate spacing between checkboxes by design. 
+When using  a single `<jh-checkbox>`, make sure to provide adequate spacing around the checkbox to meet the 24 by 24 pixels minimum target size requirement.
+## Component API
+
+For boolean attributes, true indicates that the attribute has been set without a value: `<jh-checkbox indeterminate></jh-checkbox>`. While false indicates the attribute does not exist in the DOM: `<jh-checkbox></jh-checkbox>`.
+
+<ArgTypes />
+
+## Feedback
+
+Have an idea that will improve this component or have an issue to report? Let us know by submitting
+an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
+
+Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

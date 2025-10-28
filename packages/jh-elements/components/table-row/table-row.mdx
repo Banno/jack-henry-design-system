@@ -1,0 +1,52 @@
+import { Meta, ArgTypes } from '@storybook/blocks';
+import * as stories from './table-row.stories.js';
+
+<Meta title="Components/Table Row" of={stories} />
+
+# Table Row
+
+[Guidelines](https://jackhenry.design/pages/components/table-row/)
+
+<hr />
+
+The table row is used to display one row of table data. It contains `<jh-table-data-cell>`s or `<jh-table-header-cell>`s.
+
+## Usage
+
+Import the `<jh-table-row>` component:
+
+```javascript
+import '@jack-henry/jh-ui/components/table-row/table-row.js';
+```
+
+To use `<jh-table-row>` place it in the appropriate slot in a `<jh-table>` and add `<jh-table-data-cell>`s or `<jh-table-header-cell>`s to its default slot:
+
+```html
+<jh-table> 
+    // [...]
+  <jh-table-row>
+    <jh-table-data-cell>Cell 1</jh-table-data-cell>
+    <jh-table-data-cell>Cell 2</jh-table-data-cell>
+    <jh-table-data-cell>Cell 3</jh-table-data-cell>
+  </jh-table-row>
+  // [...]
+</jh-table>
+```
+## Accessibility
+
+This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria. 
+
+For accessibility details refer to the Accessibility section of the [Table component](?path=/docs/components-table-table--docs) documentation.
+
+## Component API
+
+This component does not have any attributes.
+
+<ArgTypes />
+
+## Feedback
+
+Have an idea that will improve this component or have an issue to report? Let us know by submitting 
+an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
+
+Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

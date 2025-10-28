@@ -1,0 +1,13 @@
+{
+  "opacity": {
+    "$type": "number",
+    "disabled": {
+      "$value": "{opacity.300}",
+      "$extensions": {
+        "alias": true,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    }
+  }
+}

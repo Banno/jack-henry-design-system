@@ -1,7 +1,7 @@
 {
   "name": "@jack-henry/jh-icons",
   "description": "Jack Henry icon library",
-  "version": "1.2.0",
+  "version": "2.0.0-beta.6",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Banno/jack-henry-design-system.git"

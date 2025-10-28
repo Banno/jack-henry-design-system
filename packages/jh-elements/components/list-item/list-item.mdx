@@ -1,0 +1,131 @@
+import {Meta, ArgTypes} from '@storybook/blocks';
+import * as stories from './list-item.stories.js';
+
+<Meta title="Components/List Item" of={stories} />
+
+# List Item
+
+[Guidelines](https://jackhenry.design/pages/components/list-item/)
+
+<hr />
+
+A list item represents one item in a list of connected objects. List items are used as building blocks in complex
+components such as lists, menus, and dropdowns.
+
+## Usage
+
+Import the `<jh-list-item>` component:
+
+
+```javascript
+import '@jack-henry/jh-elements/components/list-item/list-item.js';
+```
+
+To use `<jh-list-item>`, place content in the slots or use the available properties to display content.
+
+```html
+<jh-list-item>
+  <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
+  <div slot="jh-list-item-content">Lorem ipsum dolor sit amet</div>
+  <div slot="jh-list-item-metadata">Lorem ipsum</div>
+  <jh-icon-view-more slot="jh-list-item-right"></jh-icon-view-more>
+</jh-list-item>
+```
+
+## Dependencies
+The list item component makes use of both required compositional and suggested content related dependencies.
+
+1. Composition - the following required dependencies are automatically imported:
+
+- `<jh-divider>`. [Divider component documentation](/docs/components-divider--docs).
+
+2. Content -  the following suggested dependencies should be imported when needed: 
+
+- `<jh-icon>`. [Iconography documentation](/docs/iconography-overview--docs).
+
+## Layouts
+
+List items offer multiple ways to display content: 
+- Use the default slot to provide custom content. See [Default story](/story/components-list-item--default).
+- Use some or all layout slots such as left slot, content slot, metadata slot, right slot. See [Default Layout story](/story/components-list-item--default-layout).
+- Use properties, alone or in combination with layout slots, to display formatted strings of 
+primary and secondary text and metadata. 
+See [Layout with Properties story](/story/components-list-item--layout-with-properties).
+- The default slot is intended to be used independently from the layout slots and should not be combined with
+ layout slots or properties. Doing so may result in adverse results.
+
+## Interactivity
+By default, list items are not interactive and cannot be reached via keyboard navigation, however list items 
+include built-in support should you need interactivity.
+
+- List items can be made interactive by setting `tabindex="0"`. 
+- Interactive list items have states such as hover, focus, active, selected and disabled. See [Interactive List story](/story/components-list-item--interactive-list). 
+- Disabled interactive list-items are not editable or operable but are announced by assistive technologies. 
+
+## Divider inset
+
+List item supports a divider to create a clearer definition between list items. 
+The left inset of the divider can be adjusted via the following methods:
+- To adjust the left inset of the divider, use the `divider-inset` attribute which supports a range from 
+0px to 96px with a step of 8px.
+- To set the left inset to a value outside of the divider-inset attribute range, 
+or for multiple dividers at once, omit the divider-inset attributes and use the `--jh-divider-inset-space` 
+component token instead.
+- For multiple dividers with varying inset requirements, use the divider-inset attribute in conjuction with 
+the `--jh-divider-inset-space` component token. Note that the divider-inset attribute will override the 
+component token where present.
+
+## Accessibility
+
+This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria. 
+The following success criteria are of concern:
+
+- [WCAG 1.3.1 Information and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html): 
+Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.
+- [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html): Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.
+- [WCAG 2.4.7 Focus visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible): 
+Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.
+- [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html): The size of the target for pointer inputs is at least 24 by 24 CSS pixels, except where:
+  - Spacing: Undersized targets (those less than 24 by 24 CSS pixels) are positioned so that if a 24 CSS pixel diameter circle is centered on the bounding box of each, the circles do not intersect another target or the circle for another undersized target;
+  - Equivalent: The function can be achieved through a different control on the same page that meets this criterion;
+  - Inline: The target is in a sentence or its size is otherwise constrained by the line-height of non-target text;
+  - User agent control: The size of the target is determined by the user agent and is not modified by the author;
+  - Essential: A particular presentation of the target is essential or is legally required for the information being conveyed.
+- [WCAG 4.1.2 Name, role, value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html): 
+For all user interface components, the name and role can be programmatically determined; states, properties, 
+and values that can be set by the user can be programmatically set; and notification of changes to these items 
+is available to user agents, including assistive technologies.
+
+### What we provide
+
+- To satisfy [WCAG 1.3.1 Information and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) and [WCAG 4.1.2 Name, role, value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html),
+ `<jh-list-item>` components have `role=listitem` for screen readers to understand their relationship to the parent list component.
+ - To satisfy [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html), List Item can be resized without assistive technology up to 200 percent without loss of content or functionality.
+- To satisfy [WCAG 2.4.7 Focus visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible), focused interactive list-items have a different background color and outline.
+- To satisfy [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html), the target size for interactive list items is at least 24 by 24 pixels for users to easily activate them.
+- To satisfy [WCAG 4.1.2 Name, role, value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html), disabled interactive list-items have `aria-disabled` set to true. Disabled interactive list-items are not editable or 
+operable but are announced to assistive technologies.
+
+### Author Guidance
+
+- To satisfy [WCAG 1.3.1 Information and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) and [WCAG 4.1.2 Name, role, value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html),
+ authors should assign the role of list to the parent of `<jh-list-item>`. 
+If list-items are used within menus or dropdowns, the role of the parent and the role of the list-item will need to be adjusted as required (ex. menuitem).
+- To satisfy [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html), when using custom size tokens on interactive list items, ensure a minimum size of 24 by 24 pixels is maintained.
+- To satisfy [WCAG 4.1.2 Name, role, value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html), when an interactive list item is selected by click or keyboard, 
+authors should assign `aria-current` to the selected item. 
+For certain instances like dropdowns, `aria-selected` or `aria-multiselected` may need to be used instead. 
+- Disabled interactive list item remain in the tab order and are announced by assistive technologies.
+
+## Component API
+
+For boolean attributes, true indicates that the attribute has been set without a value: `<jh-list-item show-divider></jh-list-item>`. While false indicates the attribute does not exist in the DOM: `<jh-list-item></jh-list-item>`.
+
+<ArgTypes />
+
+## Feedback
+
+Have an idea that will improve this component or have an issue to report? Let us know by submitting 
+an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
+
+Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

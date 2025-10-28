@@ -18,31 +18,31 @@ export default class JhIconArrowRightSmall extends LitElement {
       :host([size='x-small']) {
         --icon-size: var(
           --jh-icon-size-extra-small,
-          var(--jh-size-400)
+          var(--jh-dimension-400)
         );
       }
       :host([size='small']) {
         --icon-size: var(
           --jh-icon-size-small,
-          var(--jh-size-500)
+          var(--jh-dimension-500)
         );
       }
       :host([size='medium']) {
         --icon-size: var(
           --jh-icon-size-medium,
-          var(--jh-size-600)
+          var(--jh-dimension-600)
         );
       }
       :host([size='large']) {
         --icon-size: var(
           --jh-icon-size-large,
-          var(--jh-size-900)
+          var(--jh-dimension-900)
         );
       }
       :host([size='x-large']) {
         --icon-size: var(
           --jh-icon-size-extra-large,
-          var(--jh-size-1400)
+          var(--jh-dimension-1400)
         );
       }
       svg {

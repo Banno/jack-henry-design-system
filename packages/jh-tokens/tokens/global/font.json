@@ -1,0 +1,385 @@
+{
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "sans": {
+        "$value": ["Roboto Flex", "Roboto", "Helvetica", "Arial", "sans-serif"],
+        "$description": "Sans-serif font family",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "mono": {
+        "$value": ["Roboto Mono", "monospace"],
+        "$description": "Monospace font family",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      }
+    },
+    "line-height": {
+      "$type": "dimension",
+      "300": {
+        "$value": "12px",
+        "$description": "Line-height 300",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "400": {
+        "$value": "16px",
+        "$description": "Line-height 400",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "500": {
+        "$value": "20px",
+        "$description": "Line-height 500",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "600": {
+        "$value": "24px",
+        "$description": "Line-height 600",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "700": {
+        "$value": "28px",
+        "$description": "Line-height 700",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "800": {
+        "$value": "32px",
+        "$description": "Line-height 800",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "900": {
+        "$value": "36px",
+        "$description": "Line-height 900",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "1000": {
+        "$value": "40px",
+        "$description": "Line-height 1000",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "1100": {
+        "$value": "44px",
+        "$description": "Line-height 1100",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "1300": {
+        "$value": "52px",
+        "$description": "Line-height 1300",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "1500": {
+        "$value": "60px",
+        "$description": "Line-height 1500",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "1600": {
+        "$value": "64px",
+        "$description": "Line-height 1600",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "1800": {
+        "$value": "72px",
+        "$description": "Line-height 1800",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "2000": {
+        "$value": "80px",
+        "$description": "Line-height 2000",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "2300": {
+        "$value": "92px",
+        "$description": "Line-height 2300",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "2500": {
+        "$value": "100px",
+        "$description": "Line-height 2500",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "2700": {
+        "$value": "108px",
+        "$description": "Line-height 2700",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      }
+    },
+    "weight": {
+      "$type": "fontWeight",
+      "300": {
+        "$value": "300",
+        "$description": "Font weight 300",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "400": {
+        "$value": "400",
+        "$description": "Font weight 400",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "500": {
+        "$value": "500",
+        "$description": "Font weight 500",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "700": {
+        "$value": "700",
+        "$description": "Font weight 700",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      }
+    },
+    "size": {
+      "$type": "dimension",
+      "250": {
+        "$value": "10px",
+        "$description": "Font size 250",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "300": {
+        "$value": "12px",
+        "$description": "Font size 300",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "350": {
+        "$value": "14px",
+        "$description": "Font size 350",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "400": {
+        "$value": "16px",
+        "$description": "Font size 400",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "450": {
+        "$value": "18px",
+        "$description": "Font size 450",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "500": {
+        "$value": "20px",
+        "$description": "Font size 500",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "600": {
+        "$value": "24px",
+        "$description": "Font size 600",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "700": {
+        "$value": "28px",
+        "$description": "Font size 700",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "800": {
+        "$value": "32px",
+        "$description": "Font size 800",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "900": {
+        "$value": "36px",
+        "$description": "Font size 900",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "1050": {
+        "$value": "42px",
+        "$description": "Font size 1050",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "1200": {
+        "$value": "48px",
+        "$description": "Font size 1200",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "1350": {
+        "$value": "54px",
+        "$description": "Font size 1350",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "1500": {
+        "$value": "60px",
+        "$description": "Font size 1500",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "1700": {
+        "$value": "68px",
+        "$description": "Font size 1700",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "1900": {
+        "$value": "76px",
+        "$description": "Font size 1900",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "2100": {
+        "$value": "84px",
+        "$description": "Font size 2100",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "2300": {
+        "$value": "92px",
+        "$description": "Font size 2300",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      }
+    }
+  }
+}

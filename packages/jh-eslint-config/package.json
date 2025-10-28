@@ -1,0 +1,23 @@
+{
+  "name": "@jack-henry/jh-eslint-config",
+  "description": "Jack Henry's design system's javascript linter.",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Banno/jack-henry-design-system.git"
+  },
+  "main": "index.js",
+  "type": "module",
+  "contributors": [
+    "Audrey Bissiere-Grote",
+    "Brad McCormick",
+    "Maya Buser De"
+  ],
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "eslint": "9.8.0"
+  },
+  "dependencies": {
+    "globals": "15.13.0"
+  }
+}

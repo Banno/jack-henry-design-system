@@ -15,9 +15,9 @@
   "license": "Apache-2.0",
   "files": [
     "components/**/!(*.stories).js",
+    "components/**/*.d.ts",
     "utils",
     "custom-elements.json",
-    "index.d.ts",
     "jsconfig.json",
     "NOTICE"
   ],
@@ -25,7 +25,9 @@
     "generate": "hygen component new",
     "storybook": "storybook dev --port 6006",
     "build-storybook": "storybook build",
-    "analyze": "wca analyze components --format json --outFile custom-elements.json",
+    "analyze:cem": "cem analyze",
+    "analyze:types": "node generate-types.mjs",
+    "analyze": "pnpm run analyze:cem && pnpm run analyze:types",
     "prepack": "cp ../../NOTICE .",
     "postpack": "rm -f NOTICE"
   },
@@ -43,12 +45,12 @@
     "@storybook/theming": "8.4.6",
     "@storybook/web-components": "8.4.6",
     "@storybook/web-components-vite": "8.4.6",
+    "@custom-elements-manifest/analyzer": "0.10.8",
     "chromatic": "5.8.3",
     "hygen": "6.2.11",
     "storybook": "8.4.6",
     "storybook-addon-tag-badges": "1.3.1",
     "storybook-dark-mode": "4.0.1",
-    "web-component-analyzer": "1.1.6",
     "vite": "5.4.12"
   }
 }

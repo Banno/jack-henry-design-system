@@ -740,6 +740,10 @@
           "description": "The card background-color. Defaults to `--jh-color-container-primary-enabled`."
         },
         {
+          "name": "--jh-card-color-border",
+          "description": "The card border color. Defaults to `transparent`."
+        },
+        {
           "name": "--jh-card-border-radius",
           "description": "The card border-radius. Defaults to `--jh-border-radius-400`."
         },

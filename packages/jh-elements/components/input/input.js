@@ -2,6 +2,7 @@ import { LitElement, css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import '../button/button.js';
 import '@jack-henry/jh-icons/icons-wc/icon-circle-xmark.js';
+import { validationMixin } from '../../../jh-validate/validate.js';
 
 let id = 0;
 
@@ -48,7 +49,7 @@ let id = 0;
  * 
  * @customElement jh-input
  */
-export class JhInput extends LitElement {
+export class JhInput extends validationMixin(LitElement) {
   static get formAssociated() {
     return true;
   }

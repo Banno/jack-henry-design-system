@@ -1,0 +1,15 @@
+{
+    "name": "@jack-henry/jh-mixins",
+    "description": "Jack Henry's design system mixins library.",
+    "version": "1.0.0",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Banno/jack-henry-design-system.git"
+    },
+    "contributors": [
+      "Audrey Bissiere-Grote",
+      "Brad McCormick",
+      "Maya Buser De"
+    ],
+    "license": "Apache-2.0"
+}

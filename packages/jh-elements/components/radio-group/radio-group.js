@@ -1,5 +1,6 @@
 import { LitElement, css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { validationMixin } from '../../../jh-validate/validate.js';
 
 let id = 0;
 /**
@@ -20,7 +21,7 @@ let id = 0;
  *
  * @customElement jh-radio-group
  */
-export class JhRadioGroup extends LitElement {
+export class JhRadioGroup extends validationMixin(LitElement) {
   static get formAssociated() {
     return true;
   }

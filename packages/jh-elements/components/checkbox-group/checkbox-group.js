@@ -1,5 +1,6 @@
 import { LitElement, css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { validationMixin } from '../../../jh-validate/validate.js';
 
 let id = 0;
 /**
@@ -18,7 +19,7 @@ let id = 0;
  *
  * @customElement jh-checkbox-group
  */
-export class JhCheckboxGroup extends LitElement {
+export class JhCheckboxGroup extends validationMixin(LitElement) {
   /** @type {?Number} */
   #id;
 

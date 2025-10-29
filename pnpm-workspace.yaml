@@ -2,3 +2,4 @@ packages:
 - 'packages/jh-elements'
 - 'packages/jh-tokens'
 - 'packages/jh-icons'
+- 'packages/jh-validate'

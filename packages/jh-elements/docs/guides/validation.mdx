@@ -1,0 +1,230 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Guides/Validation" tags={['new']} />
+
+# Validatation
+
+The design system offers a validation mixin that centralizes common validation rules. The mixin is automatically integrated by the desgin system form control components, and can be extended to custom components to ensure consistent validation behavior across your application. 
+
+## Getting Started with jh-validate
+
+Design system form controls consume the mixin internally. If you're authoring a custom control, you can extend your component with the mixin to hook into the same validation lifecycle.
+
+The mixin inspects component properties such as `required`, `pattern`, or `minlength` and runs validation against constraints on blur (for single controls) or focusout (for control groups).
+
+### Validation Properties
+
+The mixin supports the following validation properties:
+
+#### For Single Control Components (e.g `<jh-input>`)
+
+- `required`: Boolean. Specifies that the field must have a value.
+- `minlength="number"`: Specifies the minimum number of characters required.
+- `maxlength="number"`: Specifies the maximum number of characters allowed.
+- `pattern="regex"`: Specifies a regular expression the input's value must match.
+
+#### For Group Control Components (e.g `<jh-checkbox-group>`)
+
+- `required`: Boolean. Specifies that at least one child control must be checked.
+- `minRequired="number"`: Specifies the minimum number of child controls that must be checked.
+- `maxRequired="number"`: Specifies the maximum number of child controls that can be checked.
+
+### When Validation Fails
+
+When a component fails validation, the mixin will:
+
+1. Set the `invalid` property on the component. For design system components, the `invalid` property will automatically display invalid styles and render the `error-text` message if one is defined. 
+2. Dispatch a `jh-invalid` event.
+
+#### Event Payload
+
+You can listen for the `jh-invalid` event on the component or any parent container.
+
+The `event.detail` property includes the following information:
+
+- `detail.type`: The type of validation error (e.g., 'valueMissing', 'tooLong', 'patternMismatch').
+- `detail.element`: A reference to the custom element that failed validation.
+
+### Responding to Validation Events
+
+When validation fails, the mixin dispatches a jh-invalid event. Authors should listen for this event and respond with helpful, contextual error messages.
+
+Below is an example of how to set error messages dynamically:
+
+```javascript
+import { LitElement, html, css } from 'lit'; 
+
+export class AppContainer extends LitElement {
+  // listen for jh-invalid event
+  constructor() {
+    super();
+    this.addEventListener('jh-invalid', this.handleInvalid)
+  }
+
+  // dynamically apply error message based on type of error
+  handleInvalid(event) {
+    let invalidElement = event.detail.element;
+    let customErrorMessage;
+
+    if (event.detail.type === 'valueMissing') {
+      customErrorMessage = 'This field is required.';
+    }
+    if (event.detail.type === 'patternMismatch') {
+      customErrorMessage = 'The input does not match the required pattern.';
+    }
+    if (event.detail.type === 'tooShort') {
+      customErrorMessage = `The input is too short. Minimum length is ${invalidElement.minlength} characters.`;
+    }
+    if (event.detail.type === 'tooLong') {
+      customErrorMessage = `The input is too long. Maximum length is ${invalidElement.maxlength} characters.`;
+    }
+    invalidElement.errorText = customErrorMessage || 'Invalid input.';
+  }
+  ...
+}
+```
+
+## Creating Custom Components with the Mixin
+
+To ensure consistent validation behavior across your application, authors can extend their custom components with the validation mixin. Below are examples of how to integrate the mixin into custom form controls.
+
+### Custom Single Control Components 
+```javascript
+// my-text-input.js
+
+// import jh-validate package
+import { validationMixin } from '@jack-henry/jh-validate/validate.js';
+import { LitElement, html, css } from 'lit'; 
+
+// extend validation mixin
+export class MyTextInput extends validationMixin(LitElement) {
+  // define invalid styles
+  static get styles() {
+    return css`
+      :host([invalid]) input {
+        border: 2px solid red;
+      }
+    `
+  }
+
+  // define validation constraint properties
+  static get properties() {
+    return {
+      /** Text to be displayed when input has failed validation and `invalid` is true. */
+      errorText: { type: String, attribute: 'error-text' },
+      /** Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set. */
+      invalid: { type: Boolean },
+      /** Sets the maximum number of characters a user can enter into the field. */
+      maxlength: { type: String },
+      /** Sets the minimum number of characters a user can enter into the field. */
+      minlength: { type: String },
+      /** Indicates a value is required. */
+      required: { type: Boolean },
+    }
+  }
+
+  // initialize properties
+  constructor() {
+    super();
+    this.errorText = null;
+    this.invalid = false;
+    this.maxlength = null;
+    this.minlength = null;
+    this.required = false;
+  }
+
+  render() {
+    let errorText;
+
+    // render error-text when invalid is true
+    if (this.invalid) {
+      errorText = html`
+        <p id="my-input-example">${this.errorText}</p>
+      `;
+    }
+
+    return html`
+      <input type="text" aria-describedby="my-input-example">
+      ${errorText}
+    `
+  }
+}
+customElements.define('my-text-input', MyTextInput);
+```
+### Custom Group Components 
+
+For custom components functioning as control groups (e.g., checkbox or radio groups), authors must designate the component as a group. This can be achieved by setting:
+
+- `static isGroupComponent = true;`. This static property signals to the validation mixin that the component is a control group and should be validated using group-specific rules based on its children's states.
+
+For the validation mixin to correctly count selected items within your custom group component, ensure that the individual child elements accurately reflect their checked state via a `checked` property.
+
+The mixin reads the `checked` property of each child element (e.g., myCheckboxElement.checked) to determine the current selection count. 
+
+```javascript
+// my-checkbox-group.js
+
+// import jh-validate package
+import { validationMixin } from '@jack-henry/jh-validate/validate.js';
+import { LitElement, html, css } from 'lit'; 
+
+// extend validation mixin
+export class MyCheckboxGroup extends validationMixin(LitElement) {
+  // IMPORTANT: Declare this component as a group
+  static isGroupComponent = true; 
+
+  static get styles() {
+    return css`
+      // define invalid styles
+      :host([invalid]) {
+        border: 2px solid red;
+      }
+    `;
+  }
+
+  // define validation constraint properties
+  static get properties() {
+    return {
+      /** Text to be displayed when input has failed validation and `invalid` is true. */
+      errorText: { type: String, attribute: 'error-text' },
+      /** Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set. */
+      invalid: { type: Boolean, reflect: true },
+      /** Specifies the minimum number of child controls that must be checked. */
+      minRequired: { type: Number, attribute: 'min-required' },
+      /** Specifies the maximum number of child controls that can be checked. */
+      maxRequired: { type: Number, attribute: 'max-required' },
+      /** Indicates that at least one child control is required. */
+      required: { type: Boolean, reflect: true },
+    };
+  }
+
+  // initialize properties
+  constructor() {
+    super();
+    this.errorText = null;
+    this.invalid = false;
+    this.minRequired = 0; 
+    this.maxRequired = null; 
+    this.required = false;
+  }
+
+  render() {
+    let errorText;
+
+    // render error-text when invalid is true
+    if (this.invalid && this.errorText) {
+      errorText = html`
+        <p id="my-checkbox-group">${this.errorText}</p>
+      `;
+    }
+
+    return html`
+      <fieldset aria-describedby="my-checkbox-group">
+        <div class="controls"><slot></slot></div>
+        ${errorText}
+      </fieldset>
+    `;
+  }
+}
+customElements.define('my-checkbox-group', MyCheckboxGroup);
+```

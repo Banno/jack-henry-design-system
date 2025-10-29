@@ -7,8 +7,9 @@
         "$description": "Sans-serif font family",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "mono": {
@@ -16,20 +17,22 @@
         "$description": "Monospace font family",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       }
     },
-    "line-height": {
+    "lineHeight": {
       "$type": "dimension",
       "300": {
         "$value": "12px",
         "$description": "Line-height 300",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "400": {
@@ -37,8 +40,9 @@
         "$description": "Line-height 400",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "500": {
@@ -46,8 +50,9 @@
         "$description": "Line-height 500",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "600": {
@@ -55,8 +60,9 @@
         "$description": "Line-height 600",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "700": {
@@ -64,8 +70,9 @@
         "$description": "Line-height 700",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "800": {
@@ -73,8 +80,9 @@
         "$description": "Line-height 800",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "900": {
@@ -82,8 +90,9 @@
         "$description": "Line-height 900",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "1000": {
@@ -91,8 +100,9 @@
         "$description": "Line-height 1000",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "1100": {
@@ -100,8 +110,9 @@
         "$description": "Line-height 1100",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "1300": {
@@ -109,8 +120,9 @@
         "$description": "Line-height 1300",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "1500": {
@@ -118,8 +130,9 @@
         "$description": "Line-height 1500",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "1600": {
@@ -127,8 +140,9 @@
         "$description": "Line-height 1600",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "1800": {
@@ -136,8 +150,9 @@
         "$description": "Line-height 1800",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "2000": {
@@ -145,8 +160,9 @@
         "$description": "Line-height 2000",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "2300": {
@@ -154,8 +170,9 @@
         "$description": "Line-height 2300",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "2500": {
@@ -163,8 +180,9 @@
         "$description": "Line-height 2500",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "2700": {
@@ -172,8 +190,9 @@
         "$description": "Line-height 2700",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       }
     },
@@ -184,8 +203,9 @@
         "$description": "Font weight 300",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "400": {
@@ -193,8 +213,9 @@
         "$description": "Font weight 400",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "500": {
@@ -202,8 +223,9 @@
         "$description": "Font weight 500",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "700": {
@@ -211,8 +233,9 @@
         "$description": "Font weight 700",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       }
     },
@@ -223,8 +246,9 @@
         "$description": "Font size 250",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "300": {
@@ -232,8 +256,9 @@
         "$description": "Font size 300",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "350": {
@@ -241,8 +266,9 @@
         "$description": "Font size 350",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "400": {
@@ -250,8 +276,9 @@
         "$description": "Font size 400",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "450": {
@@ -259,8 +286,9 @@
         "$description": "Font size 450",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "500": {
@@ -268,8 +296,9 @@
         "$description": "Font size 500",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "600": {
@@ -277,8 +306,9 @@
         "$description": "Font size 600",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "700": {
@@ -286,8 +316,9 @@
         "$description": "Font size 700",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "800": {
@@ -295,8 +326,9 @@
         "$description": "Font size 800",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "900": {
@@ -304,8 +336,9 @@
         "$description": "Font size 900",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "1050": {
@@ -313,8 +346,9 @@
         "$description": "Font size 1050",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "1200": {
@@ -322,8 +356,9 @@
         "$description": "Font size 1200",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "1350": {
@@ -331,8 +366,9 @@
         "$description": "Font size 1350",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "1500": {
@@ -340,8 +376,9 @@
         "$description": "Font size 1500",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "1700": {
@@ -349,8 +386,9 @@
         "$description": "Font size 1700",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "1900": {
@@ -358,8 +396,9 @@
         "$description": "Font size 1900",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "2100": {
@@ -367,8 +406,9 @@
         "$description": "Font size 2100",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "2300": {
@@ -376,8 +416,9 @@
         "$description": "Font size 2300",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       }
     }

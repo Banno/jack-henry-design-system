@@ -27,9 +27,9 @@ body:
       label: Affected Package
       description: Select the package that would be affected by this feature request.
       options:
-        - jack-henry/jh-ui
-        - jack-henry/jh-core
-        - jack-henry/jh-tokens
+        - '@jack-henry/jh-elements (formerly jh-ui)' 
+        - '@jack-henry/jh-tokens (formerly jh-core)'
+        - '@jack-henry/jh-icons'
       validations:
         required: true
   - type: dropdown

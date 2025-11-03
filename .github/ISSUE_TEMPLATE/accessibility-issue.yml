@@ -16,7 +16,6 @@ body:
         - Chrome
         - Firefox
         - Safari
-        - Edge
     validations:
       required: true
   - type: input

@@ -1,0 +1,37 @@
+name: Design Issue
+about: Report a design issue
+title: '[Design Issue]: '
+labels: 'status: needs triage, type: figma design kit'
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report a design issue regarding our web components or Figma UI Kit. 
+        
+        Please remember to search for open issues before submitting.
+  - type: dropdown
+    id: affected-package
+    attributes:
+      label: Affected Package
+      description: Which package are you experiencing the design issue in?
+      options:
+        - jack-henry/jh-ui 
+        - jack-henry/tokens
+        - jack-henry/icons
+    validations:
+      required: true
+  - type: input
+    id: package-version
+    attributes:
+      label: Package Version
+      description: Please specify the version of the package you are using. e.g., "1.14.0"
+    validations:
+      required: true
+  - type: input
+    id: description
+    attributes:
+      label: Description of the Issue
+      description: | 
+        Provide details about the design issue you are reporting and whether this an issue specific to the design of a component or the designer experience of a Figma component.
+    validations:
+      required: true

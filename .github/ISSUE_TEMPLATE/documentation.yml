@@ -2,7 +2,6 @@ name: Documentation
 about: Have an issue with our documentation or a suggestion for improvement?
 title: '[Documentation]: '
 labels: 'type: docs'
-assignees: ''
 body:
   - type: markdown
     attributes:

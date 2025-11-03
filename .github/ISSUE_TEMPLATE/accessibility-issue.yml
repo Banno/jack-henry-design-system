@@ -2,7 +2,6 @@ name: Accessibility Issue
 about: Report an accessibility issue in the Jack Henry Design System.
 title: '[a11y]: '
 labels: 'type: a11y'
-assignees: ''
 body:
   - type: markdown
     attributes:

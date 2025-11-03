@@ -2,7 +2,6 @@ name: Bug Report
 about: Report something that is not working as expected.
 title: '[Bug]: '
 labels: 'type: bug, status: needs triage'
-assignees: ''
 body:
   - type: markdown
     attributes:

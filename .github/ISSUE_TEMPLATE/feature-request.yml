@@ -1,0 +1,45 @@
+name: Feature Request
+about: Have an idea for a new feature or component? Submit it here.
+title: '[Feature Request]: '
+labels: 'proposal: open, type: feature request'
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to suggest a new feature or component! Please remember to search for open and closed issues before submitting.
+  - type: textarea
+    id: feature-motivation
+    attributes:
+      label: Feature Motivation
+      description: Explain the motivation behind this request and what problem it aims to solve.
+    validations:
+      required: true
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Feature Description
+      description: Please describe your request in detail. Providing context, details around requirements, and real world examples to help us better understand your request.
+    validations:
+      required: true
+  - type: dropdown
+    id: affected-package
+    attributes:
+      label: Affected Package
+      description: Select the package that would be affected by this feature request.
+      options:
+        - jack-henry/jh-ui
+        - jack-henry/jh-core
+        - jack-henry/jh-tokens
+      validations:
+        required: true
+  - type: dropdown
+    id: business-priority
+    attributes:
+      label: Business Priority
+      description: Select the priority level of this feature request.
+      options:
+        - Low
+        - Medium
+        - High
+      validations:
+        required: true

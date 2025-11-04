@@ -7,6 +7,9 @@ const fs = require('fs');
 const sourcePath = args[0];
 const iconFiles = fs.readdirSync(sourcePath); // Array of file names
 
+// Regex to find and remove the XML/HTML comment block (which holds the license header)
+const LICENSE_COMMENT_REGEX = /<!--.*?-->\s*/s;
+
 // Build object that pairs the icon name and the svg code
 const icons = iconFiles
   .filter(fileName => fileName.includes('.svg')) // ignore non .svg files
@@ -18,7 +21,11 @@ const icons = iconFiles
   })
   .map(iconFile => {
     // read the file contents
-    const contents = fs.readFileSync(iconFile.path, 'utf8');
+    let contents = fs.readFileSync(iconFile.path, 'utf8');
+
+    // If the SVG starts with the XML declaration or license comment, remove the comment.
+    contents = contents.replace(LICENSE_COMMENT_REGEX, ''); 
+
     const clean = contents.replace(/<svg([^>]*)>/, (match, attributes) => {
       const newAttrs = attributes
         .replace(/\s+fill=['"][^'"]+['"]/, '')

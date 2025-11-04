@@ -33,7 +33,6 @@ function getStyleDictionary(theme, platform) {
             options: {
               outputReferences: true,
               selector: `${theme === 'light' ? ':root' : `.jh-theme-${theme}`}`,
-              // fileHeader: 'jh-file-header',
             },
           },
         ],
@@ -49,7 +48,6 @@ function getStyleDictionary(theme, platform) {
             options: {
               outputReferences: true,
               showFileHeader: true,
-              fileHeader: 'jh-file-header',
             },
           },
         ],

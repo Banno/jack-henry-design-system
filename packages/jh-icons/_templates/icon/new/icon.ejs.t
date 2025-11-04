@@ -1,6 +1,10 @@
 ---
 to: <%= outputPath %>/icon-<%= name %>.js
 force: true
+# 
+# Copyright 2025 Jack Henry.
+# SPDX-License-Identifier: Apache-2.0
+# See LICENSE file in project root for full terms.
 ---
 /**
  * Copyright 2025 Jack Henry.

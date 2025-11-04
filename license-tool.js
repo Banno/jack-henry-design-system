@@ -18,7 +18,7 @@ const LICENSE_CORE_TEXT = `
  * limitations under the License.
 `;
 
-// A concise version for config files
+// Concise version for config files
 const LICENSE_CONCISE_TEXT = `
  * Copyright $YEAR Jack Henry. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
@@ -122,7 +122,6 @@ async function run(mode) {
     try {
         const files = await glob(patternsToUse, { ignore: IGNORE_PATTERNS, cwd: process.cwd() });
 
-        console.log(`🔍 Found ${files.length} files to process.`, files);
         if (isCliTest && files.length === 0) {
         console.warn('⚠️ WARNING: No files found matching the provided path/pattern. Check your input.');
         process.exit(0); 

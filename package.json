@@ -24,7 +24,9 @@
     "analyze:jh-ui": "pnpm run --filter @jack-henry/jh-ui analyze",
     "build:jh-core": "pnpm run --filter @jack-henry/jh-core build",
     "build:jh-icons": "pnpm run --filter @jack-henry/jh-icons build-wc",
-    "changeset:version": "changeset version && pnpm install --lockfile-only"
+    "changeset:version": "changeset version && pnpm install --lockfile-only",
+    "license:check": "node license-tool.js check",
+    "license:fix": "node license-tool.js fix"
   },
   "devDependencies": {
     "@changesets/changelog-github": "0.4.8",

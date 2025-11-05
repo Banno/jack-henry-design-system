@@ -46,14 +46,15 @@ const INCLUDE_PATTERNS = ['**/*.js', '**/*.ts', '**/*.d.ts', '**/*.css', '**/*.s
 //Ignore folders with external or generated files
 const IGNORE_PATTERNS = [
     'package-lock.json',
+    'package.json',
     'pnpm-lock.yaml',
     'pnpm-workspace.yaml',
     'LICENSE',
     'NOTICE',
     'CODEOWNERS',
-    'node_modules/**',
-    '.storybook/public/**', //includes not owned svgs
-    'license-tool.js' // Don't check yourself recursively
+    '**/node_modules/**',
+    '**/.storybook/public/**', //includes not owned svgs
+    'bin/license-tool.js' // Don't check yourself recursively
 ];
 
 function getFormattedHeader(filePath) {
@@ -120,7 +121,7 @@ async function run(mode) {
     console.log(`\n--- Starting License ${isFixMode ? 'Fix' : 'Check'} ---\n`);
 
     try {
-        const files = await glob(patternsToUse, { ignore: IGNORE_PATTERNS, cwd: process.cwd() });
+        const files = await glob(patternsToUse, { ignore: IGNORE_PATTERNS, cwd: process.cwd(), dot: true });
 
         if (isCliTest && files.length === 0) {
         console.warn('⚠️ WARNING: No files found matching the provided path/pattern. Check your input.');

@@ -41,13 +41,3 @@ path = [
 precedence = "override"
 SPDX-License-Identifier = "LicenseRef-Unsplash"
 SPDX-FileCopyrightText = "Photo by Markus Winkler on Unsplash"
-
-[[annotations]]
-path = [
-    "packages/jh-ui/.storybook/public/logos/chrome-logo.svg",
-    "packages/jh-ui/.storybook/public/logos/firefox-logo.svg",
-    "packages/jh-ui/.storybook/public/logos/safari-logo.svg",
-]
-precedence = "override"
-SPDX-License-Identifier = "NOASSERTION"
-SPDX-FileCopyrightText = "Chrome, Firefox, and Safari Logos are Trademarks of their respective owners."

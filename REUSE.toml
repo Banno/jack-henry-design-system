@@ -35,7 +35,7 @@ SPDX-License-Identifier = "OFL-1.1"
 SPDX-FileCopyrightText = "Copyright 2015 Christian Robertson" 
 
 [[annotations]]
-paths = [
+path = [
     "packages/jh-ui/.storybook/public/images/markus-winkler-DJoG5GsXfMw-unsplash.jpg",
 ]
 precedence = "aggregate"
@@ -43,7 +43,7 @@ SPDX-License-Identifier = "NOASSERTION"
 SPDX-FileCopyrightText = "Photo by Markus Winkler on Unsplash"
 
 [[annotations]]
-paths = [
+path = [
     "packages/jh-ui/.storybook/public/logos/chrome-logo.svg",
     "packages/jh-ui/.storybook/public/logos/firefox-logo.svg",
     "packages/jh-ui/.storybook/public/logos/safari-logo.svg",

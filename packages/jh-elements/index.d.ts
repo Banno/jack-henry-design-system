@@ -28,6 +28,7 @@ import { JhTable } from './components/table/table.js';
 import { JhTableRow } from './components/table-row/table-row.js';
 import { JhTableDataCell } from './components/table-data-cell/table-data-cell.js';
 import { JhTableHeaderCell } from './components/table-header-cell/table-header-cell.js';
+import { JhTest } from './components/test/test.js';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -61,5 +62,6 @@ declare global {
     'jh-table-row': JhTableRow;
     'jh-table-data-cell': JhTableDataCell;
     'jh-table-header-cell': JhTableHeaderCell;
+    'jh-test': JhTest;
   }
 }

@@ -43,6 +43,26 @@ This will place both light and dark themed design system CSS custom properties a
 
 Additionally, you can provide specific custom property overrides by appending your own style tag to the document head *below* the design system themes. This ensures that as the stylesheets cascade, your custom property will successfully override that defined by the design system. 
 
+## Using styling hooks
+
+Because our components encapsulate their styles in the Shadow DOM, direct external CSS often won't reach internal elements. Some components expose specific CSS Custom Properties (aka styling hooks) that act as "hooks" for you to adjust their appearance. 
+
+The exposed styling hooks are listed under the CSS custom properties section in the component's API documentation. Each entry includes:
+
+* **Property Name:** the name of the styling hook (i.e., `--jh-badge-color-background-enabled`).
+* **Default Value:** the value that is implemented if no styling hook value is supplied (i.e., `--jh-color-content-brand-enabled`).
+* **Description:** the element and CSS property the styling hook applies to (i.e., the badge's background color).
+
+To override a component's style, you'll need to apply the corresponding styling hook to the component instance:
+
+```css
+jh-badge {
+  --jh-badge-color-background-enabled: green;
+}
+```
+
+For more information on working with styling hooks, please reference the [design tokens documentation](/docs/getting-started-tokens--docs). 
+
 ## Using fonts
 
 The Roboto Flex variable font is our primary font. We strongly encourage self-hosting fonts rather than relying on google fonts' CDN. 

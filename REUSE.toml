@@ -5,7 +5,7 @@
 version = 1
 
 [[annotations]]
-path = ["**/*.json", "**/*.ejs.t", "**/*.svg", "NOTICE"]
+path = ["**/*.json", "**/*.svg", "NOTICE"]
 precedence = "override"
 SPDX-FileCopyrightText = "2025 Jack Henry"
 SPDX-License-Identifier = "Apache-2.0"

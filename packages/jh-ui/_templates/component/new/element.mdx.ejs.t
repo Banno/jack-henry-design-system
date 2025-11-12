@@ -1,7 +1,15 @@
 ---
 to: components/<%= unprefixedName %>/<%= unprefixedName %>.mdx
+#
+# SPDX-FileCopyrightText: 2025 Jack Henry
+# 
+# SPDX-License-Identifier: Apache-2.0
 ---
+{/*
+SPDX-FileCopyrightText: 2025 Jack Henry
 
+SPDX-License-Identifier: Apache-2.0
+ */}
 import { Meta, ArgTypes } from '@storybook/blocks';
 import * as stories from './<%= unprefixedName %>.stories.js';
 

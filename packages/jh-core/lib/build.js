@@ -1,6 +1,7 @@
 const StyleDictionary = require('style-dictionary');
 const { formatJsCss } = require('./formats/format.js');
 const { formatDocs } = require('./formats/json-flat.js');
+const { fileHeader } = require('./fileheader.js');
 
 function getStyleDictionary(theme, platform) {
   return StyleDictionary.extend({
@@ -23,6 +24,7 @@ function getStyleDictionary(theme, platform) {
               // if file should keep output references: ie --color-danger: var(--color-red); vs --color-danger: #ff0000;
               outputReferences: true,
               selector: `${theme === 'light' ? ':root' : `.jh-theme-${theme}`}`,
+              fileHeader: 'jh-file-header',
             },
           },
           {
@@ -45,6 +47,7 @@ function getStyleDictionary(theme, platform) {
             format: 'custom/format/json',
             options: {
               outputReferences: true,
+              showFileHeader: true,
             },
           },
         ],
@@ -61,6 +64,11 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'custom/format/json',
   formatter: formatDocs,
+});
+
+StyleDictionary.registerFileHeader({
+  name: 'jh-file-header',
+  fileHeader: fileHeader,
 });
 
 const THEME_NAMES = ['light', 'dark'];

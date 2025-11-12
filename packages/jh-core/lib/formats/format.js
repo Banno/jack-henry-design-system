@@ -6,6 +6,10 @@ const cssFormatter = require('style-dictionary/lib/common/formats.js')[
 function fileHeader(showFileHeader) {
   if (showFileHeader) {
     return `/**
+ * SPDX-FileCopyrightText: 2025 Jack Henry
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
  * Do not edit directly
  * Generated on ${new Date().toUTCString()}
  */`;

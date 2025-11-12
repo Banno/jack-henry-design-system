@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
 const StyleDictionary = require('style-dictionary');
 const { formatJsCss } = require('./formats/format.js');
 const { formatDocs } = require('./formats/json-flat.js');

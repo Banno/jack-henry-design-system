@@ -1,3 +1,8 @@
+/**
+* SPDX-FileCopyrightText: 2025 Jack Henry
+*
+* SPDX-License-Identifier: Apache-2.0
+*/
 const cssFormatter = require('style-dictionary/lib/common/formats.js')[
   'css/variables'
 ];

@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 ## @jack-henry/jh-tokens
 
 Contains Jack Henry's core design tokens designed to be used with our [design system elements](https://github.com/Banno/jack-henry-design-system/tree/main/packages/jh-elements) package. To get started, visit our documentation sites.

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
 import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { JhInput } from '../input/input.js';

@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 ---
 name: Documentation
 about: Have an issue with our documentation or an improvement?

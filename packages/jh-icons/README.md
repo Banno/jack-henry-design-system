@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # Jack Henry Iconography
 
 Jack Henry icons are designed to provide a consistent look and feel across your products. Our icon set is 

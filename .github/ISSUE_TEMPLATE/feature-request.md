@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 ---
 name: Feature Request
 about: Have an idea for a new feature or component? Submit it here.

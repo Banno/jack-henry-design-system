@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
 import JhThemeLight from '@jack-henry/jh-core/platforms/web/js-css/jh-theme-light.js';
 import JhThemeDark from '@jack-henry/jh-core/platforms/web/js-css/jh-theme-dark.js';
 

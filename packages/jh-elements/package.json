@@ -30,7 +30,7 @@
     "postpack": "rm -f NOTICE"
   },
   "dependencies": {
-    "@jack-henry/jh-tokens": "workspace:2.0.0-beta.7",
+    "@jack-henry/jh-tokens": "workspace:2.0.0-beta.8",
     "@jack-henry/jh-icons": "workspace:2.0.0-beta.6",
     "lit": "3.3.1"
   },

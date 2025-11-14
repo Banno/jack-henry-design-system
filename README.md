@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # Jack Henry Design System
 
 Welcome to our monorepo! The Jack Henry Design System is a collection of reusable components, guided by clear visual and user experience

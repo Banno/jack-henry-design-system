@@ -1,6 +1,10 @@
 /**
+ * SPDX-FileCopyrightText: 2025 Jack Henry
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
  * Do not edit directly
- * Generated on Mon, 08 Sep 2025 19:21:27 GMT
+ * Generated on Wed, 12 Nov 2025 19:21:32 GMT
  */
 export default `
   :root {

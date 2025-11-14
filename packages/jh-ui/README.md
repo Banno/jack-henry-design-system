@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 ## @jack-henry/jh-ui
 
 Contains Jack Henry's web component library. To get started, visit our documentation sites.

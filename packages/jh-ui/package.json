@@ -1,7 +1,7 @@
 {
   "name": "@jack-henry/jh-ui",
   "description": "Jack Henry's design system web components.",
-  "version": "1.15.3",
+  "version": "1.15.4",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Banno/jack-henry-design-system.git"

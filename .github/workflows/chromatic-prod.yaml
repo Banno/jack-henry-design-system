@@ -6,7 +6,7 @@ name: 'Chromatic-Prod'
 on: 
   push:
     branches:
-      - master
+      - main
 
 jobs:
   chromatic-deployment:

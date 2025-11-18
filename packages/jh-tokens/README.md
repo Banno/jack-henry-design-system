@@ -8,5 +8,5 @@ SPDX-License-Identifier: Apache-2.0
 
 Contains Jack Henry's core design tokens designed to be used with our [design system elements](https://github.com/Banno/jack-henry-design-system/tree/main/packages/jh-elements) package. To get started, visit our documentation sites.
 
-* [jackhenry.design tokens](https://jackhenry.design/pages/foundations/design-tokens/overview/) provides documentation on our design tokens.
+* [jackhenry.design tokens](https://jackhenry.design/v2/foundations/design-tokens/overview/) provides documentation on our design tokens.
 * [Jackhenry.design](https://jackhenry.design) focuses on introducing the underlying concepts of the Design System, usage guidelines, and a style guide.

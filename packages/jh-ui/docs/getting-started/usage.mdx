@@ -53,7 +53,17 @@ Additionally, you can provide specific custom property overrides by appending yo
 
 Because our components encapsulate their styles in the Shadow DOM, direct external CSS often won't reach internal elements. Some components expose specific CSS Custom Properties (aka styling hooks) that act as "hooks" for you to adjust their appearance. 
 
+<<<<<<< HEAD
 The exposed styling hooks are listed under the CSS custom properties section of each component API table. To override a component's style, you'll need to apply the corresponding styling hook to the component instance:
+=======
+The exposed styling hooks are listed under the CSS custom properties section in the component's API documentation. Each entry includes:
+
+* **Property Name:** the name of the styling hook (i.e., `--jh-badge-color-background-enabled`).
+* **Default Value:** the value that is implemented if no styling hook value is supplied (i.e., `--jh-color-content-brand-enabled`).
+* **Description:** the element and CSS property the styling hook applies to (i.e., the badge's background color).
+
+To override a component's style, you'll need to apply the corresponding styling hook to the component instance:
+>>>>>>> c724c6b52d31c1ea751d7de1ac7b07cdea9e6852
 
 ```css
 jh-badge {
@@ -149,13 +159,16 @@ property has an integer value of 24. Review each component doc to better underst
 
 ### Slots
 
-Slots are one of the features that are part of the web component technology suite. Their purpose is to provide content to a component.
+Slots are a core feature of the web component technology suite, and allows authors to inject their own content into a component. Slotted content remains in the Light DOM, which means it is not encapsulated by the component's Shadow DOM. This behavior provides two key benefits:
+
+1. **Flexibility:** You can pass in any valid HTML content into a slot. 
+2. **Custom Styling:** Since the slotted content remains in the light DOM, it is accessible to external CSS selectors. This enables you to apply your own classes, CSS custom properties, or direct styling to the slotted elements. 
+
 Our components include two types of slots; default and named slots.
 
 #### Default
 
-Many components include a default slot option that will accept any HTML an author provides. To use a default slot, simply declare your
-HTML between the component tags:
+Many components include a default slot option that will accept any HTML an author provides. To use a default slot, simply declare your HTML between the component tags:
 
 ```html
 <jh-list-item>
@@ -167,8 +180,7 @@ HTML between the component tags:
 
 #### Named
 
-Some components will include named slots. Named slots target specific regions of a component to render your HTML. Multiple named slots
-can be present along with a default slot in some cases. To target a slot, include the slot attribute with the targeted slot name:
+Some components will include named slots. Named slots target specific regions of a component to render your HTML. Multiple named slots can be present along with a default slot in some cases. To target a named slot, include the `slot` attribute with the targeted slot name on your element:
 
 ```html
 <jh-list-item>

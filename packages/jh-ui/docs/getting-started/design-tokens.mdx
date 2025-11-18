@@ -1,0 +1,99 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Getting Started/Design Tokens" tags={['new']} />
+
+# Design Tokens
+
+Design tokens are fundamental to the Jack Henry Design System and serve as the single source of truth for our visual design attributes. They are named entities that store specific values, such as colors, typography, and spacing, in a platform-agnostic format.
+
+Design tokens ensure:
+
+- **Consistency:** Tokens ensure that every application component, whether on web, mobile, or in design files, references the same defined style.
+- **Maintainability:** Changing a single token value (i.e., updating the primary brand color) instantly updates every component that consumes that token across the entire system.
+- **Scalability:** They enable the easy creation of themes (like light/dark modes) by simply mapping a token to a new underlying value. 
+
+## Using Design Tokens and Styling Hooks
+
+Our design tokens are built with specific structures in mind that allow them to be incorporated and extended in a consistent and predictable manner.
+
+Design tokens provide two methods for styling: **Alias Tokens** for large-scale theming and **Styling Hooks** for granular, component-specific adjustments. Both are applied using CSS Custom Properties, which leverage the cascading nature of CSS to allow for fine-grained style control at various levels of your application's DOM structure.
+
+### Application-Level Overrides
+
+To apply a style change across your entire application, you should override our alias tokens at the highest possible scope, typically on the `:root` pseudo-class, or the `<html>` or `<body>` tag.
+
+For example, to change the value of `--jh-color-content-brand-enabled` throughout the entire application, you would override the token:
+
+```css
+body {
+ --jh-color-content-brand-enabled: rgb(120, 179, 245);
+}
+```
+
+### Component-Level Styling Hooks
+
+To apply style changes to specific components, you should define the supplied component tokens aka styling hooks. 
+
+The exposed styling hooks are listed under the CSS custom properties section in each component's API documentation. Each entry includes:
+
+* **Property Name:** the name of the styling hook (i.e., `--jh-badge-color-background-enabled`).
+* **Default Value:** the value that is implemented if no styling hook value is supplied (i.e., `--jh-color-content-brand-enabled`).
+* **Description:** the element and CSS property the styling hook applies to (i.e., the badge's background color).
+
+To override a component's style, you'll need to apply the corresponding styling hook to the component instance:
+
+```css
+jh-badge {
+  --jh-badge-color-background-enabled: green;
+}
+```
+
+#### Styling Hooks for Slotted Content
+
+Slotted content resides in the Light DOM, meaning its styles are not encapsulated by the component's Shadow DOM. This allows it to be targeted and styled using basic CSS selectors, just like standard HTML elements.
+
+The example below shows how to directly style an element placed in the component's default slot using standard CSS:
+
+```javascript
+p {
+ color: blue;
+}
+
+<jh-card>
+  <p>Card default body slot</p>
+</jh-card>
+
+```
+
+Some components expose specific styling hooks for slotted content for user convenience. While you can use direct CSS (as shown above), using the provided styling hooks is the preferred API for consistent and maintenance-friendly styling.
+
+To assign a styling hook to slotted content, apply the styling hook to the component instance itself. The component's internal CSS will then use that styling hook's value to style the slotted element.
+
+```javascript
+jh-card {
+  --jh-card-header-color-text: red;
+  --jh-card-footer-color-text: blue;
+}
+
+<jh-card>
+  <h2 slot="jh-card-header">Card Header Slot</h2>
+  <p>Card body slot. Lorem ipsum dolor sit amet.</p>
+  <footer slot="jh-card-footer">Card footer slot</footer>
+</jh-card>
+```
+
+## Accessibility and Styling Overrides
+
+While our styling hooks offer flexibility, applying custom overrides introduces the risk of violating accessibility standards. When modifying colors, typography, or spacing, you assume the responsibility for ensuring the resulting component meets the necessary criteria.
+
+Key Accessibility Checks for Custom Overrides:
+
+**Text Contrast:** When overriding colors, such as background or text color, verify the color contrast ratio meets the [WCAG 1.4.3 Contrast(Minimum) Criterion](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html). 
+
+**Focus States:** Ensure that any custom styles applied to interactive components (like buttons or inputs) do not remove or obscure the default focus indicator that appears when a user navigates via keyboard.
+
+**Spacing and Layout:** Be cautious when overriding spacing tokens. Excessive crowding or improper alignment can negatively impact readability and the predictable flow of content for users relying on screen magnification.
+
+## Resources 
+
+Explore our [Design Tokens documentation](https://jackhenry.design/pages/foundations/design-tokens/overview/) for a deeper dive into design tokens and the Jack Henry Design System.

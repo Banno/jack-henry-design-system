@@ -15,10 +15,13 @@
   "license": "Apache-2.0",
   "files": [
     "platforms",
-    "utils"
+    "utils",
+    "NOTICE"
   ],
   "scripts": {
-    "build": "node ./lib/build.js"
+    "build": "node ./lib/build.js",
+    "prepack": "cp ../../NOTICE .",
+    "postpack": "rm -f NOTICE"
   },
   "devDependencies": {
     "style-dictionary": "3.8.0"

@@ -1,7 +1,7 @@
 {
   "name": "@jack-henry/jh-tokens",
   "description": "Jack Henry design system core design tokens.",
-  "version": "2.0.0-beta.7",
+  "version": "2.0.0-beta.8",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Banno/jack-henry-design-system.git"

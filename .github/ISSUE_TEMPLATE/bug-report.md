@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 ---
 name: Bug Report
 about: Report something that is not working as expected.

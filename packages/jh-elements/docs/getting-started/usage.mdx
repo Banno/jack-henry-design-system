@@ -151,13 +151,14 @@ property has an integer value of 24. Review each component doc to better underst
 
 ### Slots
 
-Slots are one of the features that are part of the web component technology suite. Their purpose is to provide content to a component.
-Our components include two types of slots; default and named slots.
+Slots are a core feature of the web component technology suite, and allows authors to inject their own content into a component. Slotted content remains in the Light DOM, which means it is not encapsulated by the component's Shadow DOM. This behavior provides two key benefits:
+
+1. **Flexibility:** You can pass in any valid HTML content into a slot. 
+2. **Custom Styling:** Since the slotted content remains in the light DOM, it is accessible to external CSS selectors. This enables you to apply your own classes, CSS custom properties, or direct styling to the slotted elements. 
 
 #### Default
 
-Many components include a default slot option that will accept any HTML an author provides. To use a default slot, simply declare your
-HTML between the component tags:
+Many components include a default slot option that will accept any HTML an author provides. To use a default slot, simply declare your HTML between the component tags:
 
 ```html
 <jh-list-item>
@@ -169,8 +170,7 @@ HTML between the component tags:
 
 #### Named
 
-Some components will include named slots. Named slots target specific regions of a component to render your HTML. Multiple named slots
-can be present along with a default slot in some cases. To target a slot, include the slot attribute with the targeted slot name:
+Some components will include named slots. Named slots target specific regions of a component to render your HTML. Multiple named slots can be present along with a default slot in some cases. To target a slot, include the slot attribute with the targeted slot name:
 
 ```html
 <jh-list-item>

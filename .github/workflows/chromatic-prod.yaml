@@ -2,11 +2,11 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-name: 'Chromatic-Release'
+name: 'Chromatic-Prod'
 on: 
   push:
     branches:
-      - 'release/v**'
+      - main
 
 jobs:
   chromatic-deployment:
@@ -25,7 +25,6 @@ jobs:
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: packages/jh-elements
           exitZeroOnChanges: true

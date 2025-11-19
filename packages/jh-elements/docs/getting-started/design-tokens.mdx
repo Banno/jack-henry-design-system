@@ -1,3 +1,9 @@
+{/*
+SPDX-FileCopyrightText: 2025 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+*/}
+
 import { Meta } from '@storybook/blocks';
 
 <Meta title="Getting Started/Design Tokens" tags={['new']} />
@@ -22,7 +28,7 @@ Design tokens provide two methods for styling: **Alias Tokens** for large-scale 
 
 To apply a style change across your entire application, you should override our alias tokens at the highest possible scope, typically on the `:root` pseudo-class, or the `<html>` or `<body>` tag.
 
-For example, to change the value of `--jh-font-body-regular-1` throughout the entire application, you would override the token:
+For example, to change the value of `--jh-color-content-brand-enabled` throughout the entire application, you would override the token:
 
 ```css
 body {

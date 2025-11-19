@@ -10,7 +10,7 @@ import { Meta } from '@storybook/blocks';
 <div className="toc-ignore">
 # V2 Release
 
-**Warning!** This page is continuously changing. We may add or remove scope as needed. All v2 pages can be viewed [here](https://release-v2--60b69cf9d763ec0039a5ac96.chromatic.com/?path=/docs/welcome-about-jh--docs)
+**Warning!** This page is continuously changing. We may add or remove scope as needed. Explore the [latest v2 Storybook instance](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/welcome-about-jh--docs).
 
 ## Summary
 
@@ -82,6 +82,14 @@ for defining design tokens. Adopting the DTCG token specification requires updat
 including a simplified color system, support for shadow and overlay tokens, typography updates, improved platform files, and more.
 
 Learn more about the DTCG specification [here](https://tr.designtokens.org/format/).
+
+### Js-css token folder renaming
+
+We are renaming the folder that contains these token files to `esm` to better reflect its platform target.
+
+### JSON flat file (coming soon)
+
+The JSON flat file has been rebuilt to follow the DTCG specification. Token deprecation information has been added to it.
 
 ### Consolidate Dimension-based tokens
 
@@ -192,7 +200,14 @@ In addition we have made the following changes to our color families:
   </tbody>
 </table>
 
-### Border Tokens
+### Composite Tokens
+
+The DTCG defines a set of composite token types, such as typography, borders and shadow. Composite tokens are made up of multiple properties that target different aspects of the token.
+In v1, we used the css shorthand properties `font`, `border` and `box-shadow`, which made overriding such tokens cumbersome and error-prone.
+In v2, we break out composite tokens for fonts and borders into their individual properties, which enables targeting a specific property for override rather than needing to redefine the full shorthand in CSS.
+Our components now leverage the broken out tokens, but the shorthand typography tokens are still available for authors to use to style other parts of their application.
+
+#### Border Tokens
 
 In v1, only the color of borders was cusomizable by authors via tokens. 
 In v2, we introduce a new set of composite border tokens that align with the DTCG specification, which define the width, style, and color of borders individually. 
@@ -283,30 +298,33 @@ We have named these tokens according to their usage, to make it easier for autho
   </tbody>
 </table>
 
-### Composite Tokens
+#### Typography Tokens
 
-The DTCG defines a set of composite token types, such as typography, borders and shadow. Composite tokens are made up of multiple properties that target different aspects of the token.
-In v1, we used the css shorthand properties `font`, `border` and `box-shadow`, which made overriding such tokens cumbersome and error-prone.
-In v2, we break out composite tokens for fonts and borders into their individual properties, which enables targeting a specific property for override rather than needing to redefine the full shorthand in CSS.
+In v1, typography tokens were defined using the CSS shorthand `font` property, which made it difficult to override specific aspects of typography such as font size or line height.
+In v2, the `font` composite token has been broken out into `font-family`, `font-size`, `font-weight`, and `line-height` tokens. 
+Shorthand typography tokens are still available to ensure backward compatibility for authors using them to style other parts of their application.
 
-- **Typography**: The `font` composite token has been broken out into `font-family`, `font-size`, `font-weight`, and `line-height` tokens.
-- **Borders**: The `border` composite token has been broken out into `border-width`, `border-style`, and `border-color` tokens.
-- **Shadow**: The `box-shadow` composite token cannot be broken out into individual properties in CSS, as it is a single property that defines multiple values. 
-This means that the usage and override method remains the same as in v1.
+Shorthand typography token:
 
-### Shadow & Overlay Tokens
+```css
+--jh-font-helper-regular
+```
 
-Shadow and overlay tokens are now alias tokens that make use of the new black and white alpha color families.
-Moreover, shadow tokens are now defined as composite tokens as per the DTCG specification.
+Expanded typography token:
 
-### js-css
+```css
+--jh-font-helper-regular-font-family
+--jh-font-helper-regular-font-size
+--jh-font-helper-regular-font-weight
+--jh-font-helper-regular-line-height
+```
 
-We are renaming the folder that contains these token files to `esm` to better reflect its platform target.
+#### Shadow & Overlay Tokens
 
-### JSON flat file (coming soon)
-
-The JSON flat file has been rebuilt to follow the DTCG specification. Token deprecation information has been added to it.
-
+In V2, shadow and overlay tokens are also composite tokens. However, the CSS `box-shadow` property cannot be broken out into individual properties, as it is a single property that defines multiple values. 
+So we are keeping the shorthand form for these tokens. This means that the usage and override method remains the same as in v1.
+However, shadow and overlay tokens have new names because they are now alias tokens and make use of the new black and white alpha color families.
+Refer to the Migrating page for the mapping of old to new shadow and overlay tokens.
 
 ## jh-elements
 
@@ -364,6 +382,12 @@ Review the [jh-input documentation](/docs/components-input--docs) for more infor
 
 In version 1, the text in `jh-list-item` and `jh-tag` would atuomatically truncate at a certain width of the component. In V2 we deprecated the truncation behavior of these components. 
 This behavior was removed due to accessibility and design concerns. The text in `jh-list-item` does now wrap to a new line, while `jh-tag` will expand to contain the full text.
+### Keyboard focus styles moved to outline
+
+In v1, the focus styles for interactive components were implemented using a `box-shadow` to create a focus ring around the component.
+In v2, we have moved to using the CSS `outline` property to create focus styles. This change makes our keyboard focus styles more accessible and robust.
+As a result, in v2 the format of the styling hooks for the focus ring have changed from `jh-<element>-shadow-focus` to `jh-<element>-color-focus`.
+For example, the `jh-button-shadow-focus` styling hook in v1 has been renamed to `jh-button-color-focus` in v2.
 
 ### New Components
 
@@ -423,7 +447,9 @@ In addition, we provide instructions for authors on how to leverage `lit-plugin`
 
 ## Improved documentation
 
-We've made significant updates to our documentation including new sections for Accessibility and a guide for extending design system components.
+We've made significant updates to our documentation including new sections for Accessibility, Design Tokens, and our Release cycle.
+
+We have also included a guide for extending design system components.
 
 We have added a searchable icon gallery in Storybook, so authors can easily find the icon they need and copy its code to the clipboard. 
 

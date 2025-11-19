@@ -69,26 +69,6 @@ jh-badge {
 
 For more information on working with styling hooks, please reference the [design tokens documentation](/docs/getting-started-design-tokens--docs). 
 
-## Using styling hooks
-
-Because our components encapsulate their styles in the Shadow DOM, direct external CSS often won't reach internal elements. Some components expose specific CSS Custom Properties (aka styling hooks) that act as "hooks" for you to adjust their appearance. 
-
-The exposed styling hooks are listed under the CSS custom properties section in the component's API documentation. Each entry includes:
-
-* **Property Name:** the name of the styling hook (i.e., `--jh-badge-color-background-enabled`).
-* **Default Value:** the value that is implemented if no styling hook value is supplied (i.e., `--jh-color-content-brand-enabled`).
-* **Description:** the element and CSS property the styling hook applies to (i.e., the badge's background color).
-
-To override a component's style, you'll need to apply the corresponding styling hook to the component instance:
-
-```css
-jh-badge {
-  --jh-badge-color-background-enabled: green;
-}
-```
-
-For more information on working with styling hooks, please reference the [design tokens documentation](/docs/getting-started-design-tokens--docs). 
-
 ## Using fonts
 
 The Roboto Flex variable font is our primary font. We strongly encourage self-hosting fonts rather than relying on google fonts' CDN. 
@@ -192,30 +172,6 @@ Many components include a default slot option that will accept any HTML an autho
 
 Some components will include named slots. Named slots target specific regions of a component to render your HTML. Multiple named slots
 can be present along with a default slot in some cases. To target a slot, include the slot attribute with the targeted slot name:
-
-```html
-<jh-list-item>
-  <div slot="jh-list-item-content" class="container">
-    <div>My list content</div>
-  </div>
-</jh-list-item>
-```
-
-#### Default
-
-Many components include a default slot option that will accept any HTML an author provides. To use a default slot, simply declare your HTML between the component tags:
-
-```html
-<jh-list-item>
-  <div class="container">
-    <div>My list content</div>
-  </div>
-</jh-list-item>
-```
-
-#### Named
-
-Some components will include named slots. Named slots target specific regions of a component to render your HTML. Multiple named slots can be present along with a default slot in some cases. To target a slot, include the slot attribute with the targeted slot name:
 
 ```html
 <jh-list-item>

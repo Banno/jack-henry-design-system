@@ -10,9 +10,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you for taking the time to report an issue or improvement regarding our design system documentation.
+        Thank you for taking the time to report an issue or improvement regarding our design system documentation. Please remember to search for open and closed issues before submitting.
 
-        Please remember to search for open issues before submitting.
+        Jack Henry teams seeking support should report issues through our internal Slack channel.
   - type: dropdown
     id: documentation-type
     attributes:

@@ -585,15 +585,15 @@
           "value": "{color.azure.300.value}",
           "alias": true,
           "description": "Used for the outermost part of the focus ring",
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecated": true,
+          "deprecatedMessage": "This token will be replaced with `--jh-color-interactive-focus` in v2."
         },
         "inner": {
           "value": "{color.gray.900.value}",
           "alias": true,
           "description": "Used to provide contrast against the outer focus color",
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecated": true,
+          "deprecatedMessage": "This token will be removed in v2."
         }
       },
       "highlight": {

@@ -1,0 +1,88 @@
+/**
+* SPDX-FileCopyrightText: 2025 Jack Henry
+*
+* SPDX-License-Identifier: Apache-2.0
+*/
+import {LitElement, css, html} from 'lit';
+
+export default class JhIconSignalStreamDown extends LitElement {
+  /** @type {ElementInternals} */
+  #internals;
+
+  static get styles() {
+    return css`
+      :host {
+        fill: var(
+          --jh-icon-color-fill,
+          var(--jh-color-content-secondary-enabled)
+        );
+        width: var(--icon-size);
+        height: var(--icon-size);
+        display: inline-block;
+      }
+      :host([size='x-small']) {
+        --icon-size: var(
+          --jh-icon-size-extra-small,
+          var(--jh-dimension-400)
+        );
+      }
+      :host([size='small']) {
+        --icon-size: var(
+          --jh-icon-size-small,
+          var(--jh-dimension-500)
+        );
+      }
+      :host([size='medium']) {
+        --icon-size: var(
+          --jh-icon-size-medium,
+          var(--jh-dimension-600)
+        );
+      }
+      :host([size='large']) {
+        --icon-size: var(
+          --jh-icon-size-large,
+          var(--jh-dimension-900)
+        );
+      }
+      :host([size='x-large']) {
+        --icon-size: var(
+          --jh-icon-size-extra-large,
+          var(--jh-dimension-1400)
+        );
+      }
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    `;
+  }
+
+  static get properties() {
+    return {
+      /**
+      * The size of the icon.
+      */
+      size: {
+        type: String, reflect: true 
+      }
+    }
+  }
+
+  constructor() {
+    super();
+    this.#internals = this.attachInternals();
+    this.#internals.role = 'graphics-symbol';
+    this.#internals.ariaHidden = 'true';
+
+    /** @type {'x-small'|'small'|'medium'|'large'|'x-large'} */
+    this.size = 'medium';
+  }
+
+  render() {
+    return html`
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">   <path d="M20.468 14.515a.721.721 0 0 1-.214 1.023 15.946 15.946 0 0 1-16.483.015l-.064-.043a.721.721 0 0 1-.191-.914l.039-.066a.78.78 0 0 1 1.048-.223 14.45 14.45 0 0 0 14.394.231l.423-.243a.78.78 0 0 1 1.048.22Zm-2.509-3.732c.23.344.14.813-.218 1.02a11.444 11.444 0 0 1-11.463.011l-.064-.042a.713.713 0 0 1-.195-.912l.039-.066c.23-.345.695-.434 1.056-.23a9.943 9.943 0 0 0 4.574 1.279l.322.005a9.945 9.945 0 0 0 4.893-1.293c.36-.205.825-.116 1.056.228Zm-2.51-3.742c.23.345.14.817-.228 1.01a6.94 6.94 0 0 1-6.43.006l-.065-.04c-.313-.21-.38-.645-.163-.97.23-.345.696-.432 1.07-.251a5.435 5.435 0 0 0 2.063.534l.309.009a5.44 5.44 0 0 0 2.372-.548c.374-.182.84-.095 1.071.25Z"/> </svg> 
+    `;
+  }
+}
+
+customElements.define('jh-icon-signal-stream-down', JhIconSignalStreamDown);

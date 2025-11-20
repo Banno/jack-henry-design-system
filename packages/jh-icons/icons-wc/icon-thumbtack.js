@@ -1,0 +1,88 @@
+/**
+* SPDX-FileCopyrightText: 2025 Jack Henry
+*
+* SPDX-License-Identifier: Apache-2.0
+*/
+import {LitElement, css, html} from 'lit';
+
+export default class JhIconThumbtack extends LitElement {
+  /** @type {ElementInternals} */
+  #internals;
+
+  static get styles() {
+    return css`
+      :host {
+        fill: var(
+          --jh-icon-color-fill,
+          var(--jh-color-content-secondary-enabled)
+        );
+        width: var(--icon-size);
+        height: var(--icon-size);
+        display: inline-block;
+      }
+      :host([size='x-small']) {
+        --icon-size: var(
+          --jh-icon-size-extra-small,
+          var(--jh-dimension-400)
+        );
+      }
+      :host([size='small']) {
+        --icon-size: var(
+          --jh-icon-size-small,
+          var(--jh-dimension-500)
+        );
+      }
+      :host([size='medium']) {
+        --icon-size: var(
+          --jh-icon-size-medium,
+          var(--jh-dimension-600)
+        );
+      }
+      :host([size='large']) {
+        --icon-size: var(
+          --jh-icon-size-large,
+          var(--jh-dimension-900)
+        );
+      }
+      :host([size='x-large']) {
+        --icon-size: var(
+          --jh-icon-size-extra-large,
+          var(--jh-dimension-1400)
+        );
+      }
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    `;
+  }
+
+  static get properties() {
+    return {
+      /**
+      * The size of the icon.
+      */
+      size: {
+        type: String, reflect: true 
+      }
+    }
+  }
+
+  constructor() {
+    super();
+    this.#internals = this.attachInternals();
+    this.#internals.role = 'graphics-symbol';
+    this.#internals.ariaHidden = 'true';
+
+    /** @type {'x-small'|'small'|'medium'|'large'|'x-large'} */
+    this.size = 'medium';
+  }
+
+  render() {
+    return html`
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">   <path d="M11.25 20.5v-5.75H7a.75.75 0 0 1-.741-.864v-.007l.003-.01.006-.037a6.996 6.996 0 0 1 .126-.549c.094-.348.25-.823.493-1.328.421-.873 1.15-1.918 2.363-2.473v-3.52l-1.585-.791A.751.751 0 0 1 7.25 4.5V2.76l.004-.077A.75.75 0 0 1 8 2.01h8a.75.75 0 0 1 .75.75V4.5a.751.751 0 0 1-.415.67l-1.585.793v3.52c1.213.554 1.942 1.6 2.363 2.472a7.776 7.776 0 0 1 .62 1.877l.005.036.002.01.001.005v.002a.753.753 0 0 1-.741.865h-4.25v5.75L12 22l-.75-1.5ZM8.75 4.036l1.585.793a.75.75 0 0 1 .415.671V10a.75.75 0 0 1-.534.718c-.961.288-1.583 1.07-1.978 1.89a6.058 6.058 0 0 0-.263.642h8.05a6.05 6.05 0 0 0-.263-.643c-.396-.818-1.017-1.6-1.978-1.89A.75.75 0 0 1 13.25 10V5.5c0-.284.161-.544.415-.67l1.585-.794V3.51h-6.5v.526Z"/> </svg> 
+    `;
+  }
+}
+
+customElements.define('jh-icon-thumbtack', JhIconThumbtack);

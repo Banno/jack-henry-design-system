@@ -16,12 +16,15 @@
   "type": "module",
   "files": [
     "platforms",
-    "utils"
+    "utils",
+    "NOTICE"
   ],
   "scripts": {
     "build:tokens": "node ./lib/build.js",
     "merge": "node ./lib/merge.js",
-    "build": "npm run build:tokens && npm run merge"
+    "build": "npm run build:tokens && npm run merge",
+    "prepack": "cp ../../NOTICE .",
+    "postpack": "rm -f NOTICE"
   },
   "devDependencies": {
     "style-dictionary": "4.1.1"

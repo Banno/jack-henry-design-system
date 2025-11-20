@@ -185,32 +185,6 @@ can be present along with a default slot in some cases. To target a slot, includ
 </jh-list-item>
 ```
 
-#### Default
-
-Many components include a default slot option that will accept any HTML an author provides. To use a default slot, simply declare your
-HTML between the component tags:
-
-```html
-<jh-list-item>
-  <div class="container">
-    <div>My list content</div>
-  </div>
-</jh-list-item>
-```
-
-#### Named
-
-Some components will include named slots. Named slots target specific regions of a component to render your HTML. Multiple named slots
-can be present along with a default slot in some cases. To target a slot, include the slot attribute with the targeted slot name:
-
-```html
-<jh-list-item>
-  <div slot="jh-list-item-content" class="container">
-    <div>My list content</div>
-  </div>
-</jh-list-item>
-```
-
 ### Events
 
 You can attach listeners for global events (clicks, keyboard events, etc.) to the components as you normally would. In addition, some components will also emit their own `jh-`

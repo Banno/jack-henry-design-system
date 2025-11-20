@@ -10,7 +10,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you for taking the time to suggest a new feature or component! Please remember to search for open and closed issues before submitting.
+        Thank you for suggesting a new feature or component! Please remember to search for open and closed issues before submitting.
+
+        Jack Henry teams seeking support should report issues through our internal Slack channel.
   - type: textarea
     id: feature-motivation
     attributes:

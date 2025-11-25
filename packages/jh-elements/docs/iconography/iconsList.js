@@ -99,27 +99,36 @@ export class JhIconsList extends LitElement {
       const iconItem = document.createElement(icon);
       iconItem.setAttribute('slot', 'jh-card-header');
       iconItem.setAttribute('size', 'large');
+
       const iconName = document.createElement('span');
       iconName.textContent = icon;
       iconName.classList.add('icon-name');
+
       const iconButton = document.createElement('jh-button');
       iconButton.setAttribute('size', 'small');
       iconButton.setAttribute('appearance', 'tertiary');
       iconButton.setAttribute('label', 'Copy');
       iconButton.setAttribute('accessible-label', `Copy ${icon} to clipboard`);
-      const iconContainer = document.createElement('div');
-      iconContainer.classList.add('icon-container');
-      const iconCard = document.createElement('jh-card');
-      iconCard.setAttribute('padding', 'none');
       iconButton.addEventListener('click', () => {
-        // Copy the icon tag to clipboard. This also includes size="medium"
-        navigator.clipboard.writeText(iconItem.outerHTML);
+        const iconRaw = iconItem.outerHTML;
+        //use regex to remove size and slot attributes from the copied icon code
+        const sizeRegex = /\s*size=(['"]).*?\1/i;
+        const slotRegex = /\s*slot=(['"]).*?\1/i;
+        const iconClean = iconRaw.replace(sizeRegex, '').replace(slotRegex, '');
+        navigator.clipboard.writeText(iconClean);
         this.#createToast(icon);
       });
 
-      iconCard.appendChild(iconItem);
+      const iconContainer = document.createElement('div');
+      iconContainer.classList.add('icon-container');
+
+      const iconCard = document.createElement('jh-card');
+      iconCard.setAttribute('padding', 'none');
+      iconCard.setAttribute('role', 'listitem');
+
       iconContainer.appendChild(iconName);
       iconContainer.appendChild(iconButton);
+      iconCard.appendChild(iconItem);
       iconCard.appendChild(iconContainer);
       gallery.appendChild(iconCard);
     }
@@ -136,7 +145,7 @@ export class JhIconsList extends LitElement {
         appearance: 'positive',
         stacked: false,
         text: `${icon} copied to clipboard`,
-        timeout: 2000,
+        timeout: 5000,
         hideDismissButton: true,
       },
       bubbles: true,
@@ -154,7 +163,7 @@ export class JhIconsList extends LitElement {
         show-clear-button accessible-label-clear-button="Clear search"
        @jh-input=${this.#handleSearch} @jh-input:clear-button-click=${this.#handleSearch}
       ></jh-input-search>
-      <div class="icon-grid"></div>
+      <div class="icon-grid" role="list"></div>
       <jh-toast-controller max-count=1></jh-toast-controller>
     `;
   }

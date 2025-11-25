@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
 import { html, css } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import './radio.js';

@@ -1,7 +1,16 @@
 ---
 to: <%= outputPath %>/icon-<%= name %>.js
 force: true
+#
+# SPDX-FileCopyrightText: 2025 Jack Henry
+# 
+# SPDX-License-Identifier: Apache-2.0
 ---
+/**
+* SPDX-FileCopyrightText: 2025 Jack Henry
+*
+* SPDX-License-Identifier: Apache-2.0
+*/
 import {LitElement, css, html} from 'lit';
 
 export default class <%= h.inflection.classify(prefix.replace(/-/gi,'_')) %>Icon<%= h.inflection.classify(name.replace(/-/gi,'_')) %> extends LitElement {

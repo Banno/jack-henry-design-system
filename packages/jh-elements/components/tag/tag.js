@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
 import { LitElement, css, html } from 'lit';
 import '@jack-henry/jh-icons/icons-wc/icon-xmark.js';
 import '../button/button.js';

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
 const { classify, titleize } = require('inflection');
 
 const PREFIX = 'jh-';

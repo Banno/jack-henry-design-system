@@ -1,0 +1,62 @@
+# SPDX-FileCopyrightText: 2025 Jack Henry
+#
+# SPDX-License-Identifier: Apache-2.0
+
+name: Accessibility Issue
+about: Report an accessibility issue in the Jack Henry Design System.
+title: '[a11y]: '
+labels: 'type: a11y'
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping us improve the accessibility of the Jack Henry Design System! Please remember to search for open issues before submitting a new issue.
+  - type: dropdown
+    id: affected-browser
+    attributes:
+      label: Affected Browsers
+      description: Which browser(s) are you experiencing the issue? 
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+    validations:
+      required: true
+  - type: input
+    id: browser-version
+    attributes:
+      label: Browser Version
+      description: Please specify the version of the browser you are using. e.g., "90.0.4430.93"
+    validations:
+      required: true
+  - type: input
+    id: package-version
+    attributes:
+      label: Package Version
+      description: Which version of the Jack Henry Design System are you using? e.g., v1.14.0
+      validations:
+        required: true
+  - type: input
+    id: assistive-technology
+    attributes:
+      label: Assistive Technology
+      description: If you are using any assistive technologies, please specify them here. e.g., screen readers, magnifiers, etc.
+  - type: input
+    id: wcag-violation
+    attributes:
+      label: Violation of WCAG 2.2 Standard?
+      description: Does this issue violate a specific WCAG 2.2 guideline? e.g., "Success Criterion 1.4.3 Contrast (Minimum)"
+  - type: textarea
+    id: issue-description
+    attributes:
+      label: Issue Description
+      description: Please provide a detailed description of the accessibility issue you are experiencing.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce-issue
+    attributes:
+      label: How to Reproduce the Issue
+      description: Please provide detailed steps on how to reproduce the issue.
+    validations:
+      required: true

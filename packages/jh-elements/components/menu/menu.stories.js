@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
 import { html, css } from 'lit';
 import './menu.js';
 import '../list-item/list-item.js';

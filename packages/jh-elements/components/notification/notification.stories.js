@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
 import { html, css } from 'lit';
 import './notification.js';
 import '@jack-henry/jh-icons/icons-wc/icon-circle-info.js';

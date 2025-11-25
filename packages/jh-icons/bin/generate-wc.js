@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
 const { exec } = require('child_process');
 
 const args = process.argv.slice(2); // args[0] = sourcePath, args[1] = outputPath, args[2] = prefix

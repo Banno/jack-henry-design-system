@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
 import {LitElement, css, html} from 'lit';
 
 export default class JhIconCircleChevronsLeft extends LitElement {

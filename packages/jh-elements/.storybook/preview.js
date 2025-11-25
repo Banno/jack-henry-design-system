@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
 import '@jack-henry/jh-tokens/platforms/web/css/jh-theme-light.css';
 import '@jack-henry/jh-tokens/platforms/web/css/jh-theme-dark.css';
 import './public/assets/fonts/fonts.css';

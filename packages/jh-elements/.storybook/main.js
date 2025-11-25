@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
 const config = {
   stories: ['../**/*.mdx', '../**/*.stories.js'],
   addons: [

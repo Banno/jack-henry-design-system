@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
 import { css } from 'lit';
 import { JhInput } from '../input/input.js';
 import '@jack-henry/jh-icons/icons-wc/icon-magnifying-glass.js';

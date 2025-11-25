@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # Jack Henry Iconography
 
 Jack Henry icons are designed to provide a consistent look and feel across your products. Our icon set is 
@@ -29,7 +35,7 @@ Please note that any files with the same filename as the output web component wi
 
 ## Icon Documentation
 
-Access documentation on our [iconography](https://jackhenry.design/pages/foundations/icons/) and [icon web component](https://jackhenry.design/pages/components/icon/).
+Access documentation on our [iconography](https://jackhenry.design/v2/foundations/icons/) and [icon web component](https://jackhenry.design/pages/components/icon/).
 
 ## Contributing
 

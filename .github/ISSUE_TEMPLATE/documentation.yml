@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: 2025 Jack Henry
+#
+# SPDX-License-Identifier: Apache-2.0
+
+name: Documentation
+about: Have an issue with our documentation or a suggestion for improvement?
+title: '[Documentation]: '
+labels: 'type: docs'
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report an issue or improvement regarding our design system documentation.
+
+        Please remember to search for open issues before submitting.
+  - type: dropdown
+    id: documentation-type
+    attributes:
+      label: Documentation Type
+      description: What type of documentation issue are you reporting?
+      options:
+        - jackhenry.design
+        - technical documentation(Storybook, READMEs)
+    validations:
+      required: true
+  - type: input
+    id: documentation-issue
+    attributes:
+      label: Documentation Issue or Improvement
+      description: | 
+        Please provide details about the documentation issue you are reporting or the improvement you would like to see.
+    validations:
+      required: true

@@ -1,6 +1,16 @@
 ---
 to: components/<%= unprefixedName %>/<%= unprefixedName %>.stories.js
+#
+# SPDX-FileCopyrightText: 2025 Jack Henry
+# 
+# SPDX-License-Identifier: Apache-2.0
 ---
+/**
+* SPDX-FileCopyrightText: 2025 Jack Henry
+*
+* SPDX-License-Identifier: Apache-2.0
+*/
+
 import { html, css } from 'lit';
 import './<%= unprefixedName %>.js';
 

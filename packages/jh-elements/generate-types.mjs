@@ -5,48 +5,81 @@ const MANIFEST_PATH = path.resolve(process.cwd(), 'custom-elements.json');
 
 function getTsType(type) {
   if (!type || !type.text) return 'any';
-  let tsType = type.text.replace(/\?|\s\|\snull/g, '') || 'any';
-  if (type.text.includes('?')) {
-    tsType = `(${tsType} | null)`;
+  
+  // Remove leading ? and handle nullable types
+  let tsType = type.text.replace(/^\?/, '').trim();
+  
+  // Check if it's nullable (had ? prefix or explicitly includes null)
+  const isNullable = type.text.startsWith('?') || type.text.includes('| null');
+  
+  // Clean up the type
+  tsType = tsType.replace(/\s\|\snull/g, '').trim() || 'any';
+  
+  // Add null union if needed (without parentheses for cleaner output)
+  if (isNullable && !tsType.includes('null')) {
+    tsType = `${tsType} | null`;
   }
+  
   return tsType;
 }
 
 function generateProperties(members) {
   return members
-    .filter((m) => (m.kind === 'field' || m.kind === 'method') && m.privacy !== 'private')
+    .filter((m) => m.kind === 'field' && m.privacy !== 'private')
     .map((m) => {
       const propName = m.name;
       const propType = getTsType(m.type);
-      const description = m.description
-        ? `* ${m.description.trim().replace(/\n/g, '\n   * ')}`
-        : '';
-      const attribute = m.attribute ? `* @attr ${m.attribute}` : '';
+      const description = m.description || '';
+      const attribute = m.attribute ? `@attr ${m.attribute}` : '';
+      const defaultValue = m.default ? `@default ${m.default}` : '';
+
+      // Build JSDoc lines
+      const jsdocLines = [
+        description,
+        attribute,
+        defaultValue
+      ].filter(Boolean);
 
       return `
     /**
-     * ${description}
-     * @type {${propType}}
-     * ${attribute}
+     * ${jsdocLines.join('\n     * ')}
      */
     ${propName}: ${propType};`;
     })
     .join('\n');
 }
 
-function generateEvents(events) {
-  if (!events || events.length === 0) return '';
-  return events
-    .map((e) => {
-      const detailType =
-        e.type && e.type.text ? ` { detail: ${e.type.text} }` : '';
-      return `
-/** * @event ${e.name} - ${
-        e.description || 'Dispatched by the component.'
-      }${detailType}
- */`;
-    })
-    .join('');
+function generateClassLevelJsDoc(declaration) {
+  const lines = [];
+  
+  // Component description
+  if (declaration.description) {
+    lines.push(declaration.description);
+    lines.push('');
+  }
+  
+  // Element tag
+  lines.push(`@element ${declaration.tagName}`);
+  
+  // Slots
+  if (declaration.slots && declaration.slots.length > 0) {
+    declaration.slots.forEach(slot => {
+      const slotName = slot.name === 'default' ? '' : slot.name;
+      const desc = slot.description || '';
+      lines.push(`@slot ${slotName}${desc ? ` - ${desc}` : ''}`);
+    });
+  }
+  
+  // Events (only custom events, not inherited ones)
+  if (declaration.events && declaration.events.length > 0) {
+    lines.push('');
+    declaration.events.forEach(event => {
+      const desc = event.description || 'Dispatched by the component.';
+      lines.push(`@fires ${event.name} - ${desc}`);
+    });
+  }
+  
+  return lines.map(line => ` * ${line}`).join('\n');
 }
 
 function generateComponentDts(declaration) {
@@ -54,22 +87,39 @@ function generateComponentDts(declaration) {
   const tagName = declaration.tagName;
 
   const properties = generateProperties(declaration.members || []);
-  const events = generateEvents(declaration.events || []);
+  const classJsDoc = generateClassLevelJsDoc(declaration);
 
-  return `
-import { LitElement } from 'lit';
+  // Generate property list for class export (fields only, skip methods)
+  const allMembers = declaration.members || [];
+  const publicFields = allMembers.filter(m => 
+    m.kind === 'field' && m.privacy !== 'private'
+  );
+  
+  const classProperties = publicFields.map(m => {
+    const propType = getTsType(m.type);
+    return `  ${m.name}: ${propType};`;
+  }).join('\n');
 
-// Global augmentation for the HTML tag:
+  return `// SPDX-FileCopyrightText: 2025 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0import { LitElement } from 'lit';
+
 declare global {
   interface HTMLElementTagNameMap {
     '${tagName}': ${className};
   }
 }
-${events}
+
+/**
+${classJsDoc}
+ */
 export declare interface ${className} extends LitElement {
 ${properties}
 }
-  `;
+
+export declare class ${className} extends LitElement {
+${classProperties}
+}`;
 }
 
 try {

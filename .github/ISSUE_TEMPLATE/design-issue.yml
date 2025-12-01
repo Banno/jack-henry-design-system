@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 name: Design Issue
-about: Report a design issue
+description: Report a design issue
 title: '[Design Issue]: '
 labels: 'status: needs triage, type: figma design kit'
 body:

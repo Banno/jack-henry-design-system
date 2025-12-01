@@ -1,8 +1,11 @@
-name: 'Chromatic-Prod'
+# SPDX-FileCopyrightText: 2025 Jack Henry
+#
+# SPDX-License-Identifier: Apache-2.0
+
+name: 'Chromatic-Dev'
 on: 
-  push:
-    branches:
-      - master
+  pull_request:
+    types: [labeled, opened, synchronize, reopened]
 
 jobs:
   chromatic-deployment:
@@ -21,7 +24,7 @@ jobs:
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: packages/jh-ui
           exitZeroOnChanges: true
+          skip: "${{ !contains(github.event.pull_request.labels.*.name, 'status: visual review') }}"

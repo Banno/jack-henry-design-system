@@ -1,0 +1,74 @@
+# SPDX-FileCopyrightText: 2025 Jack Henry
+#
+# SPDX-License-Identifier: Apache-2.0
+
+name: Bug Report
+about: Report something that is not working as expected.
+title: '[Bug]: '
+labels: 'type: bug, status: needs triage'
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report a bug in the Jack Henry Design System! Please remember to search for open and closed issues before submitting.
+
+        Jack Henry teams seeking support should report issues through our internal Slack channel.
+  - type: dropdown
+    id: affected-browser
+    attributes:
+      label: Affected Browsers
+      description: Which browser(s) are you experiencing the issue? 
+      multiple: true
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+    validations:
+      required: true
+  - type: input
+    id: browser-version
+    attributes:
+      label: Browser Version
+      description: Please specify the version of the browser you are using. e.g., "141.0.7390.77"
+    validations:
+      required: true
+  - type: dropdown
+    id: affected-package
+    attributes:
+      label: Affected Package
+      description: Which package are you experiencing the design issue in?
+      options:
+        - '@jack-henry/jh-elements (formerly jh-ui)' 
+        - '@jack-henry/jh-tokens (formerly jh-core)'
+        - '@jack-henry/jh-icons'
+    validations:
+      required: true
+  - type: input
+    id: package-version
+    attributes:
+      label: Package Version
+      description: Please specify the version of the package you are using. e.g., "1.14.0"
+    validations:
+      required: true
+  - type: textarea
+    id: issue-description
+    attributes:
+      label: Issue Description
+      description: Please provide a detailed description of the bug you are experiencing.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce-issue
+    attributes:
+      label: How to Reproduce the Issue
+      description: Please provide detailed steps on how to reproduce the issue.
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: Please describe what you expected to happen instead.
+    validations:
+      required: true
+  

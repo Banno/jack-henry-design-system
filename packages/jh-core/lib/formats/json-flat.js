@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
 const formatTokenName = function (tokenName) {
   let name = tokenName.replaceAll('-', ' ').replaceAll('jh', ' ').trim();
   let words = name.split(' ');

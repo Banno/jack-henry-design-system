@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
 import { addons } from '@storybook/manager-api';
 import { darkTheme } from './sb-themes';
 import { lightTheme } from './sb-themes';

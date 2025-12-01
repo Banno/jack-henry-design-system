@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
 import { JhButton } from './components/button/button.js';
 import { JhIcon } from './components/icon/icon.js';
 import { JhDivider } from './components/divider/divider.js';

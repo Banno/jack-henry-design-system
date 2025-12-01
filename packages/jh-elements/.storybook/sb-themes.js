@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
 import { create } from '@storybook/theming';
 
 //more options like fonts and colors can be added later as needed

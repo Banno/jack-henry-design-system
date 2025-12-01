@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
 import StyleDictionary from 'style-dictionary';
 import formatJs from './formats/format.js';
 import formatDocs from './formats/json-flat.js';
@@ -12,8 +16,14 @@ function getStyleDictionary(theme, platform) {
       `tokens/alias/**/*.json`
     ],
     hooks: {
-      fileHeaders: {
-        defaultFileHeader: (defaultMessages = []) => [
+      fileHeaders: { 
+        licensedFileHeader: (defaultMessages = []) => [ //license info gets added to css and js files
+          //REUSE-IgnoreStart
+          'SPDX-FileCopyrightText: 2025 Jack Henry',
+          '',
+          'SPDX-License-Identifier: Apache-2.0',
+          //REUSE-IgnoreEnd
+          '',
           ...defaultMessages,
           `Generated on ${new Date().toUTCString()}`,
         ],
@@ -40,7 +50,7 @@ function getStyleDictionary(theme, platform) {
             options: {
               // if file should keep output references: ie --color-danger: var(--color-red); vs --color-danger: #ff0000;
               outputReferences: true,
-              fileHeader: 'defaultFileHeader',
+              fileHeader: 'licensedFileHeader',
               selector: `${theme === 'light' ? ':root' : `.jh-theme-${theme}`}`,
             },
           },
@@ -50,7 +60,7 @@ function getStyleDictionary(theme, platform) {
             options: {
               outputReferences: true,
               usesDtcg: true,
-              fileHeader: 'defaultFileHeader',
+              fileHeader: 'licensedFileHeader',
               selector: `${theme === 'light' ? ':root' : `.jh-theme-${theme}`}`,
             },
           },

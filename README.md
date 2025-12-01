@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # Jack Henry Design System
 
 Welcome to our monorepo! The Jack Henry Design System is a collection of reusable components, guided by clear visual and user experience
@@ -55,7 +61,7 @@ you focus on solving high impact problems unique to your domain.
 ## Getting Started
 
 If you're just getting started, we highly recommend you first visit [jackhenry.design](https://jackhenry.design/) to learn more about the Design System and 
-review it's usage guidelines and style guide. If you're ready to dive into the technical side, visit our [Storybook](https://master--60b69cf9d763ec0039a5ac96.chromatic.com/?path=/docs/welcome-about-jh--docs) instance for documentation and to test drive our components.
+review it's usage guidelines and style guide. If you're ready to dive into the technical side, visit our [Storybook](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/welcome-about-jh--docs) instance for documentation and to test drive our components.
 
 | Package Name         | Description                          |
 |----------------------|--------------------------------------|
@@ -68,7 +74,7 @@ review it's usage guidelines and style guide. If you're ready to dive into the t
 We currently maintain two documentation sites:
 
 * [Jackhenry.design](https://jackhenry.design) focuses on introducing the underlying concepts of the Design System, usage guidelines, and a style guide.
-* [Storybook](https://master--60b69cf9d763ec0039a5ac96.chromatic.com/?path=/docs/welcome-about-jh--docs) focuses on technical implementations and considerations 
+* [Storybook](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/welcome-about-jh--docs) focuses on technical implementations and considerations 
 for engineers, author guidance, and a playground where you can test drive our components.
 
 ## Contributing

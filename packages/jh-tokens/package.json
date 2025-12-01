@@ -1,7 +1,7 @@
 {
   "name": "@jack-henry/jh-tokens",
   "description": "Jack Henry design system core design tokens.",
-  "version": "2.0.0-beta.7",
+  "version": "2.0.0-beta.8",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Banno/jack-henry-design-system.git"
@@ -16,12 +16,15 @@
   "type": "module",
   "files": [
     "platforms",
-    "utils"
+    "utils",
+    "NOTICE"
   ],
   "scripts": {
     "build:tokens": "node ./lib/build.js",
     "merge": "node ./lib/merge.js",
-    "build": "npm run build:tokens && npm run merge"
+    "build": "npm run build:tokens && npm run merge",
+    "prepack": "cp ../../NOTICE .",
+    "postpack": "rm -f NOTICE"
   },
   "devDependencies": {
     "style-dictionary": "4.1.1"

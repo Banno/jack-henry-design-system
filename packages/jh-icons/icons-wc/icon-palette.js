@@ -1,0 +1,88 @@
+/**
+* SPDX-FileCopyrightText: 2025 Jack Henry
+*
+* SPDX-License-Identifier: Apache-2.0
+*/
+import {LitElement, css, html} from 'lit';
+
+export default class JhIconPalette extends LitElement {
+  /** @type {ElementInternals} */
+  #internals;
+
+  static get styles() {
+    return css`
+      :host {
+        fill: var(
+          --jh-icon-color-fill,
+          var(--jh-color-content-secondary-enabled)
+        );
+        width: var(--icon-size);
+        height: var(--icon-size);
+        display: inline-block;
+      }
+      :host([size='x-small']) {
+        --icon-size: var(
+          --jh-icon-size-extra-small,
+          var(--jh-dimension-400)
+        );
+      }
+      :host([size='small']) {
+        --icon-size: var(
+          --jh-icon-size-small,
+          var(--jh-dimension-500)
+        );
+      }
+      :host([size='medium']) {
+        --icon-size: var(
+          --jh-icon-size-medium,
+          var(--jh-dimension-600)
+        );
+      }
+      :host([size='large']) {
+        --icon-size: var(
+          --jh-icon-size-large,
+          var(--jh-dimension-900)
+        );
+      }
+      :host([size='x-large']) {
+        --icon-size: var(
+          --jh-icon-size-extra-large,
+          var(--jh-dimension-1400)
+        );
+      }
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    `;
+  }
+
+  static get properties() {
+    return {
+      /**
+      * The size of the icon.
+      */
+      size: {
+        type: String, reflect: true 
+      }
+    }
+  }
+
+  constructor() {
+    super();
+    this.#internals = this.attachInternals();
+    this.#internals.role = 'graphics-symbol';
+    this.#internals.ariaHidden = 'true';
+
+    /** @type {'x-small'|'small'|'medium'|'large'|'x-large'} */
+    this.size = 'medium';
+  }
+
+  render() {
+    return html`
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">   <path d="M12.522 3.784c2.61 0 4.608 1.223 5.963 2.689 1.336 1.443 2.11 3.186 2.248 4.375.128 1.118-.029 2.228-.452 3.117-.422.888-1.156 1.631-2.189 1.798-1.351.217-2.762-.28-3.769-.578-.546-.162-.976-.272-1.328-.29-.33-.018-.498.05-.611.156-.13.12-.123.18-.111.244.023.136.123.343.345.638.221.292.469.556.739.87.125.146.256.304.366.462.105.151.223.347.288.568.12.412.098.821-.08 1.187a1.83 1.83 0 0 1-.722.756c-.535.321-1.216.44-1.754.44-2.62 0-4.838-1.319-6.292-3.123-1.446-1.795-2.196-4.145-1.793-6.297.386-2.057 1.399-3.824 2.979-5.072 1.579-1.247 3.677-1.94 6.173-1.94Zm0 1.5c-2.216 0-3.971.612-5.244 1.616-1.27 1.004-2.109 2.438-2.434 4.172-.307 1.64.26 3.556 1.487 5.08 1.22 1.513 3.032 2.565 5.124 2.565.365 0 .752-.09.983-.228.107-.064.138-.114.144-.126a.045.045 0 0 0 .004-.017.26.26 0 0 0-.014-.09.833.833 0 0 0-.08-.135 4.503 4.503 0 0 0-.273-.34c-.215-.25-.54-.602-.798-.944-.257-.34-.54-.786-.627-1.29-.098-.573.076-1.14.571-1.598.512-.473 1.135-.582 1.707-.553.552.03 1.141.191 1.677.35 1.159.344 2.173.686 3.105.536.399-.064.789-.364 1.073-.962.284-.596.417-1.415.315-2.3-.094-.816-.696-2.273-1.857-3.528-1.141-1.233-2.762-2.208-4.863-2.208ZM7.25 10.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Zm9-2a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Zm-6.75-1a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Zm3.457-.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/> </svg> 
+    `;
+  }
+}
+
+customElements.define('jh-icon-palette', JhIconPalette);

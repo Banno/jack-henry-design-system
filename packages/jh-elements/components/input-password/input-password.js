@@ -76,9 +76,8 @@ export class JhInputPassword extends JhInput {
     this.#inputEl = this.shadowRoot.querySelector('input');
   }
 
-  async updated(changedProperties) {
-    // await super.updated so that addInputClass method runs after the base input is updated
-    await super.updated(changedProperties);
+  updated(changedProperties) {
+    super.updated(changedProperties);
 
     if (changedProperties.has('passwordVisible')) {
       if (this.passwordVisible) {
@@ -88,14 +87,6 @@ export class JhInputPassword extends JhInput {
       }
     }
     this.#insertTogglePasswordBtn();
-    this.#addInputClass();
-  }
-
-  #addInputClass() {
-    // hook into base input styles to add padding to input to accommodate the toggle password button
-    if (!this.#inputEl.classList.contains('input-right-slot-button')) {
-      this.#inputEl.classList.add('input-right-slot-button');
-    }
   }
 
   #insertTogglePasswordBtn() {

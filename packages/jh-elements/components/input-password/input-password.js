@@ -21,7 +21,7 @@ export class JhInputPassword extends JhInput {
       css`
         .password-toggle-btn {
           position: absolute;
-          right: var(--jh-input-field-dimension-padding-right, var(--jh-dimension-400));
+          right: var(--jh-dimension-400);
         }
         :host([size='small']) .password-toggle-btn {
           top: 4px;

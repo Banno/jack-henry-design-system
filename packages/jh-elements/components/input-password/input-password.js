@@ -23,6 +23,12 @@ export class JhInputPassword extends JhInput {
           position: absolute;
           right: var(--jh-dimension-400);
         }
+        .clear-button {
+          right: var(--jh-dimension-1400);
+        }
+        .display-clear-button input {
+          padding-right: var(--jh-dimension-2400);
+        }
         :host([size='small']) .password-toggle-btn {
           top: 4px;
         }

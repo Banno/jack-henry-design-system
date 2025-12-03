@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 name: Bug Report
-about: Report something that is not working as expected.
+description: Report something that is not working as expected.
 title: '[Bug]: '
 labels: 'type: bug, status: needs triage'
 body:

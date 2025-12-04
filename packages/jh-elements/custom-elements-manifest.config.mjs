@@ -1,3 +1,5 @@
+import { customElementJetBrainsPlugin } from "custom-element-jet-brains-integration";
+
 export default {
   /** Globs to analyze */
   globs: ['./components/**/**.js'],
@@ -12,5 +14,6 @@ export default {
   /** Enable special handling for litelement */
   litelement: true,
   plugins: [
+    customElementJetBrainsPlugin()
   ],
 }

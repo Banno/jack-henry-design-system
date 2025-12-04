@@ -6,6 +6,7 @@ import { html, css } from 'lit';
 import './input-password.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import '@jack-henry/jh-icons/icons-wc/icon-id-card.js';
+import '@jack-henry/jh-icons/icons-wc/icon-magnifying-glass.js';
 
 const disableControls = {
   'password-visible': { control: { disable: true } },
@@ -256,5 +257,15 @@ export const Default = { render: (args) => html`
 `};
 
 Default.argTypes = {
+  ...disableControls,
+};
+
+export const Slots = { render: (args) => html`
+  <jh-input-password
+    label="Label"
+    helper-text="Helper text"
+    show-clear-button><jh-icon-magnifying-glass slot="jh-input-left"></jh-icon-magnifying-glass></jh-input-password>`};
+
+Slots.argTypes = {
   ...disableControls,
 };

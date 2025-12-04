@@ -45,7 +45,7 @@ export default {
   tags: ['beta'],
   parameters: {
     actions: {
-      handles: ['jh-input-search:clear-search-button-click', 'jh-change', 'jh-select', 'jh-input', 'jh-maxlength'],
+      handles: ['jh-input:clear-button-click', 'jh-change', 'jh-select', 'jh-input', 'jh-maxlength'],
     },
   },
   argTypes: {

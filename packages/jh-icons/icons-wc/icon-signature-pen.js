@@ -1,0 +1,88 @@
+/**
+* SPDX-FileCopyrightText: 2025 Jack Henry
+*
+* SPDX-License-Identifier: Apache-2.0
+*/
+import {LitElement, css, html} from 'lit';
+
+export default class JhIconSignaturePen extends LitElement {
+  /** @type {ElementInternals} */
+  #internals;
+
+  static get styles() {
+    return css`
+      :host {
+        fill: var(
+          --jh-icon-color-fill,
+          var(--jh-color-content-secondary-enabled)
+        );
+        width: var(--icon-size);
+        height: var(--icon-size);
+        display: inline-block;
+      }
+      :host([size='x-small']) {
+        --icon-size: var(
+          --jh-icon-size-extra-small,
+          var(--jh-dimension-400)
+        );
+      }
+      :host([size='small']) {
+        --icon-size: var(
+          --jh-icon-size-small,
+          var(--jh-dimension-500)
+        );
+      }
+      :host([size='medium']) {
+        --icon-size: var(
+          --jh-icon-size-medium,
+          var(--jh-dimension-600)
+        );
+      }
+      :host([size='large']) {
+        --icon-size: var(
+          --jh-icon-size-large,
+          var(--jh-dimension-900)
+        );
+      }
+      :host([size='x-large']) {
+        --icon-size: var(
+          --jh-icon-size-extra-large,
+          var(--jh-dimension-1400)
+        );
+      }
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    `;
+  }
+
+  static get properties() {
+    return {
+      /**
+      * The size of the icon.
+      */
+      size: {
+        type: String, reflect: true 
+      }
+    }
+  }
+
+  constructor() {
+    super();
+    this.#internals = this.attachInternals();
+    this.#internals.role = 'graphics-symbol';
+    this.#internals.ariaHidden = 'true';
+
+    /** @type {'x-small'|'small'|'medium'|'large'|'x-large'} */
+    this.size = 'medium';
+  }
+
+  render() {
+    return html`
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">   <path d="M12.833 2.82a.75.75 0 0 1 1.025.275l6.635 11.49a.75.75 0 0 1 .098.423l-.268 4.151a.75.75 0 0 1-.953.67.743.743 0 0 1-.393.165l-.077.004h-3.13c-1.163 0-2.15-.457-2.937-.835-.854-.411-1.411-.686-1.952-.686-.51 0-1.103.301-1.785.716-.303.185-.65.408-.945.559a2.68 2.68 0 0 1-.507.204 1.306 1.306 0 0 1-.676.018c-.445-.117-.634-.48-.694-.742a1.834 1.834 0 0 1-.01-.643c.049-.357.173-.8.264-1.147l.036-.151a14.05 14.05 0 0 0-1.095.951 30.624 30.624 0 0 0-1.361 1.382l-.088.096-.022.024-.005.006-.001.001a.75.75 0 0 1-1.113-1.006l.556.503-.556-.504.002-.002.007-.008.026-.027a27.866 27.866 0 0 1 .431-.46c.283-.297.671-.694 1.091-1.093.417-.395.879-.807 1.307-1.124.213-.158.434-.304.648-.415.195-.1.47-.216.767-.217a1 1 0 0 1 .887.504c.15.263.162.549.157.73-.013.377-.13.835-.224 1.191l-.092.35.429-.26c.638-.39 1.575-.936 2.566-.936.962 0 1.876.485 2.603.834.795.383 1.502.687 2.286.687h.873l-1.129-.559a.753.753 0 0 1-.317-.297L8.562 6.152a.753.753 0 0 1 .275-1.025l3.996-2.307Zm-2.595 3.232 6.144 10.642L18.9 17.94l.18-2.801-6.145-10.644-2.697 1.558Z"/> </svg> 
+    `;
+  }
+}
+
+customElements.define('jh-icon-signature-pen', JhIconSignaturePen);

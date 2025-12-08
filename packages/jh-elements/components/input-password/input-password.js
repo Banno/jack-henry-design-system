@@ -21,7 +21,16 @@ export class JhInputPassword extends JhInput {
       css`
         .password-toggle-btn {
           position: absolute;
-          right: var(--jh-input-field-dimension-padding-right, var(--jh-dimension-400));
+          right: var(--jh-dimension-400);
+        }
+        .clear-button {
+          right: var(--jh-dimension-1400);
+        }
+        .display-clear-button input {
+          padding-right: var(--jh-dimension-2400);
+        }
+        input {
+          padding-right: var(--jh-dimension-1400);
         }
         :host([size='small']) .password-toggle-btn {
           top: 4px;
@@ -70,9 +79,8 @@ export class JhInputPassword extends JhInput {
     this.#inputEl = this.shadowRoot.querySelector('input');
   }
 
-  async updated(changedProperties) {
-    // await super.updated so that addInputClass method runs after the base input is updated
-    await super.updated(changedProperties);
+  updated(changedProperties) {
+    super.updated(changedProperties);
 
     if (changedProperties.has('passwordVisible')) {
       if (this.passwordVisible) {
@@ -82,14 +90,6 @@ export class JhInputPassword extends JhInput {
       }
     }
     this.#insertTogglePasswordBtn();
-    this.#addInputClass();
-  }
-
-  #addInputClass() {
-    // hook into base input styles to add padding to input to accommodate the toggle password button
-    if (!this.#inputEl.classList.contains('input-right-slot-button')) {
-      this.#inputEl.classList.add('input-right-slot-button');
-    }
   }
 
   #insertTogglePasswordBtn() {

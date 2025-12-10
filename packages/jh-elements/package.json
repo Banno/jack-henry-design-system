@@ -1,7 +1,7 @@
 {
   "name": "@jack-henry/jh-elements",
   "description": "Jack Henry's design system web components.",
-  "version": "2.0.0-beta.8",
+  "version": "2.0.0-beta.9",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Banno/jack-henry-design-system.git"
@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@jack-henry/jh-tokens": "workspace:2.0.0-beta.8",
-    "@jack-henry/jh-icons": "workspace:2.0.0-beta.6",
+    "@jack-henry/jh-icons": "workspace:2.0.0-beta.7",
     "lit": "3.3.1"
   },
   "devDependencies": {

@@ -4,6 +4,7 @@
 
 import { LitElement, css, html } from 'lit';
 import '../../components/card/card.js';
+import '../../components/button/button.js';
 import '../../components/input-search/input-search.js';
 import '../../components/toast-controller/toast-controller.js';
 import '../../components/toast/toast.js';
@@ -36,11 +37,22 @@ export class JhIconsList extends LitElement {
     }
     jh-card {
       width: 150px;
+      height: 100%;
       text-align: center;
-      cursor: pointer;
     }
     jh-input-search {
       padding-bottom: 16px;
+    }
+    .icon-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      padding: 0 8px;
+    }
+    .icon-name {
+      flex-grow: 1;
     }
     .icon-grid {
       display: flex;
@@ -77,20 +89,47 @@ export class JhIconsList extends LitElement {
     const gallery = this.shadowRoot.querySelector('.icon-grid');
     gallery.innerHTML = '';
     //append each icon to the gallery declaratively (can't do dynamic binding in tags)
+    if (this.icons.length === 0) {
+      const noResults = document.createElement('p');
+      noResults.textContent = 'Sorry, no icons found. Try a different search.';
+      gallery.appendChild(noResults);
+      return;
+    }
     for (const icon of this.icons) {
       const iconItem = document.createElement(icon);
+      iconItem.setAttribute('slot', 'jh-card-header');
+      iconItem.setAttribute('size', 'large');
+
       const iconName = document.createElement('span');
       iconName.textContent = icon;
-      iconName.setAttribute('slot', 'jh-card-footer');
-      const iconCard = document.createElement('jh-card');
-      iconCard.addEventListener('click', () => {
-        // Copy the icon tag to clipboard. This also includes size="medium"
-        navigator.clipboard.writeText(iconItem.outerHTML);
+      iconName.classList.add('icon-name');
+
+      const iconButton = document.createElement('jh-button');
+      iconButton.setAttribute('size', 'small');
+      iconButton.setAttribute('appearance', 'tertiary');
+      iconButton.setAttribute('label', 'Copy');
+      iconButton.setAttribute('accessible-label', `Copy ${icon} to clipboard`);
+      iconButton.addEventListener('click', () => {
+        const iconRaw = iconItem.outerHTML;
+        //use regex to remove size and slot attributes from the copied icon code
+        const sizeRegex = /\s*size=(['"]).*?\1/i;
+        const slotRegex = /\s*slot=(['"]).*?\1/i;
+        const iconClean = iconRaw.replace(sizeRegex, '').replace(slotRegex, '');
+        navigator.clipboard.writeText(iconClean);
         this.#createToast(icon);
       });
 
+      const iconContainer = document.createElement('div');
+      iconContainer.classList.add('icon-container');
+
+      const iconCard = document.createElement('jh-card');
+      iconCard.setAttribute('padding', 'none');
+      iconCard.setAttribute('role', 'listitem');
+
+      iconContainer.appendChild(iconName);
+      iconContainer.appendChild(iconButton);
       iconCard.appendChild(iconItem);
-      iconCard.appendChild(iconName);
+      iconCard.appendChild(iconContainer);
       gallery.appendChild(iconCard);
     }
   }
@@ -106,7 +145,7 @@ export class JhIconsList extends LitElement {
         appearance: 'positive',
         stacked: false,
         text: `${icon} copied to clipboard`,
-        timeout: 2000,
+        timeout: 5000,
         hideDismissButton: true,
       },
       bubbles: true,
@@ -121,10 +160,10 @@ export class JhIconsList extends LitElement {
       <jh-input-search
         label="Search for icons by name"
         helper-text="Click on any icon to copy its code to the clipboard."
-        show-clear-button
+        show-clear-button accessible-label-clear-button="Clear search"
        @jh-input=${this.#handleSearch} @jh-input:clear-button-click=${this.#handleSearch}
       ></jh-input-search>
-      <div class="icon-grid"></div>
+      <div class="icon-grid" role="list"></div>
       <jh-toast-controller max-count=1></jh-toast-controller>
     `;
   }

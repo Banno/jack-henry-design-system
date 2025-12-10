@@ -1,0 +1,88 @@
+/**
+* SPDX-FileCopyrightText: 2025 Jack Henry
+*
+* SPDX-License-Identifier: Apache-2.0
+*/
+import {LitElement, css, html} from 'lit';
+
+export default class JhIconBadgeCheckmark extends LitElement {
+  /** @type {ElementInternals} */
+  #internals;
+
+  static get styles() {
+    return css`
+      :host {
+        fill: var(
+          --jh-icon-color-fill,
+          var(--jh-color-content-secondary-enabled)
+        );
+        width: var(--icon-size);
+        height: var(--icon-size);
+        display: inline-block;
+      }
+      :host([size='x-small']) {
+        --icon-size: var(
+          --jh-icon-size-extra-small,
+          var(--jh-dimension-400)
+        );
+      }
+      :host([size='small']) {
+        --icon-size: var(
+          --jh-icon-size-small,
+          var(--jh-dimension-500)
+        );
+      }
+      :host([size='medium']) {
+        --icon-size: var(
+          --jh-icon-size-medium,
+          var(--jh-dimension-600)
+        );
+      }
+      :host([size='large']) {
+        --icon-size: var(
+          --jh-icon-size-large,
+          var(--jh-dimension-900)
+        );
+      }
+      :host([size='x-large']) {
+        --icon-size: var(
+          --jh-icon-size-extra-large,
+          var(--jh-dimension-1400)
+        );
+      }
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    `;
+  }
+
+  static get properties() {
+    return {
+      /**
+      * The size of the icon.
+      */
+      size: {
+        type: String, reflect: true 
+      }
+    }
+  }
+
+  constructor() {
+    super();
+    this.#internals = this.attachInternals();
+    this.#internals.role = 'graphics-symbol';
+    this.#internals.ariaHidden = 'true';
+
+    /** @type {'x-small'|'small'|'medium'|'large'|'x-large'} */
+    this.size = 'medium';
+  }
+
+  render() {
+    return html`
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">   <path d="M9.476 2.582a.751.751 0 0 1 .607.098L12 3.94l1.917-1.261.07-.04A.75.75 0 0 1 15 2.97l1.03 2.05 2.29-.132a.75.75 0 0 1 .792.792l-.133 2.29L21.03 9a.751.751 0 0 1 .29 1.083L20.058 12l1.262 1.917A.75.75 0 0 1 21.03 15l-2.052 1.03.134 2.29a.75.75 0 0 1-.792.792l-2.29-.133L15 21.03a.75.75 0 0 1-1.083.29L12 20.058l-1.917 1.262A.75.75 0 0 1 9 21.03l-1.03-2.052-2.29.134a.75.75 0 0 1-.792-.792l.132-2.29L2.97 15a.751.751 0 0 1-.29-1.083L3.94 12l-1.26-1.917A.751.751 0 0 1 2.97 9l2.05-1.03-.132-2.29a.75.75 0 0 1 .792-.792l2.29.132L9 2.97l.04-.07c.1-.155.256-.27.436-.318Zm2.936 2.884a.75.75 0 0 1-.824 0l-1.626-1.07-.872 1.739a.75.75 0 0 1-.714.413l-1.942-.114.114 1.942a.75.75 0 0 1-.413.714l-1.739.872 1.07 1.626a.75.75 0 0 1 0 .824l-1.07 1.625 1.739.873a.75.75 0 0 1 .413.714l-.114 1.941 1.942-.113.111.002a.751.751 0 0 1 .603.411l.872 1.738 1.626-1.069.097-.053a.75.75 0 0 1 .727.053l1.625 1.069.873-1.738.057-.095a.75.75 0 0 1 .657-.318l1.941.113-.113-1.941a.75.75 0 0 1 .413-.714l1.738-.873-1.069-1.625a.75.75 0 0 1 0-.824l1.069-1.626-1.738-.872a.75.75 0 0 1-.413-.714l.113-1.942-1.941.114a.75.75 0 0 1-.714-.413l-.873-1.739-1.625 1.07Zm2.532 3.53a.75.75 0 0 1 1.06 1.06l-4.948 4.95c-.006.006-.014.01-.02.017l-.006.007a.75.75 0 0 1-1.06 0l-2.5-2.5a.75.75 0 0 1 1.06-1.06l1.97 1.97 4.444-4.445Z"/> </svg> 
+    `;
+  }
+}
+
+customElements.define('jh-icon-badge-checkmark', JhIconBadgeCheckmark);

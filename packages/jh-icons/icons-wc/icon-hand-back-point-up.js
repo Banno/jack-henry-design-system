@@ -1,0 +1,88 @@
+/**
+* SPDX-FileCopyrightText: 2025 Jack Henry
+*
+* SPDX-License-Identifier: Apache-2.0
+*/
+import {LitElement, css, html} from 'lit';
+
+export default class JhIconHandBackPointUp extends LitElement {
+  /** @type {ElementInternals} */
+  #internals;
+
+  static get styles() {
+    return css`
+      :host {
+        fill: var(
+          --jh-icon-color-fill,
+          var(--jh-color-content-secondary-enabled)
+        );
+        width: var(--icon-size);
+        height: var(--icon-size);
+        display: inline-block;
+      }
+      :host([size='x-small']) {
+        --icon-size: var(
+          --jh-icon-size-extra-small,
+          var(--jh-dimension-400)
+        );
+      }
+      :host([size='small']) {
+        --icon-size: var(
+          --jh-icon-size-small,
+          var(--jh-dimension-500)
+        );
+      }
+      :host([size='medium']) {
+        --icon-size: var(
+          --jh-icon-size-medium,
+          var(--jh-dimension-600)
+        );
+      }
+      :host([size='large']) {
+        --icon-size: var(
+          --jh-icon-size-large,
+          var(--jh-dimension-900)
+        );
+      }
+      :host([size='x-large']) {
+        --icon-size: var(
+          --jh-icon-size-extra-large,
+          var(--jh-dimension-1400)
+        );
+      }
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    `;
+  }
+
+  static get properties() {
+    return {
+      /**
+      * The size of the icon.
+      */
+      size: {
+        type: String, reflect: true 
+      }
+    }
+  }
+
+  constructor() {
+    super();
+    this.#internals = this.attachInternals();
+    this.#internals.role = 'graphics-symbol';
+    this.#internals.ariaHidden = 'true';
+
+    /** @type {'x-small'|'small'|'medium'|'large'|'x-large'} */
+    this.size = 'medium';
+  }
+
+  render() {
+    return html`
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">   <path d="M9.585 2.549c.47 0 1.006.167 1.438.498.45.346.812.897.812 1.629v3.693a2.167 2.167 0 0 1 2.198.418c.42-.386 1-.593 1.65-.507.71.094 1.316.52 1.703 1.098.37-.214.814-.314 1.299-.25v.002c1.229.164 2.15 1.32 2.15 2.543a.746.746 0 0 1-.012.124c.007.04.012.082.012.125v2.69c0 1.346-.397 3.108-1.122 4.55-.699 1.39-1.87 2.788-3.548 2.788H11.16c-1.886 0-3.286-1.023-4.176-1.965a8.797 8.797 0 0 1-1.337-1.863l-.027-.055.675-.327-.675.326-.014-.028v-.002l-.002-.006-.011-.024-.04-.092-.15-.347c-.13-.295-.313-.709-.525-1.183a96.006 96.006 0 0 0-1.446-3.102c-.313-.632-.374-1.291-.06-1.855.298-.537.839-.807 1.335-.91.827-.172 1.94.042 2.628.787V4.676c0-.668.393-1.203.784-1.534.39-.331.931-.593 1.466-.593Zm0 1.5c-.08 0-.29.062-.495.236-.205.174-.255.328-.255.39V14a.77.77 0 0 1-.032.205c-.006.018-.01.037-.017.055a.744.744 0 0 1-.105.19.731.731 0 0 1-.051.062c-.014.015-.029.028-.044.042a.747.747 0 0 1-.166.118l-.034.014-.018.007a.747.747 0 0 1-.222.053l-.03.002-.031.002a.75.75 0 0 1-.088-.006c-.007 0-.014-.002-.02-.003a.626.626 0 0 1-.088-.02c-.023-.007-.046-.012-.068-.02a.74.74 0 0 1-.186-.104.757.757 0 0 1-.06-.05c-.017-.015-.033-.033-.049-.05-.018-.022-.038-.043-.054-.066l-.015-.02a.759.759 0 0 1-.043-.075v-.003l-.01-.016a48.798 48.798 0 0 0-1.078-1.871c-.21-.346-.8-.567-1.314-.46-.235.048-.314.14-.33.17-.005.008-.071.126.094.461a97.53 97.53 0 0 1 1.471 3.153c.215.48.398.898.528 1.196l.154.35.04.094.007.013.006.014.05.091a7.295 7.295 0 0 0 1.044 1.427c.744.788 1.777 1.495 3.084 1.495h5.005c.767 0 1.558-.67 2.207-1.962.623-1.239.963-2.77.963-3.876v-2.69c0-.043.004-.085.01-.125a.768.768 0 0 1-.01-.124c0-.537-.428-1-.849-1.057-.328-.043-.65.181-.651.657v.287a.75.75 0 0 1-1.5 0v-.737c0-.537-.428-1-.849-1.056-.328-.044-.65.18-.651.656v.061c0 .016-.002.032-.003.047 0 .018.003.035.003.053v.413a.75.75 0 0 1-1.5 0v-.413c0-.512-.384-.85-.75-.85s-.75.338-.75.85v.413a.75.75 0 0 1-1.5 0v-.413c0-.054.004-.107.008-.16a.753.753 0 0 1-.008-.103V4.676a.525.525 0 0 0-.227-.44.932.932 0 0 0-.523-.187Z"/> </svg> 
+    `;
+  }
+}
+
+customElements.define('jh-icon-hand-back-point-up', JhIconHandBackPointUp);

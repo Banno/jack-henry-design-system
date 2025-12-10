@@ -1,0 +1,88 @@
+/**
+* SPDX-FileCopyrightText: 2025 Jack Henry
+*
+* SPDX-License-Identifier: Apache-2.0
+*/
+import {LitElement, css, html} from 'lit';
+
+export default class JhIconMagnifyingGlassUser extends LitElement {
+  /** @type {ElementInternals} */
+  #internals;
+
+  static get styles() {
+    return css`
+      :host {
+        fill: var(
+          --jh-icon-color-fill,
+          var(--jh-color-content-secondary-enabled)
+        );
+        width: var(--icon-size);
+        height: var(--icon-size);
+        display: inline-block;
+      }
+      :host([size='x-small']) {
+        --icon-size: var(
+          --jh-icon-size-extra-small,
+          var(--jh-dimension-400)
+        );
+      }
+      :host([size='small']) {
+        --icon-size: var(
+          --jh-icon-size-small,
+          var(--jh-dimension-500)
+        );
+      }
+      :host([size='medium']) {
+        --icon-size: var(
+          --jh-icon-size-medium,
+          var(--jh-dimension-600)
+        );
+      }
+      :host([size='large']) {
+        --icon-size: var(
+          --jh-icon-size-large,
+          var(--jh-dimension-900)
+        );
+      }
+      :host([size='x-large']) {
+        --icon-size: var(
+          --jh-icon-size-extra-large,
+          var(--jh-dimension-1400)
+        );
+      }
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    `;
+  }
+
+  static get properties() {
+    return {
+      /**
+      * The size of the icon.
+      */
+      size: {
+        type: String, reflect: true 
+      }
+    }
+  }
+
+  constructor() {
+    super();
+    this.#internals = this.attachInternals();
+    this.#internals.role = 'graphics-symbol';
+    this.#internals.ariaHidden = 'true';
+
+    /** @type {'x-small'|'small'|'medium'|'large'|'x-large'} */
+    this.size = 'medium';
+  }
+
+  render() {
+    return html`
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">   <path d="M11.25 3a8.25 8.25 0 0 1 6.339 13.528l3.941 3.942a.75.75 0 1 1-1.06 1.06l-3.942-3.941A8.25 8.25 0 1 1 11.25 3Zm0 1.5a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5Zm0 1.75c.663 0 1.217.169 1.66.478.436.305.713.712.887 1.106.337.762.33 1.578.33 1.84 0 .377-.095.88-.293 1.376-.15.375-.372.78-.688 1.139.01.006.02.016.036.024.193.097.46.18.817.283.332.095.742.207 1.118.357.376.15.793.364 1.117.712.065.069.123.143.177.22a5.762 5.762 0 0 1-1.068 1.502.747.747 0 0 1-.057-.287c0-.204-.06-.318-.146-.41-.107-.114-.29-.23-.577-.344-.289-.115-.61-.203-.977-.307-.34-.098-.739-.215-1.077-.385h-.001a1.629 1.629 0 0 1-.755-.751 2.053 2.053 0 0 1-.185-.82.75.75 0 0 1 .269-.607c.264-.22.467-.537.604-.88a2.47 2.47 0 0 0 .186-.821c0-.272-.007-.794-.202-1.236a1.122 1.122 0 0 0-.375-.482c-.156-.109-.4-.207-.8-.207s-.643.098-.8.207a1.12 1.12 0 0 0-.375.483c-.195.44-.2.963-.2 1.235 0 .159.046.47.183.814.135.341.336.658.598.88a.751.751 0 0 1 .257.685 2.785 2.785 0 0 1-.19.68c-.111.255-.326.615-.73.819-.339.17-.738.288-1.078.386-.366.104-.688.192-.976.307-.289.115-.47.23-.578.344-.086.092-.146.205-.146.41a.746.746 0 0 1-.059.287 5.763 5.763 0 0 1-1.067-1.503c.054-.077.113-.15.178-.22.325-.347.74-.562 1.117-.711.376-.15.786-.262 1.118-.357.347-.1.606-.182.797-.275a.402.402 0 0 0 .033-.06 3.93 3.93 0 0 1-.668-1.118c-.196-.493-.29-.992-.29-1.368 0-.263-.007-1.079.33-1.841.173-.394.45-.801.887-1.106.442-.309.996-.478 1.66-.478Z"/> </svg> 
+    `;
+  }
+}
+
+customElements.define('jh-icon-magnifying-glass-user', JhIconMagnifyingGlassUser);

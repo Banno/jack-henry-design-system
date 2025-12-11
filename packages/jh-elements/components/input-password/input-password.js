@@ -48,7 +48,7 @@ export class JhInputPassword extends JhInput {
   static get properties() {
     return {
       /** Unmasks the input field value when set. */
-      passwordVisible: { type: Boolean, attribute: 'password-visible'},
+      passwordVisible: { type: Boolean, attribute: 'password-visible', reflect: true},
       /** Sets an `aria-label` on the toggle password button, which encapsulates the `jh-input-password-visible` slot, to assist screen reader users. The label should indicate that activating the button will mask the password. */
       accessibleLabelHidePassword: {
         type: String,

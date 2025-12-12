@@ -6,6 +6,7 @@ name: Design Issue
 about: Report a design issue
 title: '[Design Issue]: '
 labels: 'status: needs triage, type: figma design kit'
+type: figma design kit
 body:
   - type: markdown
     attributes:

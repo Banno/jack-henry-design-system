@@ -6,6 +6,7 @@ name: Documentation
 about: Have an issue with our documentation or a suggestion for improvement?
 title: '[Documentation]: '
 labels: 'type: docs'
+type: documentation
 body:
   - type: markdown
     attributes:

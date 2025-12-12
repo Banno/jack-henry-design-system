@@ -24,7 +24,7 @@ body:
         - technical documentation(Storybook, READMEs)
     validations:
       required: true
-  - type: input
+  - type: textarea
     id: documentation-issue
     attributes:
       label: Documentation Issue or Improvement

@@ -32,7 +32,7 @@ body:
       description: Please specify the version of the package you are using. e.g., "1.14.0"
     validations:
       required: true
-  - type: input
+  - type: textarea
     id: description
     attributes:
       label: Description of the Issue

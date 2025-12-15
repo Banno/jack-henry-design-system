@@ -19,8 +19,8 @@ body:
       label: Affected Package
       description: Which package are you experiencing the design issue in?
       options:
-        - '@jack-henry/jh-elements (formerly jh-ui)' 
-        - '@jack-henry/jh-tokens (formerly jh-core)'
+        - '@jack-henry/jh-elements' 
+        - '@jack-henry/jh-tokens'
         - '@jack-henry/jh-icons'
     validations:
       required: true

@@ -14,22 +14,28 @@ body:
         Thank you for helping us improve the accessibility of the Jack Henry Design System! Please remember to search for open and closed issues before submitting.
 
         Jack Henry teams seeking support should report issues through our internal Slack channel.
-  - type: dropdown
+  - type: checkboxes
     id: affected-browser
     attributes:
       label: Affected Browsers
       description: Which browser(s) are you experiencing the issue? 
       options:
-        - Chrome
-        - Firefox
-        - Safari
+        - label: Chrome
+        - label: Firefox
+        - label: Safari
+        - label: Other (Please specify below)
     validations:
       required: true
+  - type: input
+    id: other-browser
+    attributes:
+      label: Other Browser
+      description: Please specify the name of the browser if you selected "Other" above.
   - type: input
     id: browser-version
     attributes:
       label: Browser Version
-      description: Please specify the version of the browser you are using. e.g., "90.0.4430.93"
+      description: Please specify the browser version(s) you are using. e.g., "90.0.4430.93" or "Safari 16.1, Firefox 125" if referencing multiple browsers.
     validations:
       required: true
   - type: input

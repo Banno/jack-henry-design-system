@@ -35,7 +35,7 @@ body:
     id: browser-version
     attributes:
       label: Browser Version(s)
-      description: Please specify browser version(s) you are using. e.g., "141.0.7390.77"
+      description: Please specify the browser version(s) you are using. e.g., "90.0.4430.93" or "Safari 16.1, Firefox 125" if referencing multiple browsers.
     validations:
       required: true
   - type: dropdown

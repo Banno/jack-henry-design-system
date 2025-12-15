@@ -42,7 +42,7 @@ body:
     id: affected-package
     attributes:
       label: Affected Package
-      description: Which package are you experiencing the design issue in?
+      description: Which package are you experiencing the issue in?
       options:
         - '@jack-henry/jh-elements' 
         - '@jack-henry/jh-tokens'

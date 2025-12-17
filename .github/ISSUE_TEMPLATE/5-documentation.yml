@@ -3,9 +3,10 @@
 # SPDX-License-Identifier: Apache-2.0
 
 name: Documentation
-about: Have an issue with our documentation or a suggestion for improvement?
+description: Have an issue with our documentation or a suggestion for improvement?
 title: '[Documentation]: '
 labels: 'type: docs'
+type: documentation
 body:
   - type: markdown
     attributes:
@@ -23,7 +24,7 @@ body:
         - technical documentation(Storybook, READMEs)
     validations:
       required: true
-  - type: input
+  - type: textarea
     id: documentation-issue
     attributes:
       label: Documentation Issue or Improvement

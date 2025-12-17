@@ -1,0 +1,31 @@
+# SPDX-FileCopyrightText: 2025 Jack Henry
+#
+# SPDX-License-Identifier: Apache-2.0
+
+name: Figma Design Feedback
+description: Provide feedback on the Figma Design Kit.
+title: '[Design Issue]: '
+labels: 'status: needs triage, type: figma design kit'
+type: figma design kit
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to provide feedback regarding our Design Kit. Please remember to search for open and closed issues before submitting.
+
+        Jack Henry teams seeking support should report issues through our internal Slack channel.
+  - type: input
+    id: package-version
+    attributes:
+      label: Package Version
+      description: Please specify the Figma library version you are using. e.g., "2.0.0-49"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description of the Feedback
+      description: | 
+        Provide details about the design feedback you are submitting.
+    validations:
+      required: true

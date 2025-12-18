@@ -1,13 +1,14 @@
 {
-  "z-index": {
+  "zIndex": {
     "$type": "number",
     "0": {
       "$value": 0,
       "$description": "Z-index 0",
       "$extensions": {
         "alias": false,
-        "deprecated": false,
-        "deprecatedMessage": ""
+        "deprecatedIn": "",
+        "addedIn": "1.0.0",
+        "message": ""
       }
     },
     "negative": {
@@ -16,8 +17,9 @@
         "$description": "Z-index -100",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       }
     },
@@ -27,8 +29,9 @@
         "$description": "Z-index 100",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "200": {
@@ -36,8 +39,9 @@
         "$description": "Z-index 200",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "300": {
@@ -45,8 +49,9 @@
         "$description": "Z-index 300",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "400": {
@@ -54,8 +59,9 @@
         "$description": "Z-index 400",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "500": {
@@ -63,8 +69,9 @@
         "$description": "Z-index 500",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "600": {
@@ -72,8 +79,9 @@
         "$description": "Z-index 600",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "700": {
@@ -81,8 +89,9 @@
         "$description": "Z-index 700",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "800": {
@@ -90,8 +99,9 @@
         "$description": "Z-index 800",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "900": {
@@ -99,8 +109,9 @@
         "$description": "Z-index 900",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "1000": {
@@ -108,8 +119,9 @@
         "$description": "Z-index 1000",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       }
     }

@@ -33,10 +33,10 @@ const filestoMerge = [
   },
   {
     main: [
-      '../platforms/json/json-flat/jh-theme-light.json',
-      '../platforms/json/json-flat/jh-theme-dark.json',
+      '../platforms/json/token-meta/jh-theme-light.json',
+      '../platforms/json/token-meta/jh-theme-dark.json',
     ],
-    toMerge: '../platforms/json/json-flat//typography.json',
+    toMerge: '../platforms/json/token-meta/typography.json',
     find: /\s*\][\s\S]*?\[\s*/g,
     replace: ',\n  ',
   },

@@ -8,8 +8,9 @@
         "$description": "Used to set the default typeface for the system",
         "$extensions": {
           "alias": true,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       }
     },
@@ -19,13 +20,14 @@
           "fontFamily": "{font.family.primary}",
           "fontSize": "{font.size.250}",
           "fontWeight": "{font.weight.400}",
-          "lineHeight": "{font.line-height.300}"
+          "lineHeight": "{font.lineHeight.300}"
         },
         "$description": "Used for fine-print text and small snippets of text with limited space within a component",
         "$extensions": {
           "alias": true,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "medium": {
@@ -33,13 +35,14 @@
           "fontFamily": "{font.family.primary}",
           "fontSize": "{font.size.250}",
           "fontWeight": "{font.weight.500}",
-          "lineHeight": "{font.line-height.300}"
+          "lineHeight": "{font.lineHeight.300}"
         },
         "$description": "Used for fine-print text and small snippets of text with limited space within a component",
         "$extensions": {
           "alias": true,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "bold": {
@@ -47,13 +50,14 @@
           "fontFamily": "{font.family.primary}",
           "fontSize": "{font.size.250}",
           "fontWeight": "{font.weight.700}",
-          "lineHeight": "{font.line-height.300}"
+          "lineHeight": "{font.lineHeight.300}"
         },
         "$description": "Used for fine-print text and small snippets of text with limited space within a component",
         "$extensions": {
           "alias": true,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       }
     },
@@ -63,13 +67,14 @@
           "fontFamily": "{font.family.primary}",
           "fontSize": "{font.size.300}",
           "fontWeight": "{font.weight.400}",
-          "lineHeight": "{font.line-height.400}"
+          "lineHeight": "{font.lineHeight.400}"
         },
         "$description": "Used for secondary or explanatory text as well as field labels",
         "$extensions": {
           "alias": true,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "medium": {
@@ -77,13 +82,14 @@
           "fontFamily": "{font.family.primary}",
           "fontSize": "{font.size.300}",
           "fontWeight": "{font.weight.500}",
-          "lineHeight": "{font.line-height.400}"
+          "lineHeight": "{font.lineHeight.400}"
         },
         "$description": "Used for secondary or explanatory text as well as field labels",
         "$extensions": {
           "alias": true,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "bold": {
@@ -91,13 +97,14 @@
           "fontFamily": "{font.family.primary}",
           "fontSize": "{font.size.300}",
           "fontWeight": "{font.weight.700}",
-          "lineHeight": "{font.line-height.400}"
+          "lineHeight": "{font.lineHeight.400}"
         },
         "$description": "Used for secondary or explanatory text as well as field labels.",
         "$extensions": {
           "alias": true,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       }
     },
@@ -108,13 +115,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.350}",
             "fontWeight": "{font.weight.400}",
-            "lineHeight": "{font.line-height.500}"
+            "lineHeight": "{font.lineHeight.500}"
           },
           "$description": "Used for blocks of text and most content displayed within components",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "2": {
@@ -122,13 +130,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.400}",
             "fontWeight": "{font.weight.400}",
-            "lineHeight": "{font.line-height.600}"
+            "lineHeight": "{font.lineHeight.600}"
           },
           "$description": "Used for intro or leading blocks of text",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         }
       },
@@ -138,13 +147,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.350}",
             "fontWeight": "{font.weight.500}",
-            "lineHeight": "{font.line-height.500}"
+            "lineHeight": "{font.lineHeight.500}"
           },
           "$description": "Used for blocks of text and most content displayed within components",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "2": {
@@ -152,13 +162,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.400}",
             "fontWeight": "{font.weight.500}",
-            "lineHeight": "{font.line-height.600}"
+            "lineHeight": "{font.lineHeight.600}"
           },
           "$description": "Used for intro or leading blocks of text",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         }
       },
@@ -168,13 +179,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.350}",
             "fontWeight": "{font.weight.700}",
-            "lineHeight": "{font.line-height.500}"
+            "lineHeight": "{font.lineHeight.500}"
           },
           "$description": "Used for blocks of text and most content displayed within components",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "2": {
@@ -182,13 +194,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.400}",
             "fontWeight": "{font.weight.700}",
-            "lineHeight": "{font.line-height.600}"
+            "lineHeight": "{font.lineHeight.600}"
           },
           "$description": "Used for intro or leading blocks of text",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         }
       }
@@ -200,13 +213,14 @@
             "fontFamily": "{font.family.mono}",
             "fontSize": "{font.size.350}",
             "fontWeight": "{font.weight.400}",
-            "lineHeight": "{font.line-height.500}"
+            "lineHeight": "{font.lineHeight.500}"
           },
           "$description": "Used for code references in standard blocks of text",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "2": {
@@ -214,13 +228,14 @@
             "fontFamily": "{font.family.mono}",
             "fontSize": "{font.size.400}",
             "fontWeight": "{font.weight.400}",
-            "lineHeight": "{font.line-height.600}"
+            "lineHeight": "{font.lineHeight.600}"
           },
           "$description": "Used for code references in intro or leading blocks of text",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         }
       }
@@ -232,13 +247,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.1050}",
             "fontWeight": "{font.weight.300}",
-            "lineHeight": "{font.line-height.1300}"
+            "lineHeight": "{font.lineHeight.1300}"
           },
           "$description": "Used to create visual emphasis through size without being misconstrued as a heading",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "2": {
@@ -246,13 +262,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.1350}",
             "fontWeight": "{font.weight.300}",
-            "lineHeight": "{font.line-height.1600}"
+            "lineHeight": "{font.lineHeight.1600}"
           },
           "$description": "Used to create visual emphasis through size without being misconstrued as a heading",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "3": {
@@ -260,13 +277,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.2300}",
             "fontWeight": "{font.weight.300}",
-            "lineHeight": "{font.line-height.2700}"
+            "lineHeight": "{font.lineHeight.2700}"
           },
           "$description": "Used to create visual emphasis through size without being misconstrued as a heading",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         }
       }
@@ -278,13 +296,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.350}",
             "fontWeight": "{font.weight.400}",
-            "lineHeight": "{font.line-height.500}"
+            "lineHeight": "{font.lineHeight.500}"
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "2": {
@@ -292,13 +311,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.400}",
             "fontWeight": "{font.weight.400}",
-            "lineHeight": "{font.line-height.600}"
+            "lineHeight": "{font.lineHeight.600}"
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "3": {
@@ -306,13 +326,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.500}",
             "fontWeight": "{font.weight.400}",
-            "lineHeight": "{font.line-height.700}"
+            "lineHeight": "{font.lineHeight.700}"
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "4": {
@@ -320,13 +341,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.700}",
             "fontWeight": "{font.weight.400}",
-            "lineHeight": "{font.line-height.900}"
+            "lineHeight": "{font.lineHeight.900}"
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "5": {
@@ -334,13 +356,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.800}",
             "fontWeight": "{font.weight.400}",
-            "lineHeight": "{font.line-height.1000}"
+            "lineHeight": "{font.lineHeight.1000}"
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "6": {
@@ -348,13 +371,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.900}",
             "fontWeight": "{font.weight.400}",
-            "lineHeight": "{font.line-height.1100}"
+            "lineHeight": "{font.lineHeight.1100}"
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         }
       },
@@ -364,13 +388,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.350}",
             "fontWeight": "{font.weight.500}",
-            "lineHeight": "{font.line-height.500}"
+            "lineHeight": "{font.lineHeight.500}"
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "2": {
@@ -378,13 +403,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.400}",
             "fontWeight": "{font.weight.500}",
-            "lineHeight": "{font.line-height.600}"
+            "lineHeight": "{font.lineHeight.600}"
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "3": {
@@ -392,13 +418,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.500}",
             "fontWeight": "{font.weight.500}",
-            "lineHeight": "{font.line-height.700}"
+            "lineHeight": "{font.lineHeight.700}"
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "4": {
@@ -406,13 +433,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.700}",
             "fontWeight": "{font.weight.500}",
-            "lineHeight": "{font.line-height.900}"
+            "lineHeight": "{font.lineHeight.900}"
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "5": {
@@ -420,13 +448,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.800}",
             "fontWeight": "{font.weight.500}",
-            "lineHeight": "{font.line-height.1000}"
+            "lineHeight": "{font.lineHeight.1000}"
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "6": {
@@ -434,13 +463,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.900}",
             "fontWeight": "{font.weight.500}",
-            "lineHeight": "{font.line-height.1100}"
+            "lineHeight": "{font.lineHeight.1100}"
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         }
       },
@@ -450,13 +480,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.350}",
             "fontWeight": "{font.weight.700}",
-            "lineHeight": "{font.line-height.500}"
+            "lineHeight": "{font.lineHeight.500}"
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "2": {
@@ -464,13 +495,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.400}",
             "fontWeight": "{font.weight.700}",
-            "lineHeight": "{font.line-height.600}"
+            "lineHeight": "{font.lineHeight.600}"
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "3": {
@@ -478,13 +510,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.500}",
             "fontWeight": "{font.weight.700}",
-            "lineHeight": "{font.line-height.700}"
+            "lineHeight": "{font.lineHeight.700}"
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "4": {
@@ -492,13 +525,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.700}",
             "fontWeight": "{font.weight.700}",
-            "lineHeight": "{font.line-height.900}"
+            "lineHeight": "{font.lineHeight.900}"
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "5": {
@@ -506,13 +540,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.800}",
             "fontWeight": "{font.weight.700}",
-            "lineHeight": "{font.line-height.1000}"
+            "lineHeight": "{font.lineHeight.1000}"
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "6": {
@@ -520,13 +555,14 @@
             "fontFamily": "{font.family.primary}",
             "fontSize": "{font.size.900}",
             "fontWeight": "{font.weight.700}",
-            "lineHeight": "{font.line-height.1100}"
+            "lineHeight": "{font.lineHeight.1100}"
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         }
       }

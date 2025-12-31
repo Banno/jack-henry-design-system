@@ -201,13 +201,40 @@ For detailed guidance on using Lit 3 with Webpack 4, refer to the [Lit upgrade g
   </tbody>
 </table>
 
-### Deprecated Color Tokens
+### Color Tokens
 
-* All the color tokens in the **rose** family (`--jh-color-rose-50` to `--jh-color-rose-950`) have been deprecated.
-* All the color tokens in the **lime** family (`--jh-color-lime-50` to `--jh-color-lime-950`) have been deprecated.
-* All the color tokens in the **blue** family (`--jh-color-blue-50` to `--jh-color-blue-950`) have been deprecated.
+Upgrading to v2 requires updating token names and handling deprecated color families.
 
-* All the colors in the **azure** family have been renamed to **blue**: `--jh-color-azure-50` to `--jh-color-azure-950` are now `--jh-color-blue-50` to `--jh-color-blue-950`.
+#### Updated Token Names
+
+**Azure** has been renamed to **blue**. To migrate, replace all `--jh-color-azure-` prefixes with `--jh-color-blue-`.
+
+#### Deprecated Families
+
+The following families have been removed: 
+
+* `--jh-color-rose-[50-950]`
+* `--jh-color-lime-[50-950]`
+* `--jh-color-blue-[50-950]`. **Note:** These tokens have been replaced by the former azure values. If you were using the original v1 blue tokens, you will need to manually remap them to a different family as the new blue is significantly different.
+
+<table>
+  <thead>
+    <tr>
+      <th>Deprecated Token</th>
+      <th>New Token</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>--jh-color-gray-0</td>
+      <td>--jh-color-white-alpha-100</td>
+    </tr>
+    <tr>
+      <td>--jh-color-gray-1000</td>
+      <td>--jh-color-black-alpha-100</td>
+    </tr>
+  </tbody>
+</table>
 
 <table>
   <thead>

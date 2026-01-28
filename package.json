@@ -24,7 +24,8 @@
     "build:jh-tokens": "pnpm run --filter @jack-henry/jh-tokens build",
     "build:jh-icons": "pnpm run --filter @jack-henry/jh-icons build-wc",
     "changeset:version": "changeset version && pnpm install --lockfile-only",
-    "generate-types:jh-elements": "pnpm run --filter @jack-henry/jh-elements generate-types"
+    "types:jh-elements": "pnpm run --filter @jack-henry/jh-elements types",
+    "define:jh-elements": "pnpm run --filter @jack-henry/jh-elements define"
   },
   "devDependencies": {
     "@changesets/changelog-github": "0.4.8",

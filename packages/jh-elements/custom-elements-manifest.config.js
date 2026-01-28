@@ -14,6 +14,11 @@ export default {
   /** Enable special handling for litelement */
   litelement: true,
   plugins: [
-    customElementJetBrainsPlugin()
+    customElementJetBrainsPlugin({
+      // hide parts of JSDocs that are bleeding into description.
+      hideCssPropertiesDocs: true,
+      hideEventDocs: true,
+      hideSlotDocs: true,
+    })
   ],
 }

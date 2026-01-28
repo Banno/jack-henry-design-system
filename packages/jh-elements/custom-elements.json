@@ -97,6 +97,250 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/checkbox-group/checkbox-group.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "JhCheckboxGroup",
+          "cssProperties": [
+            {
+              "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-checkbox-group-label-color-text"
+            },
+            {
+              "description": "The required indicator color. Defaults to `--jh-color-content-negative-enabled`.",
+              "name": "--jh-checkbox-group-required-color-text"
+            },
+            {
+              "description": "The optional indicator text color. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-checkbox-group-required-color-text-optional"
+            },
+            {
+              "description": "The helper-text text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-checkbox-group-helper-color-text"
+            },
+            {
+              "description": "The error-text text color. Defaults to `--jh-color-content-negative-enabled`.",
+              "name": "--jh-checkbox-group-error-color-text"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Use to insert `<jh-checkbox>` component(s).",
+              "name": "default"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "#id",
+              "privacy": "private",
+              "type": {
+                "text": "?Number"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "#getAriaDescribedBy",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "accessibleLabel",
+              "privacy": "public",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+              "default": "null",
+              "attribute": "accessible-label"
+            },
+            {
+              "kind": "field",
+              "name": "errorText",
+              "privacy": "public",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Text to be displayed when checkbox group has failed validation and `invalid` is true.",
+              "default": "null",
+              "attribute": "error-text"
+            },
+            {
+              "kind": "field",
+              "name": "helperText",
+              "privacy": "public",
+              "description": "Provides additional context or guidance for using the checkbox group. For `helper-text` to be displayed, the `label` property must also be set.",
+              "type": {
+                "text": "?string"
+              },
+              "default": "null",
+              "attribute": "helper-text"
+            },
+            {
+              "kind": "field",
+              "name": "invalid",
+              "privacy": "public",
+              "type": {
+                "text": "?Boolean"
+              },
+              "description": "Sets an `aria-invalid` on the checkbox group to indicate the value supplied was invalid and displays `error-text` when set.",
+              "default": "false",
+              "attribute": "invalid",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Describes the type of data to be collected.",
+              "default": "null",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "privacy": "public",
+              "type": {
+                "text": "?Boolean"
+              },
+              "description": "Indicates a value is required.",
+              "default": "false",
+              "attribute": "required",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "orientation",
+              "privacy": "public",
+              "type": {
+                "text": "'vertical'|'horizontal'"
+              },
+              "description": "Determines the orientation of the checkbox group.",
+              "default": "'vertical'",
+              "attribute": "orientation",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "showIndicator",
+              "privacy": "public",
+              "type": {
+                "text": "?boolean"
+              },
+              "description": "Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required` property is also set. For the indicator to be displayed, the `label` property must also be set.",
+              "default": "false",
+              "attribute": "show-indicator",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "accessible-label",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+              "default": "null",
+              "fieldName": "accessibleLabel"
+            },
+            {
+              "name": "error-text",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Text to be displayed when checkbox group has failed validation and `invalid` is true.",
+              "default": "null",
+              "fieldName": "errorText"
+            },
+            {
+              "name": "helper-text",
+              "description": "Provides additional context or guidance for using the checkbox group. For `helper-text` to be displayed, the `label` property must also be set.",
+              "type": {
+                "text": "?string"
+              },
+              "default": "null",
+              "fieldName": "helperText"
+            },
+            {
+              "name": "invalid",
+              "type": {
+                "text": "?Boolean"
+              },
+              "description": "Sets an `aria-invalid` on the checkbox group to indicate the value supplied was invalid and displays `error-text` when set.",
+              "default": "false",
+              "fieldName": "invalid"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Describes the type of data to be collected.",
+              "default": "null",
+              "fieldName": "label"
+            },
+            {
+              "name": "required",
+              "type": {
+                "text": "?Boolean"
+              },
+              "description": "Indicates a value is required.",
+              "default": "false",
+              "fieldName": "required"
+            },
+            {
+              "name": "orientation",
+              "type": {
+                "text": "'vertical'|'horizontal'"
+              },
+              "description": "Determines the orientation of the checkbox group.",
+              "default": "'vertical'",
+              "fieldName": "orientation"
+            },
+            {
+              "name": "show-indicator",
+              "type": {
+                "text": "?boolean"
+              },
+              "description": "Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required` property is also set. For the indicator to be displayed, the `label` property must also be set.",
+              "default": "false",
+              "fieldName": "showIndicator"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "jh-checkbox-group",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JhCheckboxGroup",
+          "declaration": {
+            "name": "JhCheckboxGroup",
+            "module": "components/checkbox-group/checkbox-group.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "jh-checkbox-group",
+          "declaration": {
+            "name": "JhCheckboxGroup",
+            "module": "components/checkbox-group/checkbox-group.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/card/card.js",
       "declarations": [
         {
@@ -380,6 +624,480 @@
           "declaration": {
             "name": "JhCard",
             "module": "components/card/card.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/checkbox/checkbox.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "JhCheckbox",
+          "cssProperties": [
+            {
+              "description": "The checkbox opacity when disabled. Defaults to `--jh-opacity-disabled`.",
+              "name": "--jh-checkbox-opacity-disabled"
+            },
+            {
+              "description": "The checkbox border radius. Defaults to `--jh-border-radius-50`.",
+              "name": "--jh-checkbox-input-border-radius"
+            },
+            {
+              "description": "The checkbox outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.",
+              "name": "--jh-checkbox-color-focus"
+            },
+            {
+              "description": "The helper text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-checkbox-helper-color-text"
+            },
+            {
+              "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-checkbox-label-color-text"
+            },
+            {
+              "description": "The checkbox background-color when unselected. Defaults to `--jh-color-container-primary-enabled`.",
+              "name": "--jh-checkbox-input-color-background-unselected-enabled"
+            },
+            {
+              "description": "The checkbox border-color when unselected. Defaults to `--jh-border-control-color`.",
+              "name": "--jh-checkbox-input-color-border-unselected-enabled"
+            },
+            {
+              "description": "The checkbox background-color when unselected and focused. Defaults to `--jh-color-container-primary-enabled`.",
+              "name": "--jh-checkbox-input-color-background-unselected-focus"
+            },
+            {
+              "description": "The checkbox border-color when unselected and focused. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-checkbox-input-color-border-unselected-focus"
+            },
+            {
+              "description": "The checkbox background-color when unselected and hovered. Defaults to `--jh-color-container-primary-enabled`.",
+              "name": "--jh-checkbox-input-color-background-unselected-hover"
+            },
+            {
+              "description": "The checkbox border-color when unselected and hovered. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-checkbox-input-color-border-unselected-hover"
+            },
+            {
+              "description": "The checkbox background-color when unselected and active. Defaults to `--jh-color-container-primary-enabled`.",
+              "name": "--jh-checkbox-input-color-background-unselected-active"
+            },
+            {
+              "description": "The checkbox border-color when unselected and active. Defaults to `--jh-color-content-brand-active`.",
+              "name": "--jh-checkbox-input-color-border-unselected-active"
+            },
+            {
+              "description": "The  checkbox background-color when unselected and disabled. Defaults to `--jh-color-container-primary-enabled`.",
+              "name": "--jh-checkbox-input-color-background-unselected-disabled"
+            },
+            {
+              "description": "The checkbox border-color when unselected and disabled. Defaults to `--jh-border-control-color`.",
+              "name": "--jh-checkbox-input-color-border-unselected-disabled"
+            },
+            {
+              "description": "The checkbox background-color when selected. Defaults to `--jh-color-content-brand-enabled`.",
+              "name": "--jh-checkbox-input-color-background-selected-enabled"
+            },
+            {
+              "description": "The checkbox border-color when selected. Defaults to `--jh-color-content-brand-enabled`.",
+              "name": "--jh-checkbox-input-color-border-selected-enabled"
+            },
+            {
+              "description": "The status mark color when selected. Defaults to `--jh-color-content-on-brand-enabled`.",
+              "name": "--jh-checkbox-status-color-border-selected-enabled"
+            },
+            {
+              "description": "The checkbox background-color when selected and focused. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-checkbox-input-color-background-selected-focus"
+            },
+            {
+              "description": "The checkbox border-color when selected and focused. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-checkbox-input-color-border-selected-focus"
+            },
+            {
+              "description": "The status mark color when selected and focused. Defaults to `--jh-color-content-on-brand-hover`.",
+              "name": "--jh-checkbox-status-color-border-selected-focus"
+            },
+            {
+              "description": "The checkbox background-color when selected and hovered. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-checkbox-input-color-background-selected-hover"
+            },
+            {
+              "description": "The checkbox border-color when selected and hovered. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-checkbox-input-color-border-selected-hover"
+            },
+            {
+              "description": "The status mark color when selected and hovered. Defaults to `--jh-color-content-on-brand-hover`.",
+              "name": "--jh-checkbox-status-color-border-selected-hover"
+            },
+            {
+              "description": "The checkbox background-color when selected and active. Defaults to `--jh-color-content-brand-active`.",
+              "name": "--jh-checkbox-input-color-background-selected-active"
+            },
+            {
+              "description": "The checkbox border-color when selected and active. Defaults to `--jh-color-content-brand-active`.",
+              "name": "--jh-checkbox-input-color-border-selected-active"
+            },
+            {
+              "description": "The status mark color when selected and active. Defaults to `--jh-color-content-on-brand-active`.",
+              "name": "--jh-checkbox-status-color-border-selected-active"
+            },
+            {
+              "description": "The checkbox background-color when selected and disabled. Defaults to `--jh-color-content-brand-enabled`.",
+              "name": "--jh-checkbox-input-color-background-selected-disabled"
+            },
+            {
+              "description": "The checkbox border-color when selected and disabled. Defaults to `--jh-color-content-brand-enabled`.",
+              "name": "--jh-checkbox-input-color-border-selected-disabled"
+            },
+            {
+              "description": "The status mark color when selected and disabled. Defaults to `--jh-color-content-on-brand-enabled`.",
+              "name": "--jh-checkbox-status-color-border-selected-disabled"
+            },
+            {
+              "description": "The checkbox background-color when indeterminate. Defaults to `--jh-color-content-brand-enabled`.",
+              "name": "--jh-checkbox-input-color-background-indeterminate-enabled"
+            },
+            {
+              "description": "The border-color when indeterminate checkbox. Defaults to `--jh-color-content-brand-enabled`.",
+              "name": "--jh-checkbox-input-color-border-indeterminate-enabled"
+            },
+            {
+              "description": "The status mark color when indeterminate. Defaults to `--jh-color-content-on-brand-enabled`.",
+              "name": "--jh-checkbox-status-color-border-indeterminate-enabled"
+            },
+            {
+              "description": "The checkbox background-color when indeterminate and focused. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-checkbox-input-color-background-indeterminate-focus"
+            },
+            {
+              "description": "The checkbox border-color when indeterminate and focused. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-checkbox-input-color-border-indeterminate-focus"
+            },
+            {
+              "description": "The checkbox color when indeterminate status mark when focused. Defaults to `--jh-color-content-on-brand-hover`.",
+              "name": "--jh-checkbox-status-color-border-indeterminate-focus"
+            },
+            {
+              "description": "The checkbox background-color when indeterminate and hovered. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-checkbox-input-color-background-indeterminate-hover"
+            },
+            {
+              "description": "The checkbox border-color when indeterminate and hovered. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-checkbox-input-color-border-indeterminate-hover"
+            },
+            {
+              "description": "The checkbox color when indeterminate status mark when hovered. Defaults to `--jh-color-content-on-brand-hover`.",
+              "name": "--jh-checkbox-status-color-border-indeterminate-hover"
+            },
+            {
+              "description": "The checkbox background-color when indeterminate and active. Defaults to `--jh-color-content-brand-active`.",
+              "name": "--jh-checkbox-input-color-background-indeterminate-active"
+            },
+            {
+              "description": "The checkbox border-color when indeterminate and active. Defaults to `--jh-color-content-brand-active`.",
+              "name": "--jh-checkbox-input-color-border-indeterminate-active"
+            },
+            {
+              "description": "The checkbox color when indeterminate status mark when active. Defaults to `--jh-color-content-on-brand-active`.",
+              "name": "--jh-checkbox-status-color-border-indeterminate-active"
+            },
+            {
+              "description": "The checkbox background-color when indeterminate and disabled. Defaults to `--jh-color-content-brand-enabled`.",
+              "name": "--jh-checkbox-input-color-background-indeterminate-disabled"
+            },
+            {
+              "description": "The checkbox border-color when indeterminate and disabled. Defaults to `--jh-color-content-brand-enabled`.",
+              "name": "--jh-checkbox-input-color-border-indeterminate-disabled"
+            },
+            {
+              "description": "The checkbox color when indeterminate status mark when disabled. Defaults to `--jh-color-content-on-brand-enabled`.",
+              "name": "--jh-checkbox-status-color-border-indeterminate-disabled"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "formAssociated",
+              "static": true,
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "#checked",
+              "privacy": "private",
+              "type": {
+                "text": "?Boolean"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "#id",
+              "privacy": "private",
+              "type": {
+                "text": "?Number"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "#indeterminate",
+              "privacy": "private",
+              "type": {
+                "text": "?Boolean"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "#internals",
+              "privacy": "private",
+              "type": {
+                "text": "ElementInternals"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "#value",
+              "privacy": "private",
+              "type": {
+                "text": "?string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "form",
+              "description": "Returns the checkbox's parent form element.",
+              "type": {
+                "text": "?HTMLFormElement"
+              },
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "privacy": "public",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Sets the value of the checkbox.",
+              "default": "null",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "checked",
+              "privacy": "public",
+              "type": {
+                "text": "?boolean"
+              },
+              "description": "Sets the selected or 'checked' state on the checkbox.",
+              "default": "false",
+              "attribute": "checked",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "indeterminate",
+              "privacy": "public",
+              "type": {
+                "text": "?boolean"
+              },
+              "description": "Sets the indeterminate state on the checkbox.",
+              "default": "false",
+              "attribute": "indeterminate",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "#updateFormValue",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "value"
+                },
+                {
+                  "name": "checked"
+                },
+                {
+                  "name": "indeterminate"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "#handleChange",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "type": {
+                "text": "?boolean"
+              },
+              "description": "Disables the checkbox and prevents all user interactions. May cause checkbox to be ignored by assistive technologies(AT).",
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Sets the value of the data to be collected when selected.",
+              "default": "null",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "helperText",
+              "privacy": "public",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Provides additional context or guidance for using the checkbox. For `helper-text` to be displayed, the `label` property must also be set.",
+              "default": "null",
+              "attribute": "helper-text"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "privacy": "public",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Sets the name of the checkbox data when submitted in a form.",
+              "default": "null",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "accessibleLabel",
+              "privacy": "public",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+              "default": "null",
+              "attribute": "accessible-label"
+            }
+          ],
+          "events": [
+            {
+              "name": "jh-change",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Dispatched when the state of the checkbox has changed."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "checked",
+              "type": {
+                "text": "?boolean"
+              },
+              "description": "Sets the selected or 'checked' state on the checkbox.",
+              "default": "false",
+              "fieldName": "checked"
+            },
+            {
+              "name": "indeterminate",
+              "type": {
+                "text": "?boolean"
+              },
+              "description": "Sets the indeterminate state on the checkbox.",
+              "default": "false",
+              "fieldName": "indeterminate"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "?boolean"
+              },
+              "description": "Disables the checkbox and prevents all user interactions. May cause checkbox to be ignored by assistive technologies(AT).",
+              "default": "false",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Sets the value of the data to be collected when selected.",
+              "default": "null",
+              "fieldName": "label"
+            },
+            {
+              "name": "helper-text",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Provides additional context or guidance for using the checkbox. For `helper-text` to be displayed, the `label` property must also be set.",
+              "default": "null",
+              "fieldName": "helperText"
+            },
+            {
+              "name": "name",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Sets the name of the checkbox data when submitted in a form.",
+              "default": "null",
+              "fieldName": "name"
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Sets the value of the checkbox.",
+              "default": "null",
+              "fieldName": "value"
+            },
+            {
+              "name": "accessible-label",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+              "default": "null",
+              "fieldName": "accessibleLabel"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "jh-checkbox",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JhCheckbox",
+          "declaration": {
+            "name": "JhCheckbox",
+            "module": "components/checkbox/checkbox.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "jh-checkbox",
+          "declaration": {
+            "name": "JhCheckbox",
+            "module": "components/checkbox/checkbox.js"
           }
         }
       ]
@@ -1165,724 +1883,6 @@
           "declaration": {
             "name": "JhButton",
             "module": "components/button/button.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/checkbox/checkbox.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JhCheckbox",
-          "cssProperties": [
-            {
-              "description": "The checkbox opacity when disabled. Defaults to `--jh-opacity-disabled`.",
-              "name": "--jh-checkbox-opacity-disabled"
-            },
-            {
-              "description": "The checkbox border radius. Defaults to `--jh-border-radius-50`.",
-              "name": "--jh-checkbox-input-border-radius"
-            },
-            {
-              "description": "The checkbox outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.",
-              "name": "--jh-checkbox-color-focus"
-            },
-            {
-              "description": "The helper text color. Defaults to `--jh-color-content-secondary-enabled`.",
-              "name": "--jh-checkbox-helper-color-text"
-            },
-            {
-              "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`.",
-              "name": "--jh-checkbox-label-color-text"
-            },
-            {
-              "description": "The checkbox background-color when unselected. Defaults to `--jh-color-container-primary-enabled`.",
-              "name": "--jh-checkbox-input-color-background-unselected-enabled"
-            },
-            {
-              "description": "The checkbox border-color when unselected. Defaults to `--jh-border-control-color`.",
-              "name": "--jh-checkbox-input-color-border-unselected-enabled"
-            },
-            {
-              "description": "The checkbox background-color when unselected and focused. Defaults to `--jh-color-container-primary-enabled`.",
-              "name": "--jh-checkbox-input-color-background-unselected-focus"
-            },
-            {
-              "description": "The checkbox border-color when unselected and focused. Defaults to `--jh-color-content-brand-hover`.",
-              "name": "--jh-checkbox-input-color-border-unselected-focus"
-            },
-            {
-              "description": "The checkbox background-color when unselected and hovered. Defaults to `--jh-color-container-primary-enabled`.",
-              "name": "--jh-checkbox-input-color-background-unselected-hover"
-            },
-            {
-              "description": "The checkbox border-color when unselected and hovered. Defaults to `--jh-color-content-brand-hover`.",
-              "name": "--jh-checkbox-input-color-border-unselected-hover"
-            },
-            {
-              "description": "The checkbox background-color when unselected and active. Defaults to `--jh-color-container-primary-enabled`.",
-              "name": "--jh-checkbox-input-color-background-unselected-active"
-            },
-            {
-              "description": "The checkbox border-color when unselected and active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-checkbox-input-color-border-unselected-active"
-            },
-            {
-              "description": "The  checkbox background-color when unselected and disabled. Defaults to `--jh-color-container-primary-enabled`.",
-              "name": "--jh-checkbox-input-color-background-unselected-disabled"
-            },
-            {
-              "description": "The checkbox border-color when unselected and disabled. Defaults to `--jh-border-control-color`.",
-              "name": "--jh-checkbox-input-color-border-unselected-disabled"
-            },
-            {
-              "description": "The checkbox background-color when selected. Defaults to `--jh-color-content-brand-enabled`.",
-              "name": "--jh-checkbox-input-color-background-selected-enabled"
-            },
-            {
-              "description": "The checkbox border-color when selected. Defaults to `--jh-color-content-brand-enabled`.",
-              "name": "--jh-checkbox-input-color-border-selected-enabled"
-            },
-            {
-              "description": "The status mark color when selected. Defaults to `--jh-color-content-on-brand-enabled`.",
-              "name": "--jh-checkbox-status-color-border-selected-enabled"
-            },
-            {
-              "description": "The checkbox background-color when selected and focused. Defaults to `--jh-color-content-brand-hover`.",
-              "name": "--jh-checkbox-input-color-background-selected-focus"
-            },
-            {
-              "description": "The checkbox border-color when selected and focused. Defaults to `--jh-color-content-brand-hover`.",
-              "name": "--jh-checkbox-input-color-border-selected-focus"
-            },
-            {
-              "description": "The status mark color when selected and focused. Defaults to `--jh-color-content-on-brand-hover`.",
-              "name": "--jh-checkbox-status-color-border-selected-focus"
-            },
-            {
-              "description": "The checkbox background-color when selected and hovered. Defaults to `--jh-color-content-brand-hover`.",
-              "name": "--jh-checkbox-input-color-background-selected-hover"
-            },
-            {
-              "description": "The checkbox border-color when selected and hovered. Defaults to `--jh-color-content-brand-hover`.",
-              "name": "--jh-checkbox-input-color-border-selected-hover"
-            },
-            {
-              "description": "The status mark color when selected and hovered. Defaults to `--jh-color-content-on-brand-hover`.",
-              "name": "--jh-checkbox-status-color-border-selected-hover"
-            },
-            {
-              "description": "The checkbox background-color when selected and active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-checkbox-input-color-background-selected-active"
-            },
-            {
-              "description": "The checkbox border-color when selected and active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-checkbox-input-color-border-selected-active"
-            },
-            {
-              "description": "The status mark color when selected and active. Defaults to `--jh-color-content-on-brand-active`.",
-              "name": "--jh-checkbox-status-color-border-selected-active"
-            },
-            {
-              "description": "The checkbox background-color when selected and disabled. Defaults to `--jh-color-content-brand-enabled`.",
-              "name": "--jh-checkbox-input-color-background-selected-disabled"
-            },
-            {
-              "description": "The checkbox border-color when selected and disabled. Defaults to `--jh-color-content-brand-enabled`.",
-              "name": "--jh-checkbox-input-color-border-selected-disabled"
-            },
-            {
-              "description": "The status mark color when selected and disabled. Defaults to `--jh-color-content-on-brand-enabled`.",
-              "name": "--jh-checkbox-status-color-border-selected-disabled"
-            },
-            {
-              "description": "The checkbox background-color when indeterminate. Defaults to `--jh-color-content-brand-enabled`.",
-              "name": "--jh-checkbox-input-color-background-indeterminate-enabled"
-            },
-            {
-              "description": "The border-color when indeterminate checkbox. Defaults to `--jh-color-content-brand-enabled`.",
-              "name": "--jh-checkbox-input-color-border-indeterminate-enabled"
-            },
-            {
-              "description": "The status mark color when indeterminate. Defaults to `--jh-color-content-on-brand-enabled`.",
-              "name": "--jh-checkbox-status-color-border-indeterminate-enabled"
-            },
-            {
-              "description": "The checkbox background-color when indeterminate and focused. Defaults to `--jh-color-content-brand-hover`.",
-              "name": "--jh-checkbox-input-color-background-indeterminate-focus"
-            },
-            {
-              "description": "The checkbox border-color when indeterminate and focused. Defaults to `--jh-color-content-brand-hover`.",
-              "name": "--jh-checkbox-input-color-border-indeterminate-focus"
-            },
-            {
-              "description": "The checkbox color when indeterminate status mark when focused. Defaults to `--jh-color-content-on-brand-hover`.",
-              "name": "--jh-checkbox-status-color-border-indeterminate-focus"
-            },
-            {
-              "description": "The checkbox background-color when indeterminate and hovered. Defaults to `--jh-color-content-brand-hover`.",
-              "name": "--jh-checkbox-input-color-background-indeterminate-hover"
-            },
-            {
-              "description": "The checkbox border-color when indeterminate and hovered. Defaults to `--jh-color-content-brand-hover`.",
-              "name": "--jh-checkbox-input-color-border-indeterminate-hover"
-            },
-            {
-              "description": "The checkbox color when indeterminate status mark when hovered. Defaults to `--jh-color-content-on-brand-hover`.",
-              "name": "--jh-checkbox-status-color-border-indeterminate-hover"
-            },
-            {
-              "description": "The checkbox background-color when indeterminate and active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-checkbox-input-color-background-indeterminate-active"
-            },
-            {
-              "description": "The checkbox border-color when indeterminate and active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-checkbox-input-color-border-indeterminate-active"
-            },
-            {
-              "description": "The checkbox color when indeterminate status mark when active. Defaults to `--jh-color-content-on-brand-active`.",
-              "name": "--jh-checkbox-status-color-border-indeterminate-active"
-            },
-            {
-              "description": "The checkbox background-color when indeterminate and disabled. Defaults to `--jh-color-content-brand-enabled`.",
-              "name": "--jh-checkbox-input-color-background-indeterminate-disabled"
-            },
-            {
-              "description": "The checkbox border-color when indeterminate and disabled. Defaults to `--jh-color-content-brand-enabled`.",
-              "name": "--jh-checkbox-input-color-border-indeterminate-disabled"
-            },
-            {
-              "description": "The checkbox color when indeterminate status mark when disabled. Defaults to `--jh-color-content-on-brand-enabled`.",
-              "name": "--jh-checkbox-status-color-border-indeterminate-disabled"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "formAssociated",
-              "static": true,
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "#checked",
-              "privacy": "private",
-              "type": {
-                "text": "?Boolean"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "#id",
-              "privacy": "private",
-              "type": {
-                "text": "?Number"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "#indeterminate",
-              "privacy": "private",
-              "type": {
-                "text": "?Boolean"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "#internals",
-              "privacy": "private",
-              "type": {
-                "text": "ElementInternals"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "#value",
-              "privacy": "private",
-              "type": {
-                "text": "?string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "form",
-              "description": "Returns the checkbox's parent form element.",
-              "type": {
-                "text": "?HTMLFormElement"
-              },
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "privacy": "public",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Sets the value of the checkbox.",
-              "default": "null",
-              "attribute": "value"
-            },
-            {
-              "kind": "field",
-              "name": "checked",
-              "privacy": "public",
-              "type": {
-                "text": "?boolean"
-              },
-              "description": "Sets the selected or 'checked' state on the checkbox.",
-              "default": "false",
-              "attribute": "checked",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "indeterminate",
-              "privacy": "public",
-              "type": {
-                "text": "?boolean"
-              },
-              "description": "Sets the indeterminate state on the checkbox.",
-              "default": "false",
-              "attribute": "indeterminate",
-              "reflects": true
-            },
-            {
-              "kind": "method",
-              "name": "#updateFormValue",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "value"
-                },
-                {
-                  "name": "checked"
-                },
-                {
-                  "name": "indeterminate"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "#handleChange",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "privacy": "public",
-              "type": {
-                "text": "?boolean"
-              },
-              "description": "Disables the checkbox and prevents all user interactions. May cause checkbox to be ignored by assistive technologies(AT).",
-              "default": "false",
-              "attribute": "disabled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "privacy": "public",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Sets the value of the data to be collected when selected.",
-              "default": "null",
-              "attribute": "label"
-            },
-            {
-              "kind": "field",
-              "name": "helperText",
-              "privacy": "public",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Provides additional context or guidance for using the checkbox. For `helper-text` to be displayed, the `label` property must also be set.",
-              "default": "null",
-              "attribute": "helper-text"
-            },
-            {
-              "kind": "field",
-              "name": "name",
-              "privacy": "public",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Sets the name of the checkbox data when submitted in a form.",
-              "default": "null",
-              "attribute": "name"
-            },
-            {
-              "kind": "field",
-              "name": "accessibleLabel",
-              "privacy": "public",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-              "default": "null",
-              "attribute": "accessible-label"
-            }
-          ],
-          "events": [
-            {
-              "name": "jh-change",
-              "type": {
-                "text": "CustomEvent"
-              },
-              "description": "Dispatched when the state of the checkbox has changed."
-            }
-          ],
-          "attributes": [
-            {
-              "name": "checked",
-              "type": {
-                "text": "?boolean"
-              },
-              "description": "Sets the selected or 'checked' state on the checkbox.",
-              "default": "false",
-              "fieldName": "checked"
-            },
-            {
-              "name": "indeterminate",
-              "type": {
-                "text": "?boolean"
-              },
-              "description": "Sets the indeterminate state on the checkbox.",
-              "default": "false",
-              "fieldName": "indeterminate"
-            },
-            {
-              "name": "disabled",
-              "type": {
-                "text": "?boolean"
-              },
-              "description": "Disables the checkbox and prevents all user interactions. May cause checkbox to be ignored by assistive technologies(AT).",
-              "default": "false",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "label",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Sets the value of the data to be collected when selected.",
-              "default": "null",
-              "fieldName": "label"
-            },
-            {
-              "name": "helper-text",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Provides additional context or guidance for using the checkbox. For `helper-text` to be displayed, the `label` property must also be set.",
-              "default": "null",
-              "fieldName": "helperText"
-            },
-            {
-              "name": "name",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Sets the name of the checkbox data when submitted in a form.",
-              "default": "null",
-              "fieldName": "name"
-            },
-            {
-              "name": "value",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Sets the value of the checkbox.",
-              "default": "null",
-              "fieldName": "value"
-            },
-            {
-              "name": "accessible-label",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-              "default": "null",
-              "fieldName": "accessibleLabel"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "jh-checkbox",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JhCheckbox",
-          "declaration": {
-            "name": "JhCheckbox",
-            "module": "components/checkbox/checkbox.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "jh-checkbox",
-          "declaration": {
-            "name": "JhCheckbox",
-            "module": "components/checkbox/checkbox.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/checkbox-group/checkbox-group.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JhCheckboxGroup",
-          "cssProperties": [
-            {
-              "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`.",
-              "name": "--jh-checkbox-group-label-color-text"
-            },
-            {
-              "description": "The required indicator color. Defaults to `--jh-color-content-negative-enabled`.",
-              "name": "--jh-checkbox-group-required-color-text"
-            },
-            {
-              "description": "The optional indicator text color. Defaults to `--jh-color-content-primary-enabled`.",
-              "name": "--jh-checkbox-group-required-color-text-optional"
-            },
-            {
-              "description": "The helper-text text color. Defaults to `--jh-color-content-secondary-enabled`.",
-              "name": "--jh-checkbox-group-helper-color-text"
-            },
-            {
-              "description": "The error-text text color. Defaults to `--jh-color-content-negative-enabled`.",
-              "name": "--jh-checkbox-group-error-color-text"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Use to insert `<jh-checkbox>` component(s).",
-              "name": "default"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "#id",
-              "privacy": "private",
-              "type": {
-                "text": "?Number"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "#getAriaDescribedBy",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "accessibleLabel",
-              "privacy": "public",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-              "default": "null",
-              "attribute": "accessible-label"
-            },
-            {
-              "kind": "field",
-              "name": "errorText",
-              "privacy": "public",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Text to be displayed when checkbox group has failed validation and `invalid` is true.",
-              "default": "null",
-              "attribute": "error-text"
-            },
-            {
-              "kind": "field",
-              "name": "helperText",
-              "privacy": "public",
-              "description": "Provides additional context or guidance for using the checkbox group. For `helper-text` to be displayed, the `label` property must also be set.",
-              "type": {
-                "text": "?string"
-              },
-              "default": "null",
-              "attribute": "helper-text"
-            },
-            {
-              "kind": "field",
-              "name": "invalid",
-              "privacy": "public",
-              "type": {
-                "text": "?Boolean"
-              },
-              "description": "Sets an `aria-invalid` on the checkbox group to indicate the value supplied was invalid and displays `error-text` when set.",
-              "default": "false",
-              "attribute": "invalid",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "privacy": "public",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Describes the type of data to be collected.",
-              "default": "null",
-              "attribute": "label"
-            },
-            {
-              "kind": "field",
-              "name": "required",
-              "privacy": "public",
-              "type": {
-                "text": "?Boolean"
-              },
-              "description": "Indicates a value is required.",
-              "default": "false",
-              "attribute": "required",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "orientation",
-              "privacy": "public",
-              "type": {
-                "text": "'vertical'|'horizontal'"
-              },
-              "description": "Determines the orientation of the checkbox group.",
-              "default": "'vertical'",
-              "attribute": "orientation",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "showIndicator",
-              "privacy": "public",
-              "type": {
-                "text": "?boolean"
-              },
-              "description": "Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required` property is also set. For the indicator to be displayed, the `label` property must also be set.",
-              "default": "false",
-              "attribute": "show-indicator",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "accessible-label",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-              "default": "null",
-              "fieldName": "accessibleLabel"
-            },
-            {
-              "name": "error-text",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Text to be displayed when checkbox group has failed validation and `invalid` is true.",
-              "default": "null",
-              "fieldName": "errorText"
-            },
-            {
-              "name": "helper-text",
-              "description": "Provides additional context or guidance for using the checkbox group. For `helper-text` to be displayed, the `label` property must also be set.",
-              "type": {
-                "text": "?string"
-              },
-              "default": "null",
-              "fieldName": "helperText"
-            },
-            {
-              "name": "invalid",
-              "type": {
-                "text": "?Boolean"
-              },
-              "description": "Sets an `aria-invalid` on the checkbox group to indicate the value supplied was invalid and displays `error-text` when set.",
-              "default": "false",
-              "fieldName": "invalid"
-            },
-            {
-              "name": "label",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Describes the type of data to be collected.",
-              "default": "null",
-              "fieldName": "label"
-            },
-            {
-              "name": "required",
-              "type": {
-                "text": "?Boolean"
-              },
-              "description": "Indicates a value is required.",
-              "default": "false",
-              "fieldName": "required"
-            },
-            {
-              "name": "orientation",
-              "type": {
-                "text": "'vertical'|'horizontal'"
-              },
-              "description": "Determines the orientation of the checkbox group.",
-              "default": "'vertical'",
-              "fieldName": "orientation"
-            },
-            {
-              "name": "show-indicator",
-              "type": {
-                "text": "?boolean"
-              },
-              "description": "Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required` property is also set. For the indicator to be displayed, the `label` property must also be set.",
-              "default": "false",
-              "fieldName": "showIndicator"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "jh-checkbox-group",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JhCheckboxGroup",
-          "declaration": {
-            "name": "JhCheckboxGroup",
-            "module": "components/checkbox-group/checkbox-group.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "jh-checkbox-group",
-          "declaration": {
-            "name": "JhCheckboxGroup",
-            "module": "components/checkbox-group/checkbox-group.js"
           }
         }
       ]
@@ -4795,11 +4795,6 @@
             {
               "kind": "field",
               "name": "#inputEl",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "#addInputClass",
               "privacy": "private"
             },
             {
@@ -13404,339 +13399,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/progress/progress.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JhProgress",
-          "cssProperties": [
-            {
-              "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`.",
-              "name": "--jh-progress-label-color"
-            },
-            {
-              "description": "The value text color. Defaults to `--jh-color-content-secondary-enabled`.",
-              "name": "--jh-progress-value-color"
-            },
-            {
-              "description": "The track color. Defaults to `--jh-color-control-enabled`.",
-              "name": "--jh-progress-track-color"
-            },
-            {
-              "description": "The track border-radius. Defaults to `--jh-border-radius-50`.",
-              "name": "--jh-progress-track-border-radius"
-            },
-            {
-              "description": "The indicator color. Defaults to `--jh-color-content-brand-enabled`.",
-              "name": "--jh-progress-indicator-color"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "#internals",
-              "privacy": "private",
-              "type": {
-                "text": "ElementInternals"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "#label",
-              "privacy": "private",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "#updateState",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "#setAttribute",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "ariaAttribute"
-                },
-                {
-                  "name": "newValue"
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "privacy": "public",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Provides information about the item which triggered the progress component.",
-              "default": "null",
-              "attribute": "label",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "accessibleLabel",
-              "privacy": "public",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-              "default": "null",
-              "attribute": "accessible-label"
-            },
-            {
-              "kind": "field",
-              "name": "min",
-              "privacy": "public",
-              "type": {
-                "text": "?number"
-              },
-              "description": "Defines the minimum allowed value and sets `aria-valuemin` attribute.",
-              "default": "0",
-              "attribute": "min"
-            },
-            {
-              "kind": "field",
-              "name": "max",
-              "privacy": "public",
-              "type": {
-                "text": "?number"
-              },
-              "description": "Defines the maximum allowed value and sets `aria-valuemax` attribute.",
-              "default": "100",
-              "attribute": "max"
-            },
-            {
-              "kind": "field",
-              "name": "accessibleValueText",
-              "privacy": "public",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Sets `aria-valuetext` on progress indicator to provide text alternative of `aria-valuenow`. To be used when progress cannot be represented as a number.",
-              "default": "null",
-              "attribute": "accessible-valuetext"
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "privacy": "public",
-              "type": {
-                "text": "?number"
-              },
-              "description": "Specifies how much of the task has been completed. This value is used to calculate the percentage complete based on the min and max values.",
-              "default": "0",
-              "attribute": "value"
-            },
-            {
-              "kind": "method",
-              "name": "#getCircularIndicator",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "size"
-                },
-                {
-                  "name": "indeterminate"
-                },
-                {
-                  "name": "percentage"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "#getLinearIndicator",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "percentage"
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "indeterminate",
-              "privacy": "public",
-              "type": {
-                "text": "Boolean"
-              },
-              "description": "Sets the indeterminate state on progress. To be used when progress cannot be calculated.",
-              "default": "false",
-              "attribute": "indeterminate",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "privacy": "public",
-              "type": {
-                "text": "'small'|'medium'|'large'"
-              },
-              "description": "Sets the size of the progress component.",
-              "default": "'medium'",
-              "attribute": "size",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "type",
-              "privacy": "public",
-              "type": {
-                "text": "'linear'|'circular'"
-              },
-              "description": "Determines the style of progress to display.",
-              "default": "'linear'",
-              "attribute": "type",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "hideValue",
-              "privacy": "public",
-              "type": {
-                "text": "Boolean"
-              },
-              "description": "Hides the `value` text.",
-              "default": "false",
-              "attribute": "hide-value"
-            },
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "?string"
-              },
-              "default": "'progressbar'"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "accessible-label",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-              "default": "null",
-              "fieldName": "accessibleLabel"
-            },
-            {
-              "name": "accessible-valuetext",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Sets `aria-valuetext` on progress indicator to provide text alternative of `aria-valuenow`. To be used when progress cannot be represented as a number.",
-              "default": "null",
-              "fieldName": "accessibleValueText"
-            },
-            {
-              "name": "hide-value",
-              "type": {
-                "text": "Boolean"
-              },
-              "description": "Hides the `value` text.",
-              "default": "false",
-              "fieldName": "hideValue"
-            },
-            {
-              "name": "indeterminate",
-              "type": {
-                "text": "Boolean"
-              },
-              "description": "Sets the indeterminate state on progress. To be used when progress cannot be calculated.",
-              "default": "false",
-              "fieldName": "indeterminate"
-            },
-            {
-              "name": "label",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Provides information about the item which triggered the progress component.",
-              "default": "null",
-              "fieldName": "label"
-            },
-            {
-              "name": "max",
-              "type": {
-                "text": "?number"
-              },
-              "description": "Defines the maximum allowed value and sets `aria-valuemax` attribute.",
-              "default": "100",
-              "fieldName": "max"
-            },
-            {
-              "name": "min",
-              "type": {
-                "text": "?number"
-              },
-              "description": "Defines the minimum allowed value and sets `aria-valuemin` attribute.",
-              "default": "0",
-              "fieldName": "min"
-            },
-            {
-              "name": "size",
-              "type": {
-                "text": "'small'|'medium'|'large'"
-              },
-              "description": "Sets the size of the progress component.",
-              "default": "'medium'",
-              "fieldName": "size"
-            },
-            {
-              "name": "type",
-              "type": {
-                "text": "'linear'|'circular'"
-              },
-              "description": "Determines the style of progress to display.",
-              "default": "'linear'",
-              "fieldName": "type"
-            },
-            {
-              "name": "value",
-              "type": {
-                "text": "?number"
-              },
-              "description": "Specifies how much of the task has been completed. This value is used to calculate the percentage complete based on the min and max values.",
-              "default": "0",
-              "fieldName": "value"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "jh-progress",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JhProgress",
-          "declaration": {
-            "name": "JhProgress",
-            "module": "components/progress/progress.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "jh-progress",
-          "declaration": {
-            "name": "JhProgress",
-            "module": "components/progress/progress.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/notification/notification.js",
       "declarations": [
         {
@@ -14116,6 +13778,339 @@
           "declaration": {
             "name": "JhNotification",
             "module": "components/notification/notification.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/progress/progress.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "JhProgress",
+          "cssProperties": [
+            {
+              "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-progress-label-color"
+            },
+            {
+              "description": "The value text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-progress-value-color"
+            },
+            {
+              "description": "The track color. Defaults to `--jh-color-control-enabled`.",
+              "name": "--jh-progress-track-color"
+            },
+            {
+              "description": "The track border-radius. Defaults to `--jh-border-radius-50`.",
+              "name": "--jh-progress-track-border-radius"
+            },
+            {
+              "description": "The indicator color. Defaults to `--jh-color-content-brand-enabled`.",
+              "name": "--jh-progress-indicator-color"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "#internals",
+              "privacy": "private",
+              "type": {
+                "text": "ElementInternals"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "#label",
+              "privacy": "private",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "#updateState",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#setAttribute",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "ariaAttribute"
+                },
+                {
+                  "name": "newValue"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Provides information about the item which triggered the progress component.",
+              "default": "null",
+              "attribute": "label",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "accessibleLabel",
+              "privacy": "public",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+              "default": "null",
+              "attribute": "accessible-label"
+            },
+            {
+              "kind": "field",
+              "name": "min",
+              "privacy": "public",
+              "type": {
+                "text": "?number"
+              },
+              "description": "Defines the minimum allowed value and sets `aria-valuemin` attribute.",
+              "default": "0",
+              "attribute": "min"
+            },
+            {
+              "kind": "field",
+              "name": "max",
+              "privacy": "public",
+              "type": {
+                "text": "?number"
+              },
+              "description": "Defines the maximum allowed value and sets `aria-valuemax` attribute.",
+              "default": "100",
+              "attribute": "max"
+            },
+            {
+              "kind": "field",
+              "name": "accessibleValueText",
+              "privacy": "public",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Sets `aria-valuetext` on progress indicator to provide text alternative of `aria-valuenow`. To be used when progress cannot be represented as a number.",
+              "default": "null",
+              "attribute": "accessible-valuetext"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "privacy": "public",
+              "type": {
+                "text": "?number"
+              },
+              "description": "Specifies how much of the task has been completed. This value is used to calculate the percentage complete based on the min and max values.",
+              "default": "0",
+              "attribute": "value"
+            },
+            {
+              "kind": "method",
+              "name": "#getCircularIndicator",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "size"
+                },
+                {
+                  "name": "indeterminate"
+                },
+                {
+                  "name": "percentage"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "#getLinearIndicator",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "percentage"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "indeterminate",
+              "privacy": "public",
+              "type": {
+                "text": "Boolean"
+              },
+              "description": "Sets the indeterminate state on progress. To be used when progress cannot be calculated.",
+              "default": "false",
+              "attribute": "indeterminate",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "privacy": "public",
+              "type": {
+                "text": "'small'|'medium'|'large'"
+              },
+              "description": "Sets the size of the progress component.",
+              "default": "'medium'",
+              "attribute": "size",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "privacy": "public",
+              "type": {
+                "text": "'linear'|'circular'"
+              },
+              "description": "Determines the style of progress to display.",
+              "default": "'linear'",
+              "attribute": "type",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hideValue",
+              "privacy": "public",
+              "type": {
+                "text": "Boolean"
+              },
+              "description": "Hides the `value` text.",
+              "default": "false",
+              "attribute": "hide-value"
+            },
+            {
+              "kind": "field",
+              "name": "role",
+              "type": {
+                "text": "?string"
+              },
+              "default": "'progressbar'"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "accessible-label",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+              "default": "null",
+              "fieldName": "accessibleLabel"
+            },
+            {
+              "name": "accessible-valuetext",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Sets `aria-valuetext` on progress indicator to provide text alternative of `aria-valuenow`. To be used when progress cannot be represented as a number.",
+              "default": "null",
+              "fieldName": "accessibleValueText"
+            },
+            {
+              "name": "hide-value",
+              "type": {
+                "text": "Boolean"
+              },
+              "description": "Hides the `value` text.",
+              "default": "false",
+              "fieldName": "hideValue"
+            },
+            {
+              "name": "indeterminate",
+              "type": {
+                "text": "Boolean"
+              },
+              "description": "Sets the indeterminate state on progress. To be used when progress cannot be calculated.",
+              "default": "false",
+              "fieldName": "indeterminate"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Provides information about the item which triggered the progress component.",
+              "default": "null",
+              "fieldName": "label"
+            },
+            {
+              "name": "max",
+              "type": {
+                "text": "?number"
+              },
+              "description": "Defines the maximum allowed value and sets `aria-valuemax` attribute.",
+              "default": "100",
+              "fieldName": "max"
+            },
+            {
+              "name": "min",
+              "type": {
+                "text": "?number"
+              },
+              "description": "Defines the minimum allowed value and sets `aria-valuemin` attribute.",
+              "default": "0",
+              "fieldName": "min"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "'small'|'medium'|'large'"
+              },
+              "description": "Sets the size of the progress component.",
+              "default": "'medium'",
+              "fieldName": "size"
+            },
+            {
+              "name": "type",
+              "type": {
+                "text": "'linear'|'circular'"
+              },
+              "description": "Determines the style of progress to display.",
+              "default": "'linear'",
+              "fieldName": "type"
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "?number"
+              },
+              "description": "Specifies how much of the task has been completed. This value is used to calculate the percentage complete based on the min and max values.",
+              "default": "0",
+              "fieldName": "value"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "jh-progress",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JhProgress",
+          "declaration": {
+            "name": "JhProgress",
+            "module": "components/progress/progress.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "jh-progress",
+          "declaration": {
+            "name": "JhProgress",
+            "module": "components/progress/progress.js"
           }
         }
       ]
@@ -15079,6 +15074,368 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/table-header-cell/table-header-cell.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Table Header Cell",
+          "name": "JhTableHeaderCell",
+          "cssProperties": [
+            {
+              "description": "The header cell text color when enabled. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-table-header-cell-color-text-enabled"
+            },
+            {
+              "description": "The sortable header cell text color when hovered. Defaults to `--jh-color-content-primary-hover`.",
+              "name": "--jh-table-header-cell-color-text-hover"
+            },
+            {
+              "description": "The sortable header cell text color when focused. Defaults to `--jh-color-content-primary-hover`.",
+              "name": "--jh-table-header-cell-color-text-focus"
+            },
+            {
+              "description": "The sortable header cell text color when active. Defaults to `--jh-color-content-primary-active`.",
+              "name": "--jh-table-header-cell-color-text-active"
+            },
+            {
+              "description": "The sortable header cell text color when selected. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-table-header-cell-color-text-selected"
+            },
+            {
+              "description": "The header cell background color when enabled. Defaults to `--jh-color-container-primary-enabled`.",
+              "name": "--jh-table-header-cell-color-background-enabled"
+            },
+            {
+              "description": "The sortable header cell background color when hovered. Defaults to `--jh-color-container-primary-hover`.",
+              "name": "--jh-table-header-cell-color-background-hover"
+            },
+            {
+              "description": "The sortable header cell background color when focused. Defaults to `--jh-color-container-primary-hover`.",
+              "name": "--jh-table-header-cell-color-background-focus"
+            },
+            {
+              "description": "The sortable header cell background color when active. Defaults to `--jh-color-container-primary-active`.",
+              "name": "--jh-table-header-cell-color-background-active"
+            },
+            {
+              "description": "The sortable header cell background color when selected. Defaults to `--jh-color-container-primary-selected`.",
+              "name": "--jh-table-header-cell-color-background-selected"
+            },
+            {
+              "description": "The header cell border bottom color when enabled. Defaults to `--jh-border-decorative-color`.",
+              "name": "--jh-table-header-cell-color-border-bottom-enabled"
+            },
+            {
+              "description": "The header cell border bottom width. Defaults to `--jh-border-decorative-width`.",
+              "name": "--jh-table-header-cell-border-bottom-width"
+            },
+            {
+              "description": "The header cell border bottom style. Defaults to `--jh-border-decorative-style`.",
+              "name": "--jh-table-header-cell-border-bottom-style"
+            },
+            {
+              "description": "The header cell border top color when enabled. Defaults to `--jh-border-decorative-color`.",
+              "name": "--jh-table-header-cell-color-border-top-enabled"
+            },
+            {
+              "description": "The header cell border top width. Defaults to `--jh-border-decorative-width`.",
+              "name": "--jh-table-header-cell-border-top-width"
+            },
+            {
+              "description": "The header cell border top style. Defaults to `--jh-border-decorative-style`.",
+              "name": "--jh-table-header-cell-border-top-style"
+            },
+            {
+              "description": "The header cell border left color when enabled. Defaults to `transparent`.",
+              "name": "--jh-table-header-cell-color-border-left-enabled"
+            },
+            {
+              "description": "The header cell border left width. Defaults to `--jh-border-decorative-width`.",
+              "name": "--jh-table-header-cell-border-left-width"
+            },
+            {
+              "description": "The header cell border left style. Defaults to `--jh-border-decorative-style`.",
+              "name": "--jh-table-header-cell-border-left-style"
+            },
+            {
+              "description": "The header cell border right color when enabled. Defaults to `transparent`.",
+              "name": "--jh-table-header-cell-color-border-right-enabled"
+            },
+            {
+              "description": "The header cell border right width. Defaults to `--jh-border-decorative-width`.",
+              "name": "--jh-table-header-cell-border-right-width"
+            },
+            {
+              "description": "The header cell border right style. Defaults to `--jh-border-decorative-style`.",
+              "name": "--jh-table-header-cell-border-right-style"
+            },
+            {
+              "description": "The sortable header cell icon color when enabled. Defaults to `--jh-color-content-brand-enabled`.",
+              "name": "--jh-table-header-cell-icon-color-fill-enabled"
+            },
+            {
+              "description": "The sortable header cell icon color when hovered. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-table-header-cell-icon-color-fill-hover"
+            },
+            {
+              "description": "The sortable header cell icon color when focused. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-table-header-cell-icon-color-fill-focus"
+            },
+            {
+              "description": "The sortable header cell icon color when active. Defaults to `--jh-color-content-brand-active`.",
+              "name": "--jh-table-header-cell-icon-color-fill-active"
+            },
+            {
+              "description": "The sortable header cell icon color when selected. Defaults to `--jh-color-content-brand-enabled`.",
+              "name": "--jh-table-header-cell-icon-color-fill-selected"
+            },
+            {
+              "description": "The sortable header cell border bottom color when hovered. Defaults to `--jh-border-decorative-color`.",
+              "name": "--jh-table-header-cell-color-border-bottom-hover"
+            },
+            {
+              "description": "The sortable header cell border bottom color when focused. Defaults to `--jh-border-decorative-color`.",
+              "name": "--jh-table-header-cell-color-border-bottom-focus"
+            },
+            {
+              "description": "The sortable header cell border bottom color when active. Defaults to `--jh-border-decorative-color`.",
+              "name": "--jh-table-header-cell-color-border-bottom-active"
+            },
+            {
+              "description": "The sortable header cell border bottom color when selected. Defaults to `--jh-border-decorative-color`.",
+              "name": "--jh-table-header-cell-color-border-bottom-selected"
+            },
+            {
+              "description": "The sortable header cell border top color when hovered. Defaults to `--jh-border-decorative-color`.",
+              "name": "--jh-table-header-cell-color-border-top-hover"
+            },
+            {
+              "description": "The sortable header cell border top color when focused. Defaults to `--jh-border-decorative-color`.",
+              "name": "--jh-table-header-cell-color-border-top-focus"
+            },
+            {
+              "description": "The sortable header cell border top color when active. Defaults to `--jh-border-decorative-color`.",
+              "name": "--jh-table-header-cell-color-border-top-active"
+            },
+            {
+              "description": "The sortable header cell border top color when selected. Defaults to `--jh-border-decorative-color`.",
+              "name": "--jh-table-header-cell-color-border-top-selected"
+            },
+            {
+              "description": "The sortable header cell border right color when hovered. Defaults to `transparent`.",
+              "name": "--jh-table-header-cell-color-border-right-hover"
+            },
+            {
+              "description": "The sortable header cell border right color when focused. Defaults to `transparent`.",
+              "name": "--jh-table-header-cell-color-border-right-focus"
+            },
+            {
+              "description": "The sortable header cell border right color when active. Defaults to `transparent`.",
+              "name": "--jh-table-header-cell-color-border-right-active"
+            },
+            {
+              "description": "The sortable header cell border right color when selected. Defaults to `transparent`.",
+              "name": "--jh-table-header-cell-color-border-right-selected"
+            },
+            {
+              "description": "The sortable header cell border left color when hovered. Defaults to `transparent`.",
+              "name": "--jh-table-header-cell-color-border-left-hover"
+            },
+            {
+              "description": "The sortable header cell border left color when focused. Defaults to `transparent`.",
+              "name": "--jh-table-header-cell-color-border-left-focus"
+            },
+            {
+              "description": "The sortable header cell border left color when active. Defaults to `transparent`.",
+              "name": "--jh-table-header-cell-color-border-left-active"
+            },
+            {
+              "description": "The sortable header cell border left color when selected. Defaults to `transparent`.",
+              "name": "--jh-table-header-cell-color-border-left-selected"
+            },
+            {
+              "description": "The header cell padding top. Defaults to `--jh-dimension-400`.",
+              "name": "--jh-table-header-cell-space-padding-top"
+            },
+            {
+              "description": "The header cell padding right. Defaults to `--jh-dimension-400`.",
+              "name": "--jh-table-header-cell-space-padding-right"
+            },
+            {
+              "description": "The header cell padding bottom. Defaults to `--jh-dimension-400`.",
+              "name": "--jh-table-header-cell-space-padding-bottom"
+            },
+            {
+              "description": "The header cell padding left. Defaults to `--jh-dimension-400`.",
+              "name": "--jh-table-header-cell-space-padding-left"
+            },
+            {
+              "description": "The header cell outline color when it receives keyboard focus. Defaults to `--jh-border-color-focus`.",
+              "name": "--jh-table-header-cell-color-focus"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Use to insert a custom icon for ascending sort.",
+              "name": "jh-table-sorted-ascending"
+            },
+            {
+              "description": "Use to insert a custom icon for descending sort.",
+              "name": "jh-table-sorted-descending"
+            },
+            {
+              "description": "Use to insert a custom icon for no sort.",
+              "name": "jh-table-sorted-none"
+            },
+            {
+              "description": "Use to insert table header text.",
+              "name": "default"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "#internals",
+              "privacy": "private",
+              "type": {
+                "text": "ElementInternals"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "#handleKeydown",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "#handleSort",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#getSortingIcon",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "'columnheader'"
+            },
+            {
+              "kind": "field",
+              "name": "horizontalAlign",
+              "privacy": "public",
+              "type": {
+                "text": "'left' | 'center' | 'right'"
+              },
+              "description": "Sets the horizontal alignment of the content.",
+              "default": "'left'",
+              "attribute": "horizontal-align",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "sortable",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Makes a column sortable.",
+              "default": "false",
+              "attribute": "sortable",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "sorted",
+              "privacy": "public",
+              "type": {
+                "text": "'none' | 'ascending' | 'descending'"
+              },
+              "description": "Sets the order in which the items in the column are sorted.",
+              "default": "'none'",
+              "attribute": "sorted",
+              "reflects": true
+            }
+          ],
+          "events": [
+            {
+              "name": "jh-sort",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Dispatched when a sortable header cell is activated. Event payload includes the column, sorted state, and id of the header cell and can be accessed via `e.detail.column`, `e.detail.sorted`, and ` e.detail.id`."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "horizontal-align",
+              "type": {
+                "text": "'left' | 'center' | 'right'"
+              },
+              "description": "Sets the horizontal alignment of the content.",
+              "default": "'left'",
+              "fieldName": "horizontalAlign",
+              "attribute": "horizontal-align"
+            },
+            {
+              "name": "sortable",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Makes a column sortable.",
+              "default": "false",
+              "fieldName": "sortable",
+              "attribute": "sortable"
+            },
+            {
+              "name": "sorted",
+              "type": {
+                "text": "'none' | 'ascending' | 'descending'"
+              },
+              "description": "Sets the order in which the items in the column are sorted.",
+              "default": "'none'",
+              "fieldName": "sorted",
+              "attribute": "sorted"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "jh-table-header-cell",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JhTableHeaderCell",
+          "declaration": {
+            "name": "JhTableHeaderCell",
+            "module": "components/table-header-cell/table-header-cell.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "jh-table-header-cell",
+          "declaration": {
+            "name": "JhTableHeaderCell",
+            "module": "components/table-header-cell/table-header-cell.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/table/table.js",
       "declarations": [
         {
@@ -15515,368 +15872,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/table-header-cell/table-header-cell.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Table Header Cell",
-          "name": "JhTableHeaderCell",
-          "cssProperties": [
-            {
-              "description": "The header cell text color when enabled. Defaults to `--jh-color-content-primary-enabled`.",
-              "name": "--jh-table-header-cell-color-text-enabled"
-            },
-            {
-              "description": "The sortable header cell text color when hovered. Defaults to `--jh-color-content-primary-hover`.",
-              "name": "--jh-table-header-cell-color-text-hover"
-            },
-            {
-              "description": "The sortable header cell text color when focused. Defaults to `--jh-color-content-primary-hover`.",
-              "name": "--jh-table-header-cell-color-text-focus"
-            },
-            {
-              "description": "The sortable header cell text color when active. Defaults to `--jh-color-content-primary-active`.",
-              "name": "--jh-table-header-cell-color-text-active"
-            },
-            {
-              "description": "The sortable header cell text color when selected. Defaults to `--jh-color-content-primary-enabled`.",
-              "name": "--jh-table-header-cell-color-text-selected"
-            },
-            {
-              "description": "The header cell background color when enabled. Defaults to `--jh-color-container-primary-enabled`.",
-              "name": "--jh-table-header-cell-color-background-enabled"
-            },
-            {
-              "description": "The sortable header cell background color when hovered. Defaults to `--jh-color-container-primary-hover`.",
-              "name": "--jh-table-header-cell-color-background-hover"
-            },
-            {
-              "description": "The sortable header cell background color when focused. Defaults to `--jh-color-container-primary-hover`.",
-              "name": "--jh-table-header-cell-color-background-focus"
-            },
-            {
-              "description": "The sortable header cell background color when active. Defaults to `--jh-color-container-primary-active`.",
-              "name": "--jh-table-header-cell-color-background-active"
-            },
-            {
-              "description": "The sortable header cell background color when selected. Defaults to `--jh-color-container-primary-selected`.",
-              "name": "--jh-table-header-cell-color-background-selected"
-            },
-            {
-              "description": "The header cell border bottom color when enabled. Defaults to `--jh-border-decorative-color`.",
-              "name": "--jh-table-header-cell-color-border-bottom-enabled"
-            },
-            {
-              "description": "The header cell border bottom width. Defaults to `--jh-border-decorative-width`.",
-              "name": "--jh-table-header-cell-border-bottom-width"
-            },
-            {
-              "description": "The header cell border bottom style. Defaults to `--jh-border-decorative-style`.",
-              "name": "--jh-table-header-cell-border-bottom-style"
-            },
-            {
-              "description": "The header cell border top color when enabled. Defaults to `--jh-border-decorative-color`.",
-              "name": "--jh-table-header-cell-color-border-top-enabled"
-            },
-            {
-              "description": "The header cell border top width. Defaults to `--jh-border-decorative-width`.",
-              "name": "--jh-table-header-cell-border-top-width"
-            },
-            {
-              "description": "The header cell border top style. Defaults to `--jh-border-decorative-style`.",
-              "name": "--jh-table-header-cell-border-top-style"
-            },
-            {
-              "description": "The header cell border left color when enabled. Defaults to `transparent`.",
-              "name": "--jh-table-header-cell-color-border-left-enabled"
-            },
-            {
-              "description": "The header cell border left width. Defaults to `--jh-border-decorative-width`.",
-              "name": "--jh-table-header-cell-border-left-width"
-            },
-            {
-              "description": "The header cell border left style. Defaults to `--jh-border-decorative-style`.",
-              "name": "--jh-table-header-cell-border-left-style"
-            },
-            {
-              "description": "The header cell border right color when enabled. Defaults to `transparent`.",
-              "name": "--jh-table-header-cell-color-border-right-enabled"
-            },
-            {
-              "description": "The header cell border right width. Defaults to `--jh-border-decorative-width`.",
-              "name": "--jh-table-header-cell-border-right-width"
-            },
-            {
-              "description": "The header cell border right style. Defaults to `--jh-border-decorative-style`.",
-              "name": "--jh-table-header-cell-border-right-style"
-            },
-            {
-              "description": "The sortable header cell icon color when enabled. Defaults to `--jh-color-content-brand-enabled`.",
-              "name": "--jh-table-header-cell-icon-color-fill-enabled"
-            },
-            {
-              "description": "The sortable header cell icon color when hovered. Defaults to `--jh-color-content-brand-hover`.",
-              "name": "--jh-table-header-cell-icon-color-fill-hover"
-            },
-            {
-              "description": "The sortable header cell icon color when focused. Defaults to `--jh-color-content-brand-hover`.",
-              "name": "--jh-table-header-cell-icon-color-fill-focus"
-            },
-            {
-              "description": "The sortable header cell icon color when active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-table-header-cell-icon-color-fill-active"
-            },
-            {
-              "description": "The sortable header cell icon color when selected. Defaults to `--jh-color-content-brand-enabled`.",
-              "name": "--jh-table-header-cell-icon-color-fill-selected"
-            },
-            {
-              "description": "The sortable header cell border bottom color when hovered. Defaults to `--jh-border-decorative-color`.",
-              "name": "--jh-table-header-cell-color-border-bottom-hover"
-            },
-            {
-              "description": "The sortable header cell border bottom color when focused. Defaults to `--jh-border-decorative-color`.",
-              "name": "--jh-table-header-cell-color-border-bottom-focus"
-            },
-            {
-              "description": "The sortable header cell border bottom color when active. Defaults to `--jh-border-decorative-color`.",
-              "name": "--jh-table-header-cell-color-border-bottom-active"
-            },
-            {
-              "description": "The sortable header cell border bottom color when selected. Defaults to `--jh-border-decorative-color`.",
-              "name": "--jh-table-header-cell-color-border-bottom-selected"
-            },
-            {
-              "description": "The sortable header cell border top color when hovered. Defaults to `--jh-border-decorative-color`.",
-              "name": "--jh-table-header-cell-color-border-top-hover"
-            },
-            {
-              "description": "The sortable header cell border top color when focused. Defaults to `--jh-border-decorative-color`.",
-              "name": "--jh-table-header-cell-color-border-top-focus"
-            },
-            {
-              "description": "The sortable header cell border top color when active. Defaults to `--jh-border-decorative-color`.",
-              "name": "--jh-table-header-cell-color-border-top-active"
-            },
-            {
-              "description": "The sortable header cell border top color when selected. Defaults to `--jh-border-decorative-color`.",
-              "name": "--jh-table-header-cell-color-border-top-selected"
-            },
-            {
-              "description": "The sortable header cell border right color when hovered. Defaults to `transparent`.",
-              "name": "--jh-table-header-cell-color-border-right-hover"
-            },
-            {
-              "description": "The sortable header cell border right color when focused. Defaults to `transparent`.",
-              "name": "--jh-table-header-cell-color-border-right-focus"
-            },
-            {
-              "description": "The sortable header cell border right color when active. Defaults to `transparent`.",
-              "name": "--jh-table-header-cell-color-border-right-active"
-            },
-            {
-              "description": "The sortable header cell border right color when selected. Defaults to `transparent`.",
-              "name": "--jh-table-header-cell-color-border-right-selected"
-            },
-            {
-              "description": "The sortable header cell border left color when hovered. Defaults to `transparent`.",
-              "name": "--jh-table-header-cell-color-border-left-hover"
-            },
-            {
-              "description": "The sortable header cell border left color when focused. Defaults to `transparent`.",
-              "name": "--jh-table-header-cell-color-border-left-focus"
-            },
-            {
-              "description": "The sortable header cell border left color when active. Defaults to `transparent`.",
-              "name": "--jh-table-header-cell-color-border-left-active"
-            },
-            {
-              "description": "The sortable header cell border left color when selected. Defaults to `transparent`.",
-              "name": "--jh-table-header-cell-color-border-left-selected"
-            },
-            {
-              "description": "The header cell padding top. Defaults to `--jh-dimension-400`.",
-              "name": "--jh-table-header-cell-space-padding-top"
-            },
-            {
-              "description": "The header cell padding right. Defaults to `--jh-dimension-400`.",
-              "name": "--jh-table-header-cell-space-padding-right"
-            },
-            {
-              "description": "The header cell padding bottom. Defaults to `--jh-dimension-400`.",
-              "name": "--jh-table-header-cell-space-padding-bottom"
-            },
-            {
-              "description": "The header cell padding left. Defaults to `--jh-dimension-400`.",
-              "name": "--jh-table-header-cell-space-padding-left"
-            },
-            {
-              "description": "The header cell outline color when it receives keyboard focus. Defaults to `--jh-border-color-focus`.",
-              "name": "--jh-table-header-cell-color-focus"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Use to insert a custom icon for ascending sort.",
-              "name": "jh-table-sorted-ascending"
-            },
-            {
-              "description": "Use to insert a custom icon for descending sort.",
-              "name": "jh-table-sorted-descending"
-            },
-            {
-              "description": "Use to insert a custom icon for no sort.",
-              "name": "jh-table-sorted-none"
-            },
-            {
-              "description": "Use to insert table header text.",
-              "name": "default"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "#internals",
-              "privacy": "private",
-              "type": {
-                "text": "ElementInternals"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "#handleKeydown",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "#handleSort",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "#getSortingIcon",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'columnheader'"
-            },
-            {
-              "kind": "field",
-              "name": "horizontalAlign",
-              "privacy": "public",
-              "type": {
-                "text": "'left' | 'center' | 'right'"
-              },
-              "description": "Sets the horizontal alignment of the content.",
-              "default": "'left'",
-              "attribute": "horizontal-align",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "sortable",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Makes a column sortable.",
-              "default": "false",
-              "attribute": "sortable",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "sorted",
-              "privacy": "public",
-              "type": {
-                "text": "'none' | 'ascending' | 'descending'"
-              },
-              "description": "Sets the order in which the items in the column are sorted.",
-              "default": "'none'",
-              "attribute": "sorted",
-              "reflects": true
-            }
-          ],
-          "events": [
-            {
-              "name": "jh-sort",
-              "type": {
-                "text": "CustomEvent"
-              },
-              "description": "Dispatched when a sortable header cell is activated. Event payload includes the column, sorted state, and id of the header cell and can be accessed via `e.detail.column`, `e.detail.sorted`, and ` e.detail.id`."
-            }
-          ],
-          "attributes": [
-            {
-              "name": "horizontal-align",
-              "type": {
-                "text": "'left' | 'center' | 'right'"
-              },
-              "description": "Sets the horizontal alignment of the content.",
-              "default": "'left'",
-              "fieldName": "horizontalAlign",
-              "attribute": "horizontal-align"
-            },
-            {
-              "name": "sortable",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Makes a column sortable.",
-              "default": "false",
-              "fieldName": "sortable",
-              "attribute": "sortable"
-            },
-            {
-              "name": "sorted",
-              "type": {
-                "text": "'none' | 'ascending' | 'descending'"
-              },
-              "description": "Sets the order in which the items in the column are sorted.",
-              "default": "'none'",
-              "fieldName": "sorted",
-              "attribute": "sorted"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "jh-table-header-cell",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JhTableHeaderCell",
-          "declaration": {
-            "name": "JhTableHeaderCell",
-            "module": "components/table-header-cell/table-header-cell.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "jh-table-header-cell",
-          "declaration": {
-            "name": "JhTableHeaderCell",
-            "module": "components/table-header-cell/table-header-cell.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/table-row/table-row.js",
       "declarations": [
         {
@@ -15956,6 +15951,358 @@
           "declaration": {
             "name": "JhTableRow",
             "module": "components/table-row/table-row.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/toast/toast.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "JhToast",
+          "cssProperties": [
+            {
+              "description": "The toast box-shadow. Defaults to `--jh-shadow-mid`.",
+              "name": "--jh-toast-shadow"
+            },
+            {
+              "description": "The toast z-index. Defaults to `--jh-z-index-positive-1000`.",
+              "name": "--jh-toast-z-index"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Use to insert contextual information.",
+              "name": "default"
+            },
+            {
+              "description": "Use to insert a button or icon to the left of the default slot.",
+              "name": "jh-toast-icon"
+            },
+            {
+              "description": "Use to insert icon within the dismiss button.",
+              "name": "jh-toast-dismiss-icon"
+            },
+            {
+              "description": "Use to insert action button(s). Placed to the right of the default slot. Set `stacked` property to place slot below default slot.",
+              "name": "jh-toast-action"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "#startTimeout",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#removeToast",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#dispatch",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "name"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "#handleDismiss",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#handleSlotChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "timeout",
+              "privacy": "public",
+              "type": {
+                "text": "number"
+              },
+              "description": "Sets a timer, in milliseconds, to auto-dismiss the toast. To disable timeout, set to 0.",
+              "default": "5000",
+              "attribute": "timeout"
+            },
+            {
+              "kind": "field",
+              "name": "appearance",
+              "privacy": "public",
+              "type": {
+                "text": "'positive'|'neutral'|'negative'"
+              },
+              "description": "Sets the background color of the toast to convey message connotation.",
+              "default": "'neutral'",
+              "attribute": "appearance",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "dismissButtonAccessibleLabel",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "description": "Adds an aria-label to the dismiss button to assist screen readers.",
+              "default": "null",
+              "attribute": "dismiss-button-accessible-label"
+            },
+            {
+              "kind": "field",
+              "name": "hideDismissButton",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Removes dismiss button from toast.",
+              "default": "false",
+              "attribute": "hide-dismiss-button"
+            },
+            {
+              "kind": "field",
+              "name": "stacked",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Places action button(s) on new line, below default slot.",
+              "default": "false",
+              "attribute": "stacked",
+              "reflects": true
+            }
+          ],
+          "events": [
+            {
+              "name": "name",
+              "type": {
+                "text": "CustomEvent"
+              }
+            },
+            {
+              "description": "Dispatched when the toast is dismissed.",
+              "name": "jh-dismiss"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "appearance",
+              "type": {
+                "text": "'positive'|'neutral'|'negative'"
+              },
+              "description": "Sets the background color of the toast to convey message connotation.",
+              "default": "'neutral'",
+              "fieldName": "appearance"
+            },
+            {
+              "name": "dismiss-button-accessible-label",
+              "type": {
+                "text": "string"
+              },
+              "description": "Adds an aria-label to the dismiss button to assist screen readers.",
+              "default": "null",
+              "fieldName": "dismissButtonAccessibleLabel"
+            },
+            {
+              "name": "hide-dismiss-button",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Removes dismiss button from toast.",
+              "default": "false",
+              "fieldName": "hideDismissButton"
+            },
+            {
+              "name": "stacked",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Places action button(s) on new line, below default slot.",
+              "default": "false",
+              "fieldName": "stacked"
+            },
+            {
+              "name": "timeout",
+              "type": {
+                "text": "number"
+              },
+              "description": "Sets a timer, in milliseconds, to auto-dismiss the toast. To disable timeout, set to 0.",
+              "default": "5000",
+              "fieldName": "timeout"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "jh-toast",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JhToast",
+          "declaration": {
+            "name": "JhToast",
+            "module": "components/toast/toast.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "jh-toast",
+          "declaration": {
+            "name": "JhToast",
+            "module": "components/toast/toast.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/toast-controller/toast-controller.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "JhToastController",
+          "cssProperties": [
+            {
+              "description": "The toast controller z-index. Defaults to `--jh-z-index-positive-1000`.",
+              "name": "--jh-toast-controller-z-index"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Use to insert `<jh-toast>` components if appending toasts manually.",
+              "name": "default"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "#handleSlotChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#dispatch",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "name"
+                },
+                {
+                  "name": "toast"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "#handleDismiss",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "toast"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "#createToast",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "maxCount",
+              "privacy": "public",
+              "type": {
+                "text": "number"
+              },
+              "description": "Sets the maximum number of toasts to be displayed at a time.",
+              "default": "3",
+              "attribute": "max-count"
+            },
+            {
+              "kind": "field",
+              "name": "role",
+              "privacy": "public",
+              "type": {
+                "text": "'status'|'alert'"
+              },
+              "description": "Sets the role of the toast controller and establishes a live region to expose changes to assistive technologies.",
+              "default": "'status'",
+              "attribute": "role"
+            }
+          ],
+          "events": [
+            {
+              "name": "name",
+              "type": {
+                "text": "CustomEvent"
+              }
+            },
+            {
+              "description": "Dispatched when the toast controller dismisses the oldest toast, and when toasts are dismissed manually by the user.",
+              "name": "jh-dismiss"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "max-count",
+              "type": {
+                "text": "number"
+              },
+              "description": "Sets the maximum number of toasts to be displayed at a time.",
+              "default": "3",
+              "fieldName": "maxCount"
+            },
+            {
+              "name": "role",
+              "type": {
+                "text": "'status'|'alert'"
+              },
+              "description": "Sets the role of the toast controller and establishes a live region to expose changes to assistive technologies.",
+              "default": "'status'",
+              "fieldName": "role"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "jh-toast-controller",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JhToastController",
+          "declaration": {
+            "name": "JhToastController",
+            "module": "components/toast-controller/toast-controller.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "jh-toast-controller",
+          "declaration": {
+            "name": "JhToastController",
+            "module": "components/toast-controller/toast-controller.js"
           }
         }
       ]
@@ -16407,358 +16754,6 @@
           "declaration": {
             "name": "JhTagGroup",
             "module": "components/tag-group/tag-group.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/toast/toast.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JhToast",
-          "cssProperties": [
-            {
-              "description": "The toast box-shadow. Defaults to `--jh-shadow-mid`.",
-              "name": "--jh-toast-shadow"
-            },
-            {
-              "description": "The toast z-index. Defaults to `--jh-z-index-positive-1000`.",
-              "name": "--jh-toast-z-index"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Use to insert contextual information.",
-              "name": "default"
-            },
-            {
-              "description": "Use to insert a button or icon to the left of the default slot.",
-              "name": "jh-toast-icon"
-            },
-            {
-              "description": "Use to insert icon within the dismiss button.",
-              "name": "jh-toast-dismiss-icon"
-            },
-            {
-              "description": "Use to insert action button(s). Placed to the right of the default slot. Set `stacked` property to place slot below default slot.",
-              "name": "jh-toast-action"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "#startTimeout",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "#removeToast",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "#dispatch",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "name"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "#handleDismiss",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "#handleSlotChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "timeout",
-              "privacy": "public",
-              "type": {
-                "text": "number"
-              },
-              "description": "Sets a timer, in milliseconds, to auto-dismiss the toast. To disable timeout, set to 0.",
-              "default": "5000",
-              "attribute": "timeout"
-            },
-            {
-              "kind": "field",
-              "name": "appearance",
-              "privacy": "public",
-              "type": {
-                "text": "'positive'|'neutral'|'negative'"
-              },
-              "description": "Sets the background color of the toast to convey message connotation.",
-              "default": "'neutral'",
-              "attribute": "appearance",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "dismissButtonAccessibleLabel",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "Adds an aria-label to the dismiss button to assist screen readers.",
-              "default": "null",
-              "attribute": "dismiss-button-accessible-label"
-            },
-            {
-              "kind": "field",
-              "name": "hideDismissButton",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Removes dismiss button from toast.",
-              "default": "false",
-              "attribute": "hide-dismiss-button"
-            },
-            {
-              "kind": "field",
-              "name": "stacked",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Places action button(s) on new line, below default slot.",
-              "default": "false",
-              "attribute": "stacked",
-              "reflects": true
-            }
-          ],
-          "events": [
-            {
-              "name": "name",
-              "type": {
-                "text": "CustomEvent"
-              }
-            },
-            {
-              "description": "Dispatched when the toast is dismissed.",
-              "name": "jh-dismiss"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "appearance",
-              "type": {
-                "text": "'positive'|'neutral'|'negative'"
-              },
-              "description": "Sets the background color of the toast to convey message connotation.",
-              "default": "'neutral'",
-              "fieldName": "appearance"
-            },
-            {
-              "name": "dismiss-button-accessible-label",
-              "type": {
-                "text": "string"
-              },
-              "description": "Adds an aria-label to the dismiss button to assist screen readers.",
-              "default": "null",
-              "fieldName": "dismissButtonAccessibleLabel"
-            },
-            {
-              "name": "hide-dismiss-button",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Removes dismiss button from toast.",
-              "default": "false",
-              "fieldName": "hideDismissButton"
-            },
-            {
-              "name": "stacked",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Places action button(s) on new line, below default slot.",
-              "default": "false",
-              "fieldName": "stacked"
-            },
-            {
-              "name": "timeout",
-              "type": {
-                "text": "number"
-              },
-              "description": "Sets a timer, in milliseconds, to auto-dismiss the toast. To disable timeout, set to 0.",
-              "default": "5000",
-              "fieldName": "timeout"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "jh-toast",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JhToast",
-          "declaration": {
-            "name": "JhToast",
-            "module": "components/toast/toast.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "jh-toast",
-          "declaration": {
-            "name": "JhToast",
-            "module": "components/toast/toast.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/toast-controller/toast-controller.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JhToastController",
-          "cssProperties": [
-            {
-              "description": "The toast controller z-index. Defaults to `--jh-z-index-positive-1000`.",
-              "name": "--jh-toast-controller-z-index"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Use to insert `<jh-toast>` components if appending toasts manually.",
-              "name": "default"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "#handleSlotChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "#dispatch",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "name"
-                },
-                {
-                  "name": "toast"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "#handleDismiss",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "toast"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "#createToast",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "maxCount",
-              "privacy": "public",
-              "type": {
-                "text": "number"
-              },
-              "description": "Sets the maximum number of toasts to be displayed at a time.",
-              "default": "3",
-              "attribute": "max-count"
-            },
-            {
-              "kind": "field",
-              "name": "role",
-              "privacy": "public",
-              "type": {
-                "text": "'status'|'alert'"
-              },
-              "description": "Sets the role of the toast controller and establishes a live region to expose changes to assistive technologies.",
-              "default": "'status'",
-              "attribute": "role"
-            }
-          ],
-          "events": [
-            {
-              "name": "name",
-              "type": {
-                "text": "CustomEvent"
-              }
-            },
-            {
-              "description": "Dispatched when the toast controller dismisses the oldest toast, and when toasts are dismissed manually by the user.",
-              "name": "jh-dismiss"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "max-count",
-              "type": {
-                "text": "number"
-              },
-              "description": "Sets the maximum number of toasts to be displayed at a time.",
-              "default": "3",
-              "fieldName": "maxCount"
-            },
-            {
-              "name": "role",
-              "type": {
-                "text": "'status'|'alert'"
-              },
-              "description": "Sets the role of the toast controller and establishes a live region to expose changes to assistive technologies.",
-              "default": "'status'",
-              "fieldName": "role"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "jh-toast-controller",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JhToastController",
-          "declaration": {
-            "name": "JhToastController",
-            "module": "components/toast-controller/toast-controller.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "jh-toast-controller",
-          "declaration": {
-            "name": "JhToastController",
-            "module": "components/toast-controller/toast-controller.js"
           }
         }
       ]

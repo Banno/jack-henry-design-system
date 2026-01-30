@@ -5,7 +5,8 @@
 import { JhInput } from '../input/input.js';
 
 /**
- * Input Telephone
+ * The input telephone component provides a single-line text field for capturing telephone numbers.
+ * 
  * @customElement jh-input-telephone
  */
 export class JhInputTelephone extends JhInput {

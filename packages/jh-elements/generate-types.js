@@ -88,38 +88,50 @@ function generateComponentDts(declaration) {
 
   const properties = generateProperties(declaration.members || []);
   const classJsDoc = generateClassLevelJsDoc(declaration);
+  
+  // Extract just the first paragraph of the description for the global map
+  const summary = declaration.description ? declaration.description.split('\n')[0] : '';
 
-  // Generate property list for class export (fields only, skip methods)
+  // Generate the fields for the class declaration
   const allMembers = declaration.members || [];
   const publicFields = allMembers.filter(m => 
     m.kind === 'field' && m.privacy !== 'private'
   );
   
-  const classProperties = publicFields.map(m => {
+  const classFields = publicFields.map(m => {
     const propType = getTsType(m.type);
-    return `  ${m.name}: ${propType};`;
+    return `    ${m.name}: ${propType};`;
   }).join('\n');
 
   return `// SPDX-FileCopyrightText: 2025 Jack Henry
 //
-// SPDX-License-Identifier: Apache-2.0import { LitElement } from 'lit';
+// SPDX-License-Identifier: Apache-2.0
 
-declare global {
-  interface HTMLElementTagNameMap {
-    '${tagName}': ${className};
-  }
-}
+import { LitElement } from 'lit';
 
 /**
 ${classJsDoc}
+ */
+export declare class ${className} extends LitElement {
+${classFields}
+}
+
+/**
+ * Merged interface for ${className} properties and methods.
  */
 export declare interface ${className} extends LitElement {
 ${properties}
 }
 
-export declare class ${className} extends LitElement {
-${classProperties}
-}`;
+declare global {
+  interface HTMLElementTagNameMap {
+    /**
+     * ${summary}
+     */
+    '${tagName}': ${className};
+  }
+}
+`;
 }
 
 try {

@@ -6,6 +6,8 @@ import { LitElement, css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
+ * A Badge is a visual indicator that represents numbers, such as counters. It also supports a dot-only variant.
+ * 
  * @cssprop --jh-badge-border-radius - The badge border radius. Defaults to `--jh-border-radius-pill`.
  * @cssprop --jh-badge-color-background-enabled - The badge background color. Defaults to `--jh-color-content-brand-enabled`. 
  * @cssprop --jh-badge-color-text-enabled - The badge text color. Defaults to `--jh-color-content-on-brand-enabled`.

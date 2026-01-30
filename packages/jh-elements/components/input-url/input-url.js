@@ -6,7 +6,8 @@ import { css } from 'lit';
 import { JhInput } from '../input/input.js';
 
 /**
- * Input Url
+ * The input url component provides a single-line text field for capturing URLs.
+ * 
  * @customElement jh-input-url
  */
 export class JhInputUrl extends JhInput {

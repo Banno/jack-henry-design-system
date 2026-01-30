@@ -7,6 +7,8 @@ import '../divider/divider.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
+ * A list item represents one item in a list of connected objects. List items are used as building blocks in complex components such as lists, menus, and dropdowns.
+ * 
  * @cssprop --jh-list-item-color-background - The list-item container's background-color.
  * Defaults to `transparent`.
  * @cssprop --jh-list-item-color-text - The default, left, text, metadata, right, primary, and secondary slot text color. Defaults to `--jh-color-content-primary-enabled`.
@@ -38,10 +40,11 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * @slot jh-list-item-right - Use to insert custom content on the right the list-item.
  * @slot jh-list-item-content -  Use to insert custom content into the list-item.
  * @slot jh-list-item-metadata - Use to insert custom metadata into the list-item.
+ * 
  * @customElement jh-list-item
  */
 export class JhListItem extends LitElement {
-  /** @type {ElementInternals} */
+  /** @ignore */
   #internals;
 
   static get styles() {
@@ -287,9 +290,11 @@ export class JhListItem extends LitElement {
 
   constructor() {
     super();
+      /** @ignore */
     this.#internals = this.attachInternals();
+      /** @ignore */
     this.#internals.role = 'listitem';
-    /** @type {?boolean} */
+    /** @type {boolean} */
     this.disabled = false;
     /** @type {null|0|8|16|24|32|40|48|56|64|72|80|88|96} */
     this.dividerInset = null;
@@ -301,9 +306,9 @@ export class JhListItem extends LitElement {
     this.secondaryMetadata = null;
     /** @type {?string} */
     this.secondaryText = null;
-    /** @type {?boolean} */
+    /** @type {boolean} */
     this.selected = false;
-    /** @type {?boolean} */
+    /** @type {boolean} */
     this.showDivider = false;
   }
 

@@ -5,13 +5,20 @@
 import { LitElement, css, html } from 'lit';
 
 /**
+* The icon component provides authors with a means to use their own SVG icons while still enabling access
+* to our design tokens, encouraging consistency across your product. In addition to the icon component, Jack Henry 
+* also maintains a robust icon library available as raw SVGs and as discrete web components, with each component 
+* utilizing our design tokens.
+
  * @cssprop --jh-icon-color-fill - The icon color. Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-icon-size-extra-small - The icon size when `size="extra-small"`. Defaults to `--jh-dimension-400`.
  * @cssprop --jh-icon-size-small - The icon size when `size="small"`. Defaults to `--jh-dimension-500`.
  * @cssprop --jh-icon-size-medium - The icon size when `size="medium"`. Defaults to `--jh-dimension-600`.
  * @cssprop --jh-icon-size-large - The icon size when `size="large"`. Defaults to `--jh-dimension-900`.
  * @cssprop --jh-icon-size-extra-large - The icon size when `size="extra-large"`. Defaults to `--jh-dimension-1400`.
+ * 
  * @slot default - Use to insert the icon SVG content.
+ * 
  * @customElement jh-icon
  */
 export class JhIcon extends LitElement {

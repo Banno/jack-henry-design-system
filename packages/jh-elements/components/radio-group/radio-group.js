@@ -4,10 +4,12 @@
 
 import { LitElement, css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { JhRadio } from '../radio/radio';
 
 let id = 0;
 /**
- *
+ * Radio groups contain sets of radios from which only one option can be selected. 
+ * 
  * @cssprop --jh-radio-group-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-radio-group-required-color-text - The required indicator color. 
  * Defaults to `--jh-color-content-negative-enabled`.
@@ -28,12 +30,25 @@ export class JhRadioGroup extends LitElement {
   static get formAssociated() {
     return true;
   }
+  /** 
+   * @type {JhRadio} 
+   * @ignore
+   */
   #checked;
-  /** @type {?Number} */
+  /** 
+   * @type {number}
+   * @ignore
+   */
   #id;
-  /** @type {ElementInternals} */
+  /**
+   *  @type {ElementInternals}
+   *  @ignore
+   */
   #internals;
-  /** @type {?string} */
+  /** 
+   * @type {?string} 
+   * @ignore
+   */
   #value;
 
   static get styles() {
@@ -135,6 +150,7 @@ export class JhRadioGroup extends LitElement {
        * Provides additional context or guidance for using the radio group. For `helper-text` to be displayed, the `label` property must also be set.
        */
       helperText: {
+        type: String,
         attribute: 'helper-text',
       },
       /** Sets an `aria-invalid` on the radio group to indicate the value supplied was invalid and displays `error-text` when set. */
@@ -178,6 +194,7 @@ export class JhRadioGroup extends LitElement {
   }
   constructor() {
     super();
+    /** @ignore */
     this.#internals = this.attachInternals();
     /** @type {?string} */
     this.accessibleLabel = null;
@@ -185,17 +202,17 @@ export class JhRadioGroup extends LitElement {
     this.errorText = null;
     /** @type {?string} */
     this.helperText = null;
-    /** @type {?Boolean} */
+    /** @type {boolean} */
     this.invalid = false;
     /** @type {?string} */
     this.label = null;
     /** @type {?string} */
     this.name = null;
-    /** @type {?Boolean} */
+    /** @type {boolean} */
     this.required = false;
     /** @type {'vertical'|'horizontal'} */
     this.orientation = 'vertical';
-    /** @type {?boolean} */
+    /** @type {boolean} */
     this.showIndicator = false;
     /** @type {?string} */
     this.value = null;

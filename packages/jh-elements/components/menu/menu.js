@@ -5,6 +5,8 @@
 import { LitElement, css, html } from 'lit';
 
 /**
+ * Menus display lists of choices or actions. This is not a Navigation component.
+ * 
  * @cssprop --jh-menu-z-index - The menu z-index. Defaults to `--jh-z-index-positive-1000`.
  * @cssprop --jh-menu-color-background - The menu container background-color. Defaults to `--jh-color-container-primary-enabled`.
  * @cssprop --jh-menu-shadow - The menu box-shadow. Defaults to `--jh-shadow-high`.
@@ -16,7 +18,7 @@ import { LitElement, css, html } from 'lit';
  * @customElement jh-menu
  */
 export class JhMenu extends LitElement {
-  /** @type {ElementInternals} */
+  /** @ignore */
   #internals;
 
   static get styles() {
@@ -50,7 +52,9 @@ export class JhMenu extends LitElement {
   }
   constructor() {
     super();
+    /** @ignore */
     this.#internals = this.attachInternals();
+    /** @ignore */
     this.#internals.role = 'menu';
   }
   render() {

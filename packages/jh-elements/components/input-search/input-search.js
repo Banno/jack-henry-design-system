@@ -7,7 +7,8 @@ import { JhInput } from '../input/input.js';
 import '@jack-henry/jh-icons/icons-wc/icon-magnifying-glass.js';
 
 /**
- * Input Search
+ * The input search component provides a single-line text field for search queries.
+ * 
  * @customElement jh-input-search
  */
 export class JhInputSearch extends JhInput {

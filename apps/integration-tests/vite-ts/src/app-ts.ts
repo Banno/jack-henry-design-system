@@ -65,9 +65,10 @@ export class AppTs extends LitElement {
   }
 
   render() {
-    let checkbox = document.createElement('jh-checkbox');
+    type Test = HTMLElementTagNameMap['jh-badge'];
+    let checkbox = document.createElement('jh-badge');
     checkbox.label = 'Checkbox created in code';
-    checkbox.max = 50;
+    checkbox.count = 50;
     return html`
       <jh-card>
         <jh-notification appearance type="alert">
@@ -76,7 +77,7 @@ export class AppTs extends LitElement {
         <jh-badge count="5"></jh-badge>
         <div class="groups-flex">
           <jh-checkbox-group label="Checkbox Group">
-            <jh-checkbox label="Checkbox 1" value="1"></jh-checkbox>
+            <jh-checkbox label="Checkbox 1" value="1" ></jh-checkbox>
             <jh-checkbox label="Checkbox 2" value="2"></jh-checkbox>
             <jh-checkbox label="Checkbox 3" value="3"></jh-checkbox>
           </jh-checkbox-group>
@@ -89,12 +90,12 @@ export class AppTs extends LitElement {
         <jh-divider></jh-divider>
         <jh-icon-airplane></jh-icon-airplane>
         <div class="inputs-flex">
-          <jh-input label="Input"></jh-input>
+          <jh-input label="Input" autocomplete="offtt" ></jh-input>
           <jh-input-email label="Email"></jh-input-email>
           <jh-input-password label="Password"></jh-input-password>
           <jh-input-search label="Search"></jh-input-search>
           <jh-input-telephone label="Telephone"></jh-input-telephone>
-          <jh-input-textarea label="Textarea"></jh-input-textarea>
+          <jh-input-textarea label="Textarea" wrap="off"></jh-input-textarea>
           <jh-input-url label="URL"></jh-input-url>
         </div>
         <jh-progress value="50" max="100"></jh-progress>
@@ -118,7 +119,7 @@ export class AppTs extends LitElement {
           <span>Hover me</span>
         </jh-tooltip>
         <div slot="jh-card-footer">
-          <jh-button appearance="danger" label="Button"></jh-button>
+          <jh-button appearance="danger" label="Button" ></jh-button>
         </div>
       </jh-card>
       <jh-menu>
@@ -128,6 +129,7 @@ export class AppTs extends LitElement {
           <jh-list-item>List Item 3</jh-list-item>
         </jh-list-group>
       </jh-menu>
+      <jh-icon></jh-icon>
     `;
   }
 }

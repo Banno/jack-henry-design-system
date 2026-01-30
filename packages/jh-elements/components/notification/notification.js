@@ -7,6 +7,8 @@ import '../button/button.js';
 import '@jack-henry/jh-icons/icons-wc/icon-xmark.js';
 
 /**
+ * The notification component displays information to the user, and supports both alerts and banner type notifications.
+ * 
  * @cssprop --jh-notification-border-radius-alert - The notification border-radius when `type="alert"`. Defaults to `--jh-border-radius-100`.
  * @cssprop --jh-notification-border-radius-banner - The notification border-radius when `type="banner"`. Defaults to `--jh-border-radius-0`.
  * @cssprop --jh-notification-color-background-neutral - The notification background color when `appearance="neutral"`. Defaults to `--jh-color-content-primary-enabled`.
@@ -51,10 +53,12 @@ import '@jack-henry/jh-icons/icons-wc/icon-xmark.js';
  * @cssprop --jh-notification-action-icon-color-fill-hover - The action button(s) icon fill color when hovered. Defaults to `--jh-color-content-on-inverse-hover`.
  * @cssprop --jh-notification-action-icon-color-fill-active - The action button(s) icon fill color when active. Defaults to `--jh-color-content-on-inverse-active`.
  * @cssprop --jh-notification-action-progress-color-border-pending - The action button(s) progress indicator color when pending. Defaults to `--jh-color-content-inverse-enabled`.
+ * 
  * @slot default - Use to insert contextual information.
  * @slot jh-notification-icon - Use to insert a button or icon to the left of the default slot. 
  * @slot jh-notification-dismiss-icon - Use to insert icon within the dismiss button. 
  * @slot jh-notification-action - Use to insert action button(s). Placed to the right of the default slot. Set `stacked` property to place slot below default slot. 
+ * 
  * @event jh-dismiss - Dispatched when the notification is dismissed.
  *
  * @customElement jh-notification
@@ -241,7 +245,7 @@ export class JhNotification extends LitElement {
     super();
     /** @type {'positive'|'neutral'|'negative'} */
     this.appearance = 'neutral';
-    /** @type {string} */
+    /** @type {?string} */
     this.dismissButtonAccessibleLabel = null;
     /** @type {boolean} */
     this.hideDismissButton = false;
@@ -261,6 +265,7 @@ export class JhNotification extends LitElement {
     }   
   }
 
+   /** @ignore */
   #dispatch(name) {
     this.dispatchEvent(
       new CustomEvent(name, {

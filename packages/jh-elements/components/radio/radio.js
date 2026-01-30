@@ -7,6 +7,8 @@ import { LitElement, css, html } from 'lit';
 let id = 0;
 
 /**
+ * Radio buttons, typically presented in radio groups, allow users to select only one option amongst a group of options.
+ * 
  * @cssprop --jh-radio-opacity-disabled - The radio opacity when disabled. Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-radio-input-border-radius - The radio and status mark border-radius.
  * Defaults to `--jh-border-radius-circle`.
@@ -66,9 +68,15 @@ let id = 0;
 
 export class JhRadio extends LitElement {
 
-  /** @type {?Number} */
+  /** 
+   * @type {?Number} 
+   * @ignore
+  */
   #id;
-  /** @type {ElementInternals} */
+  /** 
+   * @type {ElementInternals}
+   * @ignore
+   */
   #internals;
 
   static get styles() {
@@ -321,13 +329,15 @@ export class JhRadio extends LitElement {
 
   constructor() {
     super();
+    /** @ignore */
     this.#internals = this.attachInternals();
+    /** @ignore */
     this.#internals.role = 'radio';
     /** @type {?string} */
     this.accessibleLabel = null;
-    /** @type {?boolean} */
+    /** @type {boolean} */
     this.checked = false;
-    /** @type {?boolean} */
+    /** @type {boolean} */
     this.disabled = false;
     /** @type {?string} */
     this.helperText = null;

@@ -8,6 +8,8 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 let id = 0;
 
 /**
+ * Checkboxes allow users to select one or more options from a group of options.
+ * 
  * @cssprop --jh-checkbox-opacity-disabled - The checkbox opacity when disabled. Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-checkbox-input-border-radius - The checkbox border radius. Defaults to `--jh-border-radius-50`.
  * @cssprop --jh-checkbox-color-focus - The checkbox outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.
@@ -62,15 +64,15 @@ export class JhCheckbox extends LitElement {
   static get formAssociated() {
     return true;
   }
-  /** @type {?Boolean} */
+  /** @type {boolean} */
   #checked;
-  /** @type {?Number} */
+  /** @type {?number} */
   #id;
-  /** @type {?Boolean} */
+  /** @type {boolean} */
   #indeterminate;
   /** @type {ElementInternals} */
   #internals;
-  /** @type {?string} */
+  /** @type {?string}*/
   #value;
 
   static get styles() {
@@ -457,11 +459,11 @@ export class JhCheckbox extends LitElement {
   constructor() {
     super();
     this.#internals = this.attachInternals();
-    /** @type {?boolean} */
+    /** @type {boolean} */
     this.checked = false;
-    /** @type {?boolean} */
+    /** @type {boolean} */
     this.indeterminate = false;
-    /** @type {?boolean} */
+    /** @type {boolean} */
     this.disabled = false;
     /** @type {?string} */
     this.label = null;
@@ -487,14 +489,12 @@ export class JhCheckbox extends LitElement {
   get form() {
     return this.#internals.form;
   }
-
-  /** @ignore */
+  /** @type {ValidityState} */
   get validity() {
     return this.#internals.validity;
   }
-
   /** @type {?string} */
-  get value() {
+    get value() {
     return this.#value;
   }
 
@@ -506,8 +506,7 @@ export class JhCheckbox extends LitElement {
     }
     this.requestUpdate('value', oldValue);
   }
-
-  /** @type {?Boolean} */
+  /** @type {boolean} */  
   get checked() {
     return this.#checked;
   }
@@ -520,8 +519,7 @@ export class JhCheckbox extends LitElement {
     }
     this.requestUpdate('checked', oldValue);
   }
-
-  /** @type {?Boolean} */
+  /** @type {boolean} */
   get indeterminate() {
     return this.#indeterminate;
   }

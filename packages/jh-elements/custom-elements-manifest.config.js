@@ -19,6 +19,33 @@ export default {
       hideCssPropertiesDocs: true,
       hideEventDocs: true,
       hideSlotDocs: true,
-    })
-  ],
+    }),
+    {
+  name: 'filter-private-members',
+  packageLinkPhase({ customElementsManifest }) {
+    customElementsManifest.modules?.forEach(module => {
+      module.declarations?.forEach(declaration => {
+        if (declaration.members) {
+          declaration.members = declaration.members.filter(member => {
+            // 1. Standard privacy check
+            if (member.privacy === 'private' || member.privacy === 'protected') return false;
+            
+            // 2. Filter native private names
+            if (member.name?.startsWith('#')) return false;
+
+            // 3. Specific fix for leaked ElementInternals properties
+            // If 'role' is appearing as a field but we aren't explicitly 
+            // exposing it as a public property, we remove it.
+            if (member.name === 'role' && member.privacy !== 'public') {
+               return false; 
+            }
+
+            return true;
+          });
+        }
+      });
+    });
+  }
+}
+  ]
 }

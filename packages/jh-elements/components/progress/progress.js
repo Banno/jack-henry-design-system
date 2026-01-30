@@ -6,18 +6,25 @@ import { LitElement, css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
+ * A progress indicator provides feedback to a user regarding loading and waiting states.
+ * 
  * @cssprop --jh-progress-label-color - The label text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-progress-value-color - The value text color. Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-progress-track-color - The track color. Defaults to `--jh-color-control-enabled`.
  * @cssprop --jh-progress-track-border-radius - The track border-radius. Defaults to `--jh-border-radius-50`.
  * @cssprop --jh-progress-indicator-color - The indicator color. Defaults to `--jh-color-content-brand-enabled`.
+ * 
  * @customElement jh-progress
  */
 export class JhProgress extends LitElement {
-  /** @type {ElementInternals} */
+  /**
+   * @ignore
+   *  @type {ElementInternals} */
   #internals;
 
-  /** @type {string} */
+  /** 
+   * @ignore
+   * @type {string} */
   #label;
 
   static get styles() {
@@ -202,8 +209,9 @@ export class JhProgress extends LitElement {
 
   constructor() {
     super();
+    /** @ignore */
     this.#internals = this.attachInternals();
-    /** @type {Boolean} */
+    /** @type {boolean} */
     this.indeterminate = false;
     /** @type {?string} */
     this.label = null;
@@ -211,7 +219,7 @@ export class JhProgress extends LitElement {
     this.size = 'medium';
     /** @type {'linear'|'circular'} */
     this.type = 'linear';
-    /** @type {Boolean} */
+    /** @type {boolean} */
     this.hideValue = false;
     /** @type {?string} */
     this.#internals.ariaLabel;

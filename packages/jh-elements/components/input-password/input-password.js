@@ -8,8 +8,11 @@ import '@jack-henry/jh-icons/icons-wc/icon-eye-slash.js';
 import '@jack-henry/jh-icons/icons-wc/icon-eye.js';
 
 /**
+ * The input password component provides a single-line text field that includes a toggle password button, allowing users to mask and unmask the input value.
+ * 
  * @slot jh-input-password-hidden - Use to insert a custom icon within the toggle password button when the input value is masked. 
  * @slot jh-input-password-visible - Use to insert a custom icon within the toggle password button when the input value is unmasked.
+ * 
  * @customElement jh-input-password
  */
 export class JhInputPassword extends JhInput {

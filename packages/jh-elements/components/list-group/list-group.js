@@ -7,6 +7,8 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 
 let id = 0;
 /**
+ * The list group component is a container used to group together list items within a list.
+ * 
  * @cssprop --jh-list-group-subheader-color-background - The subheader background-color.
  * Defaults to `transparent`.
  * @cssprop --jh-list-group-subheader-color-text - The subheader text color.
@@ -20,7 +22,7 @@ let id = 0;
  * @customElement jh-list-group
  */
 export class JhListGroup extends LitElement {
-  /** @type {?Number} */
+  /** @ignore */
   #id;
 
   static get styles() {

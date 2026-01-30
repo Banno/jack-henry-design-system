@@ -160,6 +160,117 @@
           }
         },
         {
+          "name": "jh-checkbox",
+          "description": "Checkboxes allow users to select one or more options from a group of options.\n---\n",
+          "doc-url": "",
+          "attributes": [
+            {
+              "name": "checked",
+              "description": "Sets the selected or 'checked' state on the checkbox.",
+              "value": { "type": "boolean", "default": "false" }
+            },
+            {
+              "name": "indeterminate",
+              "description": "Sets the indeterminate state on the checkbox.",
+              "value": { "type": "boolean", "default": "false" }
+            },
+            {
+              "name": "disabled",
+              "description": "Disables the checkbox and prevents all user interactions. May cause checkbox to be ignored by assistive technologies(AT).",
+              "value": { "type": "boolean", "default": "false" }
+            },
+            {
+              "name": "label",
+              "description": "Sets the value of the data to be collected when selected.",
+              "value": { "type": "?string", "default": "null" }
+            },
+            {
+              "name": "helper-text",
+              "description": "Provides additional context or guidance for using the checkbox. For `helper-text` to be displayed, the `label` property must also be set.",
+              "value": { "type": "?string", "default": "null" }
+            },
+            {
+              "name": "name",
+              "description": "Sets the name of the checkbox data when submitted in a form.",
+              "value": { "type": "?string", "default": "null" }
+            },
+            {
+              "name": "value",
+              "description": "Sets the value of the checkbox.",
+              "value": { "type": "?string", "default": "null" }
+            },
+            {
+              "name": "accessible-label",
+              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+              "value": { "type": "?string", "default": "null" }
+            }
+          ],
+          "events": [
+            {
+              "name": "jh-change",
+              "type": "CustomEvent",
+              "description": "Dispatched when the state of the checkbox has changed."
+            }
+          ],
+          "js": {
+            "properties": [
+              {
+                "name": "form",
+                "description": "Returns the checkbox's parent form element.",
+                "type": "?HTMLFormElement"
+              },
+              { "name": "validity", "type": "?ValidityState" },
+              {
+                "name": "value",
+                "description": "Sets the value of the checkbox.",
+                "type": "?string"
+              },
+              {
+                "name": "checked",
+                "description": "Sets the selected or 'checked' state on the checkbox.",
+                "type": "boolean"
+              },
+              {
+                "name": "indeterminate",
+                "description": "Sets the indeterminate state on the checkbox.",
+                "type": "boolean"
+              },
+              {
+                "name": "disabled",
+                "description": "Disables the checkbox and prevents all user interactions. May cause checkbox to be ignored by assistive technologies(AT).",
+                "type": "boolean"
+              },
+              {
+                "name": "label",
+                "description": "Sets the value of the data to be collected when selected.",
+                "type": "?string"
+              },
+              {
+                "name": "helperText",
+                "description": "Provides additional context or guidance for using the checkbox. For `helper-text` to be displayed, the `label` property must also be set.",
+                "type": "?string"
+              },
+              {
+                "name": "name",
+                "description": "Sets the name of the checkbox data when submitted in a form.",
+                "type": "?string"
+              },
+              {
+                "name": "accessibleLabel",
+                "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+                "type": "?string"
+              }
+            ],
+            "events": [
+              {
+                "name": "jh-change",
+                "type": "CustomEvent",
+                "description": "Dispatched when the state of the checkbox has changed."
+              }
+            ]
+          }
+        },
+        {
           "name": "jh-button",
           "description": "Buttons enable a user to initiate a specific action.\n---\n",
           "doc-url": "",
@@ -328,116 +439,6 @@
           }
         },
         {
-          "name": "jh-checkbox",
-          "description": "Checkboxes allow users to select one or more options from a group of options.\n---\n",
-          "doc-url": "",
-          "attributes": [
-            {
-              "name": "checked",
-              "description": "Sets the selected or 'checked' state on the checkbox.",
-              "value": { "type": "boolean", "default": "false" }
-            },
-            {
-              "name": "indeterminate",
-              "description": "Sets the indeterminate state on the checkbox.",
-              "value": { "type": "boolean", "default": "false" }
-            },
-            {
-              "name": "disabled",
-              "description": "Disables the checkbox and prevents all user interactions. May cause checkbox to be ignored by assistive technologies(AT).",
-              "value": { "type": "boolean", "default": "false" }
-            },
-            {
-              "name": "label",
-              "description": "Sets the value of the data to be collected when selected.",
-              "value": { "type": "?string", "default": "null" }
-            },
-            {
-              "name": "helper-text",
-              "description": "Provides additional context or guidance for using the checkbox. For `helper-text` to be displayed, the `label` property must also be set.",
-              "value": { "type": "?string", "default": "null" }
-            },
-            {
-              "name": "name",
-              "description": "Sets the name of the checkbox data when submitted in a form.",
-              "value": { "type": "?string", "default": "null" }
-            },
-            {
-              "name": "value",
-              "description": "Sets the value of the checkbox.",
-              "value": { "type": "?string", "default": "null" }
-            },
-            {
-              "name": "accessible-label",
-              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-              "value": { "type": "?string", "default": "null" }
-            }
-          ],
-          "events": [
-            {
-              "name": "jh-change",
-              "type": "CustomEvent",
-              "description": "Dispatched when the state of the checkbox has changed."
-            }
-          ],
-          "js": {
-            "properties": [
-              {
-                "name": "form",
-                "description": "Returns the checkbox's parent form element.",
-                "type": "?HTMLFormElement"
-              },
-              {
-                "name": "value",
-                "description": "Sets the value of the checkbox.",
-                "type": "?string"
-              },
-              {
-                "name": "checked",
-                "description": "Sets the selected or 'checked' state on the checkbox.",
-                "type": "boolean"
-              },
-              {
-                "name": "indeterminate",
-                "description": "Sets the indeterminate state on the checkbox.",
-                "type": "boolean"
-              },
-              {
-                "name": "disabled",
-                "description": "Disables the checkbox and prevents all user interactions. May cause checkbox to be ignored by assistive technologies(AT).",
-                "type": "boolean"
-              },
-              {
-                "name": "label",
-                "description": "Sets the value of the data to be collected when selected.",
-                "type": "?string"
-              },
-              {
-                "name": "helperText",
-                "description": "Provides additional context or guidance for using the checkbox. For `helper-text` to be displayed, the `label` property must also be set.",
-                "type": "?string"
-              },
-              {
-                "name": "name",
-                "description": "Sets the name of the checkbox data when submitted in a form.",
-                "type": "?string"
-              },
-              {
-                "name": "accessibleLabel",
-                "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-                "type": "?string"
-              }
-            ],
-            "events": [
-              {
-                "name": "jh-change",
-                "type": "CustomEvent",
-                "description": "Dispatched when the state of the checkbox has changed."
-              }
-            ]
-          }
-        },
-        {
           "name": "jh-checkbox-group",
           "description": "Checkbox groups contain sets of checkboxes where several options can be selected.\n---\n",
           "doc-url": "",
@@ -540,6 +541,32 @@
           }
         },
         {
+          "name": "jh-divider",
+          "description": "Dividers are used to group content vertically at the page or component level and should be used when whitespace does not provide a clear enough separation.\n---\n",
+          "doc-url": "",
+          "attributes": [
+            {
+              "name": "inset",
+              "description": "The alignment of the left edge of the divider.",
+              "value": {
+                "type": "0|8|16|24|32|40|48|56|64|72|80|88|96|null",
+                "default": "null"
+              }
+            }
+          ],
+          "events": [],
+          "js": {
+            "properties": [
+              {
+                "name": "inset",
+                "description": "The alignment of the left edge of the divider.",
+                "type": "0|8|16|24|32|40|48|56|64|72|80|88|96|null"
+              }
+            ],
+            "events": []
+          }
+        },
+        {
           "name": "jh-icon",
           "description": "The icon component provides authors with a means to use their own SVG icons while still enabling access\nto our design tokens, encouraging consistency across your product. In addition to the icon component, Jack Henry \nalso maintains a robust icon library available as raw SVGs and as discrete web components, with each component \nutilizing our design tokens.\n---\n",
           "doc-url": "",
@@ -562,36 +589,12 @@
           "events": [],
           "js": {
             "properties": [
+              { "name": "role", "type": "string" },
+              { "name": "ariaHidden", "type": "string" },
               {
                 "name": "size",
                 "description": "Sets the size of the icon.",
                 "type": "'x-small'|'small'|'medium'|'large'|'x-large'"
-              }
-            ],
-            "events": []
-          }
-        },
-        {
-          "name": "jh-divider",
-          "description": "Dividers are used to group content vertically at the page or component level and should be used when whitespace does not provide a clear enough separation.\n---\n",
-          "doc-url": "",
-          "attributes": [
-            {
-              "name": "inset",
-              "description": "The alignment of the left edge of the divider.",
-              "value": {
-                "type": "0|8|16|24|32|40|48|56|64|72|80|88|96|null",
-                "default": "null"
-              }
-            }
-          ],
-          "events": [],
-          "js": {
-            "properties": [
-              {
-                "name": "inset",
-                "description": "The alignment of the left edge of the divider.",
-                "type": "0|8|16|24|32|40|48|56|64|72|80|88|96|null"
               }
             ],
             "events": []
@@ -761,6 +764,11 @@
           ],
           "js": {
             "properties": [
+              {
+                "name": "form",
+                "description": "Returns the input's parent form element.",
+                "type": "?HTMLFormElement"
+              },
               {
                 "name": "value",
                 "description": "Sets the value of the input.",
@@ -1067,6 +1075,11 @@
           ],
           "js": {
             "properties": [
+              {
+                "name": "form",
+                "description": "Returns the input's parent form element.",
+                "type": "?HTMLFormElement"
+              },
               {
                 "name": "value",
                 "description": "Sets the value of the input.",
@@ -1417,6 +1430,11 @@
                 "type": "boolean"
               },
               {
+                "name": "form",
+                "description": "Returns the input's parent form element.",
+                "type": "?HTMLFormElement"
+              },
+              {
                 "name": "value",
                 "description": "Sets the value of the input.",
                 "type": "?string"
@@ -1717,6 +1735,11 @@
           ],
           "js": {
             "properties": [
+              {
+                "name": "form",
+                "description": "Returns the input's parent form element.",
+                "type": "?HTMLFormElement"
+              },
               {
                 "name": "value",
                 "description": "Sets the value of the input.",
@@ -2023,6 +2046,11 @@
           ],
           "js": {
             "properties": [
+              {
+                "name": "form",
+                "description": "Returns the input's parent form element.",
+                "type": "?HTMLFormElement"
+              },
               {
                 "name": "value",
                 "description": "Sets the value of the input.",
@@ -2390,6 +2418,11 @@
                 "type": "boolean"
               },
               {
+                "name": "form",
+                "description": "Returns the input's parent form element.",
+                "type": "?HTMLFormElement"
+              },
+              {
                 "name": "value",
                 "description": "Sets the value of the input.",
                 "type": "?string"
@@ -2686,6 +2719,11 @@
           "js": {
             "properties": [
               {
+                "name": "form",
+                "description": "Returns the input's parent form element.",
+                "type": "?HTMLFormElement"
+              },
+              {
                 "name": "value",
                 "description": "Sets the value of the input.",
                 "type": "?string"
@@ -2940,6 +2978,7 @@
           "events": [],
           "js": {
             "properties": [
+              { "name": "role", "type": "string" },
               {
                 "name": "disabled",
                 "description": "Disables the list-item and prevents all user interactions. May cause list-item to be ignored by assistive technologies(AT).",
@@ -2993,7 +3032,10 @@
             { "name": "default", "description": "Use to insert menu items." }
           ],
           "events": [],
-          "js": { "properties": [], "events": [] }
+          "js": {
+            "properties": [{ "name": "role", "type": "string" }],
+            "events": []
+          }
         },
         {
           "name": "jh-notification",
@@ -3253,6 +3295,7 @@
           ],
           "js": {
             "properties": [
+              { "name": "role", "type": "string" },
               {
                 "name": "accessibleLabel",
                 "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
@@ -3372,6 +3415,7 @@
                 "description": "Returns the radio group's parent form element.",
                 "type": "?HTMLFormElement"
               },
+              { "name": "validity", "type": "ValidityState" },
               {
                 "name": "value",
                 "description": "Sets the value of the radio group.",
@@ -3440,7 +3484,7 @@
             {
               "name": "accessible-disabled",
               "description": "Sets an `aria-disabled` to signify to screen readers that the disabled switch should remain perceivable while disabled.",
-              "value": { "type": "'true'|'false'", "default": "null" }
+              "value": { "type": "'true'|'false'|null", "default": "null" }
             },
             {
               "name": "accessible-label",
@@ -3450,12 +3494,12 @@
             {
               "name": "checked",
               "description": "Sets the selected or 'checked' state on the switch",
-              "value": { "type": "?boolean", "default": "false" }
+              "value": { "type": "boolean", "default": "false" }
             },
             {
               "name": "disabled",
               "description": "Disables the switch and prevents all user interactions. May cause switch to be ignored by assistive technologies(AT). See `accessible-disabled` if switch should remain perceivable to AT.",
-              "value": { "type": "?boolean", "default": "false" }
+              "value": { "type": "boolean", "default": "false" }
             },
             {
               "name": "helper-text",
@@ -3480,7 +3524,7 @@
               {
                 "name": "accessibleDisabled",
                 "description": "Sets an `aria-disabled` to signify to screen readers that the disabled switch should remain perceivable while disabled.",
-                "type": "'true'|'false'"
+                "type": "'true'|'false'|null"
               },
               {
                 "name": "accessibleLabel",
@@ -3490,12 +3534,12 @@
               {
                 "name": "checked",
                 "description": "Sets the selected or 'checked' state on the switch",
-                "type": "?boolean"
+                "type": "boolean"
               },
               {
                 "name": "disabled",
                 "description": "Disables the switch and prevents all user interactions. May cause switch to be ignored by assistive technologies(AT). See `accessible-disabled` if switch should remain perceivable to AT.",
-                "type": "?boolean"
+                "type": "boolean"
               },
               {
                 "name": "helperText",
@@ -3519,7 +3563,7 @@
         },
         {
           "name": "jh-table",
-          "description": "Table\n---\n",
+          "description": "The table is used to display tabular data. It is made up of several subcomponents and slots to produce an enhanced version of the native html table. It also provides hooks for sorting.\n---\n",
           "doc-url": "",
           "attributes": [
             {
@@ -3533,7 +3577,7 @@
             {
               "name": "striped",
               "description": "Applies alternating background colors to rows.",
-              "value": { "type": "Boolean", "default": "false" }
+              "value": { "type": "boolean", "default": "false" }
             },
             {
               "name": "padding",
@@ -3543,22 +3587,22 @@
             {
               "name": "accessible-label",
               "description": "Sets an `aria-label` to assist screen reader users when no visible caption is present.",
-              "value": { "type": "String", "default": "null" }
+              "value": { "type": "?string", "default": "null" }
             },
             {
               "name": "sticky-header",
               "description": "Allows the header row to remain visible while scrolling.",
-              "value": { "type": "Boolean", "default": "false" }
+              "value": { "type": "boolean", "default": "false" }
             },
             {
               "name": "sticky-footer",
               "description": "Allows the footer row to remain visible while scrolling.",
-              "value": { "type": "Boolean", "default": "false" }
+              "value": { "type": "boolean", "default": "false" }
             },
             {
               "name": "scrollable",
               "description": "Makes the table horizontally scrollable on smaller screens.",
-              "value": { "type": "Boolean", "default": "false" }
+              "value": { "type": "boolean", "default": "false" }
             }
           ],
           "slots": [
@@ -3595,7 +3639,7 @@
               {
                 "name": "striped",
                 "description": "Applies alternating background colors to rows.",
-                "type": "Boolean"
+                "type": "boolean"
               },
               {
                 "name": "padding",
@@ -3605,52 +3649,22 @@
               {
                 "name": "accessibleLabel",
                 "description": "Sets an `aria-label` to assist screen reader users when no visible caption is present.",
-                "type": "String"
+                "type": "?string"
               },
               {
                 "name": "stickyHeader",
                 "description": "Allows the header row to remain visible while scrolling.",
-                "type": "Boolean"
+                "type": "boolean"
               },
               {
                 "name": "stickyFooter",
                 "description": "Allows the footer row to remain visible while scrolling.",
-                "type": "Boolean"
+                "type": "boolean"
               },
               {
                 "name": "scrollable",
                 "description": "Makes the table horizontally scrollable on smaller screens.",
-                "type": "Boolean"
-              }
-            ],
-            "events": []
-          }
-        },
-        {
-          "name": "jh-table-cell",
-          "description": "Table Cell\n---\n",
-          "doc-url": "",
-          "attributes": [
-            {
-              "name": "horizontal-align",
-              "description": "Sets the horizontal alignment of the content.",
-              "value": {
-                "type": "'left' | 'center' | 'right'",
-                "default": "'left'"
-              }
-            }
-          ],
-          "slots": [
-            { "name": "default", "description": "Use to insert content." }
-          ],
-          "events": [],
-          "js": {
-            "properties": [
-              { "name": "role", "type": "string" },
-              {
-                "name": "horizontalAlign",
-                "description": "Sets the horizontal alignment of the content.",
-                "type": "'left' | 'center' | 'right'"
+                "type": "boolean"
               }
             ],
             "events": []
@@ -3658,7 +3672,7 @@
         },
         {
           "name": "jh-table-header-cell",
-          "description": "Table Header Cell\n---\n",
+          "description": "The table header cell is used to display a column header. It should be placed inside a `<jh-table-row>` and contains text. Hooks for sorting and a sorting icon are also provided.\n---\n",
           "doc-url": "",
           "attributes": [
             {
@@ -3737,14 +3751,44 @@
           }
         },
         {
+          "name": "jh-table-data-cell",
+          "description": "The table data cell is used to display one cell of table data. Table data cells can contain text or other content and have to be placed inside `<jh-table-row>`s.\n---\n",
+          "doc-url": "",
+          "attributes": [
+            {
+              "name": "horizontal-align",
+              "description": "Sets the horizontal alignment of the content.",
+              "value": {
+                "type": "'left' | 'center' | 'right'",
+                "default": "'left'"
+              }
+            }
+          ],
+          "slots": [
+            { "name": "default", "description": "Use to insert content." }
+          ],
+          "events": [],
+          "js": {
+            "properties": [
+              { "name": "role", "type": "string" },
+              {
+                "name": "horizontalAlign",
+                "description": "Sets the horizontal alignment of the content.",
+                "type": "'left' | 'center' | 'right'"
+              }
+            ],
+            "events": []
+          }
+        },
+        {
           "name": "jh-table-row",
-          "description": "Table Row\n---\n",
+          "description": "The table row is used to display one row of table data. It contains `<jh-table-data-cell>` or `<jh-table-header-cell>` components.\n---\n",
           "doc-url": "",
           "attributes": [],
           "slots": [
             {
               "name": "default",
-              "description": "Use to insert `<jh-table-data-cell>`s or `<jh-table-header-cell>`s."
+              "description": "Use to insert `<jh-table-data-cell>` or `<jh-table-header-cell>` components."
             }
           ],
           "events": [],
@@ -3755,7 +3799,7 @@
         },
         {
           "name": "jh-tag",
-          "description": "Tag\n---\n",
+          "description": "A tag contains a string of text on a colorful background and is used to categorize, describe or otherwise identify elements on the page.\n---\n",
           "doc-url": "",
           "attributes": [
             {
@@ -3771,7 +3815,7 @@
             {
               "name": "dismissible",
               "description": "Adds a dismiss button to tag. See `remove-on-dismiss` attribute for tag removal.",
-              "value": { "type": "?Boolean", "default": "false" }
+              "value": { "type": "boolean", "default": "false" }
             },
             {
               "name": "tooltip-label",
@@ -3796,7 +3840,7 @@
             {
               "name": "remove-on-dismiss",
               "description": "Removes the tag after the dismiss button is activated.",
-              "value": { "type": "?Boolean", "default": "false" }
+              "value": { "type": "boolean", "default": "false" }
             }
           ],
           "slots": [
@@ -3826,7 +3870,7 @@
               {
                 "name": "dismissible",
                 "description": "Adds a dismiss button to tag. See `remove-on-dismiss` attribute for tag removal.",
-                "type": "?Boolean"
+                "type": "boolean"
               },
               {
                 "name": "dismissButtonAccessibleLabel",
@@ -3856,7 +3900,7 @@
               {
                 "name": "removeOnDismiss",
                 "description": "Removes the tag after the dismiss button is activated.",
-                "type": "?Boolean"
+                "type": "boolean"
               }
             ],
             "events": [
@@ -3869,8 +3913,38 @@
           }
         },
         {
+          "name": "jh-tag-group",
+          "description": "A tag group is used to group `<jh-tag>` components to provide layout and alignment support.\n---\n",
+          "doc-url": "",
+          "attributes": [
+            {
+              "name": "alignment",
+              "description": "Sets the alignment of the tags.",
+              "value": { "type": "'start'| 'end'", "default": "'start'" }
+            }
+          ],
+          "slots": [
+            {
+              "name": "default",
+              "description": "Use to insert `<jh-tag>` component(s)."
+            }
+          ],
+          "events": [],
+          "js": {
+            "properties": [
+              { "name": "role", "type": "string" },
+              {
+                "name": "alignment",
+                "description": "Sets the alignment of the tags.",
+                "type": "'start'| 'end'"
+              }
+            ],
+            "events": []
+          }
+        },
+        {
           "name": "jh-toast",
-          "description": "\n---\n",
+          "description": "The toast component displays a message that informs users on the outcome of an action. They are temporary by default, but can be modified to remain when needed.\n---\n",
           "doc-url": "",
           "attributes": [
             {
@@ -3884,7 +3958,7 @@
             {
               "name": "dismiss-button-accessible-label",
               "description": "Adds an aria-label to the dismiss button to assist screen readers.",
-              "value": { "type": "string", "default": "null" }
+              "value": { "type": "?string", "default": "null" }
             },
             {
               "name": "hide-dismiss-button",
@@ -3942,7 +4016,7 @@
               {
                 "name": "dismissButtonAccessibleLabel",
                 "description": "Adds an aria-label to the dismiss button to assist screen readers.",
-                "type": "string"
+                "type": "?string"
               },
               {
                 "name": "hideDismissButton",
@@ -3965,38 +4039,8 @@
           }
         },
         {
-          "name": "jh-tag-group",
-          "description": "Tag Group\n---\n",
-          "doc-url": "",
-          "attributes": [
-            {
-              "name": "alignment",
-              "description": "Sets the alignment of the tags.",
-              "value": { "type": "'start'| 'end'", "default": "'start'" }
-            }
-          ],
-          "slots": [
-            {
-              "name": "default",
-              "description": "Use to insert `<jh-tag>` component(s)."
-            }
-          ],
-          "events": [],
-          "js": {
-            "properties": [
-              { "name": "role", "type": "string" },
-              {
-                "name": "alignment",
-                "description": "Sets the alignment of the tags.",
-                "type": "'start'| 'end'"
-              }
-            ],
-            "events": []
-          }
-        },
-        {
           "name": "jh-toast-controller",
-          "description": "\n---\n",
+          "description": "The toast controller component manages multiple toasts. Toasts can be generated and appended to the controller either by a DOM based method or an event based method.\n---\n",
           "doc-url": "",
           "attributes": [
             {
@@ -4047,13 +4091,13 @@
         },
         {
           "name": "jh-tooltip",
-          "description": "\n---\n",
+          "description": "Tooltips are floating components that appears when a user hovers or focuses onto an originating element \nsuch as a button, icon or link. They display additional information about the originating element which is not \ncritical in nature.\n---\n",
           "doc-url": "",
           "attributes": [
             {
               "name": "flip-disabled",
               "description": "Determines whether the tooltip flips to a different position when it reaches the edge of the viewport.",
-              "value": { "type": "?Boolean", "default": "false" }
+              "value": { "type": "boolean", "default": "false" }
             },
             {
               "name": "label",
@@ -4063,12 +4107,12 @@
             {
               "name": "open",
               "description": "Determines whether the tooltip is open or closed. Can be set on the tooltip to force it open.",
-              "value": { "type": "?Boolean", "default": "false" }
+              "value": { "type": "boolean", "default": "false" }
             },
             {
               "name": "position",
               "description": "The position of the tooltip and its arrow.",
-              "value": { "type": "?string", "default": "'top-center'" }
+              "value": { "type": "string", "default": "'top-center'" }
             }
           ],
           "slots": [
@@ -4083,7 +4127,7 @@
               {
                 "name": "flipDisabled",
                 "description": "Determines whether the tooltip flips to a different position when it reaches the edge of the viewport.",
-                "type": "?Boolean"
+                "type": "boolean"
               },
               {
                 "name": "label",
@@ -4093,12 +4137,12 @@
               {
                 "name": "open",
                 "description": "Determines whether the tooltip is open or closed. Can be set on the tooltip to force it open.",
-                "type": "?Boolean"
+                "type": "boolean"
               },
               {
                 "name": "position",
                 "description": "The position of the tooltip and its arrow.",
-                "type": "?string"
+                "type": "string"
               }
             ],
             "events": []
@@ -4171,6 +4215,186 @@
         {
           "name": "--jh-card-header-subtitle-color-text",
           "description": "The header subtitle text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-opacity-disabled",
+          "description": "The checkbox opacity when disabled. Defaults to `--jh-opacity-disabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-border-radius",
+          "description": "The checkbox border radius. Defaults to `--jh-border-radius-50`."
+        },
+        {
+          "name": "--jh-checkbox-color-focus",
+          "description": "The checkbox outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
+        },
+        {
+          "name": "--jh-checkbox-helper-color-text",
+          "description": "The helper text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-label-color-text",
+          "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-unselected-enabled",
+          "description": "The checkbox background-color when unselected. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-unselected-enabled",
+          "description": "The checkbox border-color when unselected. Defaults to `--jh-border-control-color`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-unselected-focus",
+          "description": "The checkbox background-color when unselected and focused. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-unselected-focus",
+          "description": "The checkbox border-color when unselected and focused. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-unselected-hover",
+          "description": "The checkbox background-color when unselected and hovered. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-unselected-hover",
+          "description": "The checkbox border-color when unselected and hovered. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-unselected-active",
+          "description": "The checkbox background-color when unselected and active. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-unselected-active",
+          "description": "The checkbox border-color when unselected and active. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-unselected-disabled",
+          "description": "The  checkbox background-color when unselected and disabled. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-unselected-disabled",
+          "description": "The checkbox border-color when unselected and disabled. Defaults to `--jh-border-control-color`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-selected-enabled",
+          "description": "The checkbox background-color when selected. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-selected-enabled",
+          "description": "The checkbox border-color when selected. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-selected-enabled",
+          "description": "The status mark color when selected. Defaults to `--jh-color-content-on-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-selected-focus",
+          "description": "The checkbox background-color when selected and focused. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-selected-focus",
+          "description": "The checkbox border-color when selected and focused. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-selected-focus",
+          "description": "The status mark color when selected and focused. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-selected-hover",
+          "description": "The checkbox background-color when selected and hovered. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-selected-hover",
+          "description": "The checkbox border-color when selected and hovered. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-selected-hover",
+          "description": "The status mark color when selected and hovered. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-selected-active",
+          "description": "The checkbox background-color when selected and active. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-selected-active",
+          "description": "The checkbox border-color when selected and active. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-selected-active",
+          "description": "The status mark color when selected and active. Defaults to `--jh-color-content-on-brand-active`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-selected-disabled",
+          "description": "The checkbox background-color when selected and disabled. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-selected-disabled",
+          "description": "The checkbox border-color when selected and disabled. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-selected-disabled",
+          "description": "The status mark color when selected and disabled. Defaults to `--jh-color-content-on-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-indeterminate-enabled",
+          "description": "The checkbox background-color when indeterminate. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-indeterminate-enabled",
+          "description": "The border-color when indeterminate checkbox. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-indeterminate-enabled",
+          "description": "The status mark color when indeterminate. Defaults to `--jh-color-content-on-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-indeterminate-focus",
+          "description": "The checkbox background-color when indeterminate and focused. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-indeterminate-focus",
+          "description": "The checkbox border-color when indeterminate and focused. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-indeterminate-focus",
+          "description": "The checkbox color when indeterminate status mark when focused. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-indeterminate-hover",
+          "description": "The checkbox background-color when indeterminate and hovered. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-indeterminate-hover",
+          "description": "The checkbox border-color when indeterminate and hovered. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-indeterminate-hover",
+          "description": "The checkbox color when indeterminate status mark when hovered. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-indeterminate-active",
+          "description": "The checkbox background-color when indeterminate and active. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-indeterminate-active",
+          "description": "The checkbox border-color when indeterminate and active. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-indeterminate-active",
+          "description": "The checkbox color when indeterminate status mark when active. Defaults to `--jh-color-content-on-brand-active`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-indeterminate-disabled",
+          "description": "The checkbox background-color when indeterminate and disabled. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-indeterminate-disabled",
+          "description": "The checkbox border-color when indeterminate and disabled. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-indeterminate-disabled",
+          "description": "The checkbox color when indeterminate status mark when disabled. Defaults to `--jh-color-content-on-brand-enabled`."
         },
         {
           "name": "--jh-button-color-background-primary-enabled",
@@ -4557,186 +4781,6 @@
           "description": "The button width when no label is set, and the button height. Button width and height defaults to `--jh-dimension-1000` when `size=\"small\"`, `--jh-dimension-1200` when `size=\"medium\"`, and `--jh-dimension-1400` when `size=\"large\"`."
         },
         {
-          "name": "--jh-checkbox-opacity-disabled",
-          "description": "The checkbox opacity when disabled. Defaults to `--jh-opacity-disabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-border-radius",
-          "description": "The checkbox border radius. Defaults to `--jh-border-radius-50`."
-        },
-        {
-          "name": "--jh-checkbox-color-focus",
-          "description": "The checkbox outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
-        },
-        {
-          "name": "--jh-checkbox-helper-color-text",
-          "description": "The helper text color. Defaults to `--jh-color-content-secondary-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-label-color-text",
-          "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-unselected-enabled",
-          "description": "The checkbox background-color when unselected. Defaults to `--jh-color-container-primary-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-unselected-enabled",
-          "description": "The checkbox border-color when unselected. Defaults to `--jh-border-control-color`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-unselected-focus",
-          "description": "The checkbox background-color when unselected and focused. Defaults to `--jh-color-container-primary-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-unselected-focus",
-          "description": "The checkbox border-color when unselected and focused. Defaults to `--jh-color-content-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-unselected-hover",
-          "description": "The checkbox background-color when unselected and hovered. Defaults to `--jh-color-container-primary-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-unselected-hover",
-          "description": "The checkbox border-color when unselected and hovered. Defaults to `--jh-color-content-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-unselected-active",
-          "description": "The checkbox background-color when unselected and active. Defaults to `--jh-color-container-primary-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-unselected-active",
-          "description": "The checkbox border-color when unselected and active. Defaults to `--jh-color-content-brand-active`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-unselected-disabled",
-          "description": "The  checkbox background-color when unselected and disabled. Defaults to `--jh-color-container-primary-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-unselected-disabled",
-          "description": "The checkbox border-color when unselected and disabled. Defaults to `--jh-border-control-color`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-selected-enabled",
-          "description": "The checkbox background-color when selected. Defaults to `--jh-color-content-brand-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-selected-enabled",
-          "description": "The checkbox border-color when selected. Defaults to `--jh-color-content-brand-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-status-color-border-selected-enabled",
-          "description": "The status mark color when selected. Defaults to `--jh-color-content-on-brand-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-selected-focus",
-          "description": "The checkbox background-color when selected and focused. Defaults to `--jh-color-content-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-selected-focus",
-          "description": "The checkbox border-color when selected and focused. Defaults to `--jh-color-content-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-status-color-border-selected-focus",
-          "description": "The status mark color when selected and focused. Defaults to `--jh-color-content-on-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-selected-hover",
-          "description": "The checkbox background-color when selected and hovered. Defaults to `--jh-color-content-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-selected-hover",
-          "description": "The checkbox border-color when selected and hovered. Defaults to `--jh-color-content-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-status-color-border-selected-hover",
-          "description": "The status mark color when selected and hovered. Defaults to `--jh-color-content-on-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-selected-active",
-          "description": "The checkbox background-color when selected and active. Defaults to `--jh-color-content-brand-active`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-selected-active",
-          "description": "The checkbox border-color when selected and active. Defaults to `--jh-color-content-brand-active`."
-        },
-        {
-          "name": "--jh-checkbox-status-color-border-selected-active",
-          "description": "The status mark color when selected and active. Defaults to `--jh-color-content-on-brand-active`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-selected-disabled",
-          "description": "The checkbox background-color when selected and disabled. Defaults to `--jh-color-content-brand-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-selected-disabled",
-          "description": "The checkbox border-color when selected and disabled. Defaults to `--jh-color-content-brand-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-status-color-border-selected-disabled",
-          "description": "The status mark color when selected and disabled. Defaults to `--jh-color-content-on-brand-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-indeterminate-enabled",
-          "description": "The checkbox background-color when indeterminate. Defaults to `--jh-color-content-brand-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-indeterminate-enabled",
-          "description": "The border-color when indeterminate checkbox. Defaults to `--jh-color-content-brand-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-status-color-border-indeterminate-enabled",
-          "description": "The status mark color when indeterminate. Defaults to `--jh-color-content-on-brand-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-indeterminate-focus",
-          "description": "The checkbox background-color when indeterminate and focused. Defaults to `--jh-color-content-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-indeterminate-focus",
-          "description": "The checkbox border-color when indeterminate and focused. Defaults to `--jh-color-content-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-status-color-border-indeterminate-focus",
-          "description": "The checkbox color when indeterminate status mark when focused. Defaults to `--jh-color-content-on-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-indeterminate-hover",
-          "description": "The checkbox background-color when indeterminate and hovered. Defaults to `--jh-color-content-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-indeterminate-hover",
-          "description": "The checkbox border-color when indeterminate and hovered. Defaults to `--jh-color-content-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-status-color-border-indeterminate-hover",
-          "description": "The checkbox color when indeterminate status mark when hovered. Defaults to `--jh-color-content-on-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-indeterminate-active",
-          "description": "The checkbox background-color when indeterminate and active. Defaults to `--jh-color-content-brand-active`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-indeterminate-active",
-          "description": "The checkbox border-color when indeterminate and active. Defaults to `--jh-color-content-brand-active`."
-        },
-        {
-          "name": "--jh-checkbox-status-color-border-indeterminate-active",
-          "description": "The checkbox color when indeterminate status mark when active. Defaults to `--jh-color-content-on-brand-active`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-indeterminate-disabled",
-          "description": "The checkbox background-color when indeterminate and disabled. Defaults to `--jh-color-content-brand-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-indeterminate-disabled",
-          "description": "The checkbox border-color when indeterminate and disabled. Defaults to `--jh-color-content-brand-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-status-color-border-indeterminate-disabled",
-          "description": "The checkbox color when indeterminate status mark when disabled. Defaults to `--jh-color-content-on-brand-enabled`."
-        },
-        {
           "name": "--jh-checkbox-group-label-color-text",
           "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
         },
@@ -4755,6 +4799,22 @@
         {
           "name": "--jh-checkbox-group-error-color-text",
           "description": "The error-text text color. Defaults to `--jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-divider-border-width",
+          "description": "The divider width. Defaults to `--jh-border-decorative-width`."
+        },
+        {
+          "name": "--jh-divider-border-style",
+          "description": "The divider style. Defaults to `--jh-border-decorative-style`."
+        },
+        {
+          "name": "--jh-divider-color-border",
+          "description": "The divider color. Defaults to `--jh-border-decorative-color`."
+        },
+        {
+          "name": "--jh-divider-space-inset",
+          "description": "The divider margin-left. Defaults to `0`."
         },
         {
           "name": "--jh-icon-color-fill",
@@ -4779,22 +4839,6 @@
         {
           "name": "--jh-icon-size-extra-large",
           "description": "The icon size when `size=\"extra-large\"`. Defaults to `--jh-dimension-1400`."
-        },
-        {
-          "name": "--jh-divider-border-width",
-          "description": "The divider width. Defaults to `--jh-border-decorative-width`."
-        },
-        {
-          "name": "--jh-divider-border-style",
-          "description": "The divider style. Defaults to `--jh-border-decorative-style`."
-        },
-        {
-          "name": "--jh-divider-color-border",
-          "description": "The divider color. Defaults to `--jh-border-decorative-color`."
-        },
-        {
-          "name": "--jh-divider-space-inset",
-          "description": "The divider margin-left. Defaults to `0`."
         },
         {
           "name": "--jh-input-label-color-text",
@@ -6169,78 +6213,6 @@
           "description": "The outline color when the scrollable table receives keyboard focus. Defaults to `--jh-border-focus-color`."
         },
         {
-          "name": "--jh-table-data-cell-color-text",
-          "description": "The cell text color. Defaults to `--jh-color-content-primary-enabled`."
-        },
-        {
-          "name": "--jh-table-data-cell-color-background",
-          "description": "The cell background color. Defaults to `--jh-color-container-primary-enabled`."
-        },
-        {
-          "name": "--jh-table-data-cell-color-border-top",
-          "description": "The cell border top color. Defaults to `transparent`."
-        },
-        {
-          "name": "--jh-table-data-cell-color-border-right",
-          "description": "The cell border right color. Defaults to `transparent`."
-        },
-        {
-          "name": "--jh-table-data-cell-color-border-left",
-          "description": "The cell border left color. Defaults to `transparent`."
-        },
-        {
-          "name": "--jh-table-data-cell-color-border-bottom",
-          "description": "The cell border bottom color. Defaults to `--jh-border-decorative-color`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-top-width",
-          "description": "The cell border top width. Defaults to `--jh-border-decorative-width`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-right-width",
-          "description": "The cell border right width. Defaults to `--jh-border-decorative-width`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-left-width",
-          "description": "The cell border left width. Defaults to `--jh-border-decorative-width`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-bottom-width",
-          "description": "The cell border bottom width. Defaults to `--jh-border-decorative-width`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-top-style",
-          "description": "The cell border top style. Defaults to `--jh-border-decorative-style`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-right-style",
-          "description": "The cell border right style. Defaults to `--jh-border-decorative-style`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-left-style",
-          "description": "The cell border left style. Defaults to `--jh-border-decorative-style`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-bottom-style",
-          "description": "The cell border bottom style. Defaults to `--jh-border-decorative-style`."
-        },
-        {
-          "name": "--jh-table-data-cell-space-padding-top",
-          "description": "The cell padding top. Defaults to `--jh-dimension-400`."
-        },
-        {
-          "name": "--jh-table-data-cell-space-padding-right",
-          "description": "The cell padding right. Defaults to `--jh-dimension-400`."
-        },
-        {
-          "name": "--jh-table-data-cell-space-padding-bottom",
-          "description": "The cell padding bottom. Defaults to `--jh-dimension-400`."
-        },
-        {
-          "name": "--jh-table-data-cell-space-padding-left",
-          "description": "The cell padding left. Defaults to `--jh-dimension-400`."
-        },
-        {
           "name": "--jh-table-header-cell-color-text-enabled",
           "description": "The header cell text color when enabled. Defaults to `--jh-color-content-primary-enabled`."
         },
@@ -6431,6 +6403,78 @@
         {
           "name": "--jh-table-header-cell-color-focus",
           "description": "The header cell outline color when it receives keyboard focus. Defaults to `--jh-border-color-focus`."
+        },
+        {
+          "name": "--jh-table-data-cell-color-text",
+          "description": "The cell text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-table-data-cell-color-background",
+          "description": "The cell background color. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-table-data-cell-color-border-top",
+          "description": "The cell border top color. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-table-data-cell-color-border-right",
+          "description": "The cell border right color. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-table-data-cell-color-border-left",
+          "description": "The cell border left color. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-table-data-cell-color-border-bottom",
+          "description": "The cell border bottom color. Defaults to `--jh-border-decorative-color`."
+        },
+        {
+          "name": "--jh-table-data-cell-border-top-width",
+          "description": "The cell border top width. Defaults to `--jh-border-decorative-width`."
+        },
+        {
+          "name": "--jh-table-data-cell-border-right-width",
+          "description": "The cell border right width. Defaults to `--jh-border-decorative-width`."
+        },
+        {
+          "name": "--jh-table-data-cell-border-left-width",
+          "description": "The cell border left width. Defaults to `--jh-border-decorative-width`."
+        },
+        {
+          "name": "--jh-table-data-cell-border-bottom-width",
+          "description": "The cell border bottom width. Defaults to `--jh-border-decorative-width`."
+        },
+        {
+          "name": "--jh-table-data-cell-border-top-style",
+          "description": "The cell border top style. Defaults to `--jh-border-decorative-style`."
+        },
+        {
+          "name": "--jh-table-data-cell-border-right-style",
+          "description": "The cell border right style. Defaults to `--jh-border-decorative-style`."
+        },
+        {
+          "name": "--jh-table-data-cell-border-left-style",
+          "description": "The cell border left style. Defaults to `--jh-border-decorative-style`."
+        },
+        {
+          "name": "--jh-table-data-cell-border-bottom-style",
+          "description": "The cell border bottom style. Defaults to `--jh-border-decorative-style`."
+        },
+        {
+          "name": "--jh-table-data-cell-space-padding-top",
+          "description": "The cell padding top. Defaults to `--jh-dimension-400`."
+        },
+        {
+          "name": "--jh-table-data-cell-space-padding-right",
+          "description": "The cell padding right. Defaults to `--jh-dimension-400`."
+        },
+        {
+          "name": "--jh-table-data-cell-space-padding-bottom",
+          "description": "The cell padding bottom. Defaults to `--jh-dimension-400`."
+        },
+        {
+          "name": "--jh-table-data-cell-space-padding-left",
+          "description": "The cell padding left. Defaults to `--jh-dimension-400`."
         },
         {
           "name": "--jh-table-row-color-text-enabled",

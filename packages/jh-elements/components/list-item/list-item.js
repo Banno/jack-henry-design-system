@@ -44,7 +44,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * @customElement jh-list-item
  */
 export class JhListItem extends LitElement {
-  /** @ignore */
+  /** @type {ElementInternals} */
   #internals;
 
   static get styles() {
@@ -290,9 +290,7 @@ export class JhListItem extends LitElement {
 
   constructor() {
     super();
-      /** @ignore */
     this.#internals = this.attachInternals();
-      /** @ignore */
     this.#internals.role = 'listitem';
     /** @type {boolean} */
     this.disabled = false;

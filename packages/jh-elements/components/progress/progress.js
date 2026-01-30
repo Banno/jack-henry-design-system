@@ -17,14 +17,10 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * @customElement jh-progress
  */
 export class JhProgress extends LitElement {
-  /**
-   * @ignore
-   *  @type {ElementInternals} */
+  /** @type {ElementInternals} */
   #internals;
 
-  /** 
-   * @ignore
-   * @type {string} */
+  /** @type {?string} */
   #label;
 
   static get styles() {
@@ -209,7 +205,6 @@ export class JhProgress extends LitElement {
 
   constructor() {
     super();
-    /** @ignore */
     this.#internals = this.attachInternals();
     /** @type {boolean} */
     this.indeterminate = false;

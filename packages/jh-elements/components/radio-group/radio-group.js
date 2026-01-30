@@ -30,25 +30,13 @@ export class JhRadioGroup extends LitElement {
   static get formAssociated() {
     return true;
   }
-  /** 
-   * @type {JhRadio} 
-   * @ignore
-   */
+  /** @type {JhRadio} */
   #checked;
-  /** 
-   * @type {number}
-   * @ignore
-   */
+  /** @type {number} */
   #id;
-  /**
-   *  @type {ElementInternals}
-   *  @ignore
-   */
+  /** @type {ElementInternals} */
   #internals;
-  /** 
-   * @type {?string} 
-   * @ignore
-   */
+  /** @type {?string} */
   #value;
 
   static get styles() {
@@ -194,7 +182,6 @@ export class JhRadioGroup extends LitElement {
   }
   constructor() {
     super();
-    /** @ignore */
     this.#internals = this.attachInternals();
     /** @type {?string} */
     this.accessibleLabel = null;
@@ -235,7 +222,7 @@ export class JhRadioGroup extends LitElement {
     return this.#internals.form;
   }
 
-  /** @ignore */
+  /** @type {ValidityState} */
   get validity() {
     return this.#internals.validity;
   }

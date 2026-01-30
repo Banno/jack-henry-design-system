@@ -18,7 +18,7 @@ import { LitElement, css, html } from 'lit';
  * @customElement jh-menu
  */
 export class JhMenu extends LitElement {
-  /** @ignore */
+  /** @type {ElementInternals} */
   #internals;
 
   static get styles() {
@@ -52,9 +52,7 @@ export class JhMenu extends LitElement {
   }
   constructor() {
     super();
-    /** @ignore */
     this.#internals = this.attachInternals();
-    /** @ignore */
     this.#internals.role = 'menu';
   }
   render() {

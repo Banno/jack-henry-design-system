@@ -22,7 +22,7 @@ let id = 0;
  * @customElement jh-list-group
  */
 export class JhListGroup extends LitElement {
-  /** @ignore */
+  /** @type {number} */
   #id;
 
   static get styles() {

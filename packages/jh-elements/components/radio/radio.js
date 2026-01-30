@@ -68,15 +68,9 @@ let id = 0;
 
 export class JhRadio extends LitElement {
 
-  /** 
-   * @type {?Number} 
-   * @ignore
-  */
+  /** @type {?Number} */
   #id;
-  /** 
-   * @type {ElementInternals}
-   * @ignore
-   */
+  /** @type {ElementInternals} */
   #internals;
 
   static get styles() {
@@ -329,9 +323,7 @@ export class JhRadio extends LitElement {
 
   constructor() {
     super();
-    /** @ignore */
     this.#internals = this.attachInternals();
-    /** @ignore */
     this.#internals.role = 'radio';
     /** @type {?string} */
     this.accessibleLabel = null;

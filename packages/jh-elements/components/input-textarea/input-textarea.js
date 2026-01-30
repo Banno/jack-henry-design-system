@@ -19,7 +19,7 @@ let id = 0;
  * @customElement jh-input-textarea
  */
 export class JhInputTextarea extends JhInput {
-  /** @ignore */
+  /** @type {?number} */
   #id;
 
   static get styles() {

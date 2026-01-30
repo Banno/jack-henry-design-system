@@ -5,7 +5,7 @@
 import { LitElement, css, html } from 'lit';
 
 /**
- * Tag Group
+ * A tag group is used to group `<jh-tag>` components to provide layout and alignment support. 
  *
  * @slot default - Use to insert `<jh-tag>` component(s).
  * @customElement jh-tag-group

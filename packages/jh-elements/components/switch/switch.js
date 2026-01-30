@@ -29,7 +29,7 @@ let id = 0;
  * @customElement jh-switch
  */
 export class JhSwitch extends LitElement {
-  /** @type {?Number} */
+  /** @type {?number} */
   #id;
 
   static get styles() {
@@ -240,13 +240,13 @@ export class JhSwitch extends LitElement {
 
   constructor() {
     super();
-    /** @type {'true'|'false'} */
+    /** @type {'true'|'false'|null} */
     this.accessibleDisabled = null;
     /** @type {?string} */
     this.accessibleLabel = null;
-    /** @type {?boolean} */
+    /** @type {boolean} */
     this.checked = false;
-    /** @type {?boolean} */
+    /** @type {boolean} */
     this.disabled = false;
     /** @type {?string} */
     this.helperText = null;

@@ -6,13 +6,17 @@ import { LitElement, css, html } from 'lit';
 import '../notification/notification.js';
 
 /**
+ * The toast component displays a message that informs users on the outcome of an action. They are temporary by default, but can be modified to remain when needed.
+ * 
  * @cssprop --jh-toast-shadow - The toast box-shadow. Defaults to `--jh-shadow-mid`.
  * @cssprop --jh-toast-z-index - The toast z-index. Defaults to `--jh-z-index-positive-1000`.
+ * 
  * @slot default - Use to insert contextual information.
  * @slot jh-toast-icon - Use to insert a button or icon to the left of the default slot.
  * @slot jh-toast-dismiss-icon - Use to insert icon within the dismiss button.
  * @slot jh-toast-action - Use to insert action button(s). Placed to the right of the default slot. Set `stacked` property to place slot below default slot.
  * @event jh-dismiss - Dispatched when the toast is dismissed.
+ * 
  * @customElement jh-toast
  */
 export class JhToast extends LitElement {
@@ -96,7 +100,7 @@ export class JhToast extends LitElement {
     this.timeout = 5000;
     /** @type {'positive'|'neutral'|'negative'} */
     this.appearance = 'neutral';
-    /** @type {string} */
+    /** @type {?string} */
     this.dismissButtonAccessibleLabel = null;
     /** @type {boolean} */
     this.hideDismissButton = false;

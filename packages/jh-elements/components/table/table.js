@@ -11,7 +11,8 @@ import '../table-row/table-row.js';
 let id = 0;
 
 /**
- * Table
+ * The table is used to display tabular data. It is made up of several subcomponents and slots to produce an enhanced version of the native html table. It also provides hooks for sorting.
+ * 
  * @cssprop --jh-table-color-text-striped-enabled - The striped row text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-table-color-background-striped-enabled - The striped row background color. Defaults to `--jh-color-container-neutral-enabled`.
  * @cssprop --jh-table-color-text-striped-hover - The striped row text color on hover. Defaults to `--jh-color-content-primary-hover`.
@@ -27,10 +28,11 @@ let id = 0;
  * @slot jh-table-caption - Use to insert table caption.
  * @slot jh-table-pagination - Use to insert pagination.
  * @slot jh-table-toolbar - Use to insert toolbar.
+ * 
  * @customElement jh-table
  */
 export class JhTable extends LitElement {
-  /** @type {?Number} */
+  /** @type {?number} */
   #id;
 
   static get styles() {
@@ -203,33 +205,54 @@ export class JhTable extends LitElement {
 
   static get properties() {
     return {
+    /**
+     * Sets the vertical alignment for each table cell.
+     */
       verticalAlign: {
         type: String,
         reflect: true,
         attribute: 'vertical-align',
       },
+    /**
+     * Applies alternating background colors to rows.
+     */
       striped: {
         type: Boolean,
         reflect: true,
       },
+    /**
+     * Adjusts the padding between the rows.
+     */
       padding: {
         type: String,
         reflect: true,
       },
+    /**
+     * Sets an `aria-label` to assist screen reader users when no visible caption is present.
+     */
       accessibleLabel: {
         type: String,
         attribute: 'accessible-label',
       },
+    /**
+     * Allows the header row to remain visible while scrolling.
+     */
       stickyHeader: {
         type: Boolean,
         reflect: true,
         attribute: 'sticky-header',
       },
+    /**
+     * Allows the footer row to remain visible while scrolling.
+     */
       stickyFooter: {
         type: Boolean,
         reflect: true,
         attribute: 'sticky-footer',
       },
+    /**
+     * Makes the table horizontally scrollable on smaller screens.
+     */
       scrollable: {
         type: Boolean,
       },
@@ -238,48 +261,19 @@ export class JhTable extends LitElement {
 
   constructor() {
     super();
-    /**
-     * Sets the vertical alignment for each table cell.
-     * @attr vertical-align
-     * @type {'top' | 'middle' | 'bottom'}
-     */
+    /** @type {'top' | 'middle' | 'bottom'} */
     this.verticalAlign = 'top';
-    /**
-     * Applies alternating background colors to rows.
-     * @attr striped
-     * @type {Boolean}
-     */
+    /** @type {boolean} */
     this.striped = false;
-    /**
-     * Adjusts the padding between the rows.
-     * @attr padding
-     * @type {'medium' | 'small'}
-     *
-     */
+    /** @type {'medium' | 'small'} */
     this.padding = 'medium';
-    /**
-     * Sets an `aria-label` to assist screen reader users when no visible caption is present.
-     * @attr accessible-label
-     * @type {String}
-     */
+    /** @type {?string} */
     this.accessibleLabel = null;
-    /**
-     * Allows the header row to remain visible while scrolling.
-     * @attr sticky-header
-     * @type {Boolean}
-     */
+    /** @type {boolean} */
     this.stickyHeader = false;
-    /**
-     * Allows the footer row to remain visible while scrolling.
-     * @attr sticky-footer
-     * @type {Boolean}
-     */
+    /** @type {boolean} */
     this.stickyFooter = false;
-    /**
-     * Makes the table horizontally scrollable on smaller screens.
-     * @attr scrollable
-     * @type {Boolean}
-     */
+    /** @type {boolean} */
     this.scrollable = false;
 
     this.addEventListener('jh-sort', this.#handleSort);

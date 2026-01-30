@@ -265,7 +265,6 @@ export class JhNotification extends LitElement {
     }   
   }
 
-   /** @ignore */
   #dispatch(name) {
     this.dispatchEvent(
       new CustomEvent(name, {

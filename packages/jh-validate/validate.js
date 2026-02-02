@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
 const VALIDATION_ERROR_TYPES = {
   VALUE_MISSING: 'valueMissing',
   TOO_LONG: 'tooLong',

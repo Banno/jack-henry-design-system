@@ -27,6 +27,9 @@ export class JhCheckboxGroup extends validationMixin(LitElement) {
   /** @type {?Number} */
   #id;
 
+  // added for validation library compatibility
+  static groupControl = true;
+
   static get styles() {
     return css`
       :host {
@@ -156,6 +159,9 @@ export class JhCheckboxGroup extends validationMixin(LitElement) {
         reflect: true,
         attribute: 'show-indicator',
       },
+      // added for validation library compatibility
+      minRequired: { type: Number, attribute: 'min-required' },
+      maxRequired: { type: Number, attribute: 'max-required' },
     };
   }
   constructor() {
@@ -176,6 +182,9 @@ export class JhCheckboxGroup extends validationMixin(LitElement) {
     this.orientation = 'vertical';
     /** @type {?boolean} */
     this.showIndicator = false;
+    // added for validation library compatibility
+    this.minRequired = null;
+    this.maxRequired = null;
   }
 
   connectedCallback() {

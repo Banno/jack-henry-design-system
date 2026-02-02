@@ -54,12 +54,6 @@ let id = 0;
  * @customElement jh-input
  */
 export class JhInput extends validationMixin(LitElement) {
-  static get formAssociated() {
-    return true;
-  }
-
-  /** @type {ElementInternals} */
-  #internals;
   /** @type {?number} */
   #id;
   /** @type {?string} */
@@ -113,6 +107,7 @@ export class JhInput extends validationMixin(LitElement) {
           --jh-input-value-color-text,
           var(--jh-color-content-primary-enabled)
         );
+        border: 3px solid green;
       }
       label {
         color: var(
@@ -398,12 +393,14 @@ export class JhInput extends validationMixin(LitElement) {
       size: { type: String, reflect: true },
       /** Sets the value of the input. */
       value: { type: String },
+
+      // added for validation library compatibility
+      pattern: { type: String },
     };
   }
 
   constructor() {
     super();
-    this.#internals = this.attachInternals();
     /** @type {?string} */
     this.accessibleLabel = null;
     /** @type {?string} */
@@ -450,6 +447,9 @@ export class JhInput extends validationMixin(LitElement) {
     this.size = 'medium';
     /** @type {?string} */
     this.value = null;
+
+    // added for validation library compatibility
+    this.pattern = null;
   }
 
   connectedCallback() {
@@ -549,9 +549,9 @@ export class JhInput extends validationMixin(LitElement) {
   }
 
   /** @ignore */
-  get form() {
-    return this.#internals.form;
-  }
+  // get form() {
+  //   // return this.#internals.form;
+  // }
 
   get value() {
     return this.#value;
@@ -561,7 +561,7 @@ export class JhInput extends validationMixin(LitElement) {
     const oldValue = this.#value;
     if (newValue !== oldValue) {
       this.#value = newValue;
-      this.#internals.setFormValue(this.#value);
+      // this.#internals.setFormValue(this.#value);
     }
     this.requestUpdate('value', oldValue);
   }

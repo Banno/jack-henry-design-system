@@ -26,16 +26,14 @@ let id = 0;
  * @customElement jh-radio-group
  */
 export class JhRadioGroup extends validationMixin(LitElement) {
-  static get formAssociated() {
-    return true;
-  }
   #checked;
   /** @type {?Number} */
   #id;
-  /** @type {ElementInternals} */
-  #internals;
   /** @type {?string} */
   #value;
+
+  // added for validation library compatibility
+  static groupControl = true;
 
   static get styles() {
     return css`
@@ -179,7 +177,6 @@ export class JhRadioGroup extends validationMixin(LitElement) {
   }
   constructor() {
     super();
-    this.#internals = this.attachInternals();
     /** @type {?string} */
     this.accessibleLabel = null;
     /** @type {?string} */
@@ -211,19 +208,6 @@ export class JhRadioGroup extends validationMixin(LitElement) {
     this.#id = id++;
   }
 
-  /**
-   * Returns the radio group's parent form element.
-   * @type {?HTMLFormElement}
-   */
-  get form() {
-    return this.#internals.form;
-  }
-
-  /** @ignore */
-  get validity() {
-    return this.#internals.validity;
-  }
-
   /** @type {?string} */
   get value() {
     return this.#value;
@@ -233,7 +217,7 @@ export class JhRadioGroup extends validationMixin(LitElement) {
     const oldValue = this.#value;
     if (newValue !== oldValue) {
       this.#value = newValue;
-      this.#internals.setFormValue(newValue);
+      // this.#internals.setFormValue(newValue);
     }
     this.requestUpdate('value', oldValue);
   }

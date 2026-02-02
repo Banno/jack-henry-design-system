@@ -562,6 +562,7 @@ export class JhInput extends validationMixin(LitElement) {
     if (newValue !== oldValue) {
       this.#value = newValue;
       // this.#internals.setFormValue(this.#value);
+      this.setFormValue(this.#value);
     }
     this.requestUpdate('value', oldValue);
   }

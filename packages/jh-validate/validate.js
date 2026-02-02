@@ -8,6 +8,12 @@ const VALIDATION_ERROR_TYPES = {
 
 const validationMixin = (superClass) =>
   class extends superClass {
+
+    static get formAssociated() {
+      return true;
+    }
+    
+    #internals;
     #checkedCount = 0;
 
     #singleControlRules = [
@@ -48,6 +54,7 @@ const validationMixin = (superClass) =>
 
     constructor() {
       super();
+      this.#internals = this.attachInternals();
     }
 
     connectedCallback() {
@@ -71,6 +78,18 @@ const validationMixin = (superClass) =>
       super.disconnectedCallback?.();
       this.removeEventListener('blur', this.handleBlur);
       this.removeEventListener('focusout', this.validateGroup);
+    }
+
+    get validity() { 
+      return this.#internals.validity; 
+    }
+
+    get form() {
+      return this.#internals.form;
+    }
+
+    setFormValue(value) {
+      this.#internals.setFormValue(value);
     }
 
     calculateCheckedCount() {
@@ -99,9 +118,16 @@ const validationMixin = (superClass) =>
       if (failedRules.length > 0) {
         this.invalid = true;
         let errors = failedRules.map((rule) => rule.type);
+
+        // Map errors to native validity flags for ElementInternals
+        const flags = [];
+        errors.forEach(err => flags[err] = true);
+        this.#internals.setValidity(flags, `Validation failed: ${errors.join(', ')}`, this);
+
         this.dispatch(errors);
       } else {
         this.invalid = false;
+        this.#internals.setValidity({});
       }
     }
 
@@ -109,6 +135,7 @@ const validationMixin = (superClass) =>
       this.dispatchEvent(new CustomEvent('jh-invalid', {
         detail: {
           error: errors,
+          validityState: this.validity,
           element: this,
         },
         bubbles: true,

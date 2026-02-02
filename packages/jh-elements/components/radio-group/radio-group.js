@@ -218,6 +218,7 @@ export class JhRadioGroup extends validationMixin(LitElement) {
     if (newValue !== oldValue) {
       this.#value = newValue;
       // this.#internals.setFormValue(newValue);
+      this.setFormValue(newValue);
     }
     this.requestUpdate('value', oldValue);
   }

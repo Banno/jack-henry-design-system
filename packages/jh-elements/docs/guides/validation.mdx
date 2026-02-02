@@ -66,16 +66,16 @@ export class AppContainer extends LitElement {
     let invalidElement = event.detail.element;
     let customErrorMessage;
 
-    if (event.detail.type === 'valueMissing') {
+    if (event.detail.error.includes('valueMissing')) {
       customErrorMessage = 'This field is required.';
     }
-    if (event.detail.type === 'patternMismatch') {
+    if (event.detail.error.includes('patternMismatch)') {
       customErrorMessage = 'The input does not match the required pattern.';
     }
-    if (event.detail.type === 'tooShort') {
+    if (event.detail.error.includes('tooShort')) {
       customErrorMessage = `The input is too short. Minimum length is ${invalidElement.minlength} characters.`;
     }
-    if (event.detail.type === 'tooLong') {
+    if (event.detail.error.includes('tooLong')) {
       customErrorMessage = `The input is too long. Maximum length is ${invalidElement.maxlength} characters.`;
     }
     invalidElement.errorText = customErrorMessage || 'Invalid input.';
@@ -155,7 +155,7 @@ customElements.define('my-text-input', MyTextInput);
 
 For custom components functioning as control groups (e.g., checkbox or radio groups), authors must designate the component as a group. This can be achieved by setting:
 
-- `static isGroupComponent = true;`. This static property signals to the validation mixin that the component is a control group and should be validated using group-specific rules based on its children's states.
+- `static groupComponent = true;`. This static property signals to the validation mixin that the component is a control group and should be validated using group-specific rules based on its children's states.
 
 For the validation mixin to correctly count selected items within your custom group component, ensure that the individual child elements accurately reflect their checked state via a `checked` property.
 
@@ -171,7 +171,7 @@ import { LitElement, html, css } from 'lit';
 // extend validation mixin
 export class MyCheckboxGroup extends validationMixin(LitElement) {
   // IMPORTANT: Declare this component as a group
-  static isGroupComponent = true; 
+  static groupComponent = true; 
 
   static get styles() {
     return css`

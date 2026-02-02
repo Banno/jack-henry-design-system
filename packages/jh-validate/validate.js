@@ -16,7 +16,7 @@ const validationMixin = (superClass) =>
     static get formAssociated() {
       return true;
     }
-    
+    // temp code: ElementInternals will be added to base element
     #internals;
     #checkedCount = 0;
 
@@ -58,6 +58,7 @@ const validationMixin = (superClass) =>
 
     constructor() {
       super();
+      // TEMP code: elementInternals will be added to base element
       this.#internals = this.attachInternals();
     }
 

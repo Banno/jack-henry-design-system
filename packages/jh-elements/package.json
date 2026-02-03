@@ -28,8 +28,9 @@
     "generate": "hygen component new",
     "storybook": "storybook dev --port 6006",
     "build-storybook": "storybook build",
-    "analyze": "cem analyze",
-    "types": "node generate-types.js",
+    "analyze": "cem analyze --config scripts/custom-elements-manifest.config.js && pnpm run postanalyze",
+    "postanalyze": "node scripts/clean-web-types-numbers.js",
+    "types": "node scripts/generate-declaration-files.js",
     "define": "pnpm run analyze && pnpm run types",
     "prepack": "cp ../../NOTICE .",
     "postpack": "rm -f NOTICE"

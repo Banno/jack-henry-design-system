@@ -6,16 +6,10 @@ const MANIFEST_PATH = path.resolve(process.cwd(), 'custom-elements.json');
 function getTsType(type) {
   if (!type || !type.text) return 'any';
   
-  // Remove leading ? and handle nullable types
+  // Convert nullable types to Typescript syntax
   let tsType = type.text.replace(/^\?/, '').trim();
-  
-  // Check if it's nullable (had ? prefix or explicitly includes null)
   const isNullable = type.text.startsWith('?') || type.text.includes('| null');
-  
-  // Clean up the type
   tsType = tsType.replace(/\s\|\snull/g, '').trim() || 'any';
-  
-  // Add null union if needed (without parentheses for cleaner output)
   if (isNullable && !tsType.includes('null')) {
     tsType = `${tsType} | null`;
   }
@@ -23,9 +17,14 @@ function getTsType(type) {
   return tsType;
 }
 
+function isOwnField(member) {
+  return member.kind === 'field' 
+    && !member.inheritedFrom;
+}
+
 function generateProperties(members) {
   return members
-    .filter((m) => m.kind === 'field' && m.privacy !== 'private')
+    .filter(isOwnField)
     .map((m) => {
       const propName = m.name;
       const propType = getTsType(m.type);
@@ -33,11 +32,11 @@ function generateProperties(members) {
       const attribute = m.attribute ? `@attr ${m.attribute}` : '';
       const defaultValue = m.default ? `@default ${m.default}` : '';
 
-      // Build JSDoc lines
       const jsdocLines = [
         description,
         attribute,
         defaultValue
+        //filter out empty lines
       ].filter(Boolean);
 
       return `
@@ -64,13 +63,14 @@ function generateClassLevelJsDoc(declaration) {
   // Slots
   if (declaration.slots && declaration.slots.length > 0) {
     declaration.slots.forEach(slot => {
-      const slotName = slot.name === 'default' ? '' : slot.name;
+      //may not be needed if I want to keep default
+      const slotName = slot.name === 'default' ? 'default' : slot.name;
       const desc = slot.description || '';
       lines.push(`@slot ${slotName}${desc ? ` - ${desc}` : ''}`);
     });
   }
   
-  // Events (only custom events, not inherited ones)
+  // Custom Events
   if (declaration.events && declaration.events.length > 0) {
     lines.push('');
     declaration.events.forEach(event => {
@@ -82,56 +82,57 @@ function generateClassLevelJsDoc(declaration) {
   return lines.map(line => ` * ${line}`).join('\n');
 }
 
-function generateComponentDts(declaration) {
+function generateComponentDts(declaration, currentModulePath) {
   const className = declaration.name;
   const tagName = declaration.tagName;
 
-  const properties = generateProperties(declaration.members || []);
-  const classJsDoc = generateClassLevelJsDoc(declaration);
-  
-  // Extract just the first paragraph of the description for the global map
-  const summary = declaration.description ? declaration.description.split('\n')[0] : '';
+  // For components extending off our components, we need to generate the import
+  let importStatement = '';
+  let extendsClause = '';
 
-  // Generate the fields for the class declaration
+  // Check if this component extends another component (not LitElement) & generate the import
+  if (declaration.superclass && declaration.superclass.name !== 'LitElement' && declaration.superclass.module) {
+    const superclassName = declaration.superclass.name;
+    const fromDir = path.dirname(currentModulePath);
+    const toFile = declaration.superclass.module.replace(/^\//, ''); 
+    let relativePath = path.relative(fromDir, toFile).replace(/\.js$/, '').replace(/\\/g, '/');
+    if (!relativePath.startsWith('.')) relativePath = './' + relativePath;
+    importStatement = `import { ${superclassName} } from '${relativePath}';`;
+    extendsClause = ` extends ${superclassName}`;
+  }
+
+  const interfaceProperties = generateProperties(declaration.members || []);
+  const classJsDoc = generateClassLevelJsDoc(declaration);
+
   const allMembers = declaration.members || [];
-  const publicFields = allMembers.filter(m => 
-    m.kind === 'field' && m.privacy !== 'private'
-  );
-  
-  const classFields = publicFields.map(m => {
+  const publicFields = allMembers.filter(isOwnField);
+  const classProperties = publicFields.map(m => {
     const propType = getTsType(m.type);
-    return `    ${m.name}: ${propType};`;
+    return `  ${m.name}: ${propType};`;
   }).join('\n');
 
-  return `// SPDX-FileCopyrightText: 2025 Jack Henry
+  // Do not extend off LitElements so it hides framework/HTMLElement internals from autocomplete
+  return `// SPDX-FileCopyrightText: 2026 Jack Henry
 //
 // SPDX-License-Identifier: Apache-2.0
+${importStatement ? '\n' + importStatement : ''}
 
-import { LitElement } from 'lit';
+declare global {
+  interface HTMLElementTagNameMap {
+    '${tagName}': ${className};
+  }
+}
+
+export declare interface ${className} {
+${interfaceProperties}
+}
 
 /**
 ${classJsDoc}
  */
-export declare class ${className} extends LitElement {
-${classFields}
-}
-
-/**
- * Merged interface for ${className} properties and methods.
- */
-export declare interface ${className} extends LitElement {
-${properties}
-}
-
-declare global {
-  interface HTMLElementTagNameMap {
-    /**
-     * ${summary}
-     */
-    '${tagName}': ${className};
-  }
-}
-`;
+export declare class ${className}${extendsClause} {
+${classProperties}
+}`;
 }
 
 try {
@@ -144,7 +145,6 @@ try {
         declaration.customElement &&
         declaration.tagName
       ) {
-        // 1. DETERMINE OUTPUT PATH:
         const sourceDir = path.dirname(module.path); // 'components/checkbox'
         const sourceFileName = path.basename(module.path, '.js'); // 'checkbox'
         const fileName = `${sourceFileName}.d.ts`; // e.g., checkbox.d.ts
@@ -152,8 +152,7 @@ try {
         // Final DTS path: components/checkbox/checkbox.d.ts
         const filePath = path.join(process.cwd(), sourceDir, fileName);
 
-        // 2. GENERATE AND WRITE FILE:
-        const content = generateComponentDts(declaration);
+        const content = generateComponentDts(declaration, module.path);
 
         fs.writeFileSync(filePath, content.trim() + '\n');
       }

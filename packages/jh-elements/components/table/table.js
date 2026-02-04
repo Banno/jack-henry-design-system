@@ -13,7 +13,7 @@ let id = 0;
 /**
  * The table is used to display tabular data. It is made up of several subcomponents and slots to produce an enhanced version of the native html table. It also provides hooks for sorting.
  * 
- * [Table Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table--docs)
+ * [Table Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table--docs)
  * 
  * @cssprop --jh-table-color-text-striped-enabled - The striped row text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-table-color-background-striped-enabled - The striped row background color. Defaults to `--jh-color-container-neutral-enabled`.

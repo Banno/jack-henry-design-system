@@ -7,7 +7,7 @@ import { LitElement, css, html } from 'lit';
 /**
  * The table data cell is used to display one cell of table data. Table data cells can contain text or other content and have to be placed inside `<jh-table-row>`s.
  * 
- * [Table Data Cell Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-data-cell--docs)
+ * [Table Data Cell Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table-data-cell--docs)
  * 
  * @cssprop --jh-table-data-cell-color-text - The cell text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-table-data-cell-color-background - The cell background color. Defaults to `--jh-color-container-primary-enabled`.

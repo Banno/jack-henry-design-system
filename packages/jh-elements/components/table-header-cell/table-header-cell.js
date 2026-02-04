@@ -12,7 +12,7 @@ let id = 0;
 /**
  * The table header cell is used to display a column header. It should be placed inside a `<jh-table-row>` and contains text. Hooks for sorting and a sorting icon are also provided.
  * 
- * [Table Header Cell Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-header-cell--docs)
+ * [Table Header Cell Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table-header-cell--docs)
  * 
  * @cssprop --jh-table-header-cell-color-text-enabled - The header cell text color when enabled. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-table-header-cell-color-text-hover - The sortable header cell text color when hovered. Defaults to `--jh-color-content-primary-hover`.

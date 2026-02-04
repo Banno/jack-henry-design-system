@@ -46,15 +46,15 @@ export class JhBadge extends LitElement {
   static get properties() {
     return {
       /** Number to show within the badge. If no `count` is supplied, Badge will render as a dot.*/
-      count: { type: String },
+      count: { type: Number },
       /** Sets the max count to show. Appends `+` to the `max-count` when value is exceeded. */
-      maxCount: { type: String, attribute: 'max-count' },
+      maxCount: { type: Number, attribute: 'max-count' },
     };
   }
 
   constructor() {
     super();
-    /** @type {?string} */
+    /** @type {?number} */
     this.count = null;
     /** @type {?number} */
     this.maxCount = null;
@@ -63,14 +63,14 @@ export class JhBadge extends LitElement {
   render() {
     let count;
 
-    if (this.maxCount && Number(this.count) > this.maxCount) {
+    if (this.maxCount && this.count > this.maxCount) {
       count = `${this.maxCount}+`;
-    } else if (/^[0-9]+$/.test(this.count)) {
+    } else if (typeof this.count === 'number' && !isNaN(this.count) && this.count >= 0) {
       count = this.count;
     }
 
     return html`
-      <span class=${ifDefined(count ? 'count-present' : null)}>${count}</span>
+      <span class=${ifDefined(count !== undefined ? 'count-present' : null)}>${count}</span>
     `;
   }
 }

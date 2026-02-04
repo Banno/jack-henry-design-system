@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
 // #internals related properties that should be explicitly public to be included
 const INTERNALS_PROPS = ['role', 'form', 'validity'];
 

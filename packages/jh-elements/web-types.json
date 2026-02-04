@@ -8,18 +8,24 @@
       "elements": [
         {
           "name": "jh-badge",
-          "description": "A Badge is a visual indicator that represents numbers, such as counters. It also supports a dot-only variant.\n---\n",
-          "doc-url": "",
+          "description": "A Badge is a visual indicator that represents numbers, such as counters. It also supports a dot-only variant.\n\n[Badge Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-badge--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-badge--docs",
           "attributes": [
             {
               "name": "count",
               "description": "Number to show within the badge. If no `count` is supplied, Badge will render as a dot.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?number",
+                "default": "null"
+              }
             },
             {
               "name": "max-count",
               "description": "Sets the max count to show. Appends `+` to the `max-count` when value is exceeded.",
-              "value": { "type": "?number", "default": "null" }
+              "value": {
+                "type": "?number",
+                "default": "null"
+              }
             }
           ],
           "events": [],
@@ -28,7 +34,7 @@
               {
                 "name": "count",
                 "description": "Number to show within the badge. If no `count` is supplied, Badge will render as a dot.",
-                "type": "?string"
+                "type": "?number"
               },
               {
                 "name": "maxCount",
@@ -40,15 +46,216 @@
           }
         },
         {
+          "name": "jh-button",
+          "description": "Buttons enable a user to initiate a specific action.\n\n[Button Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-button--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-button--docs",
+          "attributes": [
+            {
+              "name": "accessible-disabled",
+              "description": "Sets an `aria-disabled` to signify to screen readers that the disabled button should remain perceivable while disabled.",
+              "value": {
+                "type": "'true' | 'false' | null",
+                "default": "null"
+              }
+            },
+            {
+              "name": "accessible-label",
+              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
+            },
+            {
+              "name": "appearance",
+              "description": "Determines the button color.",
+              "value": {
+                "type": "'primary' | 'secondary' | 'tertiary' | 'danger'",
+                "default": "'secondary'"
+              }
+            },
+            {
+              "name": "block",
+              "description": "Sets the button width to its parent container.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
+              "name": "disabled",
+              "description": "Disables the button and prevents all user interactions. May cause button to be ignored by assistive technologies(AT). See `accessible-disabled` attribute if the button should remain perceivable to AT.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
+              "name": "href",
+              "description": "Sets the link's destination.",
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
+            },
+            {
+              "name": "icon-position",
+              "description": "Sets location of icon in relation to the label.",
+              "value": {
+                "type": "'before' | 'after'",
+                "default": "'before'"
+              }
+            },
+            {
+              "name": "pending",
+              "description": "Displays a progress indicator.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
+              "name": "label",
+              "description": "Describes the intent of the button.",
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
+            },
+            {
+              "name": "name",
+              "description": "Sets the name of the button data when submitted in a form.",
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
+            },
+            {
+              "name": "size",
+              "description": "Sets the size of the button.",
+              "value": {
+                "type": "'small' | 'medium' | 'large'",
+                "default": "'medium'"
+              }
+            },
+            {
+              "name": "submit",
+              "description": "Sets button `type='submit'`. Button defaults to `type='button'`.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
+              "name": "target",
+              "description": "Specifies where to display the linked URL set by the `href` property.",
+              "value": {
+                "type": "'_blank' | '_self' | '_parent' | '_top' | null",
+                "default": "null"
+              }
+            },
+            {
+              "name": "value",
+              "description": "Sets the value of the button.",
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
+            }
+          ],
+          "slots": [
+            {
+              "name": "jh-button-icon",
+              "description": "Use to insert an icon."
+            }
+          ],
+          "events": [],
+          "js": {
+            "properties": [
+              {
+                "name": "value",
+                "description": "Sets the value of the button.",
+                "type": "?string"
+              },
+              {
+                "name": "accessibleDisabled",
+                "description": "Sets an `aria-disabled` to signify to screen readers that the disabled button should remain perceivable while disabled.",
+                "type": "'true' | 'false' | null"
+              },
+              {
+                "name": "accessibleLabel",
+                "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+                "type": "?string"
+              },
+              {
+                "name": "appearance",
+                "description": "Determines the button color.",
+                "type": "'primary' | 'secondary' | 'tertiary' | 'danger'"
+              },
+              {
+                "name": "block",
+                "description": "Sets the button width to its parent container.",
+                "type": "boolean"
+              },
+              {
+                "name": "disabled",
+                "description": "Disables the button and prevents all user interactions. May cause button to be ignored by assistive technologies(AT). See `accessible-disabled` attribute if the button should remain perceivable to AT.",
+                "type": "boolean"
+              },
+              {
+                "name": "href",
+                "description": "Sets the link's destination.",
+                "type": "?string"
+              },
+              {
+                "name": "iconPosition",
+                "description": "Sets location of icon in relation to the label.",
+                "type": "'before' | 'after'"
+              },
+              {
+                "name": "pending",
+                "description": "Displays a progress indicator.",
+                "type": "boolean"
+              },
+              {
+                "name": "label",
+                "description": "Describes the intent of the button.",
+                "type": "?string"
+              },
+              {
+                "name": "name",
+                "description": "Sets the name of the button data when submitted in a form.",
+                "type": "?string"
+              },
+              {
+                "name": "size",
+                "description": "Sets the size of the button.",
+                "type": "'small' | 'medium' | 'large'"
+              },
+              {
+                "name": "submit",
+                "description": "Sets button `type='submit'`. Button defaults to `type='button'`.",
+                "type": "boolean"
+              },
+              {
+                "name": "target",
+                "description": "Specifies where to display the linked URL set by the `href` property.",
+                "type": "'_blank' | '_self' | '_parent' | '_top' | null"
+              }
+            ],
+            "events": []
+          }
+        },
+        {
           "name": "jh-card",
-          "description": "Cards are content structures that provide an entry point for more complex and detailed information.\n---\n",
-          "doc-url": "",
+          "description": "Cards are content structures that provide an entry point for more complex and detailed information.\n\n[Card Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-card--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-card--docs",
           "attributes": [
             {
               "name": "footer-divider-inset",
               "description": "Sets the alignment of the left edge of the divider above the footer.",
               "value": {
-                "type": "0|8|16|24|32|40|48|56|64|72|80|88|96|null",
+                "type": "\"0\"|\"8\"|\"16\"|\"24\"|\"32\"|\"40\"|\"48\"|\"56\"|\"64\"|\"72\"|\"80\"|\"88\"|\"96\"|null",
                 "default": "null"
               }
             },
@@ -56,42 +263,57 @@
               "name": "header-divider-inset",
               "description": "Sets the alignment of the left edge of the divider below the header.",
               "value": {
-                "type": "0|8|16|24|32|40|48|56|64|72|80|88|96|null",
+                "type": "\"0\"|\"8\"|\"16\"|\"24\"|\"32\"|\"40\"|\"48\"|\"56\"|\"64\"|\"72\"|\"80\"|\"88\"|\"96\"|null",
                 "default": "null"
               }
             },
             {
               "name": "show-footer-divider",
               "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "show-header-divider",
               "description": "Adds a divider below the header to create a clearer definition between the header and body.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "padding",
               "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
               "value": {
-                "type": "'small'|'medium'|'none'",
+                "type": "'small' | 'medium' | 'none'",
                 "default": "'medium'"
               }
             },
             {
               "name": "header-subtitle",
               "description": "Adds additional information about the card below the title.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "header-title",
               "description": "Provides context for the content of the card.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "title-heading-level",
               "description": "Informs assistive technologies what heading level the card title represents. Defaults to h2.",
-              "value": { "type": "1|2|3|4|5|6", "default": "2" }
+              "value": {
+                "type": "\"1\"|\"2\"|\"3\"|\"4\"|\"5\"|\"6\"",
+                "default": "2"
+              }
             }
           ],
           "slots": [
@@ -118,12 +340,12 @@
               {
                 "name": "footerDividerInset",
                 "description": "Sets the alignment of the left edge of the divider above the footer.",
-                "type": "0|8|16|24|32|40|48|56|64|72|80|88|96|null"
+                "type": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
               },
               {
                 "name": "headerDividerInset",
                 "description": "Sets the alignment of the left edge of the divider below the header.",
-                "type": "0|8|16|24|32|40|48|56|64|72|80|88|96|null"
+                "type": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
               },
               {
                 "name": "titleHeadingLevel",
@@ -133,7 +355,7 @@
               {
                 "name": "padding",
                 "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
-                "type": "'small'|'medium'|'none'"
+                "type": "'small' | 'medium' | 'none'"
               },
               {
                 "name": "showFooterDivider",
@@ -161,48 +383,72 @@
         },
         {
           "name": "jh-checkbox",
-          "description": "Checkboxes allow users to select one or more options from a group of options.\n---\n",
-          "doc-url": "",
+          "description": "Checkboxes allow users to select one or more options from a group of options.\n\n[Checkbox Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-checkbox--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-checkbox--docs",
           "attributes": [
             {
               "name": "checked",
               "description": "Sets the selected or 'checked' state on the checkbox.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "indeterminate",
               "description": "Sets the indeterminate state on the checkbox.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "disabled",
               "description": "Disables the checkbox and prevents all user interactions. May cause checkbox to be ignored by assistive technologies(AT).",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "label",
               "description": "Sets the value of the data to be collected when selected.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "helper-text",
               "description": "Provides additional context or guidance for using the checkbox. For `helper-text` to be displayed, the `label` property must also be set.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "name",
               "description": "Sets the name of the checkbox data when submitted in a form.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "value",
               "description": "Sets the value of the checkbox.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "accessible-label",
               "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             }
           ],
           "events": [
@@ -214,12 +460,6 @@
           ],
           "js": {
             "properties": [
-              {
-                "name": "form",
-                "description": "Returns the checkbox's parent form element.",
-                "type": "?HTMLFormElement"
-              },
-              { "name": "validity", "type": "?ValidityState" },
               {
                 "name": "value",
                 "description": "Sets the value of the checkbox.",
@@ -271,220 +511,73 @@
           }
         },
         {
-          "name": "jh-button",
-          "description": "Buttons enable a user to initiate a specific action.\n---\n",
-          "doc-url": "",
+          "name": "jh-checkbox-group",
+          "description": "Checkbox groups contain sets of checkboxes where several options can be selected.\n\n[Checkbox Group Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-checkbox-group--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-checkbox-group--docs",
           "attributes": [
-            {
-              "name": "accessible-disabled",
-              "description": "Sets an `aria-disabled` to signify to screen readers that the disabled button should remain perceivable while disabled.",
-              "value": { "type": "'true'|'false'|null", "default": "null" }
-            },
             {
               "name": "accessible-label",
               "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-              "value": { "type": "?string", "default": "null" }
-            },
-            {
-              "name": "appearance",
-              "description": "Determines the button color.",
               "value": {
-                "type": "'primary'|'secondary'|'tertiary'|'danger'",
-                "default": "'secondary'"
-              }
-            },
-            {
-              "name": "block",
-              "description": "Sets the button width to its parent container.",
-              "value": { "type": "boolean", "default": "false" }
-            },
-            {
-              "name": "disabled",
-              "description": "Disables the button and prevents all user interactions. May cause button to be ignored by assistive technologies(AT). See `accessible-disabled` attribute if the button should remain perceivable to AT.",
-              "value": { "type": "boolean", "default": "false" }
-            },
-            {
-              "name": "href",
-              "description": "Sets the link's destination.",
-              "value": { "type": "?string", "default": "null" }
-            },
-            {
-              "name": "icon-position",
-              "description": "Sets location of icon in relation to the label.",
-              "value": { "type": "'before'|'after'", "default": "'before'" }
-            },
-            {
-              "name": "pending",
-              "description": "Displays a progress indicator.",
-              "value": { "type": "boolean", "default": "false" }
-            },
-            {
-              "name": "label",
-              "description": "Describes the intent of the button.",
-              "value": { "type": "?string", "default": "null" }
-            },
-            {
-              "name": "name",
-              "description": "Sets the name of the button data when submitted in a form.",
-              "value": { "type": "?string", "default": "null" }
-            },
-            {
-              "name": "size",
-              "description": "Sets the size of the button.",
-              "value": {
-                "type": "'small'|'medium'|'large'",
-                "default": "'medium'"
-              }
-            },
-            {
-              "name": "submit",
-              "description": "Sets button `type='submit'`. Button defaults to `type='button'`.",
-              "value": { "type": "boolean", "default": "false" }
-            },
-            {
-              "name": "target",
-              "description": "Specifies where to display the linked URL set by the `href` property.",
-              "value": {
-                "type": "'_blank'|'_self'|'_parent'|'_top'|null",
+                "type": "?string",
                 "default": "null"
               }
             },
             {
-              "name": "value",
-              "description": "Sets the value of the button.",
-              "value": { "type": "?string", "default": "null" }
-            }
-          ],
-          "slots": [
-            {
-              "name": "jh-button-icon",
-              "description": "Use to insert an icon."
-            }
-          ],
-          "events": [],
-          "js": {
-            "properties": [
-              {
-                "name": "value",
-                "description": "Sets the value of the button.",
-                "type": "?string"
-              },
-              {
-                "name": "accessibleDisabled",
-                "description": "Sets an `aria-disabled` to signify to screen readers that the disabled button should remain perceivable while disabled.",
-                "type": "'true'|'false'|null"
-              },
-              {
-                "name": "accessibleLabel",
-                "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-                "type": "?string"
-              },
-              {
-                "name": "appearance",
-                "description": "Determines the button color.",
-                "type": "'primary'|'secondary'|'tertiary'|'danger'"
-              },
-              {
-                "name": "block",
-                "description": "Sets the button width to its parent container.",
-                "type": "boolean"
-              },
-              {
-                "name": "disabled",
-                "description": "Disables the button and prevents all user interactions. May cause button to be ignored by assistive technologies(AT). See `accessible-disabled` attribute if the button should remain perceivable to AT.",
-                "type": "boolean"
-              },
-              {
-                "name": "href",
-                "description": "Sets the link's destination.",
-                "type": "?string"
-              },
-              {
-                "name": "iconPosition",
-                "description": "Sets location of icon in relation to the label.",
-                "type": "'before'|'after'"
-              },
-              {
-                "name": "pending",
-                "description": "Displays a progress indicator.",
-                "type": "boolean"
-              },
-              {
-                "name": "label",
-                "description": "Describes the intent of the button.",
-                "type": "?string"
-              },
-              {
-                "name": "name",
-                "description": "Sets the name of the button data when submitted in a form.",
-                "type": "?string"
-              },
-              {
-                "name": "size",
-                "description": "Sets the size of the button.",
-                "type": "'small'|'medium'|'large'"
-              },
-              {
-                "name": "submit",
-                "description": "Sets button `type='submit'`. Button defaults to `type='button'`.",
-                "type": "boolean"
-              },
-              {
-                "name": "target",
-                "description": "Specifies where to display the linked URL set by the `href` property.",
-                "type": "'_blank'|'_self'|'_parent'|'_top'|null"
-              }
-            ],
-            "events": []
-          }
-        },
-        {
-          "name": "jh-checkbox-group",
-          "description": "Checkbox groups contain sets of checkboxes where several options can be selected.\n---\n",
-          "doc-url": "",
-          "attributes": [
-            {
-              "name": "accessible-label",
-              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-              "value": { "type": "?string", "default": "null" }
-            },
-            {
               "name": "error-text",
               "description": "Text to be displayed when checkbox group has failed validation and `invalid` is true.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "helper-text",
               "description": "Provides additional context or guidance for using the checkbox group. For `helper-text` to be displayed, the `label` property must also be set.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "invalid",
               "description": "Sets an `aria-invalid` on the checkbox group to indicate the value supplied was invalid and displays `error-text` when set.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "label",
               "description": "Describes the type of data to be collected.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "required",
               "description": "Indicates a value is required.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "orientation",
               "description": "Determines the orientation of the checkbox group.",
               "value": {
-                "type": "'vertical'|'horizontal'",
+                "type": "'vertical' | 'horizontal'",
                 "default": "'vertical'"
               }
             },
             {
               "name": "show-indicator",
               "description": "Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required` property is also set. For the indicator to be displayed, the `label` property must also be set.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             }
           ],
           "slots": [
@@ -529,7 +622,7 @@
               {
                 "name": "orientation",
                 "description": "Determines the orientation of the checkbox group.",
-                "type": "'vertical'|'horizontal'"
+                "type": "'vertical' | 'horizontal'"
               },
               {
                 "name": "showIndicator",
@@ -542,14 +635,14 @@
         },
         {
           "name": "jh-divider",
-          "description": "Dividers are used to group content vertically at the page or component level and should be used when whitespace does not provide a clear enough separation.\n---\n",
-          "doc-url": "",
+          "description": "Dividers are used to group content vertically at the page or component level and should be used when whitespace does not provide a clear enough separation.\n\n[Divider Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-divider--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-divider--docs",
           "attributes": [
             {
               "name": "inset",
               "description": "The alignment of the left edge of the divider.",
               "value": {
-                "type": "0|8|16|24|32|40|48|56|64|72|80|88|96|null",
+                "type": "\"0\"|\"8\"|\"16\"|\"24\"|\"32\"|\"40\"|\"48\"|\"56\"|\"64\"|\"72\"|\"80\"|\"88\"|\"96\"|null",
                 "default": "null"
               }
             }
@@ -560,7 +653,7 @@
               {
                 "name": "inset",
                 "description": "The alignment of the left edge of the divider.",
-                "type": "0|8|16|24|32|40|48|56|64|72|80|88|96|null"
+                "type": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
               }
             ],
             "events": []
@@ -568,14 +661,14 @@
         },
         {
           "name": "jh-icon",
-          "description": "The icon component provides authors with a means to use their own SVG icons while still enabling access\nto our design tokens, encouraging consistency across your product. In addition to the icon component, Jack Henry \nalso maintains a robust icon library available as raw SVGs and as discrete web components, with each component \nutilizing our design tokens.\n---\n",
-          "doc-url": "",
+          "description": "The icon component provides authors with a means to use their own SVG icons while still enabling access\nto our design tokens, encouraging consistency across your product. In addition to the icon component, Jack Henry \nalso maintains a robust icon library available as raw SVGs and as discrete web components, with each component \nutilizing our design tokens.\n\n[Icon Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-icon--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-icon--docs",
           "attributes": [
             {
               "name": "size",
               "description": "Sets the size of the icon.",
               "value": {
-                "type": "'x-small'|'small'|'medium'|'large'|'x-large'",
+                "type": "'x-small' | 'small' | 'medium' | 'large' | 'x-large'",
                 "default": "'medium'"
               }
             }
@@ -589,12 +682,14 @@
           "events": [],
           "js": {
             "properties": [
-              { "name": "role", "type": "string" },
-              { "name": "ariaHidden", "type": "string" },
+              {
+                "name": "ariaHidden",
+                "type": "string"
+              },
               {
                 "name": "size",
                 "description": "Sets the size of the icon.",
-                "type": "'x-small'|'small'|'medium'|'large'|'x-large'"
+                "type": "'x-small' | 'small' | 'medium' | 'large' | 'x-large'"
               }
             ],
             "events": []
@@ -602,126 +697,192 @@
         },
         {
           "name": "jh-input",
-          "description": "The input component offers a single-line text field for collecting user data.\n---\n",
-          "doc-url": "",
+          "description": "The input component offers a single-line text field for collecting user data.\n\n[Input Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input--docs",
           "attributes": [
             {
               "name": "accessible-label",
               "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "accessible-label-clear-button",
               "description": "Sets an aria-label on the clear button to assist screen reader users. Indicates that activating the button will clear the input field.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "autocomplete",
               "description": "Determines whether the browser can provide assistance in filling out the input value and what type of information is expected.\nThis property will override any autocomplete attribute present on the input's parent form element.\n\n[Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "disabled",
               "description": "Disables the input and prevents all user interactions. May cause the input to be ignored by assistive technologies (AT).",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "enterkeyhint",
               "description": "Specifies which action label or icon to present for the enter key on virtual keyboards.\n\n[Visit MDN for information on supported enterkeyhint values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint)",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "error-text",
               "description": "Text to be displayed when input has failed validation and `invalid` is true.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "helper-text",
               "description": "Provides additional context or guidance for using the input. For `helper-text` to be displayed, the `label` property must also be set.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "hide-left-slot",
               "description": "Hides the left slot from input.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "hide-right-slot",
               "description": "Hides the right slot from input.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "input-mask",
               "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "inputmode",
               "description": "Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.\n\n[Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "invalid",
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "label",
               "description": "Identifies what data should be entered into the input field.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "maxlength",
               "description": "Sets the maximum number of characters a user can enter into the field.",
-              "value": { "type": "?number", "default": "null" }
+              "value": {
+                "type": "?number",
+                "default": "null"
+              }
             },
             {
               "name": "minlength",
               "description": "Sets the minimum number of characters a user can enter into the field.",
-              "value": { "type": "?number", "default": "null" }
+              "value": {
+                "type": "?number",
+                "default": "null"
+              }
             },
             {
               "name": "name",
               "description": "Sets a name for the input control.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "readonly",
               "description": "Prevents users from changing the input value. Removes all slotted content.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "required",
               "description": "Indicates a value is required.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "show-char-count",
               "description": "Displays a character counter at the bottom right corner below the input field.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "show-clear-button",
               "description": "Displays a clear button in the input field when it contains a value and is focused or hovered. Deletes input value when activated.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "show-indicator",
               "description": "Adds a visual indicator next to the label. Indicates that a value is optional(by default) or required if the `required` property is also set.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "size",
               "description": "Sets the size of the input.",
               "value": {
-                "type": "'small'|'medium'|'large'",
+                "type": "'small' | 'medium' | 'large'",
                 "default": "'medium'"
               }
             },
             {
               "name": "value",
               "description": "Sets the value of the input.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             }
           ],
           "slots": [
@@ -739,7 +900,6 @@
             }
           ],
           "events": [
-            { "name": "eventName", "type": "CustomEvent" },
             {
               "name": "jh-input:clear-button-click",
               "type": "CustomEvent",
@@ -764,11 +924,6 @@
           ],
           "js": {
             "properties": [
-              {
-                "name": "form",
-                "description": "Returns the input's parent form element.",
-                "type": "?HTMLFormElement"
-              },
               {
                 "name": "value",
                 "description": "Sets the value of the input.",
@@ -882,11 +1037,10 @@
               {
                 "name": "size",
                 "description": "Sets the size of the input.",
-                "type": "'small'|'medium'|'large'"
+                "type": "'small' | 'medium' | 'large'"
               }
             ],
             "events": [
-              { "name": "eventName", "type": "CustomEvent" },
               {
                 "name": "jh-input:clear-button-click",
                 "type": "CustomEvent",
@@ -913,126 +1067,192 @@
         },
         {
           "name": "jh-input-email",
-          "description": "Input Email\n---\n",
-          "doc-url": "",
+          "description": "The input email component provides a single-line text field for email addresses.\n\n[Input Email Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-email--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-email--docs",
           "attributes": [
             {
               "name": "accessible-label",
               "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "accessible-label-clear-button",
               "description": "Sets an aria-label on the clear button to assist screen reader users. Indicates that activating the button will clear the input field.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "autocomplete",
               "description": "Determines whether the browser can provide assistance in filling out the input value and what type of information is expected.\nThis property will override any autocomplete attribute present on the input's parent form element.\n\n[Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "disabled",
               "description": "Disables the input and prevents all user interactions. May cause the input to be ignored by assistive technologies (AT).",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "enterkeyhint",
               "description": "Specifies which action label or icon to present for the enter key on virtual keyboards.\n\n[Visit MDN for information on supported enterkeyhint values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint)",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "error-text",
               "description": "Text to be displayed when input has failed validation and `invalid` is true.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "helper-text",
               "description": "Provides additional context or guidance for using the input. For `helper-text` to be displayed, the `label` property must also be set.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "hide-left-slot",
               "description": "Hides the left slot from input.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "hide-right-slot",
               "description": "Hides the right slot from input.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "input-mask",
               "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "inputmode",
               "description": "Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.\n\n[Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "invalid",
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "label",
               "description": "Identifies what data should be entered into the input field.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "maxlength",
               "description": "Sets the maximum number of characters a user can enter into the field.",
-              "value": { "type": "?number", "default": "null" }
+              "value": {
+                "type": "?number",
+                "default": "null"
+              }
             },
             {
               "name": "minlength",
               "description": "Sets the minimum number of characters a user can enter into the field.",
-              "value": { "type": "?number", "default": "null" }
+              "value": {
+                "type": "?number",
+                "default": "null"
+              }
             },
             {
               "name": "name",
               "description": "Sets a name for the input control.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "readonly",
               "description": "Prevents users from changing the input value. Removes all slotted content.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "required",
               "description": "Indicates a value is required.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "show-char-count",
               "description": "Displays a character counter at the bottom right corner below the input field.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "show-clear-button",
               "description": "Displays a clear button in the input field when it contains a value and is focused or hovered. Deletes input value when activated.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "show-indicator",
               "description": "Adds a visual indicator next to the label. Indicates that a value is optional(by default) or required if the `required` property is also set.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "size",
               "description": "Sets the size of the input.",
               "value": {
-                "type": "'small'|'medium'|'large'",
+                "type": "'small' | 'medium' | 'large'",
                 "default": "'medium'"
               }
             },
             {
               "name": "value",
               "description": "Sets the value of the input.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             }
           ],
           "slots": [
@@ -1050,7 +1270,6 @@
             }
           ],
           "events": [
-            { "name": "eventName", "type": "CustomEvent" },
             {
               "name": "jh-input:clear-button-click",
               "type": "CustomEvent",
@@ -1075,11 +1294,6 @@
           ],
           "js": {
             "properties": [
-              {
-                "name": "form",
-                "description": "Returns the input's parent form element.",
-                "type": "?HTMLFormElement"
-              },
               {
                 "name": "value",
                 "description": "Sets the value of the input.",
@@ -1193,11 +1407,10 @@
               {
                 "name": "size",
                 "description": "Sets the size of the input.",
-                "type": "'small'|'medium'|'large'"
+                "type": "'small' | 'medium' | 'large'"
               }
             ],
             "events": [
-              { "name": "eventName", "type": "CustomEvent" },
               {
                 "name": "jh-input:clear-button-click",
                 "type": "CustomEvent",
@@ -1224,141 +1437,216 @@
         },
         {
           "name": "jh-input-password",
-          "description": "The input password component provides a single-line text field that includes a toggle password button, allowing users to mask and unmask the input value.\n---\n",
-          "doc-url": "",
+          "description": "The input password component provides a single-line text field that includes a toggle password button, allowing users to mask and unmask the input value.\n\n[Input Password Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-password--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-password--docs",
           "attributes": [
             {
               "name": "password-visible",
               "description": "Unmasks the input field value when set.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "accessible-label-hide-password",
               "description": "Sets an `aria-label` on the toggle password button, which encapsulates the `jh-input-password-visible` slot, to assist screen reader users. The label should indicate that activating the button will mask the password.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "accessible-label-show-password",
               "description": "Sets an `aria-label` on the toggle password button, which encapsulates the `jh-input-password-hidden` slot, to assist screen reader users. The label should indicate that activating the button will unmask the password.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "accessible-label",
               "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "accessible-label-clear-button",
               "description": "Sets an aria-label on the clear button to assist screen reader users. Indicates that activating the button will clear the input field.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "autocomplete",
               "description": "Determines whether the browser can provide assistance in filling out the input value and what type of information is expected.\nThis property will override any autocomplete attribute present on the input's parent form element.\n\n[Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "disabled",
               "description": "Disables the input and prevents all user interactions. May cause the input to be ignored by assistive technologies (AT).",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "enterkeyhint",
               "description": "Specifies which action label or icon to present for the enter key on virtual keyboards.\n\n[Visit MDN for information on supported enterkeyhint values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint)",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "error-text",
               "description": "Text to be displayed when input has failed validation and `invalid` is true.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "helper-text",
               "description": "Provides additional context or guidance for using the input. For `helper-text` to be displayed, the `label` property must also be set.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "hide-left-slot",
               "description": "Hides the left slot from input.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "hide-right-slot",
               "description": "Hides the right slot from input.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "input-mask",
               "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "inputmode",
               "description": "Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.\n\n[Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "invalid",
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "label",
               "description": "Identifies what data should be entered into the input field.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "maxlength",
               "description": "Sets the maximum number of characters a user can enter into the field.",
-              "value": { "type": "?number", "default": "null" }
+              "value": {
+                "type": "?number",
+                "default": "null"
+              }
             },
             {
               "name": "minlength",
               "description": "Sets the minimum number of characters a user can enter into the field.",
-              "value": { "type": "?number", "default": "null" }
+              "value": {
+                "type": "?number",
+                "default": "null"
+              }
             },
             {
               "name": "name",
               "description": "Sets a name for the input control.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "readonly",
               "description": "Prevents users from changing the input value. Removes all slotted content.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "required",
               "description": "Indicates a value is required.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "show-char-count",
               "description": "Displays a character counter at the bottom right corner below the input field.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "show-clear-button",
               "description": "Displays a clear button in the input field when it contains a value and is focused or hovered. Deletes input value when activated.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "show-indicator",
               "description": "Adds a visual indicator next to the label. Indicates that a value is optional(by default) or required if the `required` property is also set.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "size",
               "description": "Sets the size of the input.",
               "value": {
-                "type": "'small'|'medium'|'large'",
+                "type": "'small' | 'medium' | 'large'",
                 "default": "'medium'"
               }
             },
             {
               "name": "value",
               "description": "Sets the value of the input.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             }
           ],
           "slots": [
@@ -1384,7 +1672,6 @@
             }
           ],
           "events": [
-            { "name": "eventName", "type": "CustomEvent" },
             {
               "name": "jh-input:clear-button-click",
               "type": "CustomEvent",
@@ -1430,11 +1717,6 @@
                 "type": "boolean"
               },
               {
-                "name": "form",
-                "description": "Returns the input's parent form element.",
-                "type": "?HTMLFormElement"
-              },
-              {
                 "name": "value",
                 "description": "Sets the value of the input.",
                 "type": "?string"
@@ -1542,11 +1824,10 @@
               {
                 "name": "size",
                 "description": "Sets the size of the input.",
-                "type": "'small'|'medium'|'large'"
+                "type": "'small' | 'medium' | 'large'"
               }
             ],
             "events": [
-              { "name": "eventName", "type": "CustomEvent" },
               {
                 "name": "jh-input:clear-button-click",
                 "type": "CustomEvent",
@@ -1573,126 +1854,192 @@
         },
         {
           "name": "jh-input-search",
-          "description": "The input search component provides a single-line text field for search queries.\n---\n",
-          "doc-url": "",
+          "description": "The input search component provides a single-line text field for search queries.\n\n[Input Search Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-search--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-search--docs",
           "attributes": [
             {
               "name": "accessible-label",
               "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "accessible-label-clear-button",
               "description": "Sets an aria-label on the clear button to assist screen reader users. Indicates that activating the button will clear the input field.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "autocomplete",
               "description": "Determines whether the browser can provide assistance in filling out the input value and what type of information is expected.\nThis property will override any autocomplete attribute present on the input's parent form element.\n\n[Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "disabled",
               "description": "Disables the input and prevents all user interactions. May cause the input to be ignored by assistive technologies (AT).",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "enterkeyhint",
               "description": "Specifies which action label or icon to present for the enter key on virtual keyboards.\n\n[Visit MDN for information on supported enterkeyhint values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint)",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "error-text",
               "description": "Text to be displayed when input has failed validation and `invalid` is true.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "helper-text",
               "description": "Provides additional context or guidance for using the input. For `helper-text` to be displayed, the `label` property must also be set.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "hide-left-slot",
               "description": "Hides the left slot from input.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "hide-right-slot",
               "description": "Hides the right slot from input.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "input-mask",
               "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "inputmode",
               "description": "Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.\n\n[Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "invalid",
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "label",
               "description": "Identifies what data should be entered into the input field.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "maxlength",
               "description": "Sets the maximum number of characters a user can enter into the field.",
-              "value": { "type": "?number", "default": "null" }
+              "value": {
+                "type": "?number",
+                "default": "null"
+              }
             },
             {
               "name": "minlength",
               "description": "Sets the minimum number of characters a user can enter into the field.",
-              "value": { "type": "?number", "default": "null" }
+              "value": {
+                "type": "?number",
+                "default": "null"
+              }
             },
             {
               "name": "name",
               "description": "Sets a name for the input control.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "readonly",
               "description": "Prevents users from changing the input value. Removes all slotted content.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "required",
               "description": "Indicates a value is required.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "show-char-count",
               "description": "Displays a character counter at the bottom right corner below the input field.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "show-clear-button",
               "description": "Displays a clear button in the input field when it contains a value and is focused or hovered. Deletes input value when activated.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "show-indicator",
               "description": "Adds a visual indicator next to the label. Indicates that a value is optional(by default) or required if the `required` property is also set.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "size",
               "description": "Sets the size of the input.",
               "value": {
-                "type": "'small'|'medium'|'large'",
+                "type": "'small' | 'medium' | 'large'",
                 "default": "'medium'"
               }
             },
             {
               "name": "value",
               "description": "Sets the value of the input.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             }
           ],
           "slots": [
@@ -1710,7 +2057,6 @@
             }
           ],
           "events": [
-            { "name": "eventName", "type": "CustomEvent" },
             {
               "name": "jh-input:clear-button-click",
               "type": "CustomEvent",
@@ -1735,11 +2081,6 @@
           ],
           "js": {
             "properties": [
-              {
-                "name": "form",
-                "description": "Returns the input's parent form element.",
-                "type": "?HTMLFormElement"
-              },
               {
                 "name": "value",
                 "description": "Sets the value of the input.",
@@ -1853,11 +2194,10 @@
               {
                 "name": "size",
                 "description": "Sets the size of the input.",
-                "type": "'small'|'medium'|'large'"
+                "type": "'small' | 'medium' | 'large'"
               }
             ],
             "events": [
-              { "name": "eventName", "type": "CustomEvent" },
               {
                 "name": "jh-input:clear-button-click",
                 "type": "CustomEvent",
@@ -1884,126 +2224,192 @@
         },
         {
           "name": "jh-input-telephone",
-          "description": "The input telephone component provides a single-line text field for capturing telephone numbers.\n---\n",
-          "doc-url": "",
+          "description": "The input telephone component provides a single-line text field for capturing telephone numbers.\n\n[Input Telephone Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-telephone--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-telephone--docs",
           "attributes": [
             {
               "name": "accessible-label",
               "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "accessible-label-clear-button",
               "description": "Sets an aria-label on the clear button to assist screen reader users. Indicates that activating the button will clear the input field.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "autocomplete",
               "description": "Determines whether the browser can provide assistance in filling out the input value and what type of information is expected.\nThis property will override any autocomplete attribute present on the input's parent form element.\n\n[Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "disabled",
               "description": "Disables the input and prevents all user interactions. May cause the input to be ignored by assistive technologies (AT).",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "enterkeyhint",
               "description": "Specifies which action label or icon to present for the enter key on virtual keyboards.\n\n[Visit MDN for information on supported enterkeyhint values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint)",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "error-text",
               "description": "Text to be displayed when input has failed validation and `invalid` is true.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "helper-text",
               "description": "Provides additional context or guidance for using the input. For `helper-text` to be displayed, the `label` property must also be set.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "hide-left-slot",
               "description": "Hides the left slot from input.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "hide-right-slot",
               "description": "Hides the right slot from input.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "input-mask",
               "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "inputmode",
               "description": "Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.\n\n[Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "invalid",
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "label",
               "description": "Identifies what data should be entered into the input field.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "maxlength",
               "description": "Sets the maximum number of characters a user can enter into the field.",
-              "value": { "type": "?number", "default": "null" }
+              "value": {
+                "type": "?number",
+                "default": "null"
+              }
             },
             {
               "name": "minlength",
               "description": "Sets the minimum number of characters a user can enter into the field.",
-              "value": { "type": "?number", "default": "null" }
+              "value": {
+                "type": "?number",
+                "default": "null"
+              }
             },
             {
               "name": "name",
               "description": "Sets a name for the input control.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "readonly",
               "description": "Prevents users from changing the input value. Removes all slotted content.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "required",
               "description": "Indicates a value is required.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "show-char-count",
               "description": "Displays a character counter at the bottom right corner below the input field.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "show-clear-button",
               "description": "Displays a clear button in the input field when it contains a value and is focused or hovered. Deletes input value when activated.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "show-indicator",
               "description": "Adds a visual indicator next to the label. Indicates that a value is optional(by default) or required if the `required` property is also set.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "size",
               "description": "Sets the size of the input.",
               "value": {
-                "type": "'small'|'medium'|'large'",
+                "type": "'small' | 'medium' | 'large'",
                 "default": "'medium'"
               }
             },
             {
               "name": "value",
               "description": "Sets the value of the input.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             }
           ],
           "slots": [
@@ -2021,7 +2427,6 @@
             }
           ],
           "events": [
-            { "name": "eventName", "type": "CustomEvent" },
             {
               "name": "jh-input:clear-button-click",
               "type": "CustomEvent",
@@ -2046,11 +2451,6 @@
           ],
           "js": {
             "properties": [
-              {
-                "name": "form",
-                "description": "Returns the input's parent form element.",
-                "type": "?HTMLFormElement"
-              },
               {
                 "name": "value",
                 "description": "Sets the value of the input.",
@@ -2164,11 +2564,10 @@
               {
                 "name": "size",
                 "description": "Sets the size of the input.",
-                "type": "'small'|'medium'|'large'"
+                "type": "'small' | 'medium' | 'large'"
               }
             ],
             "events": [
-              { "name": "eventName", "type": "CustomEvent" },
               {
                 "name": "jh-input:clear-button-click",
                 "type": "CustomEvent",
@@ -2195,151 +2594,232 @@
         },
         {
           "name": "jh-input-textarea",
-          "description": "The input textarea component provides a multi-line text field that allows users to submit detailed, unstructured, free-form text.\n---\n",
-          "doc-url": "",
+          "description": "The input textarea component provides a multi-line text field that allows users to submit detailed, unstructured, free-form text. \n\n[Input Textarea Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-textarea--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-textarea--docs",
           "attributes": [
             {
               "name": "auto-grow",
               "description": "Enables the input height to grow automatically to accommodate user input. `auto-grow` will also remove the input's native resize capability.",
-              "value": { "type": "boolean", "default": "null" }
+              "value": {
+                "type": "boolean",
+                "default": "null"
+              }
             },
             {
               "name": "cols",
               "description": "Sets the width of the input field.",
-              "value": { "type": "?number", "default": "null" }
+              "value": {
+                "type": "?number",
+                "default": "null"
+              }
             },
             {
               "name": "no-resize",
               "description": "Removes native resize capability of the input field.",
-              "value": { "type": "boolean", "default": "true" }
+              "value": {
+                "type": "boolean",
+                "default": "true"
+              }
             },
             {
               "name": "rows",
               "description": "Sets the height of the input field.",
-              "value": { "type": "?number", "default": "null" }
+              "value": {
+                "type": "?number",
+                "default": "null"
+              }
             },
             {
               "name": "wrap",
               "description": "Specifies how text should be wrapped when submitted in a form. The `cols` property must be set for `wrap='hard'` to take effect.",
-              "value": { "type": "'hard'|'soft'|null", "default": "null" }
+              "value": {
+                "type": "'hard' | 'soft' | 'off' | null",
+                "default": "null"
+              }
             },
             {
               "name": "readonly",
               "description": "Prevents users from changing the input value.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "accessible-label",
               "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "accessible-label-clear-button",
               "description": "Sets an aria-label on the clear button to assist screen reader users. Indicates that activating the button will clear the input field.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "autocomplete",
               "description": "Determines whether the browser can provide assistance in filling out the input value and what type of information is expected.\nThis property will override any autocomplete attribute present on the input's parent form element.\n\n[Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "disabled",
               "description": "Disables the input and prevents all user interactions. May cause the input to be ignored by assistive technologies (AT).",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "enterkeyhint",
               "description": "Specifies which action label or icon to present for the enter key on virtual keyboards.\n\n[Visit MDN for information on supported enterkeyhint values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint)",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "error-text",
               "description": "Text to be displayed when input has failed validation and `invalid` is true.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "helper-text",
               "description": "Provides additional context or guidance for using the input. For `helper-text` to be displayed, the `label` property must also be set.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "hide-left-slot",
               "description": "Hides the left slot from input.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "hide-right-slot",
               "description": "Hides the right slot from input.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "input-mask",
               "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "inputmode",
               "description": "Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.\n\n[Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "invalid",
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "label",
               "description": "Identifies what data should be entered into the input field.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "maxlength",
               "description": "Sets the maximum number of characters a user can enter into the field.",
-              "value": { "type": "?number", "default": "null" }
+              "value": {
+                "type": "?number",
+                "default": "null"
+              }
             },
             {
               "name": "minlength",
               "description": "Sets the minimum number of characters a user can enter into the field.",
-              "value": { "type": "?number", "default": "null" }
+              "value": {
+                "type": "?number",
+                "default": "null"
+              }
             },
             {
               "name": "name",
               "description": "Sets a name for the input control.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "required",
               "description": "Indicates a value is required.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "show-char-count",
               "description": "Displays a character counter at the bottom right corner below the input field.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "show-clear-button",
               "description": "Displays a clear button in the input field when it contains a value and is focused or hovered. Deletes input value when activated.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "show-indicator",
               "description": "Adds a visual indicator next to the label. Indicates that a value is optional(by default) or required if the `required` property is also set.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "size",
               "description": "Sets the size of the input.",
               "value": {
-                "type": "'small'|'medium'|'large'",
+                "type": "'small' | 'medium' | 'large'",
                 "default": "'medium'"
               }
             },
             {
               "name": "value",
               "description": "Sets the value of the input.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             }
           ],
           "slots": [
@@ -2357,7 +2837,6 @@
             }
           ],
           "events": [
-            { "name": "eventName", "type": "CustomEvent" },
             {
               "name": "jh-change",
               "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`."
@@ -2405,22 +2884,17 @@
               {
                 "name": "size",
                 "description": "Sets the size of the input.",
-                "type": "'small'|'medium'|'large'"
+                "type": "'small' | 'medium' | 'large'"
               },
               {
                 "name": "wrap",
                 "description": "Specifies how text should be wrapped when submitted in a form. The `cols` property must be set for `wrap='hard'` to take effect.",
-                "type": "'hard'|'soft'|null"
+                "type": "'hard' | 'soft' | 'off' | null"
               },
               {
                 "name": "readonly",
                 "description": "Prevents users from changing the input value.",
                 "type": "boolean"
-              },
-              {
-                "name": "form",
-                "description": "Returns the input's parent form element.",
-                "type": "?HTMLFormElement"
               },
               {
                 "name": "value",
@@ -2529,7 +3003,6 @@
               }
             ],
             "events": [
-              { "name": "eventName", "type": "CustomEvent" },
               {
                 "name": "jh-change",
                 "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`."
@@ -2556,126 +3029,192 @@
         },
         {
           "name": "jh-input-url",
-          "description": "The input url component provides a single-line text field for capturing URLs.\n---\n",
-          "doc-url": "",
+          "description": "The input url component provides a single-line text field for capturing URLs.\n\n[Input URL Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-url--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-url--docs",
           "attributes": [
             {
               "name": "accessible-label",
               "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "accessible-label-clear-button",
               "description": "Sets an aria-label on the clear button to assist screen reader users. Indicates that activating the button will clear the input field.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "autocomplete",
               "description": "Determines whether the browser can provide assistance in filling out the input value and what type of information is expected.\nThis property will override any autocomplete attribute present on the input's parent form element.\n\n[Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "disabled",
               "description": "Disables the input and prevents all user interactions. May cause the input to be ignored by assistive technologies (AT).",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "enterkeyhint",
               "description": "Specifies which action label or icon to present for the enter key on virtual keyboards.\n\n[Visit MDN for information on supported enterkeyhint values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint)",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "error-text",
               "description": "Text to be displayed when input has failed validation and `invalid` is true.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "helper-text",
               "description": "Provides additional context or guidance for using the input. For `helper-text` to be displayed, the `label` property must also be set.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "hide-left-slot",
               "description": "Hides the left slot from input.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "hide-right-slot",
               "description": "Hides the right slot from input.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "input-mask",
               "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "inputmode",
               "description": "Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.\n\n[Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "invalid",
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "label",
               "description": "Identifies what data should be entered into the input field.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "maxlength",
               "description": "Sets the maximum number of characters a user can enter into the field.",
-              "value": { "type": "?number", "default": "null" }
+              "value": {
+                "type": "?number",
+                "default": "null"
+              }
             },
             {
               "name": "minlength",
               "description": "Sets the minimum number of characters a user can enter into the field.",
-              "value": { "type": "?number", "default": "null" }
+              "value": {
+                "type": "?number",
+                "default": "null"
+              }
             },
             {
               "name": "name",
               "description": "Sets a name for the input control.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "readonly",
               "description": "Prevents users from changing the input value. Removes all slotted content.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "required",
               "description": "Indicates a value is required.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "show-char-count",
               "description": "Displays a character counter at the bottom right corner below the input field.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "show-clear-button",
               "description": "Displays a clear button in the input field when it contains a value and is focused or hovered. Deletes input value when activated.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "show-indicator",
               "description": "Adds a visual indicator next to the label. Indicates that a value is optional(by default) or required if the `required` property is also set.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "size",
               "description": "Sets the size of the input.",
               "value": {
-                "type": "'small'|'medium'|'large'",
+                "type": "'small' | 'medium' | 'large'",
                 "default": "'medium'"
               }
             },
             {
               "name": "value",
               "description": "Sets the value of the input.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             }
           ],
           "slots": [
@@ -2693,7 +3232,6 @@
             }
           ],
           "events": [
-            { "name": "eventName", "type": "CustomEvent" },
             {
               "name": "jh-input:clear-button-click",
               "type": "CustomEvent",
@@ -2718,11 +3256,6 @@
           ],
           "js": {
             "properties": [
-              {
-                "name": "form",
-                "description": "Returns the input's parent form element.",
-                "type": "?HTMLFormElement"
-              },
               {
                 "name": "value",
                 "description": "Sets the value of the input.",
@@ -2836,11 +3369,10 @@
               {
                 "name": "size",
                 "description": "Sets the size of the input.",
-                "type": "'small'|'medium'|'large'"
+                "type": "'small' | 'medium' | 'large'"
               }
             ],
             "events": [
-              { "name": "eventName", "type": "CustomEvent" },
               {
                 "name": "jh-input:clear-button-click",
                 "type": "CustomEvent",
@@ -2867,18 +3399,24 @@
         },
         {
           "name": "jh-list-group",
-          "description": "The list group component is a container used to group together list items within a list.\n---\n",
-          "doc-url": "",
+          "description": "The list group component is a container used to group together list items within a list.\n\n[List Group Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-list-group--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-list-group--docs",
           "attributes": [
             {
               "name": "label",
               "description": "Describes the type of data to be collected.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "accessible-label",
               "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             }
           ],
           "slots": [
@@ -2906,51 +3444,72 @@
         },
         {
           "name": "jh-list-item",
-          "description": "A list item represents one item in a list of connected objects. List items are used as building blocks in complex components such as lists, menus, and dropdowns.\n---\n",
-          "doc-url": "",
+          "description": "A list item represents one item in a list of connected objects. List items are used as building blocks in complex components such as lists, menus, and dropdowns.\n\n[List Item Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-list-item--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-list-item--docs",
           "attributes": [
             {
               "name": "disabled",
               "description": "Disables the list-item and prevents all user interactions. May cause list-item to be ignored by assistive technologies(AT).",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "divider-inset",
               "description": "The inset of the optional divider. Omit to use the divider-inset token instead.",
               "value": {
-                "type": "null|0|8|16|24|32|40|48|56|64|72|80|88|96",
+                "type": "\"0\"|\"8\"|\"16\"|\"24\"|\"32\"|\"40\"|\"48\"|\"56\"|\"64\"|\"72\"|\"80\"|\"88\"|\"96\"|null",
                 "default": "null"
               }
             },
             {
               "name": "primary-metadata",
               "description": "The text to show as primary metadata.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "primary-text",
               "description": "The text to show as primary text.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "secondary-metadata",
               "description": "The text to show as secondary metadata.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "secondary-text",
               "description": "The text to show as secondary text.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "selected",
               "description": "Determines whether an interactive list-item is selected.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "show-divider",
               "description": "Determines whether the divider is displayed below the list-item.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             }
           ],
           "slots": [
@@ -2978,7 +3537,6 @@
           "events": [],
           "js": {
             "properties": [
-              { "name": "role", "type": "string" },
               {
                 "name": "disabled",
                 "description": "Disables the list-item and prevents all user interactions. May cause list-item to be ignored by assistive technologies(AT).",
@@ -2987,7 +3545,7 @@
               {
                 "name": "dividerInset",
                 "description": "The inset of the optional divider. Omit to use the divider-inset token instead.",
-                "type": "null|0|8|16|24|32|40|48|56|64|72|80|88|96"
+                "type": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
               },
               {
                 "name": "primaryMetadata",
@@ -3025,50 +3583,65 @@
         },
         {
           "name": "jh-menu",
-          "description": "Menus display lists of choices or actions. This is not a Navigation component.\n---\n",
-          "doc-url": "",
+          "description": "Menus display lists of choices or actions. This is not a Navigation component.\n\n[Menu Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-menu--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-menu--docs",
           "attributes": [],
           "slots": [
-            { "name": "default", "description": "Use to insert menu items." }
+            {
+              "name": "default",
+              "description": "Use to insert menu items."
+            }
           ],
           "events": [],
           "js": {
-            "properties": [{ "name": "role", "type": "string" }],
+            "properties": [],
             "events": []
           }
         },
         {
           "name": "jh-notification",
-          "description": "The notification component displays information to the user, and supports both alerts and banner type notifications.\n---\n",
-          "doc-url": "",
+          "description": "The notification component displays information to the user, and supports both alerts and banner type notifications.\n\n[Notification Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-notification--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-notification--docs",
           "attributes": [
             {
               "name": "appearance",
               "description": "Sets background color of container to convey message connotation.",
               "value": {
-                "type": "'positive'|'neutral'|'negative'",
+                "type": "'positive' | 'neutral' | 'negative'",
                 "default": "'neutral'"
               }
             },
             {
               "name": "dismiss-button-accessible-label",
               "description": "Adds an aria-label to the dismiss button to assist screen readers.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "hide-dismiss-button",
               "description": "Removes dismiss button from notification.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "stacked",
               "description": "Places action button(s) on new line, below default slot.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "type",
               "description": "Determines where in viewport notification is displayed. Alerts will follow typical content flow, while banners will break out of standard flow and go edge-to-edge within a container.",
-              "value": { "type": "'alert'|'banner'", "default": "'alert'" }
+              "value": {
+                "type": "'alert' | 'banner'",
+                "default": "'alert'"
+              }
             }
           ],
           "slots": [
@@ -3090,7 +3663,6 @@
             }
           ],
           "events": [
-            { "name": "name", "type": "CustomEvent" },
             {
               "name": "jh-dismiss",
               "description": "Dispatched when the notification is dismissed."
@@ -3101,7 +3673,7 @@
               {
                 "name": "appearance",
                 "description": "Sets background color of container to convey message connotation.",
-                "type": "'positive'|'neutral'|'negative'"
+                "type": "'positive' | 'neutral' | 'negative'"
               },
               {
                 "name": "dismissButtonAccessibleLabel",
@@ -3121,11 +3693,10 @@
               {
                 "name": "type",
                 "description": "Determines where in viewport notification is displayed. Alerts will follow typical content flow, while banners will break out of standard flow and go edge-to-edge within a container.",
-                "type": "'alert'|'banner'"
+                "type": "'alert' | 'banner'"
               }
             ],
             "events": [
-              { "name": "name", "type": "CustomEvent" },
               {
                 "name": "jh-dismiss",
                 "description": "Dispatched when the notification is dismissed."
@@ -3135,61 +3706,88 @@
         },
         {
           "name": "jh-progress",
-          "description": "A progress indicator provides feedback to a user regarding loading and waiting states.\n---\n",
-          "doc-url": "",
+          "description": "A progress indicator provides feedback to a user regarding loading and waiting states.\n\n[Progress Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-progress--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-progress--docs",
           "attributes": [
             {
               "name": "accessible-label",
               "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "accessible-valuetext",
               "description": "Sets `aria-valuetext` on progress indicator to provide text alternative of `aria-valuenow`. To be used when progress cannot be represented as a number.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "hide-value",
               "description": "Hides the `value` text.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "indeterminate",
               "description": "Sets the indeterminate state on progress. To be used when progress cannot be calculated.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "label",
               "description": "Provides information about the item which triggered the progress component.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "max",
               "description": "Defines the maximum allowed value and sets `aria-valuemax` attribute.",
-              "value": { "type": "?number", "default": "100" }
+              "value": {
+                "type": "?number",
+                "default": "100"
+              }
             },
             {
               "name": "min",
               "description": "Defines the minimum allowed value and sets `aria-valuemin` attribute.",
-              "value": { "type": "?number", "default": "0" }
+              "value": {
+                "type": "?number",
+                "default": "0"
+              }
             },
             {
               "name": "size",
               "description": "Sets the size of the progress component.",
               "value": {
-                "type": "'small'|'medium'|'large'",
+                "type": "'small' | 'medium' | 'large'",
                 "default": "'medium'"
               }
             },
             {
               "name": "type",
               "description": "Determines the style of progress to display.",
-              "value": { "type": "'linear'|'circular'", "default": "'linear'" }
+              "value": {
+                "type": "'linear' | 'circular'",
+                "default": "'linear'"
+              }
             },
             {
               "name": "value",
               "description": "Specifies how much of the task has been completed. This value is used to calculate the percentage complete based on the min and max values.",
-              "value": { "type": "?number", "default": "0" }
+              "value": {
+                "type": "?number",
+                "default": "0"
+              }
             }
           ],
           "events": [],
@@ -3233,57 +3831,74 @@
               {
                 "name": "size",
                 "description": "Sets the size of the progress component.",
-                "type": "'small'|'medium'|'large'"
+                "type": "'small' | 'medium' | 'large'"
               },
               {
                 "name": "type",
                 "description": "Determines the style of progress to display.",
-                "type": "'linear'|'circular'"
+                "type": "'linear' | 'circular'"
               },
               {
                 "name": "hideValue",
                 "description": "Hides the `value` text.",
                 "type": "boolean"
-              },
-              { "name": "role", "type": "?string" }
+              }
             ],
             "events": []
           }
         },
         {
           "name": "jh-radio",
-          "description": "Radio buttons, typically presented in radio groups, allow users to select only one option amongst a group of options.\n---\n",
-          "doc-url": "",
+          "description": "Radio buttons, typically presented in radio groups, allow users to select only one option amongst a group of options.\n\n[Radio Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-radio--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-radio--docs",
           "attributes": [
             {
               "name": "accessible-label",
               "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "checked",
               "description": "Sets the selected or 'checked' state on the radio.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "disabled",
               "description": "Disables the radio and prevents all user interactions. May cause radio to be ignored by assistive technologies(AT).",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "helper-text",
               "description": "Provides additional context or guidance for using the radio. For `helper-text` to be displayed, the `label` property must also be set.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "label",
               "description": "Sets the value of the data to be collected when selected.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "value",
               "description": "Sets the value of the radio.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             }
           ],
           "events": [
@@ -3295,7 +3910,6 @@
           ],
           "js": {
             "properties": [
-              { "name": "role", "type": "string" },
               {
                 "name": "accessibleLabel",
                 "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
@@ -3338,61 +3952,88 @@
         },
         {
           "name": "jh-radio-group",
-          "description": "Radio groups contain sets of radios from which only one option can be selected.\n---\n",
-          "doc-url": "",
+          "description": "Radio groups contain sets of radios from which only one option can be selected. \n\n[Radio Group Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-radio-group--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-radio-group--docs",
           "attributes": [
             {
               "name": "accessible-label",
               "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "error-text",
               "description": "Text to be displayed when radio group has failed validation and `invalid` is true.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "helper-text",
               "description": "Provides additional context or guidance for using the radio group. For `helper-text` to be displayed, the `label` property must also be set.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "invalid",
               "description": "Sets an `aria-invalid` on the radio group to indicate the value supplied was invalid and displays `error-text` when set.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "label",
               "description": "Describes the type of data to be collected.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "name",
               "description": "Sets the name of the radio group data when submitted in a form.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "required",
               "description": "Indicates a value is required.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "orientation",
               "description": "Determines the orientation of the radio group.",
               "value": {
-                "type": "'vertical'|'horizontal'",
+                "type": "'vertical' | 'horizontal'",
                 "default": "'vertical'"
               }
             },
             {
               "name": "show-indicator",
               "description": "Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required`\nproperty is also set. For the indicator to be displayed, the `label` property must also be set.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "value",
               "description": "Sets the value of the radio group.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             }
           ],
           "slots": [
@@ -3410,12 +4051,6 @@
           ],
           "js": {
             "properties": [
-              {
-                "name": "form",
-                "description": "Returns the radio group's parent form element.",
-                "type": "?HTMLFormElement"
-              },
-              { "name": "validity", "type": "ValidityState" },
               {
                 "name": "value",
                 "description": "Sets the value of the radio group.",
@@ -3459,7 +4094,7 @@
               {
                 "name": "orientation",
                 "description": "Determines the orientation of the radio group.",
-                "type": "'vertical'|'horizontal'"
+                "type": "'vertical' | 'horizontal'"
               },
               {
                 "name": "showIndicator",
@@ -3478,38 +4113,56 @@
         },
         {
           "name": "jh-switch",
-          "description": "\n---\n",
-          "doc-url": "",
+          "description": "A switch or toggle button is used to make an on/off selection that takes effect immediately on the page. It is not meant to be used in forms.\n\n[Switch Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-switch--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-switch--docs",
           "attributes": [
             {
               "name": "accessible-disabled",
               "description": "Sets an `aria-disabled` to signify to screen readers that the disabled switch should remain perceivable while disabled.",
-              "value": { "type": "'true'|'false'|null", "default": "null" }
+              "value": {
+                "type": "'true' | 'false' | null",
+                "default": "null"
+              }
             },
             {
               "name": "accessible-label",
               "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "checked",
               "description": "Sets the selected or 'checked' state on the switch",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "disabled",
               "description": "Disables the switch and prevents all user interactions. May cause switch to be ignored by assistive technologies(AT). See `accessible-disabled` if switch should remain perceivable to AT.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "helper-text",
               "description": "Provides additional context or guidance for using the switch. For `helper-text` to be displayed, the `label` property must also be set.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "label",
               "description": "Describes the intent of the switch.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             }
           ],
           "events": [
@@ -3524,7 +4177,7 @@
               {
                 "name": "accessibleDisabled",
                 "description": "Sets an `aria-disabled` to signify to screen readers that the disabled switch should remain perceivable while disabled.",
-                "type": "'true'|'false'|null"
+                "type": "'true' | 'false' | null"
               },
               {
                 "name": "accessibleLabel",
@@ -3563,8 +4216,8 @@
         },
         {
           "name": "jh-table",
-          "description": "The table is used to display tabular data. It is made up of several subcomponents and slots to produce an enhanced version of the native html table. It also provides hooks for sorting.\n---\n",
-          "doc-url": "",
+          "description": "The table is used to display tabular data. It is made up of several subcomponents and slots to produce an enhanced version of the native html table. It also provides hooks for sorting.\n\n[Table Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table--docs",
           "attributes": [
             {
               "name": "vertical-align",
@@ -3577,36 +4230,57 @@
             {
               "name": "striped",
               "description": "Applies alternating background colors to rows.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "padding",
               "description": "Adjusts the padding between the rows.",
-              "value": { "type": "'medium' | 'small'", "default": "'medium'" }
+              "value": {
+                "type": "'medium' | 'small'",
+                "default": "'medium'"
+              }
             },
             {
               "name": "accessible-label",
               "description": "Sets an `aria-label` to assist screen reader users when no visible caption is present.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "sticky-header",
               "description": "Allows the header row to remain visible while scrolling.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "sticky-footer",
               "description": "Allows the footer row to remain visible while scrolling.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "scrollable",
               "description": "Makes the table horizontally scrollable on smaller screens.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             }
           ],
           "slots": [
-            { "name": "default", "description": "Use to insert table body." },
+            {
+              "name": "default",
+              "description": "Use to insert table body."
+            },
             {
               "name": "jh-table-header",
               "description": "Use to insert table header row."
@@ -3671,9 +4345,41 @@
           }
         },
         {
+          "name": "jh-table-data-cell",
+          "description": "The table data cell is used to display one cell of table data. Table data cells can contain text or other content and have to be placed inside `<jh-table-row>`s.\n\n[Table Data Cell Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table-data-cell--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table-data-cell--docs",
+          "attributes": [
+            {
+              "name": "horizontal-align",
+              "description": "Sets the horizontal alignment of the content.",
+              "value": {
+                "type": "'left' | 'center' | 'right'",
+                "default": "'left'"
+              }
+            }
+          ],
+          "slots": [
+            {
+              "name": "default",
+              "description": "Use to insert content."
+            }
+          ],
+          "events": [],
+          "js": {
+            "properties": [
+              {
+                "name": "horizontalAlign",
+                "description": "Sets the horizontal alignment of the content.",
+                "type": "'left' | 'center' | 'right'"
+              }
+            ],
+            "events": []
+          }
+        },
+        {
           "name": "jh-table-header-cell",
-          "description": "The table header cell is used to display a column header. It should be placed inside a `<jh-table-row>` and contains text. Hooks for sorting and a sorting icon are also provided.\n---\n",
-          "doc-url": "",
+          "description": "The table header cell is used to display a column header. It should be placed inside a `<jh-table-row>` and contains text. Hooks for sorting and a sorting icon are also provided.\n\n[Table Header Cell Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table-header-cell--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table-header-cell--docs",
           "attributes": [
             {
               "name": "horizontal-align",
@@ -3686,7 +4392,10 @@
             {
               "name": "sortable",
               "description": "Makes a column sortable.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "sorted",
@@ -3724,7 +4433,6 @@
           ],
           "js": {
             "properties": [
-              { "name": "role", "type": "string" },
               {
                 "name": "horizontalAlign",
                 "description": "Sets the horizontal alignment of the content.",
@@ -3751,39 +4459,9 @@
           }
         },
         {
-          "name": "jh-table-data-cell",
-          "description": "The table data cell is used to display one cell of table data. Table data cells can contain text or other content and have to be placed inside `<jh-table-row>`s.\n---\n",
-          "doc-url": "",
-          "attributes": [
-            {
-              "name": "horizontal-align",
-              "description": "Sets the horizontal alignment of the content.",
-              "value": {
-                "type": "'left' | 'center' | 'right'",
-                "default": "'left'"
-              }
-            }
-          ],
-          "slots": [
-            { "name": "default", "description": "Use to insert content." }
-          ],
-          "events": [],
-          "js": {
-            "properties": [
-              { "name": "role", "type": "string" },
-              {
-                "name": "horizontalAlign",
-                "description": "Sets the horizontal alignment of the content.",
-                "type": "'left' | 'center' | 'right'"
-              }
-            ],
-            "events": []
-          }
-        },
-        {
           "name": "jh-table-row",
-          "description": "The table row is used to display one row of table data. It contains `<jh-table-data-cell>` or `<jh-table-header-cell>` components.\n---\n",
-          "doc-url": "",
+          "description": "The table row is used to display one row of table data. It contains `<jh-table-data-cell>` or `<jh-table-header-cell>` components.\n\n[Table Row Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table-row--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table-row--docs",
           "attributes": [],
           "slots": [
             {
@@ -3793,54 +4471,78 @@
           ],
           "events": [],
           "js": {
-            "properties": [{ "name": "role", "type": "string" }],
+            "properties": [],
             "events": []
           }
         },
         {
           "name": "jh-tag",
-          "description": "A tag contains a string of text on a colorful background and is used to categorize, describe or otherwise identify elements on the page.\n---\n",
-          "doc-url": "",
+          "description": "A tag contains a string of text on a colorful background and is used to categorize, describe or otherwise identify elements on the page.\n\n[Tag Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tag--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tag--docs",
           "attributes": [
             {
               "name": "label",
               "description": "Describes the intent of the tag.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "dismiss-button-accessible-label",
               "description": "Adds an aria-label to the dismiss button to assist screen readers.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "dismissible",
               "description": "Adds a dismiss button to tag. See `remove-on-dismiss` attribute for tag removal.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "tooltip-label",
               "description": "Adds a tooltip with this string on the dismiss button.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "size",
               "description": "Sets the size of the tag.",
-              "value": { "type": "'small'| 'medium'", "default": "'small'" }
+              "value": {
+                "type": "'small' | 'medium'",
+                "default": "'small'"
+              }
             },
             {
               "name": "href",
               "description": "Sets the link's destination.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "target",
               "description": "Specifies where to display the linked URL set by the href property.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "remove-on-dismiss",
               "description": "Removes the tag after the dismiss button is activated.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             }
           ],
           "slots": [
@@ -3885,7 +4587,7 @@
               {
                 "name": "size",
                 "description": "Sets the size of the tag.",
-                "type": "'small'| 'medium'"
+                "type": "'small' | 'medium'"
               },
               {
                 "name": "href",
@@ -3914,13 +4616,16 @@
         },
         {
           "name": "jh-tag-group",
-          "description": "A tag group is used to group `<jh-tag>` components to provide layout and alignment support.\n---\n",
-          "doc-url": "",
+          "description": "A tag group is used to group `<jh-tag>` components to provide layout and alignment support. \n\n[Tag Group Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tag-group--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tag-group--docs",
           "attributes": [
             {
               "name": "alignment",
               "description": "Sets the alignment of the tags.",
-              "value": { "type": "'start'| 'end'", "default": "'start'" }
+              "value": {
+                "type": "'start' | 'end'",
+                "default": "'start'"
+              }
             }
           ],
           "slots": [
@@ -3932,11 +4637,10 @@
           "events": [],
           "js": {
             "properties": [
-              { "name": "role", "type": "string" },
               {
                 "name": "alignment",
                 "description": "Sets the alignment of the tags.",
-                "type": "'start'| 'end'"
+                "type": "'start' | 'end'"
               }
             ],
             "events": []
@@ -3944,36 +4648,48 @@
         },
         {
           "name": "jh-toast",
-          "description": "The toast component displays a message that informs users on the outcome of an action. They are temporary by default, but can be modified to remain when needed.\n---\n",
-          "doc-url": "",
+          "description": "The toast component displays a message that informs users on the outcome of an action. They are temporary by default, but can be modified to remain when needed.\n\n[Toast Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-toast--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-toast--docs",
           "attributes": [
             {
               "name": "appearance",
               "description": "Sets the background color of the toast to convey message connotation.",
               "value": {
-                "type": "'positive'|'neutral'|'negative'",
+                "type": "'positive' | 'neutral' | 'negative'",
                 "default": "'neutral'"
               }
             },
             {
               "name": "dismiss-button-accessible-label",
               "description": "Adds an aria-label to the dismiss button to assist screen readers.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "hide-dismiss-button",
               "description": "Removes dismiss button from toast.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "stacked",
               "description": "Places action button(s) on new line, below default slot.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "timeout",
               "description": "Sets a timer, in milliseconds, to auto-dismiss the toast. To disable timeout, set to 0.",
-              "value": { "type": "number", "default": "5000" }
+              "value": {
+                "type": "number",
+                "default": "5000"
+              }
             }
           ],
           "slots": [
@@ -3995,7 +4711,6 @@
             }
           ],
           "events": [
-            { "name": "name", "type": "CustomEvent" },
             {
               "name": "jh-dismiss",
               "description": "Dispatched when the toast is dismissed."
@@ -4011,7 +4726,7 @@
               {
                 "name": "appearance",
                 "description": "Sets the background color of the toast to convey message connotation.",
-                "type": "'positive'|'neutral'|'negative'"
+                "type": "'positive' | 'neutral' | 'negative'"
               },
               {
                 "name": "dismissButtonAccessibleLabel",
@@ -4030,7 +4745,6 @@
               }
             ],
             "events": [
-              { "name": "name", "type": "CustomEvent" },
               {
                 "name": "jh-dismiss",
                 "description": "Dispatched when the toast is dismissed."
@@ -4040,18 +4754,24 @@
         },
         {
           "name": "jh-toast-controller",
-          "description": "The toast controller component manages multiple toasts. Toasts can be generated and appended to the controller either by a DOM based method or an event based method.\n---\n",
-          "doc-url": "",
+          "description": "The toast controller component manages multiple toasts. Toasts can be generated and appended to the controller either by a DOM based method or an event based method.\n\n[Toast Controller Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-toast-controller--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-toast-controller--docs",
           "attributes": [
             {
               "name": "max-count",
               "description": "Sets the maximum number of toasts to be displayed at a time.",
-              "value": { "type": "number", "default": "3" }
+              "value": {
+                "type": "number",
+                "default": "3"
+              }
             },
             {
               "name": "role",
               "description": "Sets the role of the toast controller and establishes a live region to expose changes to assistive technologies.",
-              "value": { "type": "'status'|'alert'", "default": "'status'" }
+              "value": {
+                "type": "'status' | 'alert'",
+                "default": "'status'"
+              }
             }
           ],
           "slots": [
@@ -4061,7 +4781,6 @@
             }
           ],
           "events": [
-            { "name": "name", "type": "CustomEvent" },
             {
               "name": "jh-dismiss",
               "description": "Dispatched when the toast controller dismisses the oldest toast, and when toasts are dismissed manually by the user."
@@ -4077,11 +4796,10 @@
               {
                 "name": "role",
                 "description": "Sets the role of the toast controller and establishes a live region to expose changes to assistive technologies.",
-                "type": "'status'|'alert'"
+                "type": "'status' | 'alert'"
               }
             ],
             "events": [
-              { "name": "name", "type": "CustomEvent" },
               {
                 "name": "jh-dismiss",
                 "description": "Dispatched when the toast controller dismisses the oldest toast, and when toasts are dismissed manually by the user."
@@ -4091,28 +4809,40 @@
         },
         {
           "name": "jh-tooltip",
-          "description": "Tooltips are floating components that appears when a user hovers or focuses onto an originating element \nsuch as a button, icon or link. They display additional information about the originating element which is not \ncritical in nature.\n---\n",
-          "doc-url": "",
+          "description": "Tooltips are floating components that appears when a user hovers or focuses onto an originating element \nsuch as a button, icon or link. They display additional information about the originating element which is not \ncritical in nature.\n\n[Tooltip Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tooltip--docs)\n---\n",
+          "doc-url": "https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tooltip--docs",
           "attributes": [
             {
               "name": "flip-disabled",
               "description": "Determines whether the tooltip flips to a different position when it reaches the edge of the viewport.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "label",
               "description": "Provides information about the item which triggered the tooltip.",
-              "value": { "type": "?string", "default": "null" }
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
             },
             {
               "name": "open",
               "description": "Determines whether the tooltip is open or closed. Can be set on the tooltip to force it open.",
-              "value": { "type": "boolean", "default": "false" }
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             },
             {
               "name": "position",
               "description": "The position of the tooltip and its arrow.",
-              "value": { "type": "string", "default": "'top-center'" }
+              "value": {
+                "type": "'left' | 'right' | 'top-start' | 'top-end' | 'top-center' | 'bottom-start' | 'bottom-end' | 'bottom-center'",
+                "default": "'top-center'"
+              }
             }
           ],
           "slots": [
@@ -4142,7 +4872,7 @@
               {
                 "name": "position",
                 "description": "The position of the tooltip and its arrow.",
-                "type": "string"
+                "type": "'left' | 'right' | 'top-start' | 'top-end' | 'top-center' | 'bottom-start' | 'bottom-end' | 'bottom-center'"
               }
             ],
             "events": []
@@ -4163,238 +4893,6 @@
         {
           "name": "--jh-badge-color-text-enabled",
           "description": "The badge text color. Defaults to `--jh-color-content-on-brand-enabled`."
-        },
-        {
-          "name": "--jh-card-color-background",
-          "description": "The card background-color. Defaults to `--jh-color-container-primary-enabled`."
-        },
-        {
-          "name": "--jh-card-border-radius",
-          "description": "The card border-radius. Defaults to `--jh-border-radius-400`."
-        },
-        {
-          "name": "--jh-card-shadow",
-          "description": "The card box-shadow. Defaults to `--jh-shadow-low`."
-        },
-        {
-          "name": "--jh-card-media-aspect-ratio",
-          "description": "The media slot aspect-ratio. Defaults to `auto`."
-        },
-        {
-          "name": "--jh-card-media-space-padding",
-          "description": "The media slot padding. Defaults to `0`."
-        },
-        {
-          "name": "--jh-card-header-color-text",
-          "description": "The header text color. Defaults to `--jh-color-content-primary-enabled`."
-        },
-        {
-          "name": "--jh-card-header-space-padding",
-          "description": "The header slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600 0`. When `padding=\"small\"`, defaults to `--jh-dimension-400 --jh-dimension-400 0`. When `padding=\"small\"` and `show-header-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none'` and `show-header-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`."
-        },
-        {
-          "name": "--jh-card-default-color-text",
-          "description": "The default slot text color. Defaults to `--jh-color-content-primary-enabled`."
-        },
-        {
-          "name": "--jh-card-default-space-padding",
-          "description": "The default slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600`. When `padding=\"small\"`, defaults to `--jh-dimension-400`. When `padding=\"none\"`, defaults to `--jh-dimension-400 0`."
-        },
-        {
-          "name": "--jh-card-footer-color-text",
-          "description": "The footer slot text color. Defaults to `--jh-color-content-secondary-enabled`."
-        },
-        {
-          "name": "--jh-card-footer-space-padding",
-          "description": "The footer slot padding. Defaults to `0 --jh-dimension-600 --jh-dimension-400`. When `padding=\"small\"`, defaults to `0 --jh-dimension-400 --jh-dimension-400`. When `padding=\"small\"` and `show-footer-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none\"` and `show-footer-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`."
-        },
-        {
-          "name": "--jh-card-header-title-color-text",
-          "description": "The header title text color. Defaults to `--jh-color-content-primary-enabled`."
-        },
-        {
-          "name": "--jh-card-header-subtitle-color-text",
-          "description": "The header subtitle text color. Defaults to `--jh-color-content-secondary-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-opacity-disabled",
-          "description": "The checkbox opacity when disabled. Defaults to `--jh-opacity-disabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-border-radius",
-          "description": "The checkbox border radius. Defaults to `--jh-border-radius-50`."
-        },
-        {
-          "name": "--jh-checkbox-color-focus",
-          "description": "The checkbox outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
-        },
-        {
-          "name": "--jh-checkbox-helper-color-text",
-          "description": "The helper text color. Defaults to `--jh-color-content-secondary-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-label-color-text",
-          "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-unselected-enabled",
-          "description": "The checkbox background-color when unselected. Defaults to `--jh-color-container-primary-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-unselected-enabled",
-          "description": "The checkbox border-color when unselected. Defaults to `--jh-border-control-color`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-unselected-focus",
-          "description": "The checkbox background-color when unselected and focused. Defaults to `--jh-color-container-primary-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-unselected-focus",
-          "description": "The checkbox border-color when unselected and focused. Defaults to `--jh-color-content-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-unselected-hover",
-          "description": "The checkbox background-color when unselected and hovered. Defaults to `--jh-color-container-primary-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-unselected-hover",
-          "description": "The checkbox border-color when unselected and hovered. Defaults to `--jh-color-content-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-unselected-active",
-          "description": "The checkbox background-color when unselected and active. Defaults to `--jh-color-container-primary-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-unselected-active",
-          "description": "The checkbox border-color when unselected and active. Defaults to `--jh-color-content-brand-active`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-unselected-disabled",
-          "description": "The  checkbox background-color when unselected and disabled. Defaults to `--jh-color-container-primary-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-unselected-disabled",
-          "description": "The checkbox border-color when unselected and disabled. Defaults to `--jh-border-control-color`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-selected-enabled",
-          "description": "The checkbox background-color when selected. Defaults to `--jh-color-content-brand-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-selected-enabled",
-          "description": "The checkbox border-color when selected. Defaults to `--jh-color-content-brand-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-status-color-border-selected-enabled",
-          "description": "The status mark color when selected. Defaults to `--jh-color-content-on-brand-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-selected-focus",
-          "description": "The checkbox background-color when selected and focused. Defaults to `--jh-color-content-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-selected-focus",
-          "description": "The checkbox border-color when selected and focused. Defaults to `--jh-color-content-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-status-color-border-selected-focus",
-          "description": "The status mark color when selected and focused. Defaults to `--jh-color-content-on-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-selected-hover",
-          "description": "The checkbox background-color when selected and hovered. Defaults to `--jh-color-content-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-selected-hover",
-          "description": "The checkbox border-color when selected and hovered. Defaults to `--jh-color-content-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-status-color-border-selected-hover",
-          "description": "The status mark color when selected and hovered. Defaults to `--jh-color-content-on-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-selected-active",
-          "description": "The checkbox background-color when selected and active. Defaults to `--jh-color-content-brand-active`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-selected-active",
-          "description": "The checkbox border-color when selected and active. Defaults to `--jh-color-content-brand-active`."
-        },
-        {
-          "name": "--jh-checkbox-status-color-border-selected-active",
-          "description": "The status mark color when selected and active. Defaults to `--jh-color-content-on-brand-active`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-selected-disabled",
-          "description": "The checkbox background-color when selected and disabled. Defaults to `--jh-color-content-brand-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-selected-disabled",
-          "description": "The checkbox border-color when selected and disabled. Defaults to `--jh-color-content-brand-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-status-color-border-selected-disabled",
-          "description": "The status mark color when selected and disabled. Defaults to `--jh-color-content-on-brand-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-indeterminate-enabled",
-          "description": "The checkbox background-color when indeterminate. Defaults to `--jh-color-content-brand-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-indeterminate-enabled",
-          "description": "The border-color when indeterminate checkbox. Defaults to `--jh-color-content-brand-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-status-color-border-indeterminate-enabled",
-          "description": "The status mark color when indeterminate. Defaults to `--jh-color-content-on-brand-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-indeterminate-focus",
-          "description": "The checkbox background-color when indeterminate and focused. Defaults to `--jh-color-content-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-indeterminate-focus",
-          "description": "The checkbox border-color when indeterminate and focused. Defaults to `--jh-color-content-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-status-color-border-indeterminate-focus",
-          "description": "The checkbox color when indeterminate status mark when focused. Defaults to `--jh-color-content-on-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-indeterminate-hover",
-          "description": "The checkbox background-color when indeterminate and hovered. Defaults to `--jh-color-content-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-indeterminate-hover",
-          "description": "The checkbox border-color when indeterminate and hovered. Defaults to `--jh-color-content-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-status-color-border-indeterminate-hover",
-          "description": "The checkbox color when indeterminate status mark when hovered. Defaults to `--jh-color-content-on-brand-hover`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-indeterminate-active",
-          "description": "The checkbox background-color when indeterminate and active. Defaults to `--jh-color-content-brand-active`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-indeterminate-active",
-          "description": "The checkbox border-color when indeterminate and active. Defaults to `--jh-color-content-brand-active`."
-        },
-        {
-          "name": "--jh-checkbox-status-color-border-indeterminate-active",
-          "description": "The checkbox color when indeterminate status mark when active. Defaults to `--jh-color-content-on-brand-active`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-background-indeterminate-disabled",
-          "description": "The checkbox background-color when indeterminate and disabled. Defaults to `--jh-color-content-brand-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-input-color-border-indeterminate-disabled",
-          "description": "The checkbox border-color when indeterminate and disabled. Defaults to `--jh-color-content-brand-enabled`."
-        },
-        {
-          "name": "--jh-checkbox-status-color-border-indeterminate-disabled",
-          "description": "The checkbox color when indeterminate status mark when disabled. Defaults to `--jh-color-content-on-brand-enabled`."
         },
         {
           "name": "--jh-button-color-background-primary-enabled",
@@ -4779,6 +5277,238 @@
         {
           "name": "--jh-button-size",
           "description": "The button width when no label is set, and the button height. Button width and height defaults to `--jh-dimension-1000` when `size=\"small\"`, `--jh-dimension-1200` when `size=\"medium\"`, and `--jh-dimension-1400` when `size=\"large\"`."
+        },
+        {
+          "name": "--jh-card-color-background",
+          "description": "The card background-color. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-card-border-radius",
+          "description": "The card border-radius. Defaults to `--jh-border-radius-400`."
+        },
+        {
+          "name": "--jh-card-shadow",
+          "description": "The card box-shadow. Defaults to `--jh-shadow-low`."
+        },
+        {
+          "name": "--jh-card-media-aspect-ratio",
+          "description": "The media slot aspect-ratio. Defaults to `auto`."
+        },
+        {
+          "name": "--jh-card-media-space-padding",
+          "description": "The media slot padding. Defaults to `0`."
+        },
+        {
+          "name": "--jh-card-header-color-text",
+          "description": "The header text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-card-header-space-padding",
+          "description": "The header slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600 0`. When `padding=\"small\"`, defaults to `--jh-dimension-400 --jh-dimension-400 0`. When `padding=\"small\"` and `show-header-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none'` and `show-header-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`."
+        },
+        {
+          "name": "--jh-card-default-color-text",
+          "description": "The default slot text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-card-default-space-padding",
+          "description": "The default slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600`. When `padding=\"small\"`, defaults to `--jh-dimension-400`. When `padding=\"none\"`, defaults to `--jh-dimension-400 0`."
+        },
+        {
+          "name": "--jh-card-footer-color-text",
+          "description": "The footer slot text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-card-footer-space-padding",
+          "description": "The footer slot padding. Defaults to `0 --jh-dimension-600 --jh-dimension-400`. When `padding=\"small\"`, defaults to `0 --jh-dimension-400 --jh-dimension-400`. When `padding=\"small\"` and `show-footer-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none\"` and `show-footer-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`."
+        },
+        {
+          "name": "--jh-card-header-title-color-text",
+          "description": "The header title text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-card-header-subtitle-color-text",
+          "description": "The header subtitle text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-opacity-disabled",
+          "description": "The checkbox opacity when disabled. Defaults to `--jh-opacity-disabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-border-radius",
+          "description": "The checkbox border radius. Defaults to `--jh-border-radius-50`."
+        },
+        {
+          "name": "--jh-checkbox-color-focus",
+          "description": "The checkbox outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
+        },
+        {
+          "name": "--jh-checkbox-helper-color-text",
+          "description": "The helper text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-label-color-text",
+          "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-unselected-enabled",
+          "description": "The checkbox background-color when unselected. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-unselected-enabled",
+          "description": "The checkbox border-color when unselected. Defaults to `--jh-border-control-color`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-unselected-focus",
+          "description": "The checkbox background-color when unselected and focused. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-unselected-focus",
+          "description": "The checkbox border-color when unselected and focused. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-unselected-hover",
+          "description": "The checkbox background-color when unselected and hovered. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-unselected-hover",
+          "description": "The checkbox border-color when unselected and hovered. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-unselected-active",
+          "description": "The checkbox background-color when unselected and active. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-unselected-active",
+          "description": "The checkbox border-color when unselected and active. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-unselected-disabled",
+          "description": "The  checkbox background-color when unselected and disabled. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-unselected-disabled",
+          "description": "The checkbox border-color when unselected and disabled. Defaults to `--jh-border-control-color`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-selected-enabled",
+          "description": "The checkbox background-color when selected. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-selected-enabled",
+          "description": "The checkbox border-color when selected. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-selected-enabled",
+          "description": "The status mark color when selected. Defaults to `--jh-color-content-on-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-selected-focus",
+          "description": "The checkbox background-color when selected and focused. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-selected-focus",
+          "description": "The checkbox border-color when selected and focused. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-selected-focus",
+          "description": "The status mark color when selected and focused. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-selected-hover",
+          "description": "The checkbox background-color when selected and hovered. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-selected-hover",
+          "description": "The checkbox border-color when selected and hovered. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-selected-hover",
+          "description": "The status mark color when selected and hovered. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-selected-active",
+          "description": "The checkbox background-color when selected and active. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-selected-active",
+          "description": "The checkbox border-color when selected and active. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-selected-active",
+          "description": "The status mark color when selected and active. Defaults to `--jh-color-content-on-brand-active`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-selected-disabled",
+          "description": "The checkbox background-color when selected and disabled. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-selected-disabled",
+          "description": "The checkbox border-color when selected and disabled. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-selected-disabled",
+          "description": "The status mark color when selected and disabled. Defaults to `--jh-color-content-on-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-indeterminate-enabled",
+          "description": "The checkbox background-color when indeterminate. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-indeterminate-enabled",
+          "description": "The border-color when indeterminate checkbox. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-indeterminate-enabled",
+          "description": "The status mark color when indeterminate. Defaults to `--jh-color-content-on-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-indeterminate-focus",
+          "description": "The checkbox background-color when indeterminate and focused. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-indeterminate-focus",
+          "description": "The checkbox border-color when indeterminate and focused. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-indeterminate-focus",
+          "description": "The checkbox color when indeterminate status mark when focused. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-indeterminate-hover",
+          "description": "The checkbox background-color when indeterminate and hovered. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-indeterminate-hover",
+          "description": "The checkbox border-color when indeterminate and hovered. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-indeterminate-hover",
+          "description": "The checkbox color when indeterminate status mark when hovered. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-indeterminate-active",
+          "description": "The checkbox background-color when indeterminate and active. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-indeterminate-active",
+          "description": "The checkbox border-color when indeterminate and active. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-indeterminate-active",
+          "description": "The checkbox color when indeterminate status mark when active. Defaults to `--jh-color-content-on-brand-active`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-background-indeterminate-disabled",
+          "description": "The checkbox background-color when indeterminate and disabled. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-input-color-border-indeterminate-disabled",
+          "description": "The checkbox border-color when indeterminate and disabled. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-status-color-border-indeterminate-disabled",
+          "description": "The checkbox color when indeterminate status mark when disabled. Defaults to `--jh-color-content-on-brand-enabled`."
         },
         {
           "name": "--jh-checkbox-group-label-color-text",
@@ -6213,6 +6943,78 @@
           "description": "The outline color when the scrollable table receives keyboard focus. Defaults to `--jh-border-focus-color`."
         },
         {
+          "name": "--jh-table-data-cell-color-text",
+          "description": "The cell text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-table-data-cell-color-background",
+          "description": "The cell background color. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-table-data-cell-color-border-top",
+          "description": "The cell border top color. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-table-data-cell-color-border-right",
+          "description": "The cell border right color. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-table-data-cell-color-border-left",
+          "description": "The cell border left color. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-table-data-cell-color-border-bottom",
+          "description": "The cell border bottom color. Defaults to `--jh-border-decorative-color`."
+        },
+        {
+          "name": "--jh-table-data-cell-border-top-width",
+          "description": "The cell border top width. Defaults to `--jh-border-decorative-width`."
+        },
+        {
+          "name": "--jh-table-data-cell-border-right-width",
+          "description": "The cell border right width. Defaults to `--jh-border-decorative-width`."
+        },
+        {
+          "name": "--jh-table-data-cell-border-left-width",
+          "description": "The cell border left width. Defaults to `--jh-border-decorative-width`."
+        },
+        {
+          "name": "--jh-table-data-cell-border-bottom-width",
+          "description": "The cell border bottom width. Defaults to `--jh-border-decorative-width`."
+        },
+        {
+          "name": "--jh-table-data-cell-border-top-style",
+          "description": "The cell border top style. Defaults to `--jh-border-decorative-style`."
+        },
+        {
+          "name": "--jh-table-data-cell-border-right-style",
+          "description": "The cell border right style. Defaults to `--jh-border-decorative-style`."
+        },
+        {
+          "name": "--jh-table-data-cell-border-left-style",
+          "description": "The cell border left style. Defaults to `--jh-border-decorative-style`."
+        },
+        {
+          "name": "--jh-table-data-cell-border-bottom-style",
+          "description": "The cell border bottom style. Defaults to `--jh-border-decorative-style`."
+        },
+        {
+          "name": "--jh-table-data-cell-space-padding-top",
+          "description": "The cell padding top. Defaults to `--jh-dimension-400`."
+        },
+        {
+          "name": "--jh-table-data-cell-space-padding-right",
+          "description": "The cell padding right. Defaults to `--jh-dimension-400`."
+        },
+        {
+          "name": "--jh-table-data-cell-space-padding-bottom",
+          "description": "The cell padding bottom. Defaults to `--jh-dimension-400`."
+        },
+        {
+          "name": "--jh-table-data-cell-space-padding-left",
+          "description": "The cell padding left. Defaults to `--jh-dimension-400`."
+        },
+        {
           "name": "--jh-table-header-cell-color-text-enabled",
           "description": "The header cell text color when enabled. Defaults to `--jh-color-content-primary-enabled`."
         },
@@ -6405,78 +7207,6 @@
           "description": "The header cell outline color when it receives keyboard focus. Defaults to `--jh-border-color-focus`."
         },
         {
-          "name": "--jh-table-data-cell-color-text",
-          "description": "The cell text color. Defaults to `--jh-color-content-primary-enabled`."
-        },
-        {
-          "name": "--jh-table-data-cell-color-background",
-          "description": "The cell background color. Defaults to `--jh-color-container-primary-enabled`."
-        },
-        {
-          "name": "--jh-table-data-cell-color-border-top",
-          "description": "The cell border top color. Defaults to `transparent`."
-        },
-        {
-          "name": "--jh-table-data-cell-color-border-right",
-          "description": "The cell border right color. Defaults to `transparent`."
-        },
-        {
-          "name": "--jh-table-data-cell-color-border-left",
-          "description": "The cell border left color. Defaults to `transparent`."
-        },
-        {
-          "name": "--jh-table-data-cell-color-border-bottom",
-          "description": "The cell border bottom color. Defaults to `--jh-border-decorative-color`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-top-width",
-          "description": "The cell border top width. Defaults to `--jh-border-decorative-width`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-right-width",
-          "description": "The cell border right width. Defaults to `--jh-border-decorative-width`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-left-width",
-          "description": "The cell border left width. Defaults to `--jh-border-decorative-width`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-bottom-width",
-          "description": "The cell border bottom width. Defaults to `--jh-border-decorative-width`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-top-style",
-          "description": "The cell border top style. Defaults to `--jh-border-decorative-style`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-right-style",
-          "description": "The cell border right style. Defaults to `--jh-border-decorative-style`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-left-style",
-          "description": "The cell border left style. Defaults to `--jh-border-decorative-style`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-bottom-style",
-          "description": "The cell border bottom style. Defaults to `--jh-border-decorative-style`."
-        },
-        {
-          "name": "--jh-table-data-cell-space-padding-top",
-          "description": "The cell padding top. Defaults to `--jh-dimension-400`."
-        },
-        {
-          "name": "--jh-table-data-cell-space-padding-right",
-          "description": "The cell padding right. Defaults to `--jh-dimension-400`."
-        },
-        {
-          "name": "--jh-table-data-cell-space-padding-bottom",
-          "description": "The cell padding bottom. Defaults to `--jh-dimension-400`."
-        },
-        {
-          "name": "--jh-table-data-cell-space-padding-left",
-          "description": "The cell padding left. Defaults to `--jh-dimension-400`."
-        },
-        {
           "name": "--jh-table-row-color-text-enabled",
           "description": "The row text color when enabled. Defaults to `--jh-color-content-primary-enabled`."
         },
@@ -6607,6 +7337,18 @@
         {
           "name": "--jh-tag-dismiss-color-focus",
           "description": "The dismiss button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
+        },
+        {
+          "name": "--jh-toast-color-background-positive",
+          "description": "The toast background color for positive connotations. Defaults to `--jh-color-container-positive-enabled`."
+        },
+        {
+          "name": "--jh-toast-color-background-neutral",
+          "description": "The toast background color for neutral connotations. Defaults to `--jh-color-container-neutral-enabled`."
+        },
+        {
+          "name": "--jh-toast-color-background-negative",
+          "description": "The toast background color for negative connotations. Defaults to `--jh-color-container-negative-enabled`."
         },
         {
           "name": "--jh-toast-shadow",

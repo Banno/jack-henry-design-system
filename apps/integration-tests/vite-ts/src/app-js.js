@@ -1,4 +1,8 @@
-import {html, css, LitElement} from 'lit';
+// SPDX-FileCopyrightText: 2026 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
+import { html, css, LitElement } from 'lit';
 import '@jack-henry/jh-elements/components/button/button.js';
 import '@jack-henry/jh-elements/components/card/card.js';
 import '@jack-henry/jh-elements/components/toast/toast.js';
@@ -34,24 +38,23 @@ import '@jack-henry/jh-elements/components/tooltip/tooltip.js';
 import { setJhTheme } from '@jack-henry/jh-elements/utils/themeProvider.js';
 
 // @customElement('app-ts')
-export class AppContainer extends LitElement {
-
+export class AppJs extends LitElement {
   static styles = css`
-    /* p { color: blue } */
-
-    :host {
-      --jh-list-item-space-padding-left: 0px;
-      --jh-font-family-primary: "Times New Roman";
-    }
     jh-card {
       width: 700px;
+      margin-bottom: 20px;
     }
-    .inputs-flex, .groups-flex {
+    jh-menu {
+      width: 300px;
+    }
+    .inputs-flex,
+    .groups-flex {
       display: flex;
       flex-wrap: wrap;
       gap: 24px;
     }
-    .inputs-flex > *, .groups-flex > * {
+    .inputs-flex > *,
+    .groups-flex > * {
       flex: 1 1 45%;
       min-width: 280px;
       box-sizing: border-box;
@@ -64,13 +67,12 @@ export class AppContainer extends LitElement {
   }
 
   render() {
-    type Test = HTMLElementTagNameMap['jh-badge'];
-    let checkbox = document.createElement('jh-badge');
+    let checkbox = document.createElement('jh-checkbox');
     checkbox.label = 'Checkbox created in code';
-    checkbox.max = 50;
+
     return html`
-      <jh-card>
-        <jh-notification appearance type="alert">
+      <jh-card header-title="Javascript Vite Test Card">
+        <jh-notification type="alert">
           <span>Notification text</span>
         </jh-notification>
         <jh-badge count="5"></jh-badge>
@@ -94,7 +96,7 @@ export class AppContainer extends LitElement {
           <jh-input-password label="Password"></jh-input-password>
           <jh-input-search label="Search"></jh-input-search>
           <jh-input-telephone label="Telephone"></jh-input-telephone>
-          <jh-input-textarea label="Textarea"></jh-input-textarea>
+          <jh-input-textarea label="Textarea" wrap="off"></jh-input-textarea>
           <jh-input-url label="URL"></jh-input-url>
         </div>
         <jh-progress value="50" max="100"></jh-progress>
@@ -123,12 +125,18 @@ export class AppContainer extends LitElement {
       </jh-card>
       <jh-menu>
         <jh-list-group label="Menu Group">
-          <jh-list-item>List Item 1</jh-list-item>
-          <jh-list-item>List Item 2</jh-list-item>
-          <jh-list-item>List Item 3</jh-list-item>
+          <jh-list-item
+            show-divider
+            primary-metadata="metadata"
+            tabindex="0"
+            selected>Item 1</jh-list-item>
+          <jh-list-item show-divider tabindex="0">Item 2</jh-list-item>
+          <jh-list-item show-divider tabindex="0">Item 3</jh-list-item>
+          <jh-list-item primary-metadata="metadata" tabindex="0">Item 4</jh-list-item>
         </jh-list-group>
       </jh-menu>
+      <jh-icon></jh-icon>
     `;
   }
 }
-customElements.define('app-container', AppContainer);
+customElements.define('app-js', AppJs);

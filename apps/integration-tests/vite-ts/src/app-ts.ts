@@ -1,4 +1,8 @@
-import {html, css, LitElement} from 'lit';
+// SPDX-FileCopyrightText: 2026 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
+import { html, css, LitElement } from 'lit';
 import '@jack-henry/jh-elements/components/button/button.js';
 import '@jack-henry/jh-elements/components/card/card.js';
 import '@jack-henry/jh-elements/components/toast/toast.js';
@@ -35,24 +39,22 @@ import { setJhTheme } from '@jack-henry/jh-elements/utils/themeProvider.js';
 
 // @customElement('app-ts')
 export class AppTs extends LitElement {
-  // @property({ type: String }) 
-  name: string = 'World';
   static styles = css`
-    /* p { color: blue } */
-
-    :host {
-      --jh-list-item-space-padding-left: 0px;
-      --jh-font-family-primary: "Times New Roman";
-    }
     jh-card {
       width: 700px;
+      margin-bottom: 20px;
     }
-    .inputs-flex, .groups-flex {
+    jh-menu {
+      width: 300px;
+    }
+    .inputs-flex,
+    .groups-flex {
       display: flex;
       flex-wrap: wrap;
       gap: 24px;
     }
-    .inputs-flex > *, .groups-flex > * {
+    .inputs-flex > *,
+    .groups-flex > * {
       flex: 1 1 45%;
       min-width: 280px;
       box-sizing: border-box;
@@ -65,19 +67,18 @@ export class AppTs extends LitElement {
   }
 
   render() {
-    type Test = HTMLElementTagNameMap['jh-badge'];
-    let checkbox = document.createElement('jh-badge');
+    let checkbox = document.createElement('jh-checkbox');
     checkbox.label = 'Checkbox created in code';
-    checkbox.count = 50;
+
     return html`
-      <jh-card>
-        <jh-notification appearance type="alert">
+      <jh-card header-title="Typescript Vite Test Card">
+        <jh-notification type="alert">
           <span>Notification text</span>
         </jh-notification>
         <jh-badge count="5"></jh-badge>
         <div class="groups-flex">
           <jh-checkbox-group label="Checkbox Group">
-            <jh-checkbox label="Checkbox 1" value="1" ></jh-checkbox>
+            <jh-checkbox label="Checkbox 1" value="1"></jh-checkbox>
             <jh-checkbox label="Checkbox 2" value="2"></jh-checkbox>
             <jh-checkbox label="Checkbox 3" value="3"></jh-checkbox>
           </jh-checkbox-group>
@@ -90,7 +91,7 @@ export class AppTs extends LitElement {
         <jh-divider></jh-divider>
         <jh-icon-airplane></jh-icon-airplane>
         <div class="inputs-flex">
-          <jh-input label="Input" autocomplete="offtt" ></jh-input>
+          <jh-input label="Input"></jh-input>
           <jh-input-email label="Email"></jh-input-email>
           <jh-input-password label="Password"></jh-input-password>
           <jh-input-search label="Search"></jh-input-search>
@@ -119,14 +120,19 @@ export class AppTs extends LitElement {
           <span>Hover me</span>
         </jh-tooltip>
         <div slot="jh-card-footer">
-          <jh-button appearance="danger" label="Button" ></jh-button>
+          <jh-button appearance="danger" label="Button"></jh-button>
         </div>
       </jh-card>
       <jh-menu>
         <jh-list-group label="Menu Group">
-          <jh-list-item>List Item 1</jh-list-item>
-          <jh-list-item>List Item 2</jh-list-item>
-          <jh-list-item>List Item 3</jh-list-item>
+          <jh-list-item
+            show-divider
+            primary-metadata="metadata"
+            tabindex="0"
+            selected>Item 1</jh-list-item>
+          <jh-list-item show-divider tabindex="0">Item 2</jh-list-item>
+          <jh-list-item show-divider tabindex="0">Item 3</jh-list-item>
+          <jh-list-item primary-metadata="metadata" tabindex="0">Item 4</jh-list-item>
         </jh-list-group>
       </jh-menu>
       <jh-icon></jh-icon>

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';

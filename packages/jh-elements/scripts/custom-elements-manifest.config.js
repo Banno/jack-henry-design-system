@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
 import { customElementJetBrainsPlugin } from "custom-element-jet-brains-integration";
 import { filterPrivatePropertiesPlugin } from "./cem-plugins/filter-private-properties.js";
 import { filterEventsPlugin } from "./cem-plugins/filter-jh-events.js";

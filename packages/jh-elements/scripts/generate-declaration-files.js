@@ -113,6 +113,8 @@ function generateComponentDts(declaration, currentModulePath) {
 
   // Do not extend off LitElements so it hides framework/HTMLElement internals from autocomplete
   return `// SPDX-FileCopyrightText: 2026 Jack Henry
+
+// SPDX-FileCopyrightText: 2026 Jack Henry
 //
 // SPDX-License-Identifier: Apache-2.0
 ${importStatement ? '\n' + importStatement : ''}

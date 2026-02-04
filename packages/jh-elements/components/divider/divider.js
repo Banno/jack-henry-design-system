@@ -5,7 +5,9 @@
 import { LitElement, css } from 'lit';
 
 /**
- * Dividers are used to group content vertically at the page or component level and should be used when whitespace does not provide a clear enough separation. 
+ * Dividers are used to group content vertically at the page or component level and should be used when whitespace does not provide a clear enough separation.
+ * 
+ * [Divider Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-divider--docs) 
  * 
  * @cssprop --jh-divider-border-width - The divider width. Defaults to `--jh-border-decorative-width`.
  * @cssprop --jh-divider-border-style - The divider style. Defaults to `--jh-border-decorative-style`.

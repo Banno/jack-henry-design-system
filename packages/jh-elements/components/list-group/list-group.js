@@ -9,6 +9,8 @@ let id = 0;
 /**
  * The list group component is a container used to group together list items within a list.
  * 
+ * [List Group Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-list-group--docs)
+ * 
  * @cssprop --jh-list-group-subheader-color-background - The subheader background-color.
  * Defaults to `transparent`.
  * @cssprop --jh-list-group-subheader-color-text - The subheader text color.

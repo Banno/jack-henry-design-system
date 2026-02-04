@@ -43,6 +43,7 @@ function extractUrlFromDescription(description) {
   return null;
 }
 
+//TODO check if we need this or markdown link works in Webstorm
 webTypes.contributions?.html?.elements?.forEach(element => {
   // Extract and set doc-url from element description
   const elementUrl = extractUrlFromDescription(element.description);

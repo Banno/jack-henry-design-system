@@ -9,6 +9,8 @@ import '../progress/progress.js';
 /**
  * Buttons enable a user to initiate a specific action.
  * 
+ * [Button Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-button--docs)
+ * 
  * @cssprop --jh-button-color-background-primary-enabled - The button container background-color when enabled and `appearance="primary"`. Defaults to `--jh-color-content-brand-enabled`.
  * @cssprop --jh-button-color-border-primary-enabled - The button container border-color when enabled and `appearance="primary"`. Defaults to `transparent`.
  * @cssprop --jh-button-color-background-primary-focus - The button container background-color when in focus and `appearance="primary"`. Defaults to `--jh-color-content-brand-hover`.

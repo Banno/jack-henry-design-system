@@ -8,6 +8,11 @@ import '../notification/notification.js';
 /**
  * The toast component displays a message that informs users on the outcome of an action. They are temporary by default, but can be modified to remain when needed.
  * 
+ * [Toast Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-toast--docs)
+ * 
+ * @cssprop --jh-toast-color-background-positive - The toast background color for positive connotations. Defaults to `--jh-color-container-positive-enabled`.
+ * @cssprop --jh-toast-color-background-neutral - The toast background color for neutral connotations. Defaults to `--jh-color-container-neutral-enabled`.
+ * @cssprop --jh-toast-color-background-negative - The toast background color for negative connotations. Defaults to `--jh-color-container-negative-enabled`.
  * @cssprop --jh-toast-shadow - The toast box-shadow. Defaults to `--jh-shadow-mid`.
  * @cssprop --jh-toast-z-index - The toast z-index. Defaults to `--jh-z-index-positive-1000`.
  * 

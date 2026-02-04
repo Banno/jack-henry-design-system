@@ -7,6 +7,8 @@ import { LitElement, css, html } from 'lit';
 /**
  * The table row is used to display one row of table data. It contains `<jh-table-data-cell>` or `<jh-table-header-cell>` components.
  * 
+ * [Table Row Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-row--docs)
+ * 
  * @cssprop --jh-table-row-color-text-enabled - The row text color when enabled. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-table-row-color-background-enabled - The row background color when enabled. Defaults to `--jh-color-container-primary-enabled`. 
  * @cssprop --jh-table-row-color-border-bottom-enabled - The row border bottom color when enabled. Defaults to `--jh-border-decorative-color`.

@@ -9,6 +9,8 @@ import '@jack-henry/jh-icons/icons-wc/icon-xmark.js';
 /**
  * The notification component displays information to the user, and supports both alerts and banner type notifications.
  * 
+ * [Notification Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-notification--docs)
+ * 
  * @cssprop --jh-notification-border-radius-alert - The notification border-radius when `type="alert"`. Defaults to `--jh-border-radius-100`.
  * @cssprop --jh-notification-border-radius-banner - The notification border-radius when `type="banner"`. Defaults to `--jh-border-radius-0`.
  * @cssprop --jh-notification-color-background-neutral - The notification background color when `appearance="neutral"`. Defaults to `--jh-color-content-primary-enabled`.

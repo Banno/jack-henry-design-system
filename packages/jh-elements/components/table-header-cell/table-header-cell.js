@@ -221,11 +221,11 @@ export class JhTableHeaderCell extends LitElement {
     super();
     this.#internals = this.attachInternals();
     this.#internals.role = 'columnheader';
-    /** @type {'left' | 'center' | 'right'} */
+    /** @type { 'left' | 'center' | 'right' } */
     this.horizontalAlign = 'left';
     /** @type {boolean} */
     this.sortable = false;
-    /** @type {'none' | 'ascending' | 'descending'} */
+    /** @type { 'none' | 'ascending' | 'descending' } */
     this.sorted = 'none';
   }
 

@@ -103,7 +103,7 @@ export class JhToast extends LitElement {
     super();
     /** @type {number} */
     this.timeout = 5000;
-    /** @type {'positive'|'neutral'|'negative'} */
+    /** @type { 'positive' | 'neutral' | 'negative' } */
     this.appearance = 'neutral';
     /** @type {?string} */
     this.dismissButtonAccessibleLabel = null;

@@ -263,11 +263,11 @@ export class JhTable extends LitElement {
 
   constructor() {
     super();
-    /** @type {'top' | 'middle' | 'bottom'} */
+    /** @type { 'top' | 'middle' | 'bottom' } */
     this.verticalAlign = 'top';
     /** @type {boolean} */
     this.striped = false;
-    /** @type {'medium' | 'small'} */
+    /** @type { 'medium' | 'small' } */
     this.padding = 'medium';
     /** @type {?string} */
     this.accessibleLabel = null;

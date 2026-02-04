@@ -47,7 +47,7 @@ export class JhTagGroup extends LitElement {
     super();
     this.#internals = this.attachInternals();
     this.#internals.role = 'group';
-    /** @type {'start'| 'end'} */
+    /** @type { 'start' | 'end' } */
     this.alignment = 'start';
   }
 

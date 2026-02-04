@@ -44,7 +44,7 @@ export class JhToastController extends LitElement {
     super();
     /** @type {number} */
     this.maxCount = 3;
-    /** @type {'status'|'alert'} */
+    /** @type { 'status' | 'alert' } */
     this.role = 'status';
 
     window.addEventListener('jh-create-toast', this.#createToast.bind(this));

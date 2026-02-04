@@ -805,11 +805,11 @@ export class JhButton extends LitElement {
     super();
     this.#internals = this.attachInternals();
     this.#internals.form;
-    /** @type {'true'|'false'|null} */
+    /** @type { 'true' | 'false' | null } */
     this.accessibleDisabled = null;
     /** @type {?string} */
     this.accessibleLabel = null;
-    /** @type {'primary'|'secondary'|'tertiary'|'danger'} */
+    /** @type { 'primary' | 'secondary' | 'tertiary' | 'danger' } */
     this.appearance = 'secondary';
     /** @type {boolean} */
     this.block = false;
@@ -817,7 +817,7 @@ export class JhButton extends LitElement {
     this.disabled = false;
     /** @type {?string} */
     this.href = null;
-    /** @type {'before'|'after'} */
+    /** @type { 'before' | 'after' } */
     this.iconPosition = 'before';
     /** @type {boolean} */
     this.pending = false;
@@ -825,11 +825,11 @@ export class JhButton extends LitElement {
     this.label = null;
     /** @type {?string} */
     this.name = null;
-    /** @type {'small'|'medium'|'large'} */
+    /** @type { 'small' | 'medium' | 'large' } */
     this.size = 'medium';
     /** @type {boolean} */
     this.submit = false;
-    /** @type {'_blank'|'_self'|'_parent'|'_top'|null} */
+    /** @type { '_blank' | '_self' | '_parent' | '_top' | null } */
     this.target = null;
     /** @type {?string} */
     this.value = null;

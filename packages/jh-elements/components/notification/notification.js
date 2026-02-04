@@ -245,7 +245,7 @@ export class JhNotification extends LitElement {
 
   constructor() {
     super();
-    /** @type {'positive'|'neutral'|'negative'} */
+    /** @type { 'positive' | 'neutral' | 'negative' } */
     this.appearance = 'neutral';
     /** @type {?string} */
     this.dismissButtonAccessibleLabel = null;
@@ -253,7 +253,7 @@ export class JhNotification extends LitElement {
     this.hideDismissButton = false;
     /** @type {boolean} */
     this.stacked = false;
-    /** @type {'alert'|'banner'} */
+    /** @type { 'alert' | 'banner' } */
     this.type = 'alert';
   }
 

@@ -245,13 +245,13 @@ export class JhCard extends LitElement {
   
   constructor() {
     super();
-    /** @type {0|8|16|24|32|40|48|56|64|72|80|88|96|null} */
+    /** @type { 0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null} */
     this.footerDividerInset = null;
-    /** @type {0|8|16|24|32|40|48|56|64|72|80|88|96|null} */
+    /** @type { 0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null} */
     this.headerDividerInset = null;
     /** @type {1|2|3|4|5|6} */
     this.titleHeadingLevel = 2;
-    /** @type {'small'|'medium'|'none'} */
+    /** @type { 'small' | 'medium' | 'none' } */
     this.padding = 'medium';
     /** @type {boolean} */
     this.showFooterDivider = false;

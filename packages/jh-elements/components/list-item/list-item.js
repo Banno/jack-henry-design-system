@@ -296,7 +296,7 @@ export class JhListItem extends LitElement {
     this.#internals.role = 'listitem';
     /** @type {boolean} */
     this.disabled = false;
-    /** @type {null|0|8|16|24|32|40|48|56|64|72|80|88|96} */
+    /** @type { 0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null } */
     this.dividerInset = null;
     /** @type {?string} */
     this.primaryMetadata = null;

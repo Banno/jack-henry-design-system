@@ -95,7 +95,7 @@ export class JhTableDataCell extends LitElement {
     super();
     this.#internals = this.attachInternals();
     this.#internals.role = 'cell';
-    /**  @type {'left' | 'center' | 'right'} */
+    /**  @type { 'left' | 'center' | 'right' } */
     this.horizontalAlign = 'left';
   }
 

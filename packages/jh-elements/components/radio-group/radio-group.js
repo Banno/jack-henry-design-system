@@ -199,7 +199,7 @@ export class JhRadioGroup extends LitElement {
     this.name = null;
     /** @type {boolean} */
     this.required = false;
-    /** @type {'vertical'|'horizontal'} */
+    /** @type { 'vertical' | 'horizontal' } */
     this.orientation = 'vertical';
     /** @type {boolean} */
     this.showIndicator = false;

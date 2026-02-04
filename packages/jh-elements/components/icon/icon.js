@@ -92,7 +92,7 @@ export class JhIcon extends LitElement {
     this.#internals.role = 'graphics-symbol';
     this.#internals.ariaHidden = 'true';
 
-    /** @type {'x-small'|'small'|'medium'|'large'|'x-large'} */
+    /** @type { 'x-small' | 'small' | 'medium' | 'large' | 'x-large' } */
     this.size = 'medium';
   }
 

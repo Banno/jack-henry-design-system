@@ -450,7 +450,7 @@ export class JhInput extends LitElement {
     this.showClearButton = false;
     /** @type {boolean} */
     this.showIndicator = false;
-    /** @type {'small'|'medium'|'large'} */
+    /** @type { 'small' | 'medium' | 'large' } */
     this.size = 'medium';
     /** @type {?string} */
     this.value = null;

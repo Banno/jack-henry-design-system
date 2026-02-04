@@ -178,9 +178,9 @@ export class JhInputTextarea extends JhInput {
     this.noResize = true;
     /** @type {?number} */
     this.rows = null;
-    /** @type {'small'|'medium'|'large'} */
+    /** @type { 'small' | 'medium' | 'large' } */
     this.size = 'medium';
-    /** @type {'hard'|'soft'|null} */
+    /** @type { 'hard' | 'soft' | 'off' | null } */
     this.wrap = null;
   }
 

@@ -244,7 +244,7 @@ export class JhSwitch extends LitElement {
 
   constructor() {
     super();
-    /** @type {'true'|'false'|null} */
+    /** @type { 'true' | 'false' | null } */
     this.accessibleDisabled = null;
     /** @type {?string} */
     this.accessibleLabel = null;

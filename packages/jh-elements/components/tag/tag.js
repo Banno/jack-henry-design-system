@@ -334,7 +334,7 @@ export class JhTag extends LitElement {
     this.dismissButtonAccessibleLabel = null;
     /** @type {?string} */
     this.tooltipLabel = null;
-    /** @type {'small'| 'medium'} */
+    /** @type { 'small' | 'medium' } */
     this.size = 'small';
     /** @type {?string} */
     this.href = null;

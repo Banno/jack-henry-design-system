@@ -212,9 +212,9 @@ export class JhProgress extends LitElement {
     this.indeterminate = false;
     /** @type {?string} */
     this.label = null;
-    /** @type {'small'|'medium'|'large'} */
+    /** @type { 'small' | 'medium' | 'large' } */
     this.size = 'medium';
-    /** @type {'linear'|'circular'} */
+    /** @type { 'linear' | 'circular' } */
     this.type = 'linear';
     /** @type {boolean} */
     this.hideValue = false;

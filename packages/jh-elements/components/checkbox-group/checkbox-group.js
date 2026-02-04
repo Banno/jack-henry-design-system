@@ -175,7 +175,7 @@ export class JhCheckboxGroup extends LitElement {
     this.label = null;
     /** @type {boolean} */
     this.required = false;
-    /** @type {'vertical'|'horizontal'} */
+    /** @type { 'vertical' | 'horizontal' } */
     this.orientation = 'vertical';
     /** @type {boolean} */
     this.showIndicator = false;

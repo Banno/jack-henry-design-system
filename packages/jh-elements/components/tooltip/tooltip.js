@@ -242,7 +242,7 @@ export class JhTooltip extends LitElement {
     this.label = null;
     /**@type {boolean} */
     this.open = false;
-    /** @type {string} */
+    /** @type { 'left' | 'right' | 'top-start' | 'top-end' | 'top-center' | 'bottom-start' | 'bottom-end' | 'bottom-center' } */
     this.position = 'top-center';
   }
 

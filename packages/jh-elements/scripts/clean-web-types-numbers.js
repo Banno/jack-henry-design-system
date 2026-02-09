@@ -28,33 +28,7 @@ const webTypesString = getWebTypesData(manifest, options);
 
 const webTypes = JSON.parse(webTypesString);
 
-// Helper function to extract URL from description
-function extractUrlFromDescription(description) {
-  if (!description) return null;
-  
-  // Match markdown links: [text](url)
-  const markdownLinkMatch = description.match(/\[([^\]]+)\]\(([^)]+)\)/);
-  if (markdownLinkMatch) {
-    return markdownLinkMatch[2];
-  }
-  
-  // Match plain URLs: http(s)://...
-  const urlMatch = description.match(/https?:\/\/[^\s<>"]+/);
-  if (urlMatch) {
-    return urlMatch[0];
-  }
-  
-  return null;
-}
-
-//TODO check if we need this or markdown link works in Webstorm
 webTypes.contributions?.html?.elements?.forEach(element => {
-  // Extract and set doc-url from element description
-  const elementUrl = extractUrlFromDescription(element.description);
-  if (elementUrl) {
-    element['doc-url'] = elementUrl;
-  }
-  
   element.attributes?.forEach(attr => {
     const typeText = attr.value?.type;
 

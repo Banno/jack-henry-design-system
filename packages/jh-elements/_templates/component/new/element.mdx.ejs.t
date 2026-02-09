@@ -6,16 +6,16 @@ to: components/<%= unprefixedName %>/<%= unprefixedName %>.mdx
 # SPDX-License-Identifier: Apache-2.0
 ---
 {/*
-SPDX-FileCopyrightText: 2025 Jack Henry
+SPDX-FileCopyrightText: 2026 Jack Henry
 
 SPDX-License-Identifier: Apache-2.0
  */}
 import { Meta, ArgTypes } from '@storybook/blocks';
 import * as stories from './<%= unprefixedName %>.stories.js';
 
-<Meta title="Components/<%= titleName %>" of={stories} />
+<Meta title="Components/<%= h.changeCase.title(unprefixedName) %>" of={stories} />
 
-# <%= titleName %>
+# <%= h.changeCase.title(unprefixedName) %>
 
 [Guidelines](https://jackhenry.design/pages/components/<%= unprefixedName %>/)
 

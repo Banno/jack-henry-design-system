@@ -6,7 +6,7 @@ to: components/<%= unprefixedName %>/<%= unprefixedName %>.js
 # SPDX-License-Identifier: Apache-2.0
 ---
 /**
-* SPDX-FileCopyrightText: 2025 Jack Henry
+* SPDX-FileCopyrightText: 2026 Jack Henry
 *
 * SPDX-License-Identifier: Apache-2.0
 */
@@ -14,10 +14,10 @@ to: components/<%= unprefixedName %>/<%= unprefixedName %>.js
 import { LitElement, css, html } from 'lit';
 
 /**
- * <%= titleName %>
+ * <%= h.changeCase.title(elementName) %>
  * @customElement <%= elementName %>
  */
-export class <%= className %> extends LitElement {
+export class <%= h.changeCase.pascal(elementName) %> extends LitElement {
   static get styles() {
     return css`
         :host {
@@ -46,4 +46,4 @@ export class <%= className %> extends LitElement {
   }
 }
 
-customElements.define('<%= elementName %>', <%= className %>);
+customElements.define('<%= elementName %>', <%= h.changeCase.pascal(elementName) %> );

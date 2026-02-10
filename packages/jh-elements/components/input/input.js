@@ -2,8 +2,9 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { JhElement } from '../element/element.js';
 import '../button/button.js';
 import '@jack-henry/jh-icons/icons-wc/icon-circle-xmark.js';
 
@@ -52,15 +53,11 @@ let id = 0;
  * 
  * @customElement jh-input
  */
-export class JhInput extends LitElement {
+export class JhInput extends JhElement {
   static get formAssociated() {
     return true;
   }
 
-  /** @type {ElementInternals} */
-  #internals;
-  /** @type {?number} */
-  #id;
   /** @type {?string} */
   #value;
   /** @type {string} */
@@ -402,7 +399,6 @@ export class JhInput extends LitElement {
 
   constructor() {
     super();
-    this.#internals = this.attachInternals();
     /** @type {?string} */
     this.accessibleLabel = null;
     /** @type {?string} */
@@ -453,12 +449,21 @@ export class JhInput extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    this.#id = id++;
     this.#captureMaskIndexes();
     let observer = new MutationObserver(this.#captureMaskIndexes.bind(this));
     observer.observe(this, { attributeFilter: ['input-mask'] });
     this.addEventListener('jh-select', this.#setSelection);
-  }
+    // added for testing purposes to verify element internals are accessible in input component
+    console.log('input internals', this.internals);
+    // example of migration warning for deprecated property 
+    this.migrationWarning({
+      component: 'jh-input',
+      type: 'property',
+      name: 'type',
+      message: 'The "type" property is no longer supported and will be removed in v2. Please review the migration guide for more information.',
+      url: 'https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/what-s-new-v2-release--docs#deprecated-property'
+    });
+}
 
   disconnectedCallback() {
     super.disconnectedCallback();
@@ -549,7 +554,7 @@ export class JhInput extends LitElement {
 
   /** @ignore */
   get form() {
-    return this.#internals.form;
+    return this.internals.form;
   }
 
   get value() {
@@ -560,20 +565,21 @@ export class JhInput extends LitElement {
     const oldValue = this.#value;
     if (newValue !== oldValue) {
       this.#value = newValue;
-      this.#internals.setFormValue(this.#value);
+      this.internals.setFormValue(this.#value);
     }
     this.requestUpdate('value', oldValue);
   }
 
-  #dispatch(eventName, details) {
-    this.dispatchEvent(
-      new CustomEvent(eventName, {
-        detail: details,
-        bubbles: true,
-        cancelable: true,
-        composed: true,
-      })
-    );
+  #dispatch(eventName, event, details) {
+    this.dispatchCustomEvent(eventName, event, details);
+    // this.dispatchEvent(
+    //   new CustomEvent(eventName, {
+    //     detail: details,
+    //     bubbles: true,
+    //     cancelable: true,
+    //     composed: true,
+    //   })
+    // );
   }
 
   #handleInput(e) {
@@ -587,7 +593,7 @@ export class JhInput extends LitElement {
         this.#applyInputMask(e);
       }
     } else {
-      this.#dispatch('jh-input', { value: this.value });
+      this.#dispatch('jh-input', e,  { state: { value: this.value } } );
     }
   }
 
@@ -929,9 +935,13 @@ export class JhInput extends LitElement {
     this.value = formattedResult.join('');
 
     // Dispatch a custom event with the formatted and raw values
-    this.#dispatch('jh-input', {
-      'value': this.value,
-      'rawValue': this.#rawValue
+    this.#dispatch('jh-input', e, {
+      state: {
+        'value': this.value,
+        'rawValue': this.#rawValue
+      },
+      // example dispatch with additional keys
+       newKey: { test: 'test value' }
     });
   }
 
@@ -995,16 +1005,18 @@ export class JhInput extends LitElement {
     }
   }
 
-  #handleChange() {
+  #handleChange(e) {
     let payload = {
-      'value': this.value,
+      state: {
+        'value': this.value,
+      }
     }
 
     if (this.inputMask) {
-      payload.rawValue = this.#rawValue;
+      payload.state.rawValue = this.#rawValue;
     }
 
-    this.#dispatch('jh-change', payload);
+    this.#dispatch('jh-change', e, payload);
   }
 
   #handleSelect(e) {
@@ -1015,10 +1027,12 @@ export class JhInput extends LitElement {
 
     // ensure selected string present before dispatching event. Can be empty due to caret positioning when user attempts to delete fixed char.
     if (selectedString) {
-      this.#dispatch('jh-select', {
-        selected: selectedString,
-        selectionStart: e.target.selectionStart,
-        selectionEnd: e.target.selectionEnd
+      this.#dispatch('jh-select', e, {
+        state: {
+          selection: selectedString,
+          selectionStart: e.target.selectionStart,
+          selectionEnd: e.target.selectionEnd
+        }
       });
     }
   }
@@ -1027,23 +1041,24 @@ export class JhInput extends LitElement {
     this.#dispatch('jh-maxlength');
   }
 
-  #handleClearButtonClick() {
+  #handleClearButtonClick(e) {
     let previousValue = this.value;
     // clear input value
     this.value = '';
     // focus input field
     this.shadowRoot.querySelector('input').focus();
     // dispatch clear event
-    this.dispatchEvent(
-      new CustomEvent('jh-input:clear-button-click', {
-        detail: { 
-          'previousValue': previousValue 
-        },
-        bubbles: true,
-        cancelable: true,
-        composed: true,
-      })
-    );
+    // this.dispatchEvent(
+    //   new CustomEvent('jh-input:clear-button-click', {
+    //     detail: { 
+    //       'previousValue': previousValue 
+    //     },
+    //     bubbles: true,
+    //     cancelable: true,
+    //     composed: true,
+    //   })
+    // );
+    this.#dispatch('jh-input:clear-button-click', e, { state: { 'previousValue': previousValue } });
   }
 
   #handleSlotChange(e) {
@@ -1123,13 +1138,13 @@ export class JhInput extends LitElement {
     let describedbyString = '';
 
     if (this.errorText) {
-      describedbyString += `jh-input-error-${this.#id}`;
+      describedbyString += `jh-input-error-${this.uniqueId}`;
     }
     if (this.helperText) {
-      describedbyString += ` jh-input-helper-${this.#id}`;
+      describedbyString += ` jh-input-helper-${this.uniqueId}`;
     }
     if (this.showCharCount) {
-      describedbyString += ` jh-input-counter-${this.#id}`;
+      describedbyString += ` jh-input-counter-${this.uniqueId}`;
     }
     return describedbyString;
   }
@@ -1155,14 +1170,14 @@ export class JhInput extends LitElement {
 
       if (this.helperText) {
         helperText = html`
-          <p id="jh-input-helper-${this.#id}" class="helper-text">
+          <p id="jh-input-helper-${this.uniqueId}" class="helper-text">
             ${this.helperText}
           </p>
         `;
       }
 
       label = html`
-        <label for="jh-input-${this.#id}">${this.label}${indicator}</label>
+        <label for="jh-input-${this.uniqueId}">${this.label}${indicator}</label>
         ${helperText}
       `;
     }
@@ -1185,7 +1200,7 @@ export class JhInput extends LitElement {
 
     if (this.invalid && this.errorText) {
       errorText = html`
-        <p id="jh-input-error-${this.#id}" class="error-text">
+        <p id="jh-input-error-${this.uniqueId}" class="error-text">
           ${this.errorText}
         </p>
       `;
@@ -1207,7 +1222,7 @@ export class JhInput extends LitElement {
     input = html`
       <div class="input-container">
         <input
-          id="jh-input-${this.#id}"
+          id="jh-input-${this.uniqueId}"
           aria-describedby=${describedby}
           aria-invalid=${ifDefined(this.invalid ? 'true' : null)}
           aria-label=${ifDefined(
@@ -1242,4 +1257,4 @@ export class JhInput extends LitElement {
   }
 }
 
-customElements.define('jh-input', JhInput);
+JhInput.register('jh-input', JhInput);

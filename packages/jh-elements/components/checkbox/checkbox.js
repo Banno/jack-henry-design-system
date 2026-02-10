@@ -58,6 +58,10 @@ import { JhElement } from '../element/element.js';
  * @customElement jh-checkbox
  */
 export class JhCheckbox extends JhElement {
+  // temp until handled by validation mixin
+  static get formAssociated() {
+    return true;
+  }
 
   /** @type {?Boolean} */
   #checked;
@@ -467,6 +471,7 @@ export class JhCheckbox extends JhElement {
     this.accessibleLabel = null;
   }
 
+  // added for testing purposes to verify element internals are accessible in checkbox component
   connectedCallback() {
     super.connectedCallback();
     console.log('checkbox internals', this.internals);
@@ -552,7 +557,7 @@ export class JhCheckbox extends JhElement {
 
     if (this.helperText) {
       helperText = html`
-        <p class="helper-text" id="checkbox-helper-text-${this.id}">
+        <p class="helper-text" id="checkbox-helper-text-${this.uniqueId}">
           ${this.helperText}
         </p>
       `;
@@ -561,7 +566,7 @@ export class JhCheckbox extends JhElement {
     if (this.label) {
       label = html`
         <div class="label-container">
-          <label class="label-text" for="checkbox-label-${this.id}">
+          <label class="label-text" for="checkbox-label-${this.uniqueId}">
             ${this.label}
           </label>
           ${helperText}
@@ -580,9 +585,9 @@ export class JhCheckbox extends JhElement {
         aria-label=${ifDefined(this.accessibleLabel)}
         value=${ifDefined(this.value)}
         name=${ifDefined(this.name)}
-        id=${ifDefined(this.label ? `checkbox-label-${this.id}` : null)}
+        id=${ifDefined(this.label ? `checkbox-label-${this.uniqueId}` : null)}
         aria-describedby=${ifDefined(
-          this.helperText ? `checkbox-helper-text-${this.id}` : null
+          this.helperText ? `checkbox-helper-text-${this.uniqueId}` : null
         )}
       />
       <span aria-hidden="true"></span>

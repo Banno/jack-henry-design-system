@@ -6,4 +6,4 @@ packages:
 - 'packages/jh-elements'
 - 'packages/jh-tokens'
 - 'packages/jh-icons'
-- 'apps/integration-tests/vite-ts'
+- 'apps/integration-tests/**'

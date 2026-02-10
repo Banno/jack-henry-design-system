@@ -4,7 +4,6 @@
 
 import { LitElement, css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { JhRadio } from '../radio/radio';
 
 let id = 0;
 /**
@@ -32,7 +31,7 @@ export class JhRadioGroup extends LitElement {
   static get formAssociated() {
     return true;
   }
-  /** @type {JhRadio} */
+  
   #checked;
   /** @type {number} */
   #id;

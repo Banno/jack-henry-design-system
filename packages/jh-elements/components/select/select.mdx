@@ -1,0 +1,150 @@
+{/*
+SPDX-FileCopyrightText: 2025 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+*/}
+
+import { Meta, ArgTypes } from '@storybook/blocks';
+import * as stories from './select.stories.js';
+
+<Meta title="Components/Select" of={stories} />
+
+# Select
+
+<hr />
+
+The select component allows users to choose one or more options from a dropdown list. It provides a styled alternative to the native HTML `<select>` element with full keyboard navigation and accessibility support.
+
+## Usage
+
+Import the `<jh-select>` component:
+
+```javascript
+import '@jack-henry/jh-elements/components/select/select.js';
+```
+
+### Single Select
+
+To use `<jh-select>` for single selection:
+
+```html
+<jh-select
+  label="Country"
+  name="country"
+  .options=${[
+    { label: 'United States', value: 'us' },
+    { label: 'Canada', value: 'ca' },
+    { label: 'United Kingdom', value: 'uk' },
+  ]}
+></jh-select>
+```
+
+### Multiple Select
+
+To use `<jh-select>` for multiple selection:
+
+```html
+<jh-select
+  label="Countries"
+  name="countries"
+  multiple
+  .options=${[
+    { label: 'United States', value: 'us' },
+    { label: 'Canada', value: 'ca' },
+    { label: 'United Kingdom', value: 'uk' },
+  ]}
+  .value=${['us', 'ca']}
+></jh-select>
+```
+
+## Dependencies
+
+The select component makes use of both required compositional and suggested content related dependencies.
+
+1. Composition - the following required dependencies are automatically imported:
+
+- `<jh-menu>`. [Menu component documentation](/docs/components-menu--docs).
+- `<jh-list-item>`. [List Item component documentation](/docs/components-list-item--docs).
+- `<jh-icon-chevron-down-small>`. [Iconography documentation](/docs/iconography-overview--docs).
+- `<jh-icon-chevron-up-small>`. [Iconography documentation](/docs/iconography-overview--docs).
+
+## Single Select Behavior
+
+- Click or press Enter/Space to open the dropdown.
+- Use arrow keys to navigate options.
+- Press Enter or Space to select an option and close the dropdown.
+- Press Escape to close the dropdown without selecting.
+
+## Multiple Select Behavior
+
+When the `multiple` attribute is set, the select allows multiple options to be selected. Selected options display the `jh-list-item` built-in selected state styling (left border highlight).
+
+### Mouse Interactions
+
+- **Click**: Select only this item (deselect all others)
+- **Ctrl/Cmd + Click**: Toggle this item (keep others selected)
+- **Shift + Click**: Range select from last selected to clicked item
+
+### Keyboard Interactions
+
+- **Arrow keys**: Move focus between options
+- **Space**: Toggle selection of focused item
+- **Shift + Arrow**: Extend selection in that direction
+- **Ctrl/Cmd + A**: Select all options
+- **Enter**: Toggle selection
+- **Escape**: Close dropdown
+
+### Display Value
+
+The trigger displays selected items as follows:
+- 1 item: `"United States"`
+- 2 items: `"United States, Canada"`
+- 3+ items: `"United States, Canada, +2 more"`
+
+## Accessibility
+
+This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria and follows the [ARIA Authoring Practices Guide (APG) Combobox Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/).
+
+The following success criteria are of concern:
+
+- [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html): Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.
+- [WCAG 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html): Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element.
+- [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html): Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.
+- [WCAG 1.4.11 Non-text Contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html): The visual presentation of user interface components and states have a contrast ratio of at least 3:1 against adjacent color(s).
+- [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html): All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes.
+- [WCAG 2.4.6 Headings and Labels](https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html): Headings and labels describe topic or purpose.
+- [WCAG 2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html): Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.
+- [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html): The size of the target for pointer inputs is at least 24 by 24 CSS pixels.
+- [WCAG 3.3.1 Error Identification](https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html): If an input error is automatically detected, the item that is in error is identified and the error is described to the user in text.
+- [WCAG 3.3.2 Labels or Instructions](https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html): Labels or instructions are provided when content requires user input.
+- [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html): For all user interface components, the name and role can be programmatically determined; states, properties, and values that can be set by the user can be programmatically set; and notification of changes to these items is available to user agents, including assistive technologies.
+
+### What we provide
+
+- To satisfy [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) and [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html), the component uses `role="combobox"` on the trigger, `role="listbox"` on the dropdown, and `role="option"` on each option. The `aria-expanded`, `aria-haspopup`, `aria-controls`, `aria-activedescendant`, and `aria-selected` attributes are managed automatically.
+- To satisfy [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html), any `label`, `helper-text`, and `error-text` are associated with the select control using `aria-labelledby` and `aria-describedby`.
+- To satisfy [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html), the select can be resized without assistive technology up to 200 percent without loss of content or functionality.
+- To satisfy [WCAG 1.4.11 Non-text Contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html) and [WCAG 2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html), interactive elements include focus styles and the focused option is visually highlighted.
+- To satisfy [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html), full keyboard navigation is supported following the APG Combobox pattern: Arrow keys navigate, Enter/Space select, Escape closes.
+- To satisfy [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html), the target size for the select trigger meets the 24 by 24 pixels minimum.
+- To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html), the `aria-multiselectable` attribute is set on the listbox when `multiple` is enabled.
+
+### Author Guidance
+
+- To satisfy [WCAG 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html), when using the `required` property and `show-indicator` attribute, include instructions at the top of the form to explain required inputs are marked with a red asterisk.
+- To satisfy [WCAG 2.4.6 Headings and Labels](https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html) and [WCAG 3.3.2 Labels or Instructions](https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html), ensure the `label` property or the `accessible-label` attribute are descriptive.
+- To satisfy [WCAG 3.3.1 Error Identification](https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html), set the `invalid` attribute to generate an `aria-invalid` attribute on the select to indicate an error. Utilize the `error-text` attribute to provide feedback on a failed value.
+- To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html), set the `accessible-label` attribute to generate an `aria-label` when a visible label cannot be used.
+
+## Component API
+
+For boolean attributes, true indicates that the attribute has been set without a value: `<jh-select multiple></jh-select>`. While false indicates the attribute does not exist in the DOM: `<jh-select></jh-select>`.
+
+<ArgTypes />
+
+## Feedback
+
+Have an idea that will improve this component or have an issue to report? Let us know by submitting
+an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
+
+Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

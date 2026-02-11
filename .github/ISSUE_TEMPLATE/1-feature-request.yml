@@ -6,6 +6,7 @@ name: Feature Request
 description: Have an idea for a new feature or component? Submit it here.
 title: '[Feature Request]: '
 labels: 'proposal: open, type: feature request'
+type: feature request
 body:
   - type: markdown
     attributes:
@@ -33,8 +34,8 @@ body:
       label: Affected Package
       description: Select the package that would be affected by this feature request.
       options:
-        - '@jack-henry/jh-elements (formerly jh-ui)' 
-        - '@jack-henry/jh-tokens (formerly jh-core)'
+        - '@jack-henry/jh-elements' 
+        - '@jack-henry/jh-tokens'
         - '@jack-henry/jh-icons'
     validations:
       required: true

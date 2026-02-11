@@ -1,5 +1,5 @@
 <!--
-SPDX-FileCopyrightText: 2025 Jack Henry
+SPDX-FileCopyrightText: 2026 Jack Henry
 
 SPDX-License-Identifier: Apache-2.0
 -->
@@ -12,11 +12,13 @@ _What is the purpose of this pull request?_
 
 ## How To Test
 
+Select all that apply:
+
 - [ ] Review component(s) on Storybook
 - [ ] Review documentation
 - [ ] Review tokens
 - [ ] Review icons
-- [ ] Run script(s): _add script here_
+- [ ] Run script(s): _add scripts here_
 - [ ] Other (add details below)
 
 **Additional Details**

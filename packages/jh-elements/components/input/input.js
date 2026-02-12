@@ -593,7 +593,7 @@ export class JhInput extends JhElement {
         this.#applyInputMask(e);
       }
     } else {
-      this.#dispatch('jh-input', e,  { state: { value: this.value } } );
+      this.#dispatch('jh-input', e );
     }
   }
 
@@ -1006,14 +1006,16 @@ export class JhInput extends JhElement {
   }
 
   #handleChange(e) {
-    let payload = {
-      state: {
-        'value': this.value,
-      }
-    }
+    // let payload = {
+    //   state: {
+    //     'value': this.value,
+    //   }
+    // }
+
+    let payload;
 
     if (this.inputMask) {
-      payload.state.rawValue = this.#rawValue;
+      payload = { state: { rawValue: this.#rawValue } };
     }
 
     this.#dispatch('jh-change', e, payload);

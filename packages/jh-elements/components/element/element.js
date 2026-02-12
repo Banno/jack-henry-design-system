@@ -35,6 +35,7 @@ export class JhElement extends LitElement {
   }
 
   // getter for element internals
+  /** @ignore */
   get internals() {
     return this.#internals;
   }
@@ -86,6 +87,7 @@ export class JhElement extends LitElement {
       detail: finalDetail,
       bubbles: true,
       composed: true,
+      cancelable: true,
     });
     this.dispatchEvent(event);
   }

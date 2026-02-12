@@ -9,6 +9,12 @@ let id = 0;
 const openAttr = 'open';
 
 /**
+ * Tooltips are floating components that appears when a user hovers or focuses onto an originating element 
+ * such as a button, icon or link. They display additional information about the originating element which is not 
+ * critical in nature.
+ * 
+ * [Tooltip Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tooltip--docs)
+ * 
  * @cssprop --jh-tooltip-color-background - The tooltip and arrow background-color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-tooltip-color-text - The tooltip text color. Defaults to `--jh-color-content-on-primary-enabled`.
  *
@@ -230,13 +236,13 @@ export class JhTooltip extends LitElement {
   constructor() {
     super();
     this.#internals = this.attachInternals();
-    /**@type {?Boolean} */
+    /**@type {boolean} */
     this.flipDisabled = false;
     /** @type {?string} */
     this.label = null;
-    /**@type {?Boolean} */
+    /**@type {boolean} */
     this.open = false;
-    /** @type {?string} */
+    /** @type { 'left' | 'right' | 'top-start' | 'top-end' | 'top-center' | 'bottom-start' | 'bottom-end' | 'bottom-center' } */
     this.position = 'top-center';
   }
 

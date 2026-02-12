@@ -6,7 +6,10 @@ import { css } from 'lit';
 import { JhInput } from '../input/input.js';
 
 /**
- * Input Url
+ * The input url component provides a single-line text field for capturing URLs.
+ * 
+ * [Input URL Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-url--docs)
+ * 
  * @customElement jh-input-url
  */
 export class JhInputUrl extends JhInput {

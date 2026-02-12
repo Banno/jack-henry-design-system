@@ -5,7 +5,10 @@
 import { JhInput } from '../input/input.js';
 
 /**
- * Input Email
+ * The input email component provides a single-line text field for email addresses.
+ * 
+ * [Input Email Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-email--docs)
+ * 
  * @customElement jh-input-email
  */
 export class JhInputEmail extends JhInput {

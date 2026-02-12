@@ -8,7 +8,10 @@ import '../button/button.js';
 import '../tooltip/tooltip.js';
 
 /**
- * Tag
+ * A tag contains a string of text on a colorful background and is used to categorize, describe or otherwise identify elements on the page.
+ * 
+ * [Tag Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tag--docs)
+ * 
  * @cssprop --jh-tag-color-focus - The tag outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.
  * @cssprop --jh-tag-border-radius - The tag border radius. Defaults to `--jh-border-radius-pill`.
  * @cssprop --jh-tag-color-background-enabled- The tag background color. Defaults to `--jh-color-container-neutral-enabled`.
@@ -40,6 +43,7 @@ import '../tooltip/tooltip.js';
  * @slot jh-tag-icon - Use to insert an icon to the left of the tag.
  * @slot jh-tag-dismiss-icon - Use to insert a custom icon within the dismiss button.
  * @event jh-dismiss - Dispatched when the tag is dismissed.
+ * 
  * @customElement jh-tag
  */
 export class JhTag extends LitElement {
@@ -324,19 +328,19 @@ export class JhTag extends LitElement {
     super();
     /** @type {?string} */
     this.label = null;
-    /** @type {?Boolean} */
+    /** @type {boolean} */
     this.dismissible = false;
     /** @type {?string} */
     this.dismissButtonAccessibleLabel = null;
     /** @type {?string} */
     this.tooltipLabel = null;
-    /** @type {'small'| 'medium'} */
+    /** @type { 'small' | 'medium' } */
     this.size = 'small';
     /** @type {?string} */
     this.href = null;
     /** @type {?string} */
     this.target = null;
-    /** @type {?Boolean} */
+    /** @type {boolean} */
     this.removeOnDismiss = false;
     this.addEventListener('keyup', this.#handleClick);
   }

@@ -2,8 +2,9 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { JhElement } from '../element/element.js';
 import '../divider/divider.js';
 
 /**
@@ -31,7 +32,7 @@ import '../divider/divider.js';
  * @slot jh-card-footer - Use to insert card footer content.
  * @customElement jh-card
  */
-export class JhCard extends LitElement {
+export class JhCard extends JhElement {
   static get styles() {
     return css`
       :host {
@@ -329,5 +330,4 @@ export class JhCard extends LitElement {
     `;
   }
 }
-
-customElements.define('jh-card', JhCard);
+JhElement.register('jh-card', JhCard);

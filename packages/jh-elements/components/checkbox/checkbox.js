@@ -2,8 +2,9 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { JhElement } from '../element/element.js';
 
 let id = 0;
 
@@ -58,18 +59,14 @@ let id = 0;
  *
  * @customElement jh-checkbox
  */
-export class JhCheckbox extends LitElement {
+export class JhCheckbox extends JhElement {
   static get formAssociated() {
     return true;
   }
   /** @type {?Boolean} */
   #checked;
-  /** @type {?Number} */
-  #id;
   /** @type {?Boolean} */
   #indeterminate;
-  /** @type {ElementInternals} */
-  #internals;
   /** @type {?string} */
   #value;
 
@@ -456,7 +453,6 @@ export class JhCheckbox extends LitElement {
 
   constructor() {
     super();
-    this.#internals = this.attachInternals();
     /** @type {?boolean} */
     this.checked = false;
     /** @type {?boolean} */
@@ -475,22 +471,17 @@ export class JhCheckbox extends LitElement {
     this.accessibleLabel = null;
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    this.#id = id++;
-  }
-
   /**
    * Returns the checkbox's parent form element.
    * @type {?HTMLFormElement}
    */
   get form() {
-    return this.#internals.form;
+    return this.internals.form;
   }
 
   /** @ignore */
   get validity() {
-    return this.#internals.validity;
+    return this.internals.validity;
   }
 
   /** @type {?string} */
@@ -537,8 +528,8 @@ export class JhCheckbox extends LitElement {
 
   #updateFormValue(value, checked, indeterminate) {
     if (!indeterminate) {
-      this.#internals.setFormValue(checked ? value || 'on' : null);
-    } else this.#internals.setFormValue(null);
+      this.internals.setFormValue(checked ? value || 'on' : null);
+    } else this.internals.setFormValue(null);
   }
 
   #handleChange(e) {
@@ -559,7 +550,7 @@ export class JhCheckbox extends LitElement {
 
     if (this.helperText) {
       helperText = html`
-        <p class="helper-text" id="checkbox-helper-text-${this.#id}">
+        <p class="helper-text" id="checkbox-helper-text-${this.uniqueId}">
           ${this.helperText}
         </p>
       `;
@@ -568,7 +559,7 @@ export class JhCheckbox extends LitElement {
     if (this.label) {
       label = html`
         <div class="label-container">
-          <label class="label-text" for="checkbox-label-${this.#id}">
+          <label class="label-text" for="checkbox-label-${this.uniqueId}">
             ${this.label}
           </label>
           ${helperText}
@@ -587,9 +578,9 @@ export class JhCheckbox extends LitElement {
         aria-label=${ifDefined(this.accessibleLabel)}
         value=${ifDefined(this.value)}
         name=${ifDefined(this.name)}
-        id=${ifDefined(this.label ? `checkbox-label-${this.#id}` : null)}
+        id=${ifDefined(this.label ? `checkbox-label-${this.uniqueId}` : null)}
         aria-describedby=${ifDefined(
-          this.helperText ? `checkbox-helper-text-${this.#id}` : null
+          this.helperText ? `checkbox-helper-text-${this.uniqueId}` : null
         )}
       />
       <span aria-hidden="true"></span>
@@ -597,5 +588,4 @@ export class JhCheckbox extends LitElement {
     `;
   }
 }
-
-customElements.define('jh-checkbox', JhCheckbox);
+JhElement.register('jh-checkbox', JhCheckbox);

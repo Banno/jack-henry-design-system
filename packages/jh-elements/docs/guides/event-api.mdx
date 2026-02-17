@@ -1,0 +1,64 @@
+{/*
+SPDX-FileCopyrightText: 2026 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+*/}
+
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Guides/Component Events" tags={['new']} />
+
+# Working with Component Events
+
+## Overview
+
+The Event API provides a standardized way to access component data through custom events. Instead of requiring developers to navigate between `e.target` and `e.detail` to find relevant information, all key data is organized within the event payload under predictable, categorized properties.
+
+This approach reduces boilerplate code, improves discoverability, and creates a consistent pattern across all design system components.
+
+## Event Structure
+
+All custom events follow a consistent structure with data organized into logical categories within the `detail` object:
+
+### Standard Categories
+
+#### `state`
+Contains the state of the component at the time of the event.
+
+**Common Properties:**
+- `previous value` - The value associated with the component before the event was fired.
+- `validity` - The validity state of the component. 
+- `value` - The current value of the component, may be formatted if the input-mask is present. 
+
+**Example:**
+
+#### `form`
+Contains information relevant to form submission.
+
+**Common Properties:**
+- `form name` - The name of the form the component belongs to. 
+- `name` - Name attribute of the component. 
+
+**Example:**
+
+#### `reference`
+Contains information relevant to the component. 
+
+**Common Properties:**
+- `id` - Unique identifier for the component. 
+- `label` - Descriptive text associated with the component. 
+- `accessible label` - Descriptive and accessible text associated with the component when there is no visible text label. 
+- `origin host` - The custom HTML element that the shadow tree is attached to. 
+- `origin element` - The element from which the event was fired. 
+
+**Example:**
+
+#### `meta`
+Contains information about the event itself. 
+
+**Common Properties:**
+- `timestamp` - Time at which the event was fired. 
+- `rect` - The components location on the screen in relation to the viewport. 
+- `mouse position` - Physical location of the user’s mouse on the screen/viewport.
+
+**Example:**

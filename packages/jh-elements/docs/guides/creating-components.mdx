@@ -1,0 +1,154 @@
+{/*
+SPDX-FileCopyrightText: 2026 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+*/}
+
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Guides/Creating Components" tags={['new']} />
+
+# Creating Components
+
+While our design system provides a comprehensive set of web components for most use cases, you may occasionally need to build something entirely unique that lacks a functional or visual equivalent in our system.
+
+In these instances, we recommend building from our `JhElement` base class. Extending this class gives you full creative control over your templates and styles while ensuring your component inherits our standardized event dispatching, secure registration, and deprecation utilities.
+
+## Creating New Components from JhElement
+
+### Create New Component Class 
+1. Import `JhElement`.
+
+2. Create a new class that extends the existing component. Use the `extends` keyword to inherit its properties, methods, and events. 
+
+3. Register the new component using the `register` method inherited from the base class. This prevents registry conflicts if the script is loaded multiple times. 
+
+``` javascript
+// Import JhElement
+import { JhElement } from '@jack-henry/jh-elements/components/jh-element/jh-element.js'; 
+// Extend from base class
+class MyExtendedComponent extends JhElement { 
+  ...
+}
+// Register new component
+MyExtendedComponent.register('my-extended-component', MyExtendedComponent); 
+```
+
+### Managing Scoped IDs
+
+`JhElement` automatically generates a scoped, unique ID for every component instance, accessible via the `uniqueId` property.
+
+Use this property to programmatically link elements that require matching IDs (such as labels or ARIA attributes). 
+
+For example:
+```javascript
+import { JhElement } from '@jack-henry/jh-elements/components/jh-element/jh-element.js'; 
+
+class MyExtendedComponent extends JhElement { 
+  ...
+  render() {
+    html`
+      <label for="my-extended-component-${this.uniqueId}">My label</label>
+      <input id="my-extended-component-${this.uniqueId}"/>
+    `
+  }
+}
+```
+
+### Creating Custom Events
+
+`JhElement` provides an event dispatcher, `dispatchCustomEvent`. The dispatcher includes the following:
+
+- Automatic Bubbling: Events are set to `bubbles: true` by default, allowing them to travel up the DOM tree.
+
+- Shadow DOM Traversal: Events are set to `composed: true`, ensuring they can cross the Shadow DOM boundary to be captured by listeners in the main document.
+
+- Cancelable by Default: Events are dispatched with `cancelable: true`, allowing the event to be intercepted and canceled via e.preventDefault(). 
+
+- Standardized Payload: It automatically injects the structured categories (state, reference, etc.) and related properties outlined in our [Component Events Guide](/docs/guides-component-events--docs).
+
+To hook into the event dispatcher:
+
+```javascript
+import { JhElement } from '@jack-henry/jh-elements/components/jh-element/jh-element.js'; 
+
+class MyExtendedComponent extends JhElement { 
+  ...
+  #handleChange(e) {
+    let additionalDetails = {
+      // add additional properties to existing categories
+      state: {
+        'new-property': propertyValue
+      },
+      // create new categories
+      newCategory: {
+        'new-property': propertyValue
+      }
+    }
+    // call event dispatcher
+    this.dispatchCustomEvent('my-event', e, additionalDetails);
+  }
+  
+  render() {
+    html`
+      <input @change=${this.#handleChange}/>
+    `
+  }
+}
+```
+
+### Managing Semantics with ElementInternals
+
+The design system leverages the use of the ElementInternals API to ensure accessibility and semantic integrity. `JhElement` provides a built-in interface to this API via the `internals` property, allowing you to define roles and states without cluttering the DOM. For example:
+
+```javascript
+import { JhElement } from '@jack-henry/jh-elements/components/jh-element/jh-element.js'; 
+
+class MyExtendedComponent extends JhElement { 
+  ...
+    constructor() {
+    super();
+    this.internals.role = 'graphics-symbol';
+    this.internals.ariaHidden = 'true';
+  }
+  ...
+}
+```
+
+### Managing Component Lifecycle & Migrations
+
+JhElement provides a `migrationWarning` utility to communicate standardized deprecation or migration notices. It manages logs to ensure unique warnings are only reported once, preventing console clutter.
+
+#### Parameters
+
+The method accepts an object with the following properties:
+
+- **component**: The name of the custom element (i.e., jh-badge).
+
+- **type**: The category of the warning (i.e., Property, Event, Token, Method).
+
+- **name**: The specific name of the deprecated item.
+
+- **message**: A clear explanation of why it’s being deprecated and what to use instead.
+
+- **url**: A direct link to the migration guide or updated documentation.
+
+```javascript
+import { JhElement } from '@jack-henry/jh-elements/components/jh-element/jh-element.js'; 
+
+class MyExtendedComponent extends JhElement {
+  
+  connectedCallback() {
+    super.connectedCallback();
+    // Example of a migration warning for a deprecated token
+    this.migrationWarning({
+      component: 'jh-badge',
+      type: 'token',
+      name: '--jh-size-200',
+      message: 'The "--jh-size-200" token is deprecated and will be replaced by `--jh-dimension-200` in v2. Please review the migration guide for more information.',
+      url: 'https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/what-s-new-v2-release--docs#deprecated-token'
+    });
+  }
+}
+
+```

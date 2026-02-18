@@ -17,11 +17,14 @@ export class JhElement extends LitElement {
   #internals;
   /** @type {number} */
   #id;
+  /** @type {object} */
+  #pointerPosition;
 
   constructor() {
     super();
     /** @type {ElementInternals} */
     this.#internals = this.attachInternals();
+    this.addEventListener('mousemove', this.#capturePointerPosition);
   }
 
   connectedCallback() {
@@ -40,6 +43,11 @@ export class JhElement extends LitElement {
     return this.#internals;
   }
 
+  // method to capture pointer position on mousemove (can be used in event detail for custom events)
+  #capturePointerPosition(e) {
+    this.#pointerPosition = { x: e.clientX, y: e.clientY };
+  }
+
   // custom event dispatcher (TODO: add additional event properties)
   dispatchCustomEvent(eventName, e, detail = {}) {
     // gather base detail info
@@ -49,7 +57,6 @@ export class JhElement extends LitElement {
         name: this.name || null,
       },
       state: {
-        previousValue: this.previousValue || null,
         validity: this.validity || null,
         value: this.value || null,
       },
@@ -57,11 +64,13 @@ export class JhElement extends LitElement {
         id: this.uniqueId,
         label: this.label || null,
         accessibleLabel: this.accessibleLabel || null,
+        originElement: e.target, 
+        originHost: this.localName, 
       },
       meta: {
-        originalEvent: e || null,
-        timestamp: Date.now(),
+        timestamp: Date.now(), 
         rect: this.getBoundingClientRect(),
+        pointerPosition: this.#pointerPosition || null,
       },
     };
 
@@ -92,7 +101,7 @@ export class JhElement extends LitElement {
     this.dispatchEvent(event);
   }
 
-  // deprecation warning logger (TODO: hide message when in production)
+  // deprecation warning logger (TODO: hide message when in production) 
   migrationWarning({ component, type, name, message, url }) {
     const identifier = `${component}:${name}`;
   

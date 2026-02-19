@@ -2,7 +2,8 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
+import { JhElement } from '../element/element.js';
 import '../notification/notification.js';
 
 /**
@@ -15,7 +16,7 @@ import '../notification/notification.js';
  * @event jh-dismiss - Dispatched when the toast is dismissed.
  * @customElement jh-toast
  */
-export class JhToast extends LitElement {
+export class JhToast extends JhElement {
   static get styles() {
     return css`
       @keyframes fadeInUp  {
@@ -118,17 +119,7 @@ export class JhToast extends LitElement {
   }
 
   #removeToast() {
-    this.#dispatch('jh-dismiss');
-  }
-
-  #dispatch(name) {
-    this.dispatchEvent(
-      new CustomEvent(name, {
-        bubbles: true,
-        cancelable: true,
-        composed: true,
-      })
-    );
+    this.dispatchCustomEvent('jh-dismiss');
   }
 
   #handleDismiss() {
@@ -168,5 +159,4 @@ export class JhToast extends LitElement {
     `;
   }
 }
-
-customElements.define('jh-toast', JhToast);
+JhElement.register('jh-toast', JhToast);

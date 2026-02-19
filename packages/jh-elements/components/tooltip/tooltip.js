@@ -2,10 +2,10 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { JhElement } from '../element/element';
 
-let id = 0;
 const openAttr = 'open';
 
 /**
@@ -16,10 +16,7 @@ const openAttr = 'open';
  *
  * @customElement jh-tooltip
  */
-export class JhTooltip extends LitElement {
-  /** @type {ElementInternals} */
-  #internals;
-
+export class JhTooltip extends JhElement {
   static get styles() {
     return css`
       :host {
@@ -229,7 +226,6 @@ export class JhTooltip extends LitElement {
 
   constructor() {
     super();
-    this.#internals = this.attachInternals();
     /**@type {?Boolean} */
     this.flipDisabled = false;
     /** @type {?string} */
@@ -243,7 +239,7 @@ export class JhTooltip extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     /** @ignore */
-    this.id = `tooltip-describedby-${id++}`;
+    this.id = `tooltip-describedby-${this.uniqueId}`;
     let observer = new MutationObserver(this.#handleEmptyLabel.bind(this));
     let options = {
       childList: true,
@@ -260,7 +256,7 @@ export class JhTooltip extends LitElement {
       );
 
       if (spanAdded) {
-        this.#internals.role = 'tooltip';
+        this.internals.role = 'tooltip';
         this.addEventListener('focus', this.#handleOpenTooltip, true);
         this.addEventListener('mouseenter', this.#handleOpenTooltip);
         this.addEventListener('blur', this.#handleCloseTooltip, true);
@@ -269,7 +265,7 @@ export class JhTooltip extends LitElement {
       }
 
       if (mutation.removedNodes.length > 0) {
-        this.#internals.role = '';
+        this.internals.role = '';
         this.removeEventListener('focus', this.#handleOpenTooltip);
         this.removeEventListener('mouseenter', this.#handleOpenTooltip);
         this.removeEventListener('blur', this.#handleCloseTooltip);
@@ -494,5 +490,4 @@ export class JhTooltip extends LitElement {
     `;
   }
 }
-
-customElements.define('jh-tooltip', JhTooltip);
+JhElement.register('jh-tooltip', JhTooltip);

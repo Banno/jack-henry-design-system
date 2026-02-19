@@ -2,7 +2,8 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
+import { JhElement } from '../element/element';
 
 /**
  * Table Cell
@@ -30,11 +31,7 @@ import { LitElement, css, html } from 'lit';
  * 
  * @customElement jh-table-cell
  */
-export class JhTableDataCell extends LitElement {
-
-  /** @type {ElementInternals} */
-  #internals;
-
+export class JhTableDataCell extends JhElement {
   static get styles() {
     return css`
       :host {
@@ -88,8 +85,7 @@ export class JhTableDataCell extends LitElement {
 
   constructor() {
     super();
-    this.#internals = this.attachInternals();
-    this.#internals.role = 'cell';
+    this.internals.role = 'cell';
     /** 
      * Sets the horizontal alignment of the content.
      * @attr horizontal-align
@@ -103,5 +99,4 @@ export class JhTableDataCell extends LitElement {
     return html`<slot></slot>`;
   }
 }
-
-customElements.define('jh-table-data-cell', JhTableDataCell);
+JhElement.register('jh-table-data-cell', JhTableDataCell);

@@ -15,4 +15,4 @@ export class JhInputTelephone extends JhInput {
     inputEl.setAttribute('type', 'tel');
   }
 }
-customElements.define('jh-input-telephone', JhInputTelephone);
+JhInput.register('jh-input-telephone', JhInputTelephone);

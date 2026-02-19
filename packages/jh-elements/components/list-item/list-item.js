@@ -2,9 +2,10 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
-import '../divider/divider.js';
+import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { JhElement } from '../element/element.js';
+import '../divider/divider.js';
 
 /**
  * @cssprop --jh-list-item-color-background - The list-item container's background-color.
@@ -40,10 +41,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * @slot jh-list-item-metadata - Use to insert custom metadata into the list-item.
  * @customElement jh-list-item
  */
-export class JhListItem extends LitElement {
-  /** @type {ElementInternals} */
-  #internals;
-
+export class JhListItem extends JhElement {
   static get styles() {
     return css`
       :host {
@@ -287,8 +285,7 @@ export class JhListItem extends LitElement {
 
   constructor() {
     super();
-    this.#internals = this.attachInternals();
-    this.#internals.role = 'listitem';
+    this.internals.role = 'listitem';
     /** @type {?boolean} */
     this.disabled = false;
     /** @type {null|0|8|16|24|32|40|48|56|64|72|80|88|96} */
@@ -346,5 +343,4 @@ export class JhListItem extends LitElement {
     `;
   }
 }
-
-customElements.define('jh-list-item', JhListItem);
+JhElement.register('jh-list-item', JhListItem);

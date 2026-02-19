@@ -15,4 +15,4 @@ export class JhInputEmail extends JhInput {
     inputEl.setAttribute('type', 'email');
   }
 }
-customElements.define('jh-input-email', JhInputEmail);
+JhInput.register('jh-input-email', JhInputEmail);

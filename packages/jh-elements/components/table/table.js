@@ -2,13 +2,12 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { JhElement } from '../element/element.js';
 import '../table-header-cell/table-header-cell.js';
 import '../table-data-cell/table-data-cell.js';
 import '../table-row/table-row.js';
-
-let id = 0;
 
 /**
  * Table
@@ -29,10 +28,7 @@ let id = 0;
  * @slot jh-table-toolbar - Use to insert toolbar.
  * @customElement jh-table
  */
-export class JhTable extends LitElement {
-  /** @type {?Number} */
-  #id;
-
+export class JhTable extends JhElement {
   static get styles() {
     return css`
       :host {
@@ -285,11 +281,6 @@ export class JhTable extends LitElement {
     this.addEventListener('jh-sort', this.#handleSort);
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    this.#id = id++;
-  }
-
   async firstUpdated() {
     if (!this.scrollable) return;
 
@@ -347,12 +338,12 @@ export class JhTable extends LitElement {
 
   render() {
     return html`
-      <slot name="jh-table-caption" id="table-caption-${this.#id}" @slotchange=${this.#handleSlot}></slot>
+      <slot name="jh-table-caption" id="table-caption-${this.uniqueId}" @slotchange=${this.#handleSlot}></slot>
       <slot name="jh-table-toolbar" @slotchange=${this.#handleSlot}></slot>
       <div class="table-wrapper">
         <div class="table-container" tabindex="${ifDefined(this.scrollable ? '0' : null)}">
           <div class="table ${this.scrollable ? 'scrollable' : ''}" role="table" 
-          aria-labelledby="table-caption-${this.#id}" aria-label=${ifDefined(this.accessibleLabel === '' ? null : this.accessibleLabel)}>
+          aria-labelledby="table-caption-${this.uniqueId}" aria-label=${ifDefined(this.accessibleLabel === '' ? null : this.accessibleLabel)}>
             <slot name="jh-table-header" class="header" role="rowgroup"></slot>
             <slot class="body" role="rowgroup"></slot>
             <slot name="jh-table-footer" class="footer" role="rowgroup"></slot>
@@ -363,5 +354,4 @@ export class JhTable extends LitElement {
     `;
   }
 }
-
-customElements.define('jh-table', JhTable);
+JhElement.register('jh-table', JhTable);

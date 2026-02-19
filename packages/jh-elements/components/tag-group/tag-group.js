@@ -2,7 +2,8 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
+import { JhElement } from '../element/element';
 
 /**
  * Tag Group
@@ -10,10 +11,7 @@ import { LitElement, css, html } from 'lit';
  * @slot default - Use to insert `<jh-tag>` component(s).
  * @customElement jh-tag-group
  */
-export class JhTagGroup extends LitElement {
-  /** @type {ElementInternals} */
-  #internals;
-
+export class JhTagGroup extends JhElement {
   static get styles() {
     return css`
       :host {
@@ -43,8 +41,7 @@ export class JhTagGroup extends LitElement {
 
   constructor() {
     super();
-    this.#internals = this.attachInternals();
-    this.#internals.role = 'group';
+    this.internals.role = 'group';
     /** @type {'start'| 'end'} */
     this.alignment = 'start';
   }
@@ -53,5 +50,4 @@ export class JhTagGroup extends LitElement {
     return html` <slot></slot> `;
   }
 }
-
-customElements.define('jh-tag-group', JhTagGroup);
+JhElement.register('jh-tag-group', JhTagGroup);

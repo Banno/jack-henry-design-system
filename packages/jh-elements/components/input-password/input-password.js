@@ -150,4 +150,4 @@ export class JhInputPassword extends JhInput {
     this.passwordVisible = !this.passwordVisible;
   }
 }
-customElements.define('jh-input-password', JhInputPassword);
+JhInput.register('jh-input-password', JhInputPassword);

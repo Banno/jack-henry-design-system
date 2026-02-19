@@ -2,10 +2,8 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
-
-let id = 0;
-
+import { css, html } from 'lit';
+import { JhElement } from '../element/element.js';
 /**
  * @cssprop --jh-radio-opacity-disabled - The radio opacity when disabled. Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-radio-input-border-radius - The radio and status mark border-radius.
@@ -64,13 +62,7 @@ let id = 0;
  *
  * @customElement jh-radio */
 
-export class JhRadio extends LitElement {
-
-  /** @type {?Number} */
-  #id;
-  /** @type {ElementInternals} */
-  #internals;
-
+export class JhRadio extends JhElement {
   static get styles() {
     return css`
       :host {
@@ -321,8 +313,7 @@ export class JhRadio extends LitElement {
 
   constructor() {
     super();
-    this.#internals = this.attachInternals();
-    this.#internals.role = 'radio';
+    this.internals.role = 'radio';
     /** @type {?string} */
     this.accessibleLabel = null;
     /** @type {?boolean} */
@@ -342,14 +333,13 @@ export class JhRadio extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    this.#id = id++;
     this.setAttribute('tabindex', '0');
     this.setAttribute('aria-checked', `${this.checked}`);
     if (this.accessibleLabel) {
       this.setAttribute('aria-label', `${this.accessibleLabel}`);
     }
     if (this.helperText) {
-      this.setAttribute('aria-describedby', `radio-helper-text-${this.#id}`);
+      this.setAttribute('aria-describedby', `radio-helper-text-${this.uniqueId}`);
     }
 
     let observer = new MutationObserver(this.#updateArias.bind(this));
@@ -373,22 +363,18 @@ export class JhRadio extends LitElement {
     }
   }
 
-  #handleClick() {
+  #handleClick(e) {
     if (this.disabled) return;
     if (this.checked) return;
 
     this.checked = true;
-    const options = {
-      bubbles: true,
-      composed: true,
-      cancelable: true,
-    };
-    this.dispatchEvent(new CustomEvent('jh-change', options));
+
+    this.dispatchCustomEvent('jh-change', e);
   }
 
   #handleKeydown(e) {
     if (e.code === 'Space') {
-      this.#handleClick();
+      this.#handleClick(e);
     }
   }
 
@@ -398,7 +384,7 @@ export class JhRadio extends LitElement {
 
     if (this.helperText) {
       helperText = html`
-        <p class="helper-text" id="radio-helper-text-${this.#id}">
+        <p class="helper-text" id="radio-helper-text-${this.uniqueId}">
           ${this.helperText}
         </p>
       `;
@@ -419,4 +405,4 @@ export class JhRadio extends LitElement {
     `;
   }
 }
-customElements.define('jh-radio', JhRadio);
+JhElement.register('jh-radio', JhRadio);

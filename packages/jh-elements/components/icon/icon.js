@@ -2,7 +2,8 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
+import { JhElement } from '../element/element.js';
 
 /**
  * @cssprop --jh-icon-color-fill - The icon color. Defaults to `--jh-color-content-secondary-enabled`.
@@ -14,11 +15,7 @@ import { LitElement, css, html } from 'lit';
  * @slot default - Use to insert the icon SVG content.
  * @customElement jh-icon
  */
-export class JhIcon extends LitElement {
-
-  /** @type {ElementInternals} */
-  #internals;
-
+export class JhIcon extends JhElement {
   static get styles() {
     return css`
       :host {
@@ -79,10 +76,8 @@ export class JhIcon extends LitElement {
   }
   constructor() {
     super();
-    this.#internals = this.attachInternals();
-    this.#internals.role = 'graphics-symbol';
-    this.#internals.ariaHidden = 'true';
-
+    this.internals.role = 'graphics-symbol';
+    this.internals.ariaHidden = 'true';
     /** @type {'x-small'|'small'|'medium'|'large'|'x-large'} */
     this.size = 'medium';
   }
@@ -93,4 +88,4 @@ export class JhIcon extends LitElement {
     `;
   }
 }
-customElements.define('jh-icon', JhIcon);
+JhElement.register('jh-icon', JhIcon);

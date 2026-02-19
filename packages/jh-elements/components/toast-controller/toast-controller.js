@@ -2,7 +2,8 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
+import { JhElement } from '../element/element.js';
 import '../toast/toast.js';
 
 /**
@@ -12,7 +13,7 @@ import '../toast/toast.js';
  * 
  * @customElement jh-toast-controller
  */
-export class JhToastController extends LitElement {
+export class JhToastController extends JhElement {
   static get styles() {
     return css`
       :host {
@@ -59,21 +60,10 @@ export class JhToastController extends LitElement {
     if (currentToasts > this.maxCount) {
       let extraToast = currentToasts - this.maxCount;
       for (let i = 0; i < extraToast; i++) {
-        this.#dispatch('jh-dismiss', this.children[i]);
+        this.dispatchCustomEvent('jh-dismiss');
+        this.#handleDismiss(this.children[i]);
       }
     }
-  }
-
-  // controller dispatches jh-dismiss event and calls handleDismiss method
-  #dispatch(name, toast) {
-    this.dispatchEvent(
-      new CustomEvent(name, {
-        bubbles: true,
-        cancelable: true,
-        composed: true,
-      }) 
-    );
-    this.#handleDismiss(toast);
   }
 
   // adds dismiss animation to toast and removes from DOM once completed 
@@ -117,6 +107,6 @@ export class JhToastController extends LitElement {
     `;
   }
 }
-customElements.define('jh-toast-controller', JhToastController);
+JhElement.register('jh-toast-controller', JhToastController);
 
 

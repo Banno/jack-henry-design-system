@@ -2,10 +2,10 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { JhElement } from '../element/element';
 
-let id = 0;
 /**
  * @cssprop --jh-list-group-subheader-color-background - The subheader background-color.
  * Defaults to `transparent`.
@@ -19,9 +19,7 @@ let id = 0;
  * @slot default - Use to insert `<jh-list-item>` component(s).
  * @customElement jh-list-group
  */
-export class JhListGroup extends LitElement {
-  /** @type {?Number} */
-  #id;
+export class JhListGroup extends JhElement {
 
   static get styles() {
     return css`
@@ -76,22 +74,17 @@ export class JhListGroup extends LitElement {
     this.accessibleLabel = null;
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    this.#id = id++;
-  }
-
   render() {
     return html`
       ${this.label
-        ? html`<div class="subheader" id="list-group-labelledby-${this.#id}">
+        ? html`<div class="subheader" id="list-group-labelledby-${this.uniqueId}">
             ${this.label}
           </div>`
         : null}
       <div
         role="group"
         aria-labelledby=${ifDefined(
-          this.label ? `list-group-labelledby-${this.#id}` : null
+          this.label ? `list-group-labelledby-${this.uniqueId}` : null
         )}
         aria-label=${ifDefined(this.accessibleLabel)}
       >
@@ -100,4 +93,4 @@ export class JhListGroup extends LitElement {
     `;
   }
 }
-customElements.define('jh-list-group', JhListGroup);
+JhElement.register('jh-list-group', JhListGroup);

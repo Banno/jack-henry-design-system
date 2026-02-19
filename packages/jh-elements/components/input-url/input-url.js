@@ -28,4 +28,4 @@ export class JhInputUrl extends JhInput {
     inputEl.setAttribute('type', 'url');
   }
 }
-customElements.define('jh-input-url', JhInputUrl);
+JhInput.register('jh-input-url', JhInputUrl);

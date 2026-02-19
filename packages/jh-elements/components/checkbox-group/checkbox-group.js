@@ -2,10 +2,10 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { JhElement } from '../element/element.js';
 
-let id = 0;
 /**
  *
  * @cssprop --jh-checkbox-group-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
@@ -22,10 +22,7 @@ let id = 0;
  *
  * @customElement jh-checkbox-group
  */
-export class JhCheckboxGroup extends LitElement {
-  /** @type {?Number} */
-  #id;
-
+export class JhCheckboxGroup extends JhElement {
   static get styles() {
     return css`
       :host {
@@ -177,20 +174,15 @@ export class JhCheckboxGroup extends LitElement {
     this.showIndicator = false;
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    this.#id = id++;
-  }
-
   #getAriaDescribedBy() {
     if (this.errorText && this.invalid && this.helperText && this.label) {
-      return `checkbox-group-error-${this.#id} checkbox-group-helper-${
-        this.#id
+      return `checkbox-group-error-${this.uniqueId} checkbox-group-helper-${
+        this.uniqueId
       }`;
     } else if (this.errorText && this.invalid) {
-      return `checkbox-group-error-${this.#id}`;
+      return `checkbox-group-error-${this.uniqueId}`;
     } else if (this.helperText && this.label) {
-      return `checkbox-group-helper-${this.#id}`;
+      return `checkbox-group-helper-${this.uniqueId}`;
     }
   }
 
@@ -209,24 +201,24 @@ export class JhCheckboxGroup extends LitElement {
     }
 
     if (this.helperText) {
-      helperText = html`<p class="helper-text" id="checkbox-group-helper-${this.#id}">${this.helperText}</p>`;
+      helperText = html`<p class="helper-text" id="checkbox-group-helper-${this.uniqueId}">${this.helperText}</p>`;
     }
 
     if (this.label) {
       label = html`
-        <legend class="label" for="checkbox-group-label-${this.#id}">
+        <legend class="label" for="checkbox-group-label-${this.uniqueId}">
           ${this.label}${indicator}
         </legend>
         ${helperText}`;
     }
 
     if (this.invalid && this.errorText) {
-      errorText = html`<p class="error-text" id="checkbox-group-error-${this.#id}">${this.errorText}</p>`;
+      errorText = html`<p class="error-text" id="checkbox-group-error-${this.uniqueId}">${this.errorText}</p>`;
     }
 
     return html`
       <fieldset
-        id=${ifDefined(this.label ? `checkbox-group-label-${this.#id}` : null)}
+        id=${ifDefined(this.label ? `checkbox-group-label-${this.uniqueId}` : null)}
         aria-describedby=${ifDefined(this.#getAriaDescribedBy())}
         ?required=${this.required}
         aria-invalid=${ifDefined(this.invalid ? 'true' : null)}
@@ -238,4 +230,4 @@ export class JhCheckboxGroup extends LitElement {
     `;
   }
 }
-customElements.define('jh-checkbox-group', JhCheckboxGroup);
+JhElement.register('jh-checkbox-group', JhCheckboxGroup);

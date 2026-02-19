@@ -38,4 +38,4 @@ export class JhInputSearch extends JhInput {
     inputEl.setAttribute('type', 'search');
   }
 }
-customElements.define('jh-input-search', JhInputSearch);
+JhInput.register('jh-input-search', JhInputSearch);

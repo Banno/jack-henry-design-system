@@ -6,8 +6,6 @@ import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { JhElement } from '../element/element.js';
 
-let id = 0;
-
 /**
  * @cssprop --jh-checkbox-opacity-disabled - The checkbox opacity when disabled. Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-checkbox-input-border-radius - The checkbox border radius. Defaults to `--jh-border-radius-50`.
@@ -536,12 +534,7 @@ export class JhCheckbox extends JhElement {
     this.checked = e.target.checked;
     this.indeterminate = false;
     this.#updateFormValue(this.value, this.checked, this.indeterminate);
-    const options = {
-      bubbles: true,
-      composed: true,
-      cancelable: true,
-    };
-    this.dispatchEvent(new CustomEvent('jh-change', options));
+    this.dispatchCustomEvent('jh-change', e);
   }
 
   render() {

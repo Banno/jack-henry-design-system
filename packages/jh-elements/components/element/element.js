@@ -7,7 +7,6 @@
 import { LitElement } from 'lit';
 
 let id = 0;
-let globalDeprecations = new Set();
 /**
  * Element
  * @customElement jh-element
@@ -100,30 +99,6 @@ export class JhElement extends LitElement {
     });
     this.dispatchEvent(event);
   }
-
-  // deprecation warning logger (TODO: hide message when in production) 
-  migrationWarning({ component, type, name, message, url }) {
-    const identifier = `${component}:${name}`;
-  
-    // Only log once if multiple component instances are present 
-    if (globalDeprecations.has(identifier)) {
-      return 
-    } else {
-      globalDeprecations.add(identifier);
-    }
-  
-    let logMessage = `${component} ${type}: "${name}"`;
-  
-    if (message) {
-      logMessage += `\n ${message}`;
-    }
-
-    if (url) {
-      logMessage += `\n Documentation: ${url}`;
-    }
-
-    console.warn(logMessage);
-}
 
   // register method to avoid custom element registry conflicts
   static register(tagName, targetClass) {

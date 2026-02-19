@@ -398,18 +398,71 @@ Additionally, the `placeholder` property has been deprecated due to accessibilit
 
 ### Deprecated jh-input styling hooks
 
-* `jh-input-field-dimension-padding-top`
-* `jh-input-field-dimension-padding-bottom`
-* `jh-input-field-dimension-padding-left`
-* `jh-input-field-dimension-padding-right`
-* `jh-input-clear-color-background-disabled` 
-* `jh-input-clear-color-border-disabled`
-* `jh-input-clear-icon-color-fill-disabled`
-* `jh-input-clear-opacity-disabled`
-* `jh-input-clear-shadow-focus`. Use `jh-input-clear-color-focus` instead. 
-* `jh-input-shadow-focus`. Use `jh-input-field-color-border-focus` instead. 
-* `jh-input-size-min-height-text-area-small`, `jh-input-size-min-height-text-area-medium`, and `jh-input-size-min-height-text-area-large`. Use `jh-input-textarea-field-dimension-min-height` instead. 
+<table>
+  <thead>
+    <tr>
+      <th>Deprecated Token</th>
+      <th>New Token</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>--jh-input-clear-shadow-focus</td>
+      <td>--jh-input-clear-color-focus</td>
+    </tr>
+    <tr>
+      <td>--jh-input-shadow-focus</td>
+      <td>--jh-input-field-color-border-focus</td>
+    </tr>
+    <tr>
+      <td>--jh-input-size-min-height-text-area-small</td>
+      <td>--jh-input-textarea-field-dimension-min-height</td>
+    </tr>
+    <tr>
+      <td>--jh-input-size-min-height-text-area-medium</td>
+      <td>--jh-input-textarea-field-dimension-min-height</td>
+    </tr>
+    <tr>
+      <td>--jh-input-size-min-height-text-area-large</td>
+      <td>--jh-input-textarea-field-dimension-min-height</td>
+    </tr>
+    <tr>
+      <td>--jh-input-field-dimension-padding-top</td>
+      <td>No replacement token</td>
+    </tr>
+    <tr>
+      <td>--jh-input-field-dimension-padding-bottom</td>
+      <td>No replacement token</td>
+    </tr>
+    <tr>
+      <td>--jh-input-field-dimension-padding-left</td>
+      <td>No replacement token</td>
+    </tr>
+    <tr>
+      <td>--jh-input-field-dimension-padding-right</td>
+      <td>No replacement token</td>
+    </tr>
+    <tr>
+      <td>--jh-input-clear-color-background-disabled</td>
+      <td>No replacement token</td>
+    </tr>
+    <tr>
+      <td>--jh-input-clear-color-border-disabled</td>
+      <td>No replacement token</td>
+    </tr>
+    <tr>
+      <td>--jh-input-clear-icon-color-fill-disabled</td>
+      <td>No replacement token</td>
+    </tr>
+    <tr>
+      <td>--jh-input-clear-opacity-disabled</td>
+      <td>No replacement token</td>
+    </tr>
+  </tbody>
+</table>
+
 * The remaining styling hooks targeting the input **field** have been renamed from `jh-input-*` to `jh-input-field-*`. **Note**: this does not apply to tokens targetting the clear button i.e. `jh-input-clear-*`. 
+* `--jh-input-left-icon-color-fill` and `--jh-input-left-icon-color-fill` are deprecated, use the icon styling hook `--jh-icon-color-fill` instead. 
 
 </div>
 

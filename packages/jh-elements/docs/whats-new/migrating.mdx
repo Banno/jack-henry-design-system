@@ -351,14 +351,17 @@ import '@jack-henry/jh-elements/components/divider/divider.js';
 
 ## Migrating jh-input 
 
-The `jh-input` component has been refactored into a base class to enhance its flexibility and reduce API overhead. In doing so, the `type` property is no longer supported. Specialized input types will become available as separate, discrete components. Users who rely on the `type` property will need to either:
+The jh-input component has been refactored into a base class to increase flexibility and reduce API overhead. This change introduces several breaking changes to properties and styling hooks.
 
-1. Migrate to the specialized input components as they become available. For example, if using `<jh-input type="search"></jh-input>` users can migrate to `<jh-input-search></jh-input-search>`. Refer to the migration table below:
+### New Discrete Components
+The `type` property is no longer supported on the `jh-input`. You must now use specialized components or extend the base class.
+
+1. Discrete Components - replace `<jh-input type="..."` with the corresponding component below:
 <table>
   <thead>
     <tr>
-      <th>Input `type`</th>
-      <th>Discrete Component</th>
+      <th>Deprecated Input `type`</th>
+      <th>New Discrete Component</th>
     </tr>
   </thead>
   <tbody>
@@ -392,12 +395,13 @@ The `jh-input` component has been refactored into a base class to enhance its fl
     </tr>
   </tbody>
 </table>
-2. Extend the jh-input component to create the needed specialized input type. Refer to the [Extending Components Guide](/docs/guides-extending-components--docs) for information on how to extend components. 
 
-Additionally, the `placeholder` property has been deprecated due to accessibility concerns. Users should leverage the `helper-text` and `label` properties to provide guidance on the expected type of user data. 
+2. Extend the `jh-input` Component. To create a specialized input type, refer to the [Extending Components Guide](/docs/guides-extending-components--docs) for information on how to extend components. 
+
+### Deprecated Properties
+The `placeholder` property has been deprecated due to accessibility concerns. Please leverage the `helper-text` and `label` properties to provide clear, persistent guidance for users. 
 
 ### Deprecated jh-input styling hooks
-
 <table>
   <thead>
     <tr>
@@ -461,7 +465,7 @@ Additionally, the `placeholder` property has been deprecated due to accessibilit
   </tbody>
 </table>
 
-* The remaining styling hooks targeting the input **field** have been renamed from `jh-input-*` to `jh-input-field-*`. **Note**: this does not apply to tokens targetting the clear button i.e. `jh-input-clear-*`. 
+* The remaining styling hooks targeting the input **field** have been renamed from `jh-input-*` to `jh-input-field-*`. **Note**: this does not apply to tokens targeting the clear button i.e. `jh-input-clear-*`. 
 * `--jh-input-left-icon-color-fill` and `--jh-input-left-icon-color-fill` are deprecated, use the icon styling hook `--jh-icon-color-fill` instead. 
 
 ## Migrating jh-icons

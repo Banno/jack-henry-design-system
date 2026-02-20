@@ -99,12 +99,17 @@ export class JhInputTextarea extends JhInput {
         );
       }
       textarea:focus-visible {
-        box-shadow: var(--jh-input-shadow-focus, var(--jh-shadow-focus));
         border-color: var(
           --jh-input-field-color-border-focus,
           var(--jh-color-content-brand-hover)
         );
-        outline: none;
+        outline-color: var(
+          --jh-input-color-focus,
+          var(--jh-border-focus-color)
+        );
+        outline-style: var(--jh-border-focus-style);
+        outline-width: var(--jh-border-focus-width);
+        outline-offset: 1px;
       }
       :host([disabled]) textarea {
         border-color: var(

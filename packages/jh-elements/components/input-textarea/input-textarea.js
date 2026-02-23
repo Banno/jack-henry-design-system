@@ -6,8 +6,6 @@ import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { JhInput } from '../input/input.js';
 
-let id = 0;
-
 /**
  * @cssprop --jh-input-textarea-field-dimension-min-height - The input field minimum height. Defaults to `--jh-dimension-2000` when `size='small'`, `--jh-dimension-2200` when `size='medium'`, and `--jh-dimension-2400` when `size='large'`.
  *
@@ -16,9 +14,6 @@ let id = 0;
  * @customElement jh-input-textarea
  */
 export class JhInputTextarea extends JhInput {
-  /** @type {?number} */
-  #id;
-
   static get styles() {
     return [
       super.styles,
@@ -179,11 +174,6 @@ export class JhInputTextarea extends JhInput {
     this.wrap = null;
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    this.#id = id++;
-  }
-
   firstUpdated() {
     // add resize observer to update width of footer when textarea width changes
     let footerContent = this.shadowRoot.querySelector('.footer-content');
@@ -200,21 +190,10 @@ export class JhInputTextarea extends JhInput {
     footerContent.style.width = textareaEl.offsetWidth + 'px';
   }
 
-  #dispatch(eventName, details) {
-    this.dispatchEvent(
-      new CustomEvent(eventName, {
-        detail: details,
-        bubbles: true,
-        cancelable: true,
-        composed: true,
-      })
-    );
-  }
-
   #handleInput(e) {
     this.value = e.target.value;
 
-    this.#dispatch('jh-input', { value: this.value } );
+    this.dispatchCustomEvent('jh-input', e);
 
     if (this.autoGrow) {
       this.#autoGrowTextarea();
@@ -227,11 +206,8 @@ export class JhInputTextarea extends JhInput {
     textareaEl.style.height = textareaEl.scrollHeight + 'px';
   }
 
-  #handleChange() {
-    let payload = {
-      'value': this.value,
-    };
-    this.#dispatch('jh-change', payload);
+  #handleChange(e) {
+    this.dispatchCustomEvent('jh-change', e);
   }
 
   #handleSelect(e) {
@@ -241,29 +217,31 @@ export class JhInputTextarea extends JhInput {
     );
 
     if (selectedString) {
-      this.#dispatch('jh-select', {
-        selected: selectedString,
-        selectionStart: e.target.selectionStart,
-        selectionEnd: e.target.selectionEnd,
-      });
+      this.dispatchCustomEvent('jh-select', e, {
+        state: {
+          selection: selectedString,
+          selectionStart: e.target.selectionStart,
+          selectionEnd: e.target.selectionEnd,
+        }
+      })
     }
   }
 
   #handleMaxlength() {
-    this.#dispatch('jh-maxlength');
+    this.dispatchCustomEvent('jh-maxlength');
   }
 
   #getDescribedby() {
     let describedbyString = '';
 
     if (this.errorText) {
-      describedbyString += `jh-input-error-${this.#id}`;
+      describedbyString += `jh-input-error-${this.uniqueId}`;
     }
     if (this.helperText) {
-      describedbyString += ` jh-input-helper-${this.#id}`;
+      describedbyString += ` jh-input-helper-${this.uniqueId}`;
     }
     if (this.showCharCount) {
-      describedbyString += ` jh-input-counter-${this.#id}`;
+      describedbyString += ` jh-input-counter-${this.uniqueId}`;
     }
     return describedbyString;
   }
@@ -289,14 +267,14 @@ export class JhInputTextarea extends JhInput {
 
       if (this.helperText) {
         helperText = html`
-          <p id="jh-input-helper-${this.#id}" class="helper-text">
+          <p id="jh-input-helper-${this.uniqueId}" class="helper-text">
             ${this.helperText}
           </p>
         `;
       }
 
       label = html`
-        <label for="jh-input-${this.#id}">${this.label}${indicator}</label>
+        <label for="jh-input-${this.uniqueId}">${this.label}${indicator}</label>
         ${helperText}
       `;
     }
@@ -316,7 +294,7 @@ export class JhInputTextarea extends JhInput {
 
     if (this.invalid && this.errorText) {
       errorText = html`
-        <p id="jh-input-error-${this.#id}" class="error-text">
+        <p id="jh-input-error-${this.uniqueId}" class="error-text">
           ${this.errorText}
         </p>
       `;
@@ -337,7 +315,7 @@ export class JhInputTextarea extends JhInput {
 
     input = html`
         <textarea
-          id="jh-input-${this.#id}"
+          id="jh-input-${this.uniqueId}"
           aria-describedby=${describedby}
           aria-invalid=${ifDefined(this.invalid ? 'true' : null)}
           aria-label=${ifDefined(
@@ -371,4 +349,4 @@ export class JhInputTextarea extends JhInput {
     `;
   }
 }
-customElements.define('jh-input-textarea', JhInputTextarea);
+JhInput.register('jh-input-textarea', JhInputTextarea);

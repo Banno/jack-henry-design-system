@@ -1669,6 +1669,10 @@
           "description": "The input field border-color when invalid. Defaults to `--jh-border-error-color`."
         },
         {
+          "name": "--jh-input-clear-border-radius",
+          "description": "The clear search button border radius. Defaults to `--jh-border-radius-100`."
+        },
+        {
           "name": "--jh-input-clear-color-background-enabled",
           "description": "The clear search button background-color. Defaults to `transparent`."
         },
@@ -2151,6 +2155,10 @@
           "description": "The input field border-color when invalid. Defaults to `--jh-border-error-color`."
         },
         {
+          "name": "--jh-input-clear-border-radius",
+          "description": "The clear search button border radius. Defaults to `--jh-border-radius-100`."
+        },
+        {
           "name": "--jh-input-clear-color-background-enabled",
           "description": "The clear search button background-color. Defaults to `transparent`."
         },
@@ -2591,6 +2599,10 @@
           "description": "The input field border-color when invalid. Defaults to `--jh-border-error-color`."
         },
         {
+          "name": "--jh-input-clear-border-radius",
+          "description": "The clear search button border radius. Defaults to `--jh-border-radius-100`."
+        },
+        {
           "name": "--jh-input-clear-color-background-enabled",
           "description": "The clear search button background-color. Defaults to `transparent`."
         },
@@ -3029,6 +3041,10 @@
         {
           "name": "--jh-input-field-color-border-error",
           "description": "The input field border-color when invalid. Defaults to `--jh-border-error-color`."
+        },
+        {
+          "name": "--jh-input-clear-border-radius",
+          "description": "The clear search button border radius. Defaults to `--jh-border-radius-100`."
         },
         {
           "name": "--jh-input-clear-color-background-enabled",
@@ -3531,6 +3547,10 @@
           "description": "The input field border-color when invalid. Defaults to `--jh-border-error-color`."
         },
         {
+          "name": "--jh-input-clear-border-radius",
+          "description": "The clear search button border radius. Defaults to `--jh-border-radius-100`."
+        },
+        {
           "name": "--jh-input-clear-color-background-enabled",
           "description": "The clear search button background-color. Defaults to `transparent`."
         },
@@ -3971,6 +3991,10 @@
           "description": "The input field border-color when invalid. Defaults to `--jh-border-error-color`."
         },
         {
+          "name": "--jh-input-clear-border-radius",
+          "description": "The clear search button border radius. Defaults to `--jh-border-radius-100`."
+        },
+        {
           "name": "--jh-input-clear-color-background-enabled",
           "description": "The clear search button background-color. Defaults to `transparent`."
         },
@@ -4408,6 +4432,10 @@
         {
           "name": "--jh-input-field-color-border-error",
           "description": "The input field border-color when invalid. Defaults to `--jh-border-error-color`."
+        },
+        {
+          "name": "--jh-input-clear-border-radius",
+          "description": "The clear search button border radius. Defaults to `--jh-border-radius-100`."
         },
         {
           "name": "--jh-input-clear-color-background-enabled",

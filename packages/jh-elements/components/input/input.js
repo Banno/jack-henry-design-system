@@ -21,6 +21,7 @@ let id = 0;
  * @cssprop --jh-input-field-color-border-disabled - The input field border-color when disabled. Defaults to `--jh-border-control-color`.
  * @cssprop --jh-input-opacity-disabled - The input opacity when disabled. Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-input-field-color-border-error - The input field border-color when invalid. Defaults to `--jh-border-error-color`.
+ * @cssprop --jh-input-clear-border-radius - The clear search button border radius. Defaults to `--jh-border-radius-100`.
  * @cssprop --jh-input-clear-color-background-enabled - The clear search button background-color. Defaults to `transparent`.
  * @cssprop --jh-input-clear-color-border-enabled - The clear search button border-color. Defaults to `transparent`.
  * @cssprop --jh-input-clear-icon-color-fill-enabled - The clear search button icon fill color. Defaults to `--jh-color-content-brand-enabled`.
@@ -194,6 +195,7 @@ export class JhInput extends LitElement {
       /* clear button */
       .clear-button {
         right: var(--jh-dimension-400);
+        --jh-button-border-radius: var(--jh-input-clear-border-radius);
         --jh-button-color-background-tertiary-enabled: var(--jh-input-clear-color-background-enabled);
         --jh-button-color-border-tertiary-enabled: var(--jh-input-clear-color-border-enabled);
         --jh-button-icon-color-fill-tertiary-enabled: var(--jh-input-clear-icon-color-fill-enabled);

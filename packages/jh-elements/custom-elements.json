@@ -1670,59 +1670,59 @@
         },
         {
           "name": "--jh-input-clear-border-radius",
-          "description": "The clear search button border radius. Defaults to `--jh-border-radius-100`."
+          "description": "The clear button border radius. Defaults to `--jh-border-radius-100`."
         },
         {
           "name": "--jh-input-clear-color-background-enabled",
-          "description": "The clear search button background-color. Defaults to `transparent`."
+          "description": "The clear button background-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-border-enabled",
-          "description": "The clear search button border-color. Defaults to `transparent`."
+          "description": "The clear button border-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-enabled",
-          "description": "The clear search button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
+          "description": "The clear button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
         },
         {
           "name": "--jh-input-clear-color-background-focus",
-          "description": "The clear search button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-focus",
-          "description": "The clear search button border-color when in focus. Defaults to `transparent`."
+          "description": "The clear button border-color when in focus. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-focus",
-          "description": "The clear search button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
+          "description": "The clear button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-focus",
-          "description": "The clear search button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-hover",
-          "description": "The clear search button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-hover",
-          "description": "The clear search button border-color when hovered. Defaults to `transparent`."
+          "description": "The clear button border-color when hovered. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-hover",
-          "description": "The clear search button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-active",
-          "description": "The clear search button background-color when active. Defaults to `--jh-color-content-brand-active`."
+          "description": "The clear button background-color when active. Defaults to `--jh-color-content-brand-active`."
         },
         {
           "name": "--jh-input-clear-color-border-active",
-          "description": "The clear search button border-color when active. Defaults to `transparent`."
+          "description": "The clear button border-color when active. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-active",
-          "description": "The clear search button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
+          "description": "The clear button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
         },
         {
           "name": "--jh-input-required-color-text",
@@ -2156,59 +2156,59 @@
         },
         {
           "name": "--jh-input-clear-border-radius",
-          "description": "The clear search button border radius. Defaults to `--jh-border-radius-100`."
+          "description": "The clear button border radius. Defaults to `--jh-border-radius-100`."
         },
         {
           "name": "--jh-input-clear-color-background-enabled",
-          "description": "The clear search button background-color. Defaults to `transparent`."
+          "description": "The clear button background-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-border-enabled",
-          "description": "The clear search button border-color. Defaults to `transparent`."
+          "description": "The clear button border-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-enabled",
-          "description": "The clear search button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
+          "description": "The clear button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
         },
         {
           "name": "--jh-input-clear-color-background-focus",
-          "description": "The clear search button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-focus",
-          "description": "The clear search button border-color when in focus. Defaults to `transparent`."
+          "description": "The clear button border-color when in focus. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-focus",
-          "description": "The clear search button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
+          "description": "The clear button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-focus",
-          "description": "The clear search button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-hover",
-          "description": "The clear search button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-hover",
-          "description": "The clear search button border-color when hovered. Defaults to `transparent`."
+          "description": "The clear button border-color when hovered. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-hover",
-          "description": "The clear search button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-active",
-          "description": "The clear search button background-color when active. Defaults to `--jh-color-content-brand-active`."
+          "description": "The clear button background-color when active. Defaults to `--jh-color-content-brand-active`."
         },
         {
           "name": "--jh-input-clear-color-border-active",
-          "description": "The clear search button border-color when active. Defaults to `transparent`."
+          "description": "The clear button border-color when active. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-active",
-          "description": "The clear search button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
+          "description": "The clear button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
         },
         {
           "name": "--jh-input-required-color-text",
@@ -2600,59 +2600,59 @@
         },
         {
           "name": "--jh-input-clear-border-radius",
-          "description": "The clear search button border radius. Defaults to `--jh-border-radius-100`."
+          "description": "The clear button border radius. Defaults to `--jh-border-radius-100`."
         },
         {
           "name": "--jh-input-clear-color-background-enabled",
-          "description": "The clear search button background-color. Defaults to `transparent`."
+          "description": "The clear button background-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-border-enabled",
-          "description": "The clear search button border-color. Defaults to `transparent`."
+          "description": "The clear button border-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-enabled",
-          "description": "The clear search button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
+          "description": "The clear button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
         },
         {
           "name": "--jh-input-clear-color-background-focus",
-          "description": "The clear search button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-focus",
-          "description": "The clear search button border-color when in focus. Defaults to `transparent`."
+          "description": "The clear button border-color when in focus. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-focus",
-          "description": "The clear search button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
+          "description": "The clear button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-focus",
-          "description": "The clear search button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-hover",
-          "description": "The clear search button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-hover",
-          "description": "The clear search button border-color when hovered. Defaults to `transparent`."
+          "description": "The clear button border-color when hovered. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-hover",
-          "description": "The clear search button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-active",
-          "description": "The clear search button background-color when active. Defaults to `--jh-color-content-brand-active`."
+          "description": "The clear button background-color when active. Defaults to `--jh-color-content-brand-active`."
         },
         {
           "name": "--jh-input-clear-color-border-active",
-          "description": "The clear search button border-color when active. Defaults to `transparent`."
+          "description": "The clear button border-color when active. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-active",
-          "description": "The clear search button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
+          "description": "The clear button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
         },
         {
           "name": "--jh-input-required-color-text",
@@ -3044,59 +3044,59 @@
         },
         {
           "name": "--jh-input-clear-border-radius",
-          "description": "The clear search button border radius. Defaults to `--jh-border-radius-100`."
+          "description": "The clear button border radius. Defaults to `--jh-border-radius-100`."
         },
         {
           "name": "--jh-input-clear-color-background-enabled",
-          "description": "The clear search button background-color. Defaults to `transparent`."
+          "description": "The clear button background-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-border-enabled",
-          "description": "The clear search button border-color. Defaults to `transparent`."
+          "description": "The clear button border-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-enabled",
-          "description": "The clear search button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
+          "description": "The clear button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
         },
         {
           "name": "--jh-input-clear-color-background-focus",
-          "description": "The clear search button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-focus",
-          "description": "The clear search button border-color when in focus. Defaults to `transparent`."
+          "description": "The clear button border-color when in focus. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-focus",
-          "description": "The clear search button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
+          "description": "The clear button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-focus",
-          "description": "The clear search button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-hover",
-          "description": "The clear search button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-hover",
-          "description": "The clear search button border-color when hovered. Defaults to `transparent`."
+          "description": "The clear button border-color when hovered. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-hover",
-          "description": "The clear search button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-active",
-          "description": "The clear search button background-color when active. Defaults to `--jh-color-content-brand-active`."
+          "description": "The clear button background-color when active. Defaults to `--jh-color-content-brand-active`."
         },
         {
           "name": "--jh-input-clear-color-border-active",
-          "description": "The clear search button border-color when active. Defaults to `transparent`."
+          "description": "The clear button border-color when active. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-active",
-          "description": "The clear search button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
+          "description": "The clear button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
         },
         {
           "name": "--jh-input-required-color-text",
@@ -3548,59 +3548,59 @@
         },
         {
           "name": "--jh-input-clear-border-radius",
-          "description": "The clear search button border radius. Defaults to `--jh-border-radius-100`."
+          "description": "The clear button border radius. Defaults to `--jh-border-radius-100`."
         },
         {
           "name": "--jh-input-clear-color-background-enabled",
-          "description": "The clear search button background-color. Defaults to `transparent`."
+          "description": "The clear button background-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-border-enabled",
-          "description": "The clear search button border-color. Defaults to `transparent`."
+          "description": "The clear button border-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-enabled",
-          "description": "The clear search button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
+          "description": "The clear button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
         },
         {
           "name": "--jh-input-clear-color-background-focus",
-          "description": "The clear search button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-focus",
-          "description": "The clear search button border-color when in focus. Defaults to `transparent`."
+          "description": "The clear button border-color when in focus. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-focus",
-          "description": "The clear search button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
+          "description": "The clear button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-focus",
-          "description": "The clear search button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-hover",
-          "description": "The clear search button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-hover",
-          "description": "The clear search button border-color when hovered. Defaults to `transparent`."
+          "description": "The clear button border-color when hovered. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-hover",
-          "description": "The clear search button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-active",
-          "description": "The clear search button background-color when active. Defaults to `--jh-color-content-brand-active`."
+          "description": "The clear button background-color when active. Defaults to `--jh-color-content-brand-active`."
         },
         {
           "name": "--jh-input-clear-color-border-active",
-          "description": "The clear search button border-color when active. Defaults to `transparent`."
+          "description": "The clear button border-color when active. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-active",
-          "description": "The clear search button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
+          "description": "The clear button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
         },
         {
           "name": "--jh-input-required-color-text",
@@ -3992,59 +3992,59 @@
         },
         {
           "name": "--jh-input-clear-border-radius",
-          "description": "The clear search button border radius. Defaults to `--jh-border-radius-100`."
+          "description": "The clear button border radius. Defaults to `--jh-border-radius-100`."
         },
         {
           "name": "--jh-input-clear-color-background-enabled",
-          "description": "The clear search button background-color. Defaults to `transparent`."
+          "description": "The clear button background-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-border-enabled",
-          "description": "The clear search button border-color. Defaults to `transparent`."
+          "description": "The clear button border-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-enabled",
-          "description": "The clear search button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
+          "description": "The clear button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
         },
         {
           "name": "--jh-input-clear-color-background-focus",
-          "description": "The clear search button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-focus",
-          "description": "The clear search button border-color when in focus. Defaults to `transparent`."
+          "description": "The clear button border-color when in focus. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-focus",
-          "description": "The clear search button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
+          "description": "The clear button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-focus",
-          "description": "The clear search button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-hover",
-          "description": "The clear search button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-hover",
-          "description": "The clear search button border-color when hovered. Defaults to `transparent`."
+          "description": "The clear button border-color when hovered. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-hover",
-          "description": "The clear search button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-active",
-          "description": "The clear search button background-color when active. Defaults to `--jh-color-content-brand-active`."
+          "description": "The clear button background-color when active. Defaults to `--jh-color-content-brand-active`."
         },
         {
           "name": "--jh-input-clear-color-border-active",
-          "description": "The clear search button border-color when active. Defaults to `transparent`."
+          "description": "The clear button border-color when active. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-active",
-          "description": "The clear search button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
+          "description": "The clear button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
         },
         {
           "name": "--jh-input-required-color-text",
@@ -4435,59 +4435,59 @@
         },
         {
           "name": "--jh-input-clear-border-radius",
-          "description": "The clear search button border radius. Defaults to `--jh-border-radius-100`."
+          "description": "The clear button border radius. Defaults to `--jh-border-radius-100`."
         },
         {
           "name": "--jh-input-clear-color-background-enabled",
-          "description": "The clear search button background-color. Defaults to `transparent`."
+          "description": "The clear button background-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-border-enabled",
-          "description": "The clear search button border-color. Defaults to `transparent`."
+          "description": "The clear button border-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-enabled",
-          "description": "The clear search button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
+          "description": "The clear button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
         },
         {
           "name": "--jh-input-clear-color-background-focus",
-          "description": "The clear search button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-focus",
-          "description": "The clear search button border-color when in focus. Defaults to `transparent`."
+          "description": "The clear button border-color when in focus. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-focus",
-          "description": "The clear search button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
+          "description": "The clear button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-focus",
-          "description": "The clear search button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-hover",
-          "description": "The clear search button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-hover",
-          "description": "The clear search button border-color when hovered. Defaults to `transparent`."
+          "description": "The clear button border-color when hovered. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-hover",
-          "description": "The clear search button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-active",
-          "description": "The clear search button background-color when active. Defaults to `--jh-color-content-brand-active`."
+          "description": "The clear button background-color when active. Defaults to `--jh-color-content-brand-active`."
         },
         {
           "name": "--jh-input-clear-color-border-active",
-          "description": "The clear search button border-color when active. Defaults to `transparent`."
+          "description": "The clear button border-color when active. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-active",
-          "description": "The clear search button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
+          "description": "The clear button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
         },
         {
           "name": "--jh-input-required-color-text",

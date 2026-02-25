@@ -2,12 +2,11 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
+import { JhElement } from '../element/element';
 import '@jack-henry/jh-icons/icons-wc/icon-arrow-up-arrow-down.js';
 import '@jack-henry/jh-icons/icons-wc/icon-arrow-up-small.js';
 import '@jack-henry/jh-icons/icons-wc/icon-arrow-down-small.js';
-
-let id = 0;
 
 /**
  * Table Header Cell
@@ -69,11 +68,7 @@ let id = 0;
  * @event jh-sort - Dispatched when a sortable header cell is activated. Event payload includes the column, sorted state, and id of the header cell and can be accessed via `e.detail.column`, `e.detail.sorted`, and ` e.detail.id`.  
  * @customElement jh-table-header-cell
  */
-export class JhTableHeaderCell extends LitElement {
-
-  /** @type {ElementInternals} */
-  #internals;
-
+export class JhTableHeaderCell extends JhElement {
   static get styles() {
     return css`
       :host {
@@ -208,8 +203,7 @@ export class JhTableHeaderCell extends LitElement {
 
   constructor() {
     super();
-    this.#internals = this.attachInternals();
-    this.#internals.role = 'columnheader';
+    this.internals.role = 'columnheader';
     /** 
      * Sets the horizontal alignment of the content.
      * @attr horizontal-align
@@ -232,8 +226,6 @@ export class JhTableHeaderCell extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    /** @ignore */
-    this.id = `table-header-${id++}`;
     if (this.sortable) {
     this.setAttribute('tabindex', '0');
     this.setAttribute('aria-sort', this.sorted);
@@ -250,7 +242,7 @@ export class JhTableHeaderCell extends LitElement {
     }
   }
 
-  #handleSort() {
+  #handleSort(e) {
     if (this.sorted==='none') {
       this.sorted = 'ascending';
     } else if (this.sorted==='ascending') {
@@ -261,18 +253,11 @@ export class JhTableHeaderCell extends LitElement {
     
     this.setAttribute('aria-sort', this.sorted);
 
-    this.dispatchEvent(
-      new CustomEvent('jh-sort', {
-        bubbles: true,
-        cancelable: true,
-        composed: true,
-        detail: {
-          column: this,
-          sorted: this.sorted,
-          id: this.id,
-        },
-      })
-    );
+    this.dispatchCustomEvent('jh-sort', e, {
+      reference: {
+        sorted: this.sorted,
+      }
+    });
   }
 
   #getSortingIcon() {
@@ -317,5 +302,4 @@ export class JhTableHeaderCell extends LitElement {
     </div>`;
     }
 }
-
-customElements.define('jh-table-header-cell', JhTableHeaderCell);
+JhElement.register('jh-table-header-cell', JhTableHeaderCell);

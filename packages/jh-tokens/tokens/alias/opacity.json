@@ -5,8 +5,9 @@
       "$value": "{opacity.300}",
       "$extensions": {
         "alias": true,
-        "deprecated": false,
-        "deprecatedMessage": ""
+        "deprecatedIn": "",
+        "addedIn": "1.0.0",
+        "message": ""
       }
     }
   }

@@ -1595,15 +1595,15 @@
       "events": [
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`."
         },
         {
           "name": "jh-input",
-          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`."
         },
         {
           "name": "jh-maxlength",
@@ -1611,7 +1611,7 @@
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`."
         }
       ],
       "slots": [
@@ -2069,15 +2069,15 @@
       "events": [
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`."
         },
         {
           "name": "jh-input",
-          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`."
         },
         {
           "name": "jh-maxlength",
@@ -2085,7 +2085,7 @@
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`."
         }
       ],
       "slots": [
@@ -2517,15 +2517,15 @@
       "events": [
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`."
         },
         {
           "name": "jh-input",
-          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`."
         },
         {
           "name": "jh-maxlength",
@@ -2533,7 +2533,7 @@
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`."
         }
       ],
       "slots": [
@@ -2957,15 +2957,15 @@
       "events": [
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`."
         },
         {
           "name": "jh-input",
-          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`."
         },
         {
           "name": "jh-maxlength",
@@ -2973,7 +2973,7 @@
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`."
         }
       ],
       "slots": [
@@ -3461,7 +3461,7 @@
         },
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-maxlength",
@@ -3469,7 +3469,7 @@
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`."
         }
       ],
       "slots": [
@@ -3897,15 +3897,15 @@
       "events": [
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`."
         },
         {
           "name": "jh-input",
-          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`."
         },
         {
           "name": "jh-maxlength",
@@ -3913,7 +3913,7 @@
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`."
         }
       ],
       "slots": [
@@ -4336,15 +4336,15 @@
       "events": [
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`."
         },
         {
           "name": "jh-input",
-          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`."
         },
         {
           "name": "jh-maxlength",
@@ -4352,7 +4352,7 @@
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`."
         }
       ],
       "slots": [

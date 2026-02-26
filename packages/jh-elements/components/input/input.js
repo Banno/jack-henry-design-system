@@ -40,11 +40,11 @@ import '@jack-henry/jh-icons/icons-wc/icon-circle-xmark.js';
  * @cssprop --jh-input-value-color-text - The value text color. Defaults to `jh-color-content-primary-enabled`.
  * @cssprop --jh-input-error-color-text - The error message text color. Defaults to `jh-color-content-negative-enabled`.
  * 
- * @event jh-select - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`.
- * @event jh-change - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`.
- * @event jh-input - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`.
+ * @event jh-select - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.
+ * @event jh-change - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`.
+ * @event jh-input - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`.
  * @event jh-maxlength - Dispatched when the `maxlength` property is set and it's value is reached.
- * @event jh-input:clear-button-click - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`.
+ * @event jh-input:clear-button-click - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`.
  * @slot jh-input-left - Use to insert an element on the left side of the input field, such as an icon or button.
  * @slot jh-input-right - Use to insert an element on the right side of the input field, such as an icon or button.
  * @slot jh-input-clear-button - Use to insert an icon within the clear button. 

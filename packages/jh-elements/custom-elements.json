@@ -1254,6 +1254,11 @@
       ]
     },
     {
+      "name": "jh-element",
+      "path": "./components/element/element.js",
+      "description": "Element"
+    },
+    {
       "name": "jh-icon",
       "path": "./components/icon/icon.js",
       "attributes": [
@@ -5810,108 +5815,6 @@
       ]
     },
     {
-      "name": "jh-table-data-cell",
-      "path": "./components/table-data-cell/table-data-cell.js",
-      "description": "Table Cell",
-      "attributes": [
-        {
-          "name": "horizontal-align",
-          "description": "Sets the horizontal alignment of the content.",
-          "type": "'left' | 'center' | 'right'",
-          "default": "\"left\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "horizontalAlign",
-          "attribute": "horizontal-align",
-          "description": "Sets the horizontal alignment of the content.",
-          "type": "'left' | 'center' | 'right'",
-          "default": "\"left\""
-        }
-      ],
-      "slots": [
-        {
-          "name": "default",
-          "description": "Use to insert content."
-        }
-      ],
-      "cssProperties": [
-        {
-          "name": "--jh-table-data-cell-color-text",
-          "description": "The cell text color. Defaults to `--jh-color-content-primary-enabled`."
-        },
-        {
-          "name": "--jh-table-data-cell-color-background",
-          "description": "The cell background color. Defaults to `--jh-color-container-primary-enabled`."
-        },
-        {
-          "name": "--jh-table-data-cell-color-border-top",
-          "description": "The cell border top color. Defaults to `transparent`."
-        },
-        {
-          "name": "--jh-table-data-cell-color-border-right",
-          "description": "The cell border right color. Defaults to `transparent`."
-        },
-        {
-          "name": "--jh-table-data-cell-color-border-left",
-          "description": "The cell border left color. Defaults to `transparent`."
-        },
-        {
-          "name": "--jh-table-data-cell-color-border-bottom",
-          "description": "The cell border bottom color. Defaults to `--jh-border-decorative-color`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-top-width",
-          "description": "The cell border top width. Defaults to `--jh-border-decorative-width`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-right-width",
-          "description": "The cell border right width. Defaults to `--jh-border-decorative-width`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-left-width",
-          "description": "The cell border left width. Defaults to `--jh-border-decorative-width`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-bottom-width",
-          "description": "The cell border bottom width. Defaults to `--jh-border-decorative-width`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-top-style",
-          "description": "The cell border top style. Defaults to `--jh-border-decorative-style`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-right-style",
-          "description": "The cell border right style. Defaults to `--jh-border-decorative-style`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-left-style",
-          "description": "The cell border left style. Defaults to `--jh-border-decorative-style`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-bottom-style",
-          "description": "The cell border bottom style. Defaults to `--jh-border-decorative-style`."
-        },
-        {
-          "name": "--jh-table-data-cell-space-padding-top",
-          "description": "The cell padding top. Defaults to `--jh-dimension-400`."
-        },
-        {
-          "name": "--jh-table-data-cell-space-padding-right",
-          "description": "The cell padding right. Defaults to `--jh-dimension-400`."
-        },
-        {
-          "name": "--jh-table-data-cell-space-padding-bottom",
-          "description": "The cell padding bottom. Defaults to `--jh-dimension-400`."
-        },
-        {
-          "name": "--jh-table-data-cell-space-padding-left",
-          "description": "The cell padding left. Defaults to `--jh-dimension-400`."
-        }
-      ]
-    },
-    {
       "name": "jh-table-header-cell",
       "path": "./components/table-header-cell/table-header-cell.js",
       "description": "Table Header Cell",
@@ -5961,7 +5864,7 @@
       "events": [
         {
           "name": "jh-sort",
-          "description": "Dispatched when a sortable header cell is activated. Event payload includes the column, sorted state, and id of the header cell and can be accessed via `e.detail.column`, `e.detail.sorted`, and ` e.detail.id`."
+          "description": "Dispatched when a sortable header cell is activated. Event payload includes the column, sorted state, and id of the header cell and can be accessed via `e.detail.reference.originHost`, `e.detail.reference.sorted`, and ` e.detail.reference.id`."
         }
       ],
       "slots": [

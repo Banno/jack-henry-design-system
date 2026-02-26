@@ -65,7 +65,7 @@ import '@jack-henry/jh-icons/icons-wc/icon-arrow-down-small.js';
  * @slot jh-table-sorted-none - Use to insert a custom icon for no sort.
  * @slot default - Use to insert table header text.
  * 
- * @event jh-sort - Dispatched when a sortable header cell is activated. Event payload includes the column, sorted state, and id of the header cell and can be accessed via `e.detail.column`, `e.detail.sorted`, and ` e.detail.id`.  
+ * @event jh-sort - Dispatched when a sortable header cell is activated. Event payload includes the column, sorted state, and id of the header cell and can be accessed via `e.detail.reference.originHost`, `e.detail.reference.sorted`, and ` e.detail.reference.id`.  
  * @customElement jh-table-header-cell
  */
 export class JhTableHeaderCell extends JhElement {

@@ -73,19 +73,19 @@ export default {
 export const Overview = {
   render: (args) => html`
     <div role="list" class="list">
-      <jh-list-item show-divider>Default Slot</jh-list-item>
-      <jh-list-item
+      <jh-list-item show-divider role="listitem">Default Slot add text for test and some more</jh-list-item>
+      <jh-list-item role="listitem"
         >Lorem ipsum dolor sit amet consectetur adipiscing elit</jh-list-item
       >
     </div>
     <div role="list" class="list">
-      <jh-list-item>
+      <jh-list-item role="listitem">
         <div slot="jh-list-item-left">Left slot</div>
         <div slot="jh-list-item-content">Content slot</div>
         <div slot="jh-list-item-metadata">Metadata slot</div>
         <div slot="jh-list-item-right">Right slot</div>
       </jh-list-item>
-      <jh-list-item>
+      <jh-list-item role="listitem">
         <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
         <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
         <div slot="jh-list-item-content">Lorem ipsum dolor sit amet</div>
@@ -93,7 +93,7 @@ export const Overview = {
       </jh-list-item>
     </div>
     <div role="list" class="list">
-      <jh-list-item
+      <jh-list-item role="listitem"
         show-divider
         primary-text=${args['primary-text']}
         secondary-text=${args['secondary-text']}
@@ -103,7 +103,7 @@ export const Overview = {
         <div slot="jh-list-item-left">Left slot</div>
         <div slot="jh-list-item-right">Right slot</div>
       </jh-list-item>
-      <jh-list-item
+      <jh-list-item role="listitem"
         primary-text=${args['primary-text']}
         secondary-text=${args['secondary-text']}
         primary-metadata=${args['primary-metadata']}
@@ -114,7 +114,7 @@ export const Overview = {
       </jh-list-item>
     </div>
     <div role="list" class="interactive-list">
-      <jh-list-item
+      <jh-list-item role="listitem"
         tabindex="0"
         primary-text=${args['primary-text']}
         secondary-text=${args['secondary-text']}
@@ -124,7 +124,7 @@ export const Overview = {
         <div slot="jh-list-item-left">Left slot</div>
         <div slot="jh-list-item-right">Right slot</div>
       </jh-list-item>
-      <jh-list-item
+      <jh-list-item role="listitem"
         tabindex="0"
         primary-text=${args['primary-text']}
         secondary-text=${args['secondary-text']}

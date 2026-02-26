@@ -73,8 +73,8 @@ export default {
 export const Overview = {
   render: (args) => html`
     <div role="list" class="list">
-      <jh-list-item show-divider>Default Slot add text for test</jh-list-item>
-      <jh-list-item
+      <jh-list-item show-divider role="listitem">Default Slot add text for test and some more</jh-list-item>
+      <jh-list-item role="listitem"
         >Lorem ipsum dolor sit amet consectetur adipiscing elit</jh-list-item
       >
     </div>

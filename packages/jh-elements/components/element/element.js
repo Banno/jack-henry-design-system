@@ -29,6 +29,7 @@ export class JhElement extends LitElement {
   }
 
   // getter for unique id
+  /** @ignore */
   get uniqueId() {
     return this.#id;
   }

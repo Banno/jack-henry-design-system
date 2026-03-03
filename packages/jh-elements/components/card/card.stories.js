@@ -5,6 +5,7 @@
 import { html, css } from 'lit';
 import './card.js';
 import '../tooltip/tooltip.js';
+import '../button/button.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 const storyStyles = css`
@@ -220,3 +221,34 @@ Padding.argTypes = {
 Padding.parameters = {
   styles: storyStyles,
 };
+
+
+
+export const Test = {
+  render: (args) => {
+
+  function handleClickRemove() {
+    let cardEl = document.querySelector("jh-card");
+    let defaultSlot = cardEl.querySelector("div");
+    defaultSlot.remove();
+  }
+
+  let handleClickAdd = () => {
+    let cardEl = document.querySelector("jh-card");
+    let newContent = document.createElement("div");
+    newContent.textContent = "New content added to default slot";
+    cardEl.appendChild(newContent);
+  }
+  
+  return html`
+    <section class="overview-story">
+      <jh-card
+        show-header-divider
+        header-title="Title"
+        header-subtitle="Subtitle"
+      ><div>Test</div><footer slot="jh-card-footer"><jh-button @click=${handleClickRemove} id="remove-content" label="Remove Content"></jh-button><jh-button id="add-content" label="Add Content" @click=${handleClickAdd}></jh-button></footer>
+    </jh-card>
+    </section>
+    `
+  }
+}

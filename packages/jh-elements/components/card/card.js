@@ -258,18 +258,6 @@ export class JhCard extends LitElement {
     this.headerTitle = null;
   }
 
-  firstUpdated() {
-    this.#updateSlotClassList();
-  }
-
-  #updateSlotClassList() {
-    const slots = this.shadowRoot.querySelectorAll('slot');
-    slots.forEach((slot) => {
-      let hasContent = this.#checkSlotContent(slot);
-      slot.classList.toggle('display-slot', hasContent);
-    })
-  }
-
   #checkSlotContent(slot) {
     if (slot.assignedElements().length > 0) {
       return true;

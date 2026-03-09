@@ -1,0 +1,57 @@
+{/*
+SPDX-FileCopyrightText: 2026 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+*/}
+
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Guides/Component Events" tags={['new']} />
+
+# Working with Component Events
+
+## Event API
+The Event API provides a standardized interface for interacting with design system components. All key data is organized within the event payload under predictable, categorized properties.
+
+This approach reduces boilerplate code, improves discoverability, and creates a consistent pattern across all design system components.
+
+## Payload Anatomy
+All custom events follow a consistent structure with data organized into logical categories within the `detail` object. 
+
+Properties can be accessed via the following pattern: `e.detail.<category>.<property>`.
+
+## Payload Categories
+Below are the categories and related properties available: 
+
+### State
+Contains the state of the component at the time of the event.
+
+**Properties:**
+- `previousValue` - The value associated with the component before the event was fired.
+- `validity` - The validity state of the component. 
+- `value` - The current value of the component, may be formatted if the input-mask is present. 
+
+### Form
+Contains information required for form submission. 
+
+**Properties:**
+- `formName` - The name of the form the component belongs to. 
+- `name` - Name attribute of the component. 
+
+### Reference
+Contains information that is unique to the component. 
+
+**Properties:**
+- `id` - Unique identifier for the component. 
+- `label` - Descriptive text associated with the component. 
+- `accessibleLabel` - Descriptive and accessible text associated with the component when there is no visible text label. 
+- `originHost` - The custom HTML element that the shadow tree is attached to. 
+- `originElement` - The specific element that triggered the event.  
+
+### Meta
+Contains information relating to the interaction itself, rather than the component.
+
+**Properties:**
+- `timestamp` - The time the event fired. 
+- `rect` - The component’s size and position relative to the viewport.
+- `cursorPosition` - The x/y coordinates of the user's cursor at the time of interaction.

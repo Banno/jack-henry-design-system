@@ -464,6 +464,7 @@ export class JhInput extends LitElement {
 
   disconnectedCallback() {
     super.disconnectedCallback();
+    this.#resizeObserver.disconnect();
     if (this.inputMask) {
       this.removeEventListener('jh-select', this.#setSelection);
     }
@@ -1048,8 +1049,22 @@ export class JhInput extends LitElement {
     );
   }
 
-  #handleSlotChange(e) {
+  // capture dimensions of slotted content and set CSS variables to adjust input padding and vertically center slotted content
+  #resizeObserver = new ResizeObserver((entries) => {
     let inputEl = this.shadowRoot.querySelector('input');
+
+    for (let entry of entries) {
+      let slottedEl = entry.target;
+      let slottedElWidth = entry.borderBoxSize[0].inlineSize;
+      let slottedElHeight = entry.borderBoxSize[0].blockSize;
+
+      this.style.setProperty(`--${slottedEl.slot}-width`, `${slottedElWidth}px`);
+
+      this.style.setProperty(`--${slottedEl.slot}-top`, `${(inputEl.offsetHeight - slottedElHeight) / 2}px`);
+    }
+  });
+
+  #handleSlotChange(e) {
     let slottedElement = e.target.assignedElements()[0];
     let slotName = e.target.name;
 
@@ -1059,15 +1074,8 @@ export class JhInput extends LitElement {
 
     // capture dimensions of slotted content
     if (slottedElement) {
-      if (slotName === 'jh-input-left' || slotName === 'jh-input-right') {
-
-        // set a CSS variable for the width of the slotted content
-        this.style.setProperty(`--${slottedElement.slot}-width`, `${slottedElement.offsetWidth}px`);
-
-        // set a css variable to vertically center slotted content
-        this.style.setProperty(`--${slottedElement.slot}-top`, `${(inputEl.offsetHeight - slottedElement.offsetHeight) / 2}px`);
-      }
-    }
+      this.#resizeObserver.observe(slottedElement);
+    } 
     this.#addClass(slotName, slottedElement);
   }
 

@@ -100,6 +100,60 @@ Key Accessibility Checks for Custom Overrides:
 
 **Spacing and Layout:** Be cautious when overriding spacing tokens. Excessive crowding or improper alignment can negatively impact readability and the predictable flow of content for users relying on screen magnification.
 
+## Token File Formats
+
+In the `jh-tokens` package we provide design tokens in various file formats.
+
+If you are consuming our dark and light themes, or even adding your own custom styles, you will not need to directly access these files, 
+as the Theme Provider utility is the recommended approach for this (see details under [Theme Provider Usage](/docs/getting-started-usage--docs#using-themes)). 
+
+However, we provide design tokens in several file formats for specific use cases:
+
+### CSS theme files
+
+Use these files for direct linking in HTML for projects without a JS build step.
+
+For this purpose, it is recommended to import these files directly into your main HTML file (for example through a CDN).
+
+```
+<link rel="stylesheet" href="insert-link-to/jh-theme-light.css">
+```
+
+### ESM theme files
+
+These files power the Theme Provider utility.
+Use these files if you need to manipulate the theme string directly inside your JavaScript logic, e.g., creating a new theme package. 
+You will need to add the `jh-tokens` package as a dependency to your project and import the ESM files directly from the package.
+
+How to import the ESM theme files:
+```
+import JhThemeLight from '@jack-henry/jh-tokens/platforms/web/esm/jh-theme-light.js';
+import JhThemeDark from '@jack-henry/jh-tokens/platforms/web/esm/jh-theme-dark.js';
+```
+
+### JSON meta file
+
+This file is used internally for documentation and tooling.
+Use this flat JSON file to access the metadata about our tokens.
+
+Example of token metadata:
+
+```
+  {
+    "name": "Color Container Page",
+    "token": "jh-color-container-page",
+    "alias": true,
+    "description": "Used on page-level containers that make up large portions of the overall background",
+    "category": "color",
+    "type": "container",
+    "item": "page",
+    "value": "jh-color-gray-100",
+    "computedValue": "#ebebebff",
+    "deprecated": false,
+    "deprecatedMessage": ""
+  },
+```
+
 ## Resources 
 
 Explore our [Design Tokens documentation](https://jackhenry.design/v2/foundations/design-tokens/overview/) for a deeper dive into design tokens and the Jack Henry Design System.

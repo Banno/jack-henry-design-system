@@ -1,7 +1,7 @@
 {
   "name": "@jack-henry/jh-elements",
   "description": "Jack Henry's design system web components.",
-  "version": "2.0.0-beta.9",
+  "version": "2.0.0-beta.10",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Banno/jack-henry-design-system.git"
@@ -35,17 +35,17 @@
     "lit": "3.3.1"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "8.4.6",
-    "@storybook/addon-actions": "8.4.6",
-    "@storybook/addon-essentials": "8.4.6",
-    "@storybook/blocks": "8.4.6",
-    "@storybook/manager-api": "8.4.6",
-    "@storybook/theming": "8.4.6",
-    "@storybook/web-components": "8.4.6",
-    "@storybook/web-components-vite": "8.4.6",
+    "@storybook/addon-a11y": "8.6.17",
+    "@storybook/addon-actions": "8.6.17",
+    "@storybook/addon-essentials": "8.6.17",
+    "@storybook/blocks": "8.6.17",
+    "@storybook/manager-api": "8.6.17",
+    "@storybook/theming": "8.6.17",
+    "@storybook/web-components": "8.6.17",
+    "@storybook/web-components-vite": "8.6.17",
     "chromatic": "5.8.3",
     "hygen": "6.2.11",
-    "storybook": "8.6.15",
+    "storybook": "8.6.17",
     "storybook-addon-tag-badges": "1.3.1",
     "storybook-dark-mode": "4.0.1",
     "web-component-analyzer": "1.1.6",

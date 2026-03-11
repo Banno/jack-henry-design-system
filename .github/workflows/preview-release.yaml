@@ -9,6 +9,7 @@ on:
     types: [opened, synchronize, reopened]
     paths:
       - 'packages/**'
+  workflow_dispatch:
 
 jobs:
   preview-release:
@@ -28,5 +29,6 @@ jobs:
         uses: ./.github/workflows/actions/install-dependencies
 
       - name: Publish preview packages
+        continue-on-error: true
         run: |
           pnpx pkg-pr-new publish --packageManager=NPM,PNPM,YARN --template './packages/*'

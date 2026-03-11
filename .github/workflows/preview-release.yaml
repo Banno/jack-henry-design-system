@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: 2026 Jack Henry
+#
+# SPDX-License-Identifier: Apache-2.0
+
+name: 'PR Preview Release'
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'packages/**'
+
+jobs:
+  preview-release:
+    name: Preview Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install dependencies
+        uses: ./.github/workflows/actions/install-dependencies
+
+      - name: Publish preview packages
+        run: |
+          pnpx pkg-pr-new publish --packageManager=NPM,PNPM,YARN --template './packages/*'

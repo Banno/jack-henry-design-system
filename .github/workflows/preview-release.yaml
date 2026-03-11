@@ -31,4 +31,4 @@ jobs:
       - name: Publish preview packages
         continue-on-error: true
         run: |
-          pnpx pkg-pr-new publish --packageManager=NPM,PNPM,YARN --template './packages/*'
+          pnpx pkg-pr-new publish --packageManager=npm,pnpm,yarn --template './packages/*'

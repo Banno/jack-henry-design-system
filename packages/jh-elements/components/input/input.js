@@ -92,6 +92,18 @@ export class JhInput extends LitElement {
     '*': /[A-Za-z0-9]/,
   };
 
+  get #leftSlot() {
+    return this.renderRoot?.querySelector('slot[name="jh-input-left"]');
+  }
+
+  get #rightSlot() {
+    return this.renderRoot?.querySelector('slot[name="jh-input-right"]');
+  }
+
+  get #inputEl() {
+    return this.renderRoot?.querySelector('input');
+  }
+
   static get styles() {
     return css`
       :host {
@@ -174,22 +186,27 @@ export class JhInput extends LitElement {
       }
       /* slot styles */
       ::slotted(*),
-      ::slotted(*) {
+      slot[name="jh-input-right"] > *, 
+      slot[name="jh-input-left"] > * {
         position: absolute;
         display: flex;
         align-items: center;
         justify-content: center;
       }
-      ::slotted([slot='jh-input-left']) {
+      ::slotted([slot='jh-input-left']),
+      slot[name="jh-input-left"] > * {
         left: var(--jh-dimension-400);
       }
-      ::slotted([slot='jh-input-right']) {
+      ::slotted([slot='jh-input-right']),
+      slot[name="jh-input-right"] > * {
         right: var(--jh-dimension-400);
       }
-      ::slotted([slot='jh-input-left']){
+      ::slotted([slot='jh-input-left']), 
+      slot[name="jh-input-left"] > * {
         top: var(--jh-input-left-top);
       }
-      ::slotted([slot='jh-input-right']) {
+      ::slotted([slot='jh-input-right']),
+      slot[name="jh-input-right"] > * {
         top: var(--jh-input-right-top);
       }
       /* clear button */
@@ -470,6 +487,8 @@ export class JhInput extends LitElement {
   }
 
   firstUpdated() {
+    this.syncSlotContent();
+    
     // attach event listeners to show/hide clear button
     if (this.showClearButton) {
       ['focusin', 'focusout'].forEach(e => {
@@ -1048,24 +1067,29 @@ export class JhInput extends LitElement {
     );
   }
 
-  #handleSlotChange(e) {
-    let inputEl = this.shadowRoot.querySelector('input');
-    let slottedElement = e.target.assignedElements()[0];
-    let slotName = e.target.name;
+  syncSlotContent() {
+    this.#handleSlotChange(this.#leftSlot);
+    this.#handleSlotChange(this.#rightSlot);
+  }
+  
+  #handleSlotChange(slot) {
+    if (!slot) return;
+    //get either slotted element or fallback element
+    let slottedElement = slot?.assignedElements()[0] || slot?.children[0];
+    let slotName = slot.name;
 
+    if (slottedElement) {
     if (slottedElement?.tagName.startsWith('JH-ICON')) {
       slottedElement.setAttribute('size', 'medium');
     }
 
     // capture dimensions of slotted content
-    if (slottedElement) {
       if (slotName === 'jh-input-left' || slotName === 'jh-input-right') {
-
         // set a CSS variable for the width of the slotted content
-        this.style.setProperty(`--${slottedElement.slot}-width`, `${slottedElement.offsetWidth}px`);
+        this.style.setProperty(`--${slotName}-width`, `${slottedElement.offsetWidth}px`);
 
         // set a css variable to vertically center slotted content
-        this.style.setProperty(`--${slottedElement.slot}-top`, `${(inputEl.offsetHeight - slottedElement.offsetHeight) / 2}px`);
+        this.style.setProperty(`--${slotName}-top`, `${(this.#inputEl.offsetHeight - slottedElement.offsetHeight) / 2}px`);
       }
     }
     this.#addClass(slotName, slottedElement);
@@ -1073,28 +1097,39 @@ export class JhInput extends LitElement {
 
   // sets class on input element so padding can accomodate slotted content
   #addClass(slotName, slottedElement) {
-    const inputEl = this.shadowRoot.querySelector('input');
-   
     // add and remove class if slotted element is not present
     if (!slottedElement) {
-      inputEl.classList.remove(slotName);
+      this.#inputEl.classList.remove(slotName);
     } else {
-      inputEl.classList.add(slotName);
+      this.#inputEl.classList.add(slotName);
     }
   }
+   renderLeftSlot() {
+    return this.hideLeftSlot
+      ? null
+      : html`<slot
+      name="jh-input-left"
+      @slotchange=${this.syncSlotContent}
+      ></slot>
+    `;
+   }
+   
+   renderRightSlot() {
+    return this.hideRightSlot
+      ? null
+      : html`<slot
+        name="jh-input-right"
+        @slotchange=${this.syncSlotContent}
+        ></slot>
+      `;
+   }
 
   #getSlots() {
     if (this.readonly) {
       return;
     }
 
-    const leftSlot = this.hideLeftSlot
-      ? null
-      : html`<slot
-      name="jh-input-left"
-      @slotchange=${this.#handleSlotChange}
-      ></slot>
-    `;
+    const leftSlot = this.renderLeftSlot();
 
     const clearBtn = this.showClearButton && this.value && !this.disabled
         ? html`
@@ -1110,13 +1145,7 @@ export class JhInput extends LitElement {
         : null;
         
 
-    const rightSlot = this.hideRightSlot
-      ? null
-      : html`<slot
-        name="jh-input-right"
-        @slotchange=${this.#handleSlotChange}
-        ></slot>
-      `;
+    const rightSlot = this.renderRightSlot();
 
     return html`${leftSlot}${clearBtn}${rightSlot}`;
   }
@@ -1130,21 +1159,13 @@ export class JhInput extends LitElement {
     if (this.helperText) {
       describedbyString += ` jh-input-helper-${this.#id}`;
     }
-    if (this.showCharCount) {
-      describedbyString += ` jh-input-counter-${this.#id}`;
-    }
     return describedbyString;
   }
 
-  render() {
-    let label;
+  renderLabel() {
+   let label;
     let indicator;
     let helperText;
-    let input;
-    let footer;
-    let errorText;
-    let charCount;
-    let describedby;
 
     if (this.label) {
       if (this.showIndicator) {
@@ -1168,8 +1189,15 @@ export class JhInput extends LitElement {
         ${helperText}
       `;
     }
+    return label;
+  }
 
-    if (this.showCharCount) {
+  renderFooter() {
+    let footer;
+    let errorText;
+    let charCount;
+
+     if (this.showCharCount) {
       let valueLength = this.value ? this.value.length : 0;
 
       let charCountValue = `${
@@ -1201,8 +1229,14 @@ export class JhInput extends LitElement {
         </div>
       `;
     }
+    return footer;
+  }
 
-    if (helperText || errorText || charCount) {
+  renderInput() {
+    let input;
+    let describedby;
+
+    if (this.helperText || (this.errorText && this.invalid)) {
       describedby = this.#getDescribedby();
     }
 
@@ -1237,6 +1271,13 @@ export class JhInput extends LitElement {
         />${this.#getSlots()}
       </div>
     `;
+    return input;
+  }
+
+  render() {
+    const label = this.renderLabel();
+    const input = this.renderInput();
+    const footer = this.renderFooter();
 
     return html`
       ${label} ${input} ${footer}

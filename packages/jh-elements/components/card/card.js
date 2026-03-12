@@ -221,15 +221,15 @@ export class JhCard extends LitElement {
         reflect: true,
       },
       /** Adds additional information about the card below the title.  */
-      headerSubtitle: { 
+      headerSubtitle: {
         type: String,
         attribute: 'header-subtitle',
-       },
+      },
       /** Provides context for the content of the card.  */
-      headerTitle: { 
+      headerTitle: {
         type: String,
         attribute: 'header-title',
-       },
+      },
       /** Informs assistive technologies what heading level the card title represents. Defaults to h2.  */
       titleHeadingLevel: {
         type: Number,
@@ -237,7 +237,7 @@ export class JhCard extends LitElement {
       },
     };
   }
-  
+
   constructor() {
     super();
     /** @type {0|8|16|24|32|40|48|56|64|72|80|88|96} */
@@ -258,6 +258,20 @@ export class JhCard extends LitElement {
     this.headerTitle = null;
   }
 
+  #checkSlotContent(slot) {
+    if (slot.assignedElements().length > 0) {
+      return true;
+    }
+
+    return slot.assignedNodes().some((node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '');
+  }
+
+  #handleSlotChange(e) {
+    let slot = e.target;
+    let hasContent = this.#checkSlotContent(slot);
+    slot.classList.toggle('display-slot', hasContent);
+  }
+
   #getTitle() {
     switch (this.titleHeadingLevel) {
       case 1:
@@ -275,10 +289,6 @@ export class JhCard extends LitElement {
       default:
         return html`<h2>${this.headerTitle}</h2>`;
     }
-  }
-
-  #handleSlotChange(e) {
-    e.target.classList.add("display-slot");
   }
 
   render() {

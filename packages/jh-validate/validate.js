@@ -8,16 +8,18 @@ const VALIDATION_ERROR_TYPES = {
   TOO_SHORT: 'tooShort',
   PATTERN_MISMATCH: 'patternMismatch',
   TYPE_MISMATCH: 'typeMismatch',
+  RANGE_UNDERFLOW: 'rangeUnderflow',
+  RANGE_OVERFLOW: 'rangeOverflow',
+  STEP_MISMATCH: 'stepMismatch',
 };
 
 const validationMixin = (superClass) =>
   class extends superClass {
-
     static get formAssociated() {
       return true;
     }
     // temp code: ElementInternals will be added to base element
-    #internals;
+    // #internals;
     #checkedCount = 0;
 
     #singleControlRules = [
@@ -34,9 +36,25 @@ const validationMixin = (superClass) =>
         type: VALIDATION_ERROR_TYPES.TOO_SHORT,
       },
       {
-        condition: () => this.pattern && this.value && !new RegExp(this.pattern).test(this.value),
+        condition: () =>
+          this.pattern &&
+          this.value &&
+          !new RegExp(this.pattern).test(this.value),
         type: VALIDATION_ERROR_TYPES.PATTERN_MISMATCH,
       },
+      {
+        condition: () => this.min && Number(this.value) < Number(this.min),
+        type: VALIDATION_ERROR_TYPES.RANGE_UNDERFLOW,
+      },
+      {
+        condition: () => this.max && Number(this.value) > Number(this.max),
+        type: VALIDATION_ERROR_TYPES.RANGE_OVERFLOW,
+      },
+      {
+        condition: () => this.step && Number(this.value) % Number(this.step) !== 0,
+        type: VALIDATION_ERROR_TYPES.STEP_MISMATCH,
+      }
+
     ];
 
     #groupControlRules = [
@@ -56,11 +74,11 @@ const validationMixin = (superClass) =>
       },
     ];
 
-    constructor() {
-      super();
-      // TEMP code: elementInternals will be added to base element
-      this.#internals = this.attachInternals();
-    }
+    // constructor() {
+    //   super();
+    //   // TEMP code: elementInternals will be added to base element
+    //   this.#internals = this.attachInternals();
+    // }
 
     connectedCallback() {
       super.connectedCallback();
@@ -69,12 +87,15 @@ const validationMixin = (superClass) =>
       if (this.constructor.groupControl) {
         this.addEventListener('focusout', (event) => {
           // check that focus has left the group before validating
-          if (event.relatedTarget && !this.contains(event.relatedTarget) || !event.relatedTarget) {
+          if (
+            (event.relatedTarget && !this.contains(event.relatedTarget)) ||
+            !event.relatedTarget
+          ) {
             this.validateGroup();
           }
         });
       } else {
-        // single control validation 
+        // single control validation
         this.addEventListener('blur', this.handleBlur);
       }
     }
@@ -85,16 +106,16 @@ const validationMixin = (superClass) =>
       this.removeEventListener('focusout', this.validateGroup);
     }
 
-    get validity() { 
-      return this.#internals.validity; 
+    get validity() {
+      return this.internals.validity;
     }
 
     get form() {
-      return this.#internals.form;
+      return this.internals.form;
     }
 
     setFormValue(value) {
-      this.#internals.setFormValue(value);
+      this.internals.setFormValue(value);
     }
 
     calculateCheckedCount() {
@@ -108,46 +129,44 @@ const validationMixin = (superClass) =>
       this.#checkedCount = checkedCount;
     }
 
-    handleBlur() {
-      this.checkValidity(this.#singleControlRules);
+    handleBlur(e) {
+      this.checkValidity(this.#singleControlRules, e);
     }
 
-    validateGroup() {
+    validateGroup(e) {
       this.calculateCheckedCount();
-      this.checkValidity(this.#groupControlRules);
+      this.checkValidity(this.#groupControlRules, e);
     }
 
-    checkValidity(rules) {
-      let failedRules = rules.filter(rule => rule.condition());
+    checkValidity(rules, e) {
+      let failedRules = rules.filter((rule) => rule.condition());
 
       if (failedRules.length > 0) {
-        this.invalid = true;
+        this.setAttribute('invalid', '');
         let errors = failedRules.map((rule) => rule.type);
 
         // Map errors to native validity flags for ElementInternals
-        const flags = [];
-        errors.forEach(err => flags[err] = true);
-        this.#internals.setValidity(flags, `Validation failed: ${errors.join(', ')}`, this);
-
-        this.dispatch(errors);
+        const flags = {};
+        errors.forEach((err) => (flags[err] = true));
+        this.internals.setValidity(
+          flags,
+          `Validation failed: ${errors.join(', ')}`,
+          this,
+        );
+        this.dispatch(errors, e);
       } else {
-        this.invalid = false;
-        this.#internals.setValidity({});
+        this.removeAttribute('invalid');
+        this.internals.setValidity({});
       }
     }
 
-    dispatch(errors) {
-      this.dispatchEvent(new CustomEvent('jh-invalid', {
-        detail: {
-          error: errors,
-          validityState: this.validity,
-          element: this,
+    dispatch(errors, e) {
+      this.dispatchCustomEvent('jh-invalid', e, {
+        state: {
+          validity: errors,
         },
-        bubbles: true,
-        composed: true,
-        cancelable: true,
-      }));
+      });
     }
   };
-  
+
 export { validationMixin };

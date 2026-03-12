@@ -8,6 +8,9 @@ const VALIDATION_ERROR_TYPES = {
   TOO_SHORT: 'tooShort',
   PATTERN_MISMATCH: 'patternMismatch',
   TYPE_MISMATCH: 'typeMismatch',
+  RANGE_UNDERFLOW: 'rangeUnderflow',
+  RANGE_OVERFLOW: 'rangeOverflow',
+  STEP_MISMATCH: 'stepMismatch',
 };
 
 const validationMixin = (superClass) =>
@@ -37,6 +40,18 @@ const validationMixin = (superClass) =>
         condition: () => this.pattern && this.value && !new RegExp(this.pattern).test(this.value),
         type: VALIDATION_ERROR_TYPES.PATTERN_MISMATCH,
       },
+            {
+        condition: () => this.min && Number(this.value) < Number(this.min),
+        type: VALIDATION_ERROR_TYPES.RANGE_UNDERFLOW,
+      },
+      {
+        condition: () => this.max && Number(this.value) > Number(this.max),
+        type: VALIDATION_ERROR_TYPES.RANGE_OVERFLOW,
+      },
+      {
+        condition: () => this.step && Number(this.value) % Number(this.step) !== 0,
+        type: VALIDATION_ERROR_TYPES.STEP_MISMATCH,
+      }
     ];
 
     #groupControlRules = [
@@ -128,7 +143,6 @@ const validationMixin = (superClass) =>
         const flags = [];
         errors.forEach(err => flags[err] = true);
         this.#internals.setValidity(flags, `Validation failed: ${errors.join(', ')}`, this);
-
         this.dispatch(errors);
       } else {
         this.invalid = false;
@@ -147,6 +161,13 @@ const validationMixin = (superClass) =>
         composed: true,
         cancelable: true,
       }));
+    // replace dispatch method when jh-element is merged 
+    //   this.dispatchCustomEvent('jh-invalid', e, {
+    //     state: {
+    //       validity: errors,
+    //     },
+    //   });
+    // }
     }
   };
   

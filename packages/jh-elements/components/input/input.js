@@ -53,9 +53,6 @@ import '@jack-henry/jh-icons/icons-wc/icon-circle-xmark.js';
  * @customElement jh-input
  */
 export class JhInput extends validationMixin(JhElement) {
-  static get formAssociated() {
-    return true;
-  }
 
   /** @type {?string} */
   #value;
@@ -393,6 +390,7 @@ export class JhInput extends validationMixin(JhElement) {
       size: { type: String, reflect: true },
       /** Sets the value of the input. */
       value: { type: String },
+      pattern: { type: String },
     };
   }
 
@@ -444,6 +442,8 @@ export class JhInput extends validationMixin(JhElement) {
     this.size = 'medium';
     /** @type {?string} */
     this.value = null;
+    /** @type {?string} */
+    this.pattern = null;
   }
 
   connectedCallback() {
@@ -1186,6 +1186,7 @@ export class JhInput extends validationMixin(JhElement) {
     input = html`
       <div class="input-container">
         <input
+          pattern=${ifDefined(this.pattern === '' ? null : this.pattern)}
           id="jh-input-${this.uniqueId}"
           aria-describedby=${describedby}
           aria-invalid=${ifDefined(this.invalid ? 'true' : null)}

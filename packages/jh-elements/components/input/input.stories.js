@@ -348,9 +348,14 @@ InputMask.argTypes = {
 export const FormAssociated = {
   render: (args) => {
     const onClick = (event) => event.target.reset();
+    const handleInvalid = (event) => {
+      let inputEl = event.detail.reference.originElement;
+      inputEl.setAttribute('error-text', `Validation failed: ${event.detail.state.validity.join(', ')}`);
+    };
+
     return html`
-      <form id="myForm" @submit=${submitAction()}>
-        <jh-input label='ZIP Code' helper-text='9 digit, XXXXX-XXXX' input-mask=${args['input-mask']} maxlength=${args.maxlength}></jh-input>
+      <form id="myForm" name="test form" @submit=${submitAction()} @jh-invalid=${handleInvalid}>
+        <jh-input required minlength="5" pattern="/^[a-z]+$/i" label='ZIP Code' helper-text='9 digit, XXXXX-XXXX' input-mask=${args['input-mask']} maxlength=${args.maxlength}></jh-input>
         <jh-button label="Submit" submit @click=${onClick}></jh-button>
       </form>
     `;

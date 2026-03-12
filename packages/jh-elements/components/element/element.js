@@ -56,14 +56,13 @@ export class JhElement extends LitElement {
         name: this.name || null,
       },
       state: {
-        validity: this.validity || null,
         value: this.value || null,
       },
       reference: {
         id: this.uniqueId,
         label: this.label || null,
         accessibleLabel: this.accessibleLabel || null,
-        originElement: e.target, 
+        originElement: e?.target, 
         originHost: this.localName, 
       },
       meta: {

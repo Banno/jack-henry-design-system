@@ -2,12 +2,12 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { JhElement } from '../element/element.js';
+import { validationMixin } from '../../../jh-validate/validate.js';
 import '../button/button.js';
 import '@jack-henry/jh-icons/icons-wc/icon-circle-xmark.js';
-
-let id = 0;
 
 /**
  * @cssprop --jh-input-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
@@ -21,20 +21,19 @@ let id = 0;
  * @cssprop --jh-input-field-color-border-disabled - The input field border-color when disabled. Defaults to `--jh-border-control-color`.
  * @cssprop --jh-input-opacity-disabled - The input opacity when disabled. Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-input-field-color-border-error - The input field border-color when invalid. Defaults to `--jh-border-error-color`.
- * @cssprop --jh-input-clear-border-radius - The clear button border radius. Defaults to `--jh-border-radius-100`.
- * @cssprop --jh-input-clear-color-background-enabled - The clear button background-color. Defaults to `transparent`.
- * @cssprop --jh-input-clear-color-border-enabled - The clear button border-color. Defaults to `transparent`.
- * @cssprop --jh-input-clear-icon-color-fill-enabled - The clear button icon fill color. Defaults to `--jh-color-content-brand-enabled`.
- * @cssprop --jh-input-clear-color-background-focus - The clear button background-color when in focus. Defaults to `--jh-color-content-brand-hover`.
- * @cssprop --jh-input-clear-color-border-focus - The clear button border-color when in focus. Defaults to `transparent`.
- * @cssprop --jh-input-clear-color-focus - The clear button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.
- * @cssprop --jh-input-clear-icon-color-fill-focus - The clear button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`.
- * @cssprop --jh-input-clear-color-background-hover - The clear button background-color when hovered. Defaults to `--jh-color-content-brand-hover`.
- * @cssprop --jh-input-clear-color-border-hover - The clear button border-color when hovered. Defaults to `transparent`.
- * @cssprop --jh-input-clear-icon-color-fill-hover - The clear button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`.
- * @cssprop --jh-input-clear-color-background-active - The clear button background-color when active. Defaults to `--jh-color-content-brand-active`.
- * @cssprop --jh-input-clear-color-border-active - The clear button border-color when active. Defaults to `transparent`.
- * @cssprop --jh-input-clear-icon-color-fill-active - The clear button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`. 
+ * @cssprop --jh-input-clear-color-background-enabled - The clear search button background-color. Defaults to `transparent`.
+ * @cssprop --jh-input-clear-color-border-enabled - The clear search button border-color. Defaults to `transparent`.
+ * @cssprop --jh-input-clear-icon-color-fill-enabled - The clear search button icon fill color. Defaults to `--jh-color-content-brand-enabled`.
+ * @cssprop --jh-input-clear-color-background-focus - The clear search button background-color when in focus. Defaults to `--jh-color-content-brand-hover`.
+ * @cssprop --jh-input-clear-color-border-focus - The clear search button border-color when in focus. Defaults to `transparent`.
+ * @cssprop --jh-input-clear-color-focus - The clear search button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.
+ * @cssprop --jh-input-clear-icon-color-fill-focus - The clear search button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`.
+ * @cssprop --jh-input-clear-color-background-hover - The clear search button background-color when hovered. Defaults to `--jh-color-content-brand-hover`.
+ * @cssprop --jh-input-clear-color-border-hover - The clear search button border-color when hovered. Defaults to `transparent`.
+ * @cssprop --jh-input-clear-icon-color-fill-hover - The clear search button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`.
+ * @cssprop --jh-input-clear-color-background-active - The clear search button background-color when active. Defaults to `--jh-color-content-brand-active`.
+ * @cssprop --jh-input-clear-color-border-active - The clear search button border-color when active. Defaults to `transparent`.
+ * @cssprop --jh-input-clear-icon-color-fill-active - The clear search button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`. 
  * @cssprop --jh-input-required-color-text - The required indicator color. Defaults to `jh-color-content-negative-enabled`.
  * @cssprop --jh-input-optional-color-text - The optional indicator text color. Defaults to `jh-color-content-primary-enabled`.
  * @cssprop --jh-input-helper-color-text - The helper-text text color. Defaults to `jh-color-content-secondary-enabled`.
@@ -42,26 +41,22 @@ let id = 0;
  * @cssprop --jh-input-value-color-text - The value text color. Defaults to `jh-color-content-primary-enabled`.
  * @cssprop --jh-input-error-color-text - The error message text color. Defaults to `jh-color-content-negative-enabled`.
  * 
- * @event jh-select - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`.
- * @event jh-change - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`.
- * @event jh-input - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`.
+ * @event jh-select - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.
+ * @event jh-change - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`.
+ * @event jh-input - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`.
  * @event jh-maxlength - Dispatched when the `maxlength` property is set and it's value is reached.
- * @event jh-input:clear-button-click - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`.
+ * @event jh-input:clear-button-click - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`.
  * @slot jh-input-left - Use to insert an element on the left side of the input field, such as an icon or button.
  * @slot jh-input-right - Use to insert an element on the right side of the input field, such as an icon or button.
  * @slot jh-input-clear-button - Use to insert an icon within the clear button. 
  * 
  * @customElement jh-input
  */
-export class JhInput extends LitElement {
+export class JhInput extends validationMixin(JhElement) {
   static get formAssociated() {
     return true;
   }
 
-  /** @type {ElementInternals} */
-  #internals;
-  /** @type {?number} */
-  #id;
   /** @type {?string} */
   #value;
   /** @type {string} */
@@ -195,7 +190,6 @@ export class JhInput extends LitElement {
       /* clear button */
       .clear-button {
         right: var(--jh-dimension-400);
-        --jh-button-border-radius: var(--jh-input-clear-border-radius);
         --jh-button-color-background-tertiary-enabled: var(--jh-input-clear-color-background-enabled);
         --jh-button-color-border-tertiary-enabled: var(--jh-input-clear-color-border-enabled);
         --jh-button-icon-color-fill-tertiary-enabled: var(--jh-input-clear-icon-color-fill-enabled);
@@ -404,7 +398,6 @@ export class JhInput extends LitElement {
 
   constructor() {
     super();
-    this.#internals = this.attachInternals();
     /** @type {?string} */
     this.accessibleLabel = null;
     /** @type {?string} */
@@ -455,7 +448,6 @@ export class JhInput extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    this.#id = id++;
     this.#captureMaskIndexes();
     let observer = new MutationObserver(this.#captureMaskIndexes.bind(this));
     observer.observe(this, { attributeFilter: ['input-mask'] });
@@ -551,7 +543,7 @@ export class JhInput extends LitElement {
 
   /** @ignore */
   get form() {
-    return this.#internals.form;
+    return this.internals.form;
   }
 
   get value() {
@@ -562,20 +554,9 @@ export class JhInput extends LitElement {
     const oldValue = this.#value;
     if (newValue !== oldValue) {
       this.#value = newValue;
-      this.#internals.setFormValue(this.#value);
+      this.internals.setFormValue(this.#value);
     }
     this.requestUpdate('value', oldValue);
-  }
-
-  #dispatch(eventName, details) {
-    this.dispatchEvent(
-      new CustomEvent(eventName, {
-        detail: details,
-        bubbles: true,
-        cancelable: true,
-        composed: true,
-      })
-    );
   }
 
   #handleInput(e) {
@@ -589,7 +570,7 @@ export class JhInput extends LitElement {
         this.#applyInputMask(e);
       }
     } else {
-      this.#dispatch('jh-input', { value: this.value });
+      this.dispatchCustomEvent('jh-input', e)
     }
   }
 
@@ -930,11 +911,12 @@ export class JhInput extends LitElement {
 
     this.value = formattedResult.join('');
 
-    // Dispatch a custom event with the formatted and raw values
-    this.#dispatch('jh-input', {
-      'value': this.value,
-      'rawValue': this.#rawValue
-    });
+    // Dispatch custom event with the raw value
+    this.dispatchCustomEvent('jh-input', e, {
+      state: {
+        rawValue: this.#rawValue
+      }
+    })
   }
 
   #initializeFormattedResult() {
@@ -997,16 +979,14 @@ export class JhInput extends LitElement {
     }
   }
 
-  #handleChange() {
-    let payload = {
-      'value': this.value,
-    }
+  #handleChange(e) {
+    let payload;
 
     if (this.inputMask) {
-      payload.rawValue = this.#rawValue;
+      payload = { state: { rawValue: this.#rawValue } };
     }
 
-    this.#dispatch('jh-change', payload);
+    this.dispatchCustomEvent('jh-change', e, payload);
   }
 
   #handleSelect(e) {
@@ -1017,35 +997,32 @@ export class JhInput extends LitElement {
 
     // ensure selected string present before dispatching event. Can be empty due to caret positioning when user attempts to delete fixed char.
     if (selectedString) {
-      this.#dispatch('jh-select', {
-        selected: selectedString,
-        selectionStart: e.target.selectionStart,
-        selectionEnd: e.target.selectionEnd
+      this.dispatchCustomEvent('jh-select', e, {
+        state: {
+          selection: selectedString,
+          selectionStart: e.target.selectionStart,
+          selectionEnd: e.target.selectionEnd,
+        }
       });
     }
   }
 
   #handleMaxlength() {
-    this.#dispatch('jh-maxlength');
+    this.dispatchCustomEvent('jh-maxlength');
   }
 
-  #handleClearButtonClick() {
+  #handleClearButtonClick(e) {
     let previousValue = this.value;
     // clear input value
     this.value = '';
     // focus input field
     this.shadowRoot.querySelector('input').focus();
     // dispatch clear event
-    this.dispatchEvent(
-      new CustomEvent('jh-input:clear-button-click', {
-        detail: { 
-          'previousValue': previousValue 
-        },
-        bubbles: true,
-        cancelable: true,
-        composed: true,
-      })
-    );
+    this.dispatchCustomEvent('jh-input:clear-button-click', e, {
+       state: {
+        previousValue: previousValue
+       }
+    });
   }
 
   #handleSlotChange(e) {
@@ -1125,13 +1102,13 @@ export class JhInput extends LitElement {
     let describedbyString = '';
 
     if (this.errorText) {
-      describedbyString += `jh-input-error-${this.#id}`;
+      describedbyString += `jh-input-error-${this.uniqueId}`;
     }
     if (this.helperText) {
-      describedbyString += ` jh-input-helper-${this.#id}`;
+      describedbyString += ` jh-input-helper-${this.uniqueId}`;
     }
     if (this.showCharCount) {
-      describedbyString += ` jh-input-counter-${this.#id}`;
+      describedbyString += ` jh-input-counter-${this.uniqueId}`;
     }
     return describedbyString;
   }
@@ -1157,14 +1134,14 @@ export class JhInput extends LitElement {
 
       if (this.helperText) {
         helperText = html`
-          <p id="jh-input-helper-${this.#id}" class="helper-text">
+          <p id="jh-input-helper-${this.uniqueId}" class="helper-text">
             ${this.helperText}
           </p>
         `;
       }
 
       label = html`
-        <label for="jh-input-${this.#id}">${this.label}${indicator}</label>
+        <label for="jh-input-${this.uniqueId}">${this.label}${indicator}</label>
         ${helperText}
       `;
     }
@@ -1187,7 +1164,7 @@ export class JhInput extends LitElement {
 
     if (this.invalid && this.errorText) {
       errorText = html`
-        <p id="jh-input-error-${this.#id}" class="error-text">
+        <p id="jh-input-error-${this.uniqueId}" class="error-text">
           ${this.errorText}
         </p>
       `;
@@ -1209,7 +1186,7 @@ export class JhInput extends LitElement {
     input = html`
       <div class="input-container">
         <input
-          id="jh-input-${this.#id}"
+          id="jh-input-${this.uniqueId}"
           aria-describedby=${describedby}
           aria-invalid=${ifDefined(this.invalid ? 'true' : null)}
           aria-label=${ifDefined(
@@ -1243,5 +1220,4 @@ export class JhInput extends LitElement {
     `;
   }
 }
-
-customElements.define('jh-input', JhInput);
+JhElement.register('jh-input', JhInput);

@@ -74,11 +74,13 @@ const validationMixin = (superClass) =>
       },
     ];
 
-    // constructor() {
-    //   super();
-    //   // TEMP code: elementInternals will be added to base element
-    //   this.#internals = this.attachInternals();
-    // }
+    constructor() {
+      super();
+      // TEMP code: elementInternals will be added to base element
+      // this.#internals = this.attachInternals();
+      // Prevent the native tooltip from appearing on invalid events
+      this.addEventListener('invalid', (e) => e.preventDefault());
+    }
 
     connectedCallback() {
       super.connectedCallback();
@@ -150,8 +152,7 @@ const validationMixin = (superClass) =>
         errors.forEach((err) => (flags[err] = true));
         this.internals.setValidity(
           flags,
-          `Validation failed: ${errors.join(', ')}`,
-          this,
+          `Validation failed: ${errors.join(', ')}`
         );
         this.dispatch(errors, e);
       } else {

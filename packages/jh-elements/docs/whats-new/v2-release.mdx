@@ -11,6 +11,7 @@ import { Meta } from '@storybook/blocks';
 # V2 Release
 
 **Warning!** This page is continuously changing. We may add or remove scope as needed. Explore the [latest v2 Storybook instance](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/welcome-about-jh--docs).
+**Warning!** This page is continuously changing. We may add or remove scope as needed. Explore the [latest v2 Storybook instance](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/welcome-about-jh--docs).
 
 ## Summary
 
@@ -104,6 +105,8 @@ In addition we have made the following changes to our color families:
 
 - Introduced new color families for black and white colors with alpha channels.
 - Updated the gray color family to use more neutral colors.
+- Renamed the `azure` color family to `blue`. The values for all `--jh-color-blue-x` tokens have been updated to the previous azure values in HEX8 format.
+- Removed the lime, rose, and the original blue color families to help create more disctinction between the available color families.
 - Renamed the `azure` color family to `blue`. The values for all `--jh-color-blue-x` tokens have been updated to the previous azure values in HEX8 format.
 - Removed the lime, rose, and the original blue color families to help create more disctinction between the available color families.
 
@@ -375,17 +378,17 @@ Review the [jh-input documentation](/docs/components-input--docs) for more infor
 
 A detailed list of [jh-input deprecated styling hooks](/docs/what-s-new-migrating--docs#deprecated-jh-input-styling-hooks) is available under our migration docs.
 
+#### Deprecated Styling Hooks:
+
+A detailed list of [jh-input deprecated styling hooks](/docs/what-s-new-migrating--docs#deprecated-jh-input-styling-hooks) is available under our migration docs.
+
 ### jh-list-item and jh-tag
 
 In version 1, the text in `jh-list-item` and `jh-tag` would atuomatically truncate at a certain width of the component. In V2 we deprecated the truncation behavior of these components. 
 This behavior was removed due to accessibility and design concerns. The text in `jh-list-item` does now wrap to a new line, while `jh-tag` will expand to contain the full text.
 
 ### jh-switch
-<<<<<<< HEAD:packages/jh-elements/docs/whats-new/v2-release.mdx
 The width of `jh-switch` has been updated to 48px from 56px (as present in V1). And the `box-shadow` property has been removed from the internal thumb element.
-=======
-The width of `jh-switch` has been updated to 48px from 56px(as present in V1). And the `box-shadow` property has been removed from the internal thumb element.
->>>>>>> next:packages/jh-ui/docs/whats-new/v2-release.mdx
 
 ### Keyboard focus styles moved to outline
 
@@ -428,6 +431,14 @@ An enhanced HTML table component, which includes sorting hooks, and all its supc
 - `jh-table-row`: the table row component, which contains header and data cells.
 - `jh-table-header-cell`: the table header cell component.
 - `jh-table-data-cell`: the table data cell component.
+
+## jh-icons 
+
+V2 introduces 149 new icons to the icons library. See the [icon gallery](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/iconography-gallery--gallery) to explore the full, updated collection.
+
+### Deprecated Icon:
+
+- The `jh-icon-shield-check` icon has been replaced by the `jh-icon-shield-checkmark` icon. 
 
 ## jh-icons 
 

@@ -104,8 +104,8 @@ In addition we have made the following changes to our color families:
 
 - Introduced new color families for black and white colors with alpha channels.
 - Updated the gray color family to use more neutral colors.
-- Removed 3 color families (lime, blue and rose) to help create more disctinction between the available color families.
-- Renamed the `azure` color family to `blue`. 
+- Renamed the `azure` color family to `blue`. The values for all `--jh-color-blue-x` tokens have been updated to the previous azure values in HEX8 format.
+- Removed the lime, rose, and the original blue color families to help create more disctinction between the available color families.
 
 #### New Black and White Color Tokens
 
@@ -369,19 +369,20 @@ For instance, to restrict the input to a phone number format, set the input-mask
 
 ```
 
+Review the [jh-input documentation](/docs/components-input--docs) for more information on its features. 
+
 #### Deprecated Styling Hooks:
 
-- `jh-input-field-dimension-padding-top`
-- `jh-input-field-dimension-padding-bottom`
-- `jh-input-field-dimension-padding-left`
-- `jh-input-field-dimension-padding-right`
-
-Review the [jh-input documentation](/docs/components-input--docs) for more information on its features. 
+A detailed list of [jh-input deprecated styling hooks](/docs/what-s-new-migrating--docs#deprecated-jh-input-styling-hooks) is available under our migration docs.
 
 ### jh-list-item and jh-tag
 
 In version 1, the text in `jh-list-item` and `jh-tag` would atuomatically truncate at a certain width of the component. In V2 we deprecated the truncation behavior of these components. 
 This behavior was removed due to accessibility and design concerns. The text in `jh-list-item` does now wrap to a new line, while `jh-tag` will expand to contain the full text.
+
+### jh-switch
+The width of `jh-switch` has been updated to 48px from 56px(as present in V1). And the `box-shadow` property has been removed from the internal thumb element.
+
 ### Keyboard focus styles moved to outline
 
 In v1, the focus styles for interactive components were implemented using a `box-shadow` to create a focus ring around the component.

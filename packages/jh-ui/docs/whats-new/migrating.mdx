@@ -201,13 +201,42 @@ For detailed guidance on using Lit 3 with Webpack 4, refer to the [Lit upgrade g
   </tbody>
 </table>
 
-### Deprecated Color Tokens
+### Color Token Changes
 
-* All the color tokens in the **rose** family (`--jh-rose-50` to `--jh-rose-950`) have been deprecated.
-* All the color tokens in the **lime** family (`--jh-lime-50` to `--jh-lime-950`) have been deprecated.
-* All the color tokens in the **blue** family (`--jh-blue-50` to `--jh-blue-950`) have been deprecated.
+Upgrading to v2 requires updating token names and handling deprecated color families.
 
-* All the colors in the **azure** family have been renamed to **blue**: `--jh-azure-50` to `--jh-azure-950` are now `--jh-blue-50` to `--jh-blue-950`.
+#### Updated Color Token Names
+
+**Azure** tokens have been renamed to **blue**. To migrate, replace all `--jh-color-azure-` prefixes with `--jh-color-blue-`.
+
+#### Deprecated Color Families
+
+The following color families have been removed: 
+
+* `--jh-color-rose-[50-950]`
+* `--jh-color-lime-[50-950]`
+* `--jh-color-blue-[50-950]`. **Note:** These tokens have been replaced by the former azure values. If you were using the original v1 blue tokens, you will need to manually remap them to a different family as the new blue is significantly different.
+
+#### Deprecated Color Tokens
+
+<table>
+  <thead>
+    <tr>
+      <th>Deprecated Token</th>
+      <th>New Token</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>--jh-color-gray-0</td>
+      <td>--jh-color-white-alpha-100</td>
+    </tr>
+    <tr>
+      <td>--jh-color-gray-1000</td>
+      <td>--jh-color-black-alpha-100</td>
+    </tr>
+  </tbody>
+</table>
 
 <table>
   <thead>
@@ -340,15 +369,17 @@ import '@jack-henry/jh-elements/components/divider/divider.js';
 ```
 
 ## Migrating jh-input 
+The jh-input component has been refactored into a base class to increase flexibility and reduce API overhead. This change introduces several breaking changes to properties and styling hooks.
 
-The `jh-input` component has been refactored into a base class to enhance its flexibility and reduce API overhead. In doing so, the `type` property is no longer supported. Specialized input types will become available as separate, discrete components. Users who rely on the `type` property will need to either:
+### New Discrete Components
+The `type` property is no longer supported on the `jh-input`. You must now use specialized components or extend the base class.
 
-1. Migrate to the specialized input components as they become available. For example, if using `<jh-input type="search"></jh-input>` users can migrate to `<jh-input-search></jh-input-search>`. Refer to the migration table below:
+1. Discrete Components - replace `<jh-input type="..."` with the corresponding component below:
 <table>
   <thead>
     <tr>
-      <th>Input `type`</th>
-      <th>Discrete Component</th>
+      <th>Deprecated Input `type`</th>
+      <th>New Discrete Component</th>
     </tr>
   </thead>
   <tbody>
@@ -382,18 +413,82 @@ The `jh-input` component has been refactored into a base class to enhance its fl
     </tr>
   </tbody>
 </table>
-2. Extend the jh-input component to create the needed specialized input type. Refer to the [Extending Components Guide](/docs/guides-extending-components--docs) for information on how to extend components. 
 
-Additionally, the `placeholder` property has been deprecated due to accessibility concerns. Users should leverage the `helper-text` and `label` properties to provide guidance on the expected type of user data. 
+2. Extend the `jh-input` Component. To create a specialized input type, refer to the [Extending Components Guide](/docs/guides-extending-components--docs) for information on how to extend components. 
+
+### Deprecated Properties
+The `placeholder` property has been deprecated due to accessibility concerns. Please leverage the `helper-text` and `label` properties to provide clear, persistent guidance for users. 
 
 ### Deprecated jh-input styling hooks
 
-* `jh-input-field-dimension-padding-top`
-* `jh-input-field-dimension-padding-bottom`
-* `jh-input-field-dimension-padding-left`
-* `jh-input-field-dimension-padding-right`
+<table>
+  <thead>
+    <tr>
+      <th>Deprecated Token</th>
+      <th>New Token</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>--jh-input-clear-shadow-focus</td>
+      <td>--jh-input-clear-color-focus</td>
+    </tr>
+    <tr>
+      <td>--jh-input-shadow-focus</td>
+      <td>--jh-input-field-color-border-focus</td>
+    </tr>
+    <tr>
+      <td>--jh-input-size-min-height-text-area-small</td>
+      <td>--jh-input-textarea-field-dimension-min-height</td>
+    </tr>
+    <tr>
+      <td>--jh-input-size-min-height-text-area-medium</td>
+      <td>--jh-input-textarea-field-dimension-min-height</td>
+    </tr>
+    <tr>
+      <td>--jh-input-size-min-height-text-area-large</td>
+      <td>--jh-input-textarea-field-dimension-min-height</td>
+    </tr>
+    <tr>
+      <td>--jh-input-field-dimension-padding-top</td>
+      <td>No replacement token</td>
+    </tr>
+    <tr>
+      <td>--jh-input-field-dimension-padding-bottom</td>
+      <td>No replacement token</td>
+    </tr>
+    <tr>
+      <td>--jh-input-field-dimension-padding-left</td>
+      <td>No replacement token</td>
+    </tr>
+    <tr>
+      <td>--jh-input-field-dimension-padding-right</td>
+      <td>No replacement token</td>
+    </tr>
+    <tr>
+      <td>--jh-input-clear-color-background-disabled</td>
+      <td>No replacement token</td>
+    </tr>
+    <tr>
+      <td>--jh-input-clear-color-border-disabled</td>
+      <td>No replacement token</td>
+    </tr>
+    <tr>
+      <td>--jh-input-clear-icon-color-fill-disabled</td>
+      <td>No replacement token</td>
+    </tr>
+    <tr>
+      <td>--jh-input-clear-opacity-disabled</td>
+      <td>No replacement token</td>
+    </tr>
+  </tbody>
+</table>
 
-</div>
+* The remaining styling hooks targeting the input **field** have been renamed from `jh-input-*` to `jh-input-field-*`. **Note**: this does not apply to tokens targeting the clear button i.e. `jh-input-clear-*`. 
+* `--jh-input-left-icon-color-fill` and `--jh-input-left-icon-color-fill` are deprecated, use the icon styling hook `--jh-icon-color-fill` instead. 
+
+## Migrating jh-switch
+The default width of `jh-switch` has been reduced from 56px to 48px. Users should audit existing implementations to ensure horizontal alignment and spacing remain consistent within their layouts.
 
 ## Migrating jh-icons
 
@@ -413,3 +508,5 @@ The following icon has been renamed. Please update all instances in your codebas
     </tr>
   </tbody>
 </table>
+
+</div>

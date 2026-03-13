@@ -352,18 +352,13 @@ import '@jack-henry/jh-elements/components/divider/divider.js';
 ## Migrating jh-input 
 The jh-input component has been refactored into a base class to increase flexibility and reduce API overhead. This change introduces several breaking changes to properties and styling hooks.
 
-The jh-input component has been refactored into a base class to increase flexibility and reduce API overhead. This change introduces several breaking changes to properties and styling hooks.
-
 ### New Discrete Components
 The `type` property is no longer supported on the `jh-input`. You must now use specialized components or extend the base class.
 
 1. Discrete Components - replace `<jh-input type="..."` with the corresponding component below:
-1. Discrete Components - replace `<jh-input type="..."` with the corresponding component below:
 <table>
   <thead>
     <tr>
-      <th>Deprecated Input `type`</th>
-      <th>New Discrete Component</th>
       <th>Deprecated Input `type`</th>
       <th>New Discrete Component</th>
     </tr>
@@ -402,10 +397,6 @@ The `type` property is no longer supported on the `jh-input`. You must now use s
 
 2. Extend the `jh-input` Component. To create a specialized input type, refer to the [Extending Components Guide](/docs/guides-extending-components--docs) for information on how to extend components. 
 
-2. Extend the `jh-input` Component. To create a specialized input type, refer to the [Extending Components Guide](/docs/guides-extending-components--docs) for information on how to extend components. 
-
-### Deprecated Properties
-The `placeholder` property has been deprecated due to accessibility concerns. Please leverage the `helper-text` and `label` properties to provide clear, persistent guidance for users. 
 ### Deprecated Properties
 The `placeholder` property has been deprecated due to accessibility concerns. Please leverage the `helper-text` and `label` properties to provide clear, persistent guidance for users. 
 

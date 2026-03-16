@@ -5,6 +5,10 @@
 import { LitElement, css, html } from 'lit';
 
 /**
+ * Menus display lists of choices or actions. This is not a Navigation component.
+ * 
+ * [Menu Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-menu--docs)
+ * 
  * @cssprop --jh-menu-z-index - The menu z-index. Defaults to `--jh-z-index-positive-1000`.
  * @cssprop --jh-menu-color-background - The menu container background-color. Defaults to `--jh-color-container-primary-enabled`.
  * @cssprop --jh-menu-shadow - The menu box-shadow. Defaults to `--jh-shadow-high`.

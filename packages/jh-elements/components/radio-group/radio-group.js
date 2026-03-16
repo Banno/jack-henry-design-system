@@ -7,7 +7,10 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 
 let id = 0;
 /**
- *
+ * Radio groups contain sets of radios from which only one option can be selected. 
+ * 
+ * [Radio Group Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-radio-group--docs)
+ * 
  * @cssprop --jh-radio-group-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-radio-group-required-color-text - The required indicator color. 
  * Defaults to `--jh-color-content-negative-enabled`.
@@ -28,8 +31,9 @@ export class JhRadioGroup extends LitElement {
   static get formAssociated() {
     return true;
   }
+  
   #checked;
-  /** @type {?Number} */
+  /** @type {number} */
   #id;
   /** @type {ElementInternals} */
   #internals;
@@ -135,6 +139,7 @@ export class JhRadioGroup extends LitElement {
        * Provides additional context or guidance for using the radio group. For `helper-text` to be displayed, the `label` property must also be set.
        */
       helperText: {
+        type: String,
         attribute: 'helper-text',
       },
       /** Sets an `aria-invalid` on the radio group to indicate the value supplied was invalid and displays `error-text` when set. */
@@ -185,17 +190,17 @@ export class JhRadioGroup extends LitElement {
     this.errorText = null;
     /** @type {?string} */
     this.helperText = null;
-    /** @type {?Boolean} */
+    /** @type {boolean} */
     this.invalid = false;
     /** @type {?string} */
     this.label = null;
     /** @type {?string} */
     this.name = null;
-    /** @type {?Boolean} */
+    /** @type {boolean} */
     this.required = false;
-    /** @type {'vertical'|'horizontal'} */
+    /** @type { 'vertical' | 'horizontal' } */
     this.orientation = 'vertical';
-    /** @type {?boolean} */
+    /** @type {boolean} */
     this.showIndicator = false;
     /** @type {?string} */
     this.value = null;
@@ -218,7 +223,7 @@ export class JhRadioGroup extends LitElement {
     return this.#internals.form;
   }
 
-  /** @ignore */
+  /** @type {ValidityState} */
   get validity() {
     return this.#internals.validity;
   }

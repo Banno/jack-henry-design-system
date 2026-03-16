@@ -9,10 +9,15 @@ import { JhInput } from '../input/input.js';
 let id = 0;
 
 /**
+ * The input textarea component provides a multi-line text field that allows users to submit detailed, unstructured, free-form text. 
+ * 
+ * [Input Textarea Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-textarea--docs)
+ * 
  * @cssprop --jh-input-textarea-field-dimension-min-height - The input field minimum height. Defaults to `--jh-dimension-2000` when `size='small'`, `--jh-dimension-2200` when `size='medium'`, and `--jh-dimension-2400` when `size='large'`.
  *
  * @event jh-change - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`.
  * @event jh-input - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. 
+ * 
  * @customElement jh-input-textarea
  */
 export class JhInputTextarea extends JhInput {
@@ -153,14 +158,14 @@ export class JhInputTextarea extends JhInput {
         attribute: 'auto-grow',
       },
       /** Sets the width of the input field. */
-      cols: { type: String },
+      cols: { type: Number },
       /** Removes native resize capability of the input field. */
       noResize: {
         type: Boolean,
         attribute: 'no-resize',
       },
       /** Sets the height of the input field. */
-      rows: { type: String },
+      rows: { type: Number },
       /** Specifies how text should be wrapped when submitted in a form. The `cols` property must be set for `wrap='hard'` to take effect. */
       wrap: { type: String },
       /** Prevents users from changing the input value. */
@@ -172,15 +177,15 @@ export class JhInputTextarea extends JhInput {
     super();
     /** @type {boolean} */
     this.autoGrow = null;
-    /** @type {?string} */
+    /** @type {?number} */
     this.cols = null;
     /** @type {boolean} */
     this.noResize = true;
-    /** @type {?string} */
+    /** @type {?number} */
     this.rows = null;
-    /** @type {'small'|'medium'|'large'} */
+    /** @type { 'small' | 'medium' | 'large' } */
     this.size = 'medium';
-    /** @type {'hard'|'soft'} */
+    /** @type { 'hard' | 'soft' | 'off' | null } */
     this.wrap = null;
   }
 

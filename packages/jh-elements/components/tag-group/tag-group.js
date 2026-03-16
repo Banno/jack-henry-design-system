@@ -5,7 +5,9 @@
 import { LitElement, css, html } from 'lit';
 
 /**
- * Tag Group
+ * A tag group is used to group `<jh-tag>` components to provide layout and alignment support. 
+ * 
+ * [Tag Group Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tag-group--docs)
  *
  * @slot default - Use to insert `<jh-tag>` component(s).
  * @customElement jh-tag-group
@@ -45,7 +47,7 @@ export class JhTagGroup extends LitElement {
     super();
     this.#internals = this.attachInternals();
     this.#internals.role = 'group';
-    /** @type {'start'| 'end'} */
+    /** @type { 'start' | 'end' } */
     this.alignment = 'start';
   }
 

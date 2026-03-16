@@ -10,6 +10,10 @@ import '@jack-henry/jh-icons/icons-wc/icon-circle-xmark.js';
 let id = 0;
 
 /**
+ * The input component offers a single-line text field for collecting user data.
+ * 
+ * [Input Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input--docs)
+ * 
  * @cssprop --jh-input-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-input-field-color-background - The input field background-color. Defaults to `--jh-color-container-primary-enabled`.
  * @cssprop --jh-input-field-color-border-enabled - The input field border-color. Defaults to `--jh-border-control-color`.
@@ -47,6 +51,7 @@ let id = 0;
  * @event jh-input - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`.
  * @event jh-maxlength - Dispatched when the `maxlength` property is set and it's value is reached.
  * @event jh-input:clear-button-click - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`.
+ * 
  * @slot jh-input-left - Use to insert an element on the left side of the input field, such as an icon or button.
  * @slot jh-input-right - Use to insert an element on the right side of the input field, such as an icon or button.
  * @slot jh-input-clear-button - Use to insert an icon within the clear button. 
@@ -70,7 +75,7 @@ export class JhInput extends LitElement {
   #startLastFixedChar;
   /** @type {boolean} */
   #deletedChar = false;
-  /** @type {number} */
+  /** @type {?number} */
   #adjustCaretPositionStart = null;
   /** @type {Object} */
   #selectedText = {
@@ -380,9 +385,9 @@ export class JhInput extends LitElement {
       /** Identifies what data should be entered into the input field. */
       label: { type: String },
       /** Sets the maximum number of characters a user can enter into the field. */
-      maxlength: { type: String },
+      maxlength: { type: Number },
       /** Sets the minimum number of characters a user can enter into the field. */
-      minlength: { type: String },
+      minlength: { type: Number },
       /** Sets a name for the input control. */
       name: { type: String },
       /** Prevents users from changing the input value. Removes all slotted content. */
@@ -431,9 +436,9 @@ export class JhInput extends LitElement {
     this.invalid = false;
     /** @type {?string} */
     this.label = null;
-    /** @type {?string} */
+    /** @type {?number} */
     this.maxlength = null;
-    /** @type {?string} */
+    /** @type {?number} */
     this.minlength = null;
     /** @type {?string} */
     this.name = null;
@@ -447,7 +452,7 @@ export class JhInput extends LitElement {
     this.showClearButton = false;
     /** @type {boolean} */
     this.showIndicator = false;
-    /** @type {'small'|'medium'|'large'} */
+    /** @type { 'small' | 'medium' | 'large' } */
     this.size = 'medium';
     /** @type {?string} */
     this.value = null;
@@ -549,7 +554,7 @@ export class JhInput extends LitElement {
     }
   }
 
-  /** @ignore */
+  /** @type {HTMLFormElement} */
   get form() {
     return this.#internals.form;
   }

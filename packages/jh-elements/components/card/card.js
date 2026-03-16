@@ -7,6 +7,9 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import '../divider/divider.js';
 
 /**
+ * Cards are content structures that provide an entry point for more complex and detailed information.
+ * 
+ * [Card Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-card--docs)
  * @cssprop --jh-card-color-background - The card background-color. Defaults to `--jh-color-container-primary-enabled`.
  * @cssprop --jh-card-border-radius - The card border-radius. Defaults to `--jh-border-radius-400`.
  * @cssprop --jh-card-shadow - The card box-shadow. Defaults to `--jh-shadow-low`.
@@ -25,10 +28,12 @@ import '../divider/divider.js';
  * `padding="none"` and `show-footer-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`.
  * @cssprop --jh-card-header-title-color-text - The header title text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-card-header-subtitle-color-text - The header subtitle text color. Defaults to `--jh-color-content-secondary-enabled`.
+ * 
  * @slot default - Use to insert card body content.
  * @slot jh-card-media - Use to insert media content in the top section of the card. User may need to add addtional styling to elements such as border, object-fit, etc.
  * @slot jh-card-header - Use to insert custom card header layout. Default layout includes `headerTitle` and `headerSubtitle` properties.
  * @slot jh-card-footer - Use to insert card footer content.
+ * 
  * @customElement jh-card
  */
 export class JhCard extends LitElement {
@@ -240,13 +245,13 @@ export class JhCard extends LitElement {
 
   constructor() {
     super();
-    /** @type {0|8|16|24|32|40|48|56|64|72|80|88|96} */
+    /** @type { 0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null} */
     this.footerDividerInset = null;
-    /** @type {0|8|16|24|32|40|48|56|64|72|80|88|96} */
+    /** @type { 0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null} */
     this.headerDividerInset = null;
     /** @type {1|2|3|4|5|6} */
     this.titleHeadingLevel = 2;
-    /** @type {'small'|'medium'|'none'} */
+    /** @type { 'small' | 'medium' | 'none' } */
     this.padding = 'medium';
     /** @type {boolean} */
     this.showFooterDivider = false;

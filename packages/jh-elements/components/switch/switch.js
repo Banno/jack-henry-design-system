@@ -8,6 +8,10 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 let id = 0;
 
 /**
+ * A switch or toggle button is used to make an on/off selection that takes effect immediately on the page. It is not meant to be used in forms.
+ * 
+ * [Switch Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-switch--docs)
+ * 
  * @cssprop --jh-switch-opacity-disabled - The switch opacity when disabled. Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-switch-thumb-color-background - The thumb background-color. Defaults to `--jh-color-container-primary-enabled`.
  * @cssprop --jh-switch-color-focus - The switch outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.
@@ -29,7 +33,7 @@ let id = 0;
  * @customElement jh-switch
  */
 export class JhSwitch extends LitElement {
-  /** @type {?Number} */
+  /** @type {?number} */
   #id;
 
   static get styles() {
@@ -239,13 +243,13 @@ export class JhSwitch extends LitElement {
 
   constructor() {
     super();
-    /** @type {'true'|'false'} */
+    /** @type { 'true' | 'false' | null } */
     this.accessibleDisabled = null;
     /** @type {?string} */
     this.accessibleLabel = null;
-    /** @type {?boolean} */
+    /** @type {boolean} */
     this.checked = false;
-    /** @type {?boolean} */
+    /** @type {boolean} */
     this.disabled = false;
     /** @type {?string} */
     this.helperText = null;

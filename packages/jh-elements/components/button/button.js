@@ -7,6 +7,10 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import '../progress/progress.js';
 
 /**
+ * Buttons enable a user to initiate a specific action.
+ * 
+ * [Button Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-button--docs)
+ * 
  * @cssprop --jh-button-color-background-primary-enabled - The button container background-color when enabled and `appearance="primary"`. Defaults to `--jh-color-content-brand-enabled`.
  * @cssprop --jh-button-color-border-primary-enabled - The button container border-color when enabled and `appearance="primary"`. Defaults to `transparent`.
  * @cssprop --jh-button-color-background-primary-focus - The button container background-color when in focus and `appearance="primary"`. Defaults to `--jh-color-content-brand-hover`.
@@ -108,7 +112,6 @@ import '../progress/progress.js';
  * @customElement jh-button
  */
 export class JhButton extends LitElement {
-  /** @ignore */
   static get formAssociated() {
     return true;
   }
@@ -116,7 +119,7 @@ export class JhButton extends LitElement {
   /** @type {ElementInternals} */
   #internals;
 
-  /** @type {?string} */
+  /** @type {string} */
   #value;
 
   static get styles() {
@@ -800,15 +803,13 @@ export class JhButton extends LitElement {
 
   constructor() {
     super();
-    /** @type {ElementInternals} */
     this.#internals = this.attachInternals();
-    /** @type {ElementInternals} */
     this.#internals.form;
-    /** @type {'true'|'false'} */
+    /** @type { 'true' | 'false' | null } */
     this.accessibleDisabled = null;
     /** @type {?string} */
     this.accessibleLabel = null;
-    /** @type {'primary'|'secondary'|'tertiary'|'danger'} */
+    /** @type { 'primary' | 'secondary' | 'tertiary' | 'danger' } */
     this.appearance = 'secondary';
     /** @type {boolean} */
     this.block = false;
@@ -816,19 +817,19 @@ export class JhButton extends LitElement {
     this.disabled = false;
     /** @type {?string} */
     this.href = null;
-    /** @type {'before'|'after'} */
+    /** @type { 'before' | 'after' } */
     this.iconPosition = 'before';
-    /** @type {?boolean} */
+    /** @type {boolean} */
     this.pending = false;
     /** @type {?string} */
     this.label = null;
     /** @type {?string} */
     this.name = null;
-    /** @type {'small'|'medium'|'large'} */
+    /** @type { 'small' | 'medium' | 'large' } */
     this.size = 'medium';
-    /** @type {?boolean} */
+    /** @type {boolean} */
     this.submit = false;
-    /** @type {'_blank'|'_self'|'_parent'|'_top'} */
+    /** @type { '_blank' | '_self' | '_parent' | '_top' | null } */
     this.target = null;
     /** @type {?string} */
     this.value = null;

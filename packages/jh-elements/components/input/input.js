@@ -25,19 +25,20 @@ let id = 0;
  * @cssprop --jh-input-field-color-border-disabled - The input field border-color when disabled. Defaults to `--jh-border-control-color`.
  * @cssprop --jh-input-opacity-disabled - The input opacity when disabled. Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-input-field-color-border-error - The input field border-color when invalid. Defaults to `--jh-border-error-color`.
- * @cssprop --jh-input-clear-color-background-enabled - The clear search button background-color. Defaults to `transparent`.
- * @cssprop --jh-input-clear-color-border-enabled - The clear search button border-color. Defaults to `transparent`.
- * @cssprop --jh-input-clear-icon-color-fill-enabled - The clear search button icon fill color. Defaults to `--jh-color-content-brand-enabled`.
- * @cssprop --jh-input-clear-color-background-focus - The clear search button background-color when in focus. Defaults to `--jh-color-content-brand-hover`.
- * @cssprop --jh-input-clear-color-border-focus - The clear search button border-color when in focus. Defaults to `transparent`.
- * @cssprop --jh-input-clear-color-focus - The clear search button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.
- * @cssprop --jh-input-clear-icon-color-fill-focus - The clear search button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`.
- * @cssprop --jh-input-clear-color-background-hover - The clear search button background-color when hovered. Defaults to `--jh-color-content-brand-hover`.
- * @cssprop --jh-input-clear-color-border-hover - The clear search button border-color when hovered. Defaults to `transparent`.
- * @cssprop --jh-input-clear-icon-color-fill-hover - The clear search button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`.
- * @cssprop --jh-input-clear-color-background-active - The clear search button background-color when active. Defaults to `--jh-color-content-brand-active`.
- * @cssprop --jh-input-clear-color-border-active - The clear search button border-color when active. Defaults to `transparent`.
- * @cssprop --jh-input-clear-icon-color-fill-active - The clear search button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`. 
+ * @cssprop --jh-input-clear-border-radius - The clear button border radius. Defaults to `--jh-border-radius-100`.
+ * @cssprop --jh-input-clear-color-background-enabled - The clear button background-color. Defaults to `transparent`.
+ * @cssprop --jh-input-clear-color-border-enabled - The clear button border-color. Defaults to `transparent`.
+ * @cssprop --jh-input-clear-icon-color-fill-enabled - The clear button icon fill color. Defaults to `--jh-color-content-brand-enabled`.
+ * @cssprop --jh-input-clear-color-background-focus - The clear button background-color when in focus. Defaults to `--jh-color-content-brand-hover`.
+ * @cssprop --jh-input-clear-color-border-focus - The clear button border-color when in focus. Defaults to `transparent`.
+ * @cssprop --jh-input-clear-color-focus - The clear button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.
+ * @cssprop --jh-input-clear-icon-color-fill-focus - The clear button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`.
+ * @cssprop --jh-input-clear-color-background-hover - The clear button background-color when hovered. Defaults to `--jh-color-content-brand-hover`.
+ * @cssprop --jh-input-clear-color-border-hover - The clear button border-color when hovered. Defaults to `transparent`.
+ * @cssprop --jh-input-clear-icon-color-fill-hover - The clear button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`.
+ * @cssprop --jh-input-clear-color-background-active - The clear button background-color when active. Defaults to `--jh-color-content-brand-active`.
+ * @cssprop --jh-input-clear-color-border-active - The clear button border-color when active. Defaults to `transparent`.
+ * @cssprop --jh-input-clear-icon-color-fill-active - The clear button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`. 
  * @cssprop --jh-input-required-color-text - The required indicator color. Defaults to `jh-color-content-negative-enabled`.
  * @cssprop --jh-input-optional-color-text - The optional indicator text color. Defaults to `jh-color-content-primary-enabled`.
  * @cssprop --jh-input-helper-color-text - The helper-text text color. Defaults to `jh-color-content-secondary-enabled`.
@@ -199,6 +200,7 @@ export class JhInput extends LitElement {
       /* clear button */
       .clear-button {
         right: var(--jh-dimension-400);
+        --jh-button-border-radius: var(--jh-input-clear-border-radius);
         --jh-button-color-background-tertiary-enabled: var(--jh-input-clear-color-background-enabled);
         --jh-button-color-border-tertiary-enabled: var(--jh-input-clear-color-border-enabled);
         --jh-button-icon-color-fill-tertiary-enabled: var(--jh-input-clear-icon-color-fill-enabled);

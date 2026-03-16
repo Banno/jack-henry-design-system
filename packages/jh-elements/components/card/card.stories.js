@@ -4,7 +4,6 @@
 
 import { html, css } from 'lit';
 import './card.js';
-import '../tooltip/tooltip.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 const storyStyles = css`

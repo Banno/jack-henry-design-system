@@ -57,7 +57,7 @@ export class JhSwitch extends LitElement {
         z-index: 2;
       }
       span {
-        width: var(--jh-dimension-1400);
+        width: var(--jh-dimension-1200);
         height: var(--jh-dimension-600);
         display: inline-block;
         position: relative;
@@ -91,7 +91,6 @@ export class JhSwitch extends LitElement {
         left: 2px;
         width: var(--jh-dimension-500);
         height: var(--jh-dimension-500);
-        box-shadow: var(--jh-shadow-low);
         transition: all 0.3s cubic-bezier(0.1, 0.5, 0.1, 1);
       }
       /* Unselected states */
@@ -172,7 +171,7 @@ export class JhSwitch extends LitElement {
         pointer-events: none;
       }
       button[checked] + span::after {
-        transform: translateX(32px);
+        transform: translateX(24px);
       }
       .label-container {
         margin-top: var(--jh-dimension-50);

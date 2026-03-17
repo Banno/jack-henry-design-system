@@ -384,37 +384,3 @@ FormAssociated.argTypes = {
 FormAssociated.parameters = {
   styles: storyStyles,
 };
-
-export const Test = {
-  render: (args) => {
-  
-    function addSlottedContent() {
-      const input = document.querySelector('jh-input');
-      const slottedContent = document.createElement('jh-button');
-      slottedContent.setAttribute('slot', 'jh-input-left');
-      const icon = document.createElement('jh-icon-id-card');
-      icon.setAttribute('slot', 'jh-button-icon');
-      slottedContent.appendChild(icon);
-      input.appendChild(slottedContent);
-    }
-
-    function addNewSlottedContent() {
-      const input = document.querySelector('jh-input');
-      let newIcon = document.createElement('jh-icon-magnifying-glass');
-      newIcon.setAttribute('slot', 'jh-input-right');
-      input.appendChild(newIcon);
-    }
-
-    function removeSlottedContent() {
-      const input = document.querySelector('jh-input');
-      const slottedContent = input.querySelector('[slot="jh-input-left"]');
-      if (slottedContent) {
-        input.removeChild(slottedContent);
-      }
-    }
-
-  return html`
-    <jh-input value="hello world" label="Label" helper-text="Helper text" show-clear-button accessible-label-clear-button="clear search field"></jh-input><jh-button @click=${addSlottedContent} label="Add left slot content"></jh-button><jh-button @click=${removeSlottedContent} label="Remove left slotted content"></jh-button><jh-button @click=${addNewSlottedContent} label="Add right slot content"></jh-button>
-  `
-}
-};

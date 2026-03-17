@@ -2,8 +2,9 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { JhElement } from '../element/element.js';
 
 /**
  * @cssprop --jh-badge-border-radius - The badge border radius. Defaults to `--jh-border-radius-pill`.
@@ -12,7 +13,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * 
  * @customElement jh-badge
  */
-export class JhBadge extends LitElement {
+export class JhBadge extends JhElement {
   static get styles() {
     return css`
     :host {
@@ -56,6 +57,19 @@ export class JhBadge extends LitElement {
     this.maxCount = null;
   }
 
+  // example deprecation warnings
+  connectedCallback() {
+    super.connectedCallback();
+    // Example of a migration warning for a deprecated token
+    this.migrationWarning({
+      component: 'jh-badge',
+      type: 'token',
+      name: '--jh-size-200',
+      message: 'The "--jh-size-200" token is deprecated and will be replaced by `--jh-dimension-200` in v2. Please review the migration guide for more information.',
+      url: 'https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/what-s-new-v2-release--docs#deprecated-token'
+    });
+  }
+
   render() {
     let count;
 
@@ -70,4 +84,4 @@ export class JhBadge extends LitElement {
     `;
   }
 }
-customElements.define('jh-badge', JhBadge);
+JhBadge.register('jh-badge', JhBadge);

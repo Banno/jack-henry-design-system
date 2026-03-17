@@ -98,10 +98,13 @@ Overview.parameters = {
   styles: storyStyles,
 };
 
+function handleChange(e) { console.log('Checkbox change event: ', e.detail.form); };
+
 export const Playground = {
   render: (args) => html`
     <div style="width: 200px;">
       <jh-checkbox
+        @jh-change=${handleChange}
         label=${args.label}
         helper-text=${args['helper-text']}
         name=${args.name}

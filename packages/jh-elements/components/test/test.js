@@ -1,12 +1,5 @@
----
-to: components/<%= unprefixedName %>/<%= unprefixedName %>.js
-#
-# SPDX-FileCopyrightText: 2025 Jack Henry
-# 
-# SPDX-License-Identifier: Apache-2.0
----
 /**
-* SPDX-FileCopyrightText: 2025 Jack Henry
+* SPDX-FileCopyrightText: 2026 Jack Henry
 *
 * SPDX-License-Identifier: Apache-2.0
 */
@@ -15,10 +8,10 @@ import { css, html } from 'lit';
 import { JhElement } from '../element/element.js';
 
 /**
- * <%= titleName %>
- * @customElement <%= elementName %>
+ * Jh Test
+ * @customElement jh-test
  */
-export class <%= className %> extends JhElement {
+export class JhTest extends JhElement {
   static get styles() {
     return css`
         :host {
@@ -46,4 +39,5 @@ export class <%= className %> extends JhElement {
     `;
   }
 }
-<%= className %>.register('<%= elementName %>', <%= className %>);
+// example of duplicate component registration error handling
+JhTest.register('jh-toast', JhTest );

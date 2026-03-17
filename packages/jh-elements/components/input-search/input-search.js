@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { css } from 'lit';
+import { html, css } from 'lit';
 import { JhInput } from '../input/input.js';
 import '@jack-henry/jh-icons/icons-wc/icon-magnifying-glass.js';
 
@@ -25,17 +25,27 @@ export class JhInputSearch extends JhInput {
 
   firstUpdated() {
     super.firstUpdated();
-    let leftSlot = this.shadowRoot.querySelector('slot[name="jh-input-left"]');
+    // let leftSlot = this.shadowRoot.querySelector('slot[name="jh-input-left"]');
 
-    // insert fallback content in left slot if empty
-    if (leftSlot && leftSlot.assignedElements().length === 0) {
-      this.innerHTML +=
-        '<jh-icon-magnifying-glass slot="jh-input-left" aria-hidden="true"></jh-icon-magnifying-glass>';
-    }
+    // // insert fallback content in left slot if empty
+    // if (leftSlot && leftSlot.assignedElements().length === 0) {
+    //   this.innerHTML +=
+    //     '<jh-icon-magnifying-glass slot="jh-input-left" aria-hidden="true"></jh-icon-magnifying-glass>';
+    // }
 
     // set input type to search
     let inputEl = this.shadowRoot.querySelector('input');
     inputEl.setAttribute('type', 'search');
   }
+
+     renderLeftSlot() {
+      return this.hideLeftSlot
+        ? null
+        : html`<slot
+        name="jh-input-left"
+        @slotchange=${this.syncSlotContent}
+        ><jh-icon-magnifying-glass></jh-icon-magnifying-glass></slot>
+      `;
+     }
 }
 customElements.define('jh-input-search', JhInputSearch);

@@ -744,8 +744,8 @@
           "description": "The card border-radius. Defaults to `--jh-border-radius-200`."
         },
         {
-          "name": "--jh-card-shadow",
-          "description": "The card box-shadow. Defaults to `--jh-shadow-low`."
+          "name": "--jh-card-border-color",
+          "description": "The card border color. Defaults to `--jh-border-decorative-color`."
         },
         {
           "name": "--jh-card-media-aspect-ratio",

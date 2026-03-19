@@ -6,7 +6,7 @@ import { html, css } from 'lit';
 import './checkbox-group.js';
 import '../checkbox/checkbox.js';
 import '../button/button.js';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 const storyStyles = css`

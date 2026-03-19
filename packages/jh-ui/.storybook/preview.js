@@ -8,18 +8,17 @@ import '@jack-henry/jh-core/platforms/web/assets/fonts/fonts.css';
 import { html } from 'lit';
 import { lightTheme } from './sb-themes';
 import { darkTheme } from './sb-themes';
-import { setCustomElements } from '@storybook/web-components';
+import { setCustomElements } from '@storybook/web-components-vite';
 import customElements from '../custom-elements.json';
 import React from 'react';
-import { DocsContainer } from '@storybook/blocks';
-import { useDarkMode } from 'storybook-dark-mode';
-import { withActions } from '@storybook/addon-actions/decorator';
+import { DocsContainer } from '@storybook/addon-docs/blocks';
+import { withActions } from 'storybook/actions/decorator';
 
 setCustomElements(customElements);
 
 const preview = {
   parameters: {
-    backgrounds: { disable: true },
+    backgrounds: { disabled: true },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -62,16 +61,6 @@ const preview = {
         //hide properties with 2+words
         exclude: /([A-Z])\w+/g,
         sort: 'alpha',
-      },
-      container: (context) => {
-        const isDark = useDarkMode();
-
-        const props = {
-          ...context,
-          theme: isDark ? darkTheme : lightTheme,
-        };
-
-        return React.createElement(DocsContainer, props);
       },
     },
   },

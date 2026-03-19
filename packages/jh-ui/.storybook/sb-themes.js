@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { create } from '@storybook/theming';
+import { create } from 'storybook/theming';
 
 //more options like fonts and colors can be added later as needed
 export const lightTheme = create({

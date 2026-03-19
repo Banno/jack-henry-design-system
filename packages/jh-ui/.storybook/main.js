@@ -4,21 +4,19 @@
 
 const config = {
   stories: ['../**/*.mdx', '../**/*.stories.js'],
+
   addons: [
-    '@storybook/addon-essentials',
     '@storybook/addon-a11y',
-    '@storybook/blocks',
-    'storybook-dark-mode',
-    'storybook-addon-tag-badges'
+    'storybook-addon-tag-badges',
+    '@storybook/addon-docs'
   ],
-  docs: {
-    autodocs: true,
-  },
+
   framework: {
     name: '@storybook/web-components-vite',
     options: {}
   },
-  staticDirs: ['./public'],
+
+  staticDirs: ['./public']
 };
 
 export default config;

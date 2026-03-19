@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { html, css } from 'lit';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import './input.js';
 import '../button/button.js';
@@ -232,8 +232,8 @@ Overview.parameters = {
 };
 
 export const Playground = {
-  render: (args) =>
-    html`
+  render: (args) => {
+    return html`
       <div class="playground-story">
         <jh-input
           accessible-label-clear-button=${ifDefined(
@@ -299,7 +299,8 @@ export const Playground = {
           ><jh-icon-credit-card slot="jh-input-right"></jh-icon-credit-card>
         </jh-input>
       </div>
-    `,
+    `;
+  },
 };
 
 Playground.args = {

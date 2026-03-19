@@ -5,7 +5,7 @@
 import { html, css } from 'lit';
 import './checkbox.js';
 import '../button/button.js';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 const storyStyles = css`
   div[id^="story-root"] {

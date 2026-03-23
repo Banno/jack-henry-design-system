@@ -3,10 +3,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { addons } from 'storybook/manager-api';
-import { darkTheme } from './sb-themes';
 import { lightTheme } from './sb-themes';
-import { defaultConfig } from 'storybook-addon-tag-badges'
-
+import { defaultConfig } from 'storybook-addon-tag-badges';
 
 addons.setConfig({
   //sets the default theme to be used by the browser.
@@ -17,21 +15,25 @@ addons.setConfig({
     {
       tags: 'new',
       badge: {
-          text: `New`,
-          bgColor: '#1f883d',
-          fgColor: '#ffffff',
+        text: `New`,
+        style: {
+          backgroundColor: '#1f883d',
+          color: '#ffffff',
           borderColor: '#1f883d',
-        }
-      },
-      {
-        tags: 'beta',
-        badge: {
-            text: `Beta`,
-            bgColor: '#747474',
-            fgColor: '#ffffff',
-            borderColor: '#747474',
-          }
         },
+      },
+    },
+    {
+      tags: 'beta',
+      badge: {
+        text: `Beta`,
+        style: {
+          backgroundColor: '#747474',
+          color: '#ffffff',
+          borderColor: '#747474',
+        },
+      },
+    },
     ...defaultConfig,
-  ]
+  ],
 });

@@ -120,7 +120,10 @@ export class JhListItem extends LitElement {
         border-left-width: var(--jh-border-selected-width);
       }
       :host([tabindex][selected]) .list-item {
-        padding-left: var(--jh-dimension-400);
+        padding-left: calc(var(
+          --jh-list-item-space-padding-left,
+          var(--jh-dimension-600)
+        ) - var(--jh-border-selected-width));
       }
       :host([tabindex][disabled]) {
         opacity: var(--jh-opacity-disabled);

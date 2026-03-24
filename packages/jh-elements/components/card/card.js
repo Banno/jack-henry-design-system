@@ -9,7 +9,7 @@ import '../divider/divider.js';
 /**
  * @cssprop --jh-card-color-background - The card background-color. Defaults to `--jh-color-container-primary-enabled`.
  * @cssprop --jh-card-border-radius - The card border-radius. Defaults to `--jh-border-radius-200`.
- * @cssprop --jh-card-border-color - The card border color. Defaults to `--jh-border-decorative-color`.
+ * @cssprop --jh-card-color-border - The card border color. Defaults to `--jh-border-decorative-color`.
  * @cssprop --jh-card-media-aspect-ratio - The media slot aspect-ratio. Defaults to `auto`.
  * @cssprop --jh-card-media-space-padding - The media slot padding. Defaults to `0`.
  * @cssprop --jh-card-header-color-text - The header text color. Defaults to `--jh-color-content-primary-enabled`.
@@ -44,7 +44,7 @@ export class JhCard extends LitElement {
           --jh-card-border-radius,
           var(--border-radius)
         );
-        border-color: var(--jh-card-border-color, var(--jh-border-decorative-color));
+        border-color: var(--jh-card-color-border, var(--jh-border-decorative-color));
         border-width: var(--jh-border-decorative-width);
         border-style: var(--jh-border-decorative-style);
         word-break: break-word;

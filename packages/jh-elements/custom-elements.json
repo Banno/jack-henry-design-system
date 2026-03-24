@@ -744,7 +744,7 @@
           "description": "The card border-radius. Defaults to `--jh-border-radius-200`."
         },
         {
-          "name": "--jh-card-border-color",
+          "name": "--jh-card-color-border",
           "description": "The card border color. Defaults to `--jh-border-decorative-color`."
         },
         {

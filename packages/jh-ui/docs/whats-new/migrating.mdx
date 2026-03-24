@@ -471,6 +471,9 @@ The `placeholder` property has been deprecated due to accessibility concerns. Pl
 ## Migrating jh-switch
 The default width of `jh-switch` has been reduced from 56px to 48px. Users should audit existing implementations to ensure horizontal alignment and spacing remain consistent within their layouts.
 
+## Migrating jh-card
+The border-radius of `jh-card` has been reduced from 16px to 8px. The box-shadow property has been removed in favor of a flat aesthetic and to ensure component accessibility in forced-colors mode. The `--jh-card-color-border` styling hook has been introduced to allow for easy customization of the border color.
+
 ## Migrating jh-icons
 
 The following icon has been renamed. Please update all instances in your codebase.

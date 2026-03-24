@@ -61,11 +61,14 @@ export class JhSelect extends LitElement {
   #allOptions = [];
   /** @type {Array} Currently visible/navigable options — same as #allOptions until search is added */
   #flatOptions = [];
+  /** @type {ResizeObserver | null} */
+  #resizeObserver = null;
 
 static get styles() {
   return css`
     :host {
       display: block;
+      position: relative;
     }
     .menu-container {
       /* Reset popover API defaults */
@@ -77,23 +80,10 @@ static get styles() {
       background-color: transparent;
       color: inherit;
       overflow: visible;
-
     }
     jh-menu {
     max-height: 400px;  
       overflow: auto;
-    }
-
-    /* Default: bottom */
-    :host([placement="bottom"]) .menu-container {
-      top: 0px;
-      left: 0px;
-    }
-
-    /* top */
-    :host([placement="top"]) .menu-container {
-      bottom: 0px;
-      left: 0px;
     }
 
     jh-list-group > jh-list-item {
@@ -229,10 +219,23 @@ static get styles() {
   }
 
   #toggleMenu(open) {
-    const menu = this.shadowRoot.querySelector('.menu-container');
+    const menu = this.shadowRoot?.querySelector('.menu-container');
+    if (!menu) return;
+
     if (open) {
       menu.showPopover();
-      this.#open = true;
+      this.#updatePosition();
+      // window.addEventListener('resize', this.#updatePosition);
+      // window.addEventListener('scroll', this.#updatePosition, {capture:true});
+      const jhInput = this.shadowRoot?.querySelector('jh-input');
+      if (!jhInput) return;
+
+      this.#resizeObserver = new ResizeObserver(() => {
+      this.#updatePosition();
+     });
+     this.#resizeObserver.observe(jhInput);
+
+     this.#open = true;
       // Set initial active to selected item or first item
       if (this.#activeIndex === null) {
         const selectedIdx = this.#flatOptions.findIndex(
@@ -244,8 +247,33 @@ static get styles() {
       menu.hidePopover();
       this.#open = false;
       this.#activeIndex = null;
+      window.removeEventListener('resize', this.#updatePosition);
+      window.removeEventListener('scroll', this.#updatePosition, {capture:true});
+        if (this.#resizeObserver) {
+      this.#resizeObserver.disconnect();
+      this.#resizeObserver = null;
     }
     this.requestUpdate();
+  }
+}
+
+  #updatePosition() {
+    const menu = this.shadowRoot.querySelector('.menu-container');
+    const inputEl = this.shadowRoot.querySelector('jh-input').shadowRoot.querySelector('input');
+    const inputBottomPos = inputEl.getBoundingClientRect().bottom;
+    const inputTopPos = inputEl.getBoundingClientRect().top - menu.offsetHeight;
+    const inputLeftPos = inputEl.getBoundingClientRect().left;
+    const inputWidth = inputEl.getBoundingClientRect().width;
+
+    if (this.placement === 'bottom') {
+      menu.style.top = `${inputBottomPos}px`;
+      menu.style.left = `${inputLeftPos}px`;
+    } else if (this.placement === 'top') {
+      menu.style.top = `${inputTopPos}px`;
+      menu.style.left = `${inputLeftPos}px`;
+    }
+    // Set menu width to match input width
+    menu.style.width = `${inputWidth}px`;
   }
 
   #handleToggleEvent(e) {

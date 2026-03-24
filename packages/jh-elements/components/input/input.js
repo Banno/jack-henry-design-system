@@ -91,8 +91,8 @@ export class JhInput extends LitElement {
     // alphanumeric characters -> usernames, product codes, etc.
     '*': /[A-Za-z0-9]/,
   };
-  /** @type {HTMLElement} */
-  #activeSlottedElement;
+  /** @type {Map} */
+  #activeSlottedElement = new Map();
 
   static get styles() {
     return css`
@@ -1070,14 +1070,14 @@ export class JhInput extends LitElement {
     let newSlottedElement = e.target.assignedElements()[0];
     let slotName = e.target.name;
 
-    // stop observing previous slotted element if it exists
-    if (this.#activeSlottedElement) {
-      this.#resizeObserver.unobserve(this.#activeSlottedElement);
+    // stop observing previous slotted element for each slot
+    if (this.#activeSlottedElement.has(slotName)) {
+      this.#resizeObserver.unobserve(this.#activeSlottedElement.get(slotName));
     }
 
-    this.#activeSlottedElement = newSlottedElement;
-
     if (newSlottedElement) {
+      this.#activeSlottedElement.set(slotName, newSlottedElement);
+
       if (newSlottedElement.tagName.startsWith('JH-ICON')) {
         newSlottedElement.setAttribute('size', 'medium');
       }

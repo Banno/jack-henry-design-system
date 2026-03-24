@@ -91,6 +91,8 @@ export class JhInput extends LitElement {
     // alphanumeric characters -> usernames, product codes, etc.
     '*': /[A-Za-z0-9]/,
   };
+  /** @type {HTMLElement} */
+  #activeSlottedElement;
 
   static get styles() {
     return css`
@@ -1065,18 +1067,23 @@ export class JhInput extends LitElement {
   });
 
   #handleSlotChange(e) {
-    let slottedElement = e.target.assignedElements()[0];
+    let newSlottedElement = e.target.assignedElements()[0];
     let slotName = e.target.name;
 
-    if (slottedElement?.tagName.startsWith('JH-ICON')) {
-      slottedElement.setAttribute('size', 'medium');
+    // stop observing previous slotted element if it exists
+    if (this.#activeSlottedElement) {
+      this.#resizeObserver.unobserve(this.#activeSlottedElement);
     }
 
-    // capture dimensions of slotted content
-    if (slottedElement) {
-      this.#resizeObserver.observe(slottedElement);
-    } 
-    this.#addClass(slotName, slottedElement);
+    this.#activeSlottedElement = newSlottedElement;
+
+    if (newSlottedElement) {
+      if (newSlottedElement.tagName.startsWith('JH-ICON')) {
+        newSlottedElement.setAttribute('size', 'medium');
+      }
+      this.#resizeObserver.observe(newSlottedElement);
+    }
+    this.#addClass(slotName, newSlottedElement);
   }
 
   // sets class on input element so padding can accomodate slotted content

@@ -91,6 +91,8 @@ export class JhInput extends LitElement {
     // alphanumeric characters -> usernames, product codes, etc.
     '*': /[A-Za-z0-9]/,
   };
+    /** @type {Map} */
+  #activeSlottedElement = new Map();
 
   get #leftSlot() {
     return this.renderRoot?.querySelector('slot[name="jh-input-left"]');
@@ -481,12 +483,14 @@ export class JhInput extends LitElement {
 
   disconnectedCallback() {
     super.disconnectedCallback();
+    this.#resizeObserver.disconnect();
     if (this.inputMask) {
       this.removeEventListener('jh-select', this.#setSelection);
     }
   }
 
   firstUpdated() {
+
     this.syncSlotContent();
     
     // attach event listeners to show/hide clear button
@@ -1048,6 +1052,22 @@ export class JhInput extends LitElement {
     this.#dispatch('jh-maxlength');
   }
 
+    // capture dimensions of slotted content and set CSS variables to adjust input padding and vertically center slotted content
+  #resizeObserver = new ResizeObserver((entries) => {
+    let inputEl = this.shadowRoot.querySelector('input');
+
+    for (let entry of entries) {
+      let slottedEl = entry.target;
+      let slotName = slottedEl.slot ? slottedEl.slot : slottedEl.getAttribute('name');
+      let slottedElWidth = entry.borderBoxSize[0].inlineSize;
+      let slottedElHeight = entry.borderBoxSize[0].blockSize;
+
+      this.style.setProperty(`--${slotName}-width`, `${slottedElWidth}px`);
+
+      this.style.setProperty(`--${slotName}-top`, `${(inputEl.offsetHeight - slottedElHeight) / 2}px`);
+    }
+  });
+
   #handleClearButtonClick() {
     let previousValue = this.value;
     // clear input value
@@ -1067,32 +1087,29 @@ export class JhInput extends LitElement {
     );
   }
 
-  syncSlotContent() {
-    this.#handleSlotChange(this.#leftSlot);
-    this.#handleSlotChange(this.#rightSlot);
+  syncSlotContent(e) {
+    this.#handleSlotChange(e, this.#leftSlot);
+    this.#handleSlotChange(e, this.#rightSlot);
   }
   
-  #handleSlotChange(slot) {
-    if (!slot) return;
-    //get either slotted element or fallback element
-    let slottedElement = slot?.assignedElements()[0] || slot?.children[0];
-    let slotName = slot.name;
+  #handleSlotChange(e, slot) {
+    let newSlottedElement = e ? e.target.assignedElements()[0] : slot.children[0];
+    let slotName = e ? e.target.name : slot.name;
 
-    if (slottedElement) {
-    if (slottedElement?.tagName.startsWith('JH-ICON')) {
-      slottedElement.setAttribute('size', 'medium');
+    // stop observing previous slotted element for each slot
+    if (this.#activeSlottedElement.has(slotName)) {
+      this.#resizeObserver.unobserve(this.#activeSlottedElement.get(slotName));
     }
 
-    // capture dimensions of slotted content
-      if (slotName === 'jh-input-left' || slotName === 'jh-input-right') {
-        // set a CSS variable for the width of the slotted content
-        this.style.setProperty(`--${slotName}-width`, `${slottedElement.offsetWidth}px`);
+    if (newSlottedElement) {
+      this.#activeSlottedElement.set(slotName, newSlottedElement);
 
-        // set a css variable to vertically center slotted content
-        this.style.setProperty(`--${slotName}-top`, `${(this.#inputEl.offsetHeight - slottedElement.offsetHeight) / 2}px`);
+      if (newSlottedElement.tagName.startsWith('JH-ICON')) {
+        newSlottedElement.setAttribute('size', 'medium');
       }
+      this.#resizeObserver.observe(newSlottedElement);
     }
-    this.#addClass(slotName, slottedElement);
+    this.#addClass(slotName, newSlottedElement);
   }
 
   // sets class on input element so padding can accomodate slotted content

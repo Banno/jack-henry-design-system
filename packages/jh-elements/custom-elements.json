@@ -794,6 +794,12 @@
       "path": "./components/checkbox-group/checkbox-group.js",
       "attributes": [
         {
+          "name": "disabled",
+          "description": "Disables the checkbox group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
+          "type": "?boolean",
+          "default": "false"
+        },
+        {
           "name": "accessible-label",
           "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
           "type": "?string"
@@ -811,7 +817,7 @@
         {
           "name": "invalid",
           "description": "Sets an `aria-invalid` on the checkbox group to indicate the value supplied was invalid and displays `error-text` when set.",
-          "type": "?Boolean",
+          "type": "?boolean",
           "default": "false"
         },
         {
@@ -822,7 +828,7 @@
         {
           "name": "required",
           "description": "Indicates a value is required.",
-          "type": "?Boolean",
+          "type": "?boolean",
           "default": "false"
         },
         {
@@ -839,6 +845,13 @@
         }
       ],
       "properties": [
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "Disables the checkbox group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
+          "type": "?boolean",
+          "default": "false"
+        },
         {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
@@ -861,7 +874,7 @@
           "name": "invalid",
           "attribute": "invalid",
           "description": "Sets an `aria-invalid` on the checkbox group to indicate the value supplied was invalid and displays `error-text` when set.",
-          "type": "?Boolean",
+          "type": "?boolean",
           "default": "false"
         },
         {
@@ -874,7 +887,7 @@
           "name": "required",
           "attribute": "required",
           "description": "Indicates a value is required.",
-          "type": "?Boolean",
+          "type": "?boolean",
           "default": "false"
         },
         {
@@ -902,6 +915,10 @@
         {
           "name": "--jh-checkbox-group-label-color-text",
           "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-group-opacity-disabled",
+          "description": "The opacity of the checkbox group when disabled. Defaults to `0.3`."
         },
         {
           "name": "--jh-checkbox-group-required-color-text",

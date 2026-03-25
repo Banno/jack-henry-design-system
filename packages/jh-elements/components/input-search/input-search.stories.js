@@ -208,3 +208,25 @@ export const Default = { render: (args) => html`
 Default.argTypes = {
   ...disableControls,
 };
+
+export const Test = {
+  render: (args) =>  {
+    function handleInput() {
+      let inputEl = document.querySelector('jh-input-search');
+      for (let child of inputEl.children) {
+        if (child.tagName === 'JH-PROGRESS') {
+          return;
+        }
+      }
+      let progressEl = document.createElement('jh-progress');
+      progressEl.setAttribute('type', 'circular');
+      progressEl.setAttribute('slot', 'jh-input-right');
+      progressEl.setAttribute('indeterminate', '');
+      inputEl.appendChild(progressEl);
+    }
+
+    return html`
+    <jh-input-search @jh-input=${handleInput}></jh-input-search>
+    `
+    }
+};

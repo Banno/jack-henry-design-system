@@ -41,7 +41,7 @@ export class JhProgress extends LitElement {
         font-size: var(--jh-font-helper-regular-font-size);
         line-height: var(--jh-font-helper-regular-line-height);
         display: block;
-        width: 100%;
+        /* width: 100%; */
       }
       .text-content {
         color: var(

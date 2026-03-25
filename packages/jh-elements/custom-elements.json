@@ -6830,6 +6830,11 @@
           "type": "?string"
         },
         {
+          "name": "helper-text",
+          "description": "Provides additional information about the item which triggered the tooltip.",
+          "type": "?string"
+        },
+        {
           "name": "open",
           "description": "Determines whether the tooltip is open or closed. Can be set on the tooltip to force it open.",
           "type": "?Boolean",
@@ -6854,6 +6859,12 @@
           "name": "label",
           "attribute": "label",
           "description": "Provides information about the item which triggered the tooltip.",
+          "type": "?string"
+        },
+        {
+          "name": "helperText",
+          "attribute": "helper-text",
+          "description": "Provides additional information about the item which triggered the tooltip.",
           "type": "?string"
         },
         {
@@ -6885,6 +6896,10 @@
         {
           "name": "--jh-tooltip-color-text",
           "description": "The tooltip text color. Defaults to `--jh-color-content-on-primary-enabled`."
+        },
+        {
+          "name": "--jh-tooltip-helper-color-text",
+          "description": "The tooltip helper text color. Defaults to `--jh-color-content-on-primary-enabled`."
         }
       ]
     }

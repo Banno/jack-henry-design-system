@@ -3,7 +3,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { LitElement, css, html } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined.js';
 
 let id = 0;
 const openAttr = 'open';
@@ -11,6 +10,7 @@ const openAttr = 'open';
 /**
  * @cssprop --jh-tooltip-color-background - The tooltip and arrow background-color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-tooltip-color-text - The tooltip text color. Defaults to `--jh-color-content-on-primary-enabled`.
+ * @cssprop --jh-tooltip-helper-color-text - The tooltip helper text color. Defaults to `--jh-color-content-on-primary-enabled`.
  *
  * @slot default - Use to insert the element that triggers the tooltip.
  *
@@ -26,33 +26,26 @@ export class JhTooltip extends LitElement {
         display: inline-block;
         position: relative;
       }
-      :host span {
+      .tooltip {
         background-color: var(
           --jh-tooltip-color-background,
           var(--jh-color-content-primary-enabled)
         );
-        color: var(
-          --jh-tooltip-color-text,
-          var(--jh-color-content-on-primary-enabled)
-        );
         border-radius: var(--jh-border-radius-100);
         padding: var(--jh-dimension-200);
-        font-family: var(--jh-font-helper-regular-font-family);
-        font-weight: var(--jh-font-helper-regular-font-weight);
-        font-size: var(--jh-font-helper-regular-font-size);
-        line-height: var(--jh-font-helper-regular-line-height);
         max-width: 160px;
         width: max-content;
         position: absolute;
         box-sizing: border-box;
         z-index: 1061;
         word-wrap: break-word;
-        display: inline-block;
+        display: inline-flex;
+        flex-direction: column;
         transition: visibility cubic-bezier(0.1, 0.5, 0.1, 1) 0.09s;
         visibility: hidden;
         opacity: 0;
       }
-      span::before {
+      .tooltip::before {
         position: absolute;
         z-index: 1060;
         width: 0;
@@ -61,12 +54,25 @@ export class JhTooltip extends LitElement {
         content: '';
         border: 4px solid transparent;
       }
-      :host span.show {
+      :host .tooltip.show {
         transition: opacity 0.3s cubic-bezier(0.1, 0.5, 0.1, 1) 0s;
         visibility: visible;
         opacity: 1;
       }
-
+      .label {
+        color: var(--jh-tooltip-color-text, var(--jh-color-content-on-primary-enabled));
+        font-family: var(--jh-font-helper-regular-font-family);
+        font-weight: var(--jh-font-helper-regular-font-weight);
+        font-size: var(--jh-font-helper-regular-font-size);
+        line-height: var(--jh-font-helper-regular-line-height);
+      }
+      .helper-text {
+        color: var(--jh-tooltip-helper-color-text, var(--jh-color-content-on-primary-enabled));
+        font-family: var(--jh-font-micro-regular-font-family);
+        font-weight: var(--jh-font-micro-regular-font-weight);
+        font-size: var(--jh-font-micro-regular-font-size);
+        line-height: var(--jh-font-micro-regular-line-height);
+      }
       /* padding and margin used to extend hover surface for tooltip persistence */
       :host([position='bottom-center']),
       :host([position='bottom-start']),
@@ -90,15 +96,15 @@ export class JhTooltip extends LitElement {
       }
 
       /* placement of tooltip and arrow. Default is top-center */
-      :host([position='bottom-center']) span,
-      :host([position='bottom-start']) span,
-      :host([position='bottom-end']) span {
+      :host([position='bottom-center']) .tooltip,
+      :host([position='bottom-start']) .tooltip,
+      :host([position='bottom-end']) .tooltip {
         top: 100%;
         right: 50%;
       }
-      :host([position='bottom-center']) span::before,
-      :host([position='bottom-start']) span::before,
-      :host([position='bottom-end']) span::before {
+      :host([position='bottom-center']) .tooltip::before,
+      :host([position='bottom-start']) .tooltip::before,
+      :host([position='bottom-end']) .tooltip::before {
         border-bottom-color: var(
           --jh-tooltip-color-background,
           var(--jh-color-content-primary-enabled)
@@ -106,33 +112,33 @@ export class JhTooltip extends LitElement {
         top: auto;
         bottom: 100%;
       }
-      :host([position='bottom-center']) span::before {
+      :host([position='bottom-center']) .tooltip::before {
         margin-right: calc(var(--jh-dimension-200) * -0.5);
         right: 50%;
       }
-      :host([position='bottom-start']) span::before {
+      :host([position='bottom-start']) .tooltip::before {
         left: var(--jh-dimension-200);
       }
-      :host([position='bottom-end']) span::before {
+      :host([position='bottom-end']) .tooltip::before {
         right: var(--jh-dimension-200);
       }
-      :host([position='bottom-start']) span {
+      :host([position='bottom-start']) .tooltip {
         margin-left: calc(var(--jh-dimension-200) * -1.5);
         right: auto;
         left: 50%;
       }
-      :host([position='bottom-end']) span {
+      :host([position='bottom-end']) .tooltip {
         margin-right: calc(var(--jh-dimension-200) * -1.5);
       }
-      :host([position='top-center']) span,
-      :host([position='top-start']) span,
-      :host([position='top-end']) span {
+      :host([position='top-center']) .tooltip,
+      :host([position='top-start']) .tooltip,
+      :host([position='top-end']) .tooltip {
         right: 50%;
         bottom: 100%;
       }
-      :host([position='top-center']) span::before,
-      :host([position='top-start']) span::before,
-      :host([position='top-end']) span::before {
+      :host([position='top-center']) .tooltip::before,
+      :host([position='top-start']) .tooltip::before,
+      :host([position='top-end']) .tooltip::before {
         border-top-color: var(
           --jh-tooltip-color-background,
           var(--jh-color-content-primary-enabled)
@@ -140,34 +146,34 @@ export class JhTooltip extends LitElement {
         top: 100%;
         bottom: auto;
       }
-      :host([position='top-center']) span::before {
+      :host([position='top-center']) .tooltip::before {
         margin-right: calc(var(--jh-dimension-200) * -0.5);
         right: 50%;
       }
-      :host([position='top-start']) span::before {
+      :host([position='top-start']) .tooltip::before {
         left: var(--jh-dimension-200);
       }
-      :host([position='top-end']) span::before {
+      :host([position='top-end']) .tooltip::before {
         right: var(--jh-dimension-200);
       }
-      :host([position='top-start']) span {
+      :host([position='top-start']) .tooltip {
         margin-left: calc(var(--jh-dimension-200) * -1.5);
         right: auto;
         left: 50%;
       }
-      :host([position='top-end']) span {
+      :host([position='top-end']) .tooltip {
         margin-right: calc(var(--jh-dimension-200) * -1.5);
       }
-      :host([position='bottom-center']) span,
-      :host([position='top-center']) span {
+      :host([position='bottom-center']) .tooltip,
+      :host([position='top-center']) .tooltip {
         transform: translateX(50%);
       }
-      :host([position='left']) span {
+      :host([position='left']) .tooltip {
         right: 100%;
         bottom: 50%;
         transform: translateY(50%);
       }
-      :host([position='left']) span::before {
+      :host([position='left']) .tooltip::before {
         border-left-color: var(
           --jh-tooltip-color-background,
           var(--jh-color-content-primary-enabled)
@@ -177,12 +183,12 @@ export class JhTooltip extends LitElement {
         bottom: 50%;
         left: 100%;
       }
-      :host([position='right']) span {
+      :host([position='right']) .tooltip {
         bottom: 50%;
         left: 100%;
         transform: translateY(50%);
       }
-      :host([position='right']) span::before {
+      :host([position='right']) .tooltip::before {
         border-right-color: var(
           --jh-tooltip-color-background,
           var(--jh-color-content-primary-enabled)
@@ -211,6 +217,13 @@ export class JhTooltip extends LitElement {
         type: String,
       },
       /**
+       * Provides additional information about the item which triggered the tooltip.
+       */
+      helperText: {
+        type: String,
+        attribute: 'helper-text',
+      },
+      /**
        * Determines whether the tooltip is open or closed. Can be set on the tooltip to force it open.
        */
       open: {
@@ -234,6 +247,8 @@ export class JhTooltip extends LitElement {
     this.flipDisabled = false;
     /** @type {?string} */
     this.label = null;
+    /** @type {?string} */
+    this.helperText = null;
     /**@type {?Boolean} */
     this.open = false;
     /** @type {?string} */
@@ -254,12 +269,12 @@ export class JhTooltip extends LitElement {
   #handleEmptyLabel(mutations) {
     for (let mutation of mutations) {
       const addedNodes = Array.from(mutation.addedNodes);
-      //check if any of the added nodes is a span
-      const spanAdded = addedNodes.some(
-        (addedNode) => addedNode.tagName === 'SPAN'
+      //check if any of the added nodes is a div
+      const divAdded = addedNodes.some(
+        (addedNode) => addedNode.tagName === 'DIV'
       );
 
-      if (spanAdded) {
+      if (divAdded) {
         this.#internals.role = 'tooltip';
         this.addEventListener('focus', this.#handleOpenTooltip, true);
         this.addEventListener('mouseenter', this.#handleOpenTooltip);
@@ -299,9 +314,19 @@ export class JhTooltip extends LitElement {
   }
 
   //calls flipTooltip whenever the tooltip is updated, including manually opened with 'open' property.
-  updated() {
-    if (this.open) this.#flipTooltip();
+updated(changedProperties) {
+  if (
+    this.open &&
+    (changedProperties.has('open') ||
+      changedProperties.has('label') ||
+      changedProperties.has('helperText') ||
+      changedProperties.has('position'))
+  ) {
+    requestAnimationFrame(() => {
+      this.#flipTooltip();
+    });
   }
+}
 
   #handleKeyDown(e) {
     if (e.key === 'Escape') this.#handleCloseTooltip();
@@ -323,7 +348,7 @@ export class JhTooltip extends LitElement {
     //check if current position is a valid position otherwise make it fail.
     if (!['left', 'right', 'top-start', 'top-end', 'top-center', 'bottom-start', 'bottom-end', 'bottom-center'].includes(currentPosition)) return;
     
-    if (this.flipDisabled === false && this.label) {
+    if (this.flipDisabled === false && (this.label || this.helperText)) {
      
       //break current position into tooltop position and arrow position
       const [currentTooltip, currentArrow] = currentPosition.split('-');
@@ -450,10 +475,10 @@ export class JhTooltip extends LitElement {
   #getDimensions() {
     return {
       tooltipWidth: this.shadowRoot
-        .querySelector('span')
+        .querySelector('.tooltip')
         .getBoundingClientRect().width,
       tooltipHeight: this.shadowRoot
-        .querySelector('span')
+        .querySelector('.tooltip')
         .getBoundingClientRect().height,
       elemHeight: this.getBoundingClientRect().height,
       elemWidth: this.getBoundingClientRect().width,
@@ -475,22 +500,23 @@ export class JhTooltip extends LitElement {
   }
 
   render() {
-    let label;
+    let tooltip;
 
-    if (this.label) {
-      label = html`
-        <span
-          class=${ifDefined(this.open ? 'show' : null)}
+    if (this.label || this.helperText) {
+      tooltip = html`
+        <div
+          class=${this.open ? 'tooltip show' : 'tooltip'}
           aria-hidden=${this.open ? 'false' : 'true'}
         >
-          ${this.label}
-        </span>
+          ${this.label ? html`<div class="label">${this.label}</div>` : ''}
+          ${this.helperText ? html`<div class="helper-text">${this.helperText}</div>` : ''}
+    </div>
       `;
     }
 
     return html`
       <slot @slotchange=${this.#handleSlotChange}></slot>
-      ${label}
+      ${tooltip}
     `;
   }
 }

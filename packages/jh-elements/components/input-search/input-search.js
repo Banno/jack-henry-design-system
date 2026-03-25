@@ -25,9 +25,9 @@ export class JhInputSearch extends JhInput {
 
   firstUpdated() {
     super.firstUpdated();
-    // let leftSlot = this.shadowRoot.querySelector('slot[name="jh-input-left"]');
+    let leftSlot = this.shadowRoot.querySelector('slot[name="jh-input-left"]');
 
-    // // insert fallback content in left slot if empty
+    // insert fallback content in left slot if empty
     // if (leftSlot && leftSlot.assignedElements().length === 0) {
     //   this.innerHTML +=
     //     '<jh-icon-magnifying-glass slot="jh-input-left" aria-hidden="true"></jh-icon-magnifying-glass>';
@@ -43,8 +43,7 @@ export class JhInputSearch extends JhInput {
         ? null
         : html`<slot
         name="jh-input-left"
-        @slotchange=${this.syncSlotContent}
-        ><jh-icon-magnifying-glass></jh-icon-magnifying-glass></slot>
+        @slotchange=${this.syncSlotContent}><jh-icon-magnifying-glass name="jh-input-left"></jh-icon-magnifying-glass></slot>
       `;
      }
 }

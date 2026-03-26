@@ -41,7 +41,7 @@ export const Overview = {
     <div class="overview-row">
       <jh-badge></jh-badge>
       <jh-badge count="50"></jh-badge>
-      <jh-badge count="100"></jh-badge>
+      <jh-badge count="100" max-count="99"></jh-badge>
     </div>
   `
 };

@@ -7,8 +7,8 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * @cssprop --jh-badge-border-radius - The badge border radius. Defaults to `--jh-border-radius-pill`.
- * @cssprop --jh-badge-color-background-enabled - The badge background color. Defaults to `--jh-color-content-negative-enabled`. 
- * @cssprop --jh-badge-color-text-enabled - The badge text color. Defaults to `--jh-color-content-on-negative-enabled`.
+ * @cssprop --jh-badge-color-background-enabled - The badge background color. Defaults to `--jh-color-content-brand-enabled`. 
+ * @cssprop --jh-badge-color-text-enabled - The badge text color. Defaults to `--jh-color-content-on-brand-enabled`.
  * 
  * @customElement jh-badge
  */
@@ -19,8 +19,8 @@ export class JhBadge extends LitElement {
       display: inline-flex;
     }
     span {
-      background: var(--jh-badge-color-background-enabled, var(--jh-color-content-negative-enabled));
-      color: var(--jh-badge-color-text-enabled, var(--jh-color-content-on-negative-enabled));
+      background: var(--jh-badge-color-background-enabled, var(--jh-color-content-brand-enabled));
+      color: var(--jh-badge-color-text-enabled, var(--jh-color-content-on-brand-enabled));
       border-radius: var(--jh-badge-border-radius, var(--jh-border-radius-pill));
       min-width: var(--jh-dimension-200);
       height: var(--jh-dimension-200);
@@ -28,10 +28,10 @@ export class JhBadge extends LitElement {
       justify-content: center;
     }
     .count-present {
-      font-family: var(--jh-font-helper-bold-font-family);
-      font-weight: var(--jh-font-helper-bold-font-weight);
-      font-size: var(--jh-font-helper-bold-font-size);
-      line-height: var(--jh-font-helper-bold-line-height);
+      font-family: var(--jh-font-helper-medium-font-family);
+      font-weight: var(--jh-font-helper-medium-font-weight);
+      font-size: var(--jh-font-helper-medium-font-size);
+      line-height: var(--jh-font-helper-medium-line-height);
       height: var(--jh-dimension-400);
       padding: var(--jh-dimension-0) var(--jh-dimension-100);
       width: auto;
@@ -44,7 +44,7 @@ export class JhBadge extends LitElement {
       /** Number to show within the badge. If no `count` is supplied, Badge will render as a dot.*/
       count: { type: String },
       /** Sets the max count to show. Appends `+` to the `max-count` when value is exceeded. */
-      maxCount: { type: Number, attribute: 'max-count' },
+      maxCount: { type: String, attribute: 'max-count' },
     };
   }
 
@@ -53,7 +53,7 @@ export class JhBadge extends LitElement {
     /** @type {?string} */
     this.count = null;
     /** @type {?number} */
-    this.maxCount = 99;
+    this.maxCount = null;
   }
 
   render() {

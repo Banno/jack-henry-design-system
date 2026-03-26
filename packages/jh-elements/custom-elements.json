@@ -796,7 +796,7 @@
         {
           "name": "disabled",
           "description": "Disables the checkbox group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
-          "type": "?boolean",
+          "type": "boolean",
           "default": "false"
         },
         {
@@ -849,7 +849,7 @@
           "name": "disabled",
           "attribute": "disabled",
           "description": "Disables the checkbox group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
-          "type": "?boolean",
+          "type": "boolean",
           "default": "false"
         },
         {
@@ -918,7 +918,7 @@
         },
         {
           "name": "--jh-checkbox-group-opacity-disabled",
-          "description": "The opacity of the checkbox group when disabled. Defaults to `0.3`."
+          "description": "The opacity of the checkbox group when disabled. Defaults to `--jh-opacity-disabled`."
         },
         {
           "name": "--jh-checkbox-group-required-color-text",

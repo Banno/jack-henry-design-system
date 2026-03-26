@@ -9,7 +9,7 @@ let id = 0;
 /**
  *
  * @cssprop --jh-checkbox-group-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
- * @cssprop --jh-checkbox-group-opacity-disabled - The opacity of the checkbox group when disabled. Defaults to `0.3`.
+ * @cssprop --jh-checkbox-group-opacity-disabled - The opacity of the checkbox group when disabled. Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-checkbox-group-required-color-text - The required indicator color.
  * Defaults to `--jh-color-content-negative-enabled`.
  * @cssprop --jh-checkbox-group-required-color-text-optional - The optional indicator text color.
@@ -43,7 +43,8 @@ export class JhCheckboxGroup extends LitElement {
         margin: 0;
       }
       :host([disabled]) .label,
-      :host([disabled]) .helper-text {
+      :host([disabled]) .helper-text,
+      :host([disabled]) .error-text {
         opacity: var(
           --jh-checkbox-group-opacity-disabled, 
           var(--jh-opacity-disabled)
@@ -172,7 +173,7 @@ export class JhCheckboxGroup extends LitElement {
   }
   constructor() {
     super();
-    /** @type {?boolean} */
+    /** @type {boolean} */
     this.disabled = false;
     /** @type {?string} */
     this.accessibleLabel = null;

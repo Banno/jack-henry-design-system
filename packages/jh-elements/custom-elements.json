@@ -13,8 +13,7 @@
         {
           "name": "max-count",
           "description": "Sets the max count to show. Appends `+` to the `max-count` when value is exceeded.",
-          "type": "?number",
-          "default": "99"
+          "type": "?number"
         }
       ],
       "properties": [
@@ -28,8 +27,7 @@
           "name": "maxCount",
           "attribute": "max-count",
           "description": "Sets the max count to show. Appends `+` to the `max-count` when value is exceeded.",
-          "type": "?number",
-          "default": "99"
+          "type": "?number"
         }
       ],
       "cssProperties": [
@@ -39,11 +37,11 @@
         },
         {
           "name": "--jh-badge-color-background-enabled",
-          "description": "The badge background color. Defaults to `--jh-color-content-negative-enabled`."
+          "description": "The badge background color. Defaults to `--jh-color-content-brand-enabled`."
         },
         {
           "name": "--jh-badge-color-text-enabled",
-          "description": "The badge text color. Defaults to `--jh-color-content-on-negative-enabled`."
+          "description": "The badge text color. Defaults to `--jh-color-content-on-brand-enabled`."
         }
       ]
     },

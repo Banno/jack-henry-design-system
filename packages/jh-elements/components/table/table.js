@@ -180,8 +180,10 @@ export class JhTable extends LitElement {
       }
 
       :host([scrollable]) .table-container {
-        overflow: scroll;
+        overflow: auto;
         height: 100%;
+        /* keeps space reserved for vertical scrollbar */
+        scrollbar-gutter: stable;
         /* removes bouncy scroll behavior in Safari and FF */
         /* overscroll-behavior: none; */
       }
@@ -295,7 +297,6 @@ export class JhTable extends LitElement {
   async firstUpdated() {
     if (!this.scrollable) return;
 
-    const container = this.shadowRoot.querySelector('.table-container');
     let scrollTable = this.shadowRoot.querySelector('.table');
     await scrollTable.updateComplete;
     let originalTableWidth = scrollTable.getBoundingClientRect().width;

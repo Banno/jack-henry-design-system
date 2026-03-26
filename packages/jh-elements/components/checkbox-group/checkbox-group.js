@@ -199,7 +199,6 @@ export class JhCheckboxGroup extends LitElement {
 
   firstUpdated() {
     const slot = this.renderRoot?.querySelector('slot');
-    slot?.addEventListener('slotchange', () => this.#syncDisabledToChildren());
     this.#syncDisabledToChildren();
   }
 
@@ -270,7 +269,7 @@ export class JhCheckboxGroup extends LitElement {
         aria-disabled=${ifDefined(this.disabled ? 'true' : null)}
         aria-label=${ifDefined(this.accessibleLabel)}>
         ${label}
-        <div class="controls"><slot></slot></div>
+        <div class="controls"><slot @slotchange=${() => this.#syncDisabledToChildren()} ></slot></div>
         ${errorText}
       </fieldset>
     `;

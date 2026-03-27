@@ -42,14 +42,20 @@ export class JhCheckboxGroup extends LitElement {
         padding: 0;
         margin: 0;
       }
-      :host([disabled]) .label,
-      :host([disabled]) .helper-text,
-      :host([disabled]) .error-text {
-        opacity: var(
+      :host([disabled]) {
+        --group-disabled-opacity: var(
           --jh-checkbox-group-opacity-disabled, 
           var(--jh-opacity-disabled)
         );
+      }
+      :host([disabled]) .label,
+      :host([disabled]) .helper-text,
+      :host([disabled]) .error-text {
+        opacity: var(--group-disabled-opacity);
         pointer-events: none;
+      }
+      :host([disabled]) ::slotted(jh-checkbox) {
+        --jh-checkbox-opacity-disabled: var(--group-disabled-opacity);
       }
       :host legend {
         padding: 0;

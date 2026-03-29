@@ -7,8 +7,9 @@
         "$description": "No border radius",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "50": {
@@ -16,8 +17,9 @@
         "$description": "Border radius 50",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "100": {
@@ -25,8 +27,9 @@
         "$description": "Border radius 100",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "200": {
@@ -34,8 +37,9 @@
         "$description": "Border radius 200",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "300": {
@@ -43,8 +47,9 @@
         "$description": "Border radius 300",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "400": {
@@ -52,8 +57,9 @@
         "$description": "Border radius 400",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "circle": {
@@ -62,8 +68,9 @@
         "$description": "Circular border radius",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "pill": {
@@ -71,8 +78,9 @@
         "$description": "Pill border radius",
         "$extensions": {
           "alias": false,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       }
     }

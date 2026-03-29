@@ -21,8 +21,9 @@
       "$description": "Used on surface-level content and components such as cards and control thumbs",
       "$extensions": {
         "alias": true,
-        "deprecated": false,
-        "deprecatedMessage": ""
+        "deprecatedIn": "",
+        "addedIn": "2.0.0",
+        "message": ""
       }
     },
     "mid": {
@@ -45,8 +46,9 @@
       "$description": "Used on elevated components such as FABs and toasts",
       "$extensions": {
         "alias": true,
-        "deprecated": false,
-        "deprecatedMessage": ""
+        "deprecatedIn": "",
+        "addedIn": "2.0.0",
+        "message": ""
       }
     },
     "high": {
@@ -69,8 +71,9 @@
       "$description": "Used on menus and dropdowns",
       "$extensions": {
         "alias": true,
-        "deprecated": false,
-        "deprecatedMessage": ""
+        "deprecatedIn": "",
+        "addedIn": "2.0.0",
+        "message": ""
       }
     },
     "overlay": {
@@ -93,8 +96,9 @@
       "$description": "Used on components that should overlay the entire UI such as modals and dialogs",
       "$extensions": {
         "alias": true,
-        "deprecated": false,
-        "deprecatedMessage": ""
+        "deprecatedIn": "",
+        "addedIn": "2.0.0",
+        "message": ""
       }
     }
   }

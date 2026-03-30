@@ -132,7 +132,7 @@ export class JhTable extends LitElement {
       :host([sticky-header]) .header {
         position: sticky;
         top: 0;
-        z-index: 2000;
+        z-index: 1000;
       }
       :host([sticky-footer]) .footer {
         --jh-table-data-cell-color-border-top: var(
@@ -140,7 +140,7 @@ export class JhTable extends LitElement {
         );
         position: sticky;
         bottom: 0;
-        z-index: 2000;
+        z-index: 1000;
       }
       :host([sticky-footer]) .body::slotted(jh-table-row:nth-last-of-type(2)) {
         --jh-table-data-cell-color-border-bottom: transparent;

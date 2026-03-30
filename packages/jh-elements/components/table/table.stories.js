@@ -9,6 +9,7 @@ import '../table-data-cell/table-data-cell.js';
 import '../table-row/table-row.js';
 import '../button/button.js';
 import '../checkbox/checkbox.js';
+import '../tooltip/tooltip.js';
 
 const storyStyles = css`
 .overview {
@@ -338,7 +339,7 @@ export const ScrollTest = { render: (args) => html`
       <jh-table-header-cell>Column 5</jh-table-header-cell>
     </jh-table-row>
     <jh-table-row>
-      <jh-table-data-cell><jh-checkbox label="Row 1"></jh-checkbox></jh-table-data-cell>
+      <jh-table-data-cell><jh-tooltip label="tooltip"><jh-checkbox label="Row 1"></jh-checkbox></jh-tooltip></jh-table-data-cell>
       <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
       <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
       <jh-table-data-cell>Lorem ipsum dolor sit amet</jh-table-data-cell>

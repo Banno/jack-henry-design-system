@@ -7,7 +7,6 @@ import './table.js';
 import '../table-header-cell/table-header-cell.js';
 import '../table-data-cell/table-data-cell.js';
 import '../table-row/table-row.js';
-import '../button/button.js';
 
 const storyStyles = css`
 .overview {
@@ -286,7 +285,7 @@ export const Scrollable = { render: (args) => html`
         <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
         <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
         <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell >Lorem ipsum dolor sit amet consectetur adipiscing elit</jh-table-data-cell>
+        <jh-table-data-cell >Lorem ipsum</jh-table-data-cell>
     </jh-table-row>
     <jh-table-row slot="jh-table-footer">
     <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
@@ -296,7 +295,7 @@ export const Scrollable = { render: (args) => html`
         <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
         <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
         <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell >Lorem ipsum dolor</jh-table-data-cell>
+        <jh-table-data-cell >Lorem ipsum dolor sit amet</jh-table-data-cell>
     </jh-table-row>
     <div slot="jh-table-pagination">Pagination</div>
     </jh-table>

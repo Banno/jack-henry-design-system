@@ -21,6 +21,7 @@ const storyStyles = css`
 `;
 
 const disableControls = {
+  disabled: { control: { disable: true } },
   label: { control: { disable: true } },
   'helper-text': { control: { disable: true } },
   'error-text': { control: { disable: true } },
@@ -41,6 +42,9 @@ export default {
     },
   },
   argTypes: {
+    disabled: {
+      control: 'boolean',
+    },
     required: {
       control: 'boolean',
     },
@@ -95,6 +99,22 @@ export const Overview = {
         label="Label"
         helper-text="Helper text group"
         orientation="horizontal"
+        disabled
+      >
+        <jh-checkbox label="checkbox 4" name="checkbox-4"></jh-checkbox>
+        <jh-checkbox
+          label="checkbox 5"
+          name="checkbox-5"
+          disabled
+        ></jh-checkbox>
+        <jh-checkbox label="checkbox 6" name="checkbox-6"></jh-checkbox>
+      </jh-checkbox-group>
+    </div>
+    <div class="container">
+      <jh-checkbox-group
+        label="Label"
+        helper-text="Helper text group"
+        orientation="horizontal"
         error-text="Error text"
         invalid
       >
@@ -125,6 +145,7 @@ export const Playground = {
       orientation=${args.orientation}
       accessible-label=${args['accessible-label']}
       ?invalid=${args.invalid}
+      ?disabled=${args.disabled}
       error-text=${args['error-text']}
     >
       <jh-checkbox
@@ -153,6 +174,7 @@ export const Playground = {
 
 Playground.args = {
   label: 'Label',
+  disabled: false,
   'helper-text': 'Select at least 2 options',
   required: true,
   'show-indicator': true,

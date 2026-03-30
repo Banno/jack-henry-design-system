@@ -7,9 +7,6 @@ import './table.js';
 import '../table-header-cell/table-header-cell.js';
 import '../table-data-cell/table-data-cell.js';
 import '../table-row/table-row.js';
-import '../button/button.js';
-import '../checkbox/checkbox.js';
-import '../tooltip/tooltip.js';
 
 const storyStyles = css`
 .overview {
@@ -21,13 +18,6 @@ const storyStyles = css`
 .scrollable {
   width: 600px;
   height: 500px;
-}
-.scrolltest {
-  /* width: 400px; */
-  height: 500px;
-}
-.scrolltest jh-table-data-cell {
-  min-width: 80px;
 }
 `;
 
@@ -325,86 +315,6 @@ export const Scrollable = { render: (args) => html`
     Scrollable.parameters = {
       styles: storyStyles,
     };
-
-export const ScrollTest = { render: (args) => html`
-<div class="scrolltest">
-  <jh-table vertical-align="top" scrollable sticky-header sticky-footer>
-    <div slot="jh-table-caption">Scroll Test Table</div>
-    <div slot="jh-table-toolbar">Toolbar</div>
-    <jh-table-row slot="jh-table-header">
-      <jh-table-header-cell><jh-checkbox label="Select all"></jh-checkbox></jh-table-header-cell>
-      <jh-table-header-cell>Column 2</jh-table-header-cell>
-      <jh-table-header-cell>Column 3</jh-table-header-cell>
-      <jh-table-header-cell>Column 4</jh-table-header-cell>
-      <jh-table-header-cell>Column 5</jh-table-header-cell>
-    </jh-table-row>
-    <jh-table-row>
-      <jh-table-data-cell><jh-tooltip label="tooltip"><jh-checkbox label="Row 1"></jh-checkbox></jh-tooltip></jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum dolor sit amet</jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-    </jh-table-row>
-    <jh-table-row>
-      <jh-table-data-cell><jh-checkbox label="Row 2"></jh-checkbox></jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum dolor sit amet</jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-    </jh-table-row>
-    <jh-table-row>
-      <jh-table-data-cell><jh-checkbox label="Row 3"></jh-checkbox></jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum dolor sit amet</jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-    </jh-table-row>
-    <jh-table-row>
-      <jh-table-data-cell><jh-checkbox label="Row 4"></jh-checkbox></jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum dolor sit amet</jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-    </jh-table-row>
-    <jh-table-row>
-      <jh-table-data-cell><jh-checkbox label="Row 5"></jh-checkbox></jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum dolor sit amet</jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-    </jh-table-row>
-    <jh-table-row>
-      <jh-table-data-cell><jh-checkbox label="Row 6"></jh-checkbox></jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum dolor sit amet</jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-    </jh-table-row>
-    <jh-table-row>
-      <jh-table-data-cell><jh-checkbox label="Row 7"></jh-checkbox></jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum dolor sit amet</jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-    </jh-table-row>
-    <jh-table-row slot="jh-table-footer">
-      <jh-table-data-cell><jh-checkbox label="Footer"></jh-checkbox></jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum dolor sit</jh-table-data-cell>
-      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-    </jh-table-row>
-    <div slot="jh-table-pagination">Pagination</div>
-  </jh-table>
-</div>
-`};
-
-ScrollTest.argTypes = {
-  ...disableControls,
-};
-ScrollTest.parameters = {
-  styles: storyStyles,
-};
 
 
 

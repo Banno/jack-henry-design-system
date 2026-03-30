@@ -6845,12 +6845,12 @@
         },
         {
           "name": "label",
-          "description": "Provides information about the item which triggered the tooltip.",
+          "description": "Describes the item which triggered the tooltip.",
           "type": "?string"
         },
         {
           "name": "helper-text",
-          "description": "Provides additional information about the item which triggered the tooltip.",
+          "description": "Provides additional context or guidance about the item that triggered the tooltip.",
           "type": "?string"
         },
         {
@@ -6877,13 +6877,13 @@
         {
           "name": "label",
           "attribute": "label",
-          "description": "Provides information about the item which triggered the tooltip.",
+          "description": "Describes the item which triggered the tooltip.",
           "type": "?string"
         },
         {
           "name": "helperText",
           "attribute": "helper-text",
-          "description": "Provides additional information about the item which triggered the tooltip.",
+          "description": "Provides additional context or guidance about the item that triggered the tooltip.",
           "type": "?string"
         },
         {

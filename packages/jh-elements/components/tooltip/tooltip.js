@@ -211,13 +211,13 @@ export class JhTooltip extends LitElement {
         attribute: 'flip-disabled',
       },
       /**
-       * Provides information about the item which triggered the tooltip.
+       * Describes the item which triggered the tooltip.
        */
       label: {
         type: String,
       },
       /**
-       * Provides additional information about the item which triggered the tooltip.
+       * Provides additional context or guidance about the item that triggered the tooltip.
        */
       helperText: {
         type: String,

@@ -348,11 +348,20 @@ import '@jack-henry/jh-ui/components/divider/divider.js';
 // NEW
 import '@jack-henry/jh-elements/components/divider/divider.js';
 ```
+### Migrating jh-badge
+The background color of `jh-badge` has been changed from `--jh-color-content-brand-enabled` to `--jh-color-content-negative-enabled`. font family, weight, size and line height tokens have changed from `--jh-font-helper-medium-...` to `--jh-font-helper-bold-...`.
+The `max-count` property is now set to `99` by default. 
 
-## Migrating jh-input 
+### Migrating jh-card
+The border-radius of `jh-card` has been reduced from 16px to 8px. The box-shadow property has been removed in favor of a flat aesthetic and to ensure component accessibility in forced-colors mode. The `--jh-card-color-border` styling hook has been introduced to allow for easy customization of the border color.
+
+### Migrating jh-checkbox
+The label font family, weight, size and line height tokens have changed from `--jh-font-body-regular-1-...` to `--jh-font-body-medium-1-...` to ensure consistent styling across form controls.
+
+### Migrating jh-input 
 The jh-input component has been refactored into a base class to increase flexibility and reduce API overhead. This change introduces several breaking changes to properties and styling hooks.
 
-### New Discrete Components
+#### New Discrete Components
 The `type` property is no longer supported on the `jh-input`. You must now use specialized components or extend the base class.
 
 1. Discrete Components - replace `<jh-input type="..."` with the corresponding component below:
@@ -397,10 +406,10 @@ The `type` property is no longer supported on the `jh-input`. You must now use s
 
 2. Extend the `jh-input` Component. To create a specialized input type, refer to the [Extending Components Guide](/docs/guides-extending-components--docs) for information on how to extend components. 
 
-### Deprecated Properties
+#### Deprecated Properties
 The `placeholder` property has been deprecated due to accessibility concerns. Please leverage the `helper-text` and `label` properties to provide clear, persistent guidance for users. 
 
-### Deprecated jh-input styling hooks
+#### Deprecated jh-input styling hooks
 
 <table>
   <thead>
@@ -468,19 +477,13 @@ The `placeholder` property has been deprecated due to accessibility concerns. Pl
 * The remaining styling hooks targeting the input **field** have been renamed from `jh-input-*` to `jh-input-field-*`. **Note**: this does not apply to tokens targeting the clear button i.e. `jh-input-clear-*`. 
 * `--jh-input-left-icon-color-fill` and `--jh-input-left-icon-color-fill` are deprecated, use the icon styling hook `--jh-icon-color-fill` instead. 
 
-## Migrating jh-switch
+### Migrating jh-radio
+The label font family, weight, size and line height tokens have changed from `--jh-font-body-regular-1-...` to `--jh-font-body-medium-1-...` to ensure consistent styling across form controls.
+
+### Migrating jh-switch
 The default width of `jh-switch` has been reduced from 56px to 48px. Users should audit existing implementations to ensure horizontal alignment and spacing remain consistent within their layouts.
 
 The label font family, weight, size and line height tokens have changed from `--jh-font-body-regular-1-...` to `--jh-font-body-medium-1-...` to ensure consistent styling across form controls.  
-
-## Migrating jh-radio
-The label font family, weight, size and line height tokens have changed from `--jh-font-body-regular-1-...` to `--jh-font-body-medium-1-...` to ensure consistent styling across form controls.
-
-## Migrating jh-checkbox
-The label font family, weight, size and line height tokens have changed from `--jh-font-body-regular-1-...` to `--jh-font-body-medium-1-...` to ensure consistent styling across form controls.
-
-## Migrating jh-card
-The border-radius of `jh-card` has been reduced from 16px to 8px. The box-shadow property has been removed in favor of a flat aesthetic and to ensure component accessibility in forced-colors mode. The `--jh-card-color-border` styling hook has been introduced to allow for easy customization of the border color.
 
 ## Migrating jh-icons
 

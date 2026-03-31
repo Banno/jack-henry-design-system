@@ -22,6 +22,11 @@ export class JhInputUrl extends JhInput {
     ];
   }
 
+  constructor() {
+    super();
+    this.inputmode = 'url';
+  }
+
   firstUpdated() {
     super.firstUpdated();
     let inputEl = this.shadowRoot.querySelector('input');

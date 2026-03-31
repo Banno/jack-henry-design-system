@@ -3708,7 +3708,8 @@
         {
           "name": "inputmode",
           "description": "Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.\n\n[Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)",
-          "type": "?string"
+          "type": "?string",
+          "default": "\"url\""
         },
         {
           "name": "invalid",
@@ -3846,7 +3847,8 @@
           "name": "inputmode",
           "attribute": "inputmode",
           "description": "Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.\n\n[Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)",
-          "type": "?string"
+          "type": "?string",
+          "default": "\"url\""
         },
         {
           "name": "invalid",

@@ -9,6 +9,11 @@ import { JhInput } from '../input/input.js';
  * @customElement jh-input-telephone
  */
 export class JhInputTelephone extends JhInput {
+  constructor() {
+    super();
+    this.inputmode = 'tel';
+  }
+  
   firstUpdated() {
     super.firstUpdated();
     let inputEl = this.shadowRoot.querySelector('input');

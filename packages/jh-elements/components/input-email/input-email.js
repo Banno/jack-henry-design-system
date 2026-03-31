@@ -9,10 +9,10 @@ import { JhInput } from '../input/input.js';
  * @customElement jh-input-email
  */
 export class JhInputEmail extends JhInput {
-  firstUpdated() {
-    super.firstUpdated();
-    let inputEl = this.shadowRoot.querySelector('input');
-    inputEl.setAttribute('type', 'email');
+  constructor() {
+    super();
+    this.autocomplete = 'email';
+    this.inputMode = 'email';
   }
 }
 customElements.define('jh-input-email', JhInputEmail);

@@ -23,6 +23,11 @@ export class JhInputSearch extends JhInput {
     ];
   }
 
+  constructor() {
+    super();
+    this.inputmode = 'search';
+  }
+
   firstUpdated() {
     super.firstUpdated();
     let leftSlot = this.shadowRoot.querySelector('slot[name="jh-input-left"]');

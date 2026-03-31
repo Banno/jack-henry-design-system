@@ -11,7 +11,7 @@ import '../input/input.js';
 import '../list-item/list-item.js';
 import '../list-group/list-group.js';
 import { JhFilter } from './filtering.js';
-import { US_STATES_FLAT, US_STATES_GROUPED } from './data-presets.js';
+import { US_STATES_FLAT, US_STATES_GROUPED, getPresetData } from './data-presets.js';
 
 let id = 0;
 
@@ -19,10 +19,10 @@ const testOptions = [
   { groupLabel: "Account types", groupValues: [
     { label: "Basic Checking", value: "checking-01" },
     { label: "High-Yield Savings", value: "savings-01", disabled: true },
-    { label: "Money Market", value: "money-market-01" }
+    { label: "Money Market", value: "money-market-01", selected: true },
   ]},
   { groupLabel: "Credit Cards", groupValues: [
-    { label: "Cash Back Rewards", value: "cc-cash-back" },
+    { label: "Cash Back Rewards with a much longer label for testing", value: "cc-cash-back" },
     { label: "Travel Rewards", value: "cc-travel" },
     { label: "Low Interest", value: "cc-low-interest" },
   ]},
@@ -37,6 +37,31 @@ const testOptions = [
 /**
  * Select
  * @customElement jh-select
+ *
+ * @cssprop --jh-select-input-field-border-radius - The input field border radius. Defaults to `--jh-border-radius-100`.
+ * @cssprop --jh-select-input-field-color-background - The input field background-color. Defaults to `--jh-color-container-primary-enabled`.
+ * @cssprop --jh-select-icon-color-fill - The select icons color. Defaults to `--jh-color-content-secondary-enabled`.
+ * @cssprop --jh-select-menu-z-index - The menu z-index. Defaults to `--jh-z-index-positive-1000`.
+ * @cssprop --jh-select-menu-border-radius - The menu border-radius. Defaults to `--jh-border-radius-200`.
+ * @cssprop --jh-select-menu-shadow - The menu box-shadow. Defaults to `--jh-shadow-high`.
+ * @cssprop --jh-select-menu-color-background - The menu container background-color. Defaults to `--jh-color-container-primary-enabled`.
+ * @cssprop --jh-select-menu-space-padding - The menu container padding. Defaults to `--jh-dimension-200 0`.
+ * @cssprop --jh-select-menu-size-max-width - The menu maximum width. Defaults to `none`.
+ * @cssprop --jh-select-menu-size-min-width - The menu minimum width. Defaults to `none`.
+ * @cssprop --jh-select-input-field-color-border-error - The input field border-color when invalid. Defaults to `--jh-border-error-color`.
+ * @cssprop --jh-select-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
+ * @cssprop --jh-select-helper-color-text - The helper-text text color. Defaults to `jh-color-content-secondary-enabled`.
+ * @cssprop --jh-select-required-color-text - The required indicator color. Defaults to `jh-color-content-negative-enabled`.
+ * @cssprop --jh-select-optional-color-text - The optional indicator text color. Defaults to `jh-color-content-primary-enabled`.
+ * @cssprop --jh-select-value-color-text - The value text color. Defaults to `jh-color-content-primary-enabled`.
+ * @cssprop --jh-select-input-field-color-border-enabled - The input field border-color. Defaults to `--jh-border-control-color`.
+ * @cssprop --jh-select-input-field-color-border-focus - The input field border-color when in focus. Defaults to `--jh-color-content-brand-hover`.
+ * @cssprop --jh-select-input-color-focus - The input field outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.
+ * @cssprop --jh-select-input-field-color-border-hover - The input field border-color when hovered. Defaults to `--jh-color-content-brand-hover`.
+ * @cssprop --jh-select-input-field-color-border-active - The input field border-color when active. Defaults to `--jh-color-content-brand-active`.
+ * @cssprop --jh-select-input-field-color-border-disabled - The input field border-color when disabled. Defaults to `--jh-border-control-color`.
+ * @cssprop --jh-select-opacity-disabled - The select opacity when disabled. Defaults to `--jh-opacity-disabled`.
+ * @cssprop --jh-select-error-color-text - The error message text color. Defaults to `jh-color-content-negative-enabled`.
  */
 export class JhSelect extends LitElement {
   static get formAssociated() {
@@ -61,29 +86,65 @@ export class JhSelect extends LitElement {
   #allOptions = [];
   /** @type {Array} Currently visible/navigable options — same as #allOptions until search is added */
   #flatOptions = [];
-  /** @type {ResizeObserver | null} */
-  #resizeObserver = null;
+  /** @type {(e: Event) => void} */
+  #boundDocumentClick;
+  /** @type {(e: Event) => void} */
+  #boundDocumentScroll;
 
 static get styles() {
   return css`
     :host {
+      --jh-input-field-border-radius: var(--jh-select-input-field-border-radius);
+      --jh-input-field-color-background: var(--jh-select-input-field-color-background);
+      --jh-icon-color-fill: var(--jh-select-icon-color-fill);
+      --jh-menu-z-index: var(--jh-select-menu-z-index);
+      --jh-menu-border-radius: var(--jh-select-menu-border-radius);
+      --jh-menu-shadow: var(--jh-select-menu-shadow);
+      --jh-menu-color-background: var(--jh-select-menu-color-background);
+      --jh-menu-space-padding: var(--jh-select-menu-space-padding);
+      --jh-input-field-color-border-error: var(--jh-select-input-field-color-border-error);
+      --jh-input-label-color-text: var(--jh-select-label-color-text);
+      --jh-input-helper-color-text: var(--jh-select-helper-color-text);
+      --jh-input-required-color-text: var(--jh-select-required-color-text);
+      --jh-input-optional-color-text: var(--jh-select-optional-color-text);
+      --jh-input-value-color-text: var(--jh-select-value-color-text);
+      --jh-input-field-color-border-enabled: var(--jh-select-input-field-color-border-enabled);
+      --jh-input-field-color-border-focus: var(--jh-select-input-field-color-border-focus);
+      --jh-input-color-focus: var(--jh-select-input-color-focus);
+      --jh-input-field-color-border-hover: var(--jh-select-input-field-color-border-hover);
+      --jh-input-field-color-border-active: var(--jh-select-input-field-color-border-active);
+      --jh-input-field-color-border-disabled: var(--jh-select-input-field-color-border-disabled);
+      --jh-input-opacity-disabled: var(--jh-select-opacity-disabled);
+      --jh-input-error-color-text: var(--jh-select-error-color-text);
       display: block;
       position: relative;
+      width: 200px;
     }
     .menu-container {
-      /* Reset popover API defaults */
       box-sizing: border-box;
-      inset: auto;
-      margin: 0;
-      border: none;
-      padding: 0;
-      background-color: transparent;
-      color: inherit;
       overflow: visible;
+      position: absolute;
+      visibility: hidden;
+      opacity: 0;
+      width: 100%;
+      max-width: var(--jh-select-menu-size-max-width, none);
+      min-width: var(--jh-select-menu-size-min-width, none);
+    }
+    .menu-container.show {
+      visibility: visible;
+      opacity: 1;
+    }
+    :host([menu-position="bottom"]) .menu-container {
+      top: 100%;
+    }
+    :host([menu-position="top"]) .menu-container {
+      bottom: 100%;
     }
     jh-menu {
     max-height: 400px;  
-      overflow: auto;
+    overflow: auto;
+    overscroll-behavior: contain;
+   
     }
 
     jh-list-group > jh-list-item {
@@ -98,6 +159,12 @@ static get styles() {
       outline-style: var(--jh-border-focus-style);
       outline-width: var(--jh-border-focus-width);
       outline-offset: -2px;
+    }
+    jh-list-item[selected].is-active {
+      background-color: var(
+          --jh-list-item-color-background-selected,
+          var(--jh-color-container-primary-selected)
+        );
     }
   `;
 }
@@ -115,7 +182,7 @@ static get styles() {
       invalid: { type: Boolean },
       label: { type: String },
       name: { type: String },
-      placement: { type: String, reflect: true },
+      menuPosition: { type: String, reflect: true, attribute: 'menu-position' },
       readonly: { type: Boolean },
       required: { type: Boolean },
       showClearButton: { type: Boolean, attribute: 'show-clear-button' },
@@ -154,7 +221,7 @@ static get styles() {
     /** @type {?string} */
     this.name = null;
     /** @type {string} */
-    this.placement = 'bottom';
+    this.menuPosition = 'bottom';
     /** @type {boolean} */
     this.readonly = false;
     /** @type {boolean} */
@@ -169,9 +236,17 @@ static get styles() {
     this.value = null;
     /** @type {Array} */
     this.options = testOptions;
-    /** @type {'us-states-flat'|'us-states-grouped'|null} */
+    /** @type {'us-states-flat'|'us-states-grouped'| null} */
     this.preset = 'us-states-grouped';
     this.addEventListener('keydown', this.#handleKeydown);
+    this.#boundDocumentClick = this.#handleDocumentClick.bind(this);
+    this.#boundDocumentScroll = this.#handleDocumentScroll.bind(this);
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    document.removeEventListener('click', this.#boundDocumentClick, true);
+    document.removeEventListener('scroll', this.#boundDocumentScroll, true);
   }
 
   willUpdate(changedProperties) {
@@ -194,6 +269,14 @@ static get styles() {
       });
       this.#flatOptions = this.#allOptions;
       this.#activeIndex = null;
+
+      // Set initial value from the selected flag in the data array
+      const selectedOption = this.#flatOptions.find(opt => opt.selected);
+      if (selectedOption && !this.value) {
+        this.value = selectedOption.value;
+        this.#displayValue = selectedOption.label;
+        // this.#internals.setFormValue(this.value);
+      }
     }
   }
 
@@ -209,33 +292,49 @@ static get styles() {
     return Number.isNaN(index) ? null : index;
   }
 
-  #scrollToActiveItem() {
-    this.updateComplete.then(() => {
-      const el = this.shadowRoot.getElementById(
-        `jh-select-option-${this.#id}-${this.#activeIndex}`
-      );
-      el?.scrollIntoView({ block: 'nearest' });
-    });
+  async #scrollToActiveItem() {
+    await this.updateComplete;
+    const el = this.shadowRoot.getElementById(
+      `jh-select-option-${this.#id}-${this.#activeIndex}`
+    );
+    if (!el) return;
+
+      const menu = this.shadowRoot.querySelector('jh-menu');
+      const menuRect = menu.getBoundingClientRect();
+      const elRect = el.getBoundingClientRect();
+      //account for vertical padding on the menu
+      const menuStyles = getComputedStyle(menu);
+      const paddingTop = parseFloat(menuStyles.paddingTop);
+      const paddingBottom = parseFloat(menuStyles.paddingBottom);
+
+      const visibleTop = menuRect.top + paddingTop;
+      const visibleBottom = menuRect.bottom - paddingBottom;
+
+      if (elRect.bottom > visibleBottom) {
+        menu.scrollTop += elRect.bottom - visibleBottom;
+      } else if (elRect.top < visibleTop) {
+        menu.scrollTop -= visibleTop - elRect.top;
+      }
   }
 
-  #toggleMenu(open) {
-    const menu = this.shadowRoot?.querySelector('.menu-container');
-    if (!menu) return;
+  #handleDocumentClick(e) {
+    if (!e.composedPath().includes(this)) {
+      this.#handleCloseSelect();
+    }
+  }
+  #handleDocumentScroll(e) {
+    if (!e.composedPath().includes(this)) {
+      this.#handleCloseSelect();
+    }
+  }
 
-    if (open) {
-      menu.showPopover();
-      this.#updatePosition();
-      // window.addEventListener('resize', this.#updatePosition);
-      // window.addEventListener('scroll', this.#updatePosition, {capture:true});
-      const jhInput = this.shadowRoot?.querySelector('jh-input');
-      if (!jhInput) return;
-
-      this.#resizeObserver = new ResizeObserver(() => {
-      this.#updatePosition();
-     });
-     this.#resizeObserver.observe(jhInput);
-
+  #handleOpenSelect() {
      this.#open = true;
+     document.addEventListener('click', this.#boundDocumentClick, true);
+      // Delay adding scroll listener so the menu's own layout change doesn't trigger it
+    requestAnimationFrame(() => {
+      document.addEventListener('scroll', this.#boundDocumentScroll, true);
+    });
       // Set initial active to selected item or first item
       if (this.#activeIndex === null) {
         const selectedIdx = this.#flatOptions.findIndex(
@@ -243,45 +342,13 @@ static get styles() {
         );
         this.#setActiveItem(selectedIdx !== -1 ? selectedIdx : 0);
       }
-    } else {
-      menu.hidePopover();
-      this.#open = false;
-      this.#activeIndex = null;
-      window.removeEventListener('resize', this.#updatePosition);
-      window.removeEventListener('scroll', this.#updatePosition, {capture:true});
-        if (this.#resizeObserver) {
-      this.#resizeObserver.disconnect();
-      this.#resizeObserver = null;
-    }
-    this.requestUpdate();
+      this.requestUpdate();
   }
-}
-
-  #updatePosition() {
-    const menu = this.shadowRoot.querySelector('.menu-container');
-    const inputEl = this.shadowRoot.querySelector('jh-input').shadowRoot.querySelector('input');
-    const inputBottomPos = inputEl.getBoundingClientRect().bottom;
-    const inputTopPos = inputEl.getBoundingClientRect().top - menu.offsetHeight;
-    const inputLeftPos = inputEl.getBoundingClientRect().left;
-    const inputWidth = inputEl.getBoundingClientRect().width;
-
-    if (this.placement === 'bottom') {
-      menu.style.top = `${inputBottomPos}px`;
-      menu.style.left = `${inputLeftPos}px`;
-    } else if (this.placement === 'top') {
-      menu.style.top = `${inputTopPos}px`;
-      menu.style.left = `${inputLeftPos}px`;
-    }
-    // Set menu width to match input width
-    menu.style.width = `${inputWidth}px`;
-  }
-
-  #handleToggleEvent(e) {
-    // Sync state when popover closes via light dismiss or Escape
-    this.#open = e.newState === 'open';
-    if (!this.#open) {
-      this.#activeIndex = null;
-    }
+  #handleCloseSelect() {
+    this.#open = false;
+    document.removeEventListener('click', this.#boundDocumentClick, true);
+    document.removeEventListener('scroll', this.#boundDocumentScroll, true);
+    this.#activeIndex = null;
     this.requestUpdate();
   }
 
@@ -310,11 +377,20 @@ static get styles() {
 
   #handleKeydown(e) {
     if (e.ctrlKey || e.metaKey) return;
+      if (this.#open) {
+      switch (e.key) {
+        case 'ArrowDown':
+        case 'ArrowUp':
+        case ' ':
+          e.preventDefault();
+          break;
+      }
+    }
 
     // Open menu on trigger keys when closed
     if (['ArrowDown', 'ArrowUp', 'Enter', ' '].includes(e.key) && !this.#open) {
       e.preventDefault();
-      this.#toggleMenu(true);
+      this.#handleOpenSelect();
       return;
     }
 
@@ -339,21 +415,20 @@ static get styles() {
       e.preventDefault();
       if (this.#open && this.#activeIndex !== null) {
         this.#handleSelection(this.#activeIndex);
-        this.#toggleMenu(false);
+        this.#handleCloseSelect();
       }
       return;
     }
 
     if (e.key === 'Escape') {
-      // Popover API handles the actual close —
-      // #handleToggleEvent syncs state
+      this.#handleCloseSelect();
       this.#buffer = '';
       return;
     }
 
     if (e.key === 'Tab') {
       if (this.#open) {
-        this.#toggleMenu(false);
+        this.#handleCloseSelect();
       }
       return;
     }
@@ -369,7 +444,7 @@ static get styles() {
       'label'
     );
     if (matchIndex !== -1) {
-      if (!this.#open) this.#toggleMenu(true);
+      if (!this.#open) this.#handleOpenSelect();
       this.#setActiveItem(matchIndex);
       this.#handleSelection(matchIndex);
     }
@@ -384,11 +459,15 @@ static get styles() {
     if (index === null) return;
 
     this.#handleSelection(index);
-    this.#toggleMenu(false);
+    this.#handleCloseSelect();
   }
 
   #handleTriggerClick() {
-    this.#toggleMenu(!this.#open);
+    if (this.#open) {
+      this.#handleCloseSelect();
+    } else {
+      this.#handleOpenSelect();
+    }
   }
 
   #handleSelection(index) {
@@ -464,7 +543,7 @@ static get styles() {
         )}
         @click=${this.#handleTriggerClick}
       ></jh-input>
-      <div class="menu-container" popover="auto" @toggle=${this.#handleToggleEvent}>
+      <div class="menu-container ${this.#open ? 'show' : ''}">
       <jh-menu
         role="listbox"
         id="listbox-${this.#id}"

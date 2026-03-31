@@ -4,6 +4,7 @@
  * or: Array<{ groupLabel: string, groupValues: Array<{...}> }>
  */
 
+
 export const US_STATES_FLAT = [
   { label: "Alabama", value: "AL", disabled: false, selected: false },
   { label: "Alaska", value: "AK", disabled: false, selected: false },
@@ -142,3 +143,33 @@ export const US_STATES_GROUPED = [
     ]
   }
 ];
+
+export function getPresetData({ 
+  dataset = null,
+  initialValue = null, 
+  disabledItems = [], 
+  emptyLabel = ""
+} = {}) {
+  if (!dataset) {
+    console.warn("No preset dataset provided.");
+    return;
+  }
+  
+  let processedData = dataset.map(item => ({
+    ...item,
+    selected: item.value === initialValue,
+    disabled: disabledItems.includes(item.value)
+  }));
+
+  // If emptyLabel has any text, add the option to the top
+  if (emptyLabel) {
+    processedData.unshift({ 
+      value: '', 
+      label: emptyLabel, 
+      disabled: false,
+      selected: !initialValue // Auto-select empty if no initialValue is provided
+    });
+  }
+
+  return processedData;
+}

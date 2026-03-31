@@ -11,7 +11,7 @@ import { JhInput } from '../input/input.js';
 export class JhInputEmail extends JhInput {
   constructor() {
     super();
-    this.type = 'email';
+    this.inputmode = 'email';
   }
 }
 customElements.define('jh-input-email', JhInputEmail);

@@ -6845,7 +6845,12 @@
         },
         {
           "name": "label",
-          "description": "Provides information about the item which triggered the tooltip.",
+          "description": "Describes the item which triggered the tooltip.",
+          "type": "?string"
+        },
+        {
+          "name": "helper-text",
+          "description": "Provides additional context or guidance about the item that triggered the tooltip.",
           "type": "?string"
         },
         {
@@ -6872,7 +6877,13 @@
         {
           "name": "label",
           "attribute": "label",
-          "description": "Provides information about the item which triggered the tooltip.",
+          "description": "Describes the item which triggered the tooltip.",
+          "type": "?string"
+        },
+        {
+          "name": "helperText",
+          "attribute": "helper-text",
+          "description": "Provides additional context or guidance about the item that triggered the tooltip.",
           "type": "?string"
         },
         {
@@ -6904,6 +6915,10 @@
         {
           "name": "--jh-tooltip-color-text",
           "description": "The tooltip text color. Defaults to `--jh-color-content-on-primary-enabled`."
+        },
+        {
+          "name": "--jh-tooltip-helper-color-text",
+          "description": "The tooltip helper text color. Defaults to `--jh-color-content-on-primary-enabled`."
         }
       ]
     }

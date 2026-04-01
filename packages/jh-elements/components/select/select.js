@@ -141,7 +141,7 @@ static get styles() {
       bottom: 100%;
     }
     jh-menu {
-    max-height: 400px;  
+    max-height: var(--jh-select-menu-size-max-height, 480px);
     overflow: auto;
     overscroll-behavior: contain;
    
@@ -190,7 +190,8 @@ static get styles() {
       size: { type: String, reflect: true },
       value: { type: String },
       options: { type: Array },
-      preset: { type: String }
+      preset: { type: String },
+      flipDisabled: { type: Boolean, attribute: 'flip-disabled' },
     };
   }
 
@@ -237,7 +238,9 @@ static get styles() {
     /** @type {Array} */
     this.options = testOptions;
     /** @type {'us-states-flat'|'us-states-grouped'| null} */
-    this.preset = 'us-states-grouped';
+    this.preset = 'us-states-flat';
+    /** @type {boolean} */
+    this.flipDisabled = false;
     this.addEventListener('keydown', this.#handleKeydown);
     this.#boundDocumentClick = this.#handleDocumentClick.bind(this);
     this.#boundDocumentScroll = this.#handleDocumentScroll.bind(this);
@@ -278,6 +281,10 @@ static get styles() {
         // this.#internals.setFormValue(this.value);
       }
     }
+  }
+  //calls flipMenu whenever the menu is updated, including manually opened with 'open' property.
+  updated() {
+    if (this.#open) this.#flipMenu();
   }
 
   /**
@@ -356,9 +363,9 @@ static get styles() {
     const options = this.#flatOptions;
     if (!options.length) return;
 
-    // Wrap around
-    if (index < 0) index = options.length - 1;
-    if (index >= options.length) index = 0;
+    // Stop at bounds, don't wrap around
+    if (index < 0) index = 0;
+    if (index >= options.length) index = options.length - 1;
 
     // Skip disabled items
     const start = index;
@@ -441,10 +448,15 @@ static get styles() {
     const matchIndex = JhFilter.jumpAhead(
       this.#flatOptions,
       this.#buffer,
+      this.#activeIndex,
       'label'
     );
-    if (matchIndex !== -1) {
-      if (!this.#open) this.#handleOpenSelect();
+    console.log('matchIndex', matchIndex, 'buffer', this.#buffer);
+    if (matchIndex === -1) {
+      this.#buffer = e.key; // if nothing is found, start new search with the latest character
+    }
+    else if (matchIndex !== -1) {
+      // if (!this.#open) this.#handleOpenSelect(); Can get the type aheade even without opening.
       this.#setActiveItem(matchIndex);
       this.#handleSelection(matchIndex);
     }
@@ -482,6 +494,78 @@ static get styles() {
     this.#scrollToActiveItem();
   }
 
+  //method to flip the menu if it is not fully visible on the viewport
+  #flipMenu() {
+    //get current position from attribute on hover 
+    const currentPosition = this.getAttribute('menu-position');
+    console.log('currentPosition', currentPosition);
+    //check if current position is a valid position otherwise make it fail.
+    if (!['top', 'bottom'].includes(currentPosition)) return;
+    
+    if (this.flipDisabled === false) {
+
+      //get an array of the available positions
+      const availablePositions = this.#getValidPositions();
+      console.log('availablePositions', availablePositions);
+      //check if position selected by developer is available
+      const currentPositionAvailable = (position) =>
+        currentPosition === position;
+
+      //set the position attribute if the position selected by developer is valid but not available.
+        if (!availablePositions.some(currentPositionAvailable)) {
+          const newPosition =
+            availablePositions[0];
+          console.log('newPosition', newPosition);
+          this.setAttribute('menu-position', newPosition);
+        }
+      }
+    }
+
+  //method to check if the menu is fully visible on the screen
+  #getValidPositions() {
+    const { menuHeight } =
+      this.#getDimensions();
+
+    const { elemTop, elemBottom } = this.#getCoordinates();
+
+    //Returns false if menu with position top (start/center/end) is out of the screen on the top
+    const topOutTop = elemTop - menuHeight > 0;
+
+    //Returns false if menu with position bottom (start/center/end) is out of the screen on the bottom
+    const bottomOutBottom = elemBottom - menuHeight > 0;
+
+    //returns true if the 3 conditions are met. Means the tooltip is fully visible on the screen in that position.
+    const allPositions = {
+      'top': topOutTop,
+      'bottom': bottomOutBottom,
+    };
+
+    //add valid positions to an array and return it.
+    const validPositions = Object.entries(allPositions).reduce(
+      (positions, [key, value]) => (value ? [...positions, key] : positions),
+      []
+    );
+    return validPositions;
+  }
+
+  //get the dimensions of the tooltip and the originating element
+  #getDimensions() {
+    return {
+      menuHeight: this.shadowRoot
+        .querySelector('jh-menu')
+        .getBoundingClientRect().height,
+      elemHeight: this.shadowRoot.querySelector('jh-input').getBoundingClientRect().height,
+    };
+  }
+
+  //get the coordinates of the 4 edges of the originating element
+  #getCoordinates() {
+    return {
+      elemTop: this.shadowRoot.querySelector('jh-input').getBoundingClientRect().top,
+      elemBottom: window.innerHeight - this.shadowRoot.querySelector('jh-input').getBoundingClientRect().bottom,
+    };
+  }
+
   renderData(options) {
     let flatIndex = 0;
 
@@ -497,7 +581,8 @@ static get styles() {
             aria-selected=${this.value === groupOption.value}
             id="jh-select-option-${this.#id}-${idx}"
             class="${this.#activeIndex === idx ? 'is-active' : ''}"
-          >${groupOption.label}</jh-list-item>`;
+            primary-text=${groupOption.label}
+          ></jh-list-item>`;
         });
         return html`<jh-list-group label=${option.groupLabel}
           >${groupItems}</jh-list-group

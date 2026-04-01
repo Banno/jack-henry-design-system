@@ -28,11 +28,34 @@ filterInline(items, searchTerm, key = 'label') {
 // when it is a multi-select, return selected items as well, so users can deselect easily.
 // TODO ? Add option to press the inital letter multiple times to cycle through options that start with the same letter, e.g. m for monday, mm for march, etc.
 
-jumpAhead(items, buffer, key = 'label') {
+jumpAhead(items, buffer, activeIndex, key = 'label') {
     if (!buffer || !items || items.length === 0) {
         return -1;
     }
+
     const lowerBuffer = buffer.toLowerCase();
+    const char = lowerBuffer[0];
+    const isCycling = allCharsSame(lowerBuffer);
+
+    //if buffer length is 1 we need to find the first match
+    // if (buffer.length === 1) {
+    //      return items.findIndex(item => !item.disabled && String(item[key] || '').toLowerCase().startsWith(char));
+    // }
+    if (isCycling) {
+        // Find the next item that starts with the character after the active index
+        const nextIndex = items.findIndex((item, index) => index > activeIndex && !item.disabled && String(item[key] || '').toLowerCase().startsWith(char));
+        if (nextIndex !== -1) {
+            return nextIndex;
+        }
+        // If not found, wrap around and search from the beginning up to the active index
+        return items.findIndex((item) => !item.disabled && String(item[key] || '').toLowerCase().startsWith(char));
+    }
     return items.findIndex(item => !item.disabled && String(item[key] || '').toLowerCase().startsWith(lowerBuffer));
 }
 }
+
+// more than one character that are same.
+const allCharsSame = (str) => {
+    if (str.length <= 1) return false;
+    return str.split('').every(char => char === str[0]);
+};

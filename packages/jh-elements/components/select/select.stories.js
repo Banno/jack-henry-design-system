@@ -21,6 +21,14 @@ const storyStyles = css`
   flex-direction: column;
   gap: 16px;
 }
+.menu-flip-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  padding: 16px;
+  box-sizing: border-box;
+}
 `;
 
 const disableControls = {
@@ -37,14 +45,14 @@ export default {
     },
   },
   argTypes: {
-    position: {
+    'menu-position': {
       control: 'select',
       options: [
         'bottom',
         'top',
       ],
     },
-    attribute: {
+    'flip-disabled': {
       control: 'boolean',
     }
   },
@@ -59,11 +67,12 @@ Overview.argTypes = {
 };
 
 export const Playground = { render: (args) => html`
-  <jh-select position=${args.position}></jh-select>
+  <jh-select menu-position=${args['menu-position']} ?flip-disabled=${args['flip-disabled']}></jh-select>
 `};
 
 Playground.args = {
-  position: 'bottom',
+  'menu-position': 'bottom',
+  'flip-disabled': false,
 };
 
 Playground.parameters = {
@@ -121,6 +130,26 @@ export const PresetDatasets = { render: (args) => {
 
 PresetDatasets.argTypes = {
   ...disableControls,
+};
+
+export const MenuFlip = { render: (args) => html`
+  <div class="menu-flip-container">
+    <div>
+      <h3>Near the top — menu should open downward</h3>
+      <jh-select label="Top select" preset="us-states-flat" menu-position="top"></jh-select>
+    </div>
+    <div>
+      <h3>Near the bottom — menu should flip upward</h3>
+      <jh-select label="Bottom select" preset="us-states-flat" menu-position="bottom"></jh-select>
+    </div>
+  </div>
+`};
+
+MenuFlip.argTypes = {
+  ...disableControls,
+};
+MenuFlip.parameters = {
+  styles: storyStyles,
 };
 
 

@@ -6,6 +6,7 @@
 
 
 export const US_STATES_FLAT = [
+  { label: "Select a state...", value: "", disabled: false, selected: true },
   { label: "Alabama", value: "AL", disabled: false, selected: false },
   { label: "Alaska", value: "AK", disabled: false, selected: false },
   { label: "Arizona", value: "AZ", disabled: false, selected: false },

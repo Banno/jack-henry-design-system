@@ -5,6 +5,7 @@
 */
 
 import { html, css } from 'lit';
+import { action } from '@storybook/addon-actions';
 import './select.js';
 import { US_STATES_FLAT, US_STATES_GROUPED, getPresetData } from './data-presets.js';
 
@@ -149,6 +150,47 @@ MenuFlip.argTypes = {
   ...disableControls,
 };
 MenuFlip.parameters = {
+  styles: storyStyles,
+};
+
+export const FormAssociated = {
+  render: (args) => {
+    const onClick = (event) => event.target.reset();
+    return html`
+      <form @submit=${submitAction()}>
+        <jh-select
+          name=${args.name}
+          label=${args.label}
+          ?required=${args.required}
+          preset="us-states-flat"
+        ></jh-select>
+        <jh-button label="Submit" submit @click=${onClick}></jh-button>
+      </form>
+    `;
+  },
+};
+
+function submitAction() {
+  const onSubmit = action('onSubmit');
+  const onFormdata = action('onFormdata');
+  return (event) => {
+    event.preventDefault();
+    onFormdata([...new FormData(event.target)]);
+    onSubmit(event);
+  };
+}
+
+FormAssociated.args = {
+  name: 'state',
+  label: 'Select a state',
+  required: false,
+};
+
+FormAssociated.argTypes = {
+  ...disableControls,
+};
+
+FormAssociated.parameters = {
   styles: storyStyles,
 };
 

@@ -74,6 +74,8 @@ export class JhSelect extends LitElement {
   #id;
   /** @type {?string} */
   #displayValue = null;
+  /** @type {?string} */
+  #value = null;
   /** @type {string} */
   #buffer = '';
   /** @type {?number} */
@@ -252,6 +254,25 @@ static get styles() {
     document.removeEventListener('scroll', this.#boundDocumentScroll, true);
   }
 
+    /** @ignore */
+  get form() {
+    return this.#internals.form;
+  }
+
+  get value() {
+    return this.#value;
+  }
+
+  // this may need to be updated to handle multiple selection in phase 4.
+  set value(newValue) {
+    const oldValue = this.#value;
+    if (newValue !== oldValue) {
+      this.#value = newValue;
+      this.#internals.setFormValue(this.#value);
+    }
+    this.requestUpdate('value', oldValue);
+  }
+
   willUpdate(changedProperties) {
     if (changedProperties.has('preset')) {
       if (this.preset === 'us-states-grouped') {
@@ -287,12 +308,6 @@ static get styles() {
     if (this.#open) this.#flipMenu();
   }
 
-  /**
-   * Extracts the flat index from a list-item's id.
-   * id format: "jh-select-option-{componentId}-{flatIndex}"
-   * @param {string|undefined} elementId
-   * @returns {number|null}
-   */
   #getIndexFromId(elementId) {
     const parts = elementId?.split('-');
     const index = Number(parts?.[parts.length - 1]);
@@ -602,6 +617,7 @@ static get styles() {
   }
 
   render() {
+    //do not pass this.name to the jh-input so it does not submit the form. The submission is handled by the component iself.
     return html`
       <jh-input
         role="combobox"
@@ -621,8 +637,10 @@ static get styles() {
           this.autocomplete === '' ? null : this.autocomplete
         )}
         ?disabled=${this.disabled}
-        name=${ifDefined(this.name === '' ? null : this.name)}
         ?required=${this.required}
+        ?invalid=${this.invalid}
+        label=${ifDefined(this.label === '' ? null : this.label)}
+        helper-text=${ifDefined(this.helperText === '' ? null : this.helperText)}
         .value=${ifDefined(
           this.#displayValue ? this.#displayValue : this.value
         )}

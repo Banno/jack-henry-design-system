@@ -4,6 +4,7 @@
 
 import { LitElement, css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { validationMixin } from '../../../jh-validate/validate.js';
 
 let id = 0;
 /**
@@ -23,9 +24,12 @@ let id = 0;
  *
  * @customElement jh-checkbox-group
  */
-export class JhCheckboxGroup extends LitElement {
+export class JhCheckboxGroup extends validationMixin(LitElement) {
   /** @type {?Number} */
   #id;
+
+  // added for validation library compatibility
+  static groupControl = true;
 
   static get styles() {
     return css`
@@ -175,6 +179,9 @@ export class JhCheckboxGroup extends LitElement {
         reflect: true,
         attribute: 'show-indicator',
       },
+      // added for validation library compatibility
+      minRequired: { type: Number, attribute: 'min-required' },
+      maxRequired: { type: Number, attribute: 'max-required' },
     };
   }
   constructor() {
@@ -197,6 +204,9 @@ export class JhCheckboxGroup extends LitElement {
     this.orientation = 'vertical';
     /** @type {?boolean} */
     this.showIndicator = false;
+    // added for validation library compatibility
+    this.minRequired = null;
+    this.maxRequired = null;
   }
 
   connectedCallback() {

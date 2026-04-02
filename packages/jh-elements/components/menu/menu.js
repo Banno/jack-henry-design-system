@@ -47,13 +47,11 @@ export class JhMenu extends LitElement {
         position: relative;
         overflow: hidden;
         height: 100%;
-        
       }
       .menu-content {
-      flex: 1;
-      overflow-y: auto;
-      width: 100%;
-      
+        flex: 1;
+        overflow-y: auto;
+        width: 100%;
       }
     `;
   }

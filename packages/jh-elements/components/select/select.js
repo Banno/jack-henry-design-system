@@ -15,25 +15,6 @@ import { US_STATES_FLAT, US_STATES_GROUPED, getPresetData } from './data-presets
 
 let id = 0;
 
-const testOptions = [
-  { groupLabel: "Account types", groupValues: [
-    { label: "Basic Checking", value: "checking-01" },
-    { label: "High-Yield Savings", value: "savings-01", disabled: true },
-    { label: "Money Market", value: "money-market-01", selected: true },
-  ]},
-  { groupLabel: "Credit Cards", groupValues: [
-    { label: "Cash Back Rewards with a much longer label for testing", value: "cc-cash-back" },
-    { label: "Travel Rewards", value: "cc-travel" },
-    { label: "Low Interest", value: "cc-low-interest" },
-  ]},
-  { label: "Personal Loan", value: "loan-personal" },
-  { label: "Mortgage Refinance", value: "mortgage-refi" },
-  { label: "Certificate of Deposit", value: "cd-12-month" },
-  { label: "IRA Investment", value: "ira-traditional" },
-  { label: "Health Savings Account", value: "hsa-01" },
-  { label: "Brokerage Account", value: "brokerage-standard" }
-];
-
 /**
  * Select
  * @customElement jh-select
@@ -48,6 +29,7 @@ const testOptions = [
  * @cssprop --jh-select-menu-space-padding - The menu container padding. Defaults to `--jh-dimension-200 0`.
  * @cssprop --jh-select-menu-size-max-width - The menu maximum width. Defaults to `none`.
  * @cssprop --jh-select-menu-size-min-width - The menu minimum width. Defaults to `none`.
+ * @cssprop --jh-select-menu-size-max-height - The menu maximum height. Defaults to `480px`.
  * @cssprop --jh-select-input-field-color-border-error - The input field border-color when invalid. Defaults to `--jh-border-error-color`.
  * @cssprop --jh-select-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-select-helper-color-text - The helper-text text color. Defaults to `jh-color-content-secondary-enabled`.
@@ -237,10 +219,10 @@ static get styles() {
     this.size = 'medium';
     /** @type {?string} */
     this.value = null;
-    /** @type {Array} */
-    this.options = testOptions;
+    /** @type {?Array} */
+    this.options = null;
     /** @type {'us-states-flat'|'us-states-grouped'| null} */
-    this.preset = 'us-states-flat';
+    this.preset = null;
     /** @type {boolean} */
     this.flipDisabled = false;
     this.addEventListener('keydown', this.#handleKeydown);

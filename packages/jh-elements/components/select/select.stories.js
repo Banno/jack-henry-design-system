@@ -9,6 +9,25 @@ import { action } from '@storybook/addon-actions';
 import './select.js';
 import { US_STATES_FLAT, US_STATES_GROUPED, getPresetData } from './data-presets.js';
 
+const testOptions = [
+  { groupLabel: "Account types", groupValues: [
+    { label: "Basic Checking", value: "checking-01" },
+    { label: "High-Yield Savings", value: "savings-01", disabled: true },
+    { label: "Money Market", value: "money-market-01", selected: true },
+  ]},
+  { groupLabel: "Credit Cards", groupValues: [
+    { label: "Cash Back Rewards with a much longer label for testing", value: "cc-cash-back" },
+    { label: "Travel Rewards", value: "cc-travel" },
+    { label: "Low Interest", value: "cc-low-interest" },
+  ]},
+  { label: "Personal Loan", value: "loan-personal" },
+  { label: "Mortgage Refinance", value: "mortgage-refi" },
+  { label: "Certificate of Deposit", value: "cd-12-month" },
+  { label: "IRA Investment", value: "ira-traditional" },
+  { label: "Health Savings Account", value: "hsa-01" },
+  { label: "Brokerage Account", value: "brokerage-standard" }
+];
+
 const storyStyles = css`
 .scrollable-container {
   height: 200px;
@@ -60,16 +79,20 @@ export default {
 };
 
 export const Overview = { render: (args) => html`
-  <jh-select></jh-select>
+  <jh-select preset="us-states-flat"></jh-select>
 `};
 
 Overview.argTypes = {
   ...disableControls,
 };
 
-export const Playground = { render: (args) => html`
-  <jh-select menu-position=${args['menu-position']} ?flip-disabled=${args['flip-disabled']}></jh-select>
-`};
+export const Playground = { render: (args) => {
+  const el = document.createElement('jh-select');
+  el.options = testOptions;
+  el.setAttribute('menu-position', args['menu-position']);
+  if (args['flip-disabled']) el.setAttribute('flip-disabled', '');
+  return el;
+}};
 
 Playground.args = {
   'menu-position': 'bottom',

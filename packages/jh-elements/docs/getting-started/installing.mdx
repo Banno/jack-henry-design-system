@@ -10,6 +10,8 @@ import { Meta } from '@storybook/blocks';
 
 # Installing
 
+## Installing our packages
+
 The design system is comprised of three NPM packages. Our main package `@jack-henry/jh-elements`includes the jh-icons and jh-tokens packages as dependencies. Installing 
 jh-elements will install the entire design system which includes:
 
@@ -35,3 +37,33 @@ With yarn:
 ```bash
 yarn add @jack-henry/jh-elements
 ```
+
+## Setting up your Dev environment
+
+Most IDEs do not provide support for Lit Elements out of the box. To ensure a smooth development experience with Lit components, we recommend configuring your IDE for syntax highlighting and type checking as follows:
+
+### IDE support
+
+The following tools provide syntax highlighting, IntelliSense, and type checking inside template literals, like the `html` tagged templates in your `render()` functions:
+
+**VS Code:** The [lit-plugin](https://marketplace.visualstudio.com/items?itemName=runem.lit-plugin) extension is needed to avail of Lit-specific editor support.
+
+**WebStorm:** No additional plugin is required. WebStorm automatically detects the `web-types.json` file we provide in our package.
+
+### TypeScript
+
+We provide declaration files for all our components. They provide type safety in the TypeScript part of your code.   
+
+**VS Code:** No additional configuration needed if you have the `lit-html` plugin installed.
+
+**Alternative IDE Support:** If you are **not** using VS Code, install the [ts-lit-plugin](https://www.npmjs.com/package/ts-lit-plugin) (a TypeScript compiler plugin) and add it to your `tsconfig.json` to get editor feedback:
+    ```json
+    {
+      "compilerOptions": {
+        "plugins": [{ "name": "ts-lit-plugin" }]
+      }
+    }
+    ```
+### CLI tool
+
+[Lit-analyzer](https://www.npmjs.com/package/lit-analyzer) is a CLI tool that can be used to surface issues within template literals as part of a pre-commit hook or GitHub Action.

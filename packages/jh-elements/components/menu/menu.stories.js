@@ -17,9 +17,13 @@ const storyStyles = css`
     align-items: flex-start;
   }
   jh-menu {
-    width: 200px;
+    /* width: 200px; */
     margin-right: 16px;
+    /* height: 200px; */
   }
+  .Menu-Wrapper {
+    height: 200px;
+    width: 200px;
 `;
 
 export default {
@@ -29,6 +33,7 @@ export default {
 
 export const Overview = {
   render: (args) => html`
+  <div class="Menu-Wrapper">
     <jh-menu>
       <jh-list-item
         show-divider
@@ -48,14 +53,15 @@ export const Overview = {
         >Item 4</jh-list-item
       >
     </jh-menu>
+</div>
     <jh-menu>
       <jh-list-group label="Actions">
         <jh-list-item primary-text="Edit" role="menuitem" tabindex="0">
-          <jh-icon-pencil slot="jh-list-item-left"></jh-icon-pencil>
+          <jh-icon-pencil slot="jh-list-item-right"></jh-icon-pencil>
         </jh-list-item>
         <jh-list-item primary-text="Download" role="menuitem" tabindex="0">
           <jh-icon-arrow-down-to-bracket
-            slot="jh-list-item-left"
+            slot="jh-list-item-right"
           ></jh-icon-arrow-down-to-bracket>
         </jh-list-item>
         <jh-list-item
@@ -64,7 +70,7 @@ export const Overview = {
           tabindex="0"
           disabled
         >
-          <jh-icon-printer slot="jh-list-item-left"></jh-icon-printer>
+          <jh-icon-printer slot="jh-list-item-right"></jh-icon-printer>
         </jh-list-item>
       </jh-list-group>
     </jh-menu>

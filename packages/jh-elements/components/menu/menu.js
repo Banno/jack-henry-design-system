@@ -45,6 +45,15 @@ export class JhMenu extends LitElement {
         display: flex;
         flex-direction: column;
         position: relative;
+        overflow: hidden;
+        height: 100%;
+        
+      }
+      .menu-content {
+      flex: 1;
+      overflow-y: auto;
+      width: 100%;
+      
       }
     `;
   }
@@ -54,7 +63,11 @@ export class JhMenu extends LitElement {
     this.#internals.role = 'menu';
   }
   render() {
-    return html`<slot></slot>`;
+    return html`
+      <div class="menu-content">
+        <slot></slot>
+      </div>
+    `;
   }
 }
 customElements.define('jh-menu', JhMenu);

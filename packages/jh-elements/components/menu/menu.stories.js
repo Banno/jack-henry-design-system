@@ -17,13 +17,12 @@ const storyStyles = css`
     align-items: flex-start;
   }
   jh-menu {
-    /* width: 200px; */
     margin-right: 16px;
-    /* height: 200px; */
   }
   .Menu-Wrapper {
     height: 200px;
     width: 200px;
+  }
 `;
 
 export default {

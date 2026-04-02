@@ -84,6 +84,7 @@ Overview.parameters = {
 
 export const Playground = {
   render: (args) => html`
+  <div class="menu-wrapper">
     <jh-menu>
       <jh-list-item tabindex="0" selected role="menuitem"
         >Item number 1</jh-list-item
@@ -94,6 +95,7 @@ export const Playground = {
         >Item number 4</jh-list-item
       >
     </jh-menu>
+  </div>
   `,
 };
 

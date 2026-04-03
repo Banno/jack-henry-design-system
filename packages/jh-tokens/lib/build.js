@@ -3,7 +3,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import StyleDictionary from 'style-dictionary';
-import formatJs from './formats/format.js';
+import formatJs from './formats/esm-format.js';
+import formatCss from './formats/css-format.js';
 import formatDocs from './formats/json-flat.js';
 
 function getStyleDictionary(theme, platform) {
@@ -30,6 +31,7 @@ function getStyleDictionary(theme, platform) {
       },
       formats: {
         'custom/format/esm': formatJs,
+        'custom/format/css': formatCss,
         'custom/format/json': formatDocs,
       },
     },
@@ -46,7 +48,7 @@ function getStyleDictionary(theme, platform) {
         files: [
           {
             destination: `css/jh-theme-${theme}.css`,
-            format: 'css/variables',
+            format: 'custom/format/css',
             options: {
               // if file should keep output references: ie --color-danger: var(--color-red); vs --color-danger: #ff0000;
               outputReferences: true,
@@ -62,6 +64,7 @@ function getStyleDictionary(theme, platform) {
               usesDtcg: true,
               fileHeader: 'licensedFileHeader',
               selector: `${theme === 'light' ? ':root' : `.jh-theme-${theme}`}`,
+              showColorScheme: true
             },
           },
         ],

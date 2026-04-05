@@ -4,7 +4,7 @@
 
 import { addons } from 'storybook/manager-api';
 import { lightTheme } from './sb-themes';
-import { defaultConfig } from 'storybook-addon-tag-badges/manager-helpers';
+// import { defaultConfig } from 'storybook-addon-tag-badges/manager-helpers';
 
 addons.setConfig({
   //sets the default theme to be used by the browser.
@@ -34,6 +34,6 @@ addons.setConfig({
         },
       },
     },
-    ...defaultConfig,
+    // ...defaultConfig,
   ],
 });

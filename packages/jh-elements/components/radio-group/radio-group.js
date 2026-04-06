@@ -85,6 +85,10 @@ export class JhRadioGroup extends LitElement {
           --jh-radio-group-label-color-text,
           var(--jh-color-content-primary-enabled)
         );
+        font-family: var(--jh-font-helper-medium-font-family);
+        font-weight: var(--jh-font-helper-medium-font-weight);
+        font-size: var(--jh-font-helper-medium-font-size);
+        line-height: var(--jh-font-helper-medium-line-height);
       }
       .helper-text {
         color: var(

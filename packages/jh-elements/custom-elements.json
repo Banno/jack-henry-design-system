@@ -1380,7 +1380,7 @@
         },
         {
           "name": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -1517,7 +1517,7 @@
         {
           "name": "inputMask",
           "attribute": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -1839,7 +1839,7 @@
         },
         {
           "name": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -1995,7 +1995,7 @@
         {
           "name": "inputMask",
           "attribute": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -2310,7 +2310,7 @@
         },
         {
           "name": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -2447,7 +2447,7 @@
         {
           "name": "inputMask",
           "attribute": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -2754,7 +2754,7 @@
         },
         {
           "name": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -2891,7 +2891,7 @@
         {
           "name": "inputMask",
           "attribute": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -3223,7 +3223,7 @@
         },
         {
           "name": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -3391,7 +3391,7 @@
         {
           "name": "inputMask",
           "attribute": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -3702,7 +3702,7 @@
         },
         {
           "name": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -3839,7 +3839,7 @@
         {
           "name": "inputMask",
           "attribute": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -4145,7 +4145,7 @@
         },
         {
           "name": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -4282,7 +4282,7 @@
         {
           "name": "inputMask",
           "attribute": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {

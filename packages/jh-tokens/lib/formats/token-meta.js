@@ -17,6 +17,15 @@ const formatTokenName = function (tokenName) {
   return formattedWords.join(' ');
 };
 
+const getNamespace = function (tokenName) {
+  let parts = tokenName.split('-');
+  if (parts.length > 0) {
+    return parts[0];
+  } else {
+    return '';
+  }
+};
+
 function formatDocs({ dictionary, options }) {
   let newMap = dictionary.allTokens.map((token) => {
     let value = token.$value;
@@ -39,17 +48,27 @@ function formatDocs({ dictionary, options }) {
   }
     return {
       name: formatTokenName(token.name),
-      token: token.name,
+      tokenid: token.name,
       alias: token.$extensions.alias,
       description: token.$description,
+      values: {
+        value: value, // returns reference to other token if alias, otherwise computed value
+        computedValue: token.$value, // returns the computed value (ie #ffffffff)
+        CSS: `--${token.name}`, // returns the CSS variable name
+
+      },
+      status: {
+        message: token.$extensions.message,
+        addedIn: token.$extensions.addedIn,
+        deprecatedIn: token.$extensions.deprecatedIn,
+      },
+      $type: token.$type,
+      namespace: getNamespace(token.name),
       category: token.attributes.category,
-      type: token.attributes.type,
-      item: token.attributes.item,
-      subItem: token.attributes.subitem,
-      value: value,
-      computedValue: token.$value,
-      deprecated: token.$extensions.deprecated,
-      deprecatedMessage: token.$extensions.deprecatedMessage,
+      subCategory: token.attributes.type,
+      variant: token.attributes.item,
+      state: token.attributes.subitem,
+      property: token.attributes.state,
     };
   });
   return JSON.stringify(newMap, null, 2);

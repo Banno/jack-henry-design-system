@@ -7,8 +7,9 @@
         "$description": "Used on page-level containers that make up large portions of the overall background",
         "$extensions": {
           "alias": true,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "primary": {
@@ -17,8 +18,9 @@
           "$description": "Used on the major containers throughout the user interface such as cards and dialogs",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "hover": {
@@ -26,8 +28,9 @@
           "$description": "Hover color for primary container",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "active": {
@@ -35,8 +38,9 @@
           "$description": "Active color for primary container",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "selected": {
@@ -44,8 +48,9 @@
           "$description": "Selected color for primary container",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         }
       },
@@ -55,8 +60,9 @@
           "$description": "Used on containers and sections that will sit on top of or within a primary container",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "hover": {
@@ -64,8 +70,9 @@
           "$description": "Hover color for secondary container",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "active": {
@@ -73,8 +80,9 @@
           "$description": "Active color for secondary container",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "selected": {
@@ -82,8 +90,9 @@
           "$description": "Selected color for secondary container",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         }
       },
@@ -93,8 +102,9 @@
           "$description": "Used on containers that have a neutral context",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "hover": {
@@ -102,8 +112,9 @@
           "$description": "Hover color for neutral container",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "active": {
@@ -111,8 +122,9 @@
           "$description": "Active color for neutral container",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         }
       },
@@ -122,8 +134,9 @@
           "$description": "Used on containers that have a branded context",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "hover": {
@@ -131,8 +144,9 @@
           "$description": "Hover color for branded container",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "active": {
@@ -140,8 +154,9 @@
           "$description": "Active color for branded container",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         }
       },
@@ -151,8 +166,9 @@
           "$description": "Used on containers that have a positive context",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "hover": {
@@ -160,8 +176,9 @@
           "$description": "Hover color for positive container",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "active": {
@@ -169,8 +186,9 @@
           "$description": "Active color for positive container",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         }
       },
@@ -180,8 +198,9 @@
           "$description": "Used on containers that have a negative context",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "hover": {
@@ -189,8 +208,9 @@
           "$description": "Hover color for negative container",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "active": {
@@ -198,8 +218,9 @@
           "$description": "Active color for negative container",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         }
       }
@@ -209,8 +230,9 @@
       "$description": "Used to distinguish the modal layer from the layer underneath",
       "$extensions": {
         "alias": true,
-        "deprecated": false,
-        "deprecatedMessage": ""
+        "deprecatedIn": "",
+        "addedIn": "1.0.0",
+        "message": ""
       }
     },
     "control": {
@@ -219,8 +241,9 @@
         "$description": "Used on the containers of interactive elements such as slider and switch tracks",
         "$extensions": {
           "alias": true,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "hover": {
@@ -228,8 +251,9 @@
         "$description": "Hover color for control",
         "$extensions": {
           "alias": true,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "active": {
@@ -237,8 +261,9 @@
         "$description": "Active color for control",
         "$extensions": {
           "alias": true,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       }
     },
@@ -248,8 +273,9 @@
         "$description": "Used on border elements that require more visual emphasis such as input fields",
         "$extensions": {
           "alias": true,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "secondary": {
@@ -257,8 +283,9 @@
         "$description": "Used on subtle border elements such as dividers and table borders",
         "$extensions": {
           "alias": true,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "inverse": {
@@ -266,8 +293,9 @@
         "$description": "Used on backgrounds that don't provide sufficient contrast with primary or secondary dividers",
         "$extensions": {
           "alias": true,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       }
     },
@@ -277,8 +305,9 @@
         "$description": "Used to emphasize areas of importance such as feature areas or primary calls-to-action",
         "$extensions": {
           "alias": true,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "secondary": {
@@ -286,8 +315,9 @@
         "$description": "Used when another layer of visual hierarchy is needed within feature areas or on secondary calls-to-action",
         "$extensions": {
           "alias": true,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "tertiary": {
@@ -295,18 +325,21 @@
         "$description": "Used to add thoughtful branded touches to components such as accent bars",
         "$extensions": {
           "alias": true,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "gradient": {
+        "$type": "gradient",
         "light": {
           "$value": "linear-gradient(135deg, {color.cyan.50} 0%, {color.cyan.200} 100%)",
           "$description": "Used to accent branded elements with content such as ads or other calls-to-action",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "medium": {
@@ -314,8 +347,9 @@
           "$description": "Used to accents branded elements without content",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "dark": {
@@ -323,8 +357,9 @@
           "$description": "Used to accent branded elements with content such as ads or other calls-to-action",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         }
       },
@@ -334,8 +369,9 @@
           "$description": "Used for content that sits on the primary brand color",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "secondary": {
@@ -343,8 +379,9 @@
           "$description": "Used for content that sits on the secondary brand color",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "tertiary": {
@@ -352,8 +389,9 @@
           "$description": "Used for content that sits on the tertiary brand color",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "gradient": {
@@ -362,8 +400,9 @@
             "$description": "Used for content that sits on the light brand gradient",
             "$extensions": {
               "alias": true,
-              "deprecated": false,
-              "deprecatedMessage": ""
+              "deprecatedIn": "",
+              "addedIn": "1.0.0",
+              "message": ""
             }
           },
           "dark": {
@@ -371,8 +410,9 @@
             "$description": "Used for content that sits on the dark brand gradient",
             "$extensions": {
               "alias": true,
-              "deprecated": false,
-              "deprecatedMessage": ""
+              "deprecatedIn": "",
+              "addedIn": "1.0.0",
+              "message": ""
             }
           }
         }
@@ -385,8 +425,9 @@
           "$description": "Used for content that needs to have a strong branded presence",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "hover": {
@@ -394,8 +435,9 @@
           "$description": "Hover color for branded content",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "active": {
@@ -403,8 +445,9 @@
           "$description": "Active color for branded content",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         }
       },
@@ -414,8 +457,9 @@
           "$description": "Used for the majority of fundamental content within a layout such as body copy and headers as well as neutral messages",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "hover": {
@@ -423,8 +467,9 @@
           "$description": "Hover color for primary content",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "active": {
@@ -432,8 +477,9 @@
           "$description": "Active color for primary content",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         }
       },
@@ -443,8 +489,9 @@
           "$description": "Used for supportive content such as labels, subtitles, and placeholder text",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "hover": {
@@ -452,8 +499,9 @@
           "$description": "Hover color for secondary content",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "active": {
@@ -461,8 +509,9 @@
           "$description": "Active color for secondary content",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         }
       },
@@ -472,8 +521,9 @@
           "$description": "Used for content that conveys a positive response such as a deposit",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "hover": {
@@ -481,8 +531,9 @@
           "$description": "Hover color for positive content",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "active": {
@@ -490,8 +541,9 @@
           "$description": "Active color for positive content",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         }
       },
@@ -501,8 +553,9 @@
           "$description": "Used for content that conveys a negative response such as an error message",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "hover": {
@@ -510,8 +563,9 @@
           "$description": "Hover color for negative content",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "active": {
@@ -519,8 +573,9 @@
           "$description": "Active color for negative content",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         }
       },
@@ -530,8 +585,9 @@
           "$description": "Used on backgrounds that don't provide sufficient contrast with other content colors",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "hover": {
@@ -539,8 +595,9 @@
           "$description": "Hover color for inverse content",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         },
         "active": {
@@ -548,8 +605,9 @@
           "$description": "Active color for inverse content",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+            "deprecatedIn": "",
+            "addedIn": "1.0.0",
+            "message": ""
           }
         }
       },
@@ -560,8 +618,9 @@
             "$description": "Used for content that sits on the content brand color",
             "$extensions": {
               "alias": true,
-              "deprecated": false,
-              "deprecatedMessage": ""
+              "deprecatedIn": "",
+              "addedIn": "1.0.0",
+              "message": ""
             }
           },
           "hover": {
@@ -569,8 +628,9 @@
             "$description": "Used for content that sits on the content brand hover color",
             "$extensions": {
               "alias": true,
-              "deprecated": false,
-              "deprecatedMessage": ""
+              "deprecatedIn": "",
+              "addedIn": "1.0.0",
+              "message": ""
             }
           },
           "active": {
@@ -578,8 +638,9 @@
             "$description": "Used for content that sits on the content brand active color",
             "$extensions": {
               "alias": true,
-              "deprecated": false,
-              "deprecatedMessage": ""
+              "deprecatedIn": "",
+              "addedIn": "1.0.0",
+              "message": ""
             }
           }
         },
@@ -589,8 +650,9 @@
             "$description": "Used for content that sits on the content primary color",
             "$extensions": {
               "alias": true,
-              "deprecated": false,
-              "deprecatedMessage": ""
+              "deprecatedIn": "",
+              "addedIn": "1.0.0",
+              "message": ""
             }
           },
           "hover": {
@@ -598,8 +660,9 @@
             "$description": "Used for content that sits on the content primary hover color",
             "$extensions": {
               "alias": true,
-              "deprecated": false,
-              "deprecatedMessage": ""
+              "deprecatedIn": "",
+              "addedIn": "1.0.0",
+              "message": ""
             }
           },
           "active": {
@@ -607,8 +670,9 @@
             "$description": "Used for content that sits on the content primary active color",
             "$extensions": {
               "alias": true,
-              "deprecated": false,
-              "deprecatedMessage": ""
+              "deprecatedIn": "",
+              "addedIn": "1.0.0",
+              "message": ""
             }
           }
         },
@@ -618,8 +682,9 @@
             "$description": "Used for content that sits on the content secondary color",
             "$extensions": {
               "alias": true,
-              "deprecated": false,
-              "deprecatedMessage": ""
+              "deprecatedIn": "",
+              "addedIn": "1.0.0",
+              "message": ""
             }
           },
           "hover": {
@@ -627,8 +692,9 @@
             "$description": "Used for content that sits on the content secondary hover color",
             "$extensions": {
               "alias": true,
-              "deprecated": false,
-              "deprecatedMessage": ""
+              "deprecatedIn": "",
+              "addedIn": "1.0.0",
+              "message": ""
             }
           },
           "active": {
@@ -636,8 +702,9 @@
             "$description": "Used for content that sits on the content secondary active color",
             "$extensions": {
               "alias": true,
-              "deprecated": false,
-              "deprecatedMessage": ""
+              "deprecatedIn": "",
+              "addedIn": "1.0.0",
+              "message": ""
             }
           }
         },
@@ -647,8 +714,9 @@
             "$description": "Used for content that sits on the content positive color",
             "$extensions": {
               "alias": true,
-              "deprecated": false,
-              "deprecatedMessage": ""
+              "deprecatedIn": "",
+              "addedIn": "1.0.0",
+              "message": ""
             }
           },
           "hover": {
@@ -656,8 +724,9 @@
             "$description": "Used for content that sits on the content positive hover color",
             "$extensions": {
               "alias": true,
-              "deprecated": false,
-              "deprecatedMessage": ""
+              "deprecatedIn": "",
+              "addedIn": "1.0.0",
+              "message": ""
             }
           },
           "active": {
@@ -665,8 +734,9 @@
             "$description": "Used for content that sits on the content positive active color",
             "$extensions": {
               "alias": true,
-              "deprecated": false,
-              "deprecatedMessage": ""
+              "deprecatedIn": "",
+              "addedIn": "1.0.0",
+              "message": ""
             }
           }
         },
@@ -676,8 +746,9 @@
             "$description": "Used for content that sits on the content negative color",
             "$extensions": {
               "alias": true,
-              "deprecated": false,
-              "deprecatedMessage": ""
+              "deprecatedIn": "",
+              "addedIn": "1.0.0",
+              "message": ""
             }
           },
           "hover": {
@@ -685,8 +756,9 @@
             "$description": "Used for content that sits on the content negative hover color",
             "$extensions": {
               "alias": true,
-              "deprecated": false,
-              "deprecatedMessage": ""
+              "deprecatedIn": "",
+              "addedIn": "1.0.0",
+              "message": ""
             }
           },
           "active": {
@@ -694,8 +766,9 @@
             "$description": "Used for content that sits on the content negative active color",
             "$extensions": {
               "alias": true,
-              "deprecated": false,
-              "deprecatedMessage": ""
+              "deprecatedIn": "",
+              "addedIn": "1.0.0",
+              "message": ""
             }
           }
         },
@@ -705,8 +778,9 @@
             "$description": "Used for content that sits on the content inverse color",
             "$extensions": {
               "alias": true,
-              "deprecated": false,
-              "deprecatedMessage": ""
+              "deprecatedIn": "",
+              "addedIn": "1.0.0",
+              "message": ""
             }
           },
           "hover": {
@@ -714,8 +788,9 @@
             "$description": "Used for content that sits on the content inverse hover color",
             "$extensions": {
               "alias": true,
-              "deprecated": false,
-              "deprecatedMessage": ""
+              "deprecatedIn": "",
+              "addedIn": "1.0.0",
+              "message": ""
             }
           },
           "active": {
@@ -723,8 +798,9 @@
             "$description": "Used for content that sits on the content inverse active color",
             "$extensions": {
               "alias": true,
-              "deprecated": false,
-              "deprecatedMessage": ""
+              "deprecatedIn": "",
+              "addedIn": "1.0.0",
+              "message": ""
             }
           }
         }
@@ -736,8 +812,9 @@
           "$description": "Used for the outermost part of the focus ring",
           "$extensions": {
             "alias": true,
-            "deprecated": false,
-            "deprecatedMessage": ""
+                        "deprecatedIn": "",
+            "addedIn": "2.0.0",
+            "message": ""
           }
         },
       "highlight": {
@@ -745,8 +822,9 @@
         "$description": "Used for highlighting content on the page",
         "$extensions": {
           "alias": true,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "visited": {
@@ -754,8 +832,9 @@
         "$description": "Used for visited links",
         "$extensions": {
           "alias": true,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       }
     },
@@ -765,8 +844,9 @@
         "$description": "Used for the innermost part of the shadow",
         "$extensions": {
           "alias": true,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       },
       "secondary": {
@@ -774,8 +854,9 @@
         "$description": "Used for the outer part of the shadow",
         "$extensions": {
           "alias": true,
-          "deprecated": false,
-          "deprecatedMessage": ""
+          "deprecatedIn": "",
+          "addedIn": "1.0.0",
+          "message": ""
         }
       }
     }

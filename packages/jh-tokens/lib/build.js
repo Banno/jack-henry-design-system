@@ -4,9 +4,9 @@
 
 import StyleDictionary from 'style-dictionary';
 import formatJs from './formats/format.js';
-import formatDocs from './formats/json-flat.js';
+import formatDocs from './formats/token-meta.js';
 
-function getStyleDictionary(theme, platform) {
+function getStyleDictionary(theme) {
   return new StyleDictionary({
     source: [
       `tokens/global/**/*.json`
@@ -39,7 +39,11 @@ function getStyleDictionary(theme, platform) {
         transforms: ['shadow/css/shorthand', 'color/hex8', 'fontFamily/css'],
         expand: {
           exclude: ['shadow'],
-        },
+          typesMap: {
+            style: 'strokeStyle',
+            width: 'dimension',
+          },
+         },
         preprocessors: ['strip-descriptions'],
         prefix: 'jh',
         buildPath: `platforms/web/`,
@@ -71,6 +75,10 @@ function getStyleDictionary(theme, platform) {
         transforms: ['shadow/css/shorthand', 'color/hex8', 'fontFamily/css', 'typography/css/shorthand'],
         expand: {
           exclude: ['typography'],
+          typesMap: {
+            style: 'strokeStyle',
+            width: 'dimension',
+          },
         },
         preprocessors: ['strip-descriptions'],
         prefix: 'jh',
@@ -103,9 +111,13 @@ function getStyleDictionary(theme, platform) {
         transforms: ['shadow/css/shorthand', 'fontFamily/css', 'color/hex8'],
         expand: {
           exclude: ['shadow'],
+          typesMap: {
+            style: 'strokeStyle',
+            width: 'dimension',
+          },
         },
         prefix: 'jh',
-        buildPath: `platforms/json/json-flat/`,
+        buildPath: `platforms/json/token-meta/`,
         files: [
           {
             destination: `jh-theme-${theme}.json`,
@@ -121,9 +133,13 @@ function getStyleDictionary(theme, platform) {
         transforms: ['shadow/css/shorthand', 'fontFamily/css', 'color/hex8', 'typography/css/shorthand'],
         expand: {
           exclude: ['typography'],
+          typesMap: {
+            style: 'strokeStyle',
+            width: 'dimension',
+          },
         },
         prefix: 'jh',
-        buildPath: `platforms/json/json-flat/`,
+        buildPath: `platforms/json/token-meta/`,
         files: [
           {
             destination: `typography.json`,
@@ -141,7 +157,7 @@ function getStyleDictionary(theme, platform) {
 
 StyleDictionary.registerPreprocessor({
   name: 'strip-descriptions',
-  preprocessor: (dict, options) => {
+  preprocessor: (dict) => {
     // recursively traverse token objects and delete description props
     function removeDescription(slice) {
       delete slice.$description;

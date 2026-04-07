@@ -616,7 +616,7 @@ export class JhInput extends LitElement {
     );
   }
 
-  #handleInput(e) {
+  _handleInput(e) {
     this.value = e.target.value;
     let inputType = e.inputType;
     this.#deletedChar = inputType === 'deleteContentBackward' || inputType === 'deleteByCut' || inputType === 'deleteContentForward';
@@ -631,7 +631,7 @@ export class JhInput extends LitElement {
     }
   }
 
-  #handleKeydown(e) {
+  _handleKeydown(e) {
     const value = e.target.value;
     let selectionStart = e.target.selectionStart;
     let selectionEnd = e.target.selectionEnd;
@@ -1035,7 +1035,7 @@ export class JhInput extends LitElement {
     }
   }
 
-  #handleChange() {
+  _handleChange() {
     let payload = {
       'value': this.value,
     }
@@ -1047,7 +1047,7 @@ export class JhInput extends LitElement {
     this.#dispatch('jh-change', payload);
   }
 
-  #handleSelect(e) {
+  _handleSelect(e) {
     const selectedString = e.target.value.substring(
       e.target.selectionStart,
       e.target.selectionEnd
@@ -1063,11 +1063,11 @@ export class JhInput extends LitElement {
     }
   }
 
-  #handleMaxlength() {
+  _handleMaxlength() {
     this.#dispatch('jh-maxlength');
   }
 
-  #handleClearButtonClick() {
+  _handleClearButtonClick() {
     let previousValue = this.value;
     // clear input value
     this.value = '';
@@ -1086,7 +1086,7 @@ export class JhInput extends LitElement {
     );
   }
 
-  #handleSlotChange(e) {
+  _handleSlotChange(e) {
     let newSlottedElement = e.target.assignedElements()[0];
     let slot = e.target;
 
@@ -1106,7 +1106,7 @@ export class JhInput extends LitElement {
   renderLeftSlot() {
     if (this.hideLeftSlot) return null;
     return html`
-        <slot name="jh-input-left" @slotchange=${this.#handleSlotChange}>
+        <slot name="jh-input-left" @slotchange=${this._handleSlotChange}>
           <jh-icon-circle-xmark slot="jh-input-left" aria-hidden="true" size="medium"></jh-icon-circle-xmark>
         </slot>
     `;
@@ -1115,7 +1115,7 @@ export class JhInput extends LitElement {
   renderRightSlot() {
     if (this.hideRightSlot) return null;
     return html`
-        <slot name="jh-input-right" @slotchange=${this.#handleSlotChange}>
+        <slot name="jh-input-right" @slotchange=${this._handleSlotChange}>
           <jh-icon-circle-xmark slot="jh-input-right" aria-hidden="true" size="medium"></jh-icon-circle-xmark>
         </slot>
     `;
@@ -1127,7 +1127,7 @@ export class JhInput extends LitElement {
       <jh-button 
         size="small" appearance="tertiary" class="clear-button" 
         accessible-label=${ifDefined(this.accessibleLabelClearButton)}
-        @click=${this.#handleClearButtonClick}>
+        @click=${this._handleClearButtonClick}>
         <slot name="jh-input-clear-button" slot="jh-button-icon">
           <jh-icon-circle-xmark slot="jh-button-icon" aria-hidden="true" size="medium"></jh-icon-circle-xmark>
         </slot>
@@ -1135,7 +1135,7 @@ export class JhInput extends LitElement {
     `;
   }
 
-  #getDescribedby() {
+  _getDescribedby() {
     let describedbyString = '';
 
     if (this.errorText) {
@@ -1190,7 +1190,7 @@ export class JhInput extends LitElement {
       }`;
 
       if (valueLength && valueLength === Number(this.maxlength)) {
-        this.#handleMaxlength();
+        this._handleMaxlength();
       }
 
       charCount = html`
@@ -1221,7 +1221,7 @@ export class JhInput extends LitElement {
     let describedby;
 
     if (this.helperText || (this.errorText && this.invalid)) {
-      describedby = this.#getDescribedby();
+      describedby = this._getDescribedby();
     }
 
     const leftSlot = this.readonly ? null : this.renderLeftSlot();
@@ -1254,10 +1254,10 @@ export class JhInput extends LitElement {
             ?required=${this.required}
             type="text"
             .value=${this.value}
-            @keydown=${this.inputMask ? this.#handleKeydown : null}
-            @change=${this.#handleChange}
-            @input=${this.#handleInput}
-            @select=${this.#handleSelect}
+            @keydown=${this.inputMask ? this._handleKeydown : null}
+            @change=${this._handleChange}
+            @input=${this._handleInput}
+            @select=${this._handleSelect}
           />
           ${clearButton}
           ${rightSlot}

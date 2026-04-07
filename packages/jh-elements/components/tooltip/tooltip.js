@@ -13,6 +13,7 @@ const openAttr = 'open';
  * @cssprop --jh-tooltip-color-text - The tooltip text color. Defaults to `--jh-color-content-on-primary-enabled`.
  *
  * @slot default - Use to insert the element that triggers the tooltip.
+ * @slot jh-tooltip-content - Use to insert the content of the tooltip.
  *
  * @customElement jh-tooltip
  */
@@ -251,7 +252,7 @@ export class JhTooltip extends LitElement {
       this.addEventListener('keydown', this.#handleKeyDown);
     } else {
       this.#internals.role = '';
-      this.open = false;
+      this.#handleCloseTooltip();
       this.removeEventListener('focus', this.#handleOpenTooltip);
       this.removeEventListener('mouseenter', this.#handleOpenTooltip);
       this.removeEventListener('blur', this.#handleCloseTooltip);

@@ -6844,11 +6844,6 @@
           "default": "false"
         },
         {
-          "name": "label",
-          "description": "Provides information about the item which triggered the tooltip.",
-          "type": "?string"
-        },
-        {
           "name": "open",
           "description": "Determines whether the tooltip is open or closed. Can be set on the tooltip to force it open.",
           "type": "?Boolean",
@@ -6870,12 +6865,6 @@
           "default": "false"
         },
         {
-          "name": "label",
-          "attribute": "label",
-          "description": "Provides information about the item which triggered the tooltip.",
-          "type": "?string"
-        },
-        {
           "name": "open",
           "attribute": "open",
           "description": "Determines whether the tooltip is open or closed. Can be set on the tooltip to force it open.",
@@ -6894,6 +6883,10 @@
         {
           "name": "default",
           "description": "Use to insert the element that triggers the tooltip."
+        },
+        {
+          "name": "jh-tooltip-content",
+          "description": "Use to insert the content of the tooltip."
         }
       ],
       "cssProperties": [

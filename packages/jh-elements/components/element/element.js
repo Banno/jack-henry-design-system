@@ -16,14 +16,11 @@ export class JhElement extends LitElement {
   #internals;
   /** @type {number} */
   #id;
-  /** @type {object} */
-  #pointerPosition;
 
   constructor() {
     super();
     /** @type {ElementInternals} */
     this.#internals = this.attachInternals();
-    this.addEventListener('mousemove', this.#capturePointerPosition);
   }
 
   connectedCallback() {
@@ -40,11 +37,6 @@ export class JhElement extends LitElement {
   /** @ignore */
   get internals() {
     return this.#internals;
-  }
-
-  // method to capture pointer position on mousemove (can be used in event detail for custom events)
-  #capturePointerPosition(e) {
-    this.#pointerPosition = { x: e.clientX, y: e.clientY };
   }
 
   // custom event dispatcher (TODO: add additional event properties)
@@ -69,7 +61,6 @@ export class JhElement extends LitElement {
       meta: {
         timestamp: Date.now(), 
         rect: this.getBoundingClientRect(),
-        pointerPosition: this.#pointerPosition || null,
       },
     };
 

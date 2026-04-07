@@ -166,7 +166,7 @@ export const Overview = {
           slot="jh-input-right"
           aria-hidden="true"
         ></jh-icon-id-card>
-        </jh-input>
+          <jh-button slot="jh-input-left" label="button"></jh-button></jh-input>
         <jh-input label="Label" error-text="Error message" show-clear-button invalid></jh-input>
     </div>
   `

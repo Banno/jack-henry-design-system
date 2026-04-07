@@ -73,10 +73,10 @@ export class JhCheckbox extends JhElement {
   static get styles() {
     return css`
       :host {
-        font-family: var(--jh-font-body-regular-1-font-family);
-        font-weight: var(--jh-font-body-regular-1-font-weight);
-        font-size: var(--jh-font-body-regular-1-font-size);
-        line-height: var(--jh-font-body-regular-1-line-height);
+        font-family: var(--jh-font-body-medium-1-font-family);
+        font-weight: var(--jh-font-body-medium-1-font-weight);
+        font-size: var(--jh-font-body-medium-1-font-size);
+        line-height: var(--jh-font-body-medium-1-line-height);
         display: inline-flex;
         position: relative;
       }

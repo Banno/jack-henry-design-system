@@ -88,6 +88,8 @@ export class JhInput extends JhElement {
     // alphanumeric characters -> usernames, product codes, etc.
     '*': /[A-Za-z0-9]/,
   };
+  /** @type {Map} */
+  #activeSlottedElement = new Map();
 
   static get styles() {
     return css`
@@ -469,6 +471,7 @@ export class JhInput extends JhElement {
 
   disconnectedCallback() {
     super.disconnectedCallback();
+    this.#resizeObserver.disconnect();
     if (this.inputMask) {
       this.removeEventListener('jh-select', this.#setSelection);
     }
@@ -1065,27 +1068,39 @@ export class JhInput extends JhElement {
     this.#dispatch('jh-input:clear-button-click', e, { state: { 'previousValue': previousValue } });
   }
 
-  #handleSlotChange(e) {
+  // capture dimensions of slotted content and set CSS variables to adjust input padding and vertically center slotted content
+  #resizeObserver = new ResizeObserver((entries) => {
     let inputEl = this.shadowRoot.querySelector('input');
-    let slottedElement = e.target.assignedElements()[0];
+
+    for (let entry of entries) {
+      let slottedEl = entry.target;
+      let slottedElWidth = entry.borderBoxSize[0].inlineSize;
+      let slottedElHeight = entry.borderBoxSize[0].blockSize;
+
+      this.style.setProperty(`--${slottedEl.slot}-width`, `${slottedElWidth}px`);
+
+      this.style.setProperty(`--${slottedEl.slot}-top`, `${(inputEl.offsetHeight - slottedElHeight) / 2}px`);
+    }
+  });
+
+  #handleSlotChange(e) {
+    let newSlottedElement = e.target.assignedElements()[0];
     let slotName = e.target.name;
 
-    if (slottedElement?.tagName.startsWith('JH-ICON')) {
-      slottedElement.setAttribute('size', 'medium');
+    // stop observing previous slotted element for each slot
+    if (this.#activeSlottedElement.has(slotName)) {
+      this.#resizeObserver.unobserve(this.#activeSlottedElement.get(slotName));
     }
 
-    // capture dimensions of slotted content
-    if (slottedElement) {
-      if (slotName === 'jh-input-left' || slotName === 'jh-input-right') {
+    if (newSlottedElement) {
+      this.#activeSlottedElement.set(slotName, newSlottedElement);
 
-        // set a CSS variable for the width of the slotted content
-        this.style.setProperty(`--${slottedElement.slot}-width`, `${slottedElement.offsetWidth}px`);
-
-        // set a css variable to vertically center slotted content
-        this.style.setProperty(`--${slottedElement.slot}-top`, `${(inputEl.offsetHeight - slottedElement.offsetHeight) / 2}px`);
+      if (newSlottedElement.tagName.startsWith('JH-ICON')) {
+        newSlottedElement.setAttribute('size', 'medium');
       }
+      this.#resizeObserver.observe(newSlottedElement);
     }
-    this.#addClass(slotName, slottedElement);
+    this.#addClass(slotName, newSlottedElement);
   }
 
   // sets class on input element so padding can accomodate slotted content

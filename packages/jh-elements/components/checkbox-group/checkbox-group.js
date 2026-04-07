@@ -9,6 +9,7 @@ let id = 0;
 /**
  *
  * @cssprop --jh-checkbox-group-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
+ * @cssprop --jh-checkbox-group-opacity-disabled - The opacity of the checkbox group when disabled. Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-checkbox-group-required-color-text - The required indicator color.
  * Defaults to `--jh-color-content-negative-enabled`.
  * @cssprop --jh-checkbox-group-required-color-text-optional - The optional indicator text color.
@@ -40,6 +41,21 @@ export class JhCheckboxGroup extends LitElement {
         border: none;
         padding: 0;
         margin: 0;
+      }
+      :host([disabled]) {
+        --group-disabled-opacity: var(
+          --jh-checkbox-group-opacity-disabled, 
+          var(--jh-opacity-disabled)
+        );
+      }
+      :host([disabled]) .label,
+      :host([disabled]) .helper-text,
+      :host([disabled]) .error-text {
+        opacity: var(--group-disabled-opacity);
+        pointer-events: none;
+      }
+      :host([disabled]) ::slotted(jh-checkbox) {
+        --jh-checkbox-opacity-disabled: var(--group-disabled-opacity);
       }
       :host legend {
         padding: 0;
@@ -83,7 +99,6 @@ export class JhCheckboxGroup extends LitElement {
         );
         margin: 0;
       }
-      .label-text,
       .helper-text,
       :host([invalid]) .error-text {
         word-break: break-word;
@@ -115,6 +130,11 @@ export class JhCheckboxGroup extends LitElement {
       accessibleLabel: {
         type: String,
         attribute: 'accessible-label',
+      },
+      /** Disables the checkbox group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT). */
+      disabled: {
+        type: Boolean,
+        reflect: true,
       },
       /** Text to be displayed when checkbox group has failed validation and `invalid` is true. */
       errorText: {
@@ -159,17 +179,19 @@ export class JhCheckboxGroup extends LitElement {
   }
   constructor() {
     super();
+    /** @type {boolean} */
+    this.disabled = false;
     /** @type {?string} */
     this.accessibleLabel = null;
     /** @type {?string} */
     this.errorText = null;
     /** @type {?string} */
     this.helperText = null;
-    /** @type {?Boolean} */
+    /** @type {?boolean} */
     this.invalid = false;
     /** @type {?string} */
     this.label = null;
-    /** @type {?Boolean} */
+    /** @type {?boolean} */
     this.required = false;
     /** @type {'vertical'|'horizontal'} */
     this.orientation = 'vertical';
@@ -180,6 +202,27 @@ export class JhCheckboxGroup extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     this.#id = id++;
+  }
+
+  firstUpdated() {
+    const slot = this.renderRoot?.querySelector('slot');
+    this.#syncDisabledToChildren();
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has('disabled')) {
+      this.#syncDisabledToChildren();
+    }
+  }
+
+  #syncDisabledToChildren() {
+    const slot = this.renderRoot?.querySelector('slot');
+    if(!slot) return;
+
+    const checkboxes = slot.assignedElements().filter(el => el.tagName === 'JH-CHECKBOX');
+    checkboxes.forEach(checkbox => {
+      checkbox.disabled = this.disabled;
+    })
   }
 
   #getAriaDescribedBy() {
@@ -230,9 +273,10 @@ export class JhCheckboxGroup extends LitElement {
         aria-describedby=${ifDefined(this.#getAriaDescribedBy())}
         ?required=${this.required}
         aria-invalid=${ifDefined(this.invalid ? 'true' : null)}
+        aria-disabled=${ifDefined(this.disabled ? 'true' : null)}
         aria-label=${ifDefined(this.accessibleLabel)}>
         ${label}
-        <div class="controls"><slot></slot></div>
+        <div class="controls"><slot @slotchange=${() => this.#syncDisabledToChildren()} ></slot></div>
         ${errorText}
       </fieldset>
     `;

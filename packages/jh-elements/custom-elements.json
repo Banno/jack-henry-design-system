@@ -13,7 +13,8 @@
         {
           "name": "max-count",
           "description": "Sets the max count to show. Appends `+` to the `max-count` when value is exceeded.",
-          "type": "?number"
+          "type": "?number",
+          "default": "99"
         }
       ],
       "properties": [
@@ -27,11 +28,8 @@
           "name": "maxCount",
           "attribute": "max-count",
           "description": "Sets the max count to show. Appends `+` to the `max-count` when value is exceeded.",
-          "type": "?number"
-        },
-        {
-          "name": "uniqueId",
-          "type": "number"
+          "type": "?number",
+          "default": "99"
         }
       ],
       "cssProperties": [
@@ -41,11 +39,11 @@
         },
         {
           "name": "--jh-badge-color-background-enabled",
-          "description": "The badge background color. Defaults to `--jh-color-content-brand-enabled`."
+          "description": "The badge background color. Defaults to `--jh-color-content-negative-enabled`."
         },
         {
           "name": "--jh-badge-color-text-enabled",
-          "description": "The badge text color. Defaults to `--jh-color-content-on-brand-enabled`."
+          "description": "The badge text color. Defaults to `--jh-color-content-on-negative-enabled`."
         }
       ]
     },
@@ -745,11 +743,11 @@
         },
         {
           "name": "--jh-card-border-radius",
-          "description": "The card border-radius. Defaults to `--jh-border-radius-400`."
+          "description": "The card border-radius. Defaults to `--jh-border-radius-200`."
         },
         {
-          "name": "--jh-card-shadow",
-          "description": "The card box-shadow. Defaults to `--jh-shadow-low`."
+          "name": "--jh-card-color-border",
+          "description": "The card border color. Defaults to `--jh-border-decorative-color`."
         },
         {
           "name": "--jh-card-media-aspect-ratio",
@@ -798,6 +796,12 @@
       "path": "./components/checkbox-group/checkbox-group.js",
       "attributes": [
         {
+          "name": "disabled",
+          "description": "Disables the checkbox group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
           "name": "accessible-label",
           "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
           "type": "?string"
@@ -815,7 +819,7 @@
         {
           "name": "invalid",
           "description": "Sets an `aria-invalid` on the checkbox group to indicate the value supplied was invalid and displays `error-text` when set.",
-          "type": "?Boolean",
+          "type": "?boolean",
           "default": "false"
         },
         {
@@ -826,7 +830,7 @@
         {
           "name": "required",
           "description": "Indicates a value is required.",
-          "type": "?Boolean",
+          "type": "?boolean",
           "default": "false"
         },
         {
@@ -843,6 +847,13 @@
         }
       ],
       "properties": [
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "Disables the checkbox group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
+          "type": "boolean",
+          "default": "false"
+        },
         {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
@@ -865,7 +876,7 @@
           "name": "invalid",
           "attribute": "invalid",
           "description": "Sets an `aria-invalid` on the checkbox group to indicate the value supplied was invalid and displays `error-text` when set.",
-          "type": "?Boolean",
+          "type": "?boolean",
           "default": "false"
         },
         {
@@ -878,7 +889,7 @@
           "name": "required",
           "attribute": "required",
           "description": "Indicates a value is required.",
-          "type": "?Boolean",
+          "type": "?boolean",
           "default": "false"
         },
         {
@@ -906,6 +917,10 @@
         {
           "name": "--jh-checkbox-group-label-color-text",
           "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-group-opacity-disabled",
+          "description": "The opacity of the checkbox group when disabled. Defaults to `--jh-opacity-disabled`."
         },
         {
           "name": "--jh-checkbox-group-required-color-text",

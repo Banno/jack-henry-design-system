@@ -54,7 +54,6 @@ export class JhElement extends LitElement {
       reference: {
         id: this.uniqueId,
         label: this.label || null,
-        accessibleLabel: this.accessibleLabel || null,
         originElement: e.target, 
         originHost: this.localName, 
       },

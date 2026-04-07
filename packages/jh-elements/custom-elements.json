@@ -30,6 +30,10 @@
           "description": "Sets the max count to show. Appends `+` to the `max-count` when value is exceeded.",
           "type": "?number",
           "default": "99"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "cssProperties": [
@@ -6716,32 +6720,6 @@
         {
           "name": "--jh-tag-dismiss-color-focus",
           "description": "The dismiss button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
-        }
-      ]
-    },
-    {
-      "name": "jh-test",
-      "path": "./components/test/test.js",
-      "description": "Jh Test",
-      "attributes": [
-        {
-          "name": "someProperty",
-          "description": "Property description",
-          "type": "?string",
-          "default": "\"some initial value\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "someProperty",
-          "attribute": "someProperty",
-          "description": "Property description",
-          "type": "?string",
-          "default": "\"some initial value\""
-        },
-        {
-          "name": "uniqueId",
-          "type": "number"
         }
       ]
     },

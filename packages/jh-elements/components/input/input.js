@@ -457,16 +457,6 @@ export class JhInput extends JhElement {
     let observer = new MutationObserver(this.#captureMaskIndexes.bind(this));
     observer.observe(this, { attributeFilter: ['input-mask'] });
     this.addEventListener('jh-select', this.#setSelection);
-    // added for testing purposes to verify element internals are accessible in input component
-    console.log('input internals', this.internals);
-    // example of migration warning for deprecated property 
-    this.migrationWarning({
-      component: 'jh-input',
-      type: 'property',
-      name: 'type',
-      message: 'The "type" property is no longer supported and will be removed in v2. Please review the migration guide for more information.',
-      url: 'https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/what-s-new-v2-release--docs#deprecated-property'
-    });
 }
 
   disconnectedCallback() {

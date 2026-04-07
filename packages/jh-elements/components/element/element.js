@@ -60,7 +60,6 @@ export class JhElement extends LitElement {
       },
       meta: {
         timestamp: Date.now(), 
-        rect: this.getBoundingClientRect(),
       },
     };
 

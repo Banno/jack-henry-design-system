@@ -6,7 +6,7 @@ import { fileHeader, formattedVariables } from 'style-dictionary/utils';
 
 //will need to remove $description from the output in DTCG version
 async function formatJs({ dictionary, file, options }) {
-  const { outputReferences, usesDtcg, showColorScheme } = options;
+  const { outputReferences, usesDtcg } = options;
   const header = await fileHeader({ file });
   function indent2(str) {
     // removes whitespace fom the end of a string with the matched substring & adds indentation to each line
@@ -16,11 +16,7 @@ async function formatJs({ dictionary, file, options }) {
     header +
     'export default `\n  ' +
     options.selector +
-    (showColorScheme
-      ? options.selector === '.jh-theme-dark'
-        ? ' {\n    color-scheme: dark; \n'
-        : ' {\n    color-scheme: light; \n' 
-      : ' {\n') +
+    ' {\n' +
     indent2(
       formattedVariables({ format: 'css', dictionary, outputReferences, usesDtcg })
     ) +

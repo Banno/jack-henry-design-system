@@ -48,7 +48,6 @@ export class JhElement extends LitElement {
         name: this.name || null,
       },
       state: {
-        validity: this.validity || null,
         value: this.value || null,
       },
       reference: {

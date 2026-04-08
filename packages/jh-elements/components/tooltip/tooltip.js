@@ -239,6 +239,15 @@ export class JhTooltip extends LitElement {
     this.id = `tooltip-describedby-${id++}`;
   }
 
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    this.removeEventListener('focus', this.#handleOpenTooltip);
+    this.removeEventListener('mouseenter', this.#handleOpenTooltip);
+    this.removeEventListener('blur', this.#handleCloseTooltip);
+    this.removeEventListener('mouseleave', this.#handleCloseTooltip);
+    this.removeEventListener('keydown', this.#handleKeyDown);
+  }
+
   #handleContentSlotChange(e) {
     const slot = e.target;
     const hasContent = slot.assignedNodes().length > 0;
@@ -259,15 +268,6 @@ export class JhTooltip extends LitElement {
       this.removeEventListener('mouseleave', this.#handleCloseTooltip);
       this.removeEventListener('keydown', this.#handleKeyDown);
     }
-  }
-
-  disconnectedCallback() {
-    super.disconnectedCallback();
-    this.removeEventListener('focus', this.#handleOpenTooltip);
-    this.removeEventListener('mouseenter', this.#handleOpenTooltip);
-    this.removeEventListener('blur', this.#handleCloseTooltip);
-    this.removeEventListener('mouseleave', this.#handleCloseTooltip);
-    this.removeEventListener('keydown', this.#handleKeyDown);
   }
 
   #handleSlotChange(e) {

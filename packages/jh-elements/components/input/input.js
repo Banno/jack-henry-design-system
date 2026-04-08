@@ -116,7 +116,7 @@ export class JhInput extends LitElement {
           var(--jh-color-content-primary-enabled)
         );
       }
-      label {
+      .label {
         color: var(
           --jh-input-label-color-text,
           var(--jh-color-content-primary-enabled)
@@ -1183,7 +1183,7 @@ export class JhInput extends LitElement {
       }
 
       label = html`
-        <label for="jh-input-${this.#id}">${this.label}${indicator}</label>
+        <label class="label" for="jh-input-${this.#id}">${this.label}${indicator}</label>
         ${helperText}
       `;
     }

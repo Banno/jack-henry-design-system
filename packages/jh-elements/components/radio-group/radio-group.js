@@ -4,6 +4,7 @@
 
 import { LitElement, css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { validationMixin } from '../../../jh-validate/validate.js';
 
 let id = 0;
 /**
@@ -24,17 +25,15 @@ let id = 0;
  *
  * @customElement jh-radio-group
  */
-export class JhRadioGroup extends LitElement {
-  static get formAssociated() {
-    return true;
-  }
+export class JhRadioGroup extends validationMixin(LitElement) {
   #checked;
   /** @type {?Number} */
   #id;
-  /** @type {ElementInternals} */
-  #internals;
   /** @type {?string} */
   #value;
+
+  // added for validation library compatibility
+  static groupControl = true;
 
   static get styles() {
     return css`
@@ -178,7 +177,6 @@ export class JhRadioGroup extends LitElement {
   }
   constructor() {
     super();
-    this.#internals = this.attachInternals();
     /** @type {?string} */
     this.accessibleLabel = null;
     /** @type {?string} */
@@ -210,19 +208,6 @@ export class JhRadioGroup extends LitElement {
     this.#id = id++;
   }
 
-  /**
-   * Returns the radio group's parent form element.
-   * @type {?HTMLFormElement}
-   */
-  get form() {
-    return this.#internals.form;
-  }
-
-  /** @ignore */
-  get validity() {
-    return this.#internals.validity;
-  }
-
   /** @type {?string} */
   get value() {
     return this.#value;
@@ -232,7 +217,8 @@ export class JhRadioGroup extends LitElement {
     const oldValue = this.#value;
     if (newValue !== oldValue) {
       this.#value = newValue;
-      this.#internals.setFormValue(newValue);
+      // this.#internals.setFormValue(newValue);
+      this.setFormValue(newValue);
     }
     this.requestUpdate('value', oldValue);
   }

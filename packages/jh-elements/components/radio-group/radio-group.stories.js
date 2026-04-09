@@ -22,6 +22,7 @@ const storyStyles = css`
 `;
 
 const disableControls = {
+  disabled: { control: { disable: true } },
   label: { control: { disable: true } },
   'helper-text': { control: { disable: true } },
   'error-text': { control: { disable: true } },
@@ -43,6 +44,9 @@ export default {
     },
   },
   argTypes: {
+    disabled: {
+      control: 'boolean',
+    },
     required: {
       control: 'boolean',
     },
@@ -112,6 +116,20 @@ export const Overview = {
         orientation="horizontal"
         error-text="Error text"
         invalid
+        disabled
+      >
+        <jh-radio label="radio 4" value="radio-4"></jh-radio>
+        <jh-radio label="radio 5" value="radio-5" disabled></jh-radio>
+        <jh-radio label="radio 6" value="radio-6"></jh-radio>
+      </jh-radio-group>
+    </div>
+    <div class="container">
+      <jh-radio-group
+        label="Label"
+        helper-text="Helper text group"
+        orientation="horizontal"
+        error-text="Error text"
+        invalid
       >
         <jh-radio label="radio 4" value="radio-4"></jh-radio>
         <jh-radio label="radio 5" value="radio-5" disabled></jh-radio>
@@ -140,6 +158,7 @@ export const Playground = {
       ?invalid=${args.invalid}
       error-text=${args['error-text']}
       value=${args.value}
+      ?disabled=${args.disabled}
     >
       <jh-radio
         label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus massa, mollis euismod lorem ut"
@@ -162,6 +181,7 @@ Playground.args = {
   invalid: true,
   'error-text': 'Error',
   value: 'radio-1',
+  disabled: false,
 };
 Playground.parameters = {
   styles: storyStyles,

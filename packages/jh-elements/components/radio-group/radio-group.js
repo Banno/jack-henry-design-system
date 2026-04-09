@@ -17,6 +17,7 @@ let id = 0;
  * Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-radio-group-error-color-text - The error-text text color. 
  * Defaults to `--jh-color-content-negative-enabled`.
+ * @cssprop --jh-radio-group-opacity-disabled - The opacity of the radio group when disabled. Defaults to `--jh-opacity-disabled`.
  *
  * @slot default - Use to insert `<jh-radio>` components(s).
  * 
@@ -50,6 +51,18 @@ export class JhRadioGroup extends LitElement {
         border: none;
         padding: 0;
         margin: 0;
+      }
+      :host([disabled]) {
+        --group-disabled-opacity: var(--jh-radio-group-opacity-disabled, var(--jh-opacity-disabled));
+      }
+      :host([disabled]) .label,
+      :host([disabled]) .helper-text,
+      :host([disabled]) .error-text {
+        opacity: var(--group-disabled-opacity);
+        pointer-events: none;
+      }
+      :host([disabled]) ::slotted(jh-radio) {
+        --jh-radio-opacity-disabled: var(--group-disabled-opacity);
       }
       :host legend {
         padding: 0;
@@ -126,6 +139,10 @@ export class JhRadioGroup extends LitElement {
         type: String,
         attribute: 'accessible-label',
       },
+      disabled: {
+        type: Boolean,
+        reflect: true
+      },
       /** Text to be displayed when radio group has failed validation and `invalid` is true. */
       errorText: {
         type: String,
@@ -181,17 +198,19 @@ export class JhRadioGroup extends LitElement {
     this.#internals = this.attachInternals();
     /** @type {?string} */
     this.accessibleLabel = null;
+    /** @type {?Boolean} */
+    this.disabled = false;
     /** @type {?string} */
     this.errorText = null;
     /** @type {?string} */
     this.helperText = null;
-    /** @type {?Boolean} */
+    /** @type {?boolean} */
     this.invalid = false;
     /** @type {?string} */
     this.label = null;
     /** @type {?string} */
     this.name = null;
-    /** @type {?Boolean} */
+    /** @type {?boolean} */
     this.required = false;
     /** @type {'vertical'|'horizontal'} */
     this.orientation = 'vertical';
@@ -208,6 +227,17 @@ export class JhRadioGroup extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     this.#id = id++;
+  }
+
+  firstUpdated() {
+    const slot = this.renderRoot.querySelector('slot');
+    this._syncDisabledToChildren();
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has('disabled')) {
+      this._syncDisabledToChildren();
+    }
   }
 
   /**
@@ -237,6 +267,16 @@ export class JhRadioGroup extends LitElement {
     this.requestUpdate('value', oldValue);
   }
 
+  _syncDisabledToChildren() {
+    const slot = this.renderRoot.querySelector('slot');
+    if(!slot) return;
+
+    const radios = slot.assignedElements().filter((el) => el.tagName === 'JH-RADIO');
+    radios.forEach((radio) => {
+      radio.disabled = this.disabled;
+    });
+  }
+
   #getRadios() {
     return [...this.querySelectorAll('jh-radio')];
   }
@@ -260,6 +300,8 @@ export class JhRadioGroup extends LitElement {
     if (!this.#checked) {
       radios[0].tabIndex = 0;
     }
+
+    this._syncDisabledToChildren
   }
 
   #handleChange(e) {
@@ -384,6 +426,7 @@ export class JhRadioGroup extends LitElement {
         role="radiogroup"
         id=${ifDefined(this.label ? `radio-group-label-${this.#id}` : null)}
         aria-describedby=${ifDefined(this.#getAriaDescribedBy())}
+        aria-disabled=${ifDefined(this.disabled ? 'true' : null)}
         aria-required=${ifDefined(this.required ? 'true' : 'false')}
         aria-invalid=${ifDefined(this.invalid ? 'true' : null)}
         aria-label=${ifDefined(this.accessibleLabel)}

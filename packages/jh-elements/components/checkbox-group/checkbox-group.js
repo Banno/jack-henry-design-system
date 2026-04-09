@@ -30,10 +30,14 @@ export class JhCheckboxGroup extends LitElement {
   static get styles() {
     return css`
       :host {
-        font-family: var(--jh-font-helper-regular-font-family);
-        font-weight: var(--jh-font-helper-regular-font-weight);
-        font-size: var(--jh-font-helper-regular-font-size);
-        line-height: var(--jh-font-helper-regular-line-height);
+        --checkbox-group-helper-regular-font-family: var(--jh-font-helper-regular-font-family);
+        --checkbox-group-helper-regular-font-weight: var(--jh-font-helper-regular-font-weight);
+        --checkbox-group-helper-regular-font-size: var(--jh-font-helper-regular-font-size);
+        --checkbox-group-helper-regular-line-height: var(--jh-font-helper-regular-line-height);
+        font-family: var(--checkbox-group-helper-regular-font-family);
+        font-weight: var(--checkbox-group-helper-regular-font-weight);
+        font-size: var(--checkbox-group-helper-regular-font-size);
+        line-height: var(--checkbox-group-helper-regular-line-height);
         display: block;
       }
       /* reset fieldset and legend for styling */
@@ -119,6 +123,10 @@ export class JhCheckboxGroup extends LitElement {
           --jh-checkbox-group-required-color-text-optional,
           var(--jh-color-content-primary-enabled)
         );
+        font-family: var(--checkbox-group-helper-regular-font-family);
+        font-weight: var(--checkbox-group-helper-regular-font-weight);
+        font-size: var(--checkbox-group-helper-regular-font-size);
+        line-height: var(--checkbox-group-helper-regular-line-height);
       }
       :host([show-indicator][required]) .indicator {
         color: var(

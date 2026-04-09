@@ -39,10 +39,14 @@ export class JhRadioGroup extends LitElement {
   static get styles() {
     return css`
       :host {
-        font-family: var(--jh-font-helper-regular-font-family);
-        font-weight: var(--jh-font-helper-regular-font-weight);
-        font-size: var(--jh-font-helper-regular-font-size);
-        line-height: var(--jh-font-helper-regular-line-height);
+        --radio-group-helper-regular-font-family: var(--jh-font-helper-regular-font-family);
+        --radio-group-helper-regular-font-weight: var(--jh-font-helper-regular-font-weight);
+        --radio-group-helper-regular-font-size: var(--jh-font-helper-regular-font-size);
+        --radio-group-helper-regular-line-height: var(--jh-font-helper-regular-line-height);
+        font-family: var(--radio-group-helper-regular-font-family);
+        font-weight: var(--radio-group-helper-regular-font-weight);
+        font-size: var(--radio-group-helper-regular-font-size);
+        line-height: var(--radio-group-helper-regular-line-height);
         display: block;
       }
       /* reset styling on fieldset and legend */
@@ -114,6 +118,10 @@ export class JhRadioGroup extends LitElement {
           --jh-radio-group-required-color-text-optional,
           var(--jh-color-content-primary-enabled)
         );
+        font-family: var(--radio-group-helper-regular-font-family);
+        font-weight: var(--radio-group-helper-regular-font-weight);
+        font-size: var(--radio-group-helper-regular-font-size);
+        line-height: var(--radio-group-helper-regular-line-height);
       }
       :host([show-indicator][required]) .indicator {
         color: var(

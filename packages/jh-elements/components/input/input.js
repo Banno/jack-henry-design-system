@@ -96,6 +96,14 @@ export class JhInput extends LitElement {
     return this.renderRoot?.querySelector('input');
   }
 
+  get #leftSlot() {
+    return this.renderRoot?.querySelector('slot[name="jh-input-left"]');
+  }
+
+  get #rightSlot() {
+    return this.renderRoot?.querySelector('slot[name="jh-input-right"]');
+  }
+
   static get styles() {
     return css`
       :host {
@@ -187,6 +195,9 @@ export class JhInput extends LitElement {
         line-height: var(--jh-font-body-regular-1-line-height);
         height: 100%;
       }
+      :host([readonly]) input {
+        height: auto;
+      } 
 
       /* Slot wrappers */
       .slot-wrapper {
@@ -194,7 +205,6 @@ export class JhInput extends LitElement {
         align-items: center;
         flex-shrink: 0;
       }
-
       slot[name="jh-input-left"] {
         display: none;
         align-items: center;
@@ -207,14 +217,8 @@ export class JhInput extends LitElement {
         flex-shrink: 0;
         padding-left: var(--jh-dimension-200);
       }
-
       slot[name="jh-input-left"].display-slot,
       slot[name="jh-input-right"].display-slot {
-        display: flex;
-      }
-      /* Show slot when it has fallback content (shadow DOM children) */
-      slot[name="jh-input-left"]:not(:empty),
-      slot[name="jh-input-right"]:not(:empty) {
         display: flex;
       }
 
@@ -240,6 +244,7 @@ export class JhInput extends LitElement {
           var(--jh-border-control-color)
         );
       }
+
       /* Focus-visible on wrapper when input is focused */
       .input-wrapper:has(input:focus-visible) {
         border-color: var(
@@ -293,6 +298,7 @@ export class JhInput extends LitElement {
       }
       .display-clear-button .clear-button {
         display: flex;
+        margin-left: var(--jh-dimension-200);  
       }
 
       /* Readonly styles */
@@ -493,31 +499,39 @@ export class JhInput extends LitElement {
       });
     }
 
-    // clicking the wrapper focuses the input
+    if (this.#leftSlot) this.#leftSlot.classList.toggle('display-slot', this.#checkSlotContent(this.#leftSlot));
+    if (this.#rightSlot) this.#rightSlot.classList.toggle('display-slot', this.#checkSlotContent(this.#rightSlot));
+
+    // clicking the wrapper should focus the input
     const wrapper = this.shadowRoot.querySelector('.input-wrapper');
-    wrapper?.addEventListener('click', (e) => {
-      // Don't steal focus if user clicked a button/interactive element in the slot
+    wrapper?.addEventListener('mousedown', (e) => {
       if (e.target === wrapper || e.target.tagName === 'SLOT') {
-        this.#inputEl?.focus();
+        //if the input already has focus, don't do anything. Prevent default to avoid flickering of the focus ring.
+        if (this.shadowRoot.activeElement === this.#inputEl) {
+          e.preventDefault();
+        } else {
+          //otherwise set focus to the input.
+          e.preventDefault();
+          this.#inputEl?.focus();
+        }
       }
     });
   }
 
   #checkSlotContent(slot) {
     // Slotted elements
-    if (slot.assignedElements().length > 0) {
+    const slottedElements = slot.assignedElements({ flatten: true });
+    if (slottedElements.length > 0) {
         return true;
     }
 
-    // Slotted text nodes
-    if (slot.assignedNodes().some(
+    // Slotted and fallback text nodes that are not just whitespace
+    if (slot.assignedNodes({ flatten: true }).some(
         (node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== ''
     )) {
         return true;
     }
-
-    // Fallback content (children of the <slot> in shadow DOM)
-    return slot.children.length > 0;
+    return false;
 }
 
   #toggleFocus(e) {

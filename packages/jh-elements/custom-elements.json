@@ -5250,6 +5250,7 @@
         },
         {
           "name": "disabled",
+          "description": "Disables the radio group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
           "type": "?Boolean",
           "default": "false"
         },
@@ -5318,6 +5319,7 @@
         {
           "name": "disabled",
           "attribute": "disabled",
+          "description": "Disables the radio group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
           "type": "?Boolean",
           "default": "false"
         },

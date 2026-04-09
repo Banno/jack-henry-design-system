@@ -139,6 +139,7 @@ export class JhRadioGroup extends LitElement {
         type: String,
         attribute: 'accessible-label',
       },
+      /** Disables the radio group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT). */      
       disabled: {
         type: Boolean,
         reflect: true

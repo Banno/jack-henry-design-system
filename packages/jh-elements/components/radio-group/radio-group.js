@@ -199,7 +199,7 @@ export class JhRadioGroup extends LitElement {
     this.#internals = this.attachInternals();
     /** @type {?string} */
     this.accessibleLabel = null;
-    /** @type {?Boolean} */
+    /** @type {boolean} */
     this.disabled = false;
     /** @type {?string} */
     this.errorText = null;
@@ -231,7 +231,6 @@ export class JhRadioGroup extends LitElement {
   }
 
   firstUpdated() {
-    const slot = this.renderRoot.querySelector('slot');
     this._syncDisabledToChildren();
   }
 
@@ -302,7 +301,7 @@ export class JhRadioGroup extends LitElement {
       radios[0].tabIndex = 0;
     }
 
-    this._syncDisabledToChildren
+    this._syncDisabledToChildren();
   }
 
   #handleChange(e) {

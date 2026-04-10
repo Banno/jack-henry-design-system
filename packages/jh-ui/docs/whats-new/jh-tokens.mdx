@@ -20,7 +20,7 @@ Learn more about the DTCG specification [here](https://tr.designtokens.org/forma
 
 We are renaming the folder that contains these token files to `esm` to better reflect its platform target.
 
-## JSON Flat File (Coming Soon)
+## JSON Flat File
 
 The JSON flat file has been rebuilt to follow the DTCG specification. Token deprecation information has been added to it.
 
@@ -258,3 +258,6 @@ In V2, shadow and overlay tokens are also composite tokens. However, the CSS `bo
 So we are keeping the shorthand form for these tokens. This means that the usage and override method remains the same as in v1.
 However, shadow and overlay tokens have new names because they are now alias tokens and make use of the new black and white alpha color families.
 Refer to the Migrating page for the mapping of old to new shadow and overlay tokens.
+
+### Color Scheme 
+Token files now include the `color-scheme` property, set to either 'light' or 'dark', to ensure browsers render native elements and UI surfaces with the correct system themes. This update provides better out-of-the-box consistency for themed environments.

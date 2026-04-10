@@ -97,10 +97,14 @@ export class JhInput extends LitElement {
   static get styles() {
     return css`
       :host {
-        font-family: var(--jh-font-helper-regular-font-family);
-        font-weight: var(--jh-font-helper-regular-font-weight);
-        font-size: var(--jh-font-helper-regular-font-size);
-        line-height: var(--jh-font-helper-regular-line-height);
+        --input-helper-regular-font-family: var(--jh-font-helper-regular-font-family);
+        --input-helper-regular-font-weight: var(--jh-font-helper-regular-font-weight);
+        --input-helper-regular-font-size: var(--jh-font-helper-regular-font-size);
+        --input-helper-regular-line-height: var(--jh-font-helper-regular-line-height);
+        font-family: var(--input-helper-regular-font-family);
+        font-weight: var(--input-helper-regular-font-weight);
+        font-size: var(--input-helper-regular-font-size);
+        line-height: var(--input-helper-regular-line-height);
         display: inline-block;
         width: 100%;
         --jh-button-size: var(--jh-dimension-800); 
@@ -121,6 +125,10 @@ export class JhInput extends LitElement {
           --jh-input-label-color-text,
           var(--jh-color-content-primary-enabled)
         );
+        font-family: var(--jh-font-helper-medium-font-family);
+        font-weight: var(--jh-font-helper-medium-font-weight);
+        font-size: var(--jh-font-helper-medium-font-size);
+        line-height: var(--jh-font-helper-medium-line-height);
         display: block;
       }
       .helper-text {
@@ -331,6 +339,10 @@ export class JhInput extends LitElement {
           --jh-input-optional-color-text,
           var(--jh-color-content-primary-enabled)
         );
+        font-family: var(--input-helper-regular-font-family);
+        font-weight: var(--input-helper-regular-font-weight);
+        font-size: var(--input-helper-regular-font-size);
+        line-height: var(--input-helper-regular-line-height);
       }
       :host([show-indicator][required]) span {
         color: var(

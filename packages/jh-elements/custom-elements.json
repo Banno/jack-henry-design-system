@@ -5249,6 +5249,12 @@
           "type": "?string"
         },
         {
+          "name": "disabled",
+          "description": "Disables the radio group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
+          "type": "?Boolean",
+          "default": "false"
+        },
+        {
           "name": "error-text",
           "description": "Text to be displayed when radio group has failed validation and `invalid` is true.",
           "type": "?string"
@@ -5261,7 +5267,7 @@
         {
           "name": "invalid",
           "description": "Sets an `aria-invalid` on the radio group to indicate the value supplied was invalid and displays `error-text` when set.",
-          "type": "?Boolean",
+          "type": "?boolean",
           "default": "false"
         },
         {
@@ -5277,7 +5283,7 @@
         {
           "name": "required",
           "description": "Indicates a value is required.",
-          "type": "?Boolean",
+          "type": "?boolean",
           "default": "false"
         },
         {
@@ -5311,6 +5317,13 @@
           "type": "?string"
         },
         {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "Disables the radio group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
+          "type": "?Boolean",
+          "default": "false"
+        },
+        {
           "name": "errorText",
           "attribute": "error-text",
           "description": "Text to be displayed when radio group has failed validation and `invalid` is true.",
@@ -5326,7 +5339,7 @@
           "name": "invalid",
           "attribute": "invalid",
           "description": "Sets an `aria-invalid` on the radio group to indicate the value supplied was invalid and displays `error-text` when set.",
-          "type": "?Boolean",
+          "type": "?boolean",
           "default": "false"
         },
         {
@@ -5345,7 +5358,7 @@
           "name": "required",
           "attribute": "required",
           "description": "Indicates a value is required.",
-          "type": "?Boolean",
+          "type": "?boolean",
           "default": "false"
         },
         {
@@ -5401,6 +5414,10 @@
         {
           "name": "--jh-radio-group-error-color-text",
           "description": "The error-text text color. \nDefaults to `--jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-radio-group-opacity-disabled",
+          "description": "The opacity of the radio group when disabled. Defaults to `--jh-opacity-disabled`."
         }
       ]
     },

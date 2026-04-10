@@ -382,7 +382,7 @@ export class JhInput extends LitElement {
       hideLeftSlot: { type: Boolean, attribute: 'hide-left-slot' },
       /** Hides the right slot from input. */
       hideRightSlot: { type: Boolean, attribute: 'hide-right-slot' },
-      /** Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details. */
+      /** Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details. */
       inputMask: { type: String, attribute: 'input-mask' },
       /** Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.
        *

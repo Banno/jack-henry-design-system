@@ -15,7 +15,7 @@ import * as stories from './select.stories.js';
 <hr />
 
 The select component is a form component that allows users to choose a single option from a predefined list. 
-It combines a specialized input field with a popover menu and supports flat options and grouped options.
+It combines a specialized non-editable input field with a popover menu and supports flat options and grouped options.
 
 ## Usage
 
@@ -53,7 +53,12 @@ The select component makes use of the following required compositional dependenc
 ## Options Data Format
 
 Authors must provide the options as an array of objects. Each option object must include a `label` (display text) and a `value` (form value). 
-Options can optionally include `disabled` and `selected` flags.
+Options can optionally include `disabled` and `selected` flags. 
+An empty option can be included by providing an option object with a label string and an empty string for the value. 
+Make sure to flag it as `selected` if you want it to be the default option showing in the input.
+
+Options can be provided in a flat structure or grouped by category. Flat options are displayed as `jh-list-item` elements, 
+while grouped options are displayed as `jh-list-group` elements containing nested `jh-list-item` elements.
 
 Flat options:
 
@@ -73,7 +78,10 @@ const options = [
     { label: "Basic Checking", value: "checking-01" },
     { label: "High-Yield Savings", value: "savings-01" },
   ]},
-  { label: "Personal Loan", value: "loan-personal" },
+  { groupLabel: "Investment accounts", groupValues: [
+    { label: "Money Market", value: "money-market-01" },
+    { label: "Brokerage Account", value: "brokerage-standard" },
+  ]},
 ];
 ```
 

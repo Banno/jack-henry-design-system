@@ -153,9 +153,7 @@ static get styles() {
     return {
       /** Sets an `aria-label` on the select to assist screen reader users when no visible label is present. */
       accessibleLabel: { type: String, attribute: 'accessible-label' },
-      /** Sets an aria-label on the clear button to assist screen reader users. Indicates that activating the button will clear the selected value. */
-      accessibleLabelClearButton: { type: String, attribute: 'accessible-label-clear-button' },
-      /**
+     /**
        * Determines whether the browser can provide assistance in filling out the select value and what type of information is expected.
        *
        * [Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)
@@ -183,8 +181,6 @@ static get styles() {
       readonly: { type: Boolean },
       /** Indicates a selection is required. */
       required: { type: Boolean },
-      /** Displays a clear button in the select field when it contains a value and is focused or hovered. Clears the selected value when activated. */
-      showClearButton: { type: Boolean, attribute: 'show-clear-button' },
       /** Adds a visual indicator next to the label. Indicates that a selection is optional (by default) or required if the `required` property is also set. */
       showIndicator: { type: Boolean, attribute: 'show-indicator' },
       /** Sets the size of the select. */
@@ -192,7 +188,7 @@ static get styles() {
       /** Sets the value of the select. Corresponds to the `value` property of the selected option. */
       value: { type: String },
       /** Sets the list of options to display in the dropdown menu. Accepts an array of flat options or grouped options. See documentation for the expected data format. */
-      options: { type: Array },
+      options: { type: Array, attribute: false },
       /** Activates a built-in dataset. */
       preset: { type: String },
       /** Prevents the dropdown menu from automatically flipping its position when there is insufficient viewport space. */
@@ -665,9 +661,11 @@ static get styles() {
         )}
         ?disabled=${this.disabled}
         ?required=${this.required}
+        ?show-indicator=${this.showIndicator}
         ?invalid=${this.invalid}
         size=${this.size}
         label=${ifDefined(this.label === '' ? null : this.label)}
+        ?readonly=${this.readonly}
         helper-text=${ifDefined(this.helperText === '' ? null : this.helperText)}
         error-text=${ifDefined(this.errorText === '' ? null : this.errorText)}
         .value=${ifDefined(

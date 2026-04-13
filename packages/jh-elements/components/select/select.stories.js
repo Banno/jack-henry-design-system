@@ -54,7 +54,6 @@ const storyStyles = css`
 
 const disableControls = {
   'accessible-label': { control: { disable: true } },
-  'accessible-label-clear-button': { control: { disable: true } },
   autocomplete: { control: { disable: true } },
   disabled: { control: { disable: true } },
   'error-text': { control: { disable: true } },
@@ -68,7 +67,6 @@ const disableControls = {
   preset: { control: { disable: true } },
   readonly: { control: { disable: true } },
   required: { control: { disable: true } },
-  'show-clear-button': { control: { disable: true } },
   'show-indicator': { control: { disable: true } },
   size: { control: { disable: true } },
   'flip-disabled': { control: { disable: true } },
@@ -84,7 +82,6 @@ export default {
   },
   argTypes: {
     'accessible-label': { control: 'text' },
-    'accessible-label-clear-button': { control: 'text' },
     autocomplete: { control: 'text' },
     disabled: { control: 'boolean' },
     'error-text': { control: 'text' },
@@ -104,7 +101,6 @@ export default {
     },
     readonly: { control: 'boolean' },
     required: { control: 'boolean' },
-    'show-clear-button': { control: 'boolean' },
     'show-indicator': { control: 'boolean' },
     size: {
       control: 'select',
@@ -125,7 +121,6 @@ Overview.argTypes = {
 export const Playground = { render: (args) => html`
   <jh-select
     accessible-label=${ifDefined(args['accessible-label'] === '' ? null : args['accessible-label'])}
-    accessible-label-clear-button=${ifDefined(args['accessible-label-clear-button'] === '' ? null : args['accessible-label-clear-button'])}
     autocomplete=${ifDefined(args.autocomplete === '' ? null : args.autocomplete)}
     ?disabled=${args.disabled}
     error-text=${ifDefined(args['error-text'] === '' ? null : args['error-text'])}
@@ -138,7 +133,6 @@ export const Playground = { render: (args) => html`
     menu-position=${args['menu-position']}
     ?readonly=${args.readonly}
     ?required=${args.required}
-    ?show-clear-button=${args['show-clear-button']}
     ?show-indicator=${args['show-indicator']}
     size=${args.size}
     ?flip-disabled=${args['flip-disabled']}

@@ -74,7 +74,7 @@ import { JhElement } from '@jack-henry/jh-elements/components/jh-element/jh-elem
 
 class MyExtendedComponent extends JhElement { 
   ...
-  #handleChange(e) {
+  #handleChange() {
     let additionalDetails = {
       // add additional properties to existing categories
       state: {
@@ -86,7 +86,7 @@ class MyExtendedComponent extends JhElement {
       }
     }
     // call event dispatcher
-    this.dispatchCustomEvent('my-event', e, additionalDetails);
+    this.dispatchCustomEvent('my-event', additionalDetails);
   }
   
   render() {

@@ -153,11 +153,10 @@ export class JhInput extends LitElement {
         margin-top: var(--jh-dimension-200);
       }
 
-      /* Flex wrapper (replaces absolute positioning) */
+      /* Flex wrapper */
       .input-wrapper {
         display: flex;
         align-items: center;
-        /* gap: var(--jh-dimension-200); */
         background-color: var(
           --jh-input-field-color-background,
           var(--jh-color-container-primary-enabled)
@@ -177,7 +176,7 @@ export class JhInput extends LitElement {
         width: 100%;
       }
 
-      /* Sizes on wrapper */
+      /* Sizes on input wrapper */
       :host([size='small']) .input-wrapper {
         height: var(--jh-dimension-1000);
       }
@@ -236,7 +235,7 @@ export class JhInput extends LitElement {
         align-items: center;
       }
 
-      /* Input/wrapper states */
+      /* States on input wrapper */
       .input-wrapper:active {
         border-color: var(
           --jh-input-field-color-border-active,
@@ -531,7 +530,7 @@ export class JhInput extends LitElement {
   }
 
   #checkSlotContent(slot) {
-    // Slotted elements
+    // Slotted and fallback elements
     const slottedElements = slot.assignedElements({ flatten: true });
     if (slottedElements.length > 0) {
         return true;

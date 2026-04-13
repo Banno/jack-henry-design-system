@@ -535,7 +535,11 @@ export class JhCheckbox extends JhElement {
     this.checked = e.target.checked;
     this.indeterminate = false;
     this.#updateFormValue(this.value, this.checked, this.indeterminate);
-    this.dispatchCustomEvent('jh-change');
+    this.dispatchCustomEvent('jh-change', {
+      state: {
+        checked: this.checked,
+      },
+    });
   }
 
   render() {

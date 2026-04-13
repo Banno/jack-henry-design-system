@@ -1132,18 +1132,14 @@ export class JhInput extends LitElement {
   renderLeftSlot() {
     if (this.hideLeftSlot) return null;
     return html`
-        <slot name="jh-input-left" @slotchange=${this._handleSlotChange}>
-          <jh-icon-circle-xmark slot="jh-input-left" aria-hidden="true" size="medium"></jh-icon-circle-xmark>
-        </slot>
+        <slot name="jh-input-left" @slotchange=${this._handleSlotChange}></slot>
     `;
   }
    
   renderRightSlot() {
     if (this.hideRightSlot) return null;
     return html`
-        <slot name="jh-input-right" @slotchange=${this._handleSlotChange}>
-          <jh-icon-circle-xmark slot="jh-input-right" aria-hidden="true" size="medium"></jh-icon-circle-xmark>
-        </slot>
+        <slot name="jh-input-right" @slotchange=${this._handleSlotChange}></slot>
     `;
   }
 

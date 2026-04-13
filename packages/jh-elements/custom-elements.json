@@ -1380,13 +1380,14 @@
         },
         {
           "name": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
           "name": "inputmode",
           "description": "Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.\n\n[Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)",
-          "type": "?string"
+          "type": "?string",
+          "default": "\"email\""
         },
         {
           "name": "invalid",
@@ -1517,14 +1518,15 @@
         {
           "name": "inputMask",
           "attribute": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
           "name": "inputmode",
           "attribute": "inputmode",
           "description": "Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.\n\n[Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)",
-          "type": "?string"
+          "type": "?string",
+          "default": "\"email\""
         },
         {
           "name": "invalid",
@@ -1839,7 +1841,7 @@
         },
         {
           "name": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -1995,7 +1997,7 @@
         {
           "name": "inputMask",
           "attribute": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -2310,7 +2312,7 @@
         },
         {
           "name": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -2447,7 +2449,7 @@
         {
           "name": "inputMask",
           "attribute": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -2754,7 +2756,7 @@
         },
         {
           "name": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -2891,7 +2893,7 @@
         {
           "name": "inputMask",
           "attribute": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -3223,7 +3225,7 @@
         },
         {
           "name": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -3391,7 +3393,7 @@
         {
           "name": "inputMask",
           "attribute": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -3702,7 +3704,7 @@
         },
         {
           "name": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -3839,7 +3841,7 @@
         {
           "name": "inputMask",
           "attribute": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -4145,7 +4147,7 @@
         },
         {
           "name": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -4282,7 +4284,7 @@
         {
           "name": "inputMask",
           "attribute": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -5247,6 +5249,12 @@
           "type": "?string"
         },
         {
+          "name": "disabled",
+          "description": "Disables the radio group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
+          "type": "?Boolean",
+          "default": "false"
+        },
+        {
           "name": "error-text",
           "description": "Text to be displayed when radio group has failed validation and `invalid` is true.",
           "type": "?string"
@@ -5259,7 +5267,7 @@
         {
           "name": "invalid",
           "description": "Sets an `aria-invalid` on the radio group to indicate the value supplied was invalid and displays `error-text` when set.",
-          "type": "?Boolean",
+          "type": "?boolean",
           "default": "false"
         },
         {
@@ -5275,7 +5283,7 @@
         {
           "name": "required",
           "description": "Indicates a value is required.",
-          "type": "?Boolean",
+          "type": "?boolean",
           "default": "false"
         },
         {
@@ -5309,6 +5317,13 @@
           "type": "?string"
         },
         {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "Disables the radio group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
+          "type": "?Boolean",
+          "default": "false"
+        },
+        {
           "name": "errorText",
           "attribute": "error-text",
           "description": "Text to be displayed when radio group has failed validation and `invalid` is true.",
@@ -5324,7 +5339,7 @@
           "name": "invalid",
           "attribute": "invalid",
           "description": "Sets an `aria-invalid` on the radio group to indicate the value supplied was invalid and displays `error-text` when set.",
-          "type": "?Boolean",
+          "type": "?boolean",
           "default": "false"
         },
         {
@@ -5343,7 +5358,7 @@
           "name": "required",
           "attribute": "required",
           "description": "Indicates a value is required.",
-          "type": "?Boolean",
+          "type": "?boolean",
           "default": "false"
         },
         {
@@ -5399,6 +5414,10 @@
         {
           "name": "--jh-radio-group-error-color-text",
           "description": "The error-text text color. \nDefaults to `--jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-radio-group-opacity-disabled",
+          "description": "The opacity of the radio group when disabled. Defaults to `--jh-opacity-disabled`."
         }
       ]
     },
@@ -6844,11 +6863,6 @@
           "default": "false"
         },
         {
-          "name": "label",
-          "description": "Provides information about the item which triggered the tooltip.",
-          "type": "?string"
-        },
-        {
           "name": "open",
           "description": "Determines whether the tooltip is open or closed. Can be set on the tooltip to force it open.",
           "type": "?Boolean",
@@ -6870,12 +6884,6 @@
           "default": "false"
         },
         {
-          "name": "label",
-          "attribute": "label",
-          "description": "Provides information about the item which triggered the tooltip.",
-          "type": "?string"
-        },
-        {
           "name": "open",
           "attribute": "open",
           "description": "Determines whether the tooltip is open or closed. Can be set on the tooltip to force it open.",
@@ -6894,6 +6902,10 @@
         {
           "name": "default",
           "description": "Use to insert the element that triggers the tooltip."
+        },
+        {
+          "name": "jh-tooltip-content",
+          "description": "Use to insert the content of the tooltip."
         }
       ],
       "cssProperties": [

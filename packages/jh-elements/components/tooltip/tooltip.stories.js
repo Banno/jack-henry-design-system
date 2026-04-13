@@ -39,7 +39,6 @@ const storyStyles = css`
 `;
 
 const disabledControls = {
-  label: { control: { disable: true } },
   position: { control: { disable: true } },
   open: { control: { disable: true } },
   'flip-disabled': { control: { disable: true } },
@@ -62,11 +61,6 @@ export default {
         'bottom-end',
       ],
     },
-    label: {
-      control: {
-        type: 'text',
-      },
-    },
     open: {
       control: {
         type: 'boolean',
@@ -84,54 +78,62 @@ export const Overview = {
   render: (args) =>
     html`<div class="overview">
       <div>
-        <jh-tooltip label="top-start" position="top-start"
-          ><jh-button icon-position="before" accessible-label="view more"
+        <jh-tooltip position="top-start">
+          <span slot="jh-tooltip-content">top-start</span>
+          <jh-button icon-position="before" accessible-label="view more"
             ><jh-icon-ellipsis
               slot="jh-button-icon"
             ></jh-icon-ellipsis></jh-button
         ></jh-tooltip>
-        <jh-tooltip label="top-center" position="top-center"
-          ><jh-button icon-position="before" accessible-label="view more"
+        <jh-tooltip position="top-center">
+          <span slot="jh-tooltip-content">top-center</span>
+          <jh-button icon-position="before" accessible-label="view more"
             ><jh-icon-ellipsis
               slot="jh-button-icon"
             ></jh-icon-ellipsis></jh-button
         ></jh-tooltip>
-        <jh-tooltip label="top-end" position="top-end"
-          ><jh-button icon-position="before" accessible-label="view more"
+        <jh-tooltip position="top-end">
+          <span slot="jh-tooltip-content">top-end</span>
+          <jh-button icon-position="before" accessible-label="view more"
             ><jh-icon-ellipsis
               slot="jh-button-icon"
             ></jh-icon-ellipsis></jh-button
         ></jh-tooltip>
       </div>
       <div class="overviewSides">
-        <jh-tooltip label="left" position="left"
-          ><jh-button icon-position="before" accessible-label="view more"
+        <jh-tooltip position="left">
+          <span slot="jh-tooltip-content">left</span>
+          <jh-button icon-position="before" accessible-label="view more"
             ><jh-icon-ellipsis
               slot="jh-button-icon"
             ></jh-icon-ellipsis></jh-button
         ></jh-tooltip>
-        <jh-tooltip label="right" position="right"
-          ><jh-button icon-position="before" accessible-label="view more"
+        <jh-tooltip position="right">
+          <span slot="jh-tooltip-content">right</span>
+          <jh-button icon-position="before" accessible-label="view more"
             ><jh-icon-ellipsis
               slot="jh-button-icon"
             ></jh-icon-ellipsis></jh-button
         ></jh-tooltip>
       </div>
       <div>
-        <jh-tooltip label="bottom-start" position="bottom-start"
-          ><jh-button icon-position="before" accessible-label="view more"
+        <jh-tooltip position="bottom-start">
+          <span slot="jh-tooltip-content">bottom-start</span>
+          <jh-button icon-position="before" accessible-label="view more"
             ><jh-icon-ellipsis
               slot="jh-button-icon"
             ></jh-icon-ellipsis></jh-button
         ></jh-tooltip>
-        <jh-tooltip label="bottom-center" position="bottom-center"
-          ><jh-button icon-position="before" accessible-label="view more"
+        <jh-tooltip position="bottom-center">
+          <span slot="jh-tooltip-content">bottom-center</span>
+          <jh-button icon-position="before" accessible-label="view more"
             ><jh-icon-ellipsis
               slot="jh-button-icon"
             ></jh-icon-ellipsis></jh-button
         ></jh-tooltip>
-        <jh-tooltip label="bottom-end" position="bottom-end"
-          ><jh-button icon-position="before" accessible-label="view more"
+        <jh-tooltip position="bottom-end">
+          <span slot="jh-tooltip-content">bottom-end</span>
+          <jh-button icon-position="before" accessible-label="view more"
             ><jh-icon-ellipsis
               slot="jh-button-icon"
             ></jh-icon-ellipsis></jh-button
@@ -150,17 +152,16 @@ export const Playground = {
   render: (args) =>
     html` <div class="center">
       <jh-tooltip
-        label=${args.label}
         position=${args.position}
         ?open=${args.open}
-        ?flip-disabled=${args['flip-disabled']}
-        ><jh-button label="Modify me!"></jh-button
-      ></jh-tooltip>
+        ?flip-disabled=${args['flip-disabled']}>
+        <jh-button label="Modify me!"></jh-button>
+        <div slot="jh-tooltip-content">I am a tooltip with a long text that will wrap to the next line at 160px</div>
+      </jh-tooltip>
     </div>`,
 };
 
 Playground.args = {
-  label: 'Tooltip',
   position: 'top-center',
   open: false,
   'flip-disabled': false,
@@ -173,8 +174,9 @@ Playground.parameters = {
 export const Default = {
   render: (args) =>
     html` <div class="center">
-      <jh-tooltip label="top-center" position="top-center"
-        ><jh-button label="Default"></jh-button
+      <jh-tooltip position="top-center">
+        <span slot="jh-tooltip-content">top-center</span>
+        <jh-button label="Default"></jh-button
       ></jh-tooltip>
     </div>`,
 };
@@ -190,10 +192,10 @@ export const ManuallyOpen = {
   render: (args) =>
     html` <div class="center">
       <jh-tooltip
-        label="Open Tooltip"
         position=${args.position}
-        ?open=${args.open}
-        ><jh-button label="Open"></jh-button
+        ?open=${args.open}>
+        <span slot="jh-tooltip-content">Open Tooltip</span>
+        <jh-button label="Open"></jh-button
       ></jh-tooltip>
     </div>`,
 };
@@ -205,7 +207,6 @@ ManuallyOpen.parameters = {
   styles: storyStyles,
 };
 ManuallyOpen.argTypes = {
-  label: { table: { disable: true } },
   'flip-disabled': { table: { disable: true } },
 };
 
@@ -213,16 +214,13 @@ export const FlippingTooltip = {
   render: (args) =>
     html`
       <div class="flipping-tooltip">
-        <jh-tooltip
-          label="I am a default tooltip that flips"
-          position=${args.position}
-          ><jh-button label="Flip"></jh-button
+        <jh-tooltip position=${args.position}>
+          <span slot="jh-tooltip-content">I am a default tooltip that flips</span>
+          <jh-button label="Flip"></jh-button
         ></jh-tooltip>
-        <jh-tooltip
-          label="I am a tooltip that doesn't flip"
-          position=${args.position}
-          flip-disabled
-          ><jh-button label="No Flip"></jh-button
+        <jh-tooltip position=${args.position} flip-disabled>
+          <span slot="jh-tooltip-content">I am a tooltip that doesn't flip</span>
+          <jh-button label="No Flip"></jh-button
         ></jh-tooltip>
       </div>
     `,
@@ -235,7 +233,6 @@ FlippingTooltip.parameters = {
   styles: storyStyles,
 };
 FlippingTooltip.argTypes = {
-  label: { table: { disable: true } },
   open: { table: { disable: true } },
   'flip-disabled': { table: { disable: true } },
 };

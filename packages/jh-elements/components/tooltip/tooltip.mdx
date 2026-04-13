@@ -27,11 +27,12 @@ Import the `<jh-tooltip>` component:
 import '@jack-henry/jh-elements/components/tooltip/tooltip.js';
 ```
 
-To use `<jh-tooltip>`, place the originating element in the component's default slot.
+To use `<jh-tooltip>`, place the originating element in the component's default slot and the tooltip content in the `jh-tooltip-content` slot.
 
 ```html
-<jh-tooltip position="top-center" label="Tooltip">
+<jh-tooltip position="top-center">
   <button>Button</button>
+  <span slot="jh-tooltip-content">Tooltip</span>
 </jh-tooltip>
 ```
 

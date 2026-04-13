@@ -98,13 +98,10 @@ Overview.parameters = {
   styles: storyStyles,
 };
 
-function handleChange(e) { console.log('Checkbox change event: ', e.detail.form); };
-
 export const Playground = {
   render: (args) => html`
     <div style="width: 200px;">
       <jh-checkbox
-        @jh-change=${handleChange}
         label=${args.label}
         helper-text=${args['helper-text']}
         name=${args.name}
@@ -179,7 +176,7 @@ export const FormAssociated = {
   render: (args) => {
     const onClick = (event) => event.target.reset();
     return html`
-      <form @submit=${submitAction()}>
+      <form @submit=${submitAction()} name="demo-form">
         <jh-checkbox
           name=${args.name}
           ?checked=${args.checked}
@@ -208,8 +205,8 @@ function submitAction() {
 }
 
 FormAssociated.args = {
-  name: 'Demo checkbox',
-  value: 'Demo value',
+  name: 'Demo checkbox name',
+  value: 'Demo checkbox value',
   checked: false,
   indeterminate: false,
   label: 'Label',

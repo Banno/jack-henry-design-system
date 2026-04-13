@@ -53,7 +53,7 @@ import { JhElement } from '../element/element.js';
  * @cssprop --jh-checkbox-input-color-border-indeterminate-disabled - The checkbox border-color when indeterminate and disabled. Defaults to `--jh-color-content-brand-enabled`.
  * @cssprop --jh-checkbox-status-color-border-indeterminate-disabled - The checkbox color when indeterminate status mark when disabled. Defaults to `--jh-color-content-on-brand-enabled`.
  *
- * @event jh-change - Dispatched when the state of the checkbox has changed.
+ * @event jh-change - Dispatched when the state of the checkbox has changed. Event payload includes the `checked` state of the checkbox and can be accessed via `e.detail.state.checked`.
  *
  * @customElement jh-checkbox
  */

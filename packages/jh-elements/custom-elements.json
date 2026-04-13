@@ -1057,7 +1057,7 @@
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the state of the checkbox has changed."
+          "description": "Dispatched when the state of the checkbox has changed. Event payload includes the `checked` state of the checkbox and can be accessed via `e.detail.state.checked`."
         }
       ],
       "cssProperties": [
@@ -5298,7 +5298,7 @@
         {
           "name": "disabled",
           "description": "Disables the radio group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
-          "type": "?Boolean",
+          "type": "boolean",
           "default": "false"
         },
         {
@@ -5367,7 +5367,7 @@
           "name": "disabled",
           "attribute": "disabled",
           "description": "Disables the radio group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
-          "type": "?Boolean",
+          "type": "boolean",
           "default": "false"
         },
         {

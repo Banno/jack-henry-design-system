@@ -58,7 +58,6 @@ import { JhElement } from '../element/element.js';
  * @customElement jh-checkbox
  */
 export class JhCheckbox extends JhElement {
-  // temp until handled by validation mixin
   static get formAssociated() {
     return true;
   }
@@ -471,12 +470,6 @@ export class JhCheckbox extends JhElement {
     this.accessibleLabel = null;
   }
 
-  // added for testing purposes to verify element internals are accessible in checkbox component
-  connectedCallback() {
-    super.connectedCallback();
-    console.log('checkbox internals', this.internals);
-  }
-
   /**
    * Returns the checkbox's parent form element.
    * @type {?HTMLFormElement}
@@ -542,13 +535,7 @@ export class JhCheckbox extends JhElement {
     this.checked = e.target.checked;
     this.indeterminate = false;
     this.#updateFormValue(this.value, this.checked, this.indeterminate);
-    // const options = {
-    //   bubbles: true,
-    //   composed: true,
-    //   cancelable: true,
-    // };
-    // this.dispatchEvent(new CustomEvent('jh-change', options));
-    this.dispatchCustomEvent('jh-change', e);
+    this.dispatchCustomEvent('jh-change');
   }
 
   render() {
@@ -595,5 +582,4 @@ export class JhCheckbox extends JhElement {
     `;
   }
 }
-
 JhCheckbox.register('jh-checkbox', JhCheckbox);

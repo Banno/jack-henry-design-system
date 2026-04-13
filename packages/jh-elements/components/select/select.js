@@ -75,6 +75,10 @@ export class JhSelect extends LitElement {
   /** @type {(e: Event) => void} */
   #boundDocumentScroll;
 
+  get #nativeInput() {
+    return this.shadowRoot.querySelector('jh-input').shadowRoot.querySelector('input');
+  }
+
 static get styles() {
   return css`
     :host {
@@ -118,19 +122,11 @@ static get styles() {
       visibility: visible;
       opacity: 1;
     }
-    :host([menu-position="bottom"]) .menu-container {
-      top: 100%;
-    }
-    :host([menu-position="top"]) .menu-container {
-      bottom: 100%;
-    }
     jh-menu {
     max-height: var(--jh-select-menu-size-max-height, 480px);
     overflow: auto;
     overscroll-behavior: contain;
-   
     }
-
     jh-list-group > jh-list-item {
       --jh-list-item-space-padding-left: var(--jh-dimension-800);
     }
@@ -155,26 +151,51 @@ static get styles() {
 
   static get properties() {
     return {
+      /** Sets an `aria-label` on the select to assist screen reader users when no visible label is present. */
       accessibleLabel: { type: String, attribute: 'accessible-label' },
+      /** Sets an aria-label on the clear button to assist screen reader users. Indicates that activating the button will clear the selected value. */
       accessibleLabelClearButton: { type: String, attribute: 'accessible-label-clear-button' },
+      /**
+       * Determines whether the browser can provide assistance in filling out the select value and what type of information is expected.
+       *
+       * [Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)
+       */
       autocomplete: { type: String },
+      /** Disables the select and prevents all user interactions. May cause the select to be ignored by assistive technologies (AT). */
       disabled: { type: Boolean },
+      /** Text to be displayed when select has failed validation and `invalid` is true. */
       errorText: { type: String, attribute: 'error-text' },
+      /** Provides additional context or guidance for using the select. For `helper-text` to be displayed, the `label` property must also be set. */
       helperText: { type: String, attribute: 'helper-text' },
+      /** Hides the left slot from the select input. */
       hideLeftSlot: { type: Boolean, attribute: 'hide-left-slot' },
+      /** Hides the right slot from the select input. */
       hideRightSlot: { type: Boolean, attribute: 'hide-right-slot' },
+      /** Sets an `aria-invalid` attribute on the select to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set. */
       invalid: { type: Boolean },
+      /** Identifies what data should be selected from the dropdown. */
       label: { type: String },
+      /** Sets a name for the select control. Used to identify the selected value in form submissions. */
       name: { type: String },
+      /** Sets the position of the dropdown menu relative to the input field. The menu automatically flips when there is insufficient space unless `flip-disabled` is set. */
       menuPosition: { type: String, reflect: true, attribute: 'menu-position' },
+      /** Prevents users from changing the selected value. Removes all slotted content. */
       readonly: { type: Boolean },
+      /** Indicates a selection is required. */
       required: { type: Boolean },
+      /** Displays a clear button in the select field when it contains a value and is focused or hovered. Clears the selected value when activated. */
       showClearButton: { type: Boolean, attribute: 'show-clear-button' },
+      /** Adds a visual indicator next to the label. Indicates that a selection is optional (by default) or required if the `required` property is also set. */
       showIndicator: { type: Boolean, attribute: 'show-indicator' },
+      /** Sets the size of the select. */
       size: { type: String, reflect: true },
+      /** Sets the value of the select. Corresponds to the `value` property of the selected option. */
       value: { type: String },
+      /** Sets the list of options to display in the dropdown menu. Accepts an array of flat options or grouped options. See documentation for the expected data format. */
       options: { type: Array },
+      /** Activates a built-in dataset. */
       preset: { type: String },
+      /** Prevents the dropdown menu from automatically flipping its position when there is insufficient viewport space. */
       flipDisabled: { type: Boolean, attribute: 'flip-disabled' },
     };
   }
@@ -285,10 +306,6 @@ static get styles() {
       }
     }
   }
-  //calls flipMenu whenever the menu is updated, including manually opened with 'open' property.
-  updated() {
-    if (this.#open) this.#flipMenu();
-  }
 
   #getIndexFromId(elementId) {
     const parts = elementId?.split('-');
@@ -333,6 +350,7 @@ static get styles() {
   }
 
   #handleOpenSelect() {
+     this.#flipMenu();
      this.#open = true;
      document.addEventListener('click', this.#boundDocumentClick, true);
       // Delay adding scroll listener so the menu's own layout change doesn't trigger it
@@ -350,6 +368,9 @@ static get styles() {
   }
   #handleCloseSelect() {
     this.#open = false;
+    const menuContainer = this.shadowRoot.querySelector('.menu-container');
+    menuContainer.style.top = '';
+    menuContainer.style.bottom = '';
     document.removeEventListener('click', this.#boundDocumentClick, true);
     document.removeEventListener('scroll', this.#boundDocumentScroll, true);
     this.#activeIndex = null;
@@ -448,12 +469,11 @@ static get styles() {
       this.#activeIndex,
       'label'
     );
-    console.log('matchIndex', matchIndex, 'buffer', this.#buffer);
+
     if (matchIndex === -1) {
       this.#buffer = e.key; // if nothing is found, start new search with the latest character
     }
     else if (matchIndex !== -1) {
-      // if (!this.#open) this.#handleOpenSelect(); Can get the type aheade even without opening.
       this.#setActiveItem(matchIndex);
       this.#handleSelection(matchIndex);
     }
@@ -489,49 +509,74 @@ static get styles() {
     this.#internals.setFormValue(this.value);
     this.requestUpdate();
     this.#scrollToActiveItem();
+
+    //dispatch a jh-change event when the selected value changes.
+    const options = {
+      bubbles: true,
+      composed: true,
+      cancelable: true,
+    };
+    this.dispatchEvent(new CustomEvent('jh-change', options));
   }
 
   //method to flip the menu if it is not fully visible on the viewport
-  #flipMenu() {
-    //get current position from attribute on hover 
-    const currentPosition = this.getAttribute('menu-position');
-    console.log('currentPosition', currentPosition);
+  #flipMenu() { 
+    const currentPosition = this.menuPosition;
+
     //check if current position is a valid position otherwise make it fail.
     if (!['top', 'bottom'].includes(currentPosition)) return;
     
-    if (this.flipDisabled === false) {
+    if (this.flipDisabled) {
+        this.#setMenuAnchor(currentPosition);
+        return;
+    }
 
       //get an array of the available positions
       const availablePositions = this.#getValidPositions();
-      console.log('availablePositions', availablePositions);
-      //check if position selected by developer is available
-      const currentPositionAvailable = (position) =>
-        currentPosition === position;
 
-      //set the position attribute if the position selected by developer is valid but not available.
-        if (!availablePositions.some(currentPositionAvailable)) {
-          const newPosition =
-            availablePositions[0];
-          console.log('newPosition', newPosition);
-          this.setAttribute('menu-position', newPosition);
-        }
-      }
+      //if only 1 position is available, set the menu anchor to that position.
+      const newPosition = availablePositions.length === 1 ? availablePositions[0] : currentPosition;
+      this.#setMenuAnchor(newPosition);
     }
+
+  #setMenuAnchor(position) {
+    const menuContainer = this.shadowRoot.querySelector('.menu-container');
+    const hostRect = this.getBoundingClientRect();
+    const inputRect = this.#nativeInput.getBoundingClientRect();
+
+    // Convert viewport coordinates to host-relative coordinates
+    const inputTopRelative = inputRect.top - hostRect.top;
+    const inputBottomRelative = inputRect.bottom - hostRect.top;
+
+    menuContainer.style.top = '';
+    menuContainer.style.bottom = '';
+
+    if (position === 'bottom') {
+      // Menu opens right below the native input
+      menuContainer.style.top = `${inputBottomRelative}px`;
+    } else if (position === 'top') {
+      // Menu opens right above the native input
+      // bottom is relative to the bottom of :host
+      const inputTopFromHostBottom = hostRect.height - inputTopRelative;
+      menuContainer.style.bottom = `${inputTopFromHostBottom}px`;
+    }
+  }
 
   //method to check if the menu is fully visible on the screen
   #getValidPositions() {
-    const { menuHeight } =
-      this.#getDimensions();
+    const { menuHeight } = this.#getDimensions();
 
     const { elemTop, elemBottom } = this.#getCoordinates();
 
-    //Returns false if menu with position top (start/center/end) is out of the screen on the top
+    const elemFromBottom = window.innerHeight - elemBottom;
+
+    //Returns false if menu with position top is out of the screen on the top
     const topOutTop = elemTop - menuHeight > 0;
 
-    //Returns false if menu with position bottom (start/center/end) is out of the screen on the bottom
-    const bottomOutBottom = elemBottom - menuHeight > 0;
+    //Returns false if menu with position bottom is out of the screen on the bottom
+    const bottomOutBottom = elemFromBottom - menuHeight > 0;
 
-    //returns true if the 3 conditions are met. Means the tooltip is fully visible on the screen in that position.
+    //returns true if the condition is met.
     const allPositions = {
       'top': topOutTop,
       'bottom': bottomOutBottom,
@@ -551,15 +596,15 @@ static get styles() {
       menuHeight: this.shadowRoot
         .querySelector('jh-menu')
         .getBoundingClientRect().height,
-      elemHeight: this.shadowRoot.querySelector('jh-input').getBoundingClientRect().height,
     };
   }
 
-  //get the coordinates of the 4 edges of the originating element
+  //get the coordinates of the top and bottom edge of the native input.
   #getCoordinates() {
-    return {
-      elemTop: this.shadowRoot.querySelector('jh-input').getBoundingClientRect().top,
-      elemBottom: window.innerHeight - this.shadowRoot.querySelector('jh-input').getBoundingClientRect().bottom,
+    const inputRect = this.#nativeInput.getBoundingClientRect();
+   return {
+      elemTop: inputRect.top,
+      elemBottom: inputRect.bottom,
     };
   }
 
@@ -621,8 +666,10 @@ static get styles() {
         ?disabled=${this.disabled}
         ?required=${this.required}
         ?invalid=${this.invalid}
+        size=${this.size}
         label=${ifDefined(this.label === '' ? null : this.label)}
         helper-text=${ifDefined(this.helperText === '' ? null : this.helperText)}
+        error-text=${ifDefined(this.errorText === '' ? null : this.errorText)}
         .value=${ifDefined(
           this.#displayValue ? this.#displayValue : this.value
         )}

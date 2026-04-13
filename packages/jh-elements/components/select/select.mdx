@@ -10,11 +10,12 @@ import * as stories from './select.stories.js';
 
 # Select
 
-[Guidelines](https://jackhenry.design/pages/components/select/)
+[Guidelines](https://jackhenry.design/v2/components/select/)
 
 <hr />
 
-*Introduce the component*
+The select component is a form component that allows users to choose a single option from a predefined list. 
+It combines a specialized input field with a popover menu and supports flat options and grouped options.
 
 ## Usage
 
@@ -24,45 +25,135 @@ Import the `<jh-select>` component:
 import '@jack-henry/jh-elements/components/select/select.js';
 ```
 
-To use `<jh-select>`: *can include details about slot or anything relevant. Keep this short as it is just a code snippet to get the author started.* 
+To use `<jh-select>`:
 
 ```html
-//code snippet goes here
+<jh-select label="Account type" helper-text="Choose an account"></jh-select>
 ```
 
-## Unique Details
-*Identify anything the author needs to know about this component. This can be broken out per section as needed. Ex. Behaviors, Layouts, Interactivity etc.*
+Options can be provided via Javascript using the `options` data object, or by leveraging a preset dataset using the `preset` attribute:
+
+```html
+<!-- Using a preset dataset -->
+<jh-select label="US States" preset="us-states-flat"></jh-select>
+
+```
+
+## Dependencies
+
+The select component makes use of the following required compositional dependencies.
+
+1. Composition - the following required dependencies are automatically imported:
+
+- `<jh-input-XXX>`. [Input component documentation](/docs/components-input--docs).
+- `<jh-menu>`. [Menu component documentation](/docs/components-menu--docs).
+- `<jh-list-item>`. [List Item component documentation](/docs/components-list-item--docs).
+- `<jh-list-group>`. [List Group component documentation](/docs/components-list-group--docs).
+
+## Options Data Format
+
+Authors must provide the options as an array of objects. Each option object must include a `label` (display text) and a `value` (form value). 
+Options can optionally include `disabled` and `selected` flags.
+
+Flat options:
+
+```javascript
+const options = [
+  { label: "Basic Checking", value: "checking-01" },
+  { label: "High-Yield Savings", value: "savings-01", disabled: true },
+  { label: "Money Market", value: "money-market-01", selected: true },
+];
+```
+
+Grouped options use a `groupLabel` and `groupValues` structure:
+
+```javascript
+const options = [
+  { groupLabel: "Account types", groupValues: [
+    { label: "Basic Checking", value: "checking-01" },
+    { label: "High-Yield Savings", value: "savings-01" },
+  ]},
+  { label: "Personal Loan", value: "loan-personal" },
+];
+```
+
+## Preset Datasets
+
+The select component ships with some built-in datasets that can be activated via the `preset` attribute:
+
+- `us-states-flat` — A flat list of all US states and territories.
+- `us-states-grouped` — US states organized by region (Northeast, Midwest, South, West, Territories).
+- Additional datasets may be added in the future.
+
+For more control over preset data, use the `getPresetData` helper to customize initial selected values, disabled items, and empty labels:
+
+```javascript
+import { US_STATES_FLAT, getPresetData } from '@jack-henry/jh-elements/components/select/data-presets.js';
+
+const customizedData = getPresetData({
+  dataset: US_STATES_FLAT,
+  initialValue: null,
+  disabledItems: ['AK', 'HI'],
+  emptyLabel: 'Select a state...',
+});
+```
+
+## Type-Ahead functionality
+
+Typing character keys jumps to the first matching option. Pressing the same character repeatedly cycles through options that start with that character.
 
 ## Accessibility
 
-This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria. 
+This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria.
 The following success criteria are of concern:
 
-- *[WCAG 1.1.1 Non-text Content](https://www.w3.org/TR/WCAG22/#non-text-content): All non-text content that is presented to the user has a text alternative that serves the equivalent purpose.*
+- [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html): Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.
+- [WCAG 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html): Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element.
+- [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html): Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.
+- [WCAG 1.4.11 Non-text Contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html): The visual presentation of the following have a contrast ratio of at least 3:1 against adjacent color(s):
+  - User Interface Components: visual information required to identify user interface components and states, except for inactive components or where the appearance of the component is determined by the user agent and not modified by the author;
+  - Graphical Objects: parts of graphics required to understand the content, except when a particular presentation of graphics is essential to the information being conveyed.
+- [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html): All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes, except where the underlying function requires input that depends on the path of the user's movement and not just the endpoints.
+- [WCAG 2.4.6 Headings and Labels](https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html): Headings and labels describe topic or purpose.
+- [WCAG 2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html): Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.
+- [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html): The size of the target for pointer inputs is at least 24 by 24 CSS pixels, except where:
+  - Spacing: Undersized targets (those less than 24 by 24 CSS pixels) are positioned so that if a 24 CSS pixel diameter circle is centered on the bounding box of each, the circles do not intersect another target or the circle for another undersized target;
+  - Equivalent: The function can be achieved through a different control on the same page that meets this criterion;
+  - Inline: The target is in a sentence or its size is otherwise constrained by the line-height of non-target text;
+  - User agent control: The size of the target is determined by the user agent and is not modified by the author;
+  - Essential: A particular presentation of the target is essential or is legally required for the information being conveyed.
+- [WCAG 3.3.1 Error Identification](https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html): If an input error is automatically detected, the item that is in error is identified and the error is described to the user in text.
+- [WCAG 3.3.2 Labels or Instructions](https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html): Labels or instructions are provided when content requires user input.
+- [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value): For all user interface components (including but not limited to: form elements, links and components generated by scripts), the name and role can be programmatically determined; states, properties, and values that can be set by the user can be programmatically set; and notification of changes to these items is available to user agents, including assistive technologies.
 
 ### What we provide
 
-*Highlight built-in accessibility features and reference any WCAG guideline(s) it satisfies.*
+- To satisfy [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) and [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value), the select uses the `combobox` role with `aria-expanded`, `aria-haspopup`, `aria-controls`, and `aria-activedescendant` to communicate the relationship between the input and the listbox. Any `label`, `helper-text`, and `error-text` are associated with the input control by default.
+- To satisfy [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html), Select can be resized without assistive technology up to 200 percent without loss of content or functionality.
+- To satisfy [WCAG 1.4.11 Non-text Contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html) and [WCAG 2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html), interactive elements include focus styles and the active option receives a visible highlight.
+- To satisfy [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html), the select supports full keyboard navigation including arrow keys, Enter, Space, Escape, Tab, and type-ahead character matching.
+- To satisfy [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html), the target size for the input field is at least 24 by 24 pixels so users can easily activate the control.
+- To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value), list items use `role="option"` with `aria-selected` to communicate the selected state. Disabled options are marked with the `disabled` attribute.
 
 ### Author Guidance
 
-*Highlight accessibility considerations that authors need to take into account to effectively ensure the component can be made accessible. These are features that we have either not built-in or exposed for the author to use. Reference all WCAG guidelines that the features satisfy.*
+- To satisfy [WCAG 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html), when using the `required` property and `show-indicator` attribute, include instructions at the top of the form to explain required inputs are marked with a red asterisk.
+- To satisfy [WCAG 2.4.6 Headings and Labels](https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html) and [WCAG 3.3.2 Labels or Instructions](https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html), ensure the `label` property or the `accessible-label` attribute are descriptive.
+- To satisfy [WCAG 3.3.1 Error Identification](https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html), set the `invalid` attribute to indicate an error. Utilize the `error-text` attribute to provide feedback on a failed selection.
+- To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value), set the `accessible-label` attribute to generate an `aria-label` when a visible label cannot be used.
+
+### Keyboard Interaction
+
+- **Arrow Down / Arrow Up**: Opens the menu (when closed) or navigates through options (when open).
+- **Enter / Space**: Opens the menu (when closed) or selects the active option (when open).
+- **Escape**: Closes the menu without selecting.
+- **Tab**: Closes the menu and moves focus to the next focusable element.
 
 ## Component API
 
-*Include any special instructions for example:*
-
-For boolean attributes, true indicates that the attribute has been set without a value: `<jh-select add-relevant-boolean></jh-select>`. While false indicates the attribute does not exist in the DOM: `<jh-select></jh-select>`.
+For boolean attributes, true indicates that the attribute has been set without a value: `<jh-select disabled></jh-select>`. While false indicates the attribute does not exist in the DOM: `<jh-select></jh-select>`.
 
 <ArgTypes />
-
-## Unique Story #1
-
-*(Optional) Highlight unique details an author will need to know along with a story demonstration*
-
-## Unique Story #2
-
-*(Optional) Highlight unique details an author will need to know along with a story demonstration*
 
 ## Feedback
 

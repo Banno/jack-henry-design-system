@@ -5,6 +5,7 @@
 */
 
 import { html, css } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import './select.js';
 import { US_STATES_FLAT, US_STATES_GROUPED, getPresetData } from './data-presets.js';
@@ -52,8 +53,25 @@ const storyStyles = css`
 `;
 
 const disableControls = {
-  attribute: { control: { disable: true } },
-  'some-attribute': { control: { disable: true } },
+  'accessible-label': { control: { disable: true } },
+  'accessible-label-clear-button': { control: { disable: true } },
+  autocomplete: { control: { disable: true } },
+  disabled: { control: { disable: true } },
+  'error-text': { control: { disable: true } },
+  'helper-text': { control: { disable: true } },
+  'hide-left-slot': { control: { disable: true } },
+  'hide-right-slot': { control: { disable: true } },
+  invalid: { control: { disable: true } },
+  label: { control: { disable: true } },
+  name: { control: { disable: true } },
+  'menu-position': { control: { disable: true } },
+  preset: { control: { disable: true } },
+  readonly: { control: { disable: true } },
+  required: { control: { disable: true } },
+  'show-clear-button': { control: { disable: true } },
+  'show-indicator': { control: { disable: true } },
+  size: { control: { disable: true } },
+  'flip-disabled': { control: { disable: true } },
 }
 
 export default {
@@ -61,20 +79,38 @@ export default {
   title: 'Components/Select',
   parameters: {
     actions: {
-      handles: ['jh-event'],
+      handles: ['jh-change'],
     },
   },
   argTypes: {
+    'accessible-label': { control: 'text' },
+    'accessible-label-clear-button': { control: 'text' },
+    autocomplete: { control: 'text' },
+    disabled: { control: 'boolean' },
+    'error-text': { control: 'text' },
+    'helper-text': { control: 'text' },
+    'hide-left-slot': { control: 'boolean' },
+    'hide-right-slot': { control: 'boolean' },
+    invalid: { control: 'boolean' },
+    label: { control: 'text' },
+    name: { control: 'text' },
     'menu-position': {
       control: 'select',
-      options: [
-        'bottom',
-        'top',
-      ],
+      options: ['bottom', 'top'],
     },
-    'flip-disabled': {
-      control: 'boolean',
-    }
+    preset: {
+      control: 'select',
+      options: ['us-states-flat', 'us-states-grouped'],
+    },
+    readonly: { control: 'boolean' },
+    required: { control: 'boolean' },
+    'show-clear-button': { control: 'boolean' },
+    'show-indicator': { control: 'boolean' },
+    size: {
+      control: 'select',
+      options: ['small', 'medium', 'large'],
+    },
+    'flip-disabled': { control: 'boolean' },
   },
 };
 
@@ -86,16 +122,48 @@ Overview.argTypes = {
   ...disableControls,
 };
 
-export const Playground = { render: (args) => {
-  const el = document.createElement('jh-select');
-  el.options = testOptions;
-  el.setAttribute('menu-position', args['menu-position']);
-  if (args['flip-disabled']) el.setAttribute('flip-disabled', '');
-  return el;
-}};
+export const Playground = { render: (args) => html`
+  <jh-select
+    accessible-label=${ifDefined(args['accessible-label'] === '' ? null : args['accessible-label'])}
+    accessible-label-clear-button=${ifDefined(args['accessible-label-clear-button'] === '' ? null : args['accessible-label-clear-button'])}
+    autocomplete=${ifDefined(args.autocomplete === '' ? null : args.autocomplete)}
+    ?disabled=${args.disabled}
+    error-text=${ifDefined(args['error-text'] === '' ? null : args['error-text'])}
+    helper-text=${ifDefined(args['helper-text'] === '' ? null : args['helper-text'])}
+    ?hide-left-slot=${args['hide-left-slot']}
+    ?hide-right-slot=${args['hide-right-slot']}
+    ?invalid=${args.invalid}
+    label=${ifDefined(args.label === '' ? null : args.label)}
+    name=${ifDefined(args.name === '' ? null : args.name)}
+    menu-position=${args['menu-position']}
+    ?readonly=${args.readonly}
+    ?required=${args.required}
+    ?show-clear-button=${args['show-clear-button']}
+    ?show-indicator=${args['show-indicator']}
+    size=${args.size}
+    ?flip-disabled=${args['flip-disabled']}
+    .options=${testOptions}
+  ></jh-select>
+`};
 
 Playground.args = {
+  'accessible-label': null,
+  'accessible-label-clear-button': null,
+  autocomplete: null,
+  disabled: false,
+  'error-text': null,
+  'helper-text': null,
+  'hide-left-slot': false,
+  'hide-right-slot': false,
+  invalid: false,
+  label: 'Account',
+  name: null,
   'menu-position': 'bottom',
+  readonly: false,
+  required: false,
+  'show-clear-button': false,
+  'show-indicator': false,
+  size: 'medium',
   'flip-disabled': false,
 };
 
@@ -160,11 +228,11 @@ export const MenuFlip = { render: (args) => html`
   <div class="menu-flip-container">
     <div>
       <h3>Near the top — menu should open downward</h3>
-      <jh-select label="Top select" preset="us-states-flat" menu-position="top"></jh-select>
+      <jh-select label="Top select" preset="us-states-flat" helper-text="helper text" menu-position="top" invalid error-text="Error text"></jh-select>
     </div>
     <div>
       <h3>Near the bottom — menu should flip upward</h3>
-      <jh-select label="Bottom select" preset="us-states-flat" menu-position="bottom"></jh-select>
+      <jh-select label="Bottom select" helper-text="helper text" preset="us-states-flat"  invalid error-text="Error text" menu-position="bottom"></jh-select>
     </div>
   </div>
 `};

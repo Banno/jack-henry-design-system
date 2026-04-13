@@ -6,7 +6,7 @@ SPDX-License-Identifier: Apache-2.0
 
 import { Meta } from '@storybook/blocks';
 
-<Meta title="What's New/Migrating" tags={['new']} />
+<Meta title="What's New/Migrating" />
 <div className="toc-ignore">
 
 # Upgrading to V2
@@ -484,6 +484,9 @@ The label font family, weight, size and line height tokens have changed from `--
 The default width of `jh-switch` has been reduced from 56px to 48px. Users should audit existing implementations to ensure horizontal alignment and spacing remain consistent within their layouts.
 
 The label font family, weight, size and line height tokens have changed from `--jh-font-body-regular-1-...` to `--jh-font-body-medium-1-...` to ensure consistent styling across form controls.  
+
+### jh-tooltip
+The `label` property has been deprecated. Users should move label text content to the `jh-tooltip-content` slot. The typography tokens have changed from `--jh-font-helper-regular-...` to `--jh-font-helper-bold-...`.
 
 ## Migrating jh-icons
 

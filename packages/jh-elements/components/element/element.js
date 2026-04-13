@@ -39,8 +39,7 @@ export class JhElement extends LitElement {
     return this.#internals;
   }
 
-  // custom event dispatcher (TODO: add additional event properties)
-  dispatchCustomEvent(eventName, e, detail = {}) {
+  dispatchCustomEvent(eventName, detail = {}) {
     // gather base detail info
     let baseDetail = {
       form: {

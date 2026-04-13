@@ -53,26 +53,51 @@ The input component makes use of both required compositional and suggested conte
 When slotting jh-button(s) within the `jh-input-left` or `jh-input-right` slots, consider setting `appearance="tertiary"` and `size="small"` for consistent styles across the input component. 
 
 ## Input Mask
-Utilize the `input-mask` attribute to assist users in formatting input values. As a user inputs data into the input field, the data will be transformed to the specified format. Input masks consist of the following character types: 
+Utilize the `input-mask` attribute to assist users in formatting input values. As a user enters data into the input field, the value will be transformed to the specified format. 
 
-1. Meta characters: These characters restrict the type of keys a user can enter. The design system provides the following meta characters to simplify input masking:
-    - `9` : Represents numerical characters. 
-    - `a` : Represents alphabetical characters. 
-    - `*` : Represents alpha-numerical characters. 
+### Mask Syntax
 
-2. Fixed characters: These characters are automatically added to the input field as the user types and are removed when the surrounding characters are deleted. The input-mask manages the addition and removal of these fixed characters. If a user tries to delete a fixed character using 'Backspace', the previous meta character will be deleted. If a user tries to delete a fixed character using 'Delete', the next meta character will be deleted. If a user selects a fixed character to delete it, the fixed character will remain, and the caret will move in the direction of the keypress.
+Input masks consist of the following character types: 
 
-3. Escape Characters: These characters indicate that the following meta character should be treated as a fixed character. An escape character consists of two backslash characters (`\\`). 
+1. **Meta characters**: Restrict the type of data allowed. 
+    - `9` : Numerical characters only. 
+    - `a` : Alphabetical characters only. 
+    - `*` : Alpha-numerical characters. 
+
+2. **Fixed characters**: Insert non-masking symbols (e.g., `-`, `.`). These cannot be removed directly by the user. Attempts to do so via: 
+    - Backspace: Deletes the previous meta character.
+    - Delete: Deletes the next meta character.
+    - Selection: If a fixed character is selected and deleted, the character remains but the caret moves in the direction of the keypress.
+
+3. **Escape Characters**: Forces the following meta character to be treated as a fixed character. An escape character consists of two backslashes (`\\`). 
 
 For example, `input-mask:'+\\91 99999 99999'` would format the value `1234567890` and return `+91 12345 67890`. 
 
 <img src="/images/input-mask-example.png" alt="Infographic depicting meta, fixed, and escape characters within the input-mask +\\91 99999 99999, explained in the example above." />
 
-Note that input masking does not occur on paste events. This prevents the removal of characters without the user’s knowledge, which could lead to incorrect data being submitted in a form. It is the authors responsibility to validate the input field when needed. 
+### Formatting types
 
-Additionally, input masking does not enforce a maxlength and characters that surpass the length of the input-mask will not be validated. Authors should set the `maxlength` property as needed and account for any fixed characters when determining the maxlength. 
+When implementing the `input-mask` attribute, it is important to distinguish between Static and Dynamic formatting. 
 
-The `jh-input` event is triggered on input. The event details include both the formatted and unformatted input values, and can be accessed via `e.detail.value` and `e.detail.rawValue`, respectively.
+1. **Static Formatting** (Supported) - The `input-mask` attribute is designed for static formatting. This applies to data with a fixed length and structure. Because the mask relies on specific positions for meta and fixed characters, it is ideal for identifiers such as:
+
+- SSN: 999-99-9999
+
+- Phone Numbers: (999) 999-9999
+
+2. **Dynamic Formatting** (Not Supported) - Dynamic formatting refers to inputs where the length and character positions are fluid or unpredictable. The `input-mask` attribute does **not** support dynamic formatting. Common examples of dynamic formatting include:
+
+- Email Addresses: The position of the `@` and `.` symbols varies based on the user's unique address.
+
+- Currency: The placement of commas shifts dynamically as the number of digits increases (e.g., 1,000 vs 10,000).
+
+### Implementation Notes
+
+**Paste Events**: Note that input masking does not occur on paste events. This prevents the removal of characters without the user’s knowledge, which could lead to incorrect data being submitted in a form. It is the authors responsibility to validate the input field when needed. 
+
+**Maxlength**: Input masking does not enforce a maxlength and characters that surpass the length of the `input-mask` will not be validated. Authors should set the `maxlength` property as needed and account for any fixed characters when determining the maxlength. 
+
+**Event Handling**: The `jh-input` event is triggered on input. The event details include both the formatted and unformatted input values, and can be accessed via `e.detail.value` and `e.detail.rawValue`, respectively.
 
 ## Character Counter
 

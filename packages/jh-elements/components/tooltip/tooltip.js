@@ -13,6 +13,7 @@ const openAttr = 'open';
  * @cssprop --jh-tooltip-color-text - The tooltip text color. Defaults to `--jh-color-content-on-primary-enabled`.
  *
  * @slot default - Use to insert the element that triggers the tooltip.
+ * @slot jh-tooltip-content - Use to insert the content of the tooltip.
  *
  * @customElement jh-tooltip
  */
@@ -37,10 +38,10 @@ export class JhTooltip extends LitElement {
         );
         border-radius: var(--jh-border-radius-100);
         padding: var(--jh-dimension-200);
-        font-family: var(--jh-font-helper-regular-font-family);
-        font-weight: var(--jh-font-helper-regular-font-weight);
-        font-size: var(--jh-font-helper-regular-font-size);
-        line-height: var(--jh-font-helper-regular-line-height);
+        font-family: var(--jh-font-helper-bold-font-family);
+        font-weight: var(--jh-font-helper-bold-font-weight);
+        font-size: var(--jh-font-helper-bold-font-size);
+        line-height: var(--jh-font-helper-bold-line-height);
         max-width: 160px;
         width: max-content;
         position: absolute;
@@ -205,12 +206,6 @@ export class JhTooltip extends LitElement {
         attribute: 'flip-disabled',
       },
       /**
-       * Provides information about the item which triggered the tooltip.
-       */
-      label: {
-        type: String,
-      },
-      /**
        * Determines whether the tooltip is open or closed. Can be set on the tooltip to force it open.
        */
       open: {
@@ -232,8 +227,6 @@ export class JhTooltip extends LitElement {
     this.#internals = this.attachInternals();
     /**@type {?Boolean} */
     this.flipDisabled = false;
-    /** @type {?string} */
-    this.label = null;
     /**@type {?Boolean} */
     this.open = false;
     /** @type {?string} */
@@ -244,39 +237,6 @@ export class JhTooltip extends LitElement {
     super.connectedCallback();
     /** @ignore */
     this.id = `tooltip-describedby-${id++}`;
-    let observer = new MutationObserver(this.#handleEmptyLabel.bind(this));
-    let options = {
-      childList: true,
-    };
-    observer.observe(this.shadowRoot, options);
-  }
-
-  #handleEmptyLabel(mutations) {
-    for (let mutation of mutations) {
-      const addedNodes = Array.from(mutation.addedNodes);
-      //check if any of the added nodes is a span
-      const spanAdded = addedNodes.some(
-        (addedNode) => addedNode.tagName === 'SPAN'
-      );
-
-      if (spanAdded) {
-        this.#internals.role = 'tooltip';
-        this.addEventListener('focus', this.#handleOpenTooltip, true);
-        this.addEventListener('mouseenter', this.#handleOpenTooltip);
-        this.addEventListener('blur', this.#handleCloseTooltip, true);
-        this.addEventListener('mouseleave', this.#handleCloseTooltip);
-        this.addEventListener('keydown', this.#handleKeyDown);
-      }
-
-      if (mutation.removedNodes.length > 0) {
-        this.#internals.role = '';
-        this.removeEventListener('focus', this.#handleOpenTooltip);
-        this.removeEventListener('mouseenter', this.#handleOpenTooltip);
-        this.removeEventListener('blur', this.#handleCloseTooltip);
-        this.removeEventListener('mouseleave', this.#handleCloseTooltip);
-        this.removeEventListener('keydown', this.#handleKeyDown);
-      }
-    }
   }
 
   disconnectedCallback() {
@@ -288,13 +248,42 @@ export class JhTooltip extends LitElement {
     this.removeEventListener('keydown', this.#handleKeyDown);
   }
 
-  #handleSlotChange() {
+  #handleContentSlotChange(e) {
+    const slot = e.target;
+    const hasContent = slot.assignedNodes().length > 0;
+
+    if (hasContent) {
+      this.#internals.role = 'tooltip';
+      this.addEventListener('focus', this.#handleOpenTooltip, true);
+      this.addEventListener('mouseenter', this.#handleOpenTooltip);
+      this.addEventListener('blur', this.#handleCloseTooltip, true);
+      this.addEventListener('mouseleave', this.#handleCloseTooltip);
+      this.addEventListener('keydown', this.#handleKeyDown);
+    } else {
+      this.#internals.role = '';
+      this.#handleCloseTooltip();
+      this.removeEventListener('focus', this.#handleOpenTooltip);
+      this.removeEventListener('mouseenter', this.#handleOpenTooltip);
+      this.removeEventListener('blur', this.#handleCloseTooltip);
+      this.removeEventListener('mouseleave', this.#handleCloseTooltip);
+      this.removeEventListener('keydown', this.#handleKeyDown);
+    }
+  }
+
+  #handleSlotChange(e) {
     //get id set previously in the constructor and set it to reference aria-describedby on the first element in the slot
     const tooltipId = this.getAttribute('id');
-    this.firstElementChild.setAttribute('aria-describedby', tooltipId);
+    const slottedElements = e.target.assignedElements();
+    const tooltipContent = this.shadowRoot.querySelector('slot[name="jh-tooltip-content"]').assignedElements();
+
+    if (slottedElements.length === 0 || tooltipContent.length === 0) {
+      return;
+    }
+    const triggerElement = slottedElements[0];
+    triggerElement.setAttribute('aria-describedby', tooltipId);
 
     //get display property of element in slot and set it on the jh-tooltip.
-    const tooltipDisplay = window.getComputedStyle(this.firstElementChild).display;
+    const tooltipDisplay = window.getComputedStyle(triggerElement).display;
     this.style.setProperty('display', tooltipDisplay );
   }
 
@@ -323,7 +312,7 @@ export class JhTooltip extends LitElement {
     //check if current position is a valid position otherwise make it fail.
     if (!['left', 'right', 'top-start', 'top-end', 'top-center', 'bottom-start', 'bottom-end', 'bottom-center'].includes(currentPosition)) return;
     
-    if (this.flipDisabled === false && this.label) {
+    if (this.flipDisabled === false) {
      
       //break current position into tooltop position and arrow position
       const [currentTooltip, currentArrow] = currentPosition.split('-');
@@ -450,10 +439,10 @@ export class JhTooltip extends LitElement {
   #getDimensions() {
     return {
       tooltipWidth: this.shadowRoot
-        .querySelector('span')
+        .querySelector('.content')
         .getBoundingClientRect().width,
       tooltipHeight: this.shadowRoot
-        .querySelector('span')
+        .querySelector('.content')
         .getBoundingClientRect().height,
       elemHeight: this.getBoundingClientRect().height,
       elemWidth: this.getBoundingClientRect().width,
@@ -475,22 +464,14 @@ export class JhTooltip extends LitElement {
   }
 
   render() {
-    let label;
-
-    if (this.label) {
-      label = html`
-        <span
-          class=${ifDefined(this.open ? 'show' : null)}
-          aria-hidden=${this.open ? 'false' : 'true'}
-        >
-          ${this.label}
-        </span>
-      `;
-    }
-
     return html`
       <slot @slotchange=${this.#handleSlotChange}></slot>
-      ${label}
+      <span
+        class="content ${ifDefined(this.open ? 'show' : null)}"
+        aria-hidden=${this.open ? 'false' : 'true'}>
+        <slot name="jh-tooltip-content" @slotchange=${this.#handleContentSlotChange}></slot>
+      </span>
+
     `;
   }
 }

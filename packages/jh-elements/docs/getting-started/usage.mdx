@@ -47,6 +47,8 @@ setJhTheme();
 
 This will place both light and dark themed design system CSS custom properties at the top of the document head within two separate style tags named `id="jh-theme-light”` and `id="jh-theme-dark”`. The light theme is scoped to `:root` and will automatically be applied to all components. Whereas the dark theme is scoped to `.jh-theme-dark` and will require `class="jh-theme-dark”` to be added at the top of your application in order to be applied. 
 
+We have included the appropriate `color-scheme: light` or `color-scheme: dark` declarations in our theme files. This instructs browsers to apply native styling that matches the selected theme to browser-rendered elements like form controls, scrollbars, and selection highlights, providing a consistent visual experience without additional styling effort.
+
 Additionally, you can provide specific custom property overrides by appending your own style tag to the document head *below* the design system themes. This ensures that as the stylesheets cascade, your custom property will successfully override that defined by the design system. 
 
 ## Using styling hooks

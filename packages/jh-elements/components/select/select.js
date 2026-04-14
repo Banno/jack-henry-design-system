@@ -46,6 +46,12 @@ let id = 0;
  * @cssprop --jh-select-input-field-color-border-disabled - The input field border-color when disabled. Defaults to `--jh-border-control-color`.
  * @cssprop --jh-select-opacity-disabled - The select opacity when disabled. Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-select-error-color-text - The error message text color. Defaults to `jh-color-content-negative-enabled`.
+ *
+ * @slot jh-select-trigger-left - Use to insert an element such as an icon on the left side of the select input field.
+ * @slot jh-select-trigger-open - Use to replace the default chevron icon displayed when the select menu is open.
+ * @slot jh-select-trigger-closed - Use to replace the default chevron icon displayed when the select menu is closed.
+ *
+ * @event jh-change - Dispatched when the selected value changes.
  */
 export class JhSelect extends JhInput {
   /** @type {number} */
@@ -552,12 +558,19 @@ static get styles() {
     };
   }
 
+  renderLeftSlot() {
+    return html`
+    <slot name="jh-input-left" @slotchange=${this._handleSlotChange}>
+      <slot name="jh-select-trigger-left"></slot>
+    </slot>`;
+  }
   renderRightSlot() {
     return html`
+    <slot name="jh-input-right" @slotchange=${this._handleSlotChange}>
       ${this.#open
-        ? html`<jh-icon-chevron-up-small></jh-icon-chevron-up-small>`
-        : html`<jh-icon-chevron-down-small></jh-icon-chevron-down-small>`}
-    `;
+        ? html`<slot name="jh-select-trigger-open"><jh-icon-arrow-up-small></jh-icon-arrow-up-small></slot>`
+        : html`<slot name="jh-select-trigger-closed"><jh-icon-arrow-down-small></jh-icon-arrow-down-small></slot>`}
+    </slot>`;
   }
 
   renderData(options) {

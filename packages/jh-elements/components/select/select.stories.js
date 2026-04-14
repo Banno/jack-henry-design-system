@@ -9,6 +9,10 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import './select.js';
 import { US_STATES_FLAT, US_STATES_GROUPED, getPresetData } from './data-presets.js';
+import "@jack-henry/jh-icons/icons-wc/icon-piggy-bank.js";
+import "@jack-henry/jh-icons/icons-wc/icon-arrow-up-small.js";
+import "@jack-henry/jh-icons/icons-wc/icon-arrow-down-small.js";
+import "../button/button.js";
 
 const testOptions = [
   { groupLabel: "Account types", groupValues: [
@@ -236,6 +240,29 @@ MenuFlip.argTypes = {
 };
 MenuFlip.parameters = {
   styles: storyStyles,
+};
+
+export const AllTriggerSlots = {
+  args: {
+    label: 'All Trigger Slots',
+    options: [
+      { value: 'checking', label: 'Checking Account longer' },
+      { value: 'savings', label: 'Savings Account' },
+      { value: 'money-market', label: 'Money Market' },
+    ],
+  },
+  render: (args) => html`
+    <jh-select
+      label=${args.label}
+      .options=${args.options}
+    >
+    <jh-button slot="jh-select-trigger-left">
+        <jh-icon-piggy-bank slot="jh-button-icon"></jh-icon-piggy-bank>
+      </jh-button>
+      <jh-icon-arrow-up-small slot="jh-select-trigger-open"></jh-icon-arrow-up-small>
+      <jh-icon-arrow-down-small slot="jh-select-trigger-closed"></jh-icon-arrow-down-small>
+    </jh-select>
+  `,
 };
 
 export const FormAssociated = {

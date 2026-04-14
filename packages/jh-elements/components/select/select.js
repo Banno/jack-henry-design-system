@@ -75,7 +75,7 @@ export class JhSelect extends JhInput {
   /** @type {(e: Event) => void} */
   #boundDocumentScroll;
 
-  get #nativeInput() {
+  get #inputWrapper() {
     return this.renderRoot?.querySelector('.input-wrapper');
   }
 
@@ -492,7 +492,7 @@ static get styles() {
   #setMenuAnchor(position) {
     const menuContainer = this.shadowRoot.querySelector('.menu-container');
     const hostRect = this.getBoundingClientRect();
-    const inputRect = this.#nativeInput.getBoundingClientRect();
+    const inputRect = this.#inputWrapper.getBoundingClientRect();
 
     // Convert viewport coordinates to host-relative coordinates
     const inputTopRelative = inputRect.top - hostRect.top;
@@ -551,7 +551,7 @@ static get styles() {
 
   //get the coordinates of the top and bottom edge of the native input.
   #getCoordinates() {
-    const inputRect = this.#nativeInput.getBoundingClientRect();
+    const inputRect = this.#inputWrapper.getBoundingClientRect();
    return {
       elemTop: inputRect.top,
       elemBottom: inputRect.bottom,
@@ -568,8 +568,8 @@ static get styles() {
     return html`
     <slot name="jh-input-right" @slotchange=${this._handleSlotChange}>
       ${this.#open
-        ? html`<slot name="jh-select-trigger-open"><jh-icon-arrow-up-small></jh-icon-arrow-up-small></slot>`
-        : html`<slot name="jh-select-trigger-closed"><jh-icon-arrow-down-small></jh-icon-arrow-down-small></slot>`}
+        ? html`<slot name="jh-select-trigger-open"><jh-icon-chevron-up-small></jh-icon-chevron-up-small></slot>`
+        : html`<slot name="jh-select-trigger-closed"><jh-icon-chevron-down-small></jh-icon-chevron-down-small></slot>`}
     </slot>`;
   }
 

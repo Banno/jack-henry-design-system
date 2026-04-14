@@ -235,16 +235,10 @@ export class JhInputTextarea extends JhInput {
   }
 
   #autoGrowTextarea() {
-    if (!this.#textareaEl) {
-      this.#textareaEl = this.shadowRoot.querySelector('textarea');
-    }
-    
-    if (this.#textareaEl) {
-      // Reset height to auto to get the correct scrollHeight
-      this.#textareaEl.style.height = 'auto';
-      // Set height to scrollHeight to accommodate content
-      this.#textareaEl.style.height = `${this.#textareaEl.scrollHeight}px`;
-    }
+    // Reset height to auto to get the correct scrollHeight
+    this.#textareaEl.style.height = 'auto';
+    // Set height to scrollHeight to accommodate content
+    this.#textareaEl.style.height = `${this.#textareaEl.scrollHeight}px`;
   }
 
   renderInput() {

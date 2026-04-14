@@ -88,8 +88,18 @@ export class JhInput extends JhElement {
     // alphanumeric characters -> usernames, product codes, etc.
     '*': /[A-Za-z0-9]/,
   };
-  /** @type {Map} */
-  #activeSlottedElement = new Map();
+
+  get #inputEl() {
+    return this.renderRoot?.querySelector('input');
+  }
+
+  get #leftSlot() {
+    return this.renderRoot?.querySelector('slot[name="jh-input-left"]');
+  }
+
+  get #rightSlot() {
+    return this.renderRoot?.querySelector('slot[name="jh-input-right"]');
+  }
 
   static get styles() {
     return css`
@@ -104,14 +114,7 @@ export class JhInput extends JhElement {
         line-height: var(--input-helper-regular-line-height);
         display: inline-block;
         width: 100%;
-        --jh-button-size: var(--jh-dimension-800); 
-        /* input padding + slot padding */
-        --padding-with-left-slotted-content: calc(
-          var(--jh-dimension-400) + var(--jh-dimension-200)
-        );
-        --padding-with-right-slotted-content: calc(
-          var(--jh-dimension-400) + var(--jh-dimension-200)
-        );
+        --jh-button-size: var(--jh-dimension-800);
         --input-value-color-text: var(
           --jh-input-value-color-text,
           var(--jh-color-content-primary-enabled)
@@ -143,13 +146,14 @@ export class JhInput extends JhElement {
       :host([show-char-count]) .helper-text {
         display: inline-block;
       }
-      .input-container {
-        position: relative;
-      }
       :host([label]) .input-container {
         margin-top: var(--jh-dimension-200);
       }
-      input {
+
+      /* Flex wrapper */
+      .input-wrapper {
+        display: flex;
+        align-items: center;
         background-color: var(
           --jh-input-field-color-background,
           var(--jh-color-container-primary-enabled)
@@ -158,50 +162,127 @@ export class JhInput extends JhElement {
         border-style: var(--jh-border-control-style);
         border-color: var(
           --jh-input-field-color-border-enabled,
-            var(--jh-border-control-color)
-          );
+          var(--jh-border-control-color)
+        );
         border-radius: var(
           --jh-input-field-border-radius,
           var(--jh-border-radius-100)
         );
+        padding: var(--jh-dimension-0) var(--jh-dimension-400);
+        box-sizing: border-box;
+        width: 100%;
+      }
+
+      /* Sizes on input wrapper */
+      :host([size='small']) .input-wrapper {
+        height: var(--jh-dimension-1000);
+      }
+      :host([size='medium']) .input-wrapper {
+        height: var(--jh-dimension-1200);
+      }
+      :host([size='large']) .input-wrapper {
+        height: var(--jh-dimension-1400);
+      }
+
+      /* Input element — no border, grows to fill */
+      input {
+        flex: 1;
+        min-width: 0;
+        border: none;
+        background: transparent;
+        outline: none;
+        padding: 0;
         color: var(--input-value-color-text);
         font-family: var(--jh-font-body-regular-1-font-family);
         font-weight: var(--jh-font-body-regular-1-font-weight);
         font-size: var(--jh-font-body-regular-1-font-size);
         line-height: var(--jh-font-body-regular-1-line-height);
-        padding: var(--jh-dimension-0) var(--jh-dimension-400) var(--jh-dimension-0) var(--jh-dimension-400);
-        box-sizing: border-box;
-        width: 100%;
+        height: 100%;
       }
-      .jh-input-right {
-        padding-right: calc(var(--padding-with-right-slotted-content) + var(--jh-input-right-width));
+      :host([readonly]) input {
+        height: auto;
+      } 
+
+      /* Slot wrappers */
+      .slot-wrapper {
+        display: none;
+        align-items: center;
+        flex-shrink: 0;
       }
-      .jh-input-left {
-        padding-left: calc(var(--padding-with-left-slotted-content) + var(--jh-input-left-width));
+      slot[name="jh-input-left"] {
+        display: none;
+        align-items: center;
+        flex-shrink: 0;
+        padding-right: var(--jh-dimension-200);
       }
-      /* slot styles */
-      ::slotted(*),
+      slot[name="jh-input-right"] {
+        display: none;
+        align-items: center;
+        flex-shrink: 0;
+        padding-left: var(--jh-dimension-200);
+      }
+      slot[name="jh-input-left"].display-slot,
+      slot[name="jh-input-right"].display-slot {
+        display: flex;
+      }
+
+      /* Slotted content alignment */
       ::slotted(*) {
-        position: absolute;
         display: flex;
         align-items: center;
-        justify-content: center;
       }
-      ::slotted([slot='jh-input-left']) {
-        left: var(--jh-dimension-400);
+
+      /* States on input wrapper */
+      .input-wrapper:active {
+        border-color: var(
+          --jh-input-field-color-border-active,
+          var(--jh-color-content-brand-active)
+        );
       }
-      ::slotted([slot='jh-input-right']) {
-        right: var(--jh-dimension-400);
+      :host([disabled]) {
+        opacity: var(--jh-input-opacity-disabled, var(--jh-opacity-disabled));
       }
-      ::slotted([slot='jh-input-left']){
-        top: var(--jh-input-left-top);
+      :host([disabled]) .input-wrapper {
+        border-color: var(
+          --jh-input-field-color-border-disabled,
+          var(--jh-border-control-color)
+        );
       }
-      ::slotted([slot='jh-input-right']) {
-        top: var(--jh-input-right-top);
+
+      /* Focus-visible on wrapper when input is focused */
+      .input-wrapper:has(input:focus-visible) {
+        border-color: var(
+          --jh-input-field-color-border-focus,
+          var(--jh-color-content-brand-hover)
+        );
+        outline-color: var(
+          --jh-input-color-focus,
+          var(--jh-border-focus-color)
+        );
+        outline-style: var(--jh-border-focus-style);
+        outline-width: var(--jh-border-focus-width);
+        outline-offset: 1px;
       }
-      /* clear button */
+      input:focus-visible {
+        outline: none;
+      }
+      .input-wrapper:hover {
+        border-color: var(
+          --jh-input-field-color-border-hover,
+          var(--jh-color-content-brand-hover)
+        );
+      }
+      :host([invalid]) .input-wrapper {
+        border-width: var(--jh-border-error-width);
+        border-style: var(--jh-border-error-style);
+        border-color: var(
+          --jh-input-field-color-border-error,
+          var(--jh-border-error-color)
+        );
+      }
+
+      /* Clear button */
       .clear-button {
-        right: var(--jh-dimension-400);
         --jh-button-border-radius: var(--jh-input-clear-border-radius);
         --jh-button-color-background-tertiary-enabled: var(--jh-input-clear-color-background-enabled);
         --jh-button-color-border-tertiary-enabled: var(--jh-input-clear-color-border-enabled);
@@ -217,39 +298,30 @@ export class JhInput extends JhElement {
         --jh-button-color-border-tertiary-active: var(--jh-input-clear-color-border-active);
         --jh-button-icon-color-fill-tertiary-active: var(--jh-input-clear-icon-color-fill-active);
         display: none;
-        position: absolute;
+        flex-shrink: 0;
       }
       .display-clear-button .clear-button {
-        display: inherit;
+        display: flex;
+        margin-left: var(--jh-dimension-200);  
       }
-      :host([size='small']) .clear-button {
-        top: 4px;
+
+      /* Readonly styles */
+      :host([readonly]) .input-wrapper {
+        height: auto;
+        background-color: transparent;
+        border: none;
+        padding-left: 0;
+        padding-right: 0;
       }
-      :host([size='medium']) .clear-button {
-        top: 8px;
+
+      /* Override Chrome autofill styles */
+      input:autofill {
+        -webkit-text-fill-color: var(--input-value-color-text);
+        caret-color: var(--input-value-color-text);
+        background-clip: text;
       }
-      :host([size='large']) .clear-button {
-        top: 12px;
-      }
-      .jh-input-right ~ .clear-button {
-        right: calc(var(--padding-with-right-slotted-content) + var(--jh-input-right-width));
-      }
-      .display-clear-button input {
-        padding-right: calc(var(--padding-with-right-slotted-content) + var(--jh-dimension-800));
-      }
-      .display-clear-button .jh-input-right {
-        padding-right: calc(var(--padding-with-right-slotted-content) + var(--jh-input-right-width) + var(--jh-dimension-800) + var(--jh-dimension-200));
-      }
-      /* Sizes */
-      :host([size='small']) input {
-        height: var(--jh-dimension-1000);
-      }
-      :host([size='medium']) input {
-        height: var(--jh-dimension-1200);
-      }
-      :host([size='large']) input {
-        height: var(--jh-dimension-1400);
-      }
+
+      /* Footer */
       .footer-content {
         margin: var(--jh-dimension-200) 0 0 0;
         gap: var(--jh-dimension-200);
@@ -273,63 +345,7 @@ export class JhInput extends JhElement {
       p {
         margin: 0;
       }
-      /* Input States */
-      input:active {
-        border-color: var(
-          --jh-input-field-color-border-active,
-          var(--jh-color-content-brand-active)
-        );
-      }
-      :host([disabled]) {
-        opacity: var(--jh-input-opacity-disabled, var(--jh-opacity-disabled));
-      }
-      :host([disabled]) input {
-        border-color: var(
-          --jh-input-field-color-border-disabled,
-          var(--jh-border-control-color)
-        );
-      }
-      input:focus-visible {
-        border-color: var(
-          --jh-input-field-color-border-focus,
-          var(--jh-color-content-brand-hover)
-        );
-        outline-color: var(
-          --jh-input-color-focus,
-          var(--jh-border-focus-color)
-        );
-        outline-style: var(--jh-border-focus-style);
-        outline-width: var(--jh-border-focus-width);
-        outline-offset: 1px;
-      }
-      input:hover {
-        border-color: var(
-          --jh-input-field-color-border-hover,
-          var(--jh-color-content-brand-hover)
-        );
-      }
-      :host([invalid]) input {
-        border-width: var(--jh-border-error-width);
-        border-style: var(--jh-border-error-style);
-        border-color: var(
-          --jh-input-field-color-border-error,
-          var(--jh-border-error-color)
-        );
-      }
-      /* readonly styles */
-      :host([readonly]) input {
-        height: auto;
-        background-color: transparent;
-        border: none;
-        padding-left: 0;
-        padding-right: 0;
-      }
-      /* Override Chrome autofill styles */
-      input:autofill {
-        -webkit-text-fill-color: var(--input-value-color-text);
-        caret-color: var(--input-value-color-text);
-        background-clip: text;
-      }
+
       /* Optional/Required/Show-indicator */
       :host([show-indicator]) span {
         color: var(
@@ -347,7 +363,6 @@ export class JhInput extends JhElement {
           var(--jh-color-content-negative-enabled)
         );
       }
-
     `;
   }
 
@@ -473,7 +488,6 @@ export class JhInput extends JhElement {
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    this.#resizeObserver.disconnect();
     if (this.inputMask) {
       this.removeEventListener('jh-select', this.#setSelection);
     }
@@ -489,8 +503,42 @@ export class JhInput extends JhElement {
       ['mouseenter', 'mouseleave'].forEach(e => {
         inputContainer.addEventListener(e, this.#toggleFocus.bind(this));
       });
-     }
+    }
+
+    if (this.#leftSlot) this.#leftSlot.classList.toggle('display-slot', this.#checkSlotContent(this.#leftSlot));
+    if (this.#rightSlot) this.#rightSlot.classList.toggle('display-slot', this.#checkSlotContent(this.#rightSlot));
+
+    // clicking the wrapper should focus the input
+    const wrapper = this.shadowRoot.querySelector('.input-wrapper');
+    wrapper?.addEventListener('mousedown', (e) => {
+      if (e.target === wrapper || e.target.tagName === 'SLOT') {
+        //if the input already has focus, don't do anything. Prevent default to avoid flickering of the focus ring.
+        if (this.shadowRoot.activeElement === this.#inputEl) {
+          e.preventDefault();
+        } else {
+          //otherwise set focus to the input.
+          e.preventDefault();
+          this.#inputEl?.focus();
+        }
+      }
+    });
   }
+
+  #checkSlotContent(slot) {
+    // Slotted and fallback elements
+    const slottedElements = slot.assignedElements({ flatten: true });
+    if (slottedElements.length > 0) {
+        return true;
+    }
+
+    // Slotted and fallback text nodes that are not just whitespace
+    if (slot.assignedNodes({ flatten: true }).some(
+        (node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== ''
+    )) {
+        return true;
+    }
+    return false;
+}
 
   #toggleFocus(e) {
     if (this.disabled || this.readonly || !this.showClearButton) {
@@ -577,19 +625,7 @@ export class JhInput extends JhElement {
     this.requestUpdate('value', oldValue);
   }
 
-  #dispatch(eventName, event, details) {
-    this.dispatchCustomEvent(eventName, event, details);
-    // this.dispatchEvent(
-    //   new CustomEvent(eventName, {
-    //     detail: details,
-    //     bubbles: true,
-    //     cancelable: true,
-    //     composed: true,
-    //   })
-    // );
-  }
-
-  #handleInput(e) {
+  _handleInput(e) {
     this.value = e.target.value;
     let inputType = e.inputType;
     this.#deletedChar = inputType === 'deleteContentBackward' || inputType === 'deleteByCut' || inputType === 'deleteContentForward';
@@ -600,11 +636,11 @@ export class JhInput extends JhElement {
         this.#applyInputMask(e);
       }
     } else {
-      this.#dispatch('jh-input', e );
+      this.dispatchCustomEvent('jh-input', e );
     }
   }
 
-  #handleKeydown(e) {
+  _handleKeydown(e) {
     const value = e.target.value;
     let selectionStart = e.target.selectionStart;
     let selectionEnd = e.target.selectionEnd;
@@ -942,13 +978,11 @@ export class JhInput extends JhElement {
     this.value = formattedResult.join('');
 
     // Dispatch a custom event with the formatted and raw values
-    this.#dispatch('jh-input', e, {
+    this.dispatchCustomEvent('jh-input', {
       state: {
         'value': this.value,
         'rawValue': this.#rawValue
-      },
-      // example dispatch with additional keys
-       newKey: { test: 'test value' }
+      }
     });
   }
 
@@ -1012,23 +1046,19 @@ export class JhInput extends JhElement {
     }
   }
 
-  #handleChange(e) {
-    // let payload = {
-    //   state: {
-    //     'value': this.value,
-    //   }
-    // }
-
-    let payload;
+  _handleChange() {
+    const state = {
+      'value': this.value
+    };
 
     if (this.inputMask) {
-      payload = { state: { rawValue: this.#rawValue } };
+      state.rawValue = this.#rawValue;
     }
 
-    this.#dispatch('jh-change', e, payload);
+    this.dispatchCustomEvent('jh-change', { state });
   }
 
-  #handleSelect(e) {
+  _handleSelect(e) {
     const selectedString = e.target.value.substring(
       e.target.selectionStart,
       e.target.selectionEnd
@@ -1036,126 +1066,77 @@ export class JhInput extends JhElement {
 
     // ensure selected string present before dispatching event. Can be empty due to caret positioning when user attempts to delete fixed char.
     if (selectedString) {
-      this.#dispatch('jh-select', e, {
+      this.dispatchCustomEvent('jh-select', {
         state: {
-          selection: selectedString,
-          selectionStart: e.target.selectionStart,
-          selectionEnd: e.target.selectionEnd
+          'selection': selectedString,
+          'selectionStart': e.target.selectionStart,
+          'selectionEnd': e.target.selectionEnd
         }
       });
     }
   }
 
-  #handleMaxlength() {
-    this.#dispatch('jh-maxlength');
+  _handleMaxlength() {
+    this.dispatchCustomEvent('jh-maxlength');
   }
 
-  #handleClearButtonClick(e) {
+  _handleClearButtonClick() {
     let previousValue = this.value;
     // clear input value
     this.value = '';
     // focus input field
     this.shadowRoot.querySelector('input').focus();
-    // dispatch clear event
-    // this.dispatchEvent(
-    //   new CustomEvent('jh-input:clear-button-click', {
-    //     detail: { 
-    //       'previousValue': previousValue 
-    //     },
-    //     bubbles: true,
-    //     cancelable: true,
-    //     composed: true,
-    //   })
-    // );
-    this.#dispatch('jh-input:clear-button-click', e, { state: { 'previousValue': previousValue } });
+    this.dispatchCustomEvent('jh-input:clear-button-click', { 
+      state: { previousValue: previousValue }
+    });
   }
 
-  // capture dimensions of slotted content and set CSS variables to adjust input padding and vertically center slotted content
-  #resizeObserver = new ResizeObserver((entries) => {
-    let inputEl = this.shadowRoot.querySelector('input');
-
-    for (let entry of entries) {
-      let slottedEl = entry.target;
-      let slottedElWidth = entry.borderBoxSize[0].inlineSize;
-      let slottedElHeight = entry.borderBoxSize[0].blockSize;
-
-      this.style.setProperty(`--${slottedEl.slot}-width`, `${slottedElWidth}px`);
-
-      this.style.setProperty(`--${slottedEl.slot}-top`, `${(inputEl.offsetHeight - slottedElHeight) / 2}px`);
-    }
-  });
-
-  #handleSlotChange(e) {
+  _handleSlotChange(e) {
     let newSlottedElement = e.target.assignedElements()[0];
-    let slotName = e.target.name;
+    let slot = e.target;
 
-    // stop observing previous slotted element for each slot
-    if (this.#activeSlottedElement.has(slotName)) {
-      this.#resizeObserver.unobserve(this.#activeSlottedElement.get(slotName));
-    }
-
-    if (newSlottedElement) {
-      this.#activeSlottedElement.set(slotName, newSlottedElement);
-
-      if (newSlottedElement.tagName.startsWith('JH-ICON')) {
-        newSlottedElement.setAttribute('size', 'medium');
-      }
-      this.#resizeObserver.observe(newSlottedElement);
-    }
-    this.#addClass(slotName, newSlottedElement);
-  }
-
-  // sets class on input element so padding can accomodate slotted content
-  #addClass(slotName, slottedElement) {
-    const inputEl = this.shadowRoot.querySelector('input');
-   
-    // add and remove class if slotted element is not present
-    if (!slottedElement) {
-      inputEl.classList.remove(slotName);
-    } else {
-      inputEl.classList.add(slotName);
-    }
-  }
-
-  #getSlots() {
-    if (this.readonly) {
+    if (slot.name !== 'jh-input-left' && slot.name !== 'jh-input-right') {
       return;
     }
+    
+    let hasContent = this.#checkSlotContent(slot);
+    slot.classList.toggle('display-slot', hasContent);
 
-    const leftSlot = this.hideLeftSlot
-      ? null
-      : html`<slot
-      name="jh-input-left"
-      @slotchange=${this.#handleSlotChange}
-      ></slot>
-    `;
-
-    const clearBtn = this.showClearButton && this.value && !this.disabled
-        ? html`
-          <jh-button 
-            size="small" appearance="tertiary" class="clear-button" 
-            accessible-label=${ifDefined(this.accessibleLabelClearButton)}
-            @click=${this.#handleClearButtonClick}>
-            <slot name="jh-input-clear-button" slot="jh-button-icon">
-              <jh-icon-circle-xmark slot="jh-button-icon" aria-hidden="true" size="medium"></jh-icon-circle-xmark>
-            </slot>
-          </jh-button>
-        `
-        : null;
-        
-
-    const rightSlot = this.hideRightSlot
-      ? null
-      : html`<slot
-        name="jh-input-right"
-        @slotchange=${this.#handleSlotChange}
-        ></slot>
-      `;
-
-    return html`${leftSlot}${clearBtn}${rightSlot}`;
+    // Set icon size if applicable
+    if (newSlottedElement?.tagName.startsWith('JH-ICON')) {
+      newSlottedElement.setAttribute('size', 'medium');
+    }
   }
 
-  #getDescribedby() {
+  renderLeftSlot() {
+    if (this.hideLeftSlot) return null;
+    return html`
+        <slot name="jh-input-left" @slotchange=${this._handleSlotChange}></slot>
+    `;
+  }
+   
+  renderRightSlot() {
+    if (this.hideRightSlot) return null;
+    return html`
+        <slot name="jh-input-right" @slotchange=${this._handleSlotChange}></slot>
+    `;
+  }
+
+  renderClearButton() {
+    if (!this.showClearButton || !this.value || this.disabled) return null;
+    return html`
+      <jh-button 
+        size="small" appearance="tertiary" class="clear-button" 
+        accessible-label=${ifDefined(this.accessibleLabelClearButton)}
+        @click=${this._handleClearButtonClick}>
+        <slot name="jh-input-clear-button" slot="jh-button-icon">
+          <jh-icon-circle-xmark slot="jh-button-icon" aria-hidden="true" size="medium"></jh-icon-circle-xmark>
+        </slot>
+      </jh-button>
+    `;
+  }
+
+  _getDescribedby() {
     let describedbyString = '';
 
     if (this.errorText) {
@@ -1164,21 +1145,13 @@ export class JhInput extends JhElement {
     if (this.helperText) {
       describedbyString += ` jh-input-helper-${this.uniqueId}`;
     }
-    if (this.showCharCount) {
-      describedbyString += ` jh-input-counter-${this.uniqueId}`;
-    }
     return describedbyString;
   }
 
-  render() {
+  renderLabel() {
     let label;
     let indicator;
     let helperText;
-    let input;
-    let footer;
-    let errorText;
-    let charCount;
-    let describedby;
 
     if (this.label) {
       if (this.showIndicator) {
@@ -1202,6 +1175,13 @@ export class JhInput extends JhElement {
         ${helperText}
       `;
     }
+    return label;
+  }
+
+  renderFooter() {
+    let footer;
+    let errorText;
+    let charCount;
 
     if (this.showCharCount) {
       let valueLength = this.value ? this.value.length : 0;
@@ -1211,7 +1191,7 @@ export class JhInput extends JhElement {
       }`;
 
       if (valueLength && valueLength === Number(this.maxlength)) {
-        this.#handleMaxlength();
+        this._handleMaxlength();
       }
 
       charCount = html`
@@ -1235,42 +1215,62 @@ export class JhInput extends JhElement {
         </div>
       `;
     }
+    return footer;
+  }
 
-    if (helperText || errorText || charCount) {
-      describedby = this.#getDescribedby();
+  renderInput() {
+    let describedby;
+
+    if (this.helperText || (this.errorText && this.invalid)) {
+      describedby = this._getDescribedby();
     }
 
-    input = html`
+    const leftSlot = this.readonly ? null : this.renderLeftSlot();
+    const rightSlot = this.readonly ? null : this.renderRightSlot();
+    const clearButton = this.readonly ? null : this.renderClearButton();
+
+    return html`
       <div class="input-container">
-        <input
-          id="jh-input-${this.uniqueId}"
-          aria-describedby=${describedby}
-          aria-invalid=${ifDefined(this.invalid ? 'true' : null)}
-          aria-label=${ifDefined(
-            this.accessibleLabel === '' ? null : this.accessibleLabel
-          )}
-          autocomplete=${ifDefined(
-            this.autocomplete === '' ? null : this.autocomplete
-          )}
-          ?disabled=${this.disabled}
-          enterkeyhint=${ifDefined(
-            this.enterkeyhint === '' ? null : this.enterkeyhint
-          )}
-          inputmode=${ifDefined(this.inputmode === '' ? null : this.inputmode)}
-          maxlength=${ifDefined(this.maxlength === '' ? null : this.maxlength)}
-          minlength=${ifDefined(this.minlength === '' ? null : this.minlength)}
-          name=${ifDefined(this.name === '' ? null : this.name)}
-          ?readonly=${this.readonly}
-          ?required=${this.required}
-          type="text"
-          .value=${this.value}
-          @keydown=${this.inputMask ? this.#handleKeydown : null}
-          @change=${this.#handleChange}
-          @input=${this.#handleInput}
-          @select=${this.#handleSelect}
-        />${this.#getSlots()}
+        <div class="input-wrapper">
+          ${leftSlot}
+          <input
+            id="jh-input-${this.uniqueId}"
+            aria-describedby=${describedby}
+            aria-invalid=${ifDefined(this.invalid ? 'true' : null)}
+            aria-label=${ifDefined(
+              this.accessibleLabel === '' ? null : this.accessibleLabel
+            )}
+            autocomplete=${ifDefined(
+              this.autocomplete === '' ? null : this.autocomplete
+            )}
+            ?disabled=${this.disabled}
+            enterkeyhint=${ifDefined(
+              this.enterkeyhint === '' ? null : this.enterkeyhint
+            )}
+            inputmode=${ifDefined(this.inputmode === '' ? null : this.inputmode)}
+            maxlength=${ifDefined(this.maxlength === '' ? null : this.maxlength)}
+            minlength=${ifDefined(this.minlength === '' ? null : this.minlength)}
+            name=${ifDefined(this.name === '' ? null : this.name)}
+            ?readonly=${this.readonly}
+            ?required=${this.required}
+            type="text"
+            .value=${this.value}
+            @keydown=${this.inputMask ? this._handleKeydown : null}
+            @change=${this._handleChange}
+            @input=${this._handleInput}
+            @select=${this._handleSelect}
+          />
+          ${clearButton}
+          ${rightSlot}
+        </div>
       </div>
     `;
+  }
+
+  render() {
+    const label = this.renderLabel();
+    const input = this.renderInput();
+    const footer = this.renderFooter();
 
     return html`
       ${label} ${input} ${footer}

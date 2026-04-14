@@ -81,6 +81,7 @@ const disableControls = {
 export default {
   component: 'jh-select',
   title: 'Components/Select',
+  tags: ['beta'],
   parameters: {
     actions: {
       handles: ['jh-change'],
@@ -109,6 +110,16 @@ export default {
       options: ['small', 'medium', 'large'],
     },
     'flip-disabled': { control: 'boolean' },
+        'jh-input-right': {
+      table: {
+        disable: true,
+      },
+    },
+    'jh-input-left': {
+      table: {
+        disable: true,
+      },
+    },
   },
 };
 
@@ -167,35 +178,6 @@ Playground.parameters = {
   theme: 'both-themes',
 };
 
-export const Default = { render: (args) => html`
-  <jh-select></jh-select>
-`};
-
-Default.argTypes = {
-  ...disableControls,
-};
-
-export const ScrollableContainer = { render: (args) => html`
-  <div class="scrollable-container">
-    <div class="scrollable-content">
-      <p>Scroll down to find the select</p>
-      <jh-select></jh-select>
-      <p>Extra content to enable scrolling</p>
-      <p>Keep scrolling...</p>
-      <p>More content below</p>
-      <jh-select></jh-select>
-      <p>Bottom of scrollable area</p>
-    </div>
-  </div>
-`};
-
-ScrollableContainer.argTypes = {
-  ...disableControls,
-};
-ScrollableContainer.parameters = {
-  styles: storyStyles,
-};
-
 export const Datasets = { render: (args) => {
   const customizedData = manageDataset({
     dataset: BIRTH_YEARS,
@@ -240,9 +222,9 @@ MenuFlip.parameters = {
   styles: storyStyles,
 };
 
-export const AllTriggerSlots = {
+export const Slots = {
   args: {
-    label: 'All Trigger Slots',
+    label: 'Select with all the Slots',
     options: [
       { value: 'checking', },
       { value: 'savings',  },

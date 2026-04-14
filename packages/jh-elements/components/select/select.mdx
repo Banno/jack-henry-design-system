@@ -25,45 +25,42 @@ Import the `<jh-select>` component:
 import '@jack-henry/jh-elements/components/select/select.js';
 ```
 
-To use `<jh-select>`:
+To use `<jh-select>`, set the necessary attributes and pass your options using the `.options` property expression:
 
 ```html
-<jh-select label="Account type" helper-text="Choose an account"></jh-select>
+const myOptions = [
+  { label: "Basic Checking", value: "checking-01" },
+  { label: "High-Yield Savings", value: "savings-01", disabled: true },
+  { label: "Money Market", value: "money-market-01", selected: true },
+];
+<jh-select label="Account type" helper-text="Choose an account" .options=${myOptions}></jh-select>
 ```
 
-Options can be provided via Javascript using the `options` data object, or by leveraging a preset dataset using the `preset` attribute:
+In situations where the above approach is not available, authors can use an imperative API to set options and other properties via JavaScript:
 
-```html
-<!-- Using a preset dataset -->
-<jh-select label="US States" preset="us-states-flat"></jh-select>
-
+```javascript
+const select = document.querySelector('jh-select');
+select.options = myOptions;
 ```
-
-## Dependencies
-
-The select component makes use of the following required compositional dependencies.
-
-1. Composition - the following required dependencies are automatically imported:
-
-- `<jh-input-XXX>`. [Input component documentation](/docs/components-input--docs).
-- `<jh-menu>`. [Menu component documentation](/docs/components-menu--docs).
-- `<jh-list-item>`. [List Item component documentation](/docs/components-list-item--docs).
-- `<jh-list-group>`. [List Group component documentation](/docs/components-list-group--docs).
 
 ## Options Data Format
 
-Authors must provide the options as an array of objects. Each option object must include a `label` (display text) and a `value` (form value). 
-Options can optionally include `disabled` and `selected` flags. 
-An empty option can be included by providing an option object with a label string and an empty string for the value. 
-Make sure to flag it as `selected` if you want it to be the default option showing in the input.
+Authors must provide the options as an array of objects to the `.options` property. 
 
-Options can be provided in a flat structure or grouped by category. Flat options are displayed as `jh-list-item` elements, 
-while grouped options are displayed as `jh-list-group` elements containing nested `jh-list-item` elements.
+- Each option object must include a unique `value` string and a `label` string for display.
+- If no `label` is provided, the `value` will be used as the display text in the menu and input. 
+- Options can optionally include `disabled` and `selected` flags. 
+- An empty option can be included by providing an option object with a label string and an empty string for the value. 
+- Make sure to flag it as `selected` if you want it to be the default option showing in the input.
+
+Options can be provided in a flat structure or grouped by category: 
+- Flat options are displayed as `jh-list-item` elements, 
+- while grouped options are displayed as `jh-list-group` elements containing nested `jh-list-item` elements.
 
 Flat options:
 
 ```javascript
-const options = [
+const flatOptions = [
   { label: "Basic Checking", value: "checking-01" },
   { label: "High-Yield Savings", value: "savings-01", disabled: true },
   { label: "Money Market", value: "money-market-01", selected: true },
@@ -73,7 +70,7 @@ const options = [
 Grouped options use a `groupLabel` and `groupValues` structure:
 
 ```javascript
-const options = [
+const groupedOptions = [
   { groupLabel: "Account types", groupValues: [
     { label: "Basic Checking", value: "checking-01" },
     { label: "High-Yield Savings", value: "savings-01" },
@@ -85,30 +82,46 @@ const options = [
 ];
 ```
 
-## Preset Datasets
+## Using the jh-datasets package with Select
 
-The select component ships with some built-in datasets that can be activated via the `preset` attribute:
+The datasets package provides a set of common datasets in the correct format for use with the select component. 
+This allows you to easily populate the menu with commonly used lists without having to manually format the data.
 
-- `us-states-flat` — A flat list of all US states and territories.
-- `us-states-grouped` — US states organized by region (Northeast, Midwest, South, West, Territories).
-- Additional datasets may be added in the future.
+- `US_STATES_FLAT` — A flat list of all US states and territories.
+- `US_STATES_GROUPED` — US states organized by region (Northeast, Midwest, South, West, Territories).
+- `BIRTH_YEARS` — A flat list of birth years from 1900 to the current year.
+- Additional datasets may be added in the future and can be requested by submitting a Github Issue.
 
-For more control over preset data, use the `getPresetData` helper to customize initial selected values, disabled items, and empty labels:
+For more control over the datasets, authors may use the `manageDataset` util to customize initial selected values, disabled items, and empty labels:
 
 ```javascript
-import { US_STATES_FLAT, getPresetData } from '@jack-henry/jh-elements/components/select/data-presets.js';
+import { US_STATES_FLAT } from '@jack-henry/jh-datasets/datasets/us-states-flat.js';
+import { manageDataset } from '@jack-henry/jh-datasets/utils/manage-dataset.js';
 
-const customizedData = getPresetData({
+const customizedData = manageDataset({
   dataset: US_STATES_FLAT,
   initialValue: null,
   disabledItems: ['AK', 'HI'],
   emptyLabel: 'Select a state...',
 });
+
+<jh-select label="State" .options=${customizedData}></jh-select>
 ```
 
 ## Type-Ahead functionality
 
 Typing character keys jumps to the first matching option. Pressing the same character repeatedly cycles through options that start with that character.
+
+## Dependencies
+
+The select component makes use of the following required compositional dependencies.
+
+1. Composition - the following required dependencies are automatically imported:
+
+- `<jh-input>`. [Input component documentation](/docs/components-input--docs).
+- `<jh-menu>`. [Menu component documentation](/docs/components-menu--docs).
+- `<jh-list-item>`. [List Item component documentation](/docs/components-list-item--docs).
+- `<jh-list-group>`. [List Group component documentation](/docs/components-list-group--docs).
 
 ## Accessibility
 

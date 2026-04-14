@@ -4,12 +4,14 @@
 * SPDX-License-Identifier: Apache-2.0
 */
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { JhInput } from '../input/input.js';
 import '../menu/menu.js';
-import '../input-trigger/input-trigger.js';
 import '../list-item/list-item.js';
 import '../list-group/list-group.js';
+import '@jack-henry/jh-icons/icons-wc/icon-chevron-up-small.js';
+import '@jack-henry/jh-icons/icons-wc/icon-chevron-down-small.js';
 import { JhFilter } from './filtering.js';
 import { US_STATES_FLAT, US_STATES_GROUPED, getPresetData } from './data-presets.js';
 
@@ -45,19 +47,11 @@ let id = 0;
  * @cssprop --jh-select-opacity-disabled - The select opacity when disabled. Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-select-error-color-text - The error message text color. Defaults to `jh-color-content-negative-enabled`.
  */
-export class JhSelect extends LitElement {
-  static get formAssociated() {
-    return true;
-  }
-
-  /** @type {ElementInternals} */
-  #internals;
+export class JhSelect extends JhInput {
   /** @type {number} */
   #id;
   /** @type {?string} */
   #displayValue = null;
-  /** @type {?string} */
-  #value = null;
   /** @type {string} */
   #buffer = '';
   /** @type {?number} */
@@ -76,11 +70,17 @@ export class JhSelect extends LitElement {
   #boundDocumentScroll;
 
   get #nativeInput() {
-    return this.shadowRoot.querySelector('jh-input-trigger').shadowRoot.querySelector('.input-wrapper');
+    return this.renderRoot?.querySelector('.input-wrapper');
+  }
+
+  get #inputEl() {
+    return this.renderRoot?.querySelector('input');
   }
 
 static get styles() {
-  return css`
+  return [
+    super.styles,
+    css`
     :host {
       --jh-input-field-border-radius: var(--jh-select-input-field-border-radius);
       --jh-input-field-color-background: var(--jh-select-input-field-color-background);
@@ -124,7 +124,6 @@ static get styles() {
     }
     jh-menu {
     max-height: var(--jh-select-menu-size-max-height, 480px);
-    overflow: auto;
     overscroll-behavior: contain;
     }
     jh-list-group > jh-list-item {
@@ -146,47 +145,13 @@ static get styles() {
           var(--jh-color-container-primary-selected)
         );
     }
-  `;
+  `];
 }
 
   static get properties() {
     return {
-      /** Sets an `aria-label` on the select to assist screen reader users when no visible label is present. */
-      accessibleLabel: { type: String, attribute: 'accessible-label' },
-     /**
-       * Determines whether the browser can provide assistance in filling out the select value and what type of information is expected.
-       *
-       * [Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)
-       */
-      autocomplete: { type: String },
-      /** Disables the select and prevents all user interactions. May cause the select to be ignored by assistive technologies (AT). */
-      disabled: { type: Boolean },
-      /** Text to be displayed when select has failed validation and `invalid` is true. */
-      errorText: { type: String, attribute: 'error-text' },
-      /** Provides additional context or guidance for using the select. For `helper-text` to be displayed, the `label` property must also be set. */
-      helperText: { type: String, attribute: 'helper-text' },
-      /** Hides the left slot from the select input. */
-      hideLeftSlot: { type: Boolean, attribute: 'hide-left-slot' },
-      /** Hides the right slot from the select input. */
-      hideRightSlot: { type: Boolean, attribute: 'hide-right-slot' },
-      /** Sets an `aria-invalid` attribute on the select to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set. */
-      invalid: { type: Boolean },
-      /** Identifies what data should be selected from the dropdown. */
-      label: { type: String },
-      /** Sets a name for the select control. Used to identify the selected value in form submissions. */
-      name: { type: String },
       /** Sets the position of the dropdown menu relative to the input field. The menu automatically flips when there is insufficient space unless `flip-disabled` is set. */
       menuPosition: { type: String, reflect: true, attribute: 'menu-position' },
-      /** Prevents users from changing the selected value. Removes all slotted content. */
-      readonly: { type: Boolean },
-      /** Indicates a selection is required. */
-      required: { type: Boolean },
-      /** Adds a visual indicator next to the label. Indicates that a selection is optional (by default) or required if the `required` property is also set. */
-      showIndicator: { type: Boolean, attribute: 'show-indicator' },
-      /** Sets the size of the select. */
-      size: { type: String, reflect: true },
-      /** Sets the value of the select. Corresponds to the `value` property of the selected option. */
-      value: { type: String },
       /** Sets the list of options to display in the dropdown menu. Accepts an array of flat options or grouped options. See documentation for the expected data format. */
       options: { type: Array, attribute: false },
       /** Activates a built-in dataset. */
@@ -199,43 +164,10 @@ static get styles() {
   constructor() {
     super();
     this.#id = ++id;
-    this.#internals = this.attachInternals();
-    /** @type {?string} */
-    this.accessibleLabel = null;
-    /** @type {?string} */
-    this.accessibleLabelClearButton = null;
     /** @type {?string} */
     this.autocomplete = 'off';
-    /** @type {boolean} */
-    this.disabled = false;
-    /** @type {?string} */
-    this.errorText = null;
-    /** @type {?string} */
-    this.helperText = null;
-    /** @type {boolean} */
-    this.hideLeftSlot = false;
-    /** @type {boolean} */
-    this.hideRightSlot = false;
-    /** @type {boolean} */
-    this.invalid = false;
-    /** @type {?string} */
-    this.label = null;
-    /** @type {?string} */
-    this.name = null;
     /** @type {string} */
     this.menuPosition = 'bottom';
-    /** @type {boolean} */
-    this.readonly = false;
-    /** @type {boolean} */
-    this.required = false;
-    /** @type {boolean} */
-    this.showClearButton = false;
-    /** @type {boolean} */
-    this.showIndicator = false;
-    /** @type {'small'|'medium'|'large'} */
-    this.size = 'medium';
-    /** @type {?string} */
-    this.value = null;
     /** @type {?Array} */
     this.options = null;
     /** @type {'us-states-flat'|'us-states-grouped'| null} */
@@ -253,23 +185,36 @@ static get styles() {
     document.removeEventListener('scroll', this.#boundDocumentScroll, true);
   }
 
-    /** @ignore */
-  get form() {
-    return this.#internals.form;
+  firstUpdated() {
+    super.firstUpdated();
+    const input = this.#inputEl;
+    if (!input) return;
+    // Set combobox ARIA attributes on the native input
+    input.setAttribute('role', 'combobox');
+    input.setAttribute('readonly', '');
+    input.setAttribute('aria-haspopup', 'listbox');
+    input.setAttribute('aria-expanded', 'false');
+    input.setAttribute('aria-controls', `listbox-${this.#id}`);
+    // Remove name from native input — form submission is via ElementInternals on the host
+    input.removeAttribute('name');
   }
 
-  get value() {
-    return this.#value;
-  }
+  updated(changedProperties) {
+    super.updated(changedProperties);
+    const input = this.#inputEl;
+    if (!input) return;
 
-  // this may need to be updated to handle multiple selection in phase 4.
-  set value(newValue) {
-    const oldValue = this.#value;
-    if (newValue !== oldValue) {
-      this.#value = newValue;
-      this.#internals.setFormValue(this.#value);
+    // Update display value — show the label text, not the form value
+    const displayValue = this.#displayValue || this.value || '';
+    input.value = displayValue;
+
+    // Update ARIA state
+    input.setAttribute('aria-expanded', String(this.#open));
+    if (this.#open && this.#activeIndex !== null) {
+      input.setAttribute('aria-activedescendant', `jh-select-option-${this.#id}-${this.#activeIndex}`);
+    } else {
+      input.removeAttribute('aria-activedescendant');
     }
-    this.requestUpdate('value', oldValue);
   }
 
   willUpdate(changedProperties) {
@@ -316,22 +261,23 @@ static get styles() {
     );
     if (!el) return;
 
-      const menu = this.shadowRoot.querySelector('jh-menu');
-      const menuRect = menu.getBoundingClientRect();
-      const elRect = el.getBoundingClientRect();
-      //account for vertical padding on the menu
-      const menuStyles = getComputedStyle(menu);
-      const paddingTop = parseFloat(menuStyles.paddingTop);
-      const paddingBottom = parseFloat(menuStyles.paddingBottom);
+    const menu = this.shadowRoot.querySelector('jh-menu');
+    const scrollContainer = menu.shadowRoot?.querySelector('.menu-content') ?? menu;
+    const menuRect = scrollContainer.getBoundingClientRect();
+    const elRect = el.getBoundingClientRect();
+    // account for vertical padding on the menu
+    const menuStyles = getComputedStyle(scrollContainer);
+    const paddingTop = parseFloat(menuStyles.paddingTop);
+    const paddingBottom = parseFloat(menuStyles.paddingBottom);
 
-      const visibleTop = menuRect.top + paddingTop;
-      const visibleBottom = menuRect.bottom - paddingBottom;
+    const visibleTop = menuRect.top + paddingTop;
+    const visibleBottom = menuRect.bottom - paddingBottom;
 
-      if (elRect.bottom > visibleBottom) {
-        menu.scrollTop += elRect.bottom - visibleBottom;
-      } else if (elRect.top < visibleTop) {
-        menu.scrollTop -= visibleTop - elRect.top;
-      }
+    if (elRect.bottom > visibleBottom) {
+      scrollContainer.scrollTop += elRect.bottom - visibleBottom;
+    } else if (elRect.top < visibleTop) {
+      scrollContainer.scrollTop -= visibleTop - elRect.top;
+    }
   }
 
   #handleDocumentClick(e) {
@@ -346,6 +292,9 @@ static get styles() {
   }
 
   #handleOpenSelect() {
+    if (this.disabled || this.readonly) {
+      return;
+    }
      this.#flipMenu();
      this.#open = true;
      document.addEventListener('click', this.#boundDocumentClick, true);
@@ -502,7 +451,6 @@ static get styles() {
     this.value = option.value;
     this.#displayValue = option.label;
     this.#activeIndex = index;
-    this.#internals.setFormValue(this.value);
     this.requestUpdate();
     this.#scrollToActiveItem();
 
@@ -604,6 +552,14 @@ static get styles() {
     };
   }
 
+  renderRightSlot() {
+    return html`
+      ${this.#open
+        ? html`<jh-icon-chevron-up-small></jh-icon-chevron-up-small>`
+        : html`<jh-icon-chevron-down-small></jh-icon-chevron-down-small>`}
+    `;
+  }
+
   renderData(options) {
     let flatIndex = 0;
 
@@ -640,48 +596,25 @@ static get styles() {
   }
 
   render() {
-    //do not pass this.name to the jh-input so it does not submit the form. The submission is handled by the component iself.
+    const label = this.renderLabel();
+    const input = this.renderInput();
+    const footer = this.renderFooter();
+
     return html`
-      <jh-input-trigger
-        ?open=${this.#open}
-        role="combobox"
-        aria-expanded=${this.#open}
-        aria-haspopup="listbox"
-        aria-controls="listbox-${this.#id}"
-        aria-activedescendant=${ifDefined(
-          this.#open && this.#activeIndex !== null
-            ? `jh-select-option-${this.#id}-${this.#activeIndex}`
-            : undefined
-        )}
-        aria-invalid=${ifDefined(this.invalid ? 'true' : null)}
-        aria-label=${ifDefined(
-          this.accessibleLabel === '' ? null : this.accessibleLabel
-        )}
-        autocomplete=${ifDefined(
-          this.autocomplete === '' ? null : this.autocomplete
-        )}
-        ?disabled=${this.disabled}
-        ?required=${this.required}
-        ?show-indicator=${this.showIndicator}
-        ?invalid=${this.invalid}
-        size=${this.size}
-        label=${ifDefined(this.label === '' ? null : this.label)}
-        ?readonly=${this.readonly}
-        helper-text=${ifDefined(this.helperText === '' ? null : this.helperText)}
-        error-text=${ifDefined(this.errorText === '' ? null : this.errorText)}
-        .value=${ifDefined(
-          this.#displayValue ? this.#displayValue : this.value
-        )}
-        @click=${this.#handleTriggerClick}
-      ></jh-input-trigger>
+      ${label}
+      <div @click=${this.#handleTriggerClick}>
+        ${input}
+      </div>
+      ${footer}
       <div class="menu-container ${this.#open ? 'show' : ''}">
-      <jh-menu
-        role="listbox"
-        id="listbox-${this.#id}"
-        @click=${this.#handleMenuClick}
-      >
-        ${this.renderData(this.options)}
-      </jh-menu></div>
+        <jh-menu
+          role="listbox"
+          id="listbox-${this.#id}"
+          @click=${this.#handleMenuClick}
+        >
+          ${this.renderData(this.options)}
+        </jh-menu>
+      </div>
     `;
   }
 }

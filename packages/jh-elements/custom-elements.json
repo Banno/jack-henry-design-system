@@ -3152,7 +3152,8 @@
         {
           "name": "auto-grow",
           "description": "Enables the input height to grow automatically to accommodate user input. `auto-grow` will also remove the input's native resize capability.",
-          "type": "boolean"
+          "type": "boolean",
+          "default": "false"
         },
         {
           "name": "cols",
@@ -3306,7 +3307,8 @@
           "name": "autoGrow",
           "attribute": "auto-grow",
           "description": "Enables the input height to grow automatically to accommodate user input. `auto-grow` will also remove the input's native resize capability.",
-          "type": "boolean"
+          "type": "boolean",
+          "default": "false"
         },
         {
           "name": "cols",
@@ -5251,7 +5253,7 @@
         {
           "name": "disabled",
           "description": "Disables the radio group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
-          "type": "?Boolean",
+          "type": "boolean",
           "default": "false"
         },
         {
@@ -5320,7 +5322,7 @@
           "name": "disabled",
           "attribute": "disabled",
           "description": "Disables the radio group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
-          "type": "?Boolean",
+          "type": "boolean",
           "default": "false"
         },
         {

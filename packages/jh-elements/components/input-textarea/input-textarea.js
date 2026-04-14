@@ -177,7 +177,7 @@ export class JhInputTextarea extends JhInput {
   constructor() {
     super();
     /** @type {boolean} */
-    this.autoGrow = null;
+    this.autoGrow = false;
     /** @type {?string} */
     this.cols = null;
     /** @type {boolean} */

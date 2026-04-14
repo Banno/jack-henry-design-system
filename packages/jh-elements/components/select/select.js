@@ -643,7 +643,7 @@ static get styles() {
     //do not pass this.name to the jh-input so it does not submit the form. The submission is handled by the component iself.
     return html`
       <jh-input-trigger
-        .open=${this.#open}
+        ?open=${this.#open}
         role="combobox"
         aria-expanded=${this.#open}
         aria-haspopup="listbox"

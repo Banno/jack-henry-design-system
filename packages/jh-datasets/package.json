@@ -1,0 +1,24 @@
+{
+  "name": "@jack-henry/jh-datasets",
+  "description": "Jack Henry datasets utility",
+  "version": "2.0.0-beta.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Banno/jack-henry-design-system.git"
+  },
+  "contributors": [
+    "Audrey Bissiere-Grote",
+    "Brad McCormick",
+    "Maya Buser De"
+  ],
+  "license": "Apache-2.0",
+  "files": [
+    "utils",
+    "datasets",
+    "NOTICE"
+  ],
+  "scripts": {
+    "prepack": "cp ../../NOTICE .",
+    "postpack": "rm -f NOTICE"
+}
+}

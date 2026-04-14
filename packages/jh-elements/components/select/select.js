@@ -13,7 +13,6 @@ import '../list-group/list-group.js';
 import '@jack-henry/jh-icons/icons-wc/icon-chevron-up-small.js';
 import '@jack-henry/jh-icons/icons-wc/icon-chevron-down-small.js';
 import { JhFilter } from './filtering.js';
-import { US_STATES_FLAT, US_STATES_GROUPED, getPresetData } from './data-presets.js';
 
 let id = 0;
 
@@ -160,8 +159,6 @@ static get styles() {
       menuPosition: { type: String, reflect: true, attribute: 'menu-position' },
       /** Sets the list of options to display in the dropdown menu. Accepts an array of flat options or grouped options. See documentation for the expected data format. */
       options: { type: Array, attribute: false },
-      /** Activates a built-in dataset. */
-      preset: { type: String },
       /** Prevents the dropdown menu from automatically flipping its position when there is insufficient viewport space. */
       flipDisabled: { type: Boolean, attribute: 'flip-disabled' },
     };
@@ -176,8 +173,6 @@ static get styles() {
     this.menuPosition = 'bottom';
     /** @type {?Array} */
     this.options = null;
-    /** @type {'us-states-flat'|'us-states-grouped'| null} */
-    this.preset = null;
     /** @type {boolean} */
     this.flipDisabled = false;
     this.addEventListener('keydown', this.#handleKeydown);
@@ -224,22 +219,19 @@ static get styles() {
   }
 
   willUpdate(changedProperties) {
-    if (changedProperties.has('preset')) {
-      if (this.preset === 'us-states-grouped') {
-        this.options = US_STATES_GROUPED;
-      } else if (this.preset === 'us-states-flat') {
-        this.options = US_STATES_FLAT;
-      }
-    }
     if (changedProperties.has('options')) {
       this.#allOptions = this.options.flatMap(item => {
         if (item.groupValues) {
           return item.groupValues.map(subItem => ({
+            label: subItem.label != null ? subItem.label : String(subItem.value),
             ...subItem,
             groupLabel: item.groupLabel
           }));
         }
-        return item;
+        return {
+          label: item.label != null ? item.label : String(item.value),
+          ...item
+        };
       });
       this.#flatOptions = this.#allOptions;
       this.#activeIndex = null;
@@ -247,9 +239,8 @@ static get styles() {
       // Set initial value from the selected flag in the data array
       const selectedOption = this.#flatOptions.find(opt => opt.selected);
       if (selectedOption && !this.value) {
-        this.value = selectedOption.value;
+        this.value = String(selectedOption.value);
         this.#displayValue = selectedOption.label;
-        // this.#internals.setFormValue(this.value);
       }
     }
   }
@@ -311,7 +302,7 @@ static get styles() {
       // Set initial active to selected item or first item
       if (this.#activeIndex === null) {
         const selectedIdx = this.#flatOptions.findIndex(
-          opt => opt.value === this.value
+          opt => String(opt.value) === String(this.value)
         );
         this.#setActiveItem(selectedIdx !== -1 ? selectedIdx : 0);
       }
@@ -454,8 +445,8 @@ static get styles() {
     const option = this.#flatOptions[index];
     if (!option || option.disabled) return;
 
-    this.value = option.value;
-    this.#displayValue = option.label;
+    this.value = String(option.value);
+    this.#displayValue = option.label != null ? option.label : String(option.value);
     this.#activeIndex = index;
     this.requestUpdate();
     this.#scrollToActiveItem();
@@ -584,11 +575,11 @@ static get styles() {
             role="option"
             tabindex="-1"
             ?disabled=${groupOption.disabled}
-            ?selected=${this.value === groupOption.value}
-            aria-selected=${this.value === groupOption.value}
+            ?selected=${String(this.value) === String(groupOption.value)}
+            aria-selected=${String(this.value) === String(groupOption.value)}
             id="jh-select-option-${this.#id}-${idx}"
             class="${this.#activeIndex === idx ? 'is-active' : ''}"
-            primary-text=${groupOption.label}
+            primary-text=${groupOption.label != null ? groupOption.label : String(groupOption.value)}
           ></jh-list-item>`;
         });
         return html`<jh-list-group label=${option.groupLabel}
@@ -600,11 +591,11 @@ static get styles() {
         role="option"
         tabindex="-1"
         ?disabled=${option.disabled}
-        ?selected=${this.value === option.value}
-        aria-selected=${this.value === option.value}
+        ?selected=${String(this.value) === String(option.value)}
+        aria-selected=${String(this.value) === String(option.value)}
         id="jh-select-option-${this.#id}-${idx}"
         class="${this.#activeIndex === idx ? 'is-active' : ''}"
-      >${option.label}</jh-list-item>`;
+      >${option.label != null ? option.label : String(option.value)}</jh-list-item>`;
     });
   }
 

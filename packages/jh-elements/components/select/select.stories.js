@@ -8,17 +8,20 @@ import { html, css } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import './select.js';
-import { US_STATES_FLAT, US_STATES_GROUPED, getPresetData } from './data-presets.js';
 import "@jack-henry/jh-icons/icons-wc/icon-piggy-bank.js";
 import "@jack-henry/jh-icons/icons-wc/icon-arrow-up-small.js";
 import "@jack-henry/jh-icons/icons-wc/icon-arrow-down-small.js";
 import "../button/button.js";
+import { US_STATES_FLAT } from '@jack-henry/jh-datasets/datasets/us-states-flat.js';
+import { US_STATES_GROUPED } from '@jack-henry/jh-datasets/datasets/us-states-grouped.js';
+import { BIRTH_YEARS } from '@jack-henry/jh-datasets/datasets/birth-years.js';
+import { manageDataset } from '@jack-henry/jh-datasets/utils/manageDataset.js';
 
 const testOptions = [
   { groupLabel: "Account types", groupValues: [
-    { label: "Basic Checking", value: "checking-01" },
-    { label: "High-Yield Savings", value: "savings-01", disabled: true },
-    { label: "Money Market", value: "money-market-01", selected: true },
+    {  value: "checking-01" },
+    {  value: "savings-01", disabled: true },
+    { value: "money-market-01", selected: true },
   ]},
   { groupLabel: "Credit Cards", groupValues: [
     { label: "Cash Back Rewards with a much longer label for testing", value: "cc-cash-back" },
@@ -68,7 +71,6 @@ const disableControls = {
   label: { control: { disable: true } },
   name: { control: { disable: true } },
   'menu-position': { control: { disable: true } },
-  preset: { control: { disable: true } },
   readonly: { control: { disable: true } },
   required: { control: { disable: true } },
   'show-indicator': { control: { disable: true } },
@@ -99,10 +101,6 @@ export default {
       control: 'select',
       options: ['bottom', 'top'],
     },
-    preset: {
-      control: 'select',
-      options: ['us-states-flat', 'us-states-grouped'],
-    },
     readonly: { control: 'boolean' },
     required: { control: 'boolean' },
     'show-indicator': { control: 'boolean' },
@@ -115,7 +113,7 @@ export default {
 };
 
 export const Overview = { render: (args) => html`
-  <jh-select preset="us-states-flat"></jh-select>
+  <jh-select .options=${US_STATES_FLAT}></jh-select>
 `};
 
 Overview.argTypes = {
@@ -198,27 +196,27 @@ ScrollableContainer.parameters = {
   styles: storyStyles,
 };
 
-export const PresetDatasets = { render: (args) => {
-  const customizedData = getPresetData({
-    dataset: US_STATES_FLAT,
+export const Datasets = { render: (args) => {
+  const customizedData = manageDataset({
+    dataset: BIRTH_YEARS,
     initialValue: null,
-    disabledItems: ['AK', 'HI'],
-    emptyLabel: 'Select a state...',
+    disabledItems: ["1910", "1920", "1930"],
+    emptyLabel: 'Select your birth year...',
   });
 
   return html`
-    <h3>Flat preset (via attribute)</h3>
-    <jh-select label="US States (flat)" preset="us-states-flat"></jh-select>
+    <h3>US states flat</h3>
+    <jh-select label="US States (flat)" .options=${US_STATES_FLAT}></jh-select>
 
-    <h3>Grouped preset (via attribute)</h3>
-    <jh-select label="US States (grouped)" preset="us-states-grouped"></jh-select>
+    <h3>US states grouped</h3>
+    <jh-select label="US States (grouped)" .options=${US_STATES_GROUPED}></jh-select>
 
-    <h3>getPresetData — initial value, disabled items, empty label</h3>
-    <jh-select label="Customized states" .options=${customizedData}></jh-select>
+    <h3>manageDataset — initial value, disabled items, empty label</h3>
+    <jh-select label="Customized birth years" .options=${customizedData}></jh-select>
   `;
 }};
 
-PresetDatasets.argTypes = {
+Datasets.argTypes = {
   ...disableControls,
 };
 
@@ -226,11 +224,11 @@ export const MenuFlip = { render: (args) => html`
   <div class="menu-flip-container">
     <div>
       <h3>Near the top — menu should open downward</h3>
-      <jh-select label="Top select" preset="us-states-flat" helper-text="helper text" menu-position="top" invalid error-text="Error text"></jh-select>
+      <jh-select label="Top select" .options=${US_STATES_FLAT} helper-text="helper text" menu-position="top" invalid error-text="Error text"></jh-select>
     </div>
     <div>
       <h3>Near the bottom — menu should flip upward</h3>
-      <jh-select label="Bottom select" helper-text="helper text" preset="us-states-flat"  invalid error-text="Error text" menu-position="bottom"></jh-select>
+      <jh-select label="Bottom select" helper-text="helper text" .options=${US_STATES_FLAT}  invalid error-text="Error text" menu-position="bottom"></jh-select>
     </div>
   </div>
 `};
@@ -246,8 +244,8 @@ export const AllTriggerSlots = {
   args: {
     label: 'All Trigger Slots',
     options: [
-      { value: 'checking', label: 'Checking Account longer' },
-      { value: 'savings', label: 'Savings Account' },
+      { value: 'checking', },
+      { value: 'savings',  },
       { value: 'money-market', label: 'Money Market' },
     ],
   },
@@ -274,7 +272,7 @@ export const FormAssociated = {
           name=${args.name}
           label=${args.label}
           ?required=${args.required}
-          preset="us-states-flat"
+          .options=${testOptions}
         ></jh-select>
         <jh-button label="Submit" submit @click=${onClick}></jh-button>
       </form>

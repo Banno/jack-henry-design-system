@@ -7,7 +7,7 @@
 import { LitElement, css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import '../menu/menu.js';
-import '../input/input.js';
+import '../input-trigger/input-trigger.js';
 import '../list-item/list-item.js';
 import '../list-group/list-group.js';
 import { JhFilter } from './filtering.js';
@@ -76,7 +76,7 @@ export class JhSelect extends LitElement {
   #boundDocumentScroll;
 
   get #nativeInput() {
-    return this.shadowRoot.querySelector('jh-input').shadowRoot.querySelector('input');
+    return this.shadowRoot.querySelector('jh-input-trigger').shadowRoot.querySelector('.input-wrapper');
   }
 
 static get styles() {
@@ -642,7 +642,8 @@ static get styles() {
   render() {
     //do not pass this.name to the jh-input so it does not submit the form. The submission is handled by the component iself.
     return html`
-      <jh-input
+      <jh-input-trigger
+        .open=${this.#open}
         role="combobox"
         aria-expanded=${this.#open}
         aria-haspopup="listbox"
@@ -672,7 +673,7 @@ static get styles() {
           this.#displayValue ? this.#displayValue : this.value
         )}
         @click=${this.#handleTriggerClick}
-      ></jh-input>
+      ></jh-input-trigger>
       <div class="menu-container ${this.#open ? 'show' : ''}">
       <jh-menu
         role="listbox"

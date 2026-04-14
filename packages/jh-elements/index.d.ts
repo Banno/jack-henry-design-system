@@ -33,6 +33,7 @@ import { JhTableRow } from './components/table-row/table-row.js';
 import { JhTableDataCell } from './components/table-data-cell/table-data-cell.js';
 import { JhTableHeaderCell } from './components/table-header-cell/table-header-cell.js';
 import { JhSelect } from './components/select/select.js';
+import { JhInputTrigger } from './components/input-trigger/input-trigger.js';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -67,5 +68,6 @@ declare global {
     'jh-table-data-cell': JhTableDataCell;
     'jh-table-header-cell': JhTableHeaderCell;
     'jh-select': JhSelect;
+    'jh-input-trigger': JhInputTrigger;
   }
 }

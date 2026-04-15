@@ -1,7 +1,12 @@
+/**
+* SPDX-FileCopyrightText: 2026 Jack Henry
+*
+* SPDX-License-Identifier: Apache-2.0
+*/
+
 // TODO for tagged multi-select we will need to filter out already selected items from the list of options.
 
 // returns a filtered list of terms that include the search term in the specified key (default is 'label')
-// show disabled items in dropwown suggestions but they are disabled. TODO check how this works for accessibility.
 export const JhFilter = {
 filterList(items, searchTerm, key = 'label') {
     if (!items || items.length === 0) {
@@ -26,7 +31,6 @@ filterInline(items, searchTerm, key = 'label') {
 //returns the index of the first term that starts with the buffer, or -1 if not found
 // exclude disabled items from the search as they are not selectable.
 // when it is a multi-select, return selected items as well, so users can deselect easily.
-// TODO ? Add option to press the inital letter multiple times to cycle through options that start with the same letter, e.g. m for monday, mm for march, etc.
 
 jumpAhead(items, buffer, activeIndex, key = 'label') {
     if (!buffer || !items || items.length === 0) {
@@ -37,10 +41,6 @@ jumpAhead(items, buffer, activeIndex, key = 'label') {
     const char = lowerBuffer[0];
     const isCycling = allCharsSame(lowerBuffer);
 
-    //if buffer length is 1 we need to find the first match
-    // if (buffer.length === 1) {
-    //      return items.findIndex(item => !item.disabled && String(item[key] || '').toLowerCase().startsWith(char));
-    // }
     if (isCycling) {
         // Find the next item that starts with the character after the active index
         const nextIndex = items.findIndex((item, index) => index > activeIndex && !item.disabled && String(item[key] || '').toLowerCase().startsWith(char));

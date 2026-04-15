@@ -8,8 +8,6 @@ import { JhElement } from '../element/element.js';
 import '../button/button.js';
 import '@jack-henry/jh-icons/icons-wc/icon-circle-xmark.js';
 
-let id = 0;
-
 /**
  * @cssprop --jh-input-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-input-field-color-background - The input field background-color. Defaults to `--jh-color-container-primary-enabled`.

@@ -985,7 +985,6 @@ export class JhInput extends JhElement {
     // Dispatch a custom event with the formatted and raw values
     this.dispatchCustomEvent('jh-input', {
       state: {
-        'value': this.value,
         'rawValue': this.#rawValue || null
       }, 
       reference: {

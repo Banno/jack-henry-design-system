@@ -5,7 +5,6 @@
 */
 
 import { css, html } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import { JhInput } from '../input/input.js';
 import '../menu/menu.js';
 import '../list-item/list-item.js';
@@ -445,6 +444,7 @@ static get styles() {
     const option = this.#flatOptions[index];
     if (!option || option.disabled) return;
 
+    if (this.value !== String(option.value)) {
     this.value = String(option.value);
     this.#displayValue = option.label != null ? option.label : String(option.value);
     this.#activeIndex = index;
@@ -458,6 +458,7 @@ static get styles() {
       cancelable: true,
     };
     this.dispatchEvent(new CustomEvent('jh-change', options));
+  }
   }
 
   //method to flip the menu if it is not fully visible on the viewport

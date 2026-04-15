@@ -84,7 +84,7 @@ export default {
   tags: ['beta'],
   parameters: {
     actions: {
-      handles: ['jh-change'],
+      handles: ['jh-change', 'jh-select'],
     },
   },
   argTypes: {
@@ -273,8 +273,8 @@ function submitAction() {
 }
 
 FormAssociated.args = {
-  name: 'state',
-  label: 'Select a state',
+  name: 'account-type',
+  label: 'Select an account type',
   required: false,
 };
 

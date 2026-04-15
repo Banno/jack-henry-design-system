@@ -5639,11 +5639,6 @@
           "default": "\"bottom\""
         },
         {
-          "name": "preset",
-          "description": "Activates a built-in dataset.",
-          "type": "'us-states-flat'|'us-states-grouped'| null"
-        },
-        {
           "name": "flip-disabled",
           "description": "Prevents the dropdown menu from automatically flipping its position when there is insufficient viewport space.",
           "type": "boolean",
@@ -5788,12 +5783,6 @@
           "name": "options",
           "description": "Sets the list of options to display in the dropdown menu. Accepts an array of flat options or grouped options. See documentation for the expected data format.",
           "type": "?Array"
-        },
-        {
-          "name": "preset",
-          "attribute": "preset",
-          "description": "Activates a built-in dataset.",
-          "type": "'us-states-flat'|'us-states-grouped'| null"
         },
         {
           "name": "flipDisabled",

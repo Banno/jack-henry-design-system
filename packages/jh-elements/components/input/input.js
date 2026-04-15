@@ -47,7 +47,7 @@ let id = 0;
  * @event jh-change - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`.
  * @event jh-input - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`.
  * @event jh-maxlength - Dispatched when the `maxlength` property is set and it's value is reached.
- * @event jh-input:clear-button-click - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`.
+ * @event jh-input:clear-button-click - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`.
  * @slot jh-input-left - Use to insert an element on the left side of the input field, such as an icon or button.
  * @slot jh-input-right - Use to insert an element on the right side of the input field, such as an icon or button.
  * @slot jh-input-clear-button - Use to insert an icon within the clear button. 
@@ -1080,14 +1080,19 @@ export class JhInput extends JhElement {
     this.dispatchCustomEvent('jh-maxlength');
   }
 
-  _handleClearButtonClick() {
+  _handleClearButtonClick(e) {
     let previousValue = this.value;
     // clear input value
     this.value = '';
     // focus input field
     this.shadowRoot.querySelector('input').focus();
     this.dispatchCustomEvent('jh-input:clear-button-click', { 
-      state: { previousValue: previousValue }
+      state: { 
+        'previousValue': previousValue,
+      }, 
+      reference: {
+        'clearMethod': e.pointerType === 'mouse' ? 'mouse' : 'keyboard'
+      }
     });
   }
 

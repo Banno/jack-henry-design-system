@@ -1650,7 +1650,7 @@
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`."
         }
       ],
       "slots": [
@@ -2132,7 +2132,7 @@
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`."
         }
       ],
       "slots": [
@@ -2588,7 +2588,7 @@
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`."
         }
       ],
       "slots": [
@@ -3036,7 +3036,7 @@
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`."
         }
       ],
       "slots": [
@@ -3540,7 +3540,7 @@
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`."
         }
       ],
       "slots": [
@@ -3992,7 +3992,7 @@
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`."
         }
       ],
       "slots": [
@@ -4439,7 +4439,7 @@
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`."
         }
       ],
       "slots": [

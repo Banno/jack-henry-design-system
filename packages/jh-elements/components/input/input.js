@@ -1057,7 +1057,6 @@ export class JhInput extends JhElement {
   _handleChange() {
     this.dispatchCustomEvent('jh-change', {
       state: {
-        'value': this.value,
         'rawValue': this.#rawValue || null
       },
       reference: {

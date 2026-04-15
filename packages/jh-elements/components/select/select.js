@@ -4,16 +4,15 @@
 * SPDX-License-Identifier: Apache-2.0
 */
 
-import { css, html } from 'lit';
-import { JhInput } from '../input/input.js';
+import { LitElement, css, html } from 'lit';
+import { InputLayoutMixin } from './input-layout-mixin.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../menu/menu.js';
 import '../list-item/list-item.js';
 import '../list-group/list-group.js';
 import '@jack-henry/jh-icons/icons-wc/icon-chevron-up-small.js';
 import '@jack-henry/jh-icons/icons-wc/icon-chevron-down-small.js';
 import { JhFilter } from './filtering.js';
-
-let id = 0;
 
 /**
  * Select
@@ -51,9 +50,7 @@ let id = 0;
  *
  * @event jh-change - Dispatched when the selected value changes.
  */
-export class JhSelect extends JhInput {
-  /** @type {number} */
-  #id;
+export class JhSelect extends InputLayoutMixin(LitElement) {
   /** @type {?string} */
   #displayValue = null;
   /** @type {string} */
@@ -83,7 +80,7 @@ export class JhSelect extends JhInput {
 
 static get styles() {
   return [
-    super.styles,
+    super.layoutStyles,
     css`
     :host {
       --jh-input-field-border-radius: var(--jh-select-input-field-border-radius);
@@ -165,7 +162,6 @@ static get styles() {
 
   constructor() {
     super();
-    this.#id = ++id;
     /** @type {?string} */
     this.autocomplete = 'off';
     /** @type {string} */
@@ -183,38 +179,6 @@ static get styles() {
     super.disconnectedCallback();
     document.removeEventListener('click', this.#boundDocumentClick, true);
     document.removeEventListener('scroll', this.#boundDocumentScroll, true);
-  }
-
-  firstUpdated() {
-    super.firstUpdated();
-    const input = this.#inputEl;
-    if (!input) return;
-    // Set combobox ARIA attributes on the native input
-    input.setAttribute('role', 'combobox');
-    input.setAttribute('readonly', '');
-    input.setAttribute('aria-haspopup', 'listbox');
-    input.setAttribute('aria-expanded', 'false');
-    input.setAttribute('aria-controls', `listbox-${this.#id}`);
-    // Remove name from native input — form submission is via ElementInternals on the host
-    input.removeAttribute('name');
-  }
-
-  updated(changedProperties) {
-    super.updated(changedProperties);
-    const input = this.#inputEl;
-    if (!input) return;
-
-    // Update display value — show the label text, not the form value
-    const displayValue = this.#displayValue || this.value || '';
-    input.value = displayValue;
-
-    // Update ARIA state
-    input.setAttribute('aria-expanded', String(this.#open));
-    if (this.#open && this.#activeIndex !== null) {
-      input.setAttribute('aria-activedescendant', `jh-select-option-${this.#id}-${this.#activeIndex}`);
-    } else {
-      input.removeAttribute('aria-activedescendant');
-    }
   }
 
   willUpdate(changedProperties) {
@@ -253,7 +217,7 @@ static get styles() {
   async #scrollToActiveItem() {
     await this.updateComplete;
     const el = this.shadowRoot.getElementById(
-      `jh-select-option-${this.#id}-${this.#activeIndex}`
+      `jh-select-option-${this._layoutId}-${this.#activeIndex}`
     );
     if (!el) return;
 
@@ -578,7 +542,7 @@ static get styles() {
             ?disabled=${groupOption.disabled}
             ?selected=${String(this.value) === String(groupOption.value)}
             aria-selected=${String(this.value) === String(groupOption.value)}
-            id="jh-select-option-${this.#id}-${idx}"
+            id="jh-select-option-${this._layoutId}-${idx}"
             class="${this.#activeIndex === idx ? 'is-active' : ''}"
             primary-text=${groupOption.label != null ? groupOption.label : String(groupOption.value)}
           ></jh-list-item>`;
@@ -594,12 +558,46 @@ static get styles() {
         ?disabled=${option.disabled}
         ?selected=${String(this.value) === String(option.value)}
         aria-selected=${String(this.value) === String(option.value)}
-        id="jh-select-option-${this.#id}-${idx}"
+        id="jh-select-option-${this._layoutId}-${idx}"
         class="${this.#activeIndex === idx ? 'is-active' : ''}"
       >${option.label != null ? option.label : String(option.value)}</jh-list-item>`;
     });
   }
 
+    renderInput() {
+    const describedby = (this.helperText || (this.errorText && this.invalid))
+      ? this._getDescribedby() : undefined;
+    const leftSlot = this.readonly ? null : this.renderLeftSlot();
+    const rightSlot = this.readonly ? null : this.renderRightSlot();
+    const clearButton = this.renderClearButton();
+
+    return html`
+      <div class="input-container">
+        <div class="input-wrapper" @click=${this.#handleTriggerClick}>
+          ${leftSlot}
+          <input
+            role="combobox"
+            type="text"
+            readonly
+            autocomplete="off"
+            aria-haspopup="listbox"
+            aria-controls="jh-select-listbox-${this._layoutId}"
+            id="jh-input-${this._layoutId}"
+            aria-expanded=${this.#open ? 'true' : 'false'}
+            aria-activedescendant=${ifDefined(this.#activeIndex !== null ? `jh-select-option-${this._layoutId}-${this.#activeIndex}` : undefined)}
+            aria-describedby=${ifDefined(describedby)}
+            aria-invalid=${ifDefined(this.invalid ? 'true' : undefined)}
+            aria-label=${ifDefined(this.accessibleLabel)}
+            ?disabled=${this.disabled}
+            ?required=${this.required}
+            .value=${this.#displayValue ?? ''}
+          />
+          ${clearButton}
+          ${rightSlot}
+        </div>
+      </div>
+    `;
+  }
   render() {
     const label = this.renderLabel();
     const input = this.renderInput();
@@ -607,14 +605,12 @@ static get styles() {
 
     return html`
       ${label}
-      <div @click=${this.#handleTriggerClick}>
-        ${input}
-      </div>
+      ${input}
       ${footer}
       <div class="menu-container ${this.#open ? 'show' : ''}">
         <jh-menu
           role="listbox"
-          id="listbox-${this.#id}"
+          id="jh-select-listbox-${this._layoutId}"
           @click=${this.#handleMenuClick}
         >
           ${this.renderData(this.options)}

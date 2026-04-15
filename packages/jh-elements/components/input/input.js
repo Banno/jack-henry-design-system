@@ -6,8 +6,8 @@ import { LitElement, css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import '../button/button.js';
 import '@jack-henry/jh-icons/icons-wc/icon-circle-xmark.js';
+import { InputLayoutMixin } from '../select/input-layout-mixin.js';
 
-let id = 0;
 
 /**
  * @cssprop --jh-input-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
@@ -53,17 +53,7 @@ let id = 0;
  * 
  * @customElement jh-input
  */
-export class JhInput extends LitElement {
-  static get formAssociated() {
-    return true;
-  }
-
-  /** @type {ElementInternals} */
-  #internals;
-  /** @type {?number} */
-  #id;
-  /** @type {?string} */
-  #value;
+export class JhInput extends InputLayoutMixin(LitElement) {
   /** @type {string} */
   #rawValue = '';
   /** @type {number} */
@@ -92,244 +82,13 @@ export class JhInput extends LitElement {
     '*': /[A-Za-z0-9]/,
   };
 
-  get #inputEl() {
-    return this.renderRoot?.querySelector('input');
-  }
-
-  get #leftSlot() {
-    return this.renderRoot?.querySelector('slot[name="jh-input-left"]');
-  }
-
-  get #rightSlot() {
-    return this.renderRoot?.querySelector('slot[name="jh-input-right"]');
-  }
 
   static get styles() {
-    return css`
-      :host {
-        --input-helper-regular-font-family: var(--jh-font-helper-regular-font-family);
-        --input-helper-regular-font-weight: var(--jh-font-helper-regular-font-weight);
-        --input-helper-regular-font-size: var(--jh-font-helper-regular-font-size);
-        --input-helper-regular-line-height: var(--jh-font-helper-regular-line-height);
-        font-family: var(--input-helper-regular-font-family);
-        font-weight: var(--input-helper-regular-font-weight);
-        font-size: var(--input-helper-regular-font-size);
-        line-height: var(--input-helper-regular-line-height);
-        display: inline-block;
-        width: 100%;
-        --jh-button-size: var(--jh-dimension-800);
-        --input-value-color-text: var(
-          --jh-input-value-color-text,
-          var(--jh-color-content-primary-enabled)
-        );
-      }
-      label {
-        color: var(
-          --jh-input-label-color-text,
-          var(--jh-color-content-primary-enabled)
-        );
-        font-family: var(--jh-font-helper-medium-font-family);
-        font-weight: var(--jh-font-helper-medium-font-weight);
-        font-size: var(--jh-font-helper-medium-font-size);
-        line-height: var(--jh-font-helper-medium-line-height);
-        display: block;
-      }
-      .helper-text {
-        color: var(
-          --jh-input-helper-color-text,
-          var(--jh-color-content-secondary-enabled)
-        );
-      }
-      label,
-      .helper-text,
-      .error-text {
-        word-break: normal;
-        overflow-wrap: anywhere;
-      }
+    return [
+      super.layoutStyles,
+      css`
       :host([show-char-count]) .helper-text {
         display: inline-block;
-      }
-      :host([label]) .input-container {
-        margin-top: var(--jh-dimension-200);
-      }
-
-      /* Flex wrapper */
-      .input-wrapper {
-        display: flex;
-        align-items: center;
-        background-color: var(
-          --jh-input-field-color-background,
-          var(--jh-color-container-primary-enabled)
-        );
-        border-width: var(--jh-border-control-width);
-        border-style: var(--jh-border-control-style);
-        border-color: var(
-          --jh-input-field-color-border-enabled,
-          var(--jh-border-control-color)
-        );
-        border-radius: var(
-          --jh-input-field-border-radius,
-          var(--jh-border-radius-100)
-        );
-        padding: var(--jh-dimension-0) var(--jh-dimension-400);
-        box-sizing: border-box;
-        width: 100%;
-      }
-
-      /* Sizes on input wrapper */
-      :host([size='small']) .input-wrapper {
-        height: var(--jh-dimension-1000);
-      }
-      :host([size='medium']) .input-wrapper {
-        height: var(--jh-dimension-1200);
-      }
-      :host([size='large']) .input-wrapper {
-        height: var(--jh-dimension-1400);
-      }
-
-      /* Input element — no border, grows to fill */
-      input {
-        flex: 1;
-        min-width: 0;
-        border: none;
-        background: transparent;
-        outline: none;
-        padding: 0;
-        color: var(--input-value-color-text);
-        font-family: var(--jh-font-body-regular-1-font-family);
-        font-weight: var(--jh-font-body-regular-1-font-weight);
-        font-size: var(--jh-font-body-regular-1-font-size);
-        line-height: var(--jh-font-body-regular-1-line-height);
-        height: 100%;
-      }
-      :host([readonly]) input {
-        height: auto;
-      } 
-
-      /* Slot wrappers */
-      .slot-wrapper {
-        display: none;
-        align-items: center;
-        flex-shrink: 0;
-      }
-      slot[name="jh-input-left"] {
-        display: none;
-        align-items: center;
-        flex-shrink: 0;
-        padding-right: var(--jh-dimension-200);
-      }
-      slot[name="jh-input-right"] {
-        display: none;
-        align-items: center;
-        flex-shrink: 0;
-        padding-left: var(--jh-dimension-200);
-      }
-      slot[name="jh-input-left"].display-slot,
-      slot[name="jh-input-right"].display-slot {
-        display: flex;
-      }
-
-      /* Slotted content alignment */
-      ::slotted(*) {
-        display: flex;
-        align-items: center;
-      }
-
-      /* States on input wrapper */
-      .input-wrapper:active {
-        border-color: var(
-          --jh-input-field-color-border-active,
-          var(--jh-color-content-brand-active)
-        );
-      }
-      :host([disabled]) {
-        opacity: var(--jh-input-opacity-disabled, var(--jh-opacity-disabled));
-      }
-      :host([disabled]) .input-wrapper {
-        border-color: var(
-          --jh-input-field-color-border-disabled,
-          var(--jh-border-control-color)
-        );
-      }
-
-      /* Focus-visible on wrapper when input is focused */
-      .input-wrapper:has(input:focus-visible) {
-        border-color: var(
-          --jh-input-field-color-border-focus,
-          var(--jh-color-content-brand-hover)
-        );
-        outline-color: var(
-          --jh-input-color-focus,
-          var(--jh-border-focus-color)
-        );
-        outline-style: var(--jh-border-focus-style);
-        outline-width: var(--jh-border-focus-width);
-        outline-offset: 1px;
-      }
-      input:focus-visible {
-        outline: none;
-      }
-      .input-wrapper:hover {
-        border-color: var(
-          --jh-input-field-color-border-hover,
-          var(--jh-color-content-brand-hover)
-        );
-      }
-      :host([invalid]) .input-wrapper {
-        border-width: var(--jh-border-error-width);
-        border-style: var(--jh-border-error-style);
-        border-color: var(
-          --jh-input-field-color-border-error,
-          var(--jh-border-error-color)
-        );
-      }
-
-      /* Clear button */
-      .clear-button {
-        --jh-button-border-radius: var(--jh-input-clear-border-radius);
-        --jh-button-color-background-tertiary-enabled: var(--jh-input-clear-color-background-enabled);
-        --jh-button-color-border-tertiary-enabled: var(--jh-input-clear-color-border-enabled);
-        --jh-button-icon-color-fill-tertiary-enabled: var(--jh-input-clear-icon-color-fill-enabled);
-        --jh-button-color-background-tertiary-focus: var(--jh-input-clear-color-background-focus);
-        --jh-button-color-border-tertiary-focus: var(--jh-input-clear-color-border-focus);
-        --jh-button-color-focus: var(--jh-input-clear-color-focus);
-        --jh-button-icon-color-fill-tertiary-focus: var(--jh-input-clear-icon-color-fill-focus);
-        --jh-button-color-background-tertiary-hover: var(--jh-input-clear-color-background-hover);
-        --jh-button-color-border-tertiary-hover: var(--jh-input-clear-color-border-hover);
-        --jh-button-icon-color-fill-tertiary-hover: var(--jh-input-clear-icon-color-fill-hover);
-        --jh-button-color-background-tertiary-active: var(--jh-input-clear-color-background-active);
-        --jh-button-color-border-tertiary-active: var(--jh-input-clear-color-border-active);
-        --jh-button-icon-color-fill-tertiary-active: var(--jh-input-clear-icon-color-fill-active);
-        display: none;
-        flex-shrink: 0;
-      }
-      .display-clear-button .clear-button {
-        display: flex;
-        margin-left: var(--jh-dimension-200);  
-      }
-
-      /* Readonly styles */
-      :host([readonly]) .input-wrapper {
-        height: auto;
-        background-color: transparent;
-        border: none;
-        padding-left: 0;
-        padding-right: 0;
-      }
-
-      /* Override Chrome autofill styles */
-      input:autofill {
-        -webkit-text-fill-color: var(--input-value-color-text);
-        caret-color: var(--input-value-color-text);
-        background-clip: text;
-      }
-
-      /* Footer */
-      .footer-content {
-        margin: var(--jh-dimension-200) 0 0 0;
-        gap: var(--jh-dimension-200);
-        display: flex;
-        justify-content: space-between;
       }
       .footer-content:has(.counter):not(:has(.error-text)) {
         justify-content: flex-end;
@@ -339,64 +98,16 @@ export class JhInput extends LitElement {
           var(--jh-color-content-secondary-enabled)
         );
       }
-      .error-text {
-        color: var(
-          --jh-input-error-color-text,
-          var(--jh-color-content-negative-enabled)
-        );
-      }
-      p {
-        margin: 0;
-      }
-
-      /* Optional/Required/Show-indicator */
-      :host([show-indicator]) span {
-        color: var(
-          --jh-input-optional-color-text,
-          var(--jh-color-content-primary-enabled)
-        );
-        font-family: var(--input-helper-regular-font-family);
-        font-weight: var(--input-helper-regular-font-weight);
-        font-size: var(--input-helper-regular-font-size);
-        line-height: var(--input-helper-regular-line-height);
-      }
-      :host([show-indicator][required]) span {
-        color: var(
-          --jh-input-required-color-text,
-          var(--jh-color-content-negative-enabled)
-        );
-      }
-    `;
+    `];
   }
 
   static get properties() {
     return {
-      /** Sets an `aria-label` on the input field to assist screen reader users when no visible label is present. */
-      accessibleLabel: { type: String, attribute: 'accessible-label' },
-      /** Sets an aria-label on the clear button to assist screen reader users. Indicates that activating the button will clear the input field. */
-      accessibleLabelClearButton: { type: String, attribute: 'accessible-label-clear-button'},
-      /**
-       * Determines whether the browser can provide assistance in filling out the input value and what type of information is expected.
-       * This property will override any autocomplete attribute present on the input's parent form element.
-       *
-       * [Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)
-       */
-      autocomplete: { type: String },
-      /** Disables the input and prevents all user interactions. May cause the input to be ignored by assistive technologies (AT). */
-      disabled: { type: Boolean },
       /** Specifies which action label or icon to present for the enter key on virtual keyboards.
        *
        * [Visit MDN for information on supported enterkeyhint values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint)
        */
       enterkeyhint: { type: String },
-      /** Text to be displayed when input has failed validation and `invalid` is true. */
-      errorText: { type: String, attribute: 'error-text' },
-      /** Provides additional context or guidance for using the input. For `helper-text` to be displayed, the `label` property must also be set. */
-      helperText: { type: String, attribute: 'helper-text' },
-      /** Hides the left slot from input. */
-      hideLeftSlot: { type: Boolean, attribute: 'hide-left-slot' },
-      /** Hides the right slot from input. */
-      hideRightSlot: { type: Boolean, attribute: 'hide-right-slot' },
       /** Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details. */
       inputMask: { type: String, attribute: 'input-mask' },
       /** Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.
@@ -404,87 +115,33 @@ export class JhInput extends LitElement {
        * [Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)
        */
       inputmode: { type: String },
-      /** Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set. */
-      invalid: { type: Boolean },
-      /** Identifies what data should be entered into the input field. */
-      label: { type: String },
       /** Sets the maximum number of characters a user can enter into the field. */
       maxlength: { type: String },
       /** Sets the minimum number of characters a user can enter into the field. */
       minlength: { type: String },
-      /** Sets a name for the input control. */
-      name: { type: String },
-      /** Prevents users from changing the input value. Removes all slotted content. */
-      readonly: { type: Boolean },
-      /** Indicates a value is required. */
-      required: { type: Boolean },
       /** Displays a character counter at the bottom right corner below the input field. */
       showCharCount: { type: Boolean, attribute: 'show-char-count' },
-      /** Displays a clear button in the input field when it contains a value and is focused or hovered. Deletes input value when activated. */
-      showClearButton: {type: Boolean, attribute: 'show-clear-button'}, 
-      /** Adds a visual indicator next to the label. Indicates that a value is optional(by default) or required if the `required` property is also set. */
-      showIndicator: { type: Boolean, attribute: 'show-indicator' },
-      /** Sets the size of the input. */
-      size: { type: String, reflect: true },
-      /** Sets the value of the input. */
-      value: { type: String },
     };
   }
 
   constructor() {
     super();
-    this.#internals = this.attachInternals();
-    /** @type {?string} */
-    this.accessibleLabel = null;
-    /** @type {?string} */
-    this.accessibleLabelClearButton = null;
-    /** @type {?string} */
-    this.autocomplete = null;
-    /** @type {boolean} */
-    this.disabled = false;
     /** @type {?string} */
     this.enterkeyhint = null;
-    /** @type {?string} */
-    this.errorText = null;
-    /** @type {?string} */
-    this.helperText = null;
-    /** @type {boolean} */
-    this.hideLeftSlot = false;
-    /** @type {boolean} */
-    this.hideRightSlot = false;
     /** @type {?string} */
     this.inputMask = null;
     /** @type {?string} */
     this.inputmode = null;
-    /** @type {boolean} */
-    this.invalid = false;
-    /** @type {?string} */
-    this.label = null;
     /** @type {?string} */
     this.maxlength = null;
     /** @type {?string} */
     this.minlength = null;
-    /** @type {?string} */
-    this.name = null;
-    /** @type {boolean} */
-    this.readonly = false;
-    /** @type {boolean} */
-    this.required = false;
     /** @type {boolean} */
     this.showCharCount = false;
-    /** @type {boolean} */
-    this.showClearButton = false;
-    /** @type {boolean} */
-    this.showIndicator = false;
-    /** @type {'small'|'medium'|'large'} */
-    this.size = 'medium';
-    /** @type {?string} */
-    this.value = null;
   }
 
   connectedCallback() {
     super.connectedCallback();
-    this.#id = id++;
     this.#captureMaskIndexes();
     let observer = new MutationObserver(this.#captureMaskIndexes.bind(this));
     observer.observe(this, { attributeFilter: ['input-mask'] });
@@ -495,66 +152,6 @@ export class JhInput extends LitElement {
     super.disconnectedCallback();
     if (this.inputMask) {
       this.removeEventListener('jh-select', this.#setSelection);
-    }
-  }
-
-  firstUpdated() {
-    // attach event listeners to show/hide clear button
-    if (this.showClearButton) {
-      ['focusin', 'focusout'].forEach(e => {
-        this.addEventListener(e, this.#toggleFocus);
-      });
-      let inputContainer = this.shadowRoot.querySelector('.input-container');
-      ['mouseenter', 'mouseleave'].forEach(e => {
-        inputContainer.addEventListener(e, this.#toggleFocus.bind(this));
-      });
-    }
-
-    if (this.#leftSlot) this.#leftSlot.classList.toggle('display-slot', this.#checkSlotContent(this.#leftSlot));
-    if (this.#rightSlot) this.#rightSlot.classList.toggle('display-slot', this.#checkSlotContent(this.#rightSlot));
-
-    // clicking the wrapper should focus the input
-    const wrapper = this.shadowRoot.querySelector('.input-wrapper');
-    wrapper?.addEventListener('mousedown', (e) => {
-      if (e.target === wrapper || e.target.tagName === 'SLOT') {
-        //if the input already has focus, don't do anything. Prevent default to avoid flickering of the focus ring.
-        if (this.shadowRoot.activeElement === this.#inputEl) {
-          e.preventDefault();
-        } else {
-          //otherwise set focus to the input.
-          e.preventDefault();
-          this.#inputEl?.focus();
-        }
-      }
-    });
-  }
-
-  #checkSlotContent(slot) {
-    // Slotted and fallback elements
-    const slottedElements = slot.assignedElements({ flatten: true });
-    if (slottedElements.length > 0) {
-        return true;
-    }
-
-    // Slotted and fallback text nodes that are not just whitespace
-    if (slot.assignedNodes({ flatten: true }).some(
-        (node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== ''
-    )) {
-        return true;
-    }
-    return false;
-}
-
-  #toggleFocus(e) {
-    if (this.disabled || this.readonly || !this.showClearButton) {
-      return;
-    }
-
-    // clear button to remain visible on mouseleave if input field or slotted content is focused
-    if (this.matches(':focus-within') || e.type === 'mouseenter') {
-      this.shadowRoot.querySelector('.input-container').classList.add('display-clear-button');
-    } else {
-      this.shadowRoot.querySelector('.input-container').classList.remove('display-clear-button');
     }
   }
 
@@ -610,24 +207,6 @@ export class JhInput extends LitElement {
       selectionStart: e.detail.selectionStart,
       selectionEnd: e.detail.selectionEnd,
     }
-  }
-
-  /** @ignore */
-  get form() {
-    return this.#internals.form;
-  }
-
-  get value() {
-    return this.#value;
-  }
-
-  set value(newValue) {
-    const oldValue = this.#value;
-    if (newValue !== oldValue) {
-      this.#value = newValue;
-      this.#internals.setFormValue(this.#value);
-    }
-    this.requestUpdate('value', oldValue);
   }
 
   #dispatch(eventName, details) {
@@ -1092,112 +671,6 @@ export class JhInput extends LitElement {
     this.#dispatch('jh-maxlength');
   }
 
-  _handleClearButtonClick() {
-    let previousValue = this.value;
-    // clear input value
-    this.value = '';
-    // focus input field
-    this.shadowRoot.querySelector('input').focus();
-    // dispatch clear event
-    this.dispatchEvent(
-      new CustomEvent('jh-input:clear-button-click', {
-        detail: { 
-          'previousValue': previousValue 
-        },
-        bubbles: true,
-        cancelable: true,
-        composed: true,
-      })
-    );
-  }
-
-  _handleSlotChange(e) {
-    let newSlottedElement = e.target.assignedElements()[0];
-    let slot = e.target;
-
-    if (slot.name !== 'jh-input-left' && slot.name !== 'jh-input-right') {
-      return;
-    }
-    
-    let hasContent = this.#checkSlotContent(slot);
-    slot.classList.toggle('display-slot', hasContent);
-
-    // Set icon size if applicable
-    if (newSlottedElement?.tagName.startsWith('JH-ICON')) {
-      newSlottedElement.setAttribute('size', 'medium');
-    }
-  }
-
-  renderLeftSlot() {
-    if (this.hideLeftSlot) return null;
-    return html`
-        <slot name="jh-input-left" @slotchange=${this._handleSlotChange}></slot>
-    `;
-  }
-   
-  renderRightSlot() {
-    if (this.hideRightSlot) return null;
-    return html`
-        <slot name="jh-input-right" @slotchange=${this._handleSlotChange}></slot>
-    `;
-  }
-
-  renderClearButton() {
-    if (!this.showClearButton || !this.value || this.disabled) return null;
-    return html`
-      <jh-button 
-        size="small" appearance="tertiary" class="clear-button" 
-        accessible-label=${ifDefined(this.accessibleLabelClearButton)}
-        @click=${this._handleClearButtonClick}>
-        <slot name="jh-input-clear-button" slot="jh-button-icon">
-          <jh-icon-circle-xmark slot="jh-button-icon" aria-hidden="true" size="medium"></jh-icon-circle-xmark>
-        </slot>
-      </jh-button>
-    `;
-  }
-
-  _getDescribedby() {
-    let describedbyString = '';
-
-    if (this.errorText) {
-      describedbyString += `jh-input-error-${this.#id}`;
-    }
-    if (this.helperText) {
-      describedbyString += ` jh-input-helper-${this.#id}`;
-    }
-    return describedbyString;
-  }
-
-  renderLabel() {
-    let label;
-    let indicator;
-    let helperText;
-
-    if (this.label) {
-      if (this.showIndicator) {
-        if (this.required) {
-          indicator = html`<span class="indicator" aria-hidden="true"> *</span>`;
-        } else {
-          indicator = html`<span class="indicator"> (optional)</span>`;
-        }
-      }
-
-      if (this.helperText) {
-        helperText = html`
-          <p id="jh-input-helper-${this.#id}" class="helper-text">
-            ${this.helperText}
-          </p>
-        `;
-      }
-
-      label = html`
-        <label for="jh-input-${this.#id}">${this.label}${indicator}</label>
-        ${helperText}
-      `;
-    }
-    return label;
-  }
-
   renderFooter() {
     let footer;
     let errorText;
@@ -1221,7 +694,7 @@ export class JhInput extends LitElement {
 
     if (this.invalid && this.errorText) {
       errorText = html`
-        <p id="jh-input-error-${this.#id}" class="error-text">
+        <p id="jh-input-error-${this._layoutId}" class="error-text">
           ${this.errorText}
         </p>
       `;
@@ -1254,7 +727,7 @@ export class JhInput extends LitElement {
         <div class="input-wrapper">
           ${leftSlot}
           <input
-            id="jh-input-${this.#id}"
+            id="jh-input-${this._layoutId}"
             aria-describedby=${describedby}
             aria-invalid=${ifDefined(this.invalid ? 'true' : null)}
             aria-label=${ifDefined(
@@ -1284,16 +757,6 @@ export class JhInput extends LitElement {
           ${rightSlot}
         </div>
       </div>
-    `;
-  }
-
-  render() {
-    const label = this.renderLabel();
-    const input = this.renderInput();
-    const footer = this.renderFooter();
-
-    return html`
-      ${label} ${input} ${footer}
     `;
   }
 }

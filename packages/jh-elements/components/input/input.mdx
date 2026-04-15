@@ -97,7 +97,7 @@ When implementing the `input-mask` attribute, it is important to distinguish bet
 
 **Maxlength**: Input masking does not enforce a maxlength and characters that surpass the length of the `input-mask` will not be validated. Authors should set the `maxlength` property as needed and account for any fixed characters when determining the maxlength. 
 
-**Event Handling**: The `jh-input` event is triggered on input. The event details include both the formatted and unformatted input values, and can be accessed via `e.detail.value` and `e.detail.rawValue`, respectively.
+**Event Handling**: The `jh-input` event is triggered on input. The event details include both the formatted and unformatted input values, and can be accessed via `e.detail.state.value` and `e.detail.state.rawValue`, respectively.
 
 ## Character Counter
 

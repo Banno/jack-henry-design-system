@@ -24,34 +24,28 @@ Properties can be accessed via the following pattern: `e.detail.<category>.<prop
 Below are the categories and related properties available: 
 
 ### State
-Contains the state of the component at the time of the event.
+Provides information that captures the component's current live value and status.
 
 **Properties:**
-- `previousValue` - The value associated with the component before the event was fired.
 - `validity` - The validity state of the component. 
 - `value` - The current value of the component, may be formatted if the input-mask is present. 
 
 ### Form
-Contains information required for form submission. 
+Provides information relevant to form identity and submission. 
 
 **Properties:**
 - `formName` - The name of the form the component belongs to. 
 - `name` - Name attribute of the component. 
 
 ### Reference
-Contains information that is unique to the component. 
+Provides static configuration properties and constraints that define the component’s behavior.
 
 **Properties:**
 - `id` - Unique identifier for the component. 
-- `label` - Descriptive text associated with the component. 
-- `accessibleLabel` - Descriptive and accessible text associated with the component when there is no visible text label. 
 - `originHost` - The custom HTML element that the shadow tree is attached to. 
-- `originElement` - The specific element that triggered the event.  
 
 ### Meta
-Contains information relating to the interaction itself, rather than the component.
+Provides contextual data about the event itself.
 
 **Properties:**
 - `timestamp` - The time the event fired. 
-- `rect` - The component’s size and position relative to the viewport.
-- `cursorPosition` - The x/y coordinates of the user's cursor at the time of interaction.

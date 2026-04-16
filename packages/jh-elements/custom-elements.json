@@ -3158,7 +3158,7 @@
         {
           "name": "cols",
           "description": "Sets the width of the input field.",
-          "type": "?string"
+          "type": "?number"
         },
         {
           "name": "no-resize",
@@ -3169,7 +3169,7 @@
         {
           "name": "rows",
           "description": "Sets the height of the input field.",
-          "type": "?string"
+          "type": "?number"
         },
         {
           "name": "wrap",
@@ -3314,7 +3314,7 @@
           "name": "cols",
           "attribute": "cols",
           "description": "Sets the width of the input field.",
-          "type": "?string"
+          "type": "?number"
         },
         {
           "name": "noResize",
@@ -3327,7 +3327,7 @@
           "name": "rows",
           "attribute": "rows",
           "description": "Sets the height of the input field.",
-          "type": "?string"
+          "type": "?number"
         },
         {
           "name": "wrap",

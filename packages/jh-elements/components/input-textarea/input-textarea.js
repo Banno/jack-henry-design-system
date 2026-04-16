@@ -163,14 +163,14 @@ export class JhInputTextarea extends JhInput {
         attribute: 'auto-grow',
       },
       /** Sets the width of the input field. */
-      cols: { type: String },
+      cols: { type: Number },
       /** Removes native resize capability of the input field. */
       noResize: {
         type: Boolean,
         attribute: 'no-resize',
       },
       /** Sets the height of the input field. */
-      rows: { type: String },
+      rows: { type: Number },
       /** Specifies how text should be wrapped when submitted in a form. The `cols` property must be set for `wrap='hard'` to take effect. */
       wrap: { type: String },
       /** Prevents users from changing the input value. */
@@ -182,11 +182,11 @@ export class JhInputTextarea extends JhInput {
     super();
     /** @type {boolean} */
     this.autoGrow = false;
-    /** @type {?string} */
+    /** @type {?number} */
     this.cols = null;
     /** @type {boolean} */
     this.noResize = true;
-    /** @type {?string} */
+    /** @type {?number} */
     this.rows = null;
     /** @type {'small'|'medium'|'large'} */
     this.size = 'medium';

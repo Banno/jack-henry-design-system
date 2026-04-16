@@ -20,10 +20,14 @@ export class JhInputTextarea extends JhInput {
   #id;
   /** @type {?ResizeObserver} */
   #resizeObserver;
-  /** @type {?HTMLTextAreaElement} */
-  #textareaEl;
-  /** @type {?HTMLElement} */
-  #footerContent;
+
+  get #textareaEl() {
+    return this.renderRoot?.querySelector('textarea');
+  }
+
+  get #footerContent() {
+    return this.renderRoot?.querySelector('.footer-content');
+  }
 
   static get styles() {
     return [
@@ -202,14 +206,9 @@ export class JhInputTextarea extends JhInput {
       this.#resizeObserver.disconnect();
       this.#resizeObserver = null;
     }
-    this.#textareaEl = null;
-    this.#footerContent = null;
   }
 
   firstUpdated() {
-    this.#textareaEl = this.shadowRoot.querySelector('textarea');
-    this.#footerContent = this.shadowRoot.querySelector('.footer-content');
-    
     // add resize observer to update width of footer when textarea width changes
     if (this.#footerContent) {
       this.#resizeObserver = new ResizeObserver(() => {

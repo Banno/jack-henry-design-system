@@ -349,8 +349,8 @@ export const FormAssociated = {
   render: (args) => {
     const onClick = (event) => event.target.reset();
     return html`
-      <form id="myForm" @submit=${submitAction()}>
-        <jh-input label='ZIP Code' helper-text='9 digit, XXXXX-XXXX' input-mask=${args['input-mask']} maxlength=${args.maxlength}></jh-input>
+      <form id="myForm" name="my-form-test" @submit=${submitAction()}>
+        <jh-input name="my-input-test" show-clear-button label='ZIP Code' helper-text='9 digit, XXXXX-XXXX' input-mask=${args['input-mask']} maxlength=${args.maxlength}></jh-input>
         <jh-button label="Submit" submit @click=${onClick}></jh-button>
       </form>
     `;

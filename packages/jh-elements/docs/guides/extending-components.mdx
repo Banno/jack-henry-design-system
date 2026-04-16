@@ -10,13 +10,13 @@ import { Meta } from '@storybook/blocks';
 
 # Extending Components
 
-The design system offers a comprehensive set of web components designed to cater to a wide range of use cases. However, there may be instances where additional features are required that go beyond the scope of the existing components.
+While our design system provides a comprehensive set of web components for most use cases, there may be instances where additional features are required that go beyond the scope of the existing components.
 
-When specialized components are required, we suggest building upon our exsiting components instead of starting from scratch. By leveraging our components, you can utilize the existing properties, methods, styles, and built-in accessibility features. This approach ensures seamless integration with our existing components, while also saving you time and effort.
+When specialized components are required, we suggest extending our existing components. By leveraging our existing components, you utilize built-in properties, methods, styles, and accessibility features, ensuring seamless integration while saving significant development time.
 
-This guide will walk you through the process of extending components, providing you with the knowledge and tools needed to create your own specialized components. 
+## Extending Existing Components
 
-## How To Extend a Component
+Use this approach to create "smarter" versions of components that already exist. This preserves the accessibility and logic of the original component while adding your unique requirements.
 
 ### Identify Component to Extend
 - Determine which component you need to extend. Review its existing functionality and identify the specific features you'd like to add.
@@ -26,26 +26,26 @@ This guide will walk you through the process of extending components, providing 
 
 2. Create a new class that extends the existing component. Use the `extends` keyword to inherit the base component's template, properties, methods, and events. 
 
-3. Register the new component. 
+3. Register the new component using the `register` method inherited from the base class. This prevents registry conflicts if the script is loaded multiple times. 
 
 ``` javascript
-import { LitElement, html, css } from 'lit';
-import { MyBaseComponent } from '@jack-henry/jh-elements/components/my-base-component/my-base-component.js'; // Import existing component 
-
-class MyExtendedComponent extends MyBaseComponent { // Extend from existing component
-  ....
+// Import existing component 
+import { JhInput } from '@jack-henry/jh-elements/components/jh-input/jh-input.js'; 
+// Extend from existing component
+class MyExtendedComponent extends JhInput { 
+  ...
 }
-customElements.define('my-extended-component', MyExtendedComponent); // Register new component
+// Register new component
+MyExtendedComponent.register('my-extended-component', MyExtendedComponent); 
 ```
-
-## Customize the Extended Class 
 
 ### Add Properties and Methods
 
 Add new properties and methods to introduce additional functionality.
 
 ``` javascript
-class MyExtendedComponent extends MyBaseComponent {
+import { JhInput } from '@jack-henry/jh-elements/components/jh-input/jh-input.js'; 
+class MyExtendedComponent extends JhInput {
 
   // Add properties
   static get properties() {
@@ -72,10 +72,10 @@ class MyExtendedComponent extends MyBaseComponent {
 Extend the styles of the base component by adding new CSS rules or modifying existing ones. 
 
 ``` javascript
-class MyExtendedComponent extends MyBaseComponent {
+class MyExtendedComponent extends JhInput {
   static get styles() {
     return [
-      MyBaseComponent.styles,
+      JhInput.styles,
       css`
         /* Custom styles */
         :host {
@@ -91,7 +91,7 @@ class MyExtendedComponent extends MyBaseComponent {
 Modify the template of the base component, use the super.render() method to include the base component's template and add your custom HTML.
 
 ``` javascript
-class MyExtendedComponent extends MyBaseComponent {
+class MyExtendedComponent extends JhInput {
   render() {
     return html`
       ${super.render()}
@@ -155,7 +155,7 @@ export class ExtendJhSearch extends JhInputSearch {
 }
 ```
 
-## Extending Component Example
+### Extending Component Example
 
 Let's walk through an example of extending the `jh-input` component to add a floating label. 
 
@@ -181,7 +181,7 @@ export class MyInput extends JhInput {
   // add label styles to override base class 
   static get styles() {
     return [
-      BaseInput.styles,
+      JhInput.styles,
       css`
       @keyframes fadeInUp  {
         0% {
@@ -259,5 +259,5 @@ export class MyInput extends JhInput {
     `;
   }
 }
-customElements.define('my-input', MyInput);
+JhInput.register('my-input', MyInput);
 ```

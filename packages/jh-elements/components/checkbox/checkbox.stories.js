@@ -176,7 +176,7 @@ export const FormAssociated = {
   render: (args) => {
     const onClick = (event) => event.target.reset();
     return html`
-      <form @submit=${submitAction()}>
+      <form @submit=${submitAction()} name="demo-form">
         <jh-checkbox
           name=${args.name}
           ?checked=${args.checked}
@@ -205,8 +205,8 @@ function submitAction() {
 }
 
 FormAssociated.args = {
-  name: 'Demo checkbox',
-  value: 'Demo value',
+  name: 'Demo checkbox name',
+  value: 'Demo checkbox value',
   checked: false,
   indeterminate: false,
   label: 'Label',

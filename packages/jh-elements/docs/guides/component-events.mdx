@@ -1,0 +1,51 @@
+{/*
+SPDX-FileCopyrightText: 2026 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+*/}
+
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Guides/Component Events" tags={['new']} />
+
+# Working with Component Events
+
+## Event API
+The Event API provides a standardized interface for interacting with design system components. All key data is organized within the event payload under predictable, categorized properties.
+
+This approach reduces boilerplate code, improves discoverability, and creates a consistent pattern across all design system components.
+
+## Payload Anatomy
+All custom events follow a consistent structure with data organized into logical categories within the `detail` object. 
+
+Properties can be accessed via the following pattern: `e.detail.<category>.<property>`.
+
+## Payload Categories
+Below are the categories and related properties available: 
+
+### State
+Provides information that captures the component's current live value and status.
+
+**Properties:**
+- `validity` - The validity state of the component. 
+- `value` - The current value of the component, may be formatted if the input-mask is present. 
+
+### Form
+Provides information relevant to form identity and submission. 
+
+**Properties:**
+- `formName` - The name of the form the component belongs to. 
+- `name` - Name attribute of the component. 
+
+### Reference
+Provides static configuration properties and constraints that define the component’s behavior.
+
+**Properties:**
+- `id` - Unique identifier for the component. 
+- `originHost` - The custom HTML element that the shadow tree is attached to. 
+
+### Meta
+Provides contextual data about the event itself.
+
+**Properties:**
+- `timestamp` - The time the event fired. 

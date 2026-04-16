@@ -1,0 +1,116 @@
+{/*
+SPDX-FileCopyrightText: 2026 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+*/}
+
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Guides/Creating Components" tags={['new']} />
+
+# Creating Components
+
+While our design system provides a comprehensive set of web components for most use cases, you may occasionally need to build something entirely unique that lacks a functional or visual equivalent in our system.
+
+In these instances, we recommend building from our `JhElement` base class. Extending this class gives you full creative control over your templates and styles while ensuring your component inherits our standardized event dispatching, collision-proof identifiers, secure registration, and the ElementInternals hook for seamless form and accessibility integration.
+
+## Creating New Components from JhElement
+
+### Create New Component Class 
+1. Import `JhElement`.
+
+2. Create a new class that extends the existing component. Use the `extends` keyword to inherit its properties, methods, and events. 
+
+3. Register the new component using the `register` method inherited from the base class. This prevents registry conflicts if the script is loaded multiple times. 
+
+``` javascript
+// Import JhElement
+import { JhElement } from '@jack-henry/jh-elements/components/jh-element/jh-element.js'; 
+// Extend from base class
+class MyExtendedComponent extends JhElement { 
+  ...
+}
+// Register new component
+MyExtendedComponent.register('my-extended-component', MyExtendedComponent); 
+```
+
+### Managing Scoped IDs
+
+`JhElement` automatically generates a scoped, unique ID for every component instance, accessible via the `uniqueId` property.
+
+Use this property to programmatically link elements that require matching IDs (such as labels or ARIA attributes). 
+
+For example:
+```javascript
+import { JhElement } from '@jack-henry/jh-elements/components/jh-element/jh-element.js'; 
+
+class MyExtendedComponent extends JhElement { 
+  ...
+  render() {
+    html`
+      <label for="my-extended-component-${this.uniqueId}">My label</label>
+      <input id="my-extended-component-${this.uniqueId}"/>
+    `
+  }
+}
+```
+
+### Creating Custom Events
+
+`JhElement` provides an event dispatcher, `dispatchCustomEvent`. The dispatcher includes the following:
+
+- Automatic Bubbling: Events are set to `bubbles: true` by default, allowing them to travel up the DOM tree.
+
+- Shadow DOM Traversal: Events are set to `composed: true`, ensuring they can cross the Shadow DOM boundary to be captured by listeners in the main document.
+
+- Cancelable by Default: Events are dispatched with `cancelable: true`, allowing the event to be intercepted and canceled via e.preventDefault(). 
+
+- Standardized Payload: It automatically injects the structured categories (state, reference, etc.) and related properties outlined in our [Component Events Guide](/docs/guides-component-events--docs).
+
+To hook into the event dispatcher:
+
+```javascript
+import { JhElement } from '@jack-henry/jh-elements/components/jh-element/jh-element.js'; 
+
+class MyExtendedComponent extends JhElement { 
+  ...
+  #handleChange() {
+    let additionalDetails = {
+      // add additional properties to existing categories
+      state: {
+        'new-property': propertyValue
+      },
+      // create new categories
+      newCategory: {
+        'new-property': propertyValue
+      }
+    }
+    // call event dispatcher
+    this.dispatchCustomEvent('my-event', additionalDetails);
+  }
+  
+  render() {
+    html`
+      <input @change=${this.#handleChange}/>
+    `
+  }
+}
+```
+
+### Managing Semantics with ElementInternals
+
+The design system leverages the use of the ElementInternals API to ensure accessibility and semantic integrity. `JhElement` provides a built-in interface to this API via the `internals` property, allowing you to define roles and states without cluttering the DOM. For example:
+
+```javascript
+import { JhElement } from '@jack-henry/jh-elements/components/jh-element/jh-element.js'; 
+
+class MyExtendedComponent extends JhElement { 
+  ...
+    constructor() {
+    super();
+    this.internals.role = 'graphics-symbol';
+    this.internals.ariaHidden = 'true';
+  }
+  ...
+}
+```

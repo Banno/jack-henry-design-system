@@ -1435,6 +1435,11 @@
           "type": "?string"
         },
         {
+          "name": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
           "type": "boolean",
@@ -1576,6 +1581,12 @@
           "name": "name",
           "attribute": "name",
           "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
           "type": "?string"
         },
         {
@@ -1899,6 +1910,11 @@
           "type": "?string"
         },
         {
+          "name": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
           "type": "boolean",
@@ -2058,6 +2074,12 @@
           "name": "name",
           "attribute": "name",
           "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
           "type": "?string"
         },
         {
@@ -2374,6 +2396,11 @@
           "type": "?string"
         },
         {
+          "name": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
           "type": "boolean",
@@ -2514,6 +2541,12 @@
           "name": "name",
           "attribute": "name",
           "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
           "type": "?string"
         },
         {
@@ -2822,6 +2855,11 @@
           "type": "?string"
         },
         {
+          "name": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
           "type": "boolean",
@@ -2962,6 +3000,12 @@
           "name": "name",
           "attribute": "name",
           "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
           "type": "?string"
         },
         {
@@ -3295,6 +3339,11 @@
           "type": "?string"
         },
         {
+          "name": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value.",
           "type": "boolean",
@@ -3466,6 +3515,12 @@
           "name": "name",
           "attribute": "name",
           "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
           "type": "?string"
         },
         {
@@ -3778,6 +3833,11 @@
           "type": "?string"
         },
         {
+          "name": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
           "type": "boolean",
@@ -3918,6 +3978,12 @@
           "name": "name",
           "attribute": "name",
           "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
           "type": "?string"
         },
         {
@@ -4225,6 +4291,11 @@
           "type": "?string"
         },
         {
+          "name": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
           "type": "boolean",
@@ -4365,6 +4436,12 @@
           "name": "name",
           "attribute": "name",
           "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
           "type": "?string"
         },
         {

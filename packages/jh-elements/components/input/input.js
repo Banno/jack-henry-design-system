@@ -409,6 +409,8 @@ export class JhInput extends JhElement {
       minlength: { type: String },
       /** Sets a name for the input control. */
       name: { type: String },
+      /** Sets the pattern attribute on the input field. */
+      pattern: { type: String },
       /** Prevents users from changing the input value. Removes all slotted content. */
       readonly: { type: Boolean },
       /** Indicates a value is required. */
@@ -460,6 +462,8 @@ export class JhInput extends JhElement {
     this.minlength = null;
     /** @type {?string} */
     this.name = null;
+    /** @type {?string} */
+    this.pattern = null;
     /** @type {boolean} */
     this.readonly = false;
     /** @type {boolean} */
@@ -638,6 +642,7 @@ export class JhInput extends JhElement {
         reference: {
           'maxlength': this.maxlength,
           'minlength': this.minlength,
+          'pattern': this.pattern,
         }
       } );
     }
@@ -987,7 +992,8 @@ export class JhInput extends JhElement {
       }, 
       reference: {
         'maxlength': this.maxlength,
-        'minlength': this.minlength
+        'minlength': this.minlength,
+        'pattern': this.pattern,
       }
     });
   }
@@ -1059,7 +1065,8 @@ export class JhInput extends JhElement {
       },
       reference: {
         'minlength': this.minlength,
-        'maxlength': this.maxlength
+        'maxlength': this.maxlength,
+        'pattern': this.pattern,
       }
     });
   }
@@ -1266,6 +1273,7 @@ export class JhInput extends JhElement {
             maxlength=${ifDefined(this.maxlength === '' ? null : this.maxlength)}
             minlength=${ifDefined(this.minlength === '' ? null : this.minlength)}
             name=${ifDefined(this.name === '' ? null : this.name)}
+            pattern=${ifDefined(this.pattern === '' ? null : this.pattern)}
             ?readonly=${this.readonly}
             ?required=${this.required}
             type="text"

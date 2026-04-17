@@ -4,19 +4,23 @@
 * SPDX-License-Identifier: Apache-2.0
 */
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
+import { JhInput } from '../input/input.js';
 
 /**
  * Input Number
  * @customElement jh-input-number
  */
-export class JhInputNumber extends LitElement {
+export class JhInputNumber extends JhInput {
   static get styles() {
-    return css`
+    return [
+      super.styles,
+      css`
         :host {
 
-      }
-    `;
+        }
+      `
+    ];
   }
 
   static get properties() {

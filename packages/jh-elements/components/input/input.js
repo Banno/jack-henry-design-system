@@ -11,7 +11,7 @@ let id = 0;
 
 /**
  * @cssprop --jh-input-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
- * @cssprop --jh-input-field-color-background - The input field background-color. Defaults to `--jh-color-container-primary-enabled`.
+ * @cssprop --jh-input-field-color-background - The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`.
  * @cssprop --jh-input-field-color-border-enabled - The input field border-color. Defaults to `--jh-border-control-color`.
  * @cssprop --jh-input-field-border-radius - The input field border radius. Defaults to `--jh-border-radius-100`.
  * @cssprop --jh-input-color-focus - The input field outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.
@@ -1057,6 +1057,24 @@ export class JhInput extends LitElement {
         input.setSelectionRange(selectionStart, selectionStart);
         this.#selectedText.selectionStart = null;
       }
+    }
+
+    // Handle slot visibility updates
+    if (changedProperties.has('hideLeftSlot')) {
+      this.#updateSlotVisibility(this.#leftSlot);
+    }
+    if (changedProperties.has('hideRightSlot')) {
+      this.#updateSlotVisibility(this.#rightSlot);
+    }
+    if (changedProperties.has('readonly')) {
+      this.#updateSlotVisibility(this.#leftSlot);
+      this.#updateSlotVisibility(this.#rightSlot);
+    }
+  }
+
+  #updateSlotVisibility(slot) {
+    if (slot) {
+      slot.classList.toggle('display-slot', this.#checkSlotContent(slot));
     }
   }
 

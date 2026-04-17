@@ -1058,6 +1058,24 @@ export class JhInput extends LitElement {
         this.#selectedText.selectionStart = null;
       }
     }
+
+    // Handle slot visibility updates
+    if (changedProperties.has('hideLeftSlot')) {
+      this.#updateSlotVisibility(this.#leftSlot);
+    }
+    if (changedProperties.has('hideRightSlot')) {
+      this.#updateSlotVisibility(this.#rightSlot);
+    }
+    if (changedProperties.has('readonly')) {
+      this.#updateSlotVisibility(this.#leftSlot);
+      this.#updateSlotVisibility(this.#rightSlot);
+    }
+  }
+
+  #updateSlotVisibility(slot) {
+    if (slot) {
+      slot.classList.toggle('display-slot', this.#checkSlotContent(slot));
+    }
   }
 
   _handleChange() {

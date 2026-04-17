@@ -1651,7 +1651,7 @@
         },
         {
           "name": "--jh-input-field-color-background",
-          "description": "The input field background-color. Defaults to `--jh-color-container-primary-enabled`."
+          "description": "The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`."
         },
         {
           "name": "--jh-input-field-color-border-enabled",
@@ -2137,7 +2137,7 @@
         },
         {
           "name": "--jh-input-field-color-background",
-          "description": "The input field background-color. Defaults to `--jh-color-container-primary-enabled`."
+          "description": "The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`."
         },
         {
           "name": "--jh-input-field-color-border-enabled",
@@ -2581,7 +2581,7 @@
         },
         {
           "name": "--jh-input-field-color-background",
-          "description": "The input field background-color. Defaults to `--jh-color-container-primary-enabled`."
+          "description": "The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`."
         },
         {
           "name": "--jh-input-field-color-border-enabled",
@@ -3025,7 +3025,7 @@
         },
         {
           "name": "--jh-input-field-color-background",
-          "description": "The input field background-color. Defaults to `--jh-color-container-primary-enabled`."
+          "description": "The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`."
         },
         {
           "name": "--jh-input-field-color-border-enabled",
@@ -3529,7 +3529,7 @@
         },
         {
           "name": "--jh-input-field-color-background",
-          "description": "The input field background-color. Defaults to `--jh-color-container-primary-enabled`."
+          "description": "The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`."
         },
         {
           "name": "--jh-input-field-color-border-enabled",
@@ -3973,7 +3973,7 @@
         },
         {
           "name": "--jh-input-field-color-background",
-          "description": "The input field background-color. Defaults to `--jh-color-container-primary-enabled`."
+          "description": "The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`."
         },
         {
           "name": "--jh-input-field-color-border-enabled",
@@ -4416,7 +4416,7 @@
         },
         {
           "name": "--jh-input-field-color-background",
-          "description": "The input field background-color. Defaults to `--jh-color-container-primary-enabled`."
+          "description": "The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`."
         },
         {
           "name": "--jh-input-field-color-border-enabled",
@@ -5251,7 +5251,7 @@
         {
           "name": "disabled",
           "description": "Disables the radio group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
-          "type": "?Boolean",
+          "type": "boolean",
           "default": "false"
         },
         {
@@ -5320,7 +5320,7 @@
           "name": "disabled",
           "attribute": "disabled",
           "description": "Disables the radio group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
-          "type": "?Boolean",
+          "type": "boolean",
           "default": "false"
         },
         {

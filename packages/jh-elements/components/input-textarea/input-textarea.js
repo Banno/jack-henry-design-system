@@ -128,6 +128,7 @@ export class JhInputTextarea extends JhInput {
         );
       }
       :host([readonly]) textarea {
+        background-color: transparent;
         height: auto;
         border: none;
         padding-left: 0;

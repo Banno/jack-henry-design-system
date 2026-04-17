@@ -7,6 +7,7 @@ import { action } from '@storybook/addon-actions';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import './button.js';
 import '@jack-henry/jh-icons/icons-wc/icon-ellipsis.js';
+import '@jack-henry/jh-icons/icons-wc/icon-chevron-down-small.js';
 
 const storyStyles = css`
   div[id^="story-root"] {
@@ -34,7 +35,7 @@ const disableControls = {
   size: { control: { disable: true } },
   submit: { control: { disable: true } },
   target: { control: { disable: true } },
-  'icon-position': { control: { disable: true } },
+  'icon-only': { control: { disable: true } },
   value: { table: { disable: true } },
 };
 
@@ -42,9 +43,8 @@ export default {
   component: 'jh-button',
   title: 'Components/Button',
   argTypes: {
-    'icon-position': {
-      control: 'select',
-      options: ['before', 'after'],
+    'icon-only': {
+      control: 'boolean',
     },
     appearance: {
       control: 'select',
@@ -90,14 +90,22 @@ export const Overview = {
   render: (args) => html`
     <div class="overview-row">
       <jh-button label="Label"></jh-button>
-      <jh-button icon-position="before" label="Label">
-        <jh-icon-ellipsis slot="jh-button-icon"></jh-icon-ellipsis>
+      <jh-button label="Label">
+        <jh-icon-ellipsis slot="jh-button-icon-left"></jh-icon-ellipsis>
       </jh-button>
-      <jh-button icon-position="after" label="Label">
-        <jh-icon-ellipsis slot="jh-button-icon"></jh-icon-ellipsis>
+      <jh-button label="Label">
+        <jh-icon-ellipsis slot="jh-button-icon-right"></jh-icon-ellipsis>
       </jh-button>
-      <jh-button accessible-label="label">
-        <jh-icon-ellipsis slot="jh-button-icon"></jh-icon-ellipsis>
+      <jh-button label="Label">
+        <jh-icon-ellipsis slot="jh-button-icon-left"></jh-icon-ellipsis>
+        <jh-icon-chevron-down-small slot="jh-button-icon-right"></jh-icon-chevron-down-small>
+      </jh-button>
+      <jh-button>
+        <jh-icon-ellipsis slot="jh-button-icon-left"></jh-icon-ellipsis>
+        <jh-icon-chevron-down-small slot="jh-button-icon-right"></jh-icon-chevron-down-small>
+      </jh-button>
+      <jh-button accessible-label="label" icon-only>
+        <jh-icon-ellipsis slot="jh-button-icon-left"></jh-icon-ellipsis>
       </jh-button>
     </div>
   `,
@@ -130,9 +138,9 @@ export const Playground = {
     size=${args.size}
     ?submit=${args.submit}
     target=${ifDefined(args.target ? args.target : null)}
-    icon-position=${args['icon-position']}
+    ?icon-only=${args['icon-only']}
     label=${ifDefined(args.label || args.label !== '' ? args.label : null)}>
-    <jh-icon-ellipsis slot="jh-button-icon"></jh-icon-ellipsis>
+    <jh-icon-ellipsis slot="jh-button-icon-left"></jh-icon-ellipsis>
   </jh-button>`,
 };
 
@@ -148,7 +156,7 @@ Playground.args = {
   size: 'medium',
   submit: false,
   target: null,
-  'icon-position': 'after',
+  'icon-only': false,
 };
 
 Playground.argTypes = {
@@ -163,8 +171,8 @@ Playground.parameters = {
 
 export const Block = {
   render: (args) => html`
-  <jh-button block label="Block" icon-position="before">
-    <jh-icon-ellipsis slot="jh-button-icon"></jh-icon-ellipsis>
+  <jh-button block label="Block">
+    <jh-icon-ellipsis slot="jh-button-icon-left"></jh-icon-ellipsis>
   </jh-button>`,
 };
 
@@ -225,5 +233,5 @@ FormAssociated.argTypes = {
   pending: { table: { disable: true } },
   size: { table: { disable: true } },
   target: { table: { disable: true } },
-  'icon-position': { table: { disable: true } },
+  'icon-only': { table: { disable: true } },
 };

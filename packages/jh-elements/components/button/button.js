@@ -102,9 +102,10 @@ import '../progress/progress.js';
  * @cssprop --jh-button-border-radius - The button container border-radius. Defaults to `--jh-border-radius-100`.
  * @cssprop --jh-button-opacity-disabled - The button container opacity when disabled. Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-button-color-focus - The button container outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.
- * @cssprop --jh-button-size - The button width when no label is set, and the button height. Button width and height defaults to `--jh-dimension-1000` when `size="small"`, `--jh-dimension-1200` when `size="medium"`, and `--jh-dimension-1400` when `size="large"`. 
+ * @cssprop --jh-button-size - The button width of icon-only buttons, and the button height. Button width and height defaults to `--jh-dimension-1000` when `size="small"`, `--jh-dimension-1200` when `size="medium"`, and `--jh-dimension-1400` when `size="large"`. 
  *
- * @slot jh-button-icon - Use to insert an icon.
+ * @slot jh-button-icon-left - Use to insert an icon on the left side of the button and for `icon-only` buttons.
+ * @slot jh-button-icon-right - Use to insert an icon on the right side of the button.
  * @customElement jh-button
  */
 export class JhButton extends LitElement {
@@ -156,6 +157,7 @@ export class JhButton extends LitElement {
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: var(--jh-dimension-200);
       }
       button:focus,
       a:focus {
@@ -687,32 +689,18 @@ export class JhButton extends LitElement {
           var(--jh-color-content-on-negative-enabled)
         );
       }
-      /* Icon-related Type option styling */
-      :host([icon-position='before'][label]) ::slotted(*) {
-        margin-right: var(--jh-dimension-200);
-      }
-      :host([icon-position='after'][label]) ::slotted(*) {
-        margin-left: var(--jh-dimension-200);
-      }
-      :host([icon-position='after']) .content-wrapper {
-        flex-direction: row-reverse;
-      }
       /* Icon only styling */
-      :host(:not([label])[size='small']) button,
-      :host(:not([label])[size='small']) a {
+      :host([icon-only][size='small']) button,
+      :host([icon-only][size='small']) a {
         width: var(--jh-button-size, var(--jh-dimension-1000));
       }
-      :host(:not([label])[size='medium']) button,
-      :host(:not([label])[size='medium']) a {
+      :host([icon-only][size='medium']) button,
+      :host([icon-only][size='medium']) a {
         width: var(--jh-button-size, var(--jh-dimension-1200));
       }
-      :host(:not([label])[size='large']) button,
-      :host(:not([label])[size='large']) a {
+      :host([icon-only][size='large']) button,
+      :host([icon-only][size='large']) a {
         width: var(--jh-button-size, var(--jh-dimension-1400));
-      }
-      :host(:not([label])) button,
-      :host(:not([label])) a {
-        padding: 0;
       }
       /* Block styling */
       :host([block]) {
@@ -721,6 +709,8 @@ export class JhButton extends LitElement {
       }
       :host(:not([label])[block]) button,
       :host(:not([label])[block]) a,
+      :host([icon-only][block]) button,
+      :host([icon-only][block]) a,
       :host([block]) button,
       :host([block]) a {
         width: 100%;
@@ -759,10 +749,10 @@ export class JhButton extends LitElement {
       href: {
         type: String,
       },
-      /** Sets location of icon in relation to the label. */
-      iconPosition: {
-        type: String,
-        attribute: 'icon-position',
+      /** Displays an icon-only button using the icon placed in the `jh-button-icon-left` slot. */
+      iconOnly: {
+        type: Boolean,
+        attribute: 'icon-only',
         reflect: true,
       },
       /** Displays a progress indicator. */
@@ -816,8 +806,8 @@ export class JhButton extends LitElement {
     this.disabled = false;
     /** @type {?string} */
     this.href = null;
-    /** @type {'before'|'after'} */
-    this.iconPosition = 'before';
+    /** @type {boolean} */
+    this.iconOnly = false;
     /** @type {?boolean} */
     this.pending = false;
     /** @type {?string} */
@@ -900,13 +890,24 @@ export class JhButton extends LitElement {
       buttonContent = html`
         <jh-progress type="circular" indeterminate></jh-progress>
       `;
+    } else if (this.iconOnly) {
+      buttonContent = html`
+        <slot
+          name="jh-button-icon-left"
+          @slotchange=${this.#handleSlotChange}
+        ></slot>
+      `;
     } else {
       buttonContent = html`
         <slot
-          name="jh-button-icon"
+          name="jh-button-icon-left"
           @slotchange=${this.#handleSlotChange}
         ></slot>
         ${buttonLabel}
+        <slot
+          name="jh-button-icon-right"
+          @slotchange=${this.#handleSlotChange}
+        ></slot>
       `;
     }
 

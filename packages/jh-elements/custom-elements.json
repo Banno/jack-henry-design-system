@@ -85,10 +85,10 @@
           "type": "?string"
         },
         {
-          "name": "icon-position",
-          "description": "Sets location of icon in relation to the label.",
-          "type": "'before'|'after'",
-          "default": "\"before\""
+          "name": "icon-only",
+          "description": "Displays an icon-only button using the icon placed in the `jh-button-icon-left` slot.",
+          "type": "boolean",
+          "default": "false"
         },
         {
           "name": "pending",
@@ -170,11 +170,11 @@
           "type": "?string"
         },
         {
-          "name": "iconPosition",
-          "attribute": "icon-position",
-          "description": "Sets location of icon in relation to the label.",
-          "type": "'before'|'after'",
-          "default": "\"before\""
+          "name": "iconOnly",
+          "attribute": "icon-only",
+          "description": "Displays an icon-only button using the icon placed in the `jh-button-icon-left` slot.",
+          "type": "boolean",
+          "default": "false"
         },
         {
           "name": "pending",
@@ -224,8 +224,12 @@
       ],
       "slots": [
         {
-          "name": "jh-button-icon",
-          "description": "Use to insert an icon."
+          "name": "jh-button-icon-left",
+          "description": "Use to insert an icon on the left side of the button and for `icon-only` buttons."
+        },
+        {
+          "name": "jh-button-icon-right",
+          "description": "Use to insert an icon on the right side of the button."
         }
       ],
       "cssProperties": [
@@ -611,7 +615,7 @@
         },
         {
           "name": "--jh-button-size",
-          "description": "The button width when no label is set, and the button height. Button width and height defaults to `--jh-dimension-1000` when `size=\"small\"`, `--jh-dimension-1200` when `size=\"medium\"`, and `--jh-dimension-1400` when `size=\"large\"`."
+          "description": "The button width of icon-only buttons, and the button height. Button width and height defaults to `--jh-dimension-1000` when `size=\"small\"`, `--jh-dimension-1200` when `size=\"medium\"`, and `--jh-dimension-1400` when `size=\"large\"`."
         }
       ]
     },
@@ -5251,7 +5255,7 @@
         {
           "name": "disabled",
           "description": "Disables the radio group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
-          "type": "?Boolean",
+          "type": "boolean",
           "default": "false"
         },
         {
@@ -5320,7 +5324,7 @@
           "name": "disabled",
           "attribute": "disabled",
           "description": "Disables the radio group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
-          "type": "?Boolean",
+          "type": "boolean",
           "default": "false"
         },
         {

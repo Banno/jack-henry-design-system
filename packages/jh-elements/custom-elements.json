@@ -85,12 +85,6 @@
           "type": "?string"
         },
         {
-          "name": "icon-only",
-          "description": "Displays an icon-only button using the icon placed in the `jh-button-icon-left` slot.",
-          "type": "boolean",
-          "default": "false"
-        },
-        {
           "name": "pending",
           "description": "Displays a progress indicator.",
           "type": "?boolean",
@@ -170,13 +164,6 @@
           "type": "?string"
         },
         {
-          "name": "iconOnly",
-          "attribute": "icon-only",
-          "description": "Displays an icon-only button using the icon placed in the `jh-button-icon-left` slot.",
-          "type": "boolean",
-          "default": "false"
-        },
-        {
           "name": "pending",
           "attribute": "pending",
           "description": "Displays a progress indicator.",
@@ -225,11 +212,11 @@
       "slots": [
         {
           "name": "jh-button-icon-left",
-          "description": "Use to insert an icon on the left side of the button and for `icon-only` buttons."
+          "description": "Use to insert an icon on the left side of the button and for single icon buttons."
         },
         {
           "name": "jh-button-icon-right",
-          "description": "Use to insert an icon on the right side of the button."
+          "description": "Use to insert an icon on the right side of the button and for single icon buttons."
         }
       ],
       "cssProperties": [
@@ -615,7 +602,7 @@
         },
         {
           "name": "--jh-button-size",
-          "description": "The button width of icon-only buttons, and the button height. Button width and height defaults to `--jh-dimension-1000` when `size=\"small\"`, `--jh-dimension-1200` when `size=\"medium\"`, and `--jh-dimension-1400` when `size=\"large\"`."
+          "description": "The button width of single icon buttons, and the button height. Button width and height defaults to `--jh-dimension-1000` when `size=\"small\"`, `--jh-dimension-1200` when `size=\"medium\"`, and `--jh-dimension-1400` when `size=\"large\"`."
         }
       ]
     },

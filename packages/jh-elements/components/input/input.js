@@ -1149,8 +1149,8 @@ export class JhInput extends LitElement {
         size="small" appearance="tertiary" class="clear-button" 
         accessible-label=${ifDefined(this.accessibleLabelClearButton)}
         @click=${this._handleClearButtonClick}>
-        <slot name="jh-input-clear-button" slot="jh-button-icon">
-          <jh-icon-circle-xmark slot="jh-button-icon" aria-hidden="true" size="medium"></jh-icon-circle-xmark>
+        <slot name="jh-input-clear-button" slot="jh-button-icon-left">
+          <jh-icon-circle-xmark slot="jh-button-icon-left" aria-hidden="true" size="medium"></jh-icon-circle-xmark>
         </slot>
       </jh-button>
     `;

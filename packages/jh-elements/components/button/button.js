@@ -4,7 +4,6 @@
 
 import { LitElement, css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { classMap } from 'lit/directives/class-map.js';
 import '../progress/progress.js';
 
 /**
@@ -946,6 +945,7 @@ export class JhButton extends LitElement {
   render() {
     const buttonContent = this.#renderButtonContent(this.pending, this.label);
     let ariaDisabled;
+    let singleIconClass = !this.label && (this._hasLeftSlotContent !== this._hasRightSlotContent) ? 'single-icon' : null;
 
     if (this.accessibleDisabled !== 'false') {
       ariaDisabled = this.accessibleDisabled;
@@ -954,7 +954,7 @@ export class JhButton extends LitElement {
     if (this.href) {
       return html`
         <a
-          class=${classMap({ 'single-icon': !this.label && (this._hasLeftSlotContent !== this._hasRightSlotContent) })}
+          class=${ifDefined(singleIconClass)}
           tabindex="0"
           aria-disabled=${ifDefined(ariaDisabled)}
           aria-label=${ifDefined(this.accessibleLabel)}
@@ -968,7 +968,7 @@ export class JhButton extends LitElement {
     } else {
       return html`
         <button
-          class=${classMap({ 'single-icon': !this.label && (this._hasLeftSlotContent !== this._hasRightSlotContent) })}
+          class=${ifDefined(singleIconClass)}
           tabindex="0"
           aria-disabled=${ifDefined(ariaDisabled)}
           aria-label=${ifDefined(this.accessibleLabel)}

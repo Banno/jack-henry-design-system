@@ -295,6 +295,13 @@ export class JhNotification extends LitElement {
     }
   }
 
+  #handleIconSlotChange(e) {
+    let newSlottedElement = e.target.assignedElements()[0];
+    if (newSlottedElement?.tagName.startsWith('JH-ICON')) {
+      newSlottedElement.setAttribute('size', 'medium');
+    }
+  }
+
   render() {
     let dismissBtn;
     
@@ -314,7 +321,7 @@ export class JhNotification extends LitElement {
 
     return html`
       <div class=${this.stacked ? 'stacked-container' : 'inline-container'}>
-        <slot aria-hidden="true" name="jh-notification-icon"></slot>
+        <slot aria-hidden="true" name="jh-notification-icon" @slotchange=${this.#handleIconSlotChange}></slot>
         <slot @slotchange=${this.#handleSlotChange}></slot>
         ${this.stacked ? null : this.#getActionButtons()}
         ${dismissBtn}

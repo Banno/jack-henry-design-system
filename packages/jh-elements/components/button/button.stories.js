@@ -52,7 +52,7 @@ export default {
     },
     size: {
       control: 'select',
-      options: ['small', 'medium', 'large'],
+      options: ['x-small','small', 'medium', 'large'],
     },
     block: {
       control: 'boolean',

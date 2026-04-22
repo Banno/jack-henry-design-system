@@ -376,7 +376,7 @@ export class JhTag extends LitElement {
     if (this.dismissible) {
       dismissBtn = html`
       <jh-button
-        size="medium"
+        size="x-small"
         appearance="secondary"
         accessible-label=${this.dismissButtonAccessibleLabel}
         @click=${this.#handleDismissal}>

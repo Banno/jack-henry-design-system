@@ -109,7 +109,7 @@
         {
           "name": "size",
           "description": "Sets the size of the button.",
-          "type": "'small'|'medium'|'large'",
+          "type": "'x-small'|'small'|'medium'|'large'",
           "default": "\"medium\""
         },
         {
@@ -199,7 +199,7 @@
           "name": "size",
           "attribute": "size",
           "description": "Sets the size of the button.",
-          "type": "'small'|'medium'|'large'",
+          "type": "'x-small'|'small'|'medium'|'large'",
           "default": "\"medium\""
         },
         {
@@ -611,7 +611,7 @@
         },
         {
           "name": "--jh-button-size",
-          "description": "The button width when no label is set, and the button height. Button width and height defaults to `--jh-dimension-1000` when `size=\"small\"`, `--jh-dimension-1200` when `size=\"medium\"`, and `--jh-dimension-1400` when `size=\"large\"`."
+          "description": "The button width when no label is set, and the button height. Button width and height defaults to `--jh-dimension-600` when `size=\"x-small\"`,`--jh-dimension-800` when `size=\"small\"`, `--jh-dimension-1000` when `size=\"medium\"`, and `--jh-dimension-1200` when `size=\"large\"`."
         }
       ]
     },

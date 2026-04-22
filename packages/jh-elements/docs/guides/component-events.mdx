@@ -9,7 +9,6 @@ import { Meta } from '@storybook/blocks';
 <Meta title="Guides/Component Events" tags={['new']} />
 
 # Working with Component Events
-
 ## Event API
 The Event API provides a standardized interface for interacting with design system components. All key data is organized within the event payload under predictable, categorized properties.
 
@@ -19,6 +18,32 @@ This approach reduces boilerplate code, improves discoverability, and creates a 
 All custom events follow a consistent structure with data organized into logical categories within the `detail` object. 
 
 Properties can be accessed via the following pattern: `e.detail.<category>.<property>`.
+
+### Quick Reference Payload Example
+```javascript
+detail: {
+  state: {
+    validity: {
+      tooLong: false, 
+      tooShort: false,
+      patternMismatch: false,
+      ...
+    },
+    value: 'john.doe@example.com',
+    },
+  form: {
+    formName: 'profile-form',
+    name: 'email',
+  },
+  reference: {
+    id: 'email-input-2',
+    originHost: 'jh-input-email',
+  },
+  meta: {
+    timestamp: 1776882498091,
+  },
+};
+```
 
 ## Payload Categories
 Below are the categories and related properties available: 

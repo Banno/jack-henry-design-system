@@ -5,6 +5,7 @@
 */
 
 import { css, html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { JhInput } from '../input/input.js';
 import '../menu/menu.js';
 import '../list-item/list-item.js';
@@ -77,8 +78,8 @@ export class JhSelect extends JhInput {
     return this.renderRoot?.querySelector('.input-wrapper');
   }
 
-  get #inputEl() {
-    return this.renderRoot?.querySelector('input');
+  get #menuContainer() {
+    return this.renderRoot?.querySelector('.menu-container');
   }
 
 static get styles() {
@@ -110,7 +111,7 @@ static get styles() {
       --jh-input-error-color-text: var(--jh-select-error-color-text);
       display: block;
       position: relative;
-      width: 200px;
+      width: 100%;
     }
     .menu-container {
       box-sizing: border-box;
@@ -166,8 +167,6 @@ static get styles() {
   constructor() {
     super();
     this.#id = ++id;
-    /** @type {?string} */
-    this.autocomplete = 'off';
     /** @type {string} */
     this.menuPosition = 'bottom';
     /** @type {?Array} */
@@ -181,44 +180,18 @@ static get styles() {
 
   disconnectedCallback() {
     super.disconnectedCallback();
+    this.removeEventListener('keydown', this.#handleKeydown);
     document.removeEventListener('click', this.#boundDocumentClick, true);
     document.removeEventListener('scroll', this.#boundDocumentScroll, true);
   }
 
-  firstUpdated() {
-    super.firstUpdated();
-    const input = this.#inputEl;
-    if (!input) return;
-    // Set combobox ARIA attributes on the native input
-    input.setAttribute('role', 'combobox');
-    input.setAttribute('readonly', '');
-    input.setAttribute('aria-haspopup', 'listbox');
-    input.setAttribute('aria-expanded', 'false');
-    input.setAttribute('aria-controls', `listbox-${this.#id}`);
-    // Remove name from native input — form submission is via ElementInternals on the host
-    input.removeAttribute('name');
-  }
-
-  updated(changedProperties) {
-    super.updated(changedProperties);
-    const input = this.#inputEl;
-    if (!input) return;
-
-    // Update display value — show the label text, not the form value
-    const displayValue = this.#displayValue || this.value || '';
-    input.value = displayValue;
-
-    // Update ARIA state
-    input.setAttribute('aria-expanded', String(this.#open));
-    if (this.#open && this.#activeIndex !== null) {
-      input.setAttribute('aria-activedescendant', `jh-select-option-${this.#id}-${this.#activeIndex}`);
-    } else {
-      input.removeAttribute('aria-activedescendant');
-    }
-  }
-
   willUpdate(changedProperties) {
     if (changedProperties.has('options')) {
+      if (!this.options) {
+        this.#allOptions = [];
+        this.#flatOptions = [];
+        return;
+      }
       this.#allOptions = this.options.flatMap(item => {
         if (item.groupValues) {
           return item.groupValues.map(subItem => ({
@@ -232,6 +205,7 @@ static get styles() {
           ...item
         };
       });
+      // These will be the same until we add search functionality, at which point #flatOptions will be the filtered list and #allOptions will remain the source of truth.
       this.#flatOptions = this.#allOptions;
       this.#activeIndex = null;
 
@@ -309,9 +283,8 @@ static get styles() {
   }
   #handleCloseSelect() {
     this.#open = false;
-    const menuContainer = this.shadowRoot.querySelector('.menu-container');
-    menuContainer.style.top = '';
-    menuContainer.style.bottom = '';
+    this.#menuContainer.style.top = '';
+    this.#menuContainer.style.bottom = '';
     document.removeEventListener('click', this.#boundDocumentClick, true);
     document.removeEventListener('scroll', this.#boundDocumentScroll, true);
     this.#activeIndex = null;
@@ -461,7 +434,9 @@ static get styles() {
   }
   }
 
-  //method to flip the menu if it is not fully visible on the viewport
+  //method to flip the menu if it is not fully visible on the viewport.
+  //the menu will only flip if it is fully visible in the opposite direction.
+  //if there is not enough space in either direction, the menu will stay in the original position.
   #flipMenu() { 
     const currentPosition = this.menuPosition;
 
@@ -476,13 +451,12 @@ static get styles() {
       //get an array of the available positions
       const availablePositions = this.#getValidPositions();
 
-      //if only 1 position is available, set the menu anchor to that position.
+      //if only 1 position is available, set the menu anchor to that position, otherwise keep the current position.
       const newPosition = availablePositions.length === 1 ? availablePositions[0] : currentPosition;
       this.#setMenuAnchor(newPosition);
     }
 
   #setMenuAnchor(position) {
-    const menuContainer = this.shadowRoot.querySelector('.menu-container');
     const hostRect = this.getBoundingClientRect();
     const inputRect = this.#inputWrapper.getBoundingClientRect();
 
@@ -490,17 +464,17 @@ static get styles() {
     const inputTopRelative = inputRect.top - hostRect.top;
     const inputBottomRelative = inputRect.bottom - hostRect.top;
 
-    menuContainer.style.top = '';
-    menuContainer.style.bottom = '';
+    this.#menuContainer.style.top = '';
+    this.#menuContainer.style.bottom = '';
 
     if (position === 'bottom') {
       // Menu opens right below the native input
-      menuContainer.style.top = `${inputBottomRelative}px`;
+      this.#menuContainer.style.top = `${inputBottomRelative}px`;
     } else if (position === 'top') {
       // Menu opens right above the native input
       // bottom is relative to the bottom of :host
       const inputTopFromHostBottom = hostRect.height - inputTopRelative;
-      menuContainer.style.bottom = `${inputTopFromHostBottom}px`;
+      this.#menuContainer.style.bottom = `${inputTopFromHostBottom}px`;
     }
   }
 
@@ -532,16 +506,14 @@ static get styles() {
     return validPositions;
   }
 
-  //get the dimensions of the tooltip and the originating element
+  //get the height of the menu
   #getDimensions() {
     return {
-      menuHeight: this.shadowRoot
-        .querySelector('jh-menu')
-        .getBoundingClientRect().height,
+      menuHeight: this.shadowRoot.querySelector('jh-menu').getBoundingClientRect().height,
     };
   }
 
-  //get the coordinates of the top and bottom edge of the native input.
+  //get the coordinates of the top and bottom edge of the input without label/error text.
   #getCoordinates() {
     const inputRect = this.#inputWrapper.getBoundingClientRect();
    return {
@@ -563,6 +535,41 @@ static get styles() {
         ? html`<slot name="jh-select-trigger-open"><jh-icon-chevron-up-small></jh-icon-chevron-up-small></slot>`
         : html`<slot name="jh-select-trigger-closed"><jh-icon-chevron-down-small></jh-icon-chevron-down-small></slot>`}
     </slot>`;
+  }
+  
+  renderInput() {
+    const describedby = (this.helperText || (this.errorText && this.invalid))
+      ? this._getDescribedby() : undefined;
+    const leftSlot = this.readonly ? null : this.renderLeftSlot();
+    const rightSlot = this.readonly ? null : this.renderRightSlot();
+    const clearButton = this.renderClearButton();
+
+    return html`
+      <div class="input-container">
+        <div class="input-wrapper" @click=${this.#handleTriggerClick}>
+          ${leftSlot}
+          <input
+            role="combobox"
+            type="text"
+            readonly
+            autocomplete="off"
+            aria-haspopup="listbox"
+            aria-controls="jh-select-listbox-${this.#id}"
+            id="jh-input-${this.#id}"
+            aria-expanded=${this.#open ? 'true' : 'false'}
+            aria-activedescendant=${ifDefined(this.#activeIndex !== null ? `jh-select-option-${this.#id}-${this.#activeIndex}` : undefined)}
+            aria-describedby=${ifDefined(describedby)}
+            aria-invalid=${ifDefined(this.invalid ? 'true' : undefined)}
+            aria-label=${ifDefined(this.accessibleLabel)}
+            ?disabled=${this.disabled}
+            ?required=${this.required}
+            .value=${this.#displayValue ?? ''}
+          />
+          ${clearButton}
+          ${rightSlot}
+        </div>
+      </div>
+    `;
   }
 
   renderData(options) {
@@ -607,9 +614,7 @@ static get styles() {
 
     return html`
       ${label}
-      <div @click=${this.#handleTriggerClick}>
-        ${input}
-      </div>
+      ${input}
       ${footer}
       <div class="menu-container ${this.#open ? 'show' : ''}">
         <jh-menu

@@ -12,10 +12,10 @@ import "@jack-henry/jh-icons/icons-wc/icon-piggy-bank.js";
 import "@jack-henry/jh-icons/icons-wc/icon-arrow-up-small.js";
 import "@jack-henry/jh-icons/icons-wc/icon-arrow-down-small.js";
 import "../button/button.js";
-import { US_STATES_FLAT } from '@jack-henry/jh-datasets/datasets/us-states-flat.js';
-import { US_STATES_GROUPED } from '@jack-henry/jh-datasets/datasets/us-states-grouped.js';
-import { BIRTH_YEARS } from '@jack-henry/jh-datasets/datasets/birth-years.js';
-import { manageDataset } from '@jack-henry/jh-datasets/utils/manageDataset.js';
+// import { US_STATES_FLAT } from '@jack-henry/jh-datasets/datasets/us-states-flat.js';
+// import { US_STATES_GROUPED } from '@jack-henry/jh-datasets/datasets/us-states-grouped.js';
+// import { BIRTH_YEARS } from '@jack-henry/jh-datasets/datasets/birth-years.js';
+// import { manageDataset } from '@jack-henry/jh-datasets/utils/manageDataset.js';
 
 const testOptions = [
   { groupLabel: "Account types", groupValues: [
@@ -37,17 +37,8 @@ const testOptions = [
 ];
 
 const storyStyles = css`
-.scrollable-container {
-  height: 200px;
-  overflow: auto;
-  border: 1px solid #ccc;
-  padding: 16px;
-}
-.scrollable-content {
-  height: 600px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.select-container {
+  width: 300px;
 }
 .menu-flip-container {
   display: flex;
@@ -55,13 +46,13 @@ const storyStyles = css`
   justify-content: space-between;
   height: 100vh;
   padding: 16px;
+  width: 300px;
   box-sizing: border-box;
 }
 `;
 
 const disableControls = {
   'accessible-label': { control: { disable: true } },
-  autocomplete: { control: { disable: true } },
   disabled: { control: { disable: true } },
   'error-text': { control: { disable: true } },
   'helper-text': { control: { disable: true } },
@@ -71,6 +62,7 @@ const disableControls = {
   label: { control: { disable: true } },
   name: { control: { disable: true } },
   'menu-position': { control: { disable: true } },
+  options: { control: { disable: true } },
   readonly: { control: { disable: true } },
   required: { control: { disable: true } },
   'show-indicator': { control: { disable: true } },
@@ -88,43 +80,112 @@ export default {
     },
   },
   argTypes: {
-    'accessible-label': { control: 'text' },
-    autocomplete: { control: 'text' },
-    disabled: { control: 'boolean' },
-    'error-text': { control: 'text' },
-    'helper-text': { control: 'text' },
-    'hide-left-slot': { control: 'boolean' },
-    'hide-right-slot': { control: 'boolean' },
-    invalid: { control: 'boolean' },
-    label: { control: 'text' },
-    name: { control: 'text' },
+    'accessible-label': {
+      control: 'text',
+      description: 'Sets an `aria-label` on the select to assist screen reader users when no visible label is present.',
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Disables the select and prevents all user interactions. May cause the select to be ignored by assistive technologies (AT).',
+    },
+    'error-text': {
+      control: 'text',
+      description: 'Text to be displayed when the select has failed validation and `invalid` is true.',
+    },
+    'helper-text': {
+      control: 'text',
+      description: 'Provides additional context or guidance for using the select. For `helper-text` to be displayed, the `label` property must also be set.',
+    },
+    invalid: {
+      control: 'boolean',
+      description: 'Sets an `aria-invalid` attribute on the select to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.',
+    },
+    label: {
+      control: 'text',
+      description: 'Identifies what data should be selected.',
+    },
+    name: {
+      control: 'text',
+      description: 'Sets a name for the select control.',
+    },
     'menu-position': {
       control: 'select',
       options: ['bottom', 'top'],
     },
-    readonly: { control: 'boolean' },
+    readonly: {
+      control: 'boolean',
+      description: 'Prevents users from changing the selected value. Removes all slotted content.',
+    },
     required: { control: 'boolean' },
     'show-indicator': { control: 'boolean' },
     size: {
       control: 'select',
       options: ['small', 'medium', 'large'],
+      description: 'Sets the size of the select.',
+    },
+    value: {
+      description: 'Sets the value of the select.',
+      table: { disable: true }
     },
     'flip-disabled': { control: 'boolean' },
-        'jh-input-right': {
-      table: {
-        disable: true,
-      },
-    },
-    'jh-input-left': {
-      table: {
-        disable: true,
-      },
-    },
+    // Hide inherited jh-input slots
+    'jh-input-right': { table: { disable: true } },
+    'jh-input-left': { table: { disable: true } },
+    'jh-input-clear-button': { table: { disable: true } },
+    // Hide inherited jh-input attributes/properties not relevant to select
+    autocomplete: { table: { disable: true } },
+    'accessible-label-clear-button': { table: { disable: true } },
+    'enterkeyhint': { table: { disable: true } },
+    'hide-left-slot': { table: { disable: true } },
+    'hide-right-slot': { table: { disable: true } },
+    'input-mask': { table: { disable: true } },
+    'inputmode': { table: { disable: true } },
+    'maxlength': { table: { disable: true } },
+    'minlength': { table: { disable: true } },
+    'show-char-count': { table: { disable: true } },
+    'show-clear-button': { table: { disable: true } },
+    // Hide inherited jh-input events not relevant to select
+    'jh-select': { table: { disable: true } },
+    'jh-input': { table: { disable: true } },
+    'jh-maxlength': { table: { disable: true } },
+    'jh-input:clear-button-click': { table: { disable: true } },
+    // Hide inherited jh-input CSS custom properties
+    '--jh-input-label-color-text': { table: { disable: true } },
+    '--jh-input-field-color-background': { table: { disable: true } },
+    '--jh-input-field-color-border-enabled': { table: { disable: true } },
+    '--jh-input-field-border-radius': { table: { disable: true } },
+    '--jh-input-color-focus': { table: { disable: true } },
+    '--jh-input-field-color-border-focus': { table: { disable: true } },
+    '--jh-input-field-color-border-hover': { table: { disable: true } },
+    '--jh-input-field-color-border-active': { table: { disable: true } },
+    '--jh-input-field-color-border-disabled': { table: { disable: true } },
+    '--jh-input-opacity-disabled': { table: { disable: true } },
+    '--jh-input-field-color-border-error': { table: { disable: true } },
+    '--jh-input-clear-border-radius': { table: { disable: true } },
+    '--jh-input-clear-color-background-enabled': { table: { disable: true } },
+    '--jh-input-clear-color-border-enabled': { table: { disable: true } },
+    '--jh-input-clear-icon-color-fill-enabled': { table: { disable: true } },
+    '--jh-input-clear-color-background-focus': { table: { disable: true } },
+    '--jh-input-clear-color-border-focus': { table: { disable: true } },
+    '--jh-input-clear-color-focus': { table: { disable: true } },
+    '--jh-input-clear-icon-color-fill-focus': { table: { disable: true } },
+    '--jh-input-clear-color-background-hover': { table: { disable: true } },
+    '--jh-input-clear-color-border-hover': { table: { disable: true } },
+    '--jh-input-clear-icon-color-fill-hover': { table: { disable: true } },
+    '--jh-input-clear-color-background-active': { table: { disable: true } },
+    '--jh-input-clear-color-border-active': { table: { disable: true } },
+    '--jh-input-clear-icon-color-fill-active': { table: { disable: true } },
+    '--jh-input-required-color-text': { table: { disable: true } },
+    '--jh-input-optional-color-text': { table: { disable: true } },
+    '--jh-input-helper-color-text': { table: { disable: true } },
+    '--jh-input-counter-color-text': { table: { disable: true } },
+    '--jh-input-value-color-text': { table: { disable: true } },
+    '--jh-input-error-color-text': { table: { disable: true } },
   },
 };
 
 export const Overview = { render: (args) => html`
-  <jh-select .options=${US_STATES_FLAT}></jh-select>
+  <jh-select .options=${testOptions} label="Select an account" helper-text="The accounts are grouped by type"></jh-select>
 `};
 
 Overview.argTypes = {
@@ -132,9 +193,9 @@ Overview.argTypes = {
 };
 
 export const Playground = { render: (args) => html`
+  <div class="select-container">
   <jh-select
     accessible-label=${ifDefined(args['accessible-label'] === '' ? null : args['accessible-label'])}
-    autocomplete=${ifDefined(args.autocomplete === '' ? null : args.autocomplete)}
     ?disabled=${args.disabled}
     error-text=${ifDefined(args['error-text'] === '' ? null : args['error-text'])}
     helper-text=${ifDefined(args['helper-text'] === '' ? null : args['helper-text'])}
@@ -151,15 +212,16 @@ export const Playground = { render: (args) => html`
     ?flip-disabled=${args['flip-disabled']}
     .options=${testOptions}
   ></jh-select>
-`};
+  </div>`
+};
 
 Playground.args = {
   'accessible-label': null,
   'accessible-label-clear-button': null,
   autocomplete: null,
   disabled: false,
-  'error-text': null,
-  'helper-text': null,
+  'error-text': 'Error text',
+  'helper-text': 'Helper text',
   'hide-left-slot': false,
   'hide-right-slot': false,
   invalid: false,
@@ -174,43 +236,59 @@ Playground.args = {
   'flip-disabled': false,
 };
 
+Playground.argTypes = {
+  options: { control: { disable: true } },
+};
+
 Playground.parameters = {
   theme: 'both-themes',
+  styles: storyStyles,
 };
 
-export const Datasets = { render: (args) => {
-  const customizedData = manageDataset({
-    dataset: BIRTH_YEARS,
-    initialValue: null,
-    disabledItems: ["1910", "1920", "1930"],
-    emptyLabel: 'Select your birth year...',
-  });
+// TODO add back in once we have the jh-datasets PR merged.
+// export const Datasets = { render: (args) => {
+//   const customizedData = manageDataset({
+//     dataset: BIRTH_YEARS,
+//     initialValue: null,
+//     disabledItems: [1910, 1920, 1930],
+//     emptyLabel: 'Select your birth year...',
+//   });
 
-  return html`
-    <h3>US states flat</h3>
-    <jh-select label="US States (flat)" .options=${US_STATES_FLAT}></jh-select>
+//   return html`
+//     <h3>US states flat</h3>
+//     <div class="select-container">
+//       <jh-select label="US States (flat)" .options=${US_STATES_FLAT}></jh-select>
+//     </div>
 
-    <h3>US states grouped</h3>
-    <jh-select label="US States (grouped)" .options=${US_STATES_GROUPED}></jh-select>
+//     <h3>US states grouped</h3>
+//     <div class="select-container">
+//       <jh-select label="US States (grouped)" .options=${US_STATES_GROUPED}></jh-select>
+//     </div>
 
-    <h3>manageDataset — initial value, disabled items, empty label</h3>
-    <jh-select label="Customized birth years" .options=${customizedData}></jh-select>
-  `;
-}};
+//     <h3>manageDataset — initial value, disabled items, empty label</h3>
+//     <div class="select-container">
+//       <jh-select label="Customized birth years" .options=${customizedData}></jh-select>
+//     </div>
+//   `;
+// }};
 
-Datasets.argTypes = {
-  ...disableControls,
-};
+// Datasets.argTypes = {
+//   ...disableControls,
+// };
+
+// Datasets.parameters = {
+//   styles: storyStyles,
+// };
 
 export const MenuFlip = { render: (args) => html`
   <div class="menu-flip-container">
     <div>
       <h3>Near the top — menu should open downward</h3>
-      <jh-select label="Top select" .options=${US_STATES_FLAT} helper-text="helper text" menu-position="top" invalid error-text="Error text"></jh-select>
+      <jh-select label="Top select" .options=${testOptions} helper-text="helper text" menu-position="top" invalid error-text="Error text"></jh-select>
     </div>
     <div>
       <h3>Near the bottom — menu should flip upward</h3>
-      <jh-select label="Bottom select" helper-text="helper text" .options=${US_STATES_FLAT}  invalid error-text="Error text" menu-position="bottom"></jh-select>
+      <jh-select label="Bottom select" helper-text="helper text" .options=${testOptions}  invalid error-text="Error text" menu-position="bottom"></jh-select>
     </div>
   </div>
 `};
@@ -232,6 +310,7 @@ export const Slots = {
     ],
   },
   render: (args) => html`
+  <div class="select-container">
     <jh-select
       label=${args.label}
       .options=${args.options}
@@ -242,14 +321,22 @@ export const Slots = {
       <jh-icon-arrow-up-small slot="jh-select-trigger-open"></jh-icon-arrow-up-small>
       <jh-icon-arrow-down-small slot="jh-select-trigger-closed"></jh-icon-arrow-down-small>
     </jh-select>
+  </div>
   `,
+};
+
+Slots.argTypes = {
+  ...disableControls,
+};
+Slots.parameters = {
+  styles: storyStyles,
 };
 
 export const FormAssociated = {
   render: (args) => {
     const onClick = (event) => event.target.reset();
     return html`
-      <form @submit=${submitAction()}>
+      <form @submit=${submitAction()} class="select-container">
         <jh-select
           name=${args.name}
           label=${args.label}

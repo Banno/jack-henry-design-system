@@ -29,7 +29,6 @@ const storyStyles = css`
 `;
 
 const disableAllControls = {
-  appearance: { control: false },
   'dismiss-button-accessible-label': { control: false },
   'hide-dismiss-button': { control: false },
   stacked: { control: false },
@@ -45,10 +44,6 @@ export default {
     },
   },
   argTypes: {
-    appearance: {
-      control: 'select',
-      options: ['neutral', 'positive', 'negative'],
-    },
     stacked: {
       control: 'boolean',
     },
@@ -93,7 +88,6 @@ Overview.parameters = {
 };
 
 const createNewToast = (
-  appearance,
   hideDismissButton,
   dismissButtonAccessibleLabel,
   timeout,
@@ -104,7 +98,6 @@ const createNewToast = (
   let liveRegion = story.querySelector('div.live-region');
 
   let toast = document.createElement('jh-toast');
-  toast.setAttribute('appearance', appearance);
   hideDismissButton
     ? toast.setAttribute('hide-dismiss-button', hideDismissButton)
     : null;
@@ -129,7 +122,6 @@ export const Playground = {
         existingToast[0].remove();
       }
       createNewToast(
-        args.appearance,
         args['hide-dismiss-button'],
         args['dismiss-button-accessible-label'],
         args.timeout,
@@ -154,7 +146,6 @@ export const Playground = {
 
 Playground.args = {
   timeout: 5000,
-  appearance: 'positive',
   'hide-dismiss-button': true,
   'dismiss-button-accessible-label': 'dismiss toast',
   stacked: false,

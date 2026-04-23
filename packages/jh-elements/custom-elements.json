@@ -6882,12 +6882,6 @@
           "default": "5000"
         },
         {
-          "name": "appearance",
-          "description": "Sets the background color of the toast to convey message connotation.",
-          "type": "'positive'|'neutral'|'negative'",
-          "default": "\"neutral\""
-        },
-        {
           "name": "dismiss-button-accessible-label",
           "description": "Adds an aria-label to the dismiss button to assist screen readers.",
           "type": "string"
@@ -6912,13 +6906,6 @@
           "description": "Sets a timer, in milliseconds, to auto-dismiss the toast. To disable timeout, set to 0.",
           "type": "number",
           "default": "5000"
-        },
-        {
-          "name": "appearance",
-          "attribute": "appearance",
-          "description": "Sets the background color of the toast to convey message connotation.",
-          "type": "'positive'|'neutral'|'negative'",
-          "default": "\"neutral\""
         },
         {
           "name": "dismissButtonAccessibleLabel",

@@ -127,6 +127,9 @@ static get styles() {
       visibility: visible;
       opacity: 1;
     }
+    input::selection {
+  background-color: transparent;
+}
     jh-menu {
     max-height: var(--jh-select-menu-size-max-height, 480px);
     overscroll-behavior: contain;

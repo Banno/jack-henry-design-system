@@ -5657,8 +5657,7 @@
         {
           "name": "autocomplete",
           "description": "Determines whether the browser can provide assistance in filling out the input value and what type of information is expected.\nThis property will override any autocomplete attribute present on the input's parent form element.\n\n[Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)",
-          "type": "?string",
-          "default": "\"off\""
+          "type": "?string"
         },
         {
           "name": "disabled",
@@ -5807,8 +5806,7 @@
           "name": "autocomplete",
           "attribute": "autocomplete",
           "description": "Determines whether the browser can provide assistance in filling out the input value and what type of information is expected.\nThis property will override any autocomplete attribute present on the input's parent form element.\n\n[Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)",
-          "type": "?string",
-          "default": "\"off\""
+          "type": "?string"
         },
         {
           "name": "disabled",

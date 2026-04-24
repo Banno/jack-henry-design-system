@@ -45,6 +45,16 @@ let id = 0;
  * @cssprop --jh-select-input-field-color-border-disabled - The input field border-color when disabled. Defaults to `--jh-border-control-color`.
  * @cssprop --jh-select-opacity-disabled - The select opacity when disabled. Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-select-error-color-text - The error message text color. Defaults to `jh-color-content-negative-enabled`.
+ * @cssprop --jh-select-item-size-height - The list item height. Defaults to `auto`.
+ * @cssprop --jh-select-item-space-padding-right - The list item right padding. Defaults to `--jh-dimension-600`.
+ * @cssprop --jh-select-item-color-text - The list item text color. Defaults to `--jh-color-content-primary-enabled`.
+ * @cssprop --jh-select-item-color-background - The list item background color. Defaults to `transparent`.
+ * @cssprop --jh-select-item-color-background-focus - The list item background color when focused. Defaults to `--jh-color-container-primary-hover`.
+ * @cssprop --jh-select-item-color-focus - The list item outline color when focused. Defaults to `--jh-border-focus-color`.
+ * @cssprop --jh-select-item-color-background-hover - The list item background color when hovered. Defaults to `--jh-color-container-primary-hover`.
+ * @cssprop --jh-select-item-color-background-active - The list item background color when active. Defaults to `--jh-color-container-primary-active`.
+ * @cssprop --jh-select-item-color-background-selected - The list item background color when selected. Defaults to `--jh-color-container-primary-selected`.
+ * @cssprop --jh-select-item-color-border-selected - The list item border color when selected. Defaults to `--jh-border-selected-color`.
  *
  * @slot jh-select-trigger-left - Use to insert an element such as an icon on the left side of the select input field.
  * @slot jh-select-trigger-open - Use to replace the default chevron icon displayed when the select menu is open.
@@ -109,6 +119,16 @@ static get styles() {
       --jh-input-field-color-border-disabled: var(--jh-select-input-field-color-border-disabled);
       --jh-input-opacity-disabled: var(--jh-select-opacity-disabled);
       --jh-input-error-color-text: var(--jh-select-error-color-text);
+      --jh-list-item-size-height: var(--jh-select-item-size-height);
+      --jh-list-item-space-padding-right: var(--jh-select-item-space-padding-right);
+      --jh-list-item-color-text: var(--jh-select-item-color-text);
+      --jh-list-item-color-background: var(--jh-select-item-color-background);
+      --jh-list-item-color-background-focus: var(--jh-select-item-color-background-focus);
+      --jh-list-item-color-focus: var(--jh-select-item-color-focus);
+      --jh-list-item-color-background-hover: var(--jh-select-item-color-background-hover);
+      --jh-list-item-color-background-active: var(--jh-select-item-color-background-active);
+      --jh-list-item-color-background-selected: var(--jh-select-item-color-background-selected);
+      --jh-list-item-color-border-selected: var(--jh-select-item-color-border-selected);
       display: block;
       position: relative;
       width: 100%;

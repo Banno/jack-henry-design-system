@@ -193,7 +193,7 @@ static get styles() {
     /** @type {string} */
     this.menuPosition = 'bottom';
     /** @type {?Array} */
-    this.options = null;
+    this.options = [];
     /** @type {boolean} */
     this.flipDisabled = false;
     this.addEventListener('keydown', this.#handleKeydown);
@@ -642,7 +642,7 @@ static get styles() {
       <div class="menu-container ${this.#open ? 'show' : ''}">
         <jh-menu
           role="listbox"
-          id="listbox-${this.#id}"
+          id="jh-select-listbox-${this.#id}"
           @click=${this.#handleMenuClick}
         >
           ${this.renderData(this.options)}

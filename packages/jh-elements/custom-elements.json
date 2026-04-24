@@ -6089,6 +6089,46 @@
           "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
         },
         {
+          "name": "--jh-select-item-size-height",
+          "description": "The list item height. Defaults to `auto`."
+        },
+        {
+          "name": "--jh-select-item-space-padding-right",
+          "description": "The list item right padding. Defaults to `--jh-dimension-600`."
+        },
+        {
+          "name": "--jh-select-item-color-text",
+          "description": "The list item text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-select-item-color-background",
+          "description": "The list item background color. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-select-item-color-background-focus",
+          "description": "The list item background color when focused. Defaults to `--jh-color-container-primary-hover`."
+        },
+        {
+          "name": "--jh-select-item-color-focus",
+          "description": "The list item outline color when focused. Defaults to `--jh-border-focus-color`."
+        },
+        {
+          "name": "--jh-select-item-color-background-hover",
+          "description": "The list item background color when hovered. Defaults to `--jh-color-container-primary-hover`."
+        },
+        {
+          "name": "--jh-select-item-color-background-active",
+          "description": "The list item background color when active. Defaults to `--jh-color-container-primary-active`."
+        },
+        {
+          "name": "--jh-select-item-color-background-selected",
+          "description": "The list item background color when selected. Defaults to `--jh-color-container-primary-selected`."
+        },
+        {
+          "name": "--jh-select-item-color-border-selected",
+          "description": "The list item border color when selected. Defaults to `--jh-border-selected-color`."
+        },
+        {
           "name": "--jh-input-label-color-text",
           "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
         },

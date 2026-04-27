@@ -1,0 +1,89 @@
+{/*
+SPDX-FileCopyrightText: 2026 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+*/}
+
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Guides/Datasets Package" tags={['new']} />
+
+# The Datasets Package
+
+The `jh-datasets` package provides a set of common datasets that can be used with our components, such as `jh-select`, and related utilities. 
+The datasets allow you to easily populate compatible components with commonly used lists, without having to manually format the data.
+
+The following datasets are currently available:
+
+- `US_STATES_FLAT` — A flat list of all US states and territories.
+- `US_STATES_GROUPED` — US states organized by region (Northeast, Midwest, South, West, Territories).
+
+Additional datasets may be added in the future and can be requested by submitting a [GitHub issue](https://github.com/Banno/jack-henry-design-system/issues).
+
+## Using the Datasets Package
+
+To use the datasets, import the dataset you want to use from the `datasets` directory and pass it to the compatible component thorugh the `.options` property:
+
+```javascript
+import { US_STATES_FLAT } from '@jack-henry/jh-datasets/datasets/us-states-flat.js';
+
+const myOptions = US_STATES_FLAT;
+
+<jh-select label="Select your state" .options=${myOptions}></jh-select>
+```
+
+## Customizing Datasets
+
+For more control over the datasets, we provide the `manageDataset` utility. 
+For components that support these features, you can use `manageDataset` to easily customize the dataset by:
+- Setting `disabled` options to prevent selection of certain items.
+- Setting a `selected` option to specify the default selected item.
+- Including an empty option by providing an option object with a `label` string and an empty string for the `value`. 
+
+Example of using `manageDataset` to customize the `US_STATES_FLAT` dataset for a `jh-select` component:
+
+```javascript
+import { US_STATES_FLAT } from '@jack-henry/jh-datasets/datasets/us-states-flat.js';
+import { manageDataset } from '@jack-henry/jh-datasets/utils/manage-dataset.js';
+
+const customizedData = manageDataset({
+  dataset: US_STATES_FLAT,
+  initialValue: null,
+  disabledItems: ['AK', 'HI'],
+  emptyLabel: 'Select a state...',
+});
+
+<jh-select label="Select your state" .options=${customizedData}></jh-select>
+```
+
+## Dataset Format
+
+All datasets are provided as arrays of options objects. Datasets can have a flat structure or be grouped by category: 
+
+- Each option object includes a unique `value` string and a `label` string for display.
+- Grouped options use a `groupLabel` and `groupValues` structure:
+
+Flat options:
+
+```javascript
+const flatOptions = [
+  { label: "Alabama", value: "AL" },
+  { label: "Alaska", value: "AK" },
+  { label: "Arizona", value: "AZ" },
+];
+```
+
+Grouped options:
+
+```javascript
+const groupedOptions = [
+  { groupLabel: "Northeast", groupValues: [
+    { label: "Connecticut", value: "CT" },
+    { label: "New York", value: "NY" },
+  ]},
+  { groupLabel: "South", groupValues: [
+    { label: "Florida", value: "FL" },
+    { label: "Texas", value: "TX" },
+  ]},
+];
+```

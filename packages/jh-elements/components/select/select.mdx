@@ -49,9 +49,9 @@ Authors must provide the options as an array of objects to the `.options` proper
 
 - Each option object must include a unique `value` string and a `label` string for display.
 - If no `label` is provided, the `value` will be used as the display text in the menu and input. 
-- Options can optionally include `disabled` and `selected` flags. 
-- An empty option can be included by providing an option object with a label string and an empty string for the value. 
-- Make sure to flag it as `selected` if you want it to be the default option showing in the input.
+- An empty option can be included by providing an option object with a `label` string and an empty string for the `value`. 
+- Options can be made disabled by setting the `disabled: true` flag. 
+- Flag an option as `selected: true` to set it as the default option showing in the input field.
 
 Options can be provided in a flat structure or grouped by category: 
 - Flat options are displayed as `jh-list-item` elements, 
@@ -89,7 +89,7 @@ This allows you to easily populate the menu with commonly used lists without hav
 
 - `US_STATES_FLAT` — A flat list of all US states and territories.
 - `US_STATES_GROUPED` — US states organized by region (Northeast, Midwest, South, West, Territories).
-- `BIRTH_YEARS` — A flat list of birth years from 1900 to the current year.
+
 - Additional datasets may be added in the future and can be requested by submitting a Github Issue.
 
 For more control over the datasets, authors may use the `manageDataset` util to customize initial selected values, disabled items, and empty labels:
@@ -111,6 +111,7 @@ const customizedData = manageDataset({
 ## Type-Ahead functionality
 
 Typing character keys jumps to the first matching option. Pressing the same character repeatedly cycles through options that start with that character.
+The type-ahead buffer resets after 500 milliseconds, so if the user pauses while typing, the next character key will start a new search rather than continuing to cycle through the current character matches.
 
 ## Dependencies
 

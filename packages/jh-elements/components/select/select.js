@@ -196,7 +196,7 @@ static get styles() {
 
   constructor() {
     super();
-    this.#id = ++id;
+    this.#id = id++;
     /** @type {string} */
     this.menuPosition = 'bottom';
     /** @type {Array} */
@@ -262,6 +262,7 @@ static get styles() {
     if (!el) return;
 
     const menu = this.shadowRoot.querySelector('jh-menu');
+    if (!menu) return;
     const scrollContainer = menu.shadowRoot?.querySelector('.menu-content') ?? menu;
     const menuRect = scrollContainer.getBoundingClientRect();
     const elRect = el.getBoundingClientRect();
@@ -292,29 +293,31 @@ static get styles() {
   }
 
   #handleOpenSelect() {
-    if (this.disabled || this.readonly) {
-      return;
-    }
-     this.#flipMenu();
-     this.#open = true;
-     document.addEventListener('click', this.#boundDocumentClick, true);
+    if (this.disabled || this.readonly || !this.#flatOptions.length) return;
+    if (!this.#inputWrapper || !this.#menuContainer) return;
+
+    this.#flipMenu();
+    this.#open = true;
+    document.addEventListener('click', this.#boundDocumentClick, true);
       // Delay adding scroll listener so the menu's own layout change doesn't trigger it
     requestAnimationFrame(() => {
       document.addEventListener('scroll', this.#boundDocumentScroll, true);
     });
       // Set initial active to selected item or first item
-      if (this.#activeIndex === null) {
-        const selectedIdx = this.#flatOptions.findIndex(
+    if (this.#activeIndex === null) {
+      const selectedIdx = this.#flatOptions.findIndex(
           opt => String(opt.value) === String(this.value)
         );
         this.#setActiveItem(selectedIdx !== -1 ? selectedIdx : 0);
       }
-      this.requestUpdate();
+    this.requestUpdate();
   }
   #handleCloseSelect() {
     this.#open = false;
-    this.#menuContainer.style.top = '';
-    this.#menuContainer.style.bottom = '';
+    if(this.#menuContainer) {
+      this.#menuContainer.style.top = '';
+      this.#menuContainer.style.bottom = '';
+    }
     document.removeEventListener('click', this.#boundDocumentClick, true);
     document.removeEventListener('scroll', this.#boundDocumentScroll, true);
     this.#activeIndex = null;
@@ -487,6 +490,7 @@ static get styles() {
   }
 
   #setMenuAnchor(position) {
+
     const hostRect = this.getBoundingClientRect();
     const inputRect = this.#inputWrapper.getBoundingClientRect();
 
@@ -545,7 +549,7 @@ static get styles() {
 
   //get the coordinates of the top and bottom edge of the input without label/error text.
   #getCoordinates() {
-    const inputRect = this.#inputWrapper.getBoundingClientRect();
+  const inputRect = this.#inputWrapper.getBoundingClientRect();
    return {
       elemTop: inputRect.top,
       elemBottom: inputRect.bottom,
@@ -603,6 +607,7 @@ static get styles() {
   }
 
   renderData(options) {
+    if (!options) return null;
     let flatIndex = 0;
 
     return options.map((option) => {
@@ -646,7 +651,7 @@ static get styles() {
       ${label}
       ${input}
       ${footer}
-      ${this.options.length > 0 ?
+      ${this.options && this.options.length ?
       html`
       <div class="menu-container ${this.#open ? 'show' : ''}">
         <jh-menu

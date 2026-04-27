@@ -282,7 +282,7 @@ Playground.parameters = {
 
 export const Empty = { render: (args) => html`
   <div class="select-container">
-    <jh-select label="Select an account" .options=${[]}></jh-select>
+    <jh-select label="Select an account" .options=${null}></jh-select>
   </div>
 `};
 

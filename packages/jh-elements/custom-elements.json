@@ -5781,7 +5781,8 @@
         {
           "name": "options",
           "description": "Sets the list of options to display in the dropdown menu. Accepts an array of flat options or grouped options. See documentation for the expected data format.",
-          "type": "?Array"
+          "type": "Array",
+          "default": "[]"
         },
         {
           "name": "flipDisabled",
@@ -6097,6 +6098,10 @@
           "description": "The list item right padding. Defaults to `--jh-dimension-600`."
         },
         {
+          "name": "--jh-select-item-space-padding-left",
+          "description": "The list item left padding. Defaults to `--jh-dimension-600`."
+        },
+        {
           "name": "--jh-select-item-color-text",
           "description": "The list item text color. Defaults to `--jh-color-content-primary-enabled`."
         },
@@ -6127,6 +6132,10 @@
         {
           "name": "--jh-select-item-color-border-selected",
           "description": "The list item border color when selected. Defaults to `--jh-border-selected-color`."
+        },
+        {
+          "name": "--jh-select-item-space-padding-left-indent",
+          "description": "The additional left padding for grouped list items. Defaults to `--jh-dimension-200`."
         },
         {
           "name": "--jh-input-label-color-text",

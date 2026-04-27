@@ -47,6 +47,7 @@ let id = 0;
  * @cssprop --jh-select-error-color-text - The error message text color. Defaults to `jh-color-content-negative-enabled`.
  * @cssprop --jh-select-item-size-height - The list item height. Defaults to `auto`.
  * @cssprop --jh-select-item-space-padding-right - The list item right padding. Defaults to `--jh-dimension-600`.
+ * @cssprop --jh-select-item-space-padding-left - The list item left padding. Defaults to `--jh-dimension-600`.
  * @cssprop --jh-select-item-color-text - The list item text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-select-item-color-background - The list item background color. Defaults to `transparent`.
  * @cssprop --jh-select-item-color-background-focus - The list item background color when focused. Defaults to `--jh-color-container-primary-hover`.
@@ -55,6 +56,7 @@ let id = 0;
  * @cssprop --jh-select-item-color-background-active - The list item background color when active. Defaults to `--jh-color-container-primary-active`.
  * @cssprop --jh-select-item-color-background-selected - The list item background color when selected. Defaults to `--jh-color-container-primary-selected`.
  * @cssprop --jh-select-item-color-border-selected - The list item border color when selected. Defaults to `--jh-border-selected-color`.
+ * @cssprop --jh-select-item-space-padding-left-indent - The additional left padding for grouped list items. Defaults to `--jh-dimension-200`.
  *
  * @slot jh-select-trigger-left - Use to insert an element such as an icon on the left side of the select input field.
  * @slot jh-select-trigger-open - Use to replace the default chevron icon displayed when the select menu is open.
@@ -121,6 +123,7 @@ static get styles() {
       --jh-input-error-color-text: var(--jh-select-error-color-text);
       --jh-list-item-size-height: var(--jh-select-item-size-height);
       --jh-list-item-space-padding-right: var(--jh-select-item-space-padding-right);
+      --jh-list-item-space-padding-left: var(--jh-select-item-space-padding-left);
       --jh-list-item-color-text: var(--jh-select-item-color-text);
       --jh-list-item-color-background: var(--jh-select-item-color-background);
       --jh-list-item-color-background-focus: var(--jh-select-item-color-background-focus);
@@ -129,6 +132,7 @@ static get styles() {
       --jh-list-item-color-background-active: var(--jh-select-item-color-background-active);
       --jh-list-item-color-background-selected: var(--jh-select-item-color-background-selected);
       --jh-list-item-color-border-selected: var(--jh-select-item-color-border-selected);
+      --jh-select-item-space-padding-left-indent: var(--jh-dimension-200);
       display: block;
       position: relative;
       width: 100%;
@@ -148,15 +152,18 @@ static get styles() {
       opacity: 1;
     }
     input::selection {
-  background-color: transparent;
-}
+      background-color: transparent;
+    }
     jh-menu {
-    max-height: var(--jh-select-menu-size-max-height, 480px);
-    overscroll-behavior: contain;
+      max-height: var(--jh-select-menu-size-max-height, 480px);
+      overscroll-behavior: contain;
     }
+    /* fallback values added otherwise calc would fail if the custom properties are not set. */
     jh-list-group > jh-list-item {
-      --jh-list-item-space-padding-left: var(--jh-dimension-800);
-    }
+    --jh-list-item-space-padding-left: calc(
+    var(--jh-select-item-space-padding-left, var(--jh-dimension-600)) + var(--jh-select-item-space-padding-left-indent, var(--jh-dimension-200))
+    );
+   }
     jh-list-item.is-active {
       background-color: var(
         --jh-list-item-color-background-focus,
@@ -192,7 +199,7 @@ static get styles() {
     this.#id = ++id;
     /** @type {string} */
     this.menuPosition = 'bottom';
-    /** @type {?Array} */
+    /** @type {Array} */
     this.options = [];
     /** @type {boolean} */
     this.flipDisabled = false;
@@ -441,20 +448,20 @@ static get styles() {
     if (!option || option.disabled) return;
 
     if (this.value !== String(option.value)) {
-    this.value = String(option.value);
-    this.#displayValue = option.label != null ? option.label : String(option.value);
-    this.#activeIndex = index;
-    this.requestUpdate();
-    this.#scrollToActiveItem();
+      this.value = String(option.value);
+      this.#displayValue = option.label != null ? option.label : String(option.value);
+      this.#activeIndex = index;
+      this.requestUpdate();
+      this.#scrollToActiveItem();
 
     //dispatch a jh-change event when the selected value changes.
-    const options = {
-      bubbles: true,
-      composed: true,
-      cancelable: true,
-    };
-    this.dispatchEvent(new CustomEvent('jh-change', options));
-  }
+      const options = {
+        bubbles: true,
+        composed: true,
+        cancelable: true,
+        };
+      this.dispatchEvent(new CustomEvent('jh-change', options));
+    }
   }
 
   //method to flip the menu if it is not fully visible on the viewport.
@@ -477,7 +484,7 @@ static get styles() {
       //if only 1 position is available, set the menu anchor to that position, otherwise keep the current position.
       const newPosition = availablePositions.length === 1 ? availablePositions[0] : currentPosition;
       this.#setMenuAnchor(newPosition);
-    }
+  }
 
   #setMenuAnchor(position) {
     const hostRect = this.getBoundingClientRect();
@@ -639,6 +646,8 @@ static get styles() {
       ${label}
       ${input}
       ${footer}
+      ${this.options.length > 0 ?
+      html`
       <div class="menu-container ${this.#open ? 'show' : ''}">
         <jh-menu
           role="listbox"
@@ -647,7 +656,7 @@ static get styles() {
         >
           ${this.renderData(this.options)}
         </jh-menu>
-      </div>
+      </div>` : null}
     `;
   }
 }

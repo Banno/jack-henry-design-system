@@ -280,6 +280,20 @@ Playground.parameters = {
 //   styles: storyStyles,
 // };
 
+export const Empty = { render: (args) => html`
+  <div class="select-container">
+    <jh-select label="Select an account" .options=${[]}></jh-select>
+  </div>
+`};
+
+Empty.argTypes = {
+  ...disableControls,
+};
+
+Empty.parameters = {
+  styles: storyStyles,
+};
+
 export const MenuFlip = { render: (args) => html`
   <div class="menu-flip-container">
     <div>

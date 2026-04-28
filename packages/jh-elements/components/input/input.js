@@ -498,6 +498,10 @@ export class JhInput extends LitElement {
     }
   }
 
+  get uniqueId() {
+    return this.#id;
+  }
+
   firstUpdated() {
     // attach event listeners to show/hide clear button
     if (this.showClearButton) {
@@ -1160,10 +1164,10 @@ export class JhInput extends LitElement {
     let describedbyString = '';
 
     if (this.errorText) {
-      describedbyString += `jh-input-error-${this.#id}`;
+      describedbyString += `jh-input-error-${this.uniqueId}`;
     }
     if (this.helperText) {
-      describedbyString += ` jh-input-helper-${this.#id}`;
+      describedbyString += ` jh-input-helper-${this.uniqueId}`;
     }
     return describedbyString;
   }
@@ -1184,14 +1188,14 @@ export class JhInput extends LitElement {
 
       if (this.helperText) {
         helperText = html`
-          <p id="jh-input-helper-${this.#id}" class="helper-text">
+          <p id="jh-input-helper-${this.uniqueId}" class="helper-text">
             ${this.helperText}
           </p>
         `;
       }
 
       label = html`
-        <label for="jh-input-${this.#id}">${this.label}${indicator}</label>
+        <label for="jh-input-${this.uniqueId}">${this.label}${indicator}</label>
         ${helperText}
       `;
     }
@@ -1221,7 +1225,7 @@ export class JhInput extends LitElement {
 
     if (this.invalid && this.errorText) {
       errorText = html`
-        <p id="jh-input-error-${this.#id}" class="error-text">
+        <p id="jh-input-error-${this.uniqueId}" class="error-text">
           ${this.errorText}
         </p>
       `;
@@ -1254,7 +1258,7 @@ export class JhInput extends LitElement {
         <div class="input-wrapper">
           ${leftSlot}
           <input
-            id="jh-input-${this.#id}"
+            id="jh-input-${this.uniqueId}"
             aria-describedby=${describedby}
             aria-invalid=${ifDefined(this.invalid ? 'true' : null)}
             aria-label=${ifDefined(

@@ -14,8 +14,6 @@ import '@jack-henry/jh-icons/icons-wc/icon-chevron-up-small.js';
 import '@jack-henry/jh-icons/icons-wc/icon-chevron-down-small.js';
 import { JhFilter } from './filtering.js';
 
-let id = 0;
-
 /**
  * Select
  * @customElement jh-select
@@ -65,8 +63,6 @@ let id = 0;
  * @event jh-change - Dispatched when the selected value changes.
  */
 export class JhSelect extends JhInput {
-  /** @type {number} */
-  #id;
   /** @type {?string} */
   #displayValue = null;
   /** @type {string} */
@@ -196,7 +192,6 @@ static get styles() {
 
   constructor() {
     super();
-    this.#id = id++;
     /** @type {string} */
     this.menuPosition = 'bottom';
     /** @type {Array} */
@@ -257,7 +252,7 @@ static get styles() {
   async #scrollToActiveItem() {
     await this.updateComplete;
     const el = this.shadowRoot.getElementById(
-      `jh-select-option-${this.#id}-${this.#activeIndex}`
+      `jh-select-option-${this.uniqueId}-${this.#activeIndex}`
     );
     if (!el) return;
 
@@ -588,10 +583,10 @@ static get styles() {
             readonly
             autocomplete="off"
             aria-haspopup="listbox"
-            aria-controls="jh-select-listbox-${this.#id}"
-            id="jh-input-${this.#id}"
+            aria-controls="jh-select-listbox-${this.uniqueId}"
+            id="jh-input-${this.uniqueId}"
             aria-expanded=${this.#open ? 'true' : 'false'}
-            aria-activedescendant=${ifDefined(this.#activeIndex !== null ? `jh-select-option-${this.#id}-${this.#activeIndex}` : undefined)}
+            aria-activedescendant=${ifDefined(this.#activeIndex !== null ? `jh-select-option-${this.uniqueId}-${this.#activeIndex}` : undefined)}
             aria-describedby=${ifDefined(describedby)}
             aria-invalid=${ifDefined(this.invalid ? 'true' : undefined)}
             aria-label=${ifDefined(this.accessibleLabel)}
@@ -620,7 +615,7 @@ static get styles() {
             ?disabled=${groupOption.disabled}
             ?selected=${String(this.value) === String(groupOption.value)}
             aria-selected=${String(this.value) === String(groupOption.value)}
-            id="jh-select-option-${this.#id}-${idx}"
+            id="jh-select-option-${this.uniqueId}-${idx}"
             class="${this.#activeIndex === idx ? 'is-active' : ''}"
             primary-text=${groupOption.label != null ? groupOption.label : String(groupOption.value)}
           ></jh-list-item>`;
@@ -636,7 +631,7 @@ static get styles() {
         ?disabled=${option.disabled}
         ?selected=${String(this.value) === String(option.value)}
         aria-selected=${String(this.value) === String(option.value)}
-        id="jh-select-option-${this.#id}-${idx}"
+        id="jh-select-option-${this.uniqueId}-${idx}"
         class="${this.#activeIndex === idx ? 'is-active' : ''}"
       >${option.label != null ? option.label : String(option.value)}</jh-list-item>`;
     });
@@ -656,7 +651,7 @@ static get styles() {
       <div class="menu-container ${this.#open ? 'show' : ''}">
         <jh-menu
           role="listbox"
-          id="jh-select-listbox-${this.#id}"
+          id="jh-select-listbox-${this.uniqueId}"
           @click=${this.#handleMenuClick}
         >
           ${this.renderData(this.options)}

@@ -160,22 +160,30 @@ static get styles() {
     var(--jh-select-item-space-padding-left, var(--jh-dimension-600)) + var(--jh-select-item-space-padding-left-indent, var(--jh-dimension-200))
     );
    }
-    jh-list-item.is-active {
-      background-color: var(
-        --jh-list-item-color-background-focus,
-        var(--jh-color-container-primary-hover));
-      outline-color: var(--jh-list-item-color-focus,
-        var(--jh-border-focus-color));
-      outline-style: var(--jh-border-focus-style);
-      outline-width: var(--jh-border-focus-width);
-      outline-offset: -2px;
-    }
-    jh-list-item[selected].is-active {
-      background-color: var(
-          --jh-list-item-color-background-selected,
-          var(--jh-color-container-primary-selected)
-        );
-    }
+   /* remove list item focus styles so active class styles are applied correctly */
+   jh-list-item:focus-visible {
+    background-color: inherit;
+    outline: none;
+   }
+  jh-list-item:not([selected]):focus-visible {
+    background-color: inherit;
+  }
+  jh-list-item.is-active {
+    background-color: var(
+      --jh-list-item-color-background-focus,
+      var(--jh-color-container-primary-hover));
+    outline-color: var(--jh-list-item-color-focus,
+      var(--jh-border-focus-color));
+    outline-style: var(--jh-border-focus-style);
+    outline-width: var(--jh-border-focus-width);
+    outline-offset: -2px;
+  }
+  jh-list-item[selected].is-active {
+    background-color: var(
+        --jh-list-item-color-background-selected,
+        var(--jh-color-container-primary-selected)
+      );
+  }
   `];
 }
 
@@ -633,7 +641,8 @@ static get styles() {
         aria-selected=${String(this.value) === String(option.value)}
         id="jh-select-option-${this.uniqueId}-${idx}"
         class="${this.#activeIndex === idx ? 'is-active' : ''}"
-      >${option.label != null ? option.label : String(option.value)}</jh-list-item>`;
+        primary-text=${option.label != null ? option.label : String(option.value)}
+      ></jh-list-item>`;
     });
   }
 

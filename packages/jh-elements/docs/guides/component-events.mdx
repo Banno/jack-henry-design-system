@@ -9,15 +9,9 @@ import { Meta } from '@storybook/blocks';
 <Meta title="Guides/Component Events" tags={['new']} />
 
 # Working with Component Events
-To provide a consistent and predictable developer experience, our design system uses a standardized Event API where our custom events surface all high-utility data within a structured `e.detail` object.
+To ensure a consistent developer experience, we surface custom events to bridge the Shadow DOM boundary and provide access into internal component state. While native events, like change or input, often fail to bubble out of the Shadow DOM effectively, our custom events ensure proper composition and bubbling. They also include high-utility data, such as validity states, masked values, and form metadata, that standard browser events do not provide.
 
-This approach reduces boilerplate code, eliminates the need to manually bridge data from e.target, and provides a predictable pattern across the entire library.
-
-## Choosing Between Custom and Native Events
-
-Use **Custom Events** (e.g., @jh-change, @jh-select) when you need the standardized payload properties. Required for events that are not composed (e.g. change, select).
-
-Use **Native Events** (e.g., @click, @mouseover, @focus) when you do not require knowledge of internal state and the event naturally crosses the shadow boundary.
+By utilizing a standardized Event API, these custom events deliver all relevant data within a structured `e.detail` object. This approach eliminates the need to manually bridge data from `e.target` and reduces boilerplate code, offering a predictable pattern across the entire library. Use custom events (e.g., `jh-change`) when you require state specific payloads, and rely on native events (e.g., `click`, `focus`) for simple interactions that naturally cross the shadow boundary and do not require internal context.
 
 ## Payload Anatomy
 All custom events follow a consistent structure with the following data organized into logical categories within the `detail` object. 

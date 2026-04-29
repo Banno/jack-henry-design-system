@@ -1,8 +1,8 @@
 /**
-* SPDX-FileCopyrightText: 2026 Jack Henry
-*
-* SPDX-License-Identifier: Apache-2.0
-*/
+ * SPDX-FileCopyrightText: 2026 Jack Henry
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
 
 import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -90,102 +90,106 @@ export class JhSelect extends JhInput {
     return this.renderRoot?.querySelector('.menu-container');
   }
 
-static get styles() {
-  return [
-    super.styles,
-    css`
-    :host {
-      --jh-input-field-border-radius: var(--jh-select-input-field-border-radius);
-      --jh-input-field-color-background: var(--jh-select-input-field-color-background);
-      --jh-icon-color-fill: var(--jh-select-icon-color-fill);
-      --jh-menu-z-index: var(--jh-select-menu-z-index);
-      --jh-menu-border-radius: var(--jh-select-menu-border-radius);
-      --jh-menu-shadow: var(--jh-select-menu-shadow);
-      --jh-menu-color-background: var(--jh-select-menu-color-background);
-      --jh-menu-space-padding: var(--jh-select-menu-space-padding);
-      --jh-input-field-color-border-error: var(--jh-select-input-field-color-border-error);
-      --jh-input-label-color-text: var(--jh-select-label-color-text);
-      --jh-input-helper-color-text: var(--jh-select-helper-color-text);
-      --jh-input-required-color-text: var(--jh-select-required-color-text);
-      --jh-input-optional-color-text: var(--jh-select-optional-color-text);
-      --jh-input-value-color-text: var(--jh-select-value-color-text);
-      --jh-input-field-color-border-enabled: var(--jh-select-input-field-color-border-enabled);
-      --jh-input-field-color-border-focus: var(--jh-select-input-field-color-border-focus);
-      --jh-input-color-focus: var(--jh-select-input-color-focus);
-      --jh-input-field-color-border-hover: var(--jh-select-input-field-color-border-hover);
-      --jh-input-field-color-border-active: var(--jh-select-input-field-color-border-active);
-      --jh-input-field-color-border-disabled: var(--jh-select-input-field-color-border-disabled);
-      --jh-input-opacity-disabled: var(--jh-select-opacity-disabled);
-      --jh-input-error-color-text: var(--jh-select-error-color-text);
-      --jh-list-item-size-height: var(--jh-select-item-size-height);
-      --jh-list-item-space-padding-right: var(--jh-select-item-space-padding-right);
-      --jh-list-item-space-padding-left: var(--jh-select-item-space-padding-left);
-      --jh-list-item-color-text: var(--jh-select-item-color-text);
-      --jh-list-item-color-background: var(--jh-select-item-color-background);
-      --jh-list-item-color-background-focus: var(--jh-select-item-color-background-focus);
-      --jh-list-item-color-focus: var(--jh-select-item-color-focus);
-      --jh-list-item-color-background-hover: var(--jh-select-item-color-background-hover);
-      --jh-list-item-color-background-active: var(--jh-select-item-color-background-active);
-      --jh-list-item-color-background-selected: var(--jh-select-item-color-background-selected);
-      --jh-list-item-color-border-selected: var(--jh-select-item-color-border-selected);
-      --jh-select-item-space-padding-left-indent: var(--jh-dimension-200);
-      display: block;
-      position: relative;
-      width: 100%;
-    }
-    .menu-container {
-      box-sizing: border-box;
-      overflow: visible;
-      position: absolute;
-      visibility: hidden;
-      opacity: 0;
-      width: 100%;
-      max-width: var(--jh-select-menu-size-max-width, none);
-      min-width: var(--jh-select-menu-size-min-width, none);
-    }
-    .menu-container.show {
-      visibility: visible;
-      opacity: 1;
-    }
-    input::selection {
-      background-color: transparent;
-    }
-    jh-menu {
-      max-height: var(--jh-select-menu-size-max-height, 480px);
-      overscroll-behavior: contain;
-    }
-    /* fallback values added otherwise calc would fail if the custom properties are not set. */
-    jh-list-group > jh-list-item {
-    --jh-list-item-space-padding-left: calc(
-    var(--jh-select-item-space-padding-left, var(--jh-dimension-600)) + var(--jh-select-item-space-padding-left-indent, var(--jh-dimension-200))
-    );
-   }
-   /* remove list item focus styles so active class styles are applied correctly */
-   jh-list-item:focus-visible {
-    background-color: inherit;
-    outline: none;
-   }
-  jh-list-item:not([selected]):focus-visible {
-    background-color: inherit;
+  static get styles() {
+    return [
+      super.styles,
+      css`
+        :host {
+          --jh-input-field-border-radius: var(--jh-select-input-field-border-radius);
+          --jh-input-field-color-background: var(--jh-select-input-field-color-background);
+          --jh-icon-color-fill: var(--jh-select-icon-color-fill);
+          --jh-menu-z-index: var(--jh-select-menu-z-index);
+          --jh-menu-border-radius: var(--jh-select-menu-border-radius);
+          --jh-menu-shadow: var(--jh-select-menu-shadow);
+          --jh-menu-color-background: var(--jh-select-menu-color-background);
+          --jh-menu-space-padding: var(--jh-select-menu-space-padding);
+          --jh-input-field-color-border-error: var(--jh-select-input-field-color-border-error);
+          --jh-input-label-color-text: var(--jh-select-label-color-text);
+          --jh-input-helper-color-text: var(--jh-select-helper-color-text);
+          --jh-input-required-color-text: var(--jh-select-required-color-text);
+          --jh-input-optional-color-text: var(--jh-select-optional-color-text);
+          --jh-input-value-color-text: var(--jh-select-value-color-text);
+          --jh-input-field-color-border-enabled: var(--jh-select-input-field-color-border-enabled);
+          --jh-input-field-color-border-focus: var(--jh-select-input-field-color-border-focus);
+          --jh-input-color-focus: var(--jh-select-input-color-focus);
+          --jh-input-field-color-border-hover: var(--jh-select-input-field-color-border-hover);
+          --jh-input-field-color-border-active: var(--jh-select-input-field-color-border-active);
+          --jh-input-field-color-border-disabled: var(
+            --jh-select-input-field-color-border-disabled
+          );
+          --jh-input-opacity-disabled: var(--jh-select-opacity-disabled);
+          --jh-input-error-color-text: var(--jh-select-error-color-text);
+          --jh-list-item-size-height: var(--jh-select-item-size-height);
+          --jh-list-item-space-padding-right: var(--jh-select-item-space-padding-right);
+          --jh-list-item-space-padding-left: var(--jh-select-item-space-padding-left);
+          --jh-list-item-color-text: var(--jh-select-item-color-text);
+          --jh-list-item-color-background: var(--jh-select-item-color-background);
+          --jh-list-item-color-background-focus: var(--jh-select-item-color-background-focus);
+          --jh-list-item-color-focus: var(--jh-select-item-color-focus);
+          --jh-list-item-color-background-hover: var(--jh-select-item-color-background-hover);
+          --jh-list-item-color-background-active: var(--jh-select-item-color-background-active);
+          --jh-list-item-color-background-selected: var(--jh-select-item-color-background-selected);
+          --jh-list-item-color-border-selected: var(--jh-select-item-color-border-selected);
+          --jh-select-item-space-padding-left-indent: var(--jh-dimension-200);
+          display: block;
+          position: relative;
+          width: 100%;
+        }
+        .menu-container {
+          max-width: var(--jh-select-menu-size-max-width, none);
+          min-width: var(--jh-select-menu-size-min-width, none);
+          box-sizing: border-box;
+          overflow: visible;
+          position: absolute;
+          visibility: hidden;
+          opacity: 0;
+          width: 100%;
+        }
+        .menu-container.show {
+          visibility: visible;
+          opacity: 1;
+        }
+        input::selection {
+          background-color: transparent;
+        }
+        jh-menu {
+          max-height: var(--jh-select-menu-size-max-height, 480px);
+          overscroll-behavior: contain;
+        }
+        /* fallback values added otherwise calc would fail if the custom properties are not set. */
+        jh-list-group > jh-list-item {
+          --jh-list-item-space-padding-left: calc(
+            var(--jh-select-item-space-padding-left, var(--jh-dimension-600)) +
+              var(--jh-select-item-space-padding-left-indent, var(--jh-dimension-200))
+          );
+        }
+        /* remove list item focus styles so active class styles are applied correctly */
+        jh-list-item:focus-visible {
+          background-color: inherit;
+          outline: none;
+        }
+        jh-list-item:not([selected]):focus-visible {
+          background-color: inherit;
+        }
+        jh-list-item.is-active {
+          background-color: var(
+            --jh-list-item-color-background-focus,
+            var(--jh-color-container-primary-hover)
+          );
+          outline-color: var(--jh-list-item-color-focus, var(--jh-border-focus-color));
+          outline-style: var(--jh-border-focus-style);
+          outline-width: var(--jh-border-focus-width);
+          outline-offset: -2px;
+        }
+        jh-list-item[selected].is-active {
+          background-color: var(
+            --jh-list-item-color-background-selected,
+            var(--jh-color-container-primary-selected)
+          );
+        }
+      `,
+    ];
   }
-  jh-list-item.is-active {
-    background-color: var(
-      --jh-list-item-color-background-focus,
-      var(--jh-color-container-primary-hover));
-    outline-color: var(--jh-list-item-color-focus,
-      var(--jh-border-focus-color));
-    outline-style: var(--jh-border-focus-style);
-    outline-width: var(--jh-border-focus-width);
-    outline-offset: -2px;
-  }
-  jh-list-item[selected].is-active {
-    background-color: var(
-        --jh-list-item-color-background-selected,
-        var(--jh-color-container-primary-selected)
-      );
-  }
-  `];
-}
 
   static get properties() {
     return {
@@ -216,6 +220,7 @@ static get styles() {
     this.removeEventListener('keydown', this.#handleKeydown);
     document.removeEventListener('click', this.#boundDocumentClick, true);
     document.removeEventListener('scroll', this.#boundDocumentScroll, true);
+    clearTimeout(this.#timer);
   }
 
   willUpdate(changedProperties) {
@@ -225,17 +230,17 @@ static get styles() {
         this.#flatOptions = [];
         return;
       }
-      this.#allOptions = this.options.flatMap(item => {
+      this.#allOptions = this.options.flatMap((item) => {
         if (item.groupValues) {
-          return item.groupValues.map(subItem => ({
+          return item.groupValues.map((subItem) => ({
             label: subItem.label != null ? subItem.label : String(subItem.value),
             ...subItem,
-            groupLabel: item.groupLabel
+            groupLabel: item.groupLabel,
           }));
         }
         return {
           label: item.label != null ? item.label : String(item.value),
-          ...item
+          ...item,
         };
       });
       // These will be the same until we add search functionality, at which point #flatOptions will be the filtered list and #allOptions will remain the source of truth.
@@ -243,7 +248,7 @@ static get styles() {
       this.#activeIndex = null;
 
       // Set initial value from the selected flag in the data array
-      const selectedOption = this.#flatOptions.find(opt => opt.selected);
+      const selectedOption = this.#flatOptions.find((opt) => opt.selected);
       if (selectedOption && !this.value) {
         this.value = String(selectedOption.value);
         this.#displayValue = selectedOption.label;
@@ -260,8 +265,7 @@ static get styles() {
   async #scrollToActiveItem() {
     await this.updateComplete;
     const el = this.shadowRoot.getElementById(
-      `jh-select-option-${this.uniqueId}-${this.#activeIndex}`
-    );
+      `jh-select-option-${this.uniqueId}-${this.#activeIndex}`);
     if (!el) return;
 
     const menu = this.shadowRoot.querySelector('jh-menu');
@@ -302,22 +306,23 @@ static get styles() {
     this.#flipMenu();
     this.#open = true;
     document.addEventListener('click', this.#boundDocumentClick, true);
-      // Delay adding scroll listener so the menu's own layout change doesn't trigger it
+    // Delay adding scroll listener so the menu's own layout change doesn't trigger it
     requestAnimationFrame(() => {
       document.addEventListener('scroll', this.#boundDocumentScroll, true);
     });
-      // Set initial active to selected item or first item
+    // Set initial active to selected item or first item
     if (this.#activeIndex === null) {
       const selectedIdx = this.#flatOptions.findIndex(
-          opt => String(opt.value) === String(this.value)
-        );
-        this.#setActiveItem(selectedIdx !== -1 ? selectedIdx : 0);
-      }
+        (opt) => String(opt.value) === String(this.value));
+      this.#setActiveItem(selectedIdx !== -1 ? selectedIdx : 0);
+    }
     this.requestUpdate();
   }
   #handleCloseSelect() {
     this.#open = false;
-    if(this.#menuContainer) {
+    this.#buffer = '';
+    clearTimeout(this.#timer);
+    if (this.#menuContainer) {
       this.#menuContainer.style.top = '';
       this.#menuContainer.style.bottom = '';
     }
@@ -340,8 +345,9 @@ static get styles() {
     const direction = index >= (this.#activeIndex ?? 0) ? 1 : -1;
     while (options[index]?.disabled) {
       index += direction;
-      if (index < 0) index = options.length - 1;
-      if (index >= options.length) index = 0;
+      if (index < 0 || index >= options.length) {
+        return; // no more options in this direction
+      }
       if (index === start) return; // all disabled
     }
 
@@ -352,78 +358,65 @@ static get styles() {
 
   #handleKeydown(e) {
     if (e.ctrlKey || e.metaKey) return;
-      if (this.#open) {
-      switch (e.key) {
-        case 'ArrowDown':
-        case 'ArrowUp':
-        case ' ':
-          e.preventDefault();
-          break;
-      }
-    }
 
-    // Open menu on trigger keys when closed
-    if (['ArrowDown', 'ArrowUp', 'Enter', ' '].includes(e.key) && !this.#open) {
-      e.preventDefault();
-      this.#handleOpenSelect();
-      return;
-    }
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+        if (!this.#open) {
+          this.#handleOpenSelect();
+        } else {
+          this.#setActiveItem(this.#activeIndex === null ? 0 : this.#activeIndex + 1);
+        }
+        return;
 
-    if (e.key === 'ArrowDown') {
-      e.preventDefault();
-      const nextIndex = this.#activeIndex === null ? 0 : this.#activeIndex + 1;
-      this.#setActiveItem(nextIndex);
-      return;
-    }
+      case 'ArrowUp':
+        e.preventDefault();
+        if (!this.#open) {
+          this.#handleOpenSelect();
+        } else {
+          this.#setActiveItem(
+            this.#activeIndex === null ? this.#flatOptions.length - 1 : this.#activeIndex - 1);
+        }
+        return;
 
-    if (e.key === 'ArrowUp') {
-      e.preventDefault();
-      const prevIndex =
-        this.#activeIndex === null
-          ? this.#flatOptions.length - 1
-          : this.#activeIndex - 1;
-      this.#setActiveItem(prevIndex);
-      return;
-    }
+      case 'Enter':
+      case ' ':
+        e.preventDefault();
+        if (!this.#open) {
+          this.#handleOpenSelect();
+        } else if (this.#activeIndex !== null) {
+          this.#handleSelection(this.#activeIndex);
+          this.#handleCloseSelect();
+        }
+        return;
 
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      if (this.#open && this.#activeIndex !== null) {
-        this.#handleSelection(this.#activeIndex);
+      case 'Escape':
         this.#handleCloseSelect();
-      }
-      return;
-    }
+        return;
 
-    if (e.key === 'Escape') {
-      this.#handleCloseSelect();
-      this.#buffer = '';
-      return;
-    }
-
-    if (e.key === 'Tab') {
-      if (this.#open) {
+      case 'Tab':
         this.#handleCloseSelect();
-      }
-      return;
-    }
+        return;
 
-    // Character keys — type-ahead
+      default:
+        this.#handleTypeAhead(e);
+    }
+  }
+
+  #handleTypeAhead(e) {
     if (e.key.length !== 1) return;
     e.preventDefault();
     clearTimeout(this.#timer);
     this.#buffer += e.key;
+
     const matchIndex = JhFilter.jumpAhead(
       this.#flatOptions,
       this.#buffer,
       this.#activeIndex,
-      'label'
+      'label',
     );
 
-    if (matchIndex === -1) {
-      this.#buffer = e.key; // if nothing is found, start new search with the latest character
-    }
-    else if (matchIndex !== -1) {
+    if (matchIndex !== -1) {
       this.#setActiveItem(matchIndex);
       this.#handleSelection(matchIndex);
     }
@@ -460,12 +453,12 @@ static get styles() {
       this.requestUpdate();
       this.#scrollToActiveItem();
 
-    //dispatch a jh-change event when the selected value changes.
+      //dispatch a jh-change event when the selected value changes.
       const options = {
         bubbles: true,
         composed: true,
         cancelable: true,
-        };
+      };
       this.dispatchEvent(new CustomEvent('jh-change', options));
     }
   }
@@ -473,27 +466,26 @@ static get styles() {
   //method to flip the menu if it is not fully visible on the viewport.
   //the menu will only flip if it is fully visible in the opposite direction.
   //if there is not enough space in either direction, the menu will stay in the original position.
-  #flipMenu() { 
+  #flipMenu() {
     const currentPosition = this.menuPosition;
 
     //check if current position is a valid position otherwise make it fail.
     if (!['top', 'bottom'].includes(currentPosition)) return;
-    
+
     if (this.flipDisabled) {
-        this.#setMenuAnchor(currentPosition);
-        return;
+      this.#setMenuAnchor(currentPosition);
+      return;
     }
 
-      //get an array of the available positions
-      const availablePositions = this.#getValidPositions();
+    //get an array of the available positions
+    const availablePositions = this.#getValidPositions();
 
-      //if only 1 position is available, set the menu anchor to that position, otherwise keep the current position.
-      const newPosition = availablePositions.length === 1 ? availablePositions[0] : currentPosition;
-      this.#setMenuAnchor(newPosition);
+    //if only 1 position is available, set the menu anchor to that position, otherwise keep the current position.
+    const newPosition = availablePositions.length === 1 ? availablePositions[0] : currentPosition;
+    this.#setMenuAnchor(newPosition);
   }
 
   #setMenuAnchor(position) {
-
     const hostRect = this.getBoundingClientRect();
     const inputRect = this.#inputWrapper.getBoundingClientRect();
 
@@ -531,14 +523,14 @@ static get styles() {
 
     //returns true if the condition is met.
     const allPositions = {
-      'top': topOutTop,
-      'bottom': bottomOutBottom,
+      top: topOutTop,
+      bottom: bottomOutBottom,
     };
 
     //add valid positions to an array and return it.
     const validPositions = Object.entries(allPositions).reduce(
       (positions, [key, value]) => (value ? [...positions, key] : positions),
-      []
+      [],
     );
     return validPositions;
   }
@@ -546,37 +538,35 @@ static get styles() {
   //get the height of the menu
   #getDimensions() {
     return {
-      menuHeight: this.shadowRoot.querySelector('jh-menu').getBoundingClientRect().height,
+      menuHeight: this.shadowRoot.querySelector('jh-menu').getBoundingClientRect().height
     };
   }
 
   //get the coordinates of the top and bottom edge of the input without label/error text.
   #getCoordinates() {
-  const inputRect = this.#inputWrapper.getBoundingClientRect();
-   return {
+    const inputRect = this.#inputWrapper.getBoundingClientRect();
+    return {
       elemTop: inputRect.top,
       elemBottom: inputRect.bottom,
     };
   }
 
   renderLeftSlot() {
-    return html`
-    <slot name="jh-input-left" @slotchange=${this._handleSlotChange}>
+    return html` <slot name="jh-input-left" @slotchange=${this._handleSlotChange}>
       <slot name="jh-select-trigger-left"></slot>
     </slot>`;
   }
   renderRightSlot() {
-    return html`
-    <slot name="jh-input-right" @slotchange=${this._handleSlotChange}>
+    return html` <slot name="jh-input-right" @slotchange=${this._handleSlotChange}>
       ${this.#open
         ? html`<slot name="jh-select-trigger-open"><jh-icon-chevron-up-small></jh-icon-chevron-up-small></slot>`
         : html`<slot name="jh-select-trigger-closed"><jh-icon-chevron-down-small></jh-icon-chevron-down-small></slot>`}
     </slot>`;
   }
-  
+
   renderInput() {
-    const describedby = (this.helperText || (this.errorText && this.invalid))
-      ? this._getDescribedby() : undefined;
+    const describedby =
+      this.helperText || (this.errorText && this.invalid) ? this._getDescribedby() : undefined;
     const leftSlot = this.readonly ? null : this.renderLeftSlot();
     const rightSlot = this.readonly ? null : this.renderRightSlot();
     const clearButton = this.renderClearButton();
@@ -594,16 +584,18 @@ static get styles() {
             aria-controls="jh-select-listbox-${this.uniqueId}"
             id="jh-input-${this.uniqueId}"
             aria-expanded=${this.#open ? 'true' : 'false'}
-            aria-activedescendant=${ifDefined(this.#activeIndex !== null ? `jh-select-option-${this.uniqueId}-${this.#activeIndex}` : undefined)}
+            aria-activedescendant=${ifDefined(
+              this.#activeIndex !== null
+                ? `jh-select-option-${this.uniqueId}-${this.#activeIndex}`
+                : undefined,
+            )}
             aria-describedby=${ifDefined(describedby)}
             aria-invalid=${ifDefined(this.invalid ? 'true' : undefined)}
             aria-label=${ifDefined(this.accessibleLabel)}
             ?disabled=${this.disabled}
             ?required=${this.required}
-            .value=${this.#displayValue ?? ''}
-          />
-          ${clearButton}
-          ${rightSlot}
+            .value=${this.#displayValue ?? ''} />
+          ${clearButton} ${rightSlot}
         </div>
       </div>
     `;
@@ -625,12 +617,11 @@ static get styles() {
             aria-selected=${String(this.value) === String(groupOption.value)}
             id="jh-select-option-${this.uniqueId}-${idx}"
             class="${this.#activeIndex === idx ? 'is-active' : ''}"
-            primary-text=${groupOption.label != null ? groupOption.label : String(groupOption.value)}
-          ></jh-list-item>`;
+            primary-text=${groupOption.label != null
+              ? groupOption.label
+              : String(groupOption.value)}></jh-list-item>`;
         });
-        return html`<jh-list-group label=${option.groupLabel}
-          >${groupItems}</jh-list-group
-        >`;
+        return html`<jh-list-group label=${option.groupLabel}>${groupItems}</jh-list-group>`;
       }
       const idx = flatIndex++;
       return html`<jh-list-item
@@ -641,8 +632,7 @@ static get styles() {
         aria-selected=${String(this.value) === String(option.value)}
         id="jh-select-option-${this.uniqueId}-${idx}"
         class="${this.#activeIndex === idx ? 'is-active' : ''}"
-        primary-text=${option.label != null ? option.label : String(option.value)}
-      ></jh-list-item>`;
+        primary-text=${option.label != null ? option.label : String(option.value)}></jh-list-item>`;
     });
   }
 
@@ -652,20 +642,17 @@ static get styles() {
     const footer = this.renderFooter();
 
     return html`
-      ${label}
-      ${input}
-      ${footer}
-      ${this.options && this.options.length ?
-      html`
-      <div class="menu-container ${this.#open ? 'show' : ''}">
-        <jh-menu
-          role="listbox"
-          id="jh-select-listbox-${this.uniqueId}"
-          @click=${this.#handleMenuClick}
-        >
-          ${this.renderData(this.options)}
-        </jh-menu>
-      </div>` : null}
+      ${label} ${input} ${footer}
+      ${this.options && this.options.length
+        ? html` <div class="menu-container ${this.#open ? 'show' : ''}">
+            <jh-menu
+              role="listbox"
+              id="jh-select-listbox-${this.uniqueId}"
+              @click=${this.#handleMenuClick}>
+              ${this.renderData(this.options)}
+            </jh-menu>
+          </div>`
+        : null}
     `;
   }
 }

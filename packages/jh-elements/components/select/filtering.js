@@ -54,6 +54,7 @@ export const JhFilter = {
       return str.split('').every((char) => char === str[0]);
     };
 
+    const safeActiveIndex = activeIndex ?? -1;
     const lowerBuffer = buffer.toLowerCase();
     const char = lowerBuffer[0];
     const isCycling = allCharsSame(lowerBuffer);
@@ -62,7 +63,7 @@ export const JhFilter = {
       // Find the next item that starts with the character after the active index
       const nextIndex = items.findIndex(
         (item, index) =>
-          index > activeIndex &&
+          index > safeActiveIndex &&
           !item.disabled &&
           String(item[key] || '')
             .toLowerCase()

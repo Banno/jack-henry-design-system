@@ -74,8 +74,6 @@ export class JhToast extends LitElement {
 
   static get properties() {
     return {
-      /** Sets the background color of the toast to convey message connotation. */
-      appearance: { type: String, reflect: true },
       /** Adds an aria-label to the dismiss button to assist screen readers. */
       dismissButtonAccessibleLabel: {
         type: String,
@@ -94,8 +92,6 @@ export class JhToast extends LitElement {
     super();
     /** @type {number} */
     this.timeout = 5000;
-    /** @type {'positive'|'neutral'|'negative'} */
-    this.appearance = 'neutral';
     /** @type {string} */
     this.dismissButtonAccessibleLabel = null;
     /** @type {boolean} */
@@ -151,7 +147,7 @@ export class JhToast extends LitElement {
   render() {
     return html`
       <jh-notification
-        appearance=${this.appearance}
+        appearance="neutral"
         dismiss-button-accessible-label=${this.dismissButtonAccessibleLabel}
         ?hide-dismiss-button=${this.hideDismissButton}
         ?stacked=${this.stacked}>

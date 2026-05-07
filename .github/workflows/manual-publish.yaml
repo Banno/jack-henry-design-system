@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 Jack Henry
+#
+# SPDX-License-Identifier: Apache-2.0
+
 name: Manual Publish
 on:
   workflow_dispatch:

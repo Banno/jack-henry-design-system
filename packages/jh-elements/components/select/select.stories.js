@@ -12,20 +12,19 @@ import "@jack-henry/jh-icons/icons-wc/icon-piggy-bank.js";
 import "@jack-henry/jh-icons/icons-wc/icon-arrow-up-small.js";
 import "@jack-henry/jh-icons/icons-wc/icon-arrow-down-small.js";
 import "../button/button.js";
-// import { US_STATES_FLAT } from '@jack-henry/jh-datasets/datasets/us-states-flat.js';
-// import { US_STATES_GROUPED } from '@jack-henry/jh-datasets/datasets/us-states-grouped.js';
-// import { BIRTH_YEARS } from '@jack-henry/jh-datasets/datasets/birth-years.js';
-// import { manageDataset } from '@jack-henry/jh-datasets/utils/manageDataset.js';
+import { US_STATES_FLAT } from '@jack-henry/jh-datasets/datasets/us-states-flat.js';
+import { US_STATES_GROUPED } from '@jack-henry/jh-datasets/datasets/us-states-grouped.js';
+import { manageDataset } from '@jack-henry/jh-datasets/utils/manageDataset.js';
 
 const testOptions = [
   { groupLabel: "Account types", groupValues: [
     {  value: "checking-01" },
     {  value: "savings-01", disabled: true },
-    { value: "money-market-01", selected: true },
+    { value: "money-market-01" },
   ]},
   { groupLabel: "Credit Cards", groupValues: [
     { label: "Cash Back Rewards with a much longer label for testing", value: "cc-cash-back" },
-    { label: "Travel Rewards", value: "cc-travel" },
+    { label: "Travel Rewards", value: "cc-travel", selected: true },
     { label: "Low Interest", value: "cc-low-interest" },
   ]},
   { label: "Personal Loan", value: "loan-personal" },
@@ -39,6 +38,7 @@ const testOptions = [
 const storyStyles = css`
 .select-container {
   width: 300px;
+  margin-bottom: 20px;
 }
 .menu-flip-container {
   display: flex;
@@ -245,40 +245,36 @@ Playground.parameters = {
   styles: storyStyles,
 };
 
-// TODO add back in once we have the jh-datasets PR merged.
-// export const Datasets = { render: (args) => {
-//   const customizedData = manageDataset({
-//     dataset: BIRTH_YEARS,
-//     initialValue: null,
-//     disabledItems: [1910, 1920, 1930],
-//     emptyLabel: 'Select your birth year...',
-//   });
+export const Datasets = { render: (args) => {
+  const customizedData = manageDataset({
+    dataset: US_STATES_FLAT,
+    initialValue: null,
+    disabledItems: ['AK', 'HI', 'PR', 'VI', 'GU', 'AS'],
+    emptyLabel: 'Select your state...',
+  });
 
-//   return html`
-//     <h3>US states flat</h3>
-//     <div class="select-container">
-//       <jh-select label="US States (flat)" .options=${US_STATES_FLAT}></jh-select>
-//     </div>
+  return html`
+    <div class="select-container">
+      <jh-select label="US States (flat)" .options=${US_STATES_FLAT}></jh-select>
+    </div>
+    <div class="select-container">
+      <jh-select label="US States (grouped)" .options=${US_STATES_GROUPED}></jh-select>
+    </div>
 
-//     <h3>US states grouped</h3>
-//     <div class="select-container">
-//       <jh-select label="US States (grouped)" .options=${US_STATES_GROUPED}></jh-select>
-//     </div>
+    <h3></h3>
+    <div class="select-container">
+      <jh-select label="US states customized" helper-text="Uses manageDataset to set initial value, disabled items, empty label" .options=${customizedData}></jh-select>
+    </div>
+  `;
+}};
 
-//     <h3>manageDataset — initial value, disabled items, empty label</h3>
-//     <div class="select-container">
-//       <jh-select label="Customized birth years" .options=${customizedData}></jh-select>
-//     </div>
-//   `;
-// }};
+Datasets.argTypes = {
+  ...disableControls,
+};
 
-// Datasets.argTypes = {
-//   ...disableControls,
-// };
-
-// Datasets.parameters = {
-//   styles: storyStyles,
-// };
+Datasets.parameters = {
+  styles: storyStyles,
+};
 
 export const Empty = { render: (args) => html`
   <div class="select-container">
@@ -297,12 +293,10 @@ Empty.parameters = {
 export const MenuFlip = { render: (args) => html`
   <div class="menu-flip-container">
     <div>
-      <h3>Near the top — menu should open downward</h3>
-      <jh-select label="Top select" .options=${testOptions} helper-text="helper text" menu-position="top" invalid error-text="Error text"></jh-select>
+      <jh-select label="Top select" .options=${US_STATES_FLAT} helper-text="should open on bottom" menu-position="top" invalid error-text="Error text"></jh-select>
     </div>
     <div>
-      <h3>Near the bottom — menu should flip upward</h3>
-      <jh-select label="Bottom select" helper-text="helper text" .options=${testOptions}  invalid error-text="Error text" menu-position="bottom"></jh-select>
+      <jh-select label="Bottom select" helper-text="should open on top" .options=${US_STATES_FLAT}  invalid error-text="Error text" menu-position="bottom"></jh-select>
     </div>
   </div>
 `};

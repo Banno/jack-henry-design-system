@@ -67,5 +67,7 @@ declare global {
     'jh-table-row': JhTableRow;
     'jh-table-data-cell': JhTableDataCell;
     'jh-table-header-cell': JhTableHeaderCell;
+    'jh-select': JhSelect;
+    'jh-input-number': JhInputNumber;
   }
 }

@@ -70,14 +70,18 @@ Package Changes:
 *  `jh-core` is renamed to `jh-tokens`: Contains all global and alias design tokens for the system as well as light and dark themes.
 * The `jh-tokens` package no longer includes the font files. They are now available in the assets/fonts folder at the project root directory. 
 
-New Packages (Coming Soon):
+New Packages:
 
-* `jh-element`: A base class that all design system components extend off.
-* `jh-validate`: Introduces our form validation mixin.
+* `jh-datasets`: Provides a set of common datasets that can be used with our components. 
+* `jh-validate`: Introduces our form validation mixin (coming Soon).
 
 ## Developer experience
 
 DX was a major focus of this release and we introduce a number of enhancements and new packages to help authors quickly build high quality applications.
+
+### jh-datasets package
+
+Provides a collection of common datasets and utilities for use with design system components, such as `jh-select`. Includes pre-built datasets such as US states (available in flat and grouped formats) and a `manageDataset` utility to process datasets with initial values and disabled items.
 
 ### jh-validate package (coming soon)
 

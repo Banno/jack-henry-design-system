@@ -14,6 +14,9 @@ const config = {
   docs: {
     autodocs: true,
   },
+  features: {
+    experimentalComponentsManifest: true,
+  },
   framework: {
     name: '@storybook/web-components-vite',
     options: {}

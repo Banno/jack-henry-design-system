@@ -82,32 +82,6 @@ const groupedOptions = [
 ];
 ```
 
-## Using the jh-datasets package with jh-select
-
-The datasets package provides a set of common datasets in the correct format for use with the jh-select component. 
-This allows you to easily populate the menu with commonly used lists without having to manually format the data.
-
-- `US_STATES_FLAT` — A flat list of all US states and territories.
-- `US_STATES_GROUPED` — US states organized by region (Northeast, Midwest, South, West, Territories).
-
-- Additional datasets may be added in the future and can be requested by submitting a Github Issue.
-
-For more control over the datasets, authors may use the `manageDataset` util to customize initial selected values, disabled items, and empty labels:
-
-```javascript
-import { US_STATES_FLAT } from '@jack-henry/jh-datasets/datasets/us-states-flat.js';
-import { manageDataset } from '@jack-henry/jh-datasets/utils/manage-dataset.js';
-
-const customizedData = manageDataset({
-  dataset: US_STATES_FLAT,
-  initialValue: null,
-  disabledItems: ['AK', 'HI'],
-  emptyLabel: 'Select a state...',
-});
-
-<jh-select label="State" .options=${customizedData}></jh-select>
-```
-
 ## Type-Ahead functionality
 
 Typing character keys jumps to the first matching option. Pressing the same character repeatedly cycles through options that start with that character.

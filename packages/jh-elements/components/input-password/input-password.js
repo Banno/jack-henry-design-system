@@ -120,7 +120,7 @@ renderInput() {
     let passwordBtn = html`
         <jh-button
           class="password-toggle-btn"
-          size="small"
+          size="x-small"
           appearance="tertiary"
           ?disabled=${this.disabled}
           accessible-label=${accessibleLabel}
@@ -135,7 +135,7 @@ renderInput() {
                   <jh-icon-eye-slash
                     slot="jh-button-icon"
                     aria-hidden="true"
-                    size="medium"
+                    size="x-small"
                   ></jh-icon-eye-slash>
                 </slot>
               `
@@ -147,7 +147,7 @@ renderInput() {
                   <jh-icon-eye
                     slot="jh-button-icon"
                     aria-hidden="true"
-                    size="medium"
+                    size="x-small"
                   ></jh-icon-eye>
                 </slot>
               `}

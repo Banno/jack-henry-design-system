@@ -136,7 +136,7 @@ export class JhNotification extends LitElement {
     }
     /* Default slot styling */
     .display-default-slot {
-      padding: var(--jh-dimension-200) 0;
+      padding: var(--jh-dimension-100) 0;
       margin: var(--jh-dimension-50) 0;
       font: var(--jh-font-body-regular-1);
       display: flex;
@@ -149,7 +149,7 @@ export class JhNotification extends LitElement {
     }
     slot[name="jh-notification-icon"]::slotted(*) {
       margin-right: var(--jh-dimension-400);
-      padding: var(--jh-dimension-200) 0;
+      padding: var(--jh-dimension-100) 0;
     }
     :host([appearance='neutral']) slot[name="jh-notification-icon"] {
       --jh-icon-color-fill: var(--jh-notification-icon-color-fill-neutral, var(--jh-color-content-on-primary-enabled));
@@ -204,7 +204,7 @@ export class JhNotification extends LitElement {
     .stacked-container,
     .inline-container {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
     }
     `;
   }

@@ -11,7 +11,7 @@ let id = 0;
 
 /**
  * @cssprop --jh-input-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
- * @cssprop --jh-input-field-color-background - The input field background-color. Defaults to `--jh-color-container-primary-enabled`.
+ * @cssprop --jh-input-field-color-background - The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`.
  * @cssprop --jh-input-field-color-border-enabled - The input field border-color. Defaults to `--jh-border-control-color`.
  * @cssprop --jh-input-field-border-radius - The input field border radius. Defaults to `--jh-border-radius-100`.
  * @cssprop --jh-input-color-focus - The input field outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.
@@ -495,6 +495,10 @@ export class JhInput extends LitElement {
     if (this.inputMask) {
       this.removeEventListener('jh-select', this.#setSelection);
     }
+  }
+
+  get uniqueId() {
+    return this.#id;
   }
 
   firstUpdated() {
@@ -1057,6 +1061,24 @@ export class JhInput extends LitElement {
         this.#selectedText.selectionStart = null;
       }
     }
+
+    // Handle slot visibility updates
+    if (changedProperties.has('hideLeftSlot')) {
+      this.#updateSlotVisibility(this.#leftSlot);
+    }
+    if (changedProperties.has('hideRightSlot')) {
+      this.#updateSlotVisibility(this.#rightSlot);
+    }
+    if (changedProperties.has('readonly')) {
+      this.#updateSlotVisibility(this.#leftSlot);
+      this.#updateSlotVisibility(this.#rightSlot);
+    }
+  }
+
+  #updateSlotVisibility(slot) {
+    if (slot) {
+      slot.classList.toggle('display-slot', this.#checkSlotContent(slot));
+    }
   }
 
   _handleChange() {
@@ -1159,10 +1181,10 @@ export class JhInput extends LitElement {
     let describedbyString = '';
 
     if (this.errorText) {
-      describedbyString += `jh-input-error-${this.#id}`;
+      describedbyString += `jh-input-error-${this.uniqueId}`;
     }
     if (this.helperText) {
-      describedbyString += ` jh-input-helper-${this.#id}`;
+      describedbyString += ` jh-input-helper-${this.uniqueId}`;
     }
     return describedbyString;
   }
@@ -1183,14 +1205,14 @@ export class JhInput extends LitElement {
 
       if (this.helperText) {
         helperText = html`
-          <p id="jh-input-helper-${this.#id}" class="helper-text">
+          <p id="jh-input-helper-${this.uniqueId}" class="helper-text">
             ${this.helperText}
           </p>
         `;
       }
 
       label = html`
-        <label for="jh-input-${this.#id}">${this.label}${indicator}</label>
+        <label for="jh-input-${this.uniqueId}">${this.label}${indicator}</label>
         ${helperText}
       `;
     }
@@ -1220,7 +1242,7 @@ export class JhInput extends LitElement {
 
     if (this.invalid && this.errorText) {
       errorText = html`
-        <p id="jh-input-error-${this.#id}" class="error-text">
+        <p id="jh-input-error-${this.uniqueId}" class="error-text">
           ${this.errorText}
         </p>
       `;
@@ -1253,7 +1275,7 @@ export class JhInput extends LitElement {
         <div class="input-wrapper">
           ${leftSlot}
           <input
-            id="jh-input-${this.#id}"
+            id="jh-input-${this.uniqueId}"
             aria-describedby=${describedby}
             aria-invalid=${ifDefined(this.invalid ? 'true' : null)}
             aria-label=${ifDefined(

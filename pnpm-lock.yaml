@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Jack Henry
-#
-# SPDX-License-Identifier: Apache-2.0
-
 lockfileVersion: '6.0'
 
 importers:
@@ -76,8 +72,8 @@ importers:
   packages/jh-icons:
     dependencies:
       lit:
-        specifier: 2.1.1
-        version: 2.1.1
+        specifier: 3.3.1
+        version: 3.3.1
     devDependencies:
       hygen:
         specifier: 6.2.11
@@ -665,12 +661,6 @@ packages:
 
   /@lit-labs/ssr-dom-shim@1.4.0:
     resolution: {integrity: sha512-ficsEARKnmmW5njugNYKipTm4SFnbik7CXtoencDZzmzo/dQ+2Q0bgkzJuoJP20Aj0F+izzJjOqsnkd6F/o1bw==}
-
-  /@lit/reactive-element@1.6.3:
-    resolution: {integrity: sha1-JbTuziWSEyhF0wPgkbrZsEzc/gM=}
-    dependencies:
-      '@lit-labs/ssr-dom-shim': 1.4.0
-    dev: false
 
   /@lit/reactive-element@2.1.1:
     resolution: {integrity: sha512-N+dm5PAYdQ8e6UlywyyrgI2t++wFGXfHx+dSJ1oBrg6FAxUj40jId++EaRm80MKX5JnlH1sBsyZ5h0bcZKemCg==}
@@ -3569,14 +3559,6 @@ packages:
       - zenObservable
     dev: true
 
-  /lit-element@3.3.3:
-    resolution: {integrity: sha512-XbeRxmTHubXENkV4h8RIPyr8lXc+Ff28rkcQzw3G6up2xg5E8Zu1IgOWIwBLEQsu3cOVFqdYwiVi0hv0SlpqUA==}
-    dependencies:
-      '@lit-labs/ssr-dom-shim': 1.4.0
-      '@lit/reactive-element': 1.6.3
-      lit-html: 2.8.0
-    dev: false
-
   /lit-element@4.2.1:
     resolution: {integrity: sha512-WGAWRGzirAgyphK2urmYOV72tlvnxw7YfyLDgQ+OZnM9vQQBQnumQ7jUJe6unEzwGU3ahFOjuz1iz1jjrpCPuw==}
     dependencies:
@@ -3584,24 +3566,10 @@ packages:
       '@lit/reactive-element': 2.1.1
       lit-html: 3.3.1
 
-  /lit-html@2.8.0:
-    resolution: {integrity: sha512-o9t+MQM3P4y7M7yNzqAyjp7z+mQGa4NS4CxiyLqFPyFWyc4O+nodLrkrxSaCTrla6M5YOLaT3RpbbqjszB5g3Q==}
-    dependencies:
-      '@types/trusted-types': 2.0.6
-    dev: false
-
   /lit-html@3.3.1:
     resolution: {integrity: sha512-S9hbyDu/vs1qNrithiNyeyv64c9yqiW9l+DBgI18fL+MTvOtWoFR0FWiyq1TxaYef5wNlpEmzlXoBlZEO+WjoA==}
     dependencies:
       '@types/trusted-types': 2.0.6
-
-  /lit@2.1.1:
-    resolution: {integrity: sha1-ZfQ6vKlFmI9pY5H3YsZFulGWaws=}
-    dependencies:
-      '@lit/reactive-element': 1.6.3
-      lit-element: 3.3.3
-      lit-html: 2.8.0
-    dev: false
 
   /lit@3.3.1:
     resolution: {integrity: sha512-Ksr/8L3PTapbdXJCk+EJVB78jDodUMaP54gD24W186zGRARvwrsPfS60wae/SSCTCNZVPd1chXqio1qHQmu4NA==}

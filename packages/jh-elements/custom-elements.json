@@ -1459,6 +1459,10 @@
       ],
       "properties": [
         {
+          "name": "uniqueId",
+          "type": "number | null"
+        },
+        {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
           "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
@@ -1776,10 +1780,30 @@
       "path": "./components/input-number/input-number.js",
       "attributes": [
         {
-          "name": "someProperty",
-          "description": "Property description",
-          "type": "?string",
-          "default": "\"some initial value\""
+          "name": "accessible-label-increment-stepper",
+          "description": "Sets the accessible label for the increment stepper button.",
+          "type": "?string"
+        },
+        {
+          "name": "accessible-label-decrement-stepper",
+          "description": "Sets the accessible label for the decrement stepper button.",
+          "type": "?string"
+        },
+        {
+          "name": "max",
+          "description": "Sets the maximum value for the input number.",
+          "type": "?number"
+        },
+        {
+          "name": "min",
+          "description": "Sets the minimum value for the input number.",
+          "type": "?number"
+        },
+        {
+          "name": "step",
+          "description": "Sets the stepper buttons increment and decrement the value.",
+          "type": "number",
+          "default": "1"
         },
         {
           "name": "accessible-label",
@@ -1909,11 +1933,39 @@
       ],
       "properties": [
         {
-          "name": "someProperty",
-          "attribute": "someProperty",
-          "description": "Property description",
-          "type": "?string",
-          "default": "\"some initial value\""
+          "name": "accessibleLabelIncrementStepper",
+          "attribute": "accessible-label-increment-stepper",
+          "description": "Sets the accessible label for the increment stepper button.",
+          "type": "?string"
+        },
+        {
+          "name": "accessibleLabelDecrementStepper",
+          "attribute": "accessible-label-decrement-stepper",
+          "description": "Sets the accessible label for the decrement stepper button.",
+          "type": "?string"
+        },
+        {
+          "name": "max",
+          "attribute": "max",
+          "description": "Sets the maximum value for the input number.",
+          "type": "?number"
+        },
+        {
+          "name": "min",
+          "attribute": "min",
+          "description": "Sets the minimum value for the input number.",
+          "type": "?number"
+        },
+        {
+          "name": "step",
+          "attribute": "step",
+          "description": "Sets the stepper buttons increment and decrement the value.",
+          "type": "number",
+          "default": "1"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number | null"
         },
         {
           "name": "accessibleLabel",
@@ -2088,6 +2140,14 @@
       ],
       "slots": [
         {
+          "name": "jh-input-number-stepper-increment",
+          "description": "Use to insert an icon in the increment stepper button."
+        },
+        {
+          "name": "jh-input-number-stepper-decrement",
+          "description": "Use to insert an icon in the decrement stepper button.\n\nInput Number"
+        },
+        {
           "name": "jh-input-left",
           "description": "Use to insert an element on the left side of the input field, such as an icon or button."
         },
@@ -2155,7 +2215,7 @@
         },
         {
           "name": "--jh-input-number-stepper-icon-color-fill-active",
-          "description": "The stepper button icon color when active. Defaults to `--jh-color-content-on-brand-active`.\n\nInput Number"
+          "description": "The stepper button icon color when active. Defaults to `--jh-color-content-on-brand-active`."
         },
         {
           "name": "--jh-input-label-color-text",
@@ -2163,7 +2223,7 @@
         },
         {
           "name": "--jh-input-field-color-background",
-          "description": "The input field background-color. Defaults to `--jh-color-container-primary-enabled`."
+          "description": "The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`."
         },
         {
           "name": "--jh-input-field-color-border-enabled",
@@ -2349,7 +2409,7 @@
           "name": "hide-right-slot",
           "description": "Hides the right slot from input.",
           "type": "boolean",
-          "default": "true"
+          "default": "false"
         },
         {
           "name": "input-mask",
@@ -2450,6 +2510,10 @@
           "default": "false"
         },
         {
+          "name": "uniqueId",
+          "type": "number | null"
+        },
+        {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
           "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
@@ -2504,7 +2568,7 @@
           "attribute": "hide-right-slot",
           "description": "Hides the right slot from input.",
           "type": "boolean",
-          "default": "true"
+          "default": "false"
         },
         {
           "name": "inputMask",
@@ -2901,6 +2965,10 @@
         }
       ],
       "properties": [
+        {
+          "name": "uniqueId",
+          "type": "number | null"
+        },
         {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
@@ -3345,6 +3413,10 @@
         }
       ],
       "properties": [
+        {
+          "name": "uniqueId",
+          "type": "number | null"
+        },
         {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
@@ -3848,6 +3920,10 @@
           "type": "'hard'|'soft'"
         },
         {
+          "name": "uniqueId",
+          "type": "number | null"
+        },
+        {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
           "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
@@ -4296,6 +4372,10 @@
       ],
       "properties": [
         {
+          "name": "uniqueId",
+          "type": "number | null"
+        },
+        {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
           "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
@@ -4738,6 +4818,10 @@
         }
       ],
       "properties": [
+        {
+          "name": "uniqueId",
+          "type": "number | null"
+        },
         {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
@@ -6306,6 +6390,10 @@
           "default": "false"
         },
         {
+          "name": "uniqueId",
+          "type": "number | null"
+        },
+        {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
           "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
@@ -6657,7 +6745,7 @@
         },
         {
           "name": "--jh-input-field-color-background",
-          "description": "The input field background-color. Defaults to `--jh-color-container-primary-enabled`."
+          "description": "The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`."
         },
         {
           "name": "--jh-input-field-color-border-enabled",

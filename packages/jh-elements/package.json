@@ -1,7 +1,7 @@
 {
   "name": "@jack-henry/jh-elements",
   "description": "Jack Henry's design system web components.",
-  "version": "2.0.0-beta.12",
+  "version": "2.0.0-beta.13",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Banno/jack-henry-design-system.git"
@@ -35,7 +35,6 @@
     "lit": "3.3.1"
   },
   "devDependencies": {
-    "@jack-henry/jh-datasets": "workspace:2.0.0-beta.1",
     "@storybook/addon-a11y": "8.6.17",
     "@storybook/addon-actions": "8.6.17",
     "@storybook/addon-essentials": "8.6.17",

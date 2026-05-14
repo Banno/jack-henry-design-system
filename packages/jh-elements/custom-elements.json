@@ -85,12 +85,6 @@
           "type": "?string"
         },
         {
-          "name": "icon-position",
-          "description": "Sets location of icon in relation to the label.",
-          "type": "'before'|'after'",
-          "default": "\"before\""
-        },
-        {
           "name": "pending",
           "description": "Displays a progress indicator.",
           "type": "?boolean",
@@ -170,13 +164,6 @@
           "type": "?string"
         },
         {
-          "name": "iconPosition",
-          "attribute": "icon-position",
-          "description": "Sets location of icon in relation to the label.",
-          "type": "'before'|'after'",
-          "default": "\"before\""
-        },
-        {
           "name": "pending",
           "attribute": "pending",
           "description": "Displays a progress indicator.",
@@ -224,8 +211,12 @@
       ],
       "slots": [
         {
-          "name": "jh-button-icon",
-          "description": "Use to insert an icon."
+          "name": "jh-button-icon-left",
+          "description": "Use to insert an icon on the left side of the button and for single icon buttons."
+        },
+        {
+          "name": "jh-button-icon-right",
+          "description": "Use to insert an icon on the right side of the button and for single icon buttons."
         }
       ],
       "cssProperties": [
@@ -611,7 +602,7 @@
         },
         {
           "name": "--jh-button-size",
-          "description": "The button width when no label is set, and the button height. Button width and height defaults to `--jh-dimension-600` when `size=\"x-small\"`,`--jh-dimension-800` when `size=\"small\"`, `--jh-dimension-1000` when `size=\"medium\"`, and `--jh-dimension-1200` when `size=\"large\"`."
+          "description": "The button width of single icon buttons, and the button height. Button width and height defaults to `--jh-dimension-600` when `size=\"x-small\"`,`--jh-dimension-800` when `size=\"small\"`, `--jh-dimension-1000` when `size=\"medium\"`, and `--jh-dimension-1200` when `size=\"large\"`."
         }
       ]
     },
@@ -1459,6 +1450,10 @@
       ],
       "properties": [
         {
+          "name": "uniqueId",
+          "type": "number | null"
+        },
+        {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
           "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
@@ -1837,7 +1832,7 @@
           "name": "hide-right-slot",
           "description": "Hides the right slot from input.",
           "type": "boolean",
-          "default": "true"
+          "default": "false"
         },
         {
           "name": "input-mask",
@@ -1938,6 +1933,10 @@
           "default": "false"
         },
         {
+          "name": "uniqueId",
+          "type": "number | null"
+        },
+        {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
           "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
@@ -1992,7 +1991,7 @@
           "attribute": "hide-right-slot",
           "description": "Hides the right slot from input.",
           "type": "boolean",
-          "default": "true"
+          "default": "false"
         },
         {
           "name": "inputMask",
@@ -2389,6 +2388,10 @@
         }
       ],
       "properties": [
+        {
+          "name": "uniqueId",
+          "type": "number | null"
+        },
         {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
@@ -2833,6 +2836,10 @@
         }
       ],
       "properties": [
+        {
+          "name": "uniqueId",
+          "type": "number | null"
+        },
         {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
@@ -3336,6 +3343,10 @@
           "type": "'hard'|'soft'"
         },
         {
+          "name": "uniqueId",
+          "type": "number | null"
+        },
+        {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
           "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
@@ -3784,6 +3795,10 @@
       ],
       "properties": [
         {
+          "name": "uniqueId",
+          "type": "number | null"
+        },
+        {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
           "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
@@ -4226,6 +4241,10 @@
         }
       ],
       "properties": [
+        {
+          "name": "uniqueId",
+          "type": "number | null"
+        },
         {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
@@ -5794,6 +5813,10 @@
           "default": "false"
         },
         {
+          "name": "uniqueId",
+          "type": "number | null"
+        },
+        {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
           "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
@@ -6145,7 +6168,7 @@
         },
         {
           "name": "--jh-input-field-color-background",
-          "description": "The input field background-color. Defaults to `--jh-color-container-primary-enabled`."
+          "description": "The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`."
         },
         {
           "name": "--jh-input-field-color-border-enabled",

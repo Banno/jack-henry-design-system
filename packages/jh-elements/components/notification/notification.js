@@ -312,8 +312,8 @@ export class JhNotification extends LitElement {
           appearance="secondary"
           accessible-label=${this.dismissButtonAccessibleLabel}
           @click=${this.#handleDismissal}
-          ><slot name="jh-notification-dismiss-icon" slot="jh-button-icon">
-            <jh-icon-xmark slot="jh-button-icon"></jh-icon-xmark>
+          ><slot name="jh-notification-dismiss-icon" slot="jh-button-icon-left">
+            <jh-icon-xmark slot="jh-button-icon-left"></jh-icon-xmark>
           </slot>
         </jh-button>
       `;

@@ -102,9 +102,10 @@ import '../progress/progress.js';
  * @cssprop --jh-button-border-radius - The button container border-radius. Defaults to `--jh-border-radius-100`.
  * @cssprop --jh-button-opacity-disabled - The button container opacity when disabled. Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-button-color-focus - The button container outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.
- * @cssprop --jh-button-size - The button width when no label is set, and the button height. Button width and height defaults to `--jh-dimension-600` when `size="x-small"`,`--jh-dimension-800` when `size="small"`, `--jh-dimension-1000` when `size="medium"`, and `--jh-dimension-1200` when `size="large"`. 
+ * @cssprop --jh-button-size - The button width of single icon buttons, and the button height. Button width and height defaults to `--jh-dimension-600` when `size="x-small"`,`--jh-dimension-800` when `size="small"`, `--jh-dimension-1000` when `size="medium"`, and `--jh-dimension-1200` when `size="large"`. 
  *
- * @slot jh-button-icon - Use to insert an icon.
+ * @slot jh-button-icon-left - Use to insert an icon on the left side of the button and for single icon buttons.
+ * @slot jh-button-icon-right - Use to insert an icon on the right side of the button and for single icon buttons.
  * @customElement jh-button
  */
 export class JhButton extends LitElement {
@@ -156,6 +157,7 @@ export class JhButton extends LitElement {
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: var(--jh-dimension-200);
       }
       button:focus,
       a:focus {
@@ -691,36 +693,27 @@ export class JhButton extends LitElement {
           var(--jh-color-content-on-negative-enabled)
         );
       }
-      /* Icon-related Type option styling */
-      :host([icon-position='before'][label]) ::slotted(*) {
-        margin-right: var(--jh-dimension-200);
+
+      /* Single icon styling */
+      :host button.single-icon,
+      :host a.single-icon {
+        padding: 0;
       }
-      :host([icon-position='after'][label]) ::slotted(*) {
-        margin-left: var(--jh-dimension-200);
-      }
-      :host([icon-position='after']) .content-wrapper {
-        flex-direction: row-reverse;
-      }
-      /* Icon only styling */
-      :host(:not([label])[size='x-small']) button,
-      :host(:not([label])[size='x-small']) a {
+      :host([size='x-small']) button.single-icon,
+      :host([size='x-small']) a.single-icon {
         width: var(--jh-button-size, var(--jh-dimension-600));
       }
-      :host(:not([label])[size='small']) button,
-      :host(:not([label])[size='small']) a {
+      :host([size='small']) button.single-icon,
+      :host([size='small']) a.single-icon {
         width: var(--jh-button-size, var(--jh-dimension-800));
       }
-      :host(:not([label])[size='medium']) button,
-      :host(:not([label])[size='medium']) a {
+      :host([size='medium']) button.single-icon,
+      :host([size='medium']) a.single-icon {
         width: var(--jh-button-size, var(--jh-dimension-1000));
       }
-      :host(:not([label])[size='large']) button,
-      :host(:not([label])[size='large']) a {
+      :host([size='large']) button.single-icon,
+      :host([size='large']) a.single-icon {
         width: var(--jh-button-size, var(--jh-dimension-1200));
-      }
-      :host(:not([label])) button,
-      :host(:not([label])) a {
-        padding: 0;
       }
       /* Block styling */
       :host([block]) {
@@ -729,6 +722,8 @@ export class JhButton extends LitElement {
       }
       :host(:not([label])[block]) button,
       :host(:not([label])[block]) a,
+      :host([block]) button.single-icon,
+      :host([block]) a.single-icon,
       :host([block]) button,
       :host([block]) a {
         width: 100%;
@@ -767,12 +762,6 @@ export class JhButton extends LitElement {
       href: {
         type: String,
       },
-      /** Sets location of icon in relation to the label. */
-      iconPosition: {
-        type: String,
-        attribute: 'icon-position',
-        reflect: true,
-      },
       /** Displays a progress indicator. */
       pending: {
         type: Boolean,
@@ -803,6 +792,14 @@ export class JhButton extends LitElement {
       value: {
         type: String,
       },
+      _hasLeftSlotContent: {
+        type: Boolean,
+        state: true,
+      },
+      _hasRightSlotContent: {
+        type: Boolean,
+        state: true,
+      },
     };
   }
 
@@ -824,8 +821,6 @@ export class JhButton extends LitElement {
     this.disabled = false;
     /** @type {?string} */
     this.href = null;
-    /** @type {'before'|'after'} */
-    this.iconPosition = 'before';
     /** @type {?boolean} */
     this.pending = false;
     /** @type {?string} */
@@ -840,6 +835,10 @@ export class JhButton extends LitElement {
     this.target = null;
     /** @type {?string} */
     this.value = null;
+    /** @type {boolean} */
+    this._hasLeftSlotContent = false;
+    /** @type {boolean} */
+    this._hasRightSlotContent = false;
 
     this.addEventListener('click', this.#onClick);
     this.addEventListener('keydown', this.#handleKeydown);
@@ -903,17 +902,41 @@ export class JhButton extends LitElement {
   }
 
   #handleSlotChange(e) {
-    const icon = e.target.assignedElements({flatten: true})[0];
-    if (!icon) return;
 
-    icon.setAttribute('aria-hidden', 'true');
+    let newSlottedElement = e.target.assignedElements()[0];
+    let slot = e.target;
 
-    if (this.size === 'x-small') {
-      icon.setAttribute('size', 'x-small');
-    } else {
-      icon.setAttribute('size', 'medium');
+    if (slot.name !== 'jh-button-icon-left' && slot.name !== 'jh-button-icon-right') {
+      return;
+    }
+
+    // Set icon size
+    if (newSlottedElement?.tagName.startsWith('JH-ICON')) {
+      newSlottedElement.setAttribute('aria-hidden', 'true');
+
+      if (this.size === 'x-small') {
+        newSlottedElement.setAttribute('size', 'x-small');
+      } else {
+        newSlottedElement.setAttribute('size', 'medium');
+      }
+    }
+    
+    if (slot.name === 'jh-button-icon-left') {
+      this._hasLeftSlotContent = this.#checkSlotContent(slot);
+    } 
+    if (slot.name === 'jh-button-icon-right') {
+      this._hasRightSlotContent = this.#checkSlotContent(slot);
     }
   }
+
+    #checkSlotContent(slot) {
+    // Slotted and fallback elements
+    const slottedElements = slot.assignedElements({ flatten: true });
+    if (slottedElements.length > 0) {
+        return true;
+    }
+    return false;
+}
 
   #renderButtonContent(pending, label) {
     let buttonContent;
@@ -930,10 +953,14 @@ export class JhButton extends LitElement {
     } else {
       buttonContent = html`
         <slot
-          name="jh-button-icon"
+          name="jh-button-icon-left"
           @slotchange=${this.#handleSlotChange}
         ></slot>
         ${buttonLabel}
+        <slot
+          name="jh-button-icon-right"
+          @slotchange=${this.#handleSlotChange}
+        ></slot>
       `;
     }
 
@@ -943,6 +970,7 @@ export class JhButton extends LitElement {
   render() {
     const buttonContent = this.#renderButtonContent(this.pending, this.label);
     let ariaDisabled;
+    let singleIconClass = !this.label && (this._hasLeftSlotContent !== this._hasRightSlotContent) ? 'single-icon' : null;
 
     if (this.accessibleDisabled !== 'false') {
       ariaDisabled = this.accessibleDisabled;
@@ -951,6 +979,7 @@ export class JhButton extends LitElement {
     if (this.href) {
       return html`
         <a
+          class=${ifDefined(singleIconClass)}
           tabindex="0"
           aria-disabled=${ifDefined(ariaDisabled)}
           aria-label=${ifDefined(this.accessibleLabel)}
@@ -964,6 +993,7 @@ export class JhButton extends LitElement {
     } else {
       return html`
         <button
+          class=${ifDefined(singleIconClass)}
           tabindex="0"
           aria-disabled=${ifDefined(ariaDisabled)}
           aria-label=${ifDefined(this.accessibleLabel)}

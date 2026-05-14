@@ -863,17 +863,19 @@ export class JhButton extends LitElement {
     new ResizeObserver(this.#cacheButtonDimensions.bind(this)).observe(this);
   }
 
-  //if button size changes, adjust the size of the icon accordingly.
+  //if button size changes, adjust the size of the icons accordingly.
   updated(changedProperties) {
   if (changedProperties.has('size')) {
     const iconSize = this.size === 'x-small' ? 'x-small' : 'medium';
-    const slot = this.shadowRoot.querySelector('slot[name="jh-button-icon"]');
+    const slots = this.shadowRoot.querySelectorAll('slot');
+    slots.forEach(slot => {
     const icon = slot?.assignedElements({flatten: true})[0];
     if (icon) {
       icon.setAttribute('size', iconSize);
       }
-    }
+    });
   }
+}
   #cacheButtonDimensions() {
     const { width } = this.getBoundingClientRect();
 

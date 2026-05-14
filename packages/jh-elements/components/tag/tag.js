@@ -388,7 +388,10 @@ export class JhTag extends LitElement {
     }
 
     if (this.dismissible && this.tooltipLabel) {
-      dismissBtn = html`<jh-tooltip label=${this.tooltipLabel}>${dismissBtn}</jh-tooltip>`;
+      dismissBtn = html`<jh-tooltip>
+        ${dismissBtn}
+        <div slot="jh-tooltip-content">${this.tooltipLabel}</div>
+      </jh-tooltip>`;
     }
     return dismissBtn;
   }

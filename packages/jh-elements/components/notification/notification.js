@@ -205,6 +205,7 @@ export class JhNotification extends LitElement {
     .inline-container {
       display: flex;
       align-items: center;
+      line-height: 0;
     }
     `;
   }

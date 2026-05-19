@@ -17,14 +17,13 @@ const storyStyles = css`
 }
 .scrollable {
   width: 600px;
-  height: 500px;
+  height: 700px;
 }
-.fixed-width-repro {
+.scrollable-fixed-width {
+  min-width: 160px;
+}
+.controlled {
   width: 100%;
-}
-.expandable {
-  min-width: 300px;
-  white-space: normal;
 }
 `;
 
@@ -77,7 +76,7 @@ export default {
 export const Overview = { render: (args) => html`
 <div class="overview">
   <jh-table vertical-align="top" sticky-footer sticky-header>
-    <div slot="jh-table-caption">Overview Table</div>
+    <div slot="jh-table-caption">Overview Table - Fluid layout</div>
     <div slot="jh-table-toolbar">Toolbar</div>
     <jh-table-row slot="jh-table-header">
     <jh-table-header-cell  sorted="none" sortable>
@@ -211,29 +210,25 @@ Playground.parameters = {
 export const Scrollable = { render: (args) => html`
 <div class="scrollable">
   <jh-table vertical-align="top" ?scrollable=${args.scrollable} ?sticky-header=${args['sticky-header']} ?sticky-footer=${args['sticky-footer']}>
-    <div slot="jh-table-caption">Scrollable Table</div>
+    <div slot="jh-table-caption">Scrollable Table - with Fixed min-width Columns</div>
     <div slot="jh-table-toolbar">Toolbar</div>
-  <jh-table-row slot="jh-table-header">
-  <jh-table-header-cell sortable sorted="none" >
-  Lorem ipsum sit amet consectetur</jh-table-header-cell>
-  <jh-table-header-cell sortable sorted="none" >Lorem ipsum</jh-table-header-cell>
-  <jh-table-header-cell >Lorem ipsum</jh-table-header-cell>
-  <jh-table-header-cell  sortable sorted="none">
-  Lorem ipsum</jh-table-header-cell>
-  <jh-table-header-cell sortable sorted="none">Lorem ipsum</jh-table-header-cell>
-  <jh-table-header-cell >Lorem ipsum</jh-table-header-cell>
-  <jh-table-header-cell >Lorem ipsum sit amet consectetur</jh-table-header-cell>
-  <jh-table-header-cell >Lorem ipsum</jh-table-header-cell>
+    <jh-table-row slot="jh-table-header">
+      <jh-table-header-cell sortable sorted="none" >
+      Lorem ipsum sit amet consectetur</jh-table-header-cell>
+      <jh-table-header-cell sortable sorted="none" class="scrollable-fixed-width">Lorem ipsum</jh-table-header-cell>
+      <jh-table-header-cell class="scrollable-fixed-width">Lorem ipsum</jh-table-header-cell>
+      <jh-table-header-cell  sortable sorted="none" class="scrollable-fixed-width">
+      Lorem ipsum</jh-table-header-cell>
+      <jh-table-header-cell sortable sorted="none" class="scrollable-fixed-width">Lorem ipsum</jh-table-header-cell>
+      <jh-table-header-cell class="scrollable-fixed-width">Lorem ipsum</jh-table-header-cell>
   </jh-table-row>
     <jh-table-row>
-    <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell >Lorem ipsum dolor sit amet consectetur adipiscing elit</jh-table-data-cell>
         <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
         <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
         <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
         <jh-table-data-cell >Lorem ipsum dolor sit amet consectetur adipiscing elit</jh-table-data-cell>
+        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
+        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
     </jh-table-row>
     <jh-table-row>
     <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
@@ -242,8 +237,6 @@ export const Scrollable = { render: (args) => html`
         <jh-table-data-cell >Lorem ipsum dolor sit amet consectetur adipiscing elit</jh-table-data-cell>
         <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
         <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell >Lorem ipsum dolor sit amet consectetur adipiscing elit</jh-table-data-cell>
     </jh-table-row>
     <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
         <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
@@ -251,8 +244,6 @@ export const Scrollable = { render: (args) => html`
         <jh-table-data-cell >Lorem ipsum dolor sit amet consectetur adipiscing elit</jh-table-data-cell>
         <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
         <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell >Lorem ipsum dolor sit amet consectetur adipiscing elit</jh-table-data-cell>
     </jh-table-row>
     <jh-table-row>
     <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
@@ -261,48 +252,38 @@ export const Scrollable = { render: (args) => html`
         <jh-table-data-cell >Lorem ipsum dolor sit amet consectetur adipiscing elit</jh-table-data-cell>
         <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
         <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell >Lorem ipsum dolor sit amet consectetur adipiscing elit</jh-table-data-cell>
     </jh-table-row>
     <jh-table-row>
-    <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell >Lorem ipsum dolor sit amet consectetur adipiscing elit</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell >Lorem ipsum dolor sit amet consectetur adipiscing elit</jh-table-data-cell>
+      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
+      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
+      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
+      <jh-table-data-cell >Lorem ipsum dolor sit amet consectetur adipiscing elit</jh-table-data-cell>
+      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
+      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
     </jh-table-row>
     <jh-table-row>
-    <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell >Lorem ipsum dolor sit amet consectetur adipiscing elit</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell >Lorem ipsum dolor sit amet consectetur adipiscing elit</jh-table-data-cell>
+      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
+      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
+      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
+      <jh-table-data-cell >Lorem ipsum dolor sit amet consectetur adipiscing elit</jh-table-data-cell>
+      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
+      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
     </jh-table-row>
     <jh-table-row>
-    <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell >Lorem ipsum dolor sit amet consectetur adipiscing elit</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell >Lorem ipsum</jh-table-data-cell>
+      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
+      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
+      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
+      <jh-table-data-cell >Lorem ipsum dolor sit amet consectetur adipiscing elit</jh-table-data-cell>
+      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
+      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
     </jh-table-row>
     <jh-table-row slot="jh-table-footer">
     <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell >Lorem ipsum dolor sit</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
-        <jh-table-data-cell >Lorem ipsum dolor sit amet</jh-table-data-cell>
+      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
+      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
+      <jh-table-data-cell >Lorem ipsum dolor sit</jh-table-data-cell>
+      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
+      <jh-table-data-cell>Lorem ipsum</jh-table-data-cell>
     </jh-table-row>
     <div slot="jh-table-pagination">Pagination</div>
     </jh-table>
@@ -322,42 +303,42 @@ export const Scrollable = { render: (args) => html`
     Scrollable.parameters = {
       styles: storyStyles,
     };
-    export const ScrollableFixedWidthRepro = { render: (args) => html`
-<div class="fixed-width-repro">
-  <jh-table sticky-header scrollable class="fixed-width-repro">
-    <div slot="jh-table-caption">Scrollable Fixed Width Repro</div>
-    <jh-table-row slot="jh-table-header">
-      <jh-table-header-cell style="min-width: 200px;">Name</jh-table-header-cell>
-      <jh-table-header-cell class="expandable">Description</jh-table-header-cell>
-      <jh-table-header-cell style="min-width: 150px;">Status</jh-table-header-cell>
-      <jh-table-header-cell style="min-width: 120px;">Amount</jh-table-header-cell>
-    </jh-table-row>
-    <jh-table-row>
-      <jh-table-data-cell style="width: 200px;">John Smith</jh-table-data-cell>
-      <jh-table-data-cell class="expandable">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor</jh-table-data-cell>
-      <jh-table-data-cell style="width: 150px;">Active</jh-table-data-cell>
-      <jh-table-data-cell style="width: 120px;">$1,234.56</jh-table-data-cell>
-    </jh-table-row>
-    <jh-table-row>
-      <jh-table-data-cell style="width: 200px;">Jane Doe</jh-table-data-cell>
-      <jh-table-data-cell class="expandable">Ut enim ad minim veniam quis nostrud exercitation ullamco laboris</jh-table-data-cell>
-      <jh-table-data-cell style="width: 150px;">Pending</jh-table-data-cell>
-      <jh-table-data-cell style="width: 120px;">$5,678.90</jh-table-data-cell>
-    </jh-table-row>
-    <jh-table-row>
-      <jh-table-data-cell style="width: 200px;">Bob Johnson</jh-table-data-cell>
-      <jh-table-data-cell class="expandable">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum</jh-table-data-cell>
-      <jh-table-data-cell style="width: 150px;">Inactive</jh-table-data-cell>
-      <jh-table-data-cell style="width: 120px;">$910.11</jh-table-data-cell>
-    </jh-table-row>
-  </jh-table>
-</div>
+    export const Controlled = { render: (args) => html`
+    <div class="controlled">
+      <jh-table sticky-header>
+        <div slot="jh-table-caption">Controlled Table with column widths in percentages (%)</div>
+        <jh-table-row slot="jh-table-header">
+          <jh-table-header-cell style="width: 20%;">Name</jh-table-header-cell>
+          <jh-table-header-cell>Description</jh-table-header-cell>
+          <jh-table-header-cell style="width: 15%;">Status</jh-table-header-cell>
+          <jh-table-header-cell style="width: 15%;">Amount</jh-table-header-cell>
+        </jh-table-row>
+        <jh-table-row>
+          <jh-table-data-cell >John Smith</jh-table-data-cell>
+          <jh-table-data-cell >Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor</jh-table-data-cell>
+          <jh-table-data-cell >Active</jh-table-data-cell>
+          <jh-table-data-cell >$1,234.56</jh-table-data-cell>
+        </jh-table-row>
+        <jh-table-row>
+          <jh-table-data-cell >Jane Doe</jh-table-data-cell>
+          <jh-table-data-cell >Ut enim ad minim veniam quis nostrud exercitation ullamco laboris</jh-table-data-cell>
+          <jh-table-data-cell >Pending</jh-table-data-cell>
+          <jh-table-data-cell >$5,678.90</jh-table-data-cell>
+        </jh-table-row>
+        <jh-table-row>
+          <jh-table-data-cell >Bob Johnson</jh-table-data-cell>
+          <jh-table-data-cell >Duis aute irure dolor in reprehenderit in voluptate velit esse cillum</jh-table-data-cell>
+          <jh-table-data-cell >Inactive</jh-table-data-cell>
+          <jh-table-data-cell >$910.11</jh-table-data-cell>
+        </jh-table-row>
+      </jh-table>
+    </div>
 `};
 
-ScrollableFixedWidthRepro.argTypes = {
+Controlled.argTypes = {
   ...disableControls,
 };
-ScrollableFixedWidthRepro.parameters = {
+Controlled.parameters = {
   styles: storyStyles,
 };
 

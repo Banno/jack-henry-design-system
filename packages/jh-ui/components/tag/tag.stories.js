@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { html, css } from 'lit';
+import { action } from 'storybook/actions';
 import './tag.js';
 import '@jack-henry/jh-icons/icons-wc/icon-tag.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -26,14 +27,35 @@ const disableControls = {
   'remove-on-dismiss': { control: { disable: true } },
 }
 
+function logCustomEvent(name, e) {
+  return action(name)({
+    detail: e.detail,
+    type: e.type,
+    bubbles: e.bubbles,
+    cancelable: e.cancelable,
+    composed: e.composed,
+    currentTarget: e.currentTarget,
+    defaultPrevented: e.defaultPrevented,
+    eventPhase: e.eventPhase,
+    isTrusted: e.isTrusted,
+    target: e.target,
+    timeStamp: e.timeStamp,
+  });
+}
+
 export default {
   component: 'jh-tag',
   title: 'Components/Tag',
-  parameters: {
-    actions: {
-      handles: ['jh-dismiss','click'],
-    },
-  },
+  decorators: [
+    (story) => html`
+      <div
+        @jh-dismiss=${(e) => logCustomEvent('jh-dismiss', e)}
+        @click=${(e) => logCustomEvent('click', e)}
+      >
+        ${story()}
+      </div>
+    `,
+  ],
   argTypes: {
     size: {
       control: 'select',

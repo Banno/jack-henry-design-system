@@ -32,14 +32,34 @@ const disableControls = {
   form: { table: { disable: true } },
 };
 
+function logCustomEvent(name, e) {
+  return action(name)({
+    detail: e.detail,
+    type: e.type,
+    bubbles: e.bubbles,
+    cancelable: e.cancelable,
+    composed: e.composed,
+    currentTarget: e.currentTarget,
+    defaultPrevented: e.defaultPrevented,
+    eventPhase: e.eventPhase,
+    isTrusted: e.isTrusted,
+    target: e.target,
+    timeStamp: e.timeStamp,
+  });
+}
+
 export default {
   component: 'jh-checkbox-group',
   title: 'Components/Checkbox Group',
-  parameters: {
-    actions: {
-      handles: ['jh-change'],
-    },
-  },
+  decorators: [
+    (story) => html`
+      <div
+        @jh-change=${(e) => logCustomEvent('jh-change', e)}
+      >
+        ${story()}
+      </div>
+    `,
+  ],
   argTypes: {
     required: {
       control: 'boolean',

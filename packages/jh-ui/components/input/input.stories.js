@@ -81,14 +81,36 @@ const disableControls = {
   wrap: { control: { disable: true } },
 };
 
+function logCustomEvent(name, e) {
+  return action(name)({
+    detail: e.detail,
+    type: e.type,
+    bubbles: e.bubbles,
+    cancelable: e.cancelable,
+    composed: e.composed,
+    currentTarget: e.currentTarget,
+    defaultPrevented: e.defaultPrevented,
+    eventPhase: e.eventPhase,
+    isTrusted: e.isTrusted,
+    target: e.target,
+    timeStamp: e.timeStamp,
+  });
+}
+
 export default {
   component: 'jh-input',
   title: 'Components/Input',
-  parameters: {
-    actions: {
-      handles: ['jh-clear', 'jh-change', 'jh-select'],
-    },
-  },
+  decorators: [
+    (story) => html`
+      <div
+        @jh-change=${(e) => logCustomEvent('jh-change', e)}
+        @jh-clear=${(e) => logCustomEvent('jh-clear', e)}
+        @jh-select=${(e) => logCustomEvent('jh-select', e)}
+      >
+        ${story()}
+      </div>
+    `,
+  ],
   argTypes: {
     'accessible-label-input': {
       control: 'text',
@@ -279,7 +301,7 @@ export const Playground = {
           label=${ifDefined(args.label === '' ? null : args.label)}
           maxlength=${ifDefined(args.maxlength === '' ? null : args.maxlength)}
           minlength=${ifDefined(args.minlength === '' ? null : args.minlength)}
-          name=${ifDefined(args.name || args.name === '' ? null : args.name)}
+          name=${ifDefined(args.name === '' ? null : args.name)}
           ?no-resize=${args['no-resize']}
           placeholder=${ifDefined(
             args.placeholder === '' ? null : args.placeholder

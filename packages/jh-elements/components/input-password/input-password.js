@@ -130,10 +130,10 @@ renderInput() {
             ? html`
                 <slot
                   name="jh-input-password-visible"
-                  slot="jh-button-icon"
+                  slot="jh-button-icon-left"
                 >
                   <jh-icon-eye-slash
-                    slot="jh-button-icon"
+                    slot="jh-button-icon-left"
                     aria-hidden="true"
                     size="medium"
                   ></jh-icon-eye-slash>
@@ -142,10 +142,10 @@ renderInput() {
             : html`
                 <slot
                   name="jh-input-password-hidden"
-                  slot="jh-button-icon"
+                  slot="jh-button-icon-left"
                 >
                   <jh-icon-eye
-                    slot="jh-button-icon"
+                    slot="jh-button-icon-left"
                     aria-hidden="true"
                     size="medium"
                   ></jh-icon-eye>

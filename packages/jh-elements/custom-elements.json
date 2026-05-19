@@ -85,12 +85,6 @@
           "type": "?string"
         },
         {
-          "name": "icon-position",
-          "description": "Sets location of icon in relation to the label.",
-          "type": "'before'|'after'",
-          "default": "\"before\""
-        },
-        {
           "name": "pending",
           "description": "Displays a progress indicator.",
           "type": "?boolean",
@@ -170,13 +164,6 @@
           "type": "?string"
         },
         {
-          "name": "iconPosition",
-          "attribute": "icon-position",
-          "description": "Sets location of icon in relation to the label.",
-          "type": "'before'|'after'",
-          "default": "\"before\""
-        },
-        {
           "name": "pending",
           "attribute": "pending",
           "description": "Displays a progress indicator.",
@@ -224,8 +211,12 @@
       ],
       "slots": [
         {
-          "name": "jh-button-icon",
-          "description": "Use to insert an icon."
+          "name": "jh-button-icon-left",
+          "description": "Use to insert an icon on the left side of the button and for single icon buttons."
+        },
+        {
+          "name": "jh-button-icon-right",
+          "description": "Use to insert an icon on the right side of the button and for single icon buttons."
         }
       ],
       "cssProperties": [
@@ -611,7 +602,7 @@
         },
         {
           "name": "--jh-button-size",
-          "description": "The button width when no label is set, and the button height. Button width and height defaults to `--jh-dimension-1000` when `size=\"small\"`, `--jh-dimension-1200` when `size=\"medium\"`, and `--jh-dimension-1400` when `size=\"large\"`."
+          "description": "The button width of single icon buttons, and the button height. Button width and height defaults to `--jh-dimension-1000` when `size=\"small\"`, `--jh-dimension-1200` when `size=\"medium\"`, and `--jh-dimension-1400` when `size=\"large\"`."
         }
       ]
     },

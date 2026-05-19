@@ -19,6 +19,13 @@ const storyStyles = css`
   width: 600px;
   height: 500px;
 }
+.fixed-width-repro {
+  width: 100%;
+}
+.expandable {
+  min-width: 300px;
+  white-space: normal;
+}
 `;
 
 const disableControls = {
@@ -315,6 +322,44 @@ export const Scrollable = { render: (args) => html`
     Scrollable.parameters = {
       styles: storyStyles,
     };
+    export const ScrollableFixedWidthRepro = { render: (args) => html`
+<div class="fixed-width-repro">
+  <jh-table sticky-header scrollable class="fixed-width-repro">
+    <div slot="jh-table-caption">Scrollable Fixed Width Repro</div>
+    <jh-table-row slot="jh-table-header">
+      <jh-table-header-cell style="min-width: 200px;">Name</jh-table-header-cell>
+      <jh-table-header-cell class="expandable">Description</jh-table-header-cell>
+      <jh-table-header-cell style="min-width: 150px;">Status</jh-table-header-cell>
+      <jh-table-header-cell style="min-width: 120px;">Amount</jh-table-header-cell>
+    </jh-table-row>
+    <jh-table-row>
+      <jh-table-data-cell style="width: 200px;">John Smith</jh-table-data-cell>
+      <jh-table-data-cell class="expandable">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor</jh-table-data-cell>
+      <jh-table-data-cell style="width: 150px;">Active</jh-table-data-cell>
+      <jh-table-data-cell style="width: 120px;">$1,234.56</jh-table-data-cell>
+    </jh-table-row>
+    <jh-table-row>
+      <jh-table-data-cell style="width: 200px;">Jane Doe</jh-table-data-cell>
+      <jh-table-data-cell class="expandable">Ut enim ad minim veniam quis nostrud exercitation ullamco laboris</jh-table-data-cell>
+      <jh-table-data-cell style="width: 150px;">Pending</jh-table-data-cell>
+      <jh-table-data-cell style="width: 120px;">$5,678.90</jh-table-data-cell>
+    </jh-table-row>
+    <jh-table-row>
+      <jh-table-data-cell style="width: 200px;">Bob Johnson</jh-table-data-cell>
+      <jh-table-data-cell class="expandable">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum</jh-table-data-cell>
+      <jh-table-data-cell style="width: 150px;">Inactive</jh-table-data-cell>
+      <jh-table-data-cell style="width: 120px;">$910.11</jh-table-data-cell>
+    </jh-table-row>
+  </jh-table>
+</div>
+`};
+
+ScrollableFixedWidthRepro.argTypes = {
+  ...disableControls,
+};
+ScrollableFixedWidthRepro.parameters = {
+  styles: storyStyles,
+};
 
 
 

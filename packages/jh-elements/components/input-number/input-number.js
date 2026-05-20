@@ -259,12 +259,12 @@ export class JhInputNumber extends JhInput {
             inputmode=${ifDefined(
               this.inputmode === '' ? null : this.inputmode,
             )}
-            max=${ifDefined(this.max === '' ? null : this.max)}
-            min=${ifDefined(this.min === '' ? null : this.min)}
+            max=${ifDefined(Number.isNaN(this.max) ? null : this.max)}
+            min=${ifDefined(Number.isNaN(this.min) ? null : this.min)}
             name=${ifDefined(this.name === '' ? null : this.name)}
             ?readonly=${this.readonly}
             ?required=${this.required}
-            step=${ifDefined(this.step === '' ? null : this.step)}
+            step=${ifDefined(Number.isNaN(this.step) ? null : this.step)}
             type="number"
             .value=${this.value}
             @change=${this._handleChange}

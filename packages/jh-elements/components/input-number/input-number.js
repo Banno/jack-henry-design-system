@@ -196,27 +196,29 @@ export class JhInputNumber extends JhInput {
     return html`
       <slot name="jh-input-right" @slotchange=${this._handleSlotChange}>       
         <jh-button
-            appearance="tertiary"
-            @click=${this.#handleDecrement}
-            ?disabled=${this.disabled}
-            accessible-label=${ifDefined(
-              this.accessibleLabelDecrementStepper === ''
-                  ? null
-                  : this.accessibleLabelDecrementStepper
-            )}
-            ><slot name="jh-input-number-stepper-decrement" slot="jh-button-icon"><jh-icon-minus slot="jh-button-icon"></jh-icon-minus></slot>
+          size="x-small"
+          appearance="tertiary"
+          @click=${this.#handleDecrement}
+          ?disabled=${this.disabled}
+          accessible-label=${ifDefined(
+            this.accessibleLabelDecrementStepper === ''
+              ? null
+              : this.accessibleLabelDecrementStepper
+          )}
+          ><slot name="jh-input-number-stepper-decrement" slot="jh-button-icon-left"><jh-icon-minus slot="jh-button-icon"></jh-icon-minus></slot>
         </jh-button>
         <jh-button
-            class="increment-button"
-            appearance="tertiary"
-            @click=${this.#handleIncrement}
-            ?disabled=${this.disabled}
-            accessible-label=${ifDefined(
-              this.accessibleLabelIncrementStepper === ''
-                  ? null
-                  : this.accessibleLabelIncrementStepper
-            )}
-            ><slot name="jh-input-number-stepper-increment" slot="jh-button-icon"><jh-icon-plus slot="jh-button-icon"></jh-icon-plus></slot>
+          size="x-small"
+          class="increment-button"
+          appearance="tertiary"
+          @click=${this.#handleIncrement}
+          ?disabled=${this.disabled}
+          accessible-label=${ifDefined(
+          this.accessibleLabelIncrementStepper === ''
+            ? null
+            : this.accessibleLabelIncrementStepper
+          )}
+          ><slot name="jh-input-number-stepper-increment" slot="jh-button-icon-left"><jh-icon-plus slot="jh-button-icon"></jh-icon-plus></slot>
         </jh-button>
       </slot> 
     `;

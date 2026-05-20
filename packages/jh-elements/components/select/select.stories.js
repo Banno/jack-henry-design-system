@@ -14,7 +14,7 @@ import "@jack-henry/jh-icons/icons-wc/icon-arrow-down-small.js";
 import "../button/button.js";
 import { US_STATES_FLAT } from '@jack-henry/jh-datasets/datasets/us-states-flat.js';
 import { US_STATES_GROUPED } from '@jack-henry/jh-datasets/datasets/us-states-grouped.js';
-import { manageDataset } from '@jack-henry/jh-datasets/utils/manageDataset.js';
+import { manageSelectDataset } from '@jack-henry/jh-datasets/utils/manageDataset.js';
 
 const testOptions = [
   { groupLabel: "Account types", groupValues: [
@@ -246,10 +246,10 @@ Playground.parameters = {
 };
 
 export const Datasets = { render: (args) => {
-  const customizedData = manageDataset({
+  const customizedData = manageSelectDataset({
     dataset: US_STATES_FLAT,
     initialValue: null,
-    disabledItems: ['AK', 'HI', 'PR', 'VI', 'GU', 'AS'],
+    disabledItems: ['AK', 'HI', 'PR', 'MP', 'VI', 'GU', 'AS'],
     emptyLabel: 'Select your state...',
   });
 

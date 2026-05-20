@@ -102,7 +102,7 @@ import '../progress/progress.js';
  * @cssprop --jh-button-border-radius - The button container border-radius. Defaults to `--jh-border-radius-100`.
  * @cssprop --jh-button-opacity-disabled - The button container opacity when disabled. Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-button-color-focus - The button container outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.
- * @cssprop --jh-button-size - The button width of single icon buttons, and the button height. Button width and height defaults to `--jh-dimension-1000` when `size="small"`, `--jh-dimension-1200` when `size="medium"`, and `--jh-dimension-1400` when `size="large"`. 
+ * @cssprop --jh-button-size - The button width of single icon buttons, and the button height. Button width and height defaults to `--jh-dimension-600` when `size="x-small"`,`--jh-dimension-800` when `size="small"`, `--jh-dimension-1000` when `size="medium"`, and `--jh-dimension-1200` when `size="large"`. 
  *
  * @slot jh-button-icon-left - Use to insert an icon on the left side of the button and for single icon buttons.
  * @slot jh-button-icon-right - Use to insert an icon on the right side of the button and for single icon buttons.
@@ -181,17 +181,21 @@ export class JhButton extends LitElement {
         pointer-events: none;
       }
       /* Size styling ('medium' is default) */
+      :host([size='x-small']) button,
+      :host([size='x-small']) a {
+        height: var(--jh-button-size, var(--jh-dimension-600));
+      }
       :host([size='small']) button,
       :host([size='small']) a {
-        height: var(--jh-button-size, var(--jh-dimension-1000));
+        height: var(--jh-button-size, var(--jh-dimension-800));
       }
       :host([size='medium']) button,
       :host([size='medium']) a {
-        height: var(--jh-button-size, var(--jh-dimension-1200));
+        height: var(--jh-button-size, var(--jh-dimension-1000));
       }
       :host([size='large']) button,
       :host([size='large']) a {
-        height: var(--jh-button-size, var(--jh-dimension-1400));
+        height: var(--jh-button-size, var(--jh-dimension-1200));
       }
       /* appearance='primary' ('secondary' is default) */
       :host([appearance='primary']) button,
@@ -695,17 +699,21 @@ export class JhButton extends LitElement {
       :host a.single-icon {
         padding: 0;
       }
+      :host([size='x-small']) button.single-icon,
+      :host([size='x-small']) a.single-icon {
+        width: var(--jh-button-size, var(--jh-dimension-600));
+      }
       :host([size='small']) button.single-icon,
       :host([size='small']) a.single-icon {
-        width: var(--jh-button-size, var(--jh-dimension-1000));
+        width: var(--jh-button-size, var(--jh-dimension-800));
       }
       :host([size='medium']) button.single-icon,
       :host([size='medium']) a.single-icon {
-        width: var(--jh-button-size, var(--jh-dimension-1200));
+        width: var(--jh-button-size, var(--jh-dimension-1000));
       }
       :host([size='large']) button.single-icon,
       :host([size='large']) a.single-icon {
-        width: var(--jh-button-size, var(--jh-dimension-1400));
+        width: var(--jh-button-size, var(--jh-dimension-1200));
       }
       /* Block styling */
       :host([block]) {
@@ -819,7 +827,7 @@ export class JhButton extends LitElement {
     this.label = null;
     /** @type {?string} */
     this.name = null;
-    /** @type {'small'|'medium'|'large'} */
+    /** @type {'x-small'|'small'|'medium'|'large'} */
     this.size = 'medium';
     /** @type {?boolean} */
     this.submit = false;
@@ -855,6 +863,19 @@ export class JhButton extends LitElement {
     new ResizeObserver(this.#cacheButtonDimensions.bind(this)).observe(this);
   }
 
+  //if button size changes, adjust the size of the icons accordingly.
+  updated(changedProperties) {
+  if (changedProperties.has('size')) {
+    const iconSize = this.size === 'x-small' ? 'x-small' : 'medium';
+    const slots = this.shadowRoot.querySelectorAll('slot');
+    slots.forEach(slot => {
+    const icon = slot?.assignedElements({flatten: true})[0];
+    if (icon) {
+      icon.setAttribute('size', iconSize);
+      }
+    });
+  }
+}
   #cacheButtonDimensions() {
     const { width } = this.getBoundingClientRect();
 
@@ -893,7 +914,13 @@ export class JhButton extends LitElement {
 
     // Set icon size
     if (newSlottedElement?.tagName.startsWith('JH-ICON')) {
-      newSlottedElement.setAttribute('size', 'medium');
+      newSlottedElement.setAttribute('aria-hidden', 'true');
+
+      if (this.size === 'x-small') {
+        newSlottedElement.setAttribute('size', 'x-small');
+      } else {
+        newSlottedElement.setAttribute('size', 'medium');
+      }
     }
     
     if (slot.name === 'jh-button-icon-left') {
@@ -923,7 +950,7 @@ export class JhButton extends LitElement {
 
     if (pending && !this.disabled) {
       buttonContent = html`
-        <jh-progress type="circular" indeterminate></jh-progress>
+        <jh-progress type="circular" indeterminate size=${this.size === 'x-small' ? 'small' : 'medium'}></jh-progress>
       `;
     } else {
       buttonContent = html`

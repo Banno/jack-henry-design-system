@@ -136,7 +136,7 @@ export class JhNotification extends LitElement {
     }
     /* Default slot styling */
     .display-default-slot {
-      padding: var(--jh-dimension-200) 0;
+      padding: var(--jh-dimension-100) 0;
       margin: var(--jh-dimension-50) 0;
       font: var(--jh-font-body-regular-1);
       display: flex;
@@ -149,7 +149,7 @@ export class JhNotification extends LitElement {
     }
     slot[name="jh-notification-icon"]::slotted(*) {
       margin-right: var(--jh-dimension-400);
-      padding: var(--jh-dimension-200) 0;
+      padding: var(--jh-dimension-100) 0;
     }
     :host([appearance='neutral']) slot[name="jh-notification-icon"] {
       --jh-icon-color-fill: var(--jh-notification-icon-color-fill-neutral, var(--jh-color-content-on-primary-enabled));
@@ -204,7 +204,8 @@ export class JhNotification extends LitElement {
     .stacked-container,
     .inline-container {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
+      line-height: 0;
     }
     `;
   }
@@ -295,6 +296,13 @@ export class JhNotification extends LitElement {
     }
   }
 
+  #handleIconSlotChange(e) {
+    let newSlottedElement = e.target.assignedElements()[0];
+    if (newSlottedElement?.tagName.startsWith('JH-ICON')) {
+      newSlottedElement.setAttribute('size', 'medium');
+    }
+  }
+
   render() {
     let dismissBtn;
     
@@ -305,8 +313,8 @@ export class JhNotification extends LitElement {
           appearance="secondary"
           accessible-label=${this.dismissButtonAccessibleLabel}
           @click=${this.#handleDismissal}
-          ><slot name="jh-notification-dismiss-icon" slot="jh-button-icon">
-            <jh-icon-xmark slot="jh-button-icon"></jh-icon-xmark>
+          ><slot name="jh-notification-dismiss-icon" slot="jh-button-icon-left">
+            <jh-icon-xmark slot="jh-button-icon-left"></jh-icon-xmark>
           </slot>
         </jh-button>
       `;
@@ -314,7 +322,7 @@ export class JhNotification extends LitElement {
 
     return html`
       <div class=${this.stacked ? 'stacked-container' : 'inline-container'}>
-        <slot aria-hidden="true" name="jh-notification-icon"></slot>
+        <slot aria-hidden="true" name="jh-notification-icon" @slotchange=${this.#handleIconSlotChange}></slot>
         <slot @slotchange=${this.#handleSlotChange}></slot>
         ${this.stacked ? null : this.#getActionButtons()}
         ${dismissBtn}

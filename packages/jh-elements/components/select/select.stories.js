@@ -323,8 +323,8 @@ export const Slots = {
       label=${args.label}
       .options=${args.options}
     >
-    <jh-button slot="jh-select-trigger-left">
-        <jh-icon-piggy-bank slot="jh-button-icon"></jh-icon-piggy-bank>
+    <jh-button slot="jh-select-trigger-left" size="x-small" appearance="tertiary">
+        <jh-icon-piggy-bank slot="jh-button-icon-left"></jh-icon-piggy-bank>
       </jh-button>
       <jh-icon-arrow-up-small slot="jh-select-trigger-open"></jh-icon-arrow-up-small>
       <jh-icon-arrow-down-small slot="jh-select-trigger-closed"></jh-icon-arrow-down-small>

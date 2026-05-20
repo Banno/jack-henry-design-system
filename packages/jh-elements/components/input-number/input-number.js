@@ -70,6 +70,9 @@ export class JhInputNumber extends JhInput {
           --jh-button-color-border-tertiary-active: var(--jh-input-number-stepper-color-border-active);
           --jh-button-icon-color-fill-tertiary-active: var(--jh-input-number-stepper-icon-color-fill-active);
         }
+        .increment-button {
+          margin-left: var(--jh-dimension-100);
+        }
         .sr-only {
           position: absolute;
           width: 1px;
@@ -204,6 +207,7 @@ export class JhInputNumber extends JhInput {
             ><slot name="jh-input-number-stepper-decrement" slot="jh-button-icon"><jh-icon-minus slot="jh-button-icon"></jh-icon-minus></slot>
         </jh-button>
         <jh-button
+            class="increment-button"
             appearance="tertiary"
             @click=${this.#handleIncrement}
             ?disabled=${this.disabled}

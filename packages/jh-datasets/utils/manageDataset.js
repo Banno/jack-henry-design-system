@@ -4,7 +4,7 @@
 * SPDX-License-Identifier: Apache-2.0
 */
 
-export function manageDataset({ 
+export function manageSelectDataset({ 
   dataset = null,
   initialValue = null, 
   disabledItems = [], 

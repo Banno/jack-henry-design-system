@@ -13,6 +13,7 @@ export const US_STATES_FLAT = [
   { label: "Colorado", value: "CO" },
   { label: "Connecticut", value: "CT" },
   { label: "Delaware", value: "DE" },
+  { label: "District of Columbia", value: "DC" },
   { label: "Florida", value: "FL" },
   { label: "Georgia", value: "GA" },
   { label: "Hawaii", value: "HI" },
@@ -57,6 +58,10 @@ export const US_STATES_FLAT = [
   { label: "Wyoming", value: "WY" },
   { label: "American Samoa", value: "AS" },
   { label: "Guam", value: "GU" },
+  { label: "Northern Mariana Islands", value: "MP" },
   { label: "Puerto Rico", value: "PR" },
-  { label: "US Virgin Islands", value: "VI" }
+  { label: "US Virgin Islands", value: "VI" },
+  { label: "Armed Forces Americas", value: "AA" },
+  { label: "Armed Forces Europe", value: "AE" },
+  { label: "Armed Forces Pacific", value: "AP" }
 ];

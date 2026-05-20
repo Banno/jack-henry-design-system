@@ -42,6 +42,7 @@ export const US_STATES_GROUPED = [
       { label: "Alabama", value: "AL" },
       { label: "Arkansas", value: "AR" },
       { label: "Delaware", value: "DE" },
+      { label: "District of Columbia", value: "DC" },
       { label: "Florida", value: "FL" },
       { label: "Georgia", value: "GA" },
       { label: "Kentucky", value: "KY" },
@@ -80,8 +81,17 @@ export const US_STATES_GROUPED = [
     groupValues: [
       { label: "American Samoa", value: "AS" },
       { label: "Guam", value: "GU" },
+      { label: "Northern Mariana Islands", value: "MP" },
       { label: "Puerto Rico", value: "PR" },
       { label: "US Virgin Islands", value: "VI" }
+    ]
+  },
+  {
+    groupLabel: "Armed Forces",
+    groupValues: [
+      { label: "Armed Forces Americas", value: "AA" },
+      { label: "Armed Forces Europe", value: "AE" },
+      { label: "Armed Forces Pacific", value: "AP" }
     ]
   }
 ];

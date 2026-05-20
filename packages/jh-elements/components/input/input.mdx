@@ -50,7 +50,9 @@ The input component makes use of both required compositional and suggested conte
 
 ## Slotting Buttons
 
-When slotting jh-button(s) within the `jh-input-left` or `jh-input-right` slots, consider setting `appearance="tertiary"` and `size="small"` for consistent styles across the input component. 
+When slotting jh-button(s) within the `jh-input-left` or `jh-input-right` slots, consider setting `appearance="tertiary"` for consistent styles across the input component. 
+
+The buttons will automatically be set to `x-small` size when slotted. If extending the input component, ensure to set slot fallback buttons and icons to `x-small` to maintain consistent styles.
 
 ## Input Mask
 Utilize the `input-mask` attribute to assist users in formatting input values. As a user enters data into the input field, the value will be transformed to the specified format. 

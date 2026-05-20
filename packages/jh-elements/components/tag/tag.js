@@ -376,7 +376,7 @@ export class JhTag extends LitElement {
     if (this.dismissible) {
       dismissBtn = html`
       <jh-button
-        size="medium"
+        size="x-small"
         appearance="secondary"
         accessible-label=${this.dismissButtonAccessibleLabel}
         @click=${this.#handleDismissal}>
@@ -388,7 +388,10 @@ export class JhTag extends LitElement {
     }
 
     if (this.dismissible && this.tooltipLabel) {
-      dismissBtn = html`<jh-tooltip label=${this.tooltipLabel}>${dismissBtn}</jh-tooltip>`;
+      dismissBtn = html`<jh-tooltip>
+        ${dismissBtn}
+        <div slot="jh-tooltip-content">${this.tooltipLabel}</div>
+      </jh-tooltip>`;
     }
     return dismissBtn;
   }

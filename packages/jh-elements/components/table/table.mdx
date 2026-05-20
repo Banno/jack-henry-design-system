@@ -79,8 +79,8 @@ The table component functions like a native HTML table with some variations:
 The table can be adjusted for different use cases by setting widths on the table's container and its header cells. Below are some common use cases:
 
 - **Fluid:** By default, the available space will be divided equally among the columns. The table will expand to fill the width of its container.
-- **Controlled:** A specific `width` can be set on the header cells to control the column widths. It is strongly recommended to use percentages (%) for the column widths to ensure the table remains responsive. The table will expand to fill the width of its container.
-- **Wide/Scrollable:** For wide tables, horizontal scrolling can be enabled by setting the `scrollable` attribute on the table. To set the width of the header cells, set `min-width` on the cells. 
+- **Controlled:** A specific `width` can be set on the `jh-table-header-cell` elements to control the column widths. It is strongly recommended to use percentages (%) for the column widths to ensure the table remains responsive. The table will expand to fill the width of its container.
+- **Wide/Scrollable:** For wide tables, horizontal scrolling can be enabled by setting the `scrollable` attribute on the `jh-table`. To set the width of the header cells, set `min-width` on the `jh-table-data-cell` elements. 
 This will make the table scroll horizontally when its content exceeds the width of its container.
 
 **Notes:**

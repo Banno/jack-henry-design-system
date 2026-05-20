@@ -36,7 +36,7 @@ export class JhInputSearch extends JhInput {
     
     return html`
       <slot name="jh-input-left" @slotchange=${this._handleSlotChange}>
-        <jh-icon-magnifying-glass aria-hidden="true"></jh-icon-magnifying-glass>
+        <jh-icon-magnifying-glass aria-hidden="true" size="x-small"></jh-icon-magnifying-glass>
       </slot>
     `;
   }

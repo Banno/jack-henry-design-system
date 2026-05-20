@@ -376,19 +376,22 @@ export class JhTag extends LitElement {
     if (this.dismissible) {
       dismissBtn = html`
       <jh-button
-        size="medium"
+        size="x-small"
         appearance="secondary"
         accessible-label=${this.dismissButtonAccessibleLabel}
         @click=${this.#handleDismissal}>
-        <slot name="jh-tag-dismiss-icon" slot="jh-button-icon">
-          <jh-icon-xmark slot="jh-button-icon"></jh-icon-xmark>
+        <slot name="jh-tag-dismiss-icon" slot="jh-button-icon-left">
+          <jh-icon-xmark slot="jh-button-icon-left"></jh-icon-xmark>
         </slot>
       </jh-button>
       `;
     }
 
     if (this.dismissible && this.tooltipLabel) {
-      dismissBtn = html`<jh-tooltip label=${this.tooltipLabel}>${dismissBtn}</jh-tooltip>`;
+      dismissBtn = html`<jh-tooltip>
+        ${dismissBtn}
+        <div slot="jh-tooltip-content">${this.tooltipLabel}</div>
+      </jh-tooltip>`;
     }
     return dismissBtn;
   }

@@ -117,7 +117,6 @@ export class JhInput extends LitElement {
         line-height: var(--input-helper-regular-line-height);
         display: inline-block;
         width: 100%;
-        --jh-button-size: var(--jh-dimension-800);
         --input-value-color-text: var(
           --jh-input-value-color-text,
           var(--jh-color-content-primary-enabled)
@@ -178,13 +177,13 @@ export class JhInput extends LitElement {
 
       /* Sizes on input wrapper */
       :host([size='small']) .input-wrapper {
-        height: var(--jh-dimension-1000);
+        height: var(--jh-dimension-800);
       }
       :host([size='medium']) .input-wrapper {
-        height: var(--jh-dimension-1200);
+        height: var(--jh-dimension-1000);
       }
       :host([size='large']) .input-wrapper {
-        height: var(--jh-dimension-1400);
+        height: var(--jh-dimension-1200);
       }
 
       /* Input element — no border, grows to fill */
@@ -1144,9 +1143,9 @@ export class JhInput extends LitElement {
     let hasContent = this.#checkSlotContent(slot);
     slot.classList.toggle('display-slot', hasContent);
 
-    // Set icon size if applicable
-    if (newSlottedElement?.tagName.startsWith('JH-ICON')) {
-      newSlottedElement.setAttribute('size', 'medium');
+    // Set jh-icon or jh-button size if applicable
+    if (newSlottedElement?.tagName.startsWith('JH-ICON')||newSlottedElement?.tagName === 'JH-BUTTON') {
+      newSlottedElement.setAttribute('size', 'x-small');
     }
   }
 
@@ -1168,11 +1167,11 @@ export class JhInput extends LitElement {
     if (!this.showClearButton || !this.value || this.disabled) return null;
     return html`
       <jh-button 
-        size="small" appearance="tertiary" class="clear-button" 
+        size="x-small" appearance="tertiary" class="clear-button" 
         accessible-label=${ifDefined(this.accessibleLabelClearButton)}
         @click=${this._handleClearButtonClick}>
-        <slot name="jh-input-clear-button" slot="jh-button-icon">
-          <jh-icon-circle-xmark slot="jh-button-icon" aria-hidden="true" size="medium"></jh-icon-circle-xmark>
+        <slot name="jh-input-clear-button" slot="jh-button-icon-left">
+          <jh-icon-circle-xmark slot="jh-button-icon-left"></jh-icon-circle-xmark>
         </slot>
       </jh-button>
     `;

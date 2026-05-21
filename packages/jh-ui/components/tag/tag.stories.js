@@ -9,7 +9,7 @@ import '@jack-henry/jh-icons/icons-wc/icon-tag.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 const storyStyles = css`
-div[id^="story-root"] {
+  .story-decorator {
     display: flex;
     justify-content: center;
     column-gap: 10px;
@@ -48,7 +48,7 @@ export default {
   title: 'Components/Tag',
   decorators: [
     (story) => html`
-      <div
+      <div class="story-decorator"
         @jh-dismiss=${(e) => logCustomEvent('jh-dismiss', e)}
         @click=${(e) => logCustomEvent('click', e)}
       >

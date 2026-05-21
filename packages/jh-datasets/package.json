@@ -13,6 +13,7 @@
     "Maya Buser De"
   ],
   "license": "Apache-2.0",
+  "type": "module",
   "files": [
     "utils",
     "datasets",

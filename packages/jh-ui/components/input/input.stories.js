@@ -11,7 +11,7 @@ import '@jack-henry/jh-icons/icons-wc/icon-id-card.js';
 import '@jack-henry/jh-icons/icons-wc/icon-credit-card.js';
 
 const storyStyles = css`
-  div[id^="story-root"] {
+  .story-decorator {
     display: flex;
     justify-content: center;
   }
@@ -102,7 +102,7 @@ export default {
   title: 'Components/Input',
   decorators: [
     (story) => html`
-      <div
+      <div class="story-decorator"
         @jh-change=${(e) => logCustomEvent('jh-change', e)}
         @jh-clear=${(e) => logCustomEvent('jh-clear', e)}
         @jh-select=${(e) => logCustomEvent('jh-select', e)}

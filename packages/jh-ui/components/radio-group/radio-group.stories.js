@@ -10,7 +10,7 @@ import { action } from 'storybook/actions';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 const storyStyles = css`
-  div[id^="story-root"] {
+  .story-decorator {
     display: flex;
     justify-content: center;
   }
@@ -55,7 +55,7 @@ export default {
   title: 'Components/Radio Group',
   decorators: [
     (story) => html`
-      <div
+      <div class="story-decorator"
         @jh-change=${(e) => logCustomEvent('jh-change', e)}
       >
         ${story()}

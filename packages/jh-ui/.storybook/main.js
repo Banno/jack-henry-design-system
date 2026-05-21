@@ -8,6 +8,7 @@ const config = {
   addons: [
     '@storybook/addon-a11y',
     'storybook-addon-tag-badges',
+    'storybook-dark-mode',
     '@storybook/addon-docs'
   ],
   framework: {

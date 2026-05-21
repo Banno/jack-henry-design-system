@@ -12,6 +12,7 @@ import { setCustomElements } from '@storybook/web-components-vite';
 import customElements from '../custom-elements.json';
 import React from 'react';
 import { DocsContainer } from '@storybook/addon-docs/blocks';
+import { useDarkMode } from 'storybook-dark-mode';
 import { withActions } from 'storybook/actions/decorator';
 
 setCustomElements(customElements);
@@ -61,6 +62,16 @@ const preview = {
         //hide properties with 2+words
         exclude: /([A-Z])\w+/g,
         sort: 'alpha',
+      },
+      container: (context) => {
+        const isDark = useDarkMode();
+
+        const props = {
+          ...context,
+          theme: isDark ? darkTheme : lightTheme,
+        };
+
+        return React.createElement(DocsContainer, props);
       },
     },
   },

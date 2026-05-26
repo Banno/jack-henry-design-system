@@ -6,7 +6,7 @@ import { html, css } from 'lit';
 import './input.js';
 import '../button/button.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import '@jack-henry/jh-icons/icons-wc/icon-id-card.js';
 import '@jack-henry/jh-icons/icons-wc/icon-magnifying-glass.js';
 

@@ -6,7 +6,7 @@
 
 import { html, css } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import './select.js';
 import "@jack-henry/jh-icons/icons-wc/icon-piggy-bank.js";
 import "@jack-henry/jh-icons/icons-wc/icon-arrow-up-small.js";

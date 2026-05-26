@@ -50,7 +50,6 @@ export class JhElement extends LitElement {
         value: this.value || null,
       },
       reference: {
-        id: this.uniqueId,
         originHost: this.localName, 
       },
       meta: {

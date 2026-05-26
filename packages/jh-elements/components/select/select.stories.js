@@ -12,9 +12,9 @@ import "@jack-henry/jh-icons/icons-wc/icon-piggy-bank.js";
 import "@jack-henry/jh-icons/icons-wc/icon-arrow-up-small.js";
 import "@jack-henry/jh-icons/icons-wc/icon-arrow-down-small.js";
 import "../button/button.js";
-// import { US_STATES_FLAT } from '@jack-henry/jh-datasets/datasets/us-states-flat.js';
-// import { US_STATES_GROUPED } from '@jack-henry/jh-datasets/datasets/us-states-grouped.js';
-// import { manageDataset } from '@jack-henry/jh-datasets/utils/manageDataset.js';
+import { US_STATES_FLAT } from '@jack-henry/jh-datasets/datasets/us-states-flat.js';
+import { US_STATES_GROUPED } from '@jack-henry/jh-datasets/datasets/us-states-grouped.js';
+import { manageSelectDataset } from '@jack-henry/jh-datasets/utils/manageDataset.js';
 
 const testOptions = [
   { groupLabel: "Account types", groupValues: [
@@ -245,36 +245,36 @@ Playground.parameters = {
   styles: storyStyles,
 };
 
-// export const Datasets = { render: (args) => {
-//   const customizedData = manageDataset({
-//     dataset: US_STATES_FLAT,
-//     initialValue: null,
-//     disabledItems: ['AK', 'HI', 'PR', 'VI', 'GU', 'AS'],
-//     emptyLabel: 'Select your state...',
-//   });
+export const Datasets = { render: (args) => {
+  const customizedData = manageSelectDataset({
+    dataset: US_STATES_FLAT,
+    initialValue: null,
+    disabledItems: ['AK', 'HI', 'PR', 'MP', 'VI', 'GU', 'AS'],
+    emptyLabel: 'Select your state...',
+  });
 
-//   return html`
-//     <div class="select-container">
-//       <jh-select label="US States (flat)" .options=${US_STATES_FLAT}></jh-select>
-//     </div>
-//     <div class="select-container">
-//       <jh-select label="US States (grouped)" .options=${US_STATES_GROUPED}></jh-select>
-//     </div>
+  return html`
+    <div class="select-container">
+      <jh-select label="US States (flat)" .options=${US_STATES_FLAT}></jh-select>
+    </div>
+    <div class="select-container">
+      <jh-select label="US States (grouped)" .options=${US_STATES_GROUPED}></jh-select>
+    </div>
 
-//     <h3></h3>
-//     <div class="select-container">
-//       <jh-select label="US states customized" helper-text="Uses manageDataset to set initial value, disabled items, empty label" .options=${customizedData}></jh-select>
-//     </div>
-//   `;
-// }};
+    <h3></h3>
+    <div class="select-container">
+      <jh-select label="US states customized" helper-text="Uses manageDataset to set initial value, disabled items, empty label" .options=${customizedData}></jh-select>
+    </div>
+  `;
+}};
 
-// Datasets.argTypes = {
-//   ...disableControls,
-// };
+Datasets.argTypes = {
+  ...disableControls,
+};
 
-// Datasets.parameters = {
-//   styles: storyStyles,
-// };
+Datasets.parameters = {
+  styles: storyStyles,
+};
 
 export const Empty = { render: (args) => html`
   <div class="select-container">
@@ -323,8 +323,8 @@ export const Slots = {
       label=${args.label}
       .options=${args.options}
     >
-    <jh-button slot="jh-select-trigger-left">
-        <jh-icon-piggy-bank slot="jh-button-icon"></jh-icon-piggy-bank>
+    <jh-button slot="jh-select-trigger-left" size="x-small" appearance="tertiary">
+        <jh-icon-piggy-bank slot="jh-button-icon-left"></jh-icon-piggy-bank>
       </jh-button>
       <jh-icon-arrow-up-small slot="jh-select-trigger-open"></jh-icon-arrow-up-small>
       <jh-icon-arrow-down-small slot="jh-select-trigger-closed"></jh-icon-arrow-down-small>

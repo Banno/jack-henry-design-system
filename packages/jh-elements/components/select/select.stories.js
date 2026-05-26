@@ -70,15 +70,36 @@ const disableControls = {
   'flip-disabled': { control: { disable: true } },
 }
 
+function logCustomEvent(name, e) {
+  return action(name)({
+    detail: e.detail,
+    type: e.type,
+    bubbles: e.bubbles,
+    cancelable: e.cancelable,
+    composed: e.composed,
+    currentTarget: e.currentTarget,
+    defaultPrevented: e.defaultPrevented,
+    eventPhase: e.eventPhase,
+    isTrusted: e.isTrusted,
+    target: e.target,
+    timeStamp: e.timeStamp,
+  });
+}
+
 export default {
   component: 'jh-select',
   title: 'Components/Select',
   tags: ['beta'],
-  parameters: {
-    actions: {
-      handles: ['jh-change', 'jh-select'],
-    },
-  },
+  decorators: [
+      (story) => html`
+        <div class="story-decorator"
+          @jh-change=${(e) => logCustomEvent('jh-change', e)}
+          @jh-select=${(e) => logCustomEvent('jh-select', e)}
+        >
+          ${story()}
+        </div>
+      `,
+  ],
   argTypes: {
     'accessible-label': {
       control: 'text',

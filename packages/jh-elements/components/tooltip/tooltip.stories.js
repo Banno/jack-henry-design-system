@@ -82,21 +82,21 @@ export const Overview = {
           <span slot="jh-tooltip-content">top-start</span>
           <jh-button icon-position="before" accessible-label="view more"
             ><jh-icon-ellipsis
-              slot="jh-button-icon"
+              slot="jh-button-icon-left"
             ></jh-icon-ellipsis></jh-button
         ></jh-tooltip>
         <jh-tooltip position="top-center">
           <span slot="jh-tooltip-content">top-center</span>
           <jh-button icon-position="before" accessible-label="view more"
             ><jh-icon-ellipsis
-              slot="jh-button-icon"
+              slot="jh-button-icon-left"
             ></jh-icon-ellipsis></jh-button
         ></jh-tooltip>
         <jh-tooltip position="top-end">
           <span slot="jh-tooltip-content">top-end</span>
           <jh-button icon-position="before" accessible-label="view more"
             ><jh-icon-ellipsis
-              slot="jh-button-icon"
+              slot="jh-button-icon-left"
             ></jh-icon-ellipsis></jh-button
         ></jh-tooltip>
       </div>
@@ -105,14 +105,14 @@ export const Overview = {
           <span slot="jh-tooltip-content">left</span>
           <jh-button icon-position="before" accessible-label="view more"
             ><jh-icon-ellipsis
-              slot="jh-button-icon"
+              slot="jh-button-icon-left"
             ></jh-icon-ellipsis></jh-button
         ></jh-tooltip>
         <jh-tooltip position="right">
           <span slot="jh-tooltip-content">right</span>
           <jh-button icon-position="before" accessible-label="view more"
             ><jh-icon-ellipsis
-              slot="jh-button-icon"
+              slot="jh-button-icon-left"
             ></jh-icon-ellipsis></jh-button
         ></jh-tooltip>
       </div>
@@ -121,21 +121,21 @@ export const Overview = {
           <span slot="jh-tooltip-content">bottom-start</span>
           <jh-button icon-position="before" accessible-label="view more"
             ><jh-icon-ellipsis
-              slot="jh-button-icon"
+              slot="jh-button-icon-left"
             ></jh-icon-ellipsis></jh-button
         ></jh-tooltip>
         <jh-tooltip position="bottom-center">
           <span slot="jh-tooltip-content">bottom-center</span>
           <jh-button icon-position="before" accessible-label="view more"
             ><jh-icon-ellipsis
-              slot="jh-button-icon"
+              slot="jh-button-icon-left"
             ></jh-icon-ellipsis></jh-button
         ></jh-tooltip>
         <jh-tooltip position="bottom-end">
           <span slot="jh-tooltip-content">bottom-end</span>
           <jh-button icon-position="before" accessible-label="view more"
             ><jh-icon-ellipsis
-              slot="jh-button-icon"
+              slot="jh-button-icon-left"
             ></jh-icon-ellipsis></jh-button
         ></jh-tooltip>
       </div>

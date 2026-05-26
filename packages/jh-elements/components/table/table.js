@@ -174,8 +174,8 @@ export class JhTable extends LitElement {
       :host([scrollable]) .table-wrapper {
         position: relative;
         overflow-x: hidden;
-        flex: 1 1 auto;
-        /* display grid makes sticky work and shadows go till bottom. */
+        flex: 1 1 auto;        
+        /* display grid makes sticky work and shows horizontal scrollbar on top. */
         display: grid;
       }
 
@@ -187,7 +187,7 @@ export class JhTable extends LitElement {
         /* removes bouncy scroll behavior in Safari and FF */
         /* overscroll-behavior: none; */
       }
-      :host([scrollable]) .scrollable {
+      :host([scrollable]) .table {
         width: auto;
         position: relative;
       }
@@ -199,7 +199,7 @@ export class JhTable extends LitElement {
         outline-width: var(--jh-border-focus-width);
         outline-style: var(--jh-border-focus-style);
       }
-      .table-wrapper:focus-visible {
+      .table-container:focus-visible, :host([scrollable]) .table-wrapper:focus-visible {
         outline: none;
       }
     `;
@@ -294,29 +294,28 @@ export class JhTable extends LitElement {
     this.#id = id++;
   }
 
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+  }
+
   async firstUpdated() {
     if (!this.scrollable) return;
-
-    let scrollTable = this.shadowRoot.querySelector('.table');
-    await scrollTable.updateComplete;
-    let originalTableWidth = scrollTable.getBoundingClientRect().width;
 
     this.observer = new ResizeObserver((entries) => {
       entries.forEach((entry) => {
         let table = entry.target.shadowRoot.querySelector('.table');
         let tableContainer =
           entry.target.shadowRoot.querySelector('.table-container');
+        if (!table || !tableContainer) return;
         if (table.scrollWidth > tableContainer.clientWidth) {
-          table.classList.add('scrollable');
-        } else {
-          if (table.scrollWidth >= originalTableWidth) {
-            table.classList.remove('scrollable');
+          tableContainer.setAttribute('tabindex', '0');
+         }
+        else {
             tableContainer.removeAttribute('tabindex');
-          } else {
-            table.classList.add('scrollable');
-            tableContainer.setAttribute('tabindex', '0');
           }
-        }
       });
     });
 
@@ -354,7 +353,7 @@ export class JhTable extends LitElement {
       <slot name="jh-table-toolbar" @slotchange=${this.#handleSlot}></slot>
       <div class="table-wrapper">
         <div class="table-container" tabindex="${ifDefined(this.scrollable ? '0' : null)}">
-          <div class="table ${this.scrollable ? 'scrollable' : ''}" role="table" 
+          <div class="table" role="table" 
           aria-labelledby="table-caption-${this.#id}" aria-label=${ifDefined(this.accessibleLabel === '' ? null : this.accessibleLabel)}>
             <slot name="jh-table-header" class="header" role="rowgroup"></slot>
             <slot class="body" role="rowgroup"></slot>

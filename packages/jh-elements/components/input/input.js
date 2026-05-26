@@ -10,7 +10,7 @@ import '@jack-henry/jh-icons/icons-wc/icon-circle-xmark.js';
 
 /**
  * @cssprop --jh-input-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
- * @cssprop --jh-input-field-color-background - The input field background-color. Defaults to `--jh-color-container-primary-enabled`.
+ * @cssprop --jh-input-field-color-background - The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`.
  * @cssprop --jh-input-field-color-border-enabled - The input field border-color. Defaults to `--jh-border-control-color`.
  * @cssprop --jh-input-field-border-radius - The input field border radius. Defaults to `--jh-border-radius-100`.
  * @cssprop --jh-input-color-focus - The input field outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.
@@ -112,7 +112,6 @@ export class JhInput extends JhElement {
         line-height: var(--input-helper-regular-line-height);
         display: inline-block;
         width: 100%;
-        --jh-button-size: var(--jh-dimension-800);
         --input-value-color-text: var(
           --jh-input-value-color-text,
           var(--jh-color-content-primary-enabled)
@@ -173,13 +172,13 @@ export class JhInput extends JhElement {
 
       /* Sizes on input wrapper */
       :host([size='small']) .input-wrapper {
-        height: var(--jh-dimension-1000);
+        height: var(--jh-dimension-800);
       }
       :host([size='medium']) .input-wrapper {
-        height: var(--jh-dimension-1200);
+        height: var(--jh-dimension-1000);
       }
       :host([size='large']) .input-wrapper {
-        height: var(--jh-dimension-1400);
+        height: var(--jh-dimension-1200);
       }
 
       /* Input element — no border, grows to fill */
@@ -493,6 +492,10 @@ export class JhInput extends JhElement {
     if (this.inputMask) {
       this.removeEventListener('jh-select', this.#setSelection);
     }
+  }
+
+  get uniqueId() {
+    return this.#id;
   }
 
   firstUpdated() {
@@ -1056,6 +1059,24 @@ export class JhInput extends JhElement {
         this.#selectedText.selectionStart = null;
       }
     }
+
+    // Handle slot visibility updates
+    if (changedProperties.has('hideLeftSlot')) {
+      this.#updateSlotVisibility(this.#leftSlot);
+    }
+    if (changedProperties.has('hideRightSlot')) {
+      this.#updateSlotVisibility(this.#rightSlot);
+    }
+    if (changedProperties.has('readonly')) {
+      this.#updateSlotVisibility(this.#leftSlot);
+      this.#updateSlotVisibility(this.#rightSlot);
+    }
+  }
+
+  #updateSlotVisibility(slot) {
+    if (slot) {
+      slot.classList.toggle('display-slot', this.#checkSlotContent(slot));
+    }
   }
 
   _handleChange() {
@@ -1124,9 +1145,9 @@ export class JhInput extends JhElement {
     let hasContent = this.#checkSlotContent(slot);
     slot.classList.toggle('display-slot', hasContent);
 
-    // Set icon size if applicable
-    if (newSlottedElement?.tagName.startsWith('JH-ICON')) {
-      newSlottedElement.setAttribute('size', 'medium');
+    // Set jh-icon or jh-button size if applicable
+    if (newSlottedElement?.tagName.startsWith('JH-ICON')||newSlottedElement?.tagName === 'JH-BUTTON') {
+      newSlottedElement.setAttribute('size', 'x-small');
     }
   }
 
@@ -1148,11 +1169,11 @@ export class JhInput extends JhElement {
     if (!this.showClearButton || !this.value || this.disabled) return null;
     return html`
       <jh-button 
-        size="small" appearance="tertiary" class="clear-button" 
+        size="x-small" appearance="tertiary" class="clear-button" 
         accessible-label=${ifDefined(this.accessibleLabelClearButton)}
         @click=${this._handleClearButtonClick}>
-        <slot name="jh-input-clear-button" slot="jh-button-icon">
-          <jh-icon-circle-xmark slot="jh-button-icon" aria-hidden="true" size="medium"></jh-icon-circle-xmark>
+        <slot name="jh-input-clear-button" slot="jh-button-icon-left">
+          <jh-icon-circle-xmark slot="jh-button-icon-left"></jh-icon-circle-xmark>
         </slot>
       </jh-button>
     `;

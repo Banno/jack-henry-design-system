@@ -99,7 +99,7 @@ export class JhTableHeaderCell extends LitElement {
         vertical-align: var(--vertical-align, top);
         display: table-cell;
         box-sizing: border-box;
-        width: 100%;
+        width: auto;
       }
       :host([sortable]:hover) {
         border-bottom-color: var(--jh-table-header-cell-color-border-bottom-hover, var(--jh-border-decorative-color));

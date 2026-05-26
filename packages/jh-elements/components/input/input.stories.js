@@ -270,7 +270,7 @@ export const Slots = {
     accessible-label-clear-button=${ifDefined(
     args['accessible-label-clear-button'] === ''
       ? null
-      : args['accessible-label-clear-button'])}><jh-icon-magnifying-glass slot="jh-input-left"></jh-icon-magnifying-glass><jh-button appearance="tertiary" slot="jh-input-right"><jh-icon-id-card slot="jh-button-icon"></jh-icon-id-card></jh-button></jh-input>
+      : args['accessible-label-clear-button'])}><jh-icon-magnifying-glass slot="jh-input-left"></jh-icon-magnifying-glass><jh-button appearance="tertiary" slot="jh-input-right"><jh-icon-id-card slot="jh-button-icon-left"></jh-icon-id-card></jh-button></jh-input>
 `,
 };
 

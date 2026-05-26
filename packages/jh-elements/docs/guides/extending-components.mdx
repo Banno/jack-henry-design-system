@@ -141,7 +141,7 @@ export class ExtendJhSearch extends JhInputSearch {
     let leftSlot = this.shadowRoot.querySelector('slot[name=jh-input-left]')
 
     if (leftSlot.assignedElements().length === 0) {
-      this.innerHTML = `<jh-button slot="jh-input-left"><jh-icon-user slot="jh-button-icon"></jh-icon-user></jh-button>`;
+      this.innerHTML = `<jh-button slot="jh-input-left"><jh-icon-user slot="jh-button-icon-left"></jh-icon-user></jh-button>`;
     }
 
     leftSlot.addEventListener('click', () => {

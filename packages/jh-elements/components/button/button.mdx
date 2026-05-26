@@ -28,8 +28,8 @@ import '@jack-henry/jh-elements/components/button/button.js';
 To use `jh-button`, set properties and slot icon within corresponding slot.
 
 ```html
-<jh-button icon-position="after">
-  <jh-icon-ellipsis slot="jh-button-icon"></jh-icon-ellipsis>
+<jh-button label="Label">
+  <jh-icon-ellipsis slot="jh-button-icon-left"></jh-icon-ellipsis>
 </jh-button>
 ```
 
@@ -51,6 +51,12 @@ Buttons will act as a link if a hyperlink is set via the `href` property.
 - When the `href` property is set, assistive technologies will recognize the button as a link and announce it as such.
 - Link buttons can only be activated via the 'Enter' key.
 - Set the `target` property to specify where to display the linked URL.
+
+## X-small buttons
+
+- Use x-small buttons when a button is nested within another component and the other button sizes are too big, such as in `jh-input`.
+- X-small buttons should never be used on their own outside of another component.
+- X-small buttons use x-small icons, while the other button sizes use medium size icons.
 
 ## Pending state
 

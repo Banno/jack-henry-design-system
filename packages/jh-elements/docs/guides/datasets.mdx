@@ -35,19 +35,22 @@ const myOptions = US_STATES_FLAT;
 
 ## Customizing Datasets
 
-For more control over the datasets, we provide the `manageDataset` utility. 
-For components that support these features, you can use `manageDataset` to easily customize the dataset by:
-- Setting `disabled` options to prevent selection of certain items.
-- Setting a `selected` option to specify the default selected item.
-- Including an empty option by providing an option object with a `label` string and an empty string for the `value`. 
+For more control over the datasets, we provide the `manageDataset` utility.
+For components that support these features, you can use methods from the `manageDataset` util to easily customize the datasets.
 
-Example of using `manageDataset` to customize the `US_STATES_FLAT` dataset for a `jh-select` component:
+For `jh-select`, you can use the `manageSelectDataset()` method to: 
+
+- Set`disabled` options to prevent selection of certain items.
+- Set a `selected` option to specify the default selected item.
+- Include an empty option by providing an option object with a `label` string and an empty string for the `value`.
+
+Example of using `manageSelectDataset()` to customize the `US_STATES_FLAT` dataset for a `jh-select` component:
 
 ```javascript
 import { US_STATES_FLAT } from '@jack-henry/jh-datasets/datasets/us-states-flat.js';
-import { manageDataset } from '@jack-henry/jh-datasets/utils/manage-dataset.js';
+import { manageSelectDataset } from '@jack-henry/jh-datasets/utils/manage-dataset.js';
 
-const customizedData = manageDataset({
+const customizedData = manageSelectDataset({
   dataset: US_STATES_FLAT,
   initialValue: null,
   disabledItems: ['AK', 'HI'],

@@ -4,6 +4,7 @@
 
 import { html, css } from 'lit';
 import './input-password.js';
+import { action } from 'storybook/actions';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 const disableControls = {
@@ -35,15 +36,39 @@ const disableControls = {
   value: { control: { disable: true } },
 };
 
+function logCustomEvent(name, e) {
+  return action(name)({
+    detail: e.detail,
+    type: e.type,
+    bubbles: e.bubbles,
+    cancelable: e.cancelable,
+    composed: e.composed,
+    currentTarget: e.currentTarget,
+    defaultPrevented: e.defaultPrevented,
+    eventPhase: e.eventPhase,
+    isTrusted: e.isTrusted,
+    target: e.target,
+    timeStamp: e.timeStamp,
+  });
+}
+
 export default {
   component: 'jh-input-password',
   title: 'Components/Input Password',
   tags: ['beta'],
-  parameters: {
-    actions: {
-      handles: ['jh-change', 'jh-select', 'jh-input', 'jh-maxlength', 'jh-input:clear-button-click'],
-    },
-  },
+  decorators: [
+      (story) => html`
+        <div class="story-decorator"
+          @jh-change=${(e) => logCustomEvent('jh-change', e)}
+          @jh-select=${(e) => logCustomEvent('jh-select', e)}
+          @jh-input=${(e) => logCustomEvent('jh-input', e)}
+          @jh-maxlength=${(e) => logCustomEvent('jh-maxlength', e)}
+          @jh-input:clear-button-click=${(e) => logCustomEvent('jh-input:clear-button-click', e)}
+        >
+          ${story()}
+        </div>
+      `,
+  ],
   argTypes: {
     'password-visible': {
       control: 'boolean',

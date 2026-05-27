@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { html, css } from 'lit';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import './input.js';
 import '../button/button.js';
@@ -11,7 +11,7 @@ import '@jack-henry/jh-icons/icons-wc/icon-id-card.js';
 import '@jack-henry/jh-icons/icons-wc/icon-credit-card.js';
 
 const storyStyles = css`
-  div[id^="story-root"] {
+  .story-decorator {
     display: flex;
     justify-content: center;
   }
@@ -81,14 +81,36 @@ const disableControls = {
   wrap: { control: { disable: true } },
 };
 
+function logCustomEvent(name, e) {
+  return action(name)({
+    detail: e.detail,
+    type: e.type,
+    bubbles: e.bubbles,
+    cancelable: e.cancelable,
+    composed: e.composed,
+    currentTarget: e.currentTarget,
+    defaultPrevented: e.defaultPrevented,
+    eventPhase: e.eventPhase,
+    isTrusted: e.isTrusted,
+    target: e.target,
+    timeStamp: e.timeStamp,
+  });
+}
+
 export default {
   component: 'jh-input',
   title: 'Components/Input',
-  parameters: {
-    actions: {
-      handles: ['jh-clear', 'jh-change', 'jh-select'],
-    },
-  },
+  decorators: [
+    (story) => html`
+      <div class="story-decorator"
+        @jh-change=${(e) => logCustomEvent('jh-change', e)}
+        @jh-clear=${(e) => logCustomEvent('jh-clear', e)}
+        @jh-select=${(e) => logCustomEvent('jh-select', e)}
+      >
+        ${story()}
+      </div>
+    `,
+  ],
   argTypes: {
     'accessible-label-input': {
       control: 'text',
@@ -232,8 +254,8 @@ Overview.parameters = {
 };
 
 export const Playground = {
-  render: (args) =>
-    html`
+  render: (args) => {
+    return html`
       <div class="playground-story">
         <jh-input
           accessible-label-clear-button=${ifDefined(
@@ -279,7 +301,7 @@ export const Playground = {
           label=${ifDefined(args.label === '' ? null : args.label)}
           maxlength=${ifDefined(args.maxlength === '' ? null : args.maxlength)}
           minlength=${ifDefined(args.minlength === '' ? null : args.minlength)}
-          name=${ifDefined(args.name || args.name === '' ? null : args.name)}
+          name=${ifDefined(args.name === '' ? null : args.name)}
           ?no-resize=${args['no-resize']}
           placeholder=${ifDefined(
             args.placeholder === '' ? null : args.placeholder
@@ -299,7 +321,8 @@ export const Playground = {
           ><jh-icon-credit-card slot="jh-input-right"></jh-icon-credit-card>
         </jh-input>
       </div>
-    `,
+    `;
+  },
 };
 
 Playground.args = {

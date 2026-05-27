@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { html, css } from 'lit';
+import { action } from 'storybook/actions';
 import './table.js';
 import '../table-header-cell/table-header-cell.js';
 import '../table-data-cell/table-data-cell.js';
@@ -37,15 +38,35 @@ const disableControls = {
   scrollable: { control: { disable: true }},
 }
 
+function logCustomEvent(name, e) {
+  return action(name)({
+    detail: e.detail,
+    type: e.type,
+    bubbles: e.bubbles,
+    cancelable: e.cancelable,
+    composed: e.composed,
+    currentTarget: e.currentTarget,
+    defaultPrevented: e.defaultPrevented,
+    eventPhase: e.eventPhase,
+    isTrusted: e.isTrusted,
+    target: e.target,
+    timeStamp: e.timeStamp,
+  });
+}
+
 export default {
   component: 'jh-table',
   tags: ['beta'],
   title: 'Components/Table/Table',
-  parameters: {
-    actions: {
-      handles: ['jh-sort'],
-    },
-  },
+  decorators: [
+      (story) => html`
+        <div class="story-decorator"
+          @jh-sort=${(e) => logCustomEvent('jh-sort', e)}
+        >
+          ${story()}
+        </div>
+      `,
+  ],
   argTypes: {
     'vertical-align': {
       control: 'select',

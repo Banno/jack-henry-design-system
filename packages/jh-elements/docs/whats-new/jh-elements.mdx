@@ -4,7 +4,7 @@ SPDX-FileCopyrightText: 2026 Jack Henry
 SPDX-License-Identifier: Apache-2.0
 */}
 
-import { Meta } from '@storybook/blocks';
+import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="What's New/V2 Release/jh-elements" />
 
@@ -22,6 +22,9 @@ For example, the `jh-button-shadow-focus` styling hook in v1 has been renamed to
 ### jh-badge
 The background color of `jh-badge` has been changed from `--jh-color-content-brand-enabled` to `--jh-color-content-negative-enabled`. font family, weight, size and line height tokens have changed from `--jh-font-helper-medium-...` to `--jh-font-helper-bold-...`.
 The `max-count` property is now set to `99` by default. 
+
+### jh-button
+`jh-button` now supports a new `size="x-small"` option. To accommodate this, all existing button sizes have been downsized by 8px, which impacts the layout of components that import `jh-button` (including `jh-notification` and `jh-input`). For more information on these related breaking changes, review the specific component sections in the migration guide.
 
 ### jh-card
 The border-radius of `jh-card` has been reduced from 16px to 8px, the `box-shadow` property has been removed, and the `--jh-card-color-border` styling hook has been introduced to allow for easy customization of the border color.
@@ -134,7 +137,7 @@ A single-line text field for URL entry.
 
 ### jh-select
 
-A non-editable single select dropdown component that displays a list of options. The `jh-select` component integrates seamlessly with the `jh-datasets` package (coming soon), allowing you to quickly populate the menu with pre-formatted datasets like US states without manually structuring the data.
+A non-editable single select dropdown component that displays a list of options. The `jh-select` component integrates seamlessly with the `jh-datasets` package, allowing you to quickly populate the menu with pre-formatted datasets like US states without manually structuring the data.
 
 ### jh-table
 

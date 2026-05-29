@@ -7564,6 +7564,10 @@
         {
           "name": "--jh-tooltip-color-text",
           "description": "The tooltip text color. Defaults to `--jh-color-content-on-primary-enabled`."
+        },
+        {
+          "name": "--jh-tooltip-size-max-width",
+          "description": "The maximum width of the tooltip. Defaults to `160px`."
         }
       ]
     }

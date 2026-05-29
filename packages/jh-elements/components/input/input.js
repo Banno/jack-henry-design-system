@@ -494,10 +494,6 @@ export class JhInput extends JhElement {
     }
   }
 
-  get uniqueId() {
-    return this.#id;
-  }
-
   firstUpdated() {
     // attach event listeners to show/hide clear button
     if (this.showClearButton) {

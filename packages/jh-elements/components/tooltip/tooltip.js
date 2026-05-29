@@ -37,13 +37,13 @@ export class JhTooltip extends LitElement {
           --jh-tooltip-color-text,
           var(--jh-color-content-on-primary-enabled)
         );
+        max-width: var(--jh-tooltip-size-max-width, 160px);
         border-radius: var(--jh-border-radius-100);
         padding: var(--jh-dimension-200);
         font-family: var(--jh-font-helper-bold-font-family);
         font-weight: var(--jh-font-helper-bold-font-weight);
         font-size: var(--jh-font-helper-bold-font-size);
         line-height: var(--jh-font-helper-bold-line-height);
-        max-width: var(--jh-tooltip-size-max-width, 160px);
         width: max-content;
         position: absolute;
         box-sizing: border-box;

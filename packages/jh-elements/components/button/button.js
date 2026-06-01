@@ -2,8 +2,9 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { JhElement } from '../element/element.js';
 import '../progress/progress.js';
 
 /**
@@ -108,7 +109,7 @@ import '../progress/progress.js';
  * @slot jh-button-icon-right - Use to insert an icon on the right side of the button and for single icon buttons.
  * @customElement jh-button
  */
-export class JhButton extends LitElement {
+export class JhButton extends JhElement {
   /** @ignore */
   static get formAssociated() {
     return true;

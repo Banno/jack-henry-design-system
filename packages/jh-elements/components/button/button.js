@@ -1009,5 +1009,4 @@ export class JhButton extends JhElement {
     }
   }
 }
-
-customElements.define('jh-button', JhButton);
+JhElement.register('jh-button', JhButton);

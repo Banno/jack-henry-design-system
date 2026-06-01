@@ -115,9 +115,6 @@ export class JhButton extends JhElement {
     return true;
   }
 
-  /** @type {ElementInternals} */
-  #internals;
-
   /** @type {?string} */
   #value;
 
@@ -807,9 +804,7 @@ export class JhButton extends JhElement {
   constructor() {
     super();
     /** @type {ElementInternals} */
-    this.#internals = this.attachInternals();
-    /** @type {ElementInternals} */
-    this.#internals.form;
+    this.internals.form;
     /** @type {'true'|'false'} */
     this.accessibleDisabled = null;
     /** @type {?string} */
@@ -854,7 +849,7 @@ export class JhButton extends JhElement {
     const oldValue = this.#value;
     if (newValue !== oldValue) {
       this.#value = newValue;
-      this.#internals.setFormValue(newValue);
+      this.internals.setFormValue(newValue);
     }
     this.requestUpdate('value', oldValue);
   }
@@ -889,8 +884,8 @@ export class JhButton extends JhElement {
 
   #onClick(event) {
     //If I'm a submit button in a form and I'm not disabled submit the form
-    if (this.submit && this.#internals.form && !this.disabled) {
-      this.#internals.form.requestSubmit();
+    if (this.submit && this.internals.form && !this.disabled) {
+      this.internals.form.requestSubmit();
     }
   }
 

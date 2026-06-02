@@ -342,4 +342,4 @@ export class JhCard extends JhElement {
     `;
   }
 }
-customElements.define('jh-card', JhCard);
+JhElement.register('jh-card', JhCard);

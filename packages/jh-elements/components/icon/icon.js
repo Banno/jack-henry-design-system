@@ -16,10 +16,6 @@ import { JhElement } from '../element/element.js';
  * @customElement jh-icon
  */
 export class JhIcon extends JhElement {
-
-  /** @type {ElementInternals} */
-  #internals;
-
   static get styles() {
     return css`
       :host {
@@ -80,10 +76,8 @@ export class JhIcon extends JhElement {
   }
   constructor() {
     super();
-    this.#internals = this.attachInternals();
-    this.#internals.role = 'graphics-symbol';
-    this.#internals.ariaHidden = 'true';
-
+    this.internals.role = 'graphics-symbol';
+    this.internals.ariaHidden = 'true';
     /** @type {'x-small'|'small'|'medium'|'large'|'x-large'} */
     this.size = 'medium';
   }

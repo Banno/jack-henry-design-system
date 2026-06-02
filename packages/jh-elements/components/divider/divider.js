@@ -68,7 +68,7 @@ export class JhDivider extends JhElement {
           margin-left: var(--inset, var(--jh-divider-space-inset));
         }
       `
-        }
+  }
 
   static get properties() {
     return {

@@ -88,5 +88,4 @@ export class JhDivider extends JhElement {
     this.inset = null;
   }
 }
-
-customElements.define('jh-divider', JhDivider);
+JhElement.register('jh-divider', JhDivider);

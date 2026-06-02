@@ -2,7 +2,8 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css } from 'lit';
+import { css } from 'lit';
+import { JhElement } from '../element/element.js';
 
 /**
  * @cssprop --jh-divider-border-width - The divider width. Defaults to `--jh-border-decorative-width`.
@@ -11,7 +12,7 @@ import { LitElement, css } from 'lit';
  * @cssprop --jh-divider-space-inset - The divider margin-left. Defaults to `0`.
  * @customElement jh-divider
  */
-export class JhDivider extends LitElement {
+export class JhDivider extends JhElement {
   static get styles() {
     return css`
         :host {

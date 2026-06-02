@@ -295,4 +295,4 @@ export class JhCheckboxGroup extends JhElement {
     `;
   }
 }
-customElements.define('jh-checkbox-group', JhCheckboxGroup);
+JhElement.register('jh-checkbox-group', JhCheckboxGroup);

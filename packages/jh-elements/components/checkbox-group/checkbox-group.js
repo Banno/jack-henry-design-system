@@ -2,7 +2,8 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
+import { JhElement } from '../element/element.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 let id = 0;
@@ -23,7 +24,7 @@ let id = 0;
  *
  * @customElement jh-checkbox-group
  */
-export class JhCheckboxGroup extends LitElement {
+export class JhCheckboxGroup extends JhElement {
   /** @type {?Number} */
   #id;
 

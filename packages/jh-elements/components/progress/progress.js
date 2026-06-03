@@ -412,4 +412,4 @@ export class JhProgress extends JhElement {
   }
 }
 
-JhElement.register('jh-progress', JhProgress);
+JhProgress.register('jh-progress', JhProgress);

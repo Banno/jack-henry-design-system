@@ -6470,12 +6470,16 @@
           "attribute": "label",
           "description": "Describes the intent of the switch.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the state of the switch has changed."
+          "description": "Dispatched when the state of the switch has changed. Event payload includes the `checked` state and can be accessed via `e.detail.state.checked`."
         }
       ],
       "cssProperties": [

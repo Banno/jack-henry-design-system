@@ -5613,12 +5613,16 @@
           "attribute": "value",
           "description": "Sets the value of the radio.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the state of the radio has changed."
+          "description": "Dispatched when the state of the radio has changed. Event payload includes the `checked` state of the radio and can be accessed via `e.detail.state.checked`."
         }
       ],
       "cssProperties": [

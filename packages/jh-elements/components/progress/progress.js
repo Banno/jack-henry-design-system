@@ -124,7 +124,8 @@ export class JhProgress extends LitElement {
         align-items: center;
       }
       :host([type='circular']) .text-content {
-        margin-top: var(--jh-dimension-200);
+        margin-top: var(--jh-dimension-100);
+        margin-bottom: 0;
         display: flex;
         flex-direction: column;
       }
@@ -142,19 +143,15 @@ export class JhProgress extends LitElement {
       }
       :host([size='medium']) svg {
         --progress-circular-size: var(--jh-dimension-600);
-        margin-bottom: 1px;
       }
       :host([size='large']) svg {
         --progress-circular-size: var(--jh-dimension-900);
-        margin-bottom: 2px;
       }
       :host([size='x-large']) svg {
         --progress-circular-size: var(--jh-dimension-1400);
-        margin-bottom: 2px;
       }
       :host([size='xx-large']) svg {
         --progress-circular-size: var(--jh-dimension-2100);
-        margin-bottom: 2px;
       }
       /* circle with virtual sizes for viewBox */
       circle {

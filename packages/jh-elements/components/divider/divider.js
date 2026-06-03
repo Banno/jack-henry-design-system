@@ -88,4 +88,4 @@ export class JhDivider extends JhElement {
     this.inset = null;
   }
 }
-JhElement.register('jh-divider', JhDivider);
+JhDivider.register('jh-divider', JhDivider);

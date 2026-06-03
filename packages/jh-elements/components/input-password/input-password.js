@@ -160,4 +160,4 @@ renderInput() {
     this.passwordVisible = !this.passwordVisible;
   }
 }
-customElements.define('jh-input-password', JhInputPassword);
+JhInputPassword.register('jh-input-password', JhInputPassword);

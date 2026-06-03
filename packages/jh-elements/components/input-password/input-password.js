@@ -16,10 +16,6 @@ let id = 0;
  * @customElement jh-input-password
  */
 export class JhInputPassword extends JhInput {
-
-  /** @type {?number} */
-  #id;
-
   static get properties() {
     return {
       /** Unmasks the input field value when set. */
@@ -47,12 +43,7 @@ export class JhInputPassword extends JhInput {
     this.passwordVisible = false;
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    this.#id = id++;
-  }
-
-renderInput() {
+  renderInput() {
     let describedby;
 
     if (this.helperText || (this.errorText && this.invalid)) {
@@ -68,7 +59,7 @@ renderInput() {
         <div class="input-wrapper">
           ${leftSlot}
           <input
-            id="jh-input-${this.#id}"
+            id="jh-input-${this.uniqueId}"
             aria-describedby=${describedby}
             aria-invalid=${ifDefined(this.invalid ? 'true' : null)}
             aria-label=${ifDefined(

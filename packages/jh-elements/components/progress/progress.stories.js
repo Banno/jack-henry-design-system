@@ -252,6 +252,7 @@ export const CircularSizes = {
       <jh-progress size="large" type="circular" value="50" label="Label"></jh-progress>
       <jh-progress size="x-large" type="circular" value="50" label="Label"></jh-progress>
       <jh-progress size="xx-large" type="circular" value="50" label="Label"></jh-progress>
+      <jh-progress size="medium" type="circular" value="50" label="Custom size: 200px" style="--jh-progress-track-size-circular: 200px"></jh-progress>
   `,
 };
 

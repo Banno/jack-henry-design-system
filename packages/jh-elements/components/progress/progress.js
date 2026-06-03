@@ -161,7 +161,6 @@ export class JhProgress extends LitElement {
         transform-origin: 50% 50%;
         fill: none;
         stroke-width: 1.5;
-        stroke-dasharray: 61.3;
       }
       .circular-progress-bar {
         stroke: var(--jh-progress-track-color, var(--jh-color-control-enabled));
@@ -344,7 +343,7 @@ export class JhProgress extends LitElement {
     const axis = 12;
     const viewBoxSize = axis * 2;
     const r = 9.75;
-    const c = 61.3;
+    const c = +(2 * Math.PI * r).toFixed(1);
 
     let percentOfCircleFilled = c - (c * Number(percentComplete)) / 100;
 
@@ -356,6 +355,7 @@ export class JhProgress extends LitElement {
           cx=${axis}
           cy=${axis}
           c=${c}
+          style="stroke-dasharray: ${c}"
         ></circle>
         <circle
           class="circular-progress-bar-value"
@@ -363,7 +363,7 @@ export class JhProgress extends LitElement {
           cx=${axis}
           cy=${axis}
           c=${c}
-          style="stroke-dashoffset: ${percentOfCircleFilled}"
+          style="stroke-dasharray: ${c}; stroke-dashoffset: ${percentOfCircleFilled}"
         ></circle>
       </svg>
     `;

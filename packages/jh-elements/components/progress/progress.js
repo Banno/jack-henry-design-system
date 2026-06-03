@@ -11,6 +11,8 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * @cssprop --jh-progress-track-color - The track color. Defaults to `--jh-color-control-enabled`.
  * @cssprop --jh-progress-track-border-radius - The track border-radius. Defaults to `--jh-border-radius-50`.
  * @cssprop --jh-progress-indicator-color - The indicator color. Defaults to `--jh-color-content-brand-enabled`.
+ * @cssprop --jh-progress-track-size-linear - The height of the linear progress bar track. Defaults to the size-based height.
+ * @cssprop --jh-progress-track-size-circular - The width and height of the circular progress indicator. Defaults to the size-based dimensions.
  * @customElement jh-progress
  */
 export class JhProgress extends LitElement {
@@ -87,14 +89,26 @@ export class JhProgress extends LitElement {
         );
         overflow: hidden;
       }
+      :host([size='x-small']) .linear-progress-bar {
+        --progress-linear-height: var(--jh-dimension-25);
+      }
       :host([size='small']) .linear-progress-bar {
-        height: var(--jh-dimension-50);
+        --progress-linear-height: var(--jh-dimension-50);
       }
       :host([size='medium']) .linear-progress-bar {
-        height: var(--jh-dimension-100);
+        --progress-linear-height: var(--jh-dimension-100);
       }
       :host([size='large']) .linear-progress-bar {
-        height: var(--jh-dimension-200);
+        --progress-linear-height: var(--jh-dimension-200);
+      }
+      :host([size='x-large']) .linear-progress-bar {
+        --progress-linear-height: var(--jh-dimension-300);
+      }
+      :host([size='xx-large']) .linear-progress-bar {
+        --progress-linear-height: var(--jh-dimension-400);
+      }
+      :host .linear-progress-bar {
+        height: var(--jh-progress-track-size-linear, var(--progress-linear-height));
       }
       :host .linear-progress-bar-value {
         background-color: var(
@@ -116,24 +130,38 @@ export class JhProgress extends LitElement {
       }
       svg {
         transform: rotate(-90deg);
-        width: var(--progress-size);
-        height: var(--progress-size);
+        width: var(--jh-progress-track-size-circular, var(--progress-circular-size));
+        height: var(--jh-progress-track-size-circular, var(--progress-circular-size));
         overflow: visible;
       }
+      :host([size='x-small']) svg {
+        --progress-circular-size: var(--jh-dimension-400);
+      }
       :host([size='small']) svg {
-        --progress-size: var(--jh-dimension-300);
+        --progress-circular-size: var(--jh-dimension-500);
       }
       :host([size='medium']) svg {
-        --progress-size: var(--jh-dimension-400);
+        --progress-circular-size: var(--jh-dimension-600);
         margin-bottom: 1px;
       }
       :host([size='large']) svg {
-        --progress-size: var(--jh-dimension-800);
+        --progress-circular-size: var(--jh-dimension-900);
         margin-bottom: 2px;
       }
+      :host([size='x-large']) svg {
+        --progress-circular-size: var(--jh-dimension-1400);
+        margin-bottom: 2px;
+      }
+      :host([size='xx-large']) svg {
+        --progress-circular-size: var(--jh-dimension-2100);
+        margin-bottom: 2px;
+      }
+      /* circle with virtual sizes for viewBox */
       circle {
         transform-origin: 50% 50%;
         fill: none;
+        stroke-width: 1.5;
+        stroke-dasharray: 61.3;
       }
       .circular-progress-bar {
         stroke: var(--jh-progress-track-color, var(--jh-color-control-enabled));
@@ -144,18 +172,6 @@ export class JhProgress extends LitElement {
           --jh-progress-indicator-color,
           var(--jh-color-content-brand-enabled)
         );
-      }
-      :host([size='small']) circle {
-        stroke-width: 1;
-        stroke-dasharray: 37.8px;
-      }
-      :host([size='medium']) circle {
-        stroke-width: 2;
-        stroke-dasharray: 50.3px;
-      }
-      :host([size='large']) circle {
-        stroke-width: 4;
-        stroke-dasharray: 100.8px;
       }
       :host([type='circular']) div {
         text-align: center;
@@ -207,7 +223,7 @@ export class JhProgress extends LitElement {
     this.indeterminate = false;
     /** @type {?string} */
     this.label = null;
-    /** @type {'small'|'medium'|'large'} */
+    /** @type { 'x-small'|'small'|'medium'|'large'|'x-large'|'xx-large'} */
     this.size = 'medium';
     /** @type {'linear'|'circular'} */
     this.type = 'linear';
@@ -314,7 +330,7 @@ export class JhProgress extends LitElement {
     this.#setAttribute('ariaValueNow', newValue);
   }
 
-  #getCircularIndicator(size, indeterminate, percentage) {
+  #getCircularIndicator(indeterminate, percentage) {
     let percentComplete;
 
     if (indeterminate) {
@@ -324,20 +340,16 @@ export class JhProgress extends LitElement {
     } else {
       percentComplete = percentage;
     }
-
-    const circle = {
-      // Numbers represent radius, x&y axis, and circumference
-      small: [6, 6, 37.8],
-      medium: [8, 8, 50.3],
-      large: [16, 16, 100.8],
-    };
-
-    const [r, axis, c] = circle[size];
+    // circle with virtual sizes for viewBox to allow for scaling. 
+    const axis = 12;
+    const viewBoxSize = axis * 2;
+    const r = 9.75;
+    const c = 61.3;
 
     let percentOfCircleFilled = c - (c * Number(percentComplete)) / 100;
 
     return html`
-      <svg>
+      <svg viewBox="0 0 ${viewBoxSize} ${viewBoxSize}" xmlns="http://www.w3.org/2000/svg">
         <circle
           class="circular-progress-bar"
           r=${r}
@@ -351,7 +363,7 @@ export class JhProgress extends LitElement {
           cx=${axis}
           cy=${axis}
           c=${c}
-          style="stroke-dashoffset:${percentOfCircleFilled}px"
+          style="stroke-dashoffset: ${percentOfCircleFilled}"
         ></circle>
       </svg>
     `;
@@ -388,7 +400,6 @@ export class JhProgress extends LitElement {
       indicator = this.#getLinearIndicator(percentage);
     } else if (this.type === 'circular') {
       indicator = this.#getCircularIndicator(
-        this.size,
         this.indeterminate,
         percentage
       );

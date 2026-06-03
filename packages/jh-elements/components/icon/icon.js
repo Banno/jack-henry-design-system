@@ -88,4 +88,4 @@ export class JhIcon extends JhElement {
     `;
   }
 }
-JhElement.register('jh-icon', JhIcon);
+JhIcon.register('jh-icon', JhIcon);

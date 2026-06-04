@@ -6790,12 +6790,16 @@
           "description": "Sets the order in which the items in the column are sorted.",
           "type": "'none' | 'ascending' | 'descending'",
           "default": "\"none\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-sort",
-          "description": "Dispatched when a sortable header cell is activated. Event payload includes the column, sorted state, and id of the header cell and can be accessed via `e.detail.column`, `e.detail.sorted`, and ` e.detail.id`."
+          "description": "Dispatched when a sortable header cell is activated. Event payload includes the column, sorted state, and id of the header cell and can be accessed via `e.detail.reference.column`, `e.detail.state.sorted`, and `e.detail.reference.id`."
         }
       ],
       "slots": [

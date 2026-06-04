@@ -454,11 +454,7 @@ export class JhSelect extends JhInput {
       this.#scrollToActiveItem();
 
       //dispatch a jh-change event when the selected value changes.
-      this.dispatchCustomEvent('jh-change', {
-        state: {
-          value: this.value,
-        },
-      });
+      this.dispatchCustomEvent('jh-change');
     }
   }
 

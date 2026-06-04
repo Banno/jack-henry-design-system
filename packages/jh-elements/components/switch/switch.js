@@ -23,7 +23,7 @@ import { JhElement } from '../element/element.js';
  * @cssprop --jh-switch-track-color-background-selected-active - The track color when selected and active. Defaults to `--jh-color-content-brand-active`.
  * @cssprop --jh-switch-track-color-background-selected-disabled - The track color when selected and disabled. Defaults to `--jh-color-content-brand-enabled`.
  *
- * @event jh-change - Dispatched when the state of the switch has changed. Event payload includes the `checked` state and can be accessed via `e.detail.state.checked`.
+ * @event jh-change - Dispatched when the state of the switch has changed.
  *
  * @customElement jh-switch
  */
@@ -253,11 +253,7 @@ export class JhSwitch extends JhElement {
   #handleClick() {
     if (!this.disabled && this.accessibleDisabled !== 'true') {
       this.checked = !this.checked;
-      this.dispatchCustomEvent('jh-change', {
-        state: {
-          checked: this.checked,
-        },
-      });
+      this.dispatchCustomEvent('jh-change');
     }
   }
 

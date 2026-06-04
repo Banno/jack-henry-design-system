@@ -6479,7 +6479,7 @@
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the state of the switch has changed. Event payload includes the `checked` state and can be accessed via `e.detail.state.checked`."
+          "description": "Dispatched when the state of the switch has changed."
         }
       ],
       "cssProperties": [

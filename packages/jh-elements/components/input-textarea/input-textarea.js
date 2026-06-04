@@ -268,4 +268,4 @@ export class JhInputTextarea extends JhInput {
     `
   }
 }
-customElements.define('jh-input-textarea', JhInputTextarea);
+JhInputTextarea.register('jh-input-textarea', JhInputTextarea);

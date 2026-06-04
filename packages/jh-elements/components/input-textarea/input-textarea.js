@@ -6,8 +6,6 @@ import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { JhInput } from '../input/input.js';
 
-let id = 0;
-
 /**
  * @cssprop --jh-input-textarea-field-dimension-min-height - The input field minimum height. Defaults to `--jh-dimension-2000` when `size='small'`, `--jh-dimension-2200` when `size='medium'`, and `--jh-dimension-2400` when `size='large'`.
  *
@@ -16,8 +14,6 @@ let id = 0;
  * @customElement jh-input-textarea
  */
 export class JhInputTextarea extends JhInput {
-  /** @type {?number} */
-  #id;
   /** @type {?ResizeObserver} */
   #resizeObserver;
 
@@ -195,11 +191,6 @@ export class JhInputTextarea extends JhInput {
     this.wrap = null;
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    this.#id = id++;
-  }
-
   disconnectedCallback() {
     super.disconnectedCallback();
     if (this.#resizeObserver) {
@@ -244,7 +235,7 @@ export class JhInputTextarea extends JhInput {
   renderInput() {
     return html`
       <textarea
-        id="jh-input-${this.#id}"
+        id="jh-input-${this.uniqueId}"
         aria-describedby=${this._getDescribedby()}
         aria-invalid=${ifDefined(this.invalid ? 'true' : null)}
         aria-label=${ifDefined(this.accessibleLabel === '' ? null : this.accessibleLabel)}

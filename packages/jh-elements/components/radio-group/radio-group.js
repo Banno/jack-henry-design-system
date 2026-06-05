@@ -312,11 +312,7 @@ export class JhRadioGroup extends JhElement {
       this.#checked = e.target;
       this.#updateChecked();
 
-      this.dispatchCustomEvent('jh-change', {
-        state: {
-          value: this.value,
-        },
-      });
+      this.dispatchCustomEvent('jh-change');
     }
   }
 

@@ -21,9 +21,6 @@ let id = 0;
  * @customElement jh-list-group
  */
 export class JhListGroup extends JhElement {
-  /** @type {?Number} */
-  #id;
-
   static get styles() {
     return css`
       :host {
@@ -77,22 +74,17 @@ export class JhListGroup extends JhElement {
     this.accessibleLabel = null;
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    this.#id = id++;
-  }
-
   render() {
     return html`
       ${this.label
-        ? html`<div class="subheader" id="list-group-labelledby-${this.#id}">
+        ? html`<div class="subheader" id="list-group-labelledby-${this.uniqueId}">
             ${this.label}
           </div>`
         : null}
       <div
         role="group"
         aria-labelledby=${ifDefined(
-          this.label ? `list-group-labelledby-${this.#id}` : null
+          this.label ? `list-group-labelledby-${this.uniqueId}` : null
         )}
         aria-label=${ifDefined(this.accessibleLabel)}
       >

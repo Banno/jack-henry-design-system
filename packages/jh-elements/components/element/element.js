@@ -7,10 +7,7 @@
 import { LitElement } from 'lit';
 
 let id = 0;
-/**
- * Element
- * @customElement jh-element
- */
+
 export class JhElement extends LitElement {
   /** @type {ElementInternals} */
   #internals;

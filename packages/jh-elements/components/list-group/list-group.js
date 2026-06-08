@@ -101,4 +101,4 @@ export class JhListGroup extends JhElement {
     `;
   }
 }
-customElements.define('jh-list-group', JhListGroup);
+JhListGroup.register('jh-list-group', JhListGroup);

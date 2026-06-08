@@ -2,12 +2,11 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { JhElement } from '../element/element.js';
 import '../button/button.js';
 import '@jack-henry/jh-icons/icons-wc/icon-circle-xmark.js';
-
-let id = 0;
 
 /**
  * @cssprop --jh-input-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
@@ -42,26 +41,22 @@ let id = 0;
  * @cssprop --jh-input-value-color-text - The value text color. Defaults to `jh-color-content-primary-enabled`.
  * @cssprop --jh-input-error-color-text - The error message text color. Defaults to `jh-color-content-negative-enabled`.
  * 
- * @event jh-select - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`.
- * @event jh-change - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`.
- * @event jh-input - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`.
- * @event jh-maxlength - Dispatched when the `maxlength` property is set and it's value is reached.
- * @event jh-input:clear-button-click - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`.
+ * @event jh-select - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.
+ * @event jh-change - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.
+ * @event jh-input - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.
+ * @event jh-maxlength - Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`.
+ * @event jh-input:clear-button-click - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`.
  * @slot jh-input-left - Use to insert an element on the left side of the input field, such as an icon or button.
  * @slot jh-input-right - Use to insert an element on the right side of the input field, such as an icon or button.
  * @slot jh-input-clear-button - Use to insert an icon within the clear button. 
  * 
  * @customElement jh-input
  */
-export class JhInput extends LitElement {
+export class JhInput extends JhElement {
   static get formAssociated() {
     return true;
   }
 
-  /** @type {ElementInternals} */
-  #internals;
-  /** @type {?number} */
-  #id;
   /** @type {?string} */
   #value;
   /** @type {string} */
@@ -413,6 +408,8 @@ export class JhInput extends LitElement {
       minlength: { type: String },
       /** Sets a name for the input control. */
       name: { type: String },
+      /** Sets the pattern attribute on the input field. */
+      pattern: { type: String },
       /** Prevents users from changing the input value. Removes all slotted content. */
       readonly: { type: Boolean },
       /** Indicates a value is required. */
@@ -432,7 +429,6 @@ export class JhInput extends LitElement {
 
   constructor() {
     super();
-    this.#internals = this.attachInternals();
     /** @type {?string} */
     this.accessibleLabel = null;
     /** @type {?string} */
@@ -465,6 +461,8 @@ export class JhInput extends LitElement {
     this.minlength = null;
     /** @type {?string} */
     this.name = null;
+    /** @type {?string} */
+    this.pattern = null;
     /** @type {boolean} */
     this.readonly = false;
     /** @type {boolean} */
@@ -483,22 +481,17 @@ export class JhInput extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    this.#id = id++;
     this.#captureMaskIndexes();
     let observer = new MutationObserver(this.#captureMaskIndexes.bind(this));
     observer.observe(this, { attributeFilter: ['input-mask'] });
     this.addEventListener('jh-select', this.#setSelection);
-  }
+}
 
   disconnectedCallback() {
     super.disconnectedCallback();
     if (this.inputMask) {
       this.removeEventListener('jh-select', this.#setSelection);
     }
-  }
-
-  get uniqueId() {
-    return this.#id;
   }
 
   firstUpdated() {
@@ -617,7 +610,7 @@ export class JhInput extends LitElement {
 
   /** @ignore */
   get form() {
-    return this.#internals.form;
+    return this.internals.form;
   }
 
   get value() {
@@ -628,20 +621,9 @@ export class JhInput extends LitElement {
     const oldValue = this.#value;
     if (newValue !== oldValue) {
       this.#value = newValue;
-      this.#internals.setFormValue(this.#value);
+      this.internals.setFormValue(this.#value);
     }
     this.requestUpdate('value', oldValue);
-  }
-
-  #dispatch(eventName, details) {
-    this.dispatchEvent(
-      new CustomEvent(eventName, {
-        detail: details,
-        bubbles: true,
-        cancelable: true,
-        composed: true,
-      })
-    );
   }
 
   _handleInput(e) {
@@ -655,7 +637,13 @@ export class JhInput extends LitElement {
         this.#applyInputMask(e);
       }
     } else {
-      this.#dispatch('jh-input', { value: this.value });
+      this.dispatchCustomEvent('jh-input', {
+        reference: {
+          'maxlength': this.maxlength,
+          'minlength': this.minlength,
+          'pattern': this.pattern,
+        }
+      } );
     }
   }
 
@@ -997,9 +985,15 @@ export class JhInput extends LitElement {
     this.value = formattedResult.join('');
 
     // Dispatch a custom event with the formatted and raw values
-    this.#dispatch('jh-input', {
-      'value': this.value,
-      'rawValue': this.#rawValue
+    this.dispatchCustomEvent('jh-input', {
+      state: {
+        'rawValue': this.#rawValue || null
+      }, 
+      reference: {
+        'maxlength': this.maxlength,
+        'minlength': this.minlength,
+        'pattern': this.pattern,
+      }
     });
   }
 
@@ -1082,15 +1076,16 @@ export class JhInput extends LitElement {
   }
 
   _handleChange() {
-    let payload = {
-      'value': this.value,
-    }
-
-    if (this.inputMask) {
-      payload.rawValue = this.#rawValue;
-    }
-
-    this.#dispatch('jh-change', payload);
+    this.dispatchCustomEvent('jh-change', {
+      state: {
+        'rawValue': this.#rawValue || null
+      },
+      reference: {
+        'minlength': this.minlength,
+        'maxlength': this.maxlength,
+        'pattern': this.pattern,
+      }
+    });
   }
 
   _handleSelect(e) {
@@ -1101,35 +1096,38 @@ export class JhInput extends LitElement {
 
     // ensure selected string present before dispatching event. Can be empty due to caret positioning when user attempts to delete fixed char.
     if (selectedString) {
-      this.#dispatch('jh-select', {
-        selected: selectedString,
-        selectionStart: e.target.selectionStart,
-        selectionEnd: e.target.selectionEnd
+      this.dispatchCustomEvent('jh-select', {
+        state: {
+          'selection': selectedString,
+          'selectionStart': e.target.selectionStart,
+          'selectionEnd': e.target.selectionEnd
+        }
       });
     }
   }
 
   _handleMaxlength() {
-    this.#dispatch('jh-maxlength');
+    this.dispatchCustomEvent('jh-maxlength', {
+      reference: {
+        'maxlength': this.maxlength
+      }
+    });
   }
 
-  _handleClearButtonClick() {
+  _handleClearButtonClick(e) {
     let previousValue = this.value;
     // clear input value
     this.value = '';
     // focus input field
     this.shadowRoot.querySelector('input').focus();
-    // dispatch clear event
-    this.dispatchEvent(
-      new CustomEvent('jh-input:clear-button-click', {
-        detail: { 
-          'previousValue': previousValue 
-        },
-        bubbles: true,
-        cancelable: true,
-        composed: true,
-      })
-    );
+    this.dispatchCustomEvent('jh-input:clear-button-click', { 
+      state: { 
+        'previousValue': previousValue,
+      }, 
+      reference: {
+        'clearMethod': e.pointerType === 'mouse' ? 'mouse' : 'keyboard'
+      }
+    });
   }
 
   _handleSlotChange(e) {
@@ -1292,6 +1290,7 @@ export class JhInput extends LitElement {
             maxlength=${ifDefined(this.maxlength === '' ? null : this.maxlength)}
             minlength=${ifDefined(this.minlength === '' ? null : this.minlength)}
             name=${ifDefined(this.name === '' ? null : this.name)}
+            pattern=${ifDefined(this.pattern === '' ? null : this.pattern)}
             ?readonly=${this.readonly}
             ?required=${this.required}
             type="text"
@@ -1319,4 +1318,4 @@ export class JhInput extends LitElement {
   }
 }
 
-customElements.define('jh-input', JhInput);
+JhInput.register('jh-input', JhInput);

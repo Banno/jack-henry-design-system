@@ -1,0 +1,80 @@
+{/*
+SPDX-FileCopyrightText: 2026 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+*/}
+
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Guides/Component Events" tags={['new']} />
+
+# Working with Component Events
+To ensure a consistent developer experience, we surface custom events to bridge the Shadow DOM boundary and provide access into internal component state. While native events, like change or input, often fail to bubble out of the Shadow DOM effectively, our custom events ensure proper composition and bubbling. They also include high-utility data, such as validity states, masked values, and form metadata, that standard browser events do not provide.
+
+By utilizing a standardized Event API, these custom events deliver all relevant data within a structured `e.detail` object. This approach eliminates the need to manually bridge data from `e.target` and reduces boilerplate code, offering a predictable pattern across the entire library. Use custom events (e.g., `jh-change`) when you require state specific payloads, and rely on native events (e.g., `click`, `focus`) for simple interactions that naturally cross the shadow boundary and do not require internal context.
+
+## Payload Anatomy
+All custom events follow a consistent structure with the following data organized into logical categories within the `detail` object. 
+
+Properties can be accessed via the following pattern: `e.detail.<category>.<property>`.
+
+### Quick Reference Payload Example
+```javascript
+detail: {
+  state: {
+    validity: {
+      tooLong: false, 
+      tooShort: false,
+      patternMismatch: false,
+      ...
+    },
+    value: 'john.doe@example.com',
+    },
+  form: {
+    formName: 'profile-form',
+    name: 'email',
+  },
+  reference: {
+    id: 'email-input-2',
+    originHost: 'jh-input-email',
+  },
+  meta: {
+    timestamp: 1776882498091,
+  },
+};
+```
+
+## Payload Categories
+Below are the categories and related properties available: 
+
+### State
+Provides information that captures the component's current live value and status.
+
+**Properties:**
+- `validity` - The validity state of the component. 
+- `value` - The current value of the component, may be formatted if the input-mask is present. 
+
+### Form
+Provides information relevant to form identity and submission. 
+
+**Properties:**
+- `formName` - The name of the form the component belongs to. 
+- `name` - Name attribute of the component. 
+
+### Reference
+Provides static configuration properties and constraints that define the component’s behavior.
+
+**Properties:**
+- `id` - Unique identifier for the component. 
+- `originHost` - The custom HTML element that the shadow tree is attached to. 
+
+### Meta
+Provides contextual data about the event itself.
+
+**Properties:**
+- `timestamp` - The time the event fired. 
+
+## Component Specific Properties
+While many properties are standardized, individual components include unique data relevant to their specific behavior. For instance, the `jh-select` event on a `jh-input` surfaces `selectionStart`, `selectionEnd`, and `selection` within the state category of the payload.
+
+To see the full custom event and property mapping for a specific component, refer to each component's documentation.

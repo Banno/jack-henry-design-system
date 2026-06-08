@@ -95,4 +95,3 @@ export class JhElement extends LitElement {
     customElements.define(tagName, targetClass);
   }
 }
-customElements.define('jh-element', JhElement);

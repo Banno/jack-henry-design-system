@@ -2,7 +2,8 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
+import { JhElement } from '../element/element.js';
 import '../button/button.js';
 import '@jack-henry/jh-icons/icons-wc/icon-xmark.js';
 
@@ -59,7 +60,7 @@ import '@jack-henry/jh-icons/icons-wc/icon-xmark.js';
  *
  * @customElement jh-notification
  */
-export class JhNotification extends LitElement {
+export class JhNotification extends JhElement {
   static get styles() {
     return css`
     :host {

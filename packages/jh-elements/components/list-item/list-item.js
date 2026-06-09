@@ -2,7 +2,8 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
+import { JhElement } from '../element/element.js';
 import '../divider/divider.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
@@ -40,7 +41,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * @slot jh-list-item-metadata - Use to insert custom metadata into the list-item.
  * @customElement jh-list-item
  */
-export class JhListItem extends LitElement {
+export class JhListItem extends JhElement {
   /** @type {ElementInternals} */
   #internals;
 

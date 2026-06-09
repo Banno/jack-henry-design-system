@@ -332,5 +332,4 @@ export class JhNotification extends JhElement {
     `;
   }
 }
-
-customElements.define('jh-notification', JhNotification);
+JhNotification.register('jh-notification', JhNotification);

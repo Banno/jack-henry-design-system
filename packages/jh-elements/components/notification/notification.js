@@ -254,23 +254,13 @@ export class JhNotification extends JhElement {
   }
 
   #handleDismissal() {
-    this.#dispatch('jh-dismiss');
+    this.dispatchCustomEvent('jh-dismiss');
     // if notification is wrapped by jh-toast component, do not remove notification from DOM
     if (this.parentNode.host?.nodeName === 'JH-TOAST') {
       return;
     } else {
       this.remove();
     }   
-  }
-
-  #dispatch(name) {
-    this.dispatchEvent(
-      new CustomEvent(name, {
-        bubbles: true,
-        cancelable: true,
-        composed: true,
-      })
-    );
   }
 
   #getActionButtons() {

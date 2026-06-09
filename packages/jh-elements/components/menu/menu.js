@@ -2,7 +2,8 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
+import { JhElement } from '../element/element.js';
 
 /**
  * @cssprop --jh-menu-z-index - The menu z-index. Defaults to `--jh-z-index-positive-1000`.
@@ -15,7 +16,7 @@ import { LitElement, css, html } from 'lit';
  * @slot default - Use to insert menu items.
  * @customElement jh-menu
  */
-export class JhMenu extends LitElement {
+export class JhMenu extends JhElement {
   /** @type {ElementInternals} */
   #internals;
 

@@ -69,4 +69,4 @@ export class JhMenu extends JhElement {
     `;
   }
 }
-customElements.define('jh-menu', JhMenu);
+JhMenu.register('jh-menu', JhMenu);

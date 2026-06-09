@@ -17,9 +17,6 @@ import { JhElement } from '../element/element.js';
  * @customElement jh-menu
  */
 export class JhMenu extends JhElement {
-  /** @type {ElementInternals} */
-  #internals;
-
   static get styles() {
     return css`
       :host {
@@ -58,8 +55,7 @@ export class JhMenu extends JhElement {
   }
   constructor() {
     super();
-    this.#internals = this.attachInternals();
-    this.#internals.role = 'menu';
+    this.internals.role = 'menu';
   }
   render() {
     return html`

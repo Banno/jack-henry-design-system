@@ -350,5 +350,4 @@ export class JhListItem extends JhElement {
     `;
   }
 }
-
-customElements.define('jh-list-item', JhListItem);
+JhListItem.register('jh-list-item', JhListItem);

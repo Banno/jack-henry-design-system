@@ -1272,17 +1272,6 @@
       ]
     },
     {
-      "name": "jh-element",
-      "path": "./components/element/element.js",
-      "description": "Element",
-      "properties": [
-        {
-          "name": "uniqueId",
-          "type": "number"
-        }
-      ]
-    },
-    {
       "name": "jh-icon",
       "path": "./components/icon/icon.js",
       "attributes": [
@@ -4680,6 +4669,10 @@
           "attribute": "accessible-label",
           "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [

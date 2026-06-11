@@ -6,7 +6,7 @@ import { html, css } from 'lit';
 import './input.js';
 import '../button/button.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import '@jack-henry/jh-icons/icons-wc/icon-id-card.js';
 import '@jack-henry/jh-icons/icons-wc/icon-magnifying-glass.js';
 
@@ -49,15 +49,39 @@ const disableControls = {
   value: { control: { disable: true } },
 };
 
+function logCustomEvent(name, e) {
+  return action(name)({
+    detail: e.detail,
+    type: e.type,
+    bubbles: e.bubbles,
+    cancelable: e.cancelable,
+    composed: e.composed,
+    currentTarget: e.currentTarget,
+    defaultPrevented: e.defaultPrevented,
+    eventPhase: e.eventPhase,
+    isTrusted: e.isTrusted,
+    target: e.target,
+    timeStamp: e.timeStamp,
+  });
+}
+
 export default {
   component: 'jh-input',
   title: 'Components/Input',
   tags: ['beta'],
-  parameters: {
-    actions: {
-      handles: ['jh-change', 'jh-select', 'jh-input', 'jh-maxlength', 'jh-input:clear-button-click'],
-    },
-  },
+  decorators: [
+    (story) => html`
+      <div class="story-decorator"
+        @jh-change=${(e) => logCustomEvent('jh-change', e)}
+        @jh-select=${(e) => logCustomEvent('jh-select', e)}
+        @jh-input=${(e) => logCustomEvent('jh-input', e)}
+        @jh-maxlength=${(e) => logCustomEvent('jh-maxlength', e)}
+        @jh-input:clear-button-click=${(e) => logCustomEvent('jh-input:clear-button-click', e)}
+      >
+        ${story()}
+      </div>
+    `,
+  ],
   argTypes: {
     'accessible-label': {
       control: 'text',
@@ -349,8 +373,8 @@ export const FormAssociated = {
   render: (args) => {
     const onClick = (event) => event.target.reset();
     return html`
-      <form id="myForm" @submit=${submitAction()}>
-        <jh-input label='ZIP Code' helper-text='9 digit, XXXXX-XXXX' input-mask=${args['input-mask']} maxlength=${args.maxlength}></jh-input>
+      <form id="myForm" name="my-form-test" @submit=${submitAction()}>
+        <jh-input name="my-input-test" show-clear-button label='ZIP Code' helper-text='9 digit, XXXXX-XXXX' input-mask=${args['input-mask']} maxlength=${args.maxlength}></jh-input>
         <jh-button label="Submit" submit @click=${onClick}></jh-button>
       </form>
     `;

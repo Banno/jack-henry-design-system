@@ -4,7 +4,7 @@ SPDX-FileCopyrightText: 2025 Jack Henry
 SPDX-License-Identifier: Apache-2.0
 */}
 
-import { Meta } from '@storybook/blocks';
+import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="What's New/Migrating" />
 <div className="toc-ignore">
@@ -352,6 +352,13 @@ import '@jack-henry/jh-elements/components/divider/divider.js';
 The background color of `jh-badge` has been changed from `--jh-color-content-brand-enabled` to `--jh-color-content-negative-enabled`. font family, weight, size and line height tokens have changed from `--jh-font-helper-medium-...` to `--jh-font-helper-bold-...`.
 The `max-count` property is now set to `99` by default. 
 
+### Migrating jh-button
+#### jh-button slots
+The button component now supports left and right icon positioning via the new `jh-button-icon-left` and `jh-button-icon-right` slots. Because of this, the `jh-button-icon` slot has been deprecated. To update your code, replace all instances of `jh-button-icon` with `jh-button-left-icon` and remove any `icon-position="before"|"after"` properties.
+
+#### jh-button sizes
+The button component now supports a new `size="x-small"` option. The existing sizes (small, medium, and large) have been downsized by 8px each. This layout change may reduce the overall height of any components that import `jh-button`, including `jh-notification`. Icons within the button are now automatically sized to `x-small` when the button is `x-small`, and `medium` for all other button sizes.
+
 ### Migrating jh-card
 The border-radius of `jh-card` has been reduced from 16px to 8px. The box-shadow property has been removed in favor of a flat aesthetic and to ensure component accessibility in forced-colors mode. The `--jh-card-color-border` styling hook has been introduced to allow for easy customization of the border color.
 
@@ -405,6 +412,9 @@ The `type` property is no longer supported on the `jh-input`. You must now use s
 </table>
 
 2. Extend the `jh-input` Component. To create a specialized input type, refer to the [Extending Components Guide](/docs/guides-extending-components--docs) for information on how to extend components. 
+
+#### Updated Input Sizes
+To match the new button dimensions, all existing input sizes (`small`, `medium`, and `large`) have been downsized by 8px each.
 
 #### Deprecated Properties
 The `placeholder` property has been deprecated due to accessibility concerns. Please leverage the `helper-text` and `label` properties to provide clear, persistent guidance for users. 

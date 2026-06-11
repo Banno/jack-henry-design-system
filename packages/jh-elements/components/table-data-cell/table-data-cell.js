@@ -62,7 +62,8 @@ export class JhTableDataCell extends LitElement {
         font-size: var(--footer-font-size, var(--jh-font-body-regular-1-font-size));      
         font-family: var(--footer-font-family, var(--jh-font-body-regular-1-font-family));
         display: table-cell;
-        width: 100%;
+        width: auto;
+        box-sizing: border-box;
       }
       :host([horizontal-align="left"]) {
         text-align: left;

@@ -3,14 +3,12 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { html, css } from 'lit';
+import { action } from 'storybook/actions';
 import './notification.js';
 import '@jack-henry/jh-icons/icons-wc/icon-circle-info.js';
 import '../button/button.js';
 
 const storyStyles = css`
-  div[id^="story-root"] {
-    display: flex;
-  }
   .overview-story {
     margin: auto;
     padding: 3%;
@@ -37,14 +35,34 @@ const disableAllControls = {
   type: { control: false },
 };
 
+function logCustomEvent(name, e) {
+  return action(name)({
+    detail: e.detail,
+    type: e.type,
+    bubbles: e.bubbles,
+    cancelable: e.cancelable,
+    composed: e.composed,
+    currentTarget: e.currentTarget,
+    defaultPrevented: e.defaultPrevented,
+    eventPhase: e.eventPhase,
+    isTrusted: e.isTrusted,
+    target: e.target,
+    timeStamp: e.timeStamp,
+  });
+}
+
 export default {
   component: 'jh-notification',
   title: 'Components/Notification',
-  parameters: {
-    actions: {
-      handles: ['jh-dismiss'],
-    },
-  },
+  decorators: [
+    (story) => html`
+      <div
+        @jh-dismiss=${(e) => logCustomEvent('jh-dismiss', e)}
+      >
+        ${story()}
+      </div>
+    `,
+  ],
   argTypes: {
     type: {
       control: 'select',

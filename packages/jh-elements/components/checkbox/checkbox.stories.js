@@ -5,10 +5,10 @@
 import { html, css } from 'lit';
 import './checkbox.js';
 import '../button/button.js';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 const storyStyles = css`
-  div[id^="story-root"] {
+  .story-decorator {
     display: flex;
     justify-content: center;
   }
@@ -28,14 +28,34 @@ const disableControls = {
   indeterminate: { control: { disable: true } },
 };
 
+function logCustomEvent(name, e) {
+  return action(name)({
+    detail: e.detail,
+    type: e.type,
+    bubbles: e.bubbles,
+    cancelable: e.cancelable,
+    composed: e.composed,
+    currentTarget: e.currentTarget,
+    defaultPrevented: e.defaultPrevented,
+    eventPhase: e.eventPhase,
+    isTrusted: e.isTrusted,
+    target: e.target,
+    timeStamp: e.timeStamp,
+  });
+}
+
 export default {
   component: 'jh-checkbox',
   title: 'Components/Checkbox',
-  parameters: {
-    actions: {
-      handles: ['jh-change'],
-    },
-  },
+  decorators: [
+    (story) => html`
+      <div class="story-decorator"
+        @jh-change=${(e) => logCustomEvent('jh-change', e)}
+      >
+        ${story()}
+      </div>
+    `,
+  ],
   argTypes: {
     checked: {
       control: 'boolean',
@@ -176,7 +196,7 @@ export const FormAssociated = {
   render: (args) => {
     const onClick = (event) => event.target.reset();
     return html`
-      <form @submit=${submitAction()}>
+      <form @submit=${submitAction()} name="demo-form">
         <jh-checkbox
           name=${args.name}
           ?checked=${args.checked}
@@ -205,8 +225,8 @@ function submitAction() {
 }
 
 FormAssociated.args = {
-  name: 'Demo checkbox',
-  value: 'Demo value',
+  name: 'Demo checkbox name',
+  value: 'Demo checkbox value',
   checked: false,
   indeterminate: false,
   label: 'Label',

@@ -6,15 +6,15 @@
 
 import { html, css } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import './select.js';
 import "@jack-henry/jh-icons/icons-wc/icon-piggy-bank.js";
 import "@jack-henry/jh-icons/icons-wc/icon-arrow-up-small.js";
 import "@jack-henry/jh-icons/icons-wc/icon-arrow-down-small.js";
 import "../button/button.js";
-// import { US_STATES_FLAT } from '@jack-henry/jh-datasets/datasets/us-states-flat.js';
-// import { US_STATES_GROUPED } from '@jack-henry/jh-datasets/datasets/us-states-grouped.js';
-// import { manageDataset } from '@jack-henry/jh-datasets/utils/manageDataset.js';
+import { US_STATES_FLAT } from '@jack-henry/jh-datasets/datasets/us-states-flat.js';
+import { US_STATES_GROUPED } from '@jack-henry/jh-datasets/datasets/us-states-grouped.js';
+import { manageSelectDataset } from '@jack-henry/jh-datasets/utils/manageDataset.js';
 
 const testOptions = [
   { groupLabel: "Account types", groupValues: [
@@ -70,15 +70,36 @@ const disableControls = {
   'flip-disabled': { control: { disable: true } },
 }
 
+function logCustomEvent(name, e) {
+  return action(name)({
+    detail: e.detail,
+    type: e.type,
+    bubbles: e.bubbles,
+    cancelable: e.cancelable,
+    composed: e.composed,
+    currentTarget: e.currentTarget,
+    defaultPrevented: e.defaultPrevented,
+    eventPhase: e.eventPhase,
+    isTrusted: e.isTrusted,
+    target: e.target,
+    timeStamp: e.timeStamp,
+  });
+}
+
 export default {
   component: 'jh-select',
   title: 'Components/Select',
   tags: ['beta'],
-  parameters: {
-    actions: {
-      handles: ['jh-change', 'jh-select'],
-    },
-  },
+  decorators: [
+      (story) => html`
+        <div class="story-decorator"
+          @jh-change=${(e) => logCustomEvent('jh-change', e)}
+          @jh-select=${(e) => logCustomEvent('jh-select', e)}
+        >
+          ${story()}
+        </div>
+      `,
+  ],
   argTypes: {
     'accessible-label': {
       control: 'text',
@@ -245,36 +266,36 @@ Playground.parameters = {
   styles: storyStyles,
 };
 
-// export const Datasets = { render: (args) => {
-//   const customizedData = manageDataset({
-//     dataset: US_STATES_FLAT,
-//     initialValue: null,
-//     disabledItems: ['AK', 'HI', 'PR', 'VI', 'GU', 'AS'],
-//     emptyLabel: 'Select your state...',
-//   });
+export const Datasets = { render: (args) => {
+  const customizedData = manageSelectDataset({
+    dataset: US_STATES_FLAT,
+    initialValue: null,
+    disabledItems: ['AK', 'HI', 'PR', 'MP', 'VI', 'GU', 'AS'],
+    emptyLabel: 'Select your state...',
+  });
 
-//   return html`
-//     <div class="select-container">
-//       <jh-select label="US States (flat)" .options=${US_STATES_FLAT}></jh-select>
-//     </div>
-//     <div class="select-container">
-//       <jh-select label="US States (grouped)" .options=${US_STATES_GROUPED}></jh-select>
-//     </div>
+  return html`
+    <div class="select-container">
+      <jh-select label="US States (flat)" .options=${US_STATES_FLAT}></jh-select>
+    </div>
+    <div class="select-container">
+      <jh-select label="US States (grouped)" .options=${US_STATES_GROUPED}></jh-select>
+    </div>
 
-//     <h3></h3>
-//     <div class="select-container">
-//       <jh-select label="US states customized" helper-text="Uses manageDataset to set initial value, disabled items, empty label" .options=${customizedData}></jh-select>
-//     </div>
-//   `;
-// }};
+    <h3></h3>
+    <div class="select-container">
+      <jh-select label="US states customized" helper-text="Uses manageDataset to set initial value, disabled items, empty label" .options=${customizedData}></jh-select>
+    </div>
+  `;
+}};
 
-// Datasets.argTypes = {
-//   ...disableControls,
-// };
+Datasets.argTypes = {
+  ...disableControls,
+};
 
-// Datasets.parameters = {
-//   styles: storyStyles,
-// };
+Datasets.parameters = {
+  styles: storyStyles,
+};
 
 export const Empty = { render: (args) => html`
   <div class="select-container">

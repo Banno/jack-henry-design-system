@@ -1272,17 +1272,6 @@
       ]
     },
     {
-      "name": "jh-element",
-      "path": "./components/element/element.js",
-      "description": "Element",
-      "properties": [
-        {
-          "name": "uniqueId",
-          "type": "number"
-        }
-      ]
-    },
-    {
       "name": "jh-icon",
       "path": "./components/icon/icon.js",
       "attributes": [
@@ -4723,18 +4712,8 @@
           "type": "null|0|8|16|24|32|40|48|56|64|72|80|88|96"
         },
         {
-          "name": "primary-metadata",
-          "description": "The text to show as primary metadata.",
-          "type": "?string"
-        },
-        {
           "name": "primary-text",
           "description": "The text to show as primary text.",
-          "type": "?string"
-        },
-        {
-          "name": "secondary-metadata",
-          "description": "The text to show as secondary metadata.",
           "type": "?string"
         },
         {
@@ -4770,21 +4749,9 @@
           "type": "null|0|8|16|24|32|40|48|56|64|72|80|88|96"
         },
         {
-          "name": "primaryMetadata",
-          "attribute": "primary-metadata",
-          "description": "The text to show as primary metadata.",
-          "type": "?string"
-        },
-        {
           "name": "primaryText",
           "attribute": "primary-text",
           "description": "The text to show as primary text.",
-          "type": "?string"
-        },
-        {
-          "name": "secondaryMetadata",
-          "attribute": "secondary-metadata",
-          "description": "The text to show as secondary metadata.",
           "type": "?string"
         },
         {
@@ -4811,7 +4778,7 @@
       "slots": [
         {
           "name": "default",
-          "description": "Use to insert fully customized content into the list-item. Cannot be used with the other slots."
+          "description": "Use to insert custom content into the list-item."
         },
         {
           "name": "jh-list-item-left",
@@ -4820,14 +4787,6 @@
         {
           "name": "jh-list-item-right",
           "description": "Use to insert custom content on the right the list-item."
-        },
-        {
-          "name": "jh-list-item-content",
-          "description": "Use to insert custom content into the list-item."
-        },
-        {
-          "name": "jh-list-item-metadata",
-          "description": "Use to insert custom metadata into the list-item."
         }
       ],
       "cssProperties": [
@@ -4836,8 +4795,52 @@
           "description": "The list-item container's background-color.\nDefaults to `transparent`."
         },
         {
-          "name": "--jh-list-item-color-text",
-          "description": "The default, left, text, metadata, right, primary, and secondary slot text color. Defaults to `--jh-color-content-primary-enabled`."
+          "name": "--jh-list-item-color-text-primary-enabled",
+          "description": "The list-item text color for the default, left, right slots and primary text.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-primary-focus",
+          "description": "The list-item text color for the default, left, right slots and primary text when interactive and focused.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-primary-hover",
+          "description": "The list-item text color for the default, left, right slots and primary text when interactive and hovered.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-primary-active",
+          "description": "The list-item text color for the default, left, right slots and primary text when interactive and active.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-primary-selected",
+          "description": "The list-item text color for the default, left, right slots and primary text when interactive and selected.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-primary-disabled",
+          "description": "The list-item text color for the default, left, right slots and primary text when interactive and disabled.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary-enabled",
+          "description": "The secondary text color.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary-focus",
+          "description": "The secondary text color when interactive and focused.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary-hover",
+          "description": "The secondary text color when interactive and hovered.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary-active",
+          "description": "The secondary text color when interactive and active.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary-selected",
+          "description": "The secondary text color when interactive and selected.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary-disabled",
+          "description": "The secondary text color when interactive and disabled.\nDefaults to `--jh-color-content-secondary-enabled`."
         },
         {
           "name": "--jh-list-item-space-padding-right",
@@ -4850,22 +4853,6 @@
         {
           "name": "--jh-list-item-size-height",
           "description": "The list-item's height. Defaults to `auto`."
-        },
-        {
-          "name": "--jh-list-item-color-text-primary",
-          "description": "The primary text color.\nDefaults to `--jh-color-content-primary-enabled`."
-        },
-        {
-          "name": "--jh-list-item-color-text-secondary",
-          "description": "The secondary text color.\nDefaults to `--jh-color-content-secondary-enabled`."
-        },
-        {
-          "name": "--jh-list-item-metadata-color-text-primary",
-          "description": "The primary metadata text color.\nDefaults to `--jh-color-content-primary-enabled`."
-        },
-        {
-          "name": "--jh-list-item-metadata-color-text-secondary",
-          "description": "The secondary metadata text color.\nDefaults to `--jh-color-content-secondary-enabled`."
         },
         {
           "name": "--jh-list-item-color-background-focus",

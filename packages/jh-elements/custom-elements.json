@@ -900,6 +900,10 @@
           "description": "Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required` property is also set. For the indicator to be displayed, the `label` property must also be set.",
           "type": "?boolean",
           "default": "false"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -1268,17 +1272,6 @@
         {
           "name": "--jh-divider-space-inset",
           "description": "The divider margin-left. Defaults to `0`."
-        }
-      ]
-    },
-    {
-      "name": "jh-element",
-      "path": "./components/element/element.js",
-      "description": "Element",
-      "properties": [
-        {
-          "name": "uniqueId",
-          "type": "number"
         }
       ]
     },

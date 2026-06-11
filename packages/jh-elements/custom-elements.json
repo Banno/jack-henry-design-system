@@ -1272,17 +1272,6 @@
       ]
     },
     {
-      "name": "jh-element",
-      "path": "./components/element/element.js",
-      "description": "Element",
-      "properties": [
-        {
-          "name": "uniqueId",
-          "type": "number"
-        }
-      ]
-    },
-    {
       "name": "jh-icon",
       "path": "./components/icon/icon.js",
       "attributes": [

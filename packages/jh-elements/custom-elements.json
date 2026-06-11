@@ -1272,17 +1272,6 @@
       ]
     },
     {
-      "name": "jh-element",
-      "path": "./components/element/element.js",
-      "description": "Element",
-      "properties": [
-        {
-          "name": "uniqueId",
-          "type": "number"
-        }
-      ]
-    },
-    {
       "name": "jh-icon",
       "path": "./components/icon/icon.js",
       "attributes": [
@@ -7143,6 +7132,10 @@
           "description": "Makes the table horizontally scrollable on smaller screens.",
           "type": "Boolean",
           "default": "false"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [

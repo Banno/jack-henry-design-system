@@ -11,7 +11,6 @@ import '../button/button.js';
 import '@jack-henry/jh-icons/icons-wc/icon-minus.js';
 import '@jack-henry/jh-icons/icons-wc/icon-plus.js';
 
-let id = 0;
 /**
  * @cssprop --jh-input-number-stepper-border-radius - The button container border-radius. Defaults to `--jh-border-radius-100`.
  * @cssprop --jh-input-number-stepper-color-background-enabled - The stepper button background-color when enabled. Defaults to `transparent`.
@@ -34,8 +33,6 @@ let id = 0;
  * @customElement jh-input-number
  */
 export class JhInputNumber extends JhInput {
-  /** @type {?number} */
-  #id;
   /** @type {?string} */
   #stepperAnnouncement;
 
@@ -123,25 +120,9 @@ export class JhInputNumber extends JhInput {
     this.step = 1;
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    this.#id = id++;
-  }
-
-  #dispatch(eventName, details) {
-    this.dispatchEvent(
-      new CustomEvent(eventName, {
-        detail: details,
-        bubbles: true,
-        cancelable: true,
-        composed: true,
-      }),
-    );
-  }
-
   #dispatchEvents() {
-    this.#dispatch('jh-change', { value: this.value });
-    this.#dispatch('jh-input', { value: this.value });
+    this.dispatchCustomEvent('jh-change');
+    this.dispatchCustomEvent('jh-input');
   }
 
   #updateValue(step) {
@@ -243,7 +224,7 @@ export class JhInputNumber extends JhInput {
         <div class="input-wrapper">
           ${leftSlot}
           <input
-            id="jh-input-${this.#id}"
+            id="jh-input-${this.uniqueId}"
             aria-describedby=${describedby}
             aria-invalid=${ifDefined(this.invalid ? 'true' : null)}
             aria-label=${ifDefined(
@@ -278,4 +259,4 @@ export class JhInputNumber extends JhInput {
     `;
   }
 }
-customElements.define('jh-input-number', JhInputNumber);
+JhInputNumber.register('jh-input-number', JhInputNumber);

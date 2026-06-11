@@ -6,7 +6,6 @@ import { css, html } from 'lit';
 import { JhElement } from '../element/element.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-let id = 0;
 /**
  *
  * @cssprop --jh-checkbox-group-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.

@@ -2,8 +2,7 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { css, html } from 'lit';
-import { JhElement } from '../element/element.js';
+import { LitElement, css, html } from 'lit';
 import '../toast/toast.js';
 
 /**
@@ -13,7 +12,7 @@ import '../toast/toast.js';
  * 
  * @customElement jh-toast-controller
  */
-export class JhToastController extends JhElement {
+export class JhToastController extends LitElement {
   static get styles() {
     return css`
       :host {
@@ -67,7 +66,13 @@ export class JhToastController extends JhElement {
 
   // controller dispatches jh-dismiss event and calls handleDismiss method
   #dispatch(name, toast) {
-    this.dispatchCustomEvent(name);
+    this.dispatchEvent(
+      new CustomEvent(name, {
+        bubbles: true,
+        cancelable: true,
+        composed: true,
+      }) 
+    );
     this.#handleDismiss(toast);
   }
 
@@ -112,6 +117,6 @@ export class JhToastController extends JhElement {
     `;
   }
 }
-JhToastController.register('jh-toast-controller', JhToastController);
+customElements.define('jh-toast-controller', JhToastController);
 
 

@@ -5497,12 +5497,16 @@
           "attribute": "value",
           "description": "Sets the value of the radio group.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the radio group has changed."
+          "description": "Dispatched when the value of the radio group has changed. Event payload includes the `value` and can be accessed via `e.detail.state.value`."
         }
       ],
       "slots": [
@@ -5613,6 +5617,10 @@
           "attribute": "value",
           "description": "Sets the value of the radio.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [

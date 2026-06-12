@@ -2,8 +2,9 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { JhElement } from '../element/element.js';
 
 let id = 0;
 const openAttr = 'open';
@@ -17,9 +18,7 @@ const openAttr = 'open';
  *
  * @customElement jh-tooltip
  */
-export class JhTooltip extends LitElement {
-  /** @type {ElementInternals} */
-  #internals;
+export class JhTooltip extends JhElement {
 
   static get styles() {
     return css`
@@ -224,7 +223,6 @@ export class JhTooltip extends LitElement {
 
   constructor() {
     super();
-    this.#internals = this.attachInternals();
     /**@type {?Boolean} */
     this.flipDisabled = false;
     /**@type {?Boolean} */
@@ -253,14 +251,14 @@ export class JhTooltip extends LitElement {
     const hasContent = slot.assignedNodes().length > 0;
 
     if (hasContent) {
-      this.#internals.role = 'tooltip';
+      this.internals.role = 'tooltip';
       this.addEventListener('focus', this.#handleOpenTooltip, true);
       this.addEventListener('mouseenter', this.#handleOpenTooltip);
       this.addEventListener('blur', this.#handleCloseTooltip, true);
       this.addEventListener('mouseleave', this.#handleCloseTooltip);
       this.addEventListener('keydown', this.#handleKeyDown);
     } else {
-      this.#internals.role = '';
+      this.internals.role = '';
       this.#handleCloseTooltip();
       this.removeEventListener('focus', this.#handleOpenTooltip);
       this.removeEventListener('mouseenter', this.#handleOpenTooltip);
@@ -476,4 +474,4 @@ export class JhTooltip extends LitElement {
   }
 }
 
-customElements.define('jh-tooltip', JhTooltip);
+JhTooltip.register('jh-tooltip', JhTooltip);

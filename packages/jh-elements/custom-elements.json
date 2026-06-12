@@ -6083,7 +6083,7 @@
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the selected value changes."
+          "description": "Dispatched when the selected value changes. Event payload includes the `value` and can be accessed via `e.detail.state.value`."
         },
         {
           "name": "jh-select",

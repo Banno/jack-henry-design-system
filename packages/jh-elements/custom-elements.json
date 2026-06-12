@@ -5617,6 +5617,10 @@
           "attribute": "value",
           "description": "Sets the value of the radio.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [

@@ -2,8 +2,9 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { JhElement } from '../element/element.js';
 import '../progress/progress.js';
 
 /**
@@ -108,14 +109,11 @@ import '../progress/progress.js';
  * @slot jh-button-icon-right - Use to insert an icon on the right side of the button and for single icon buttons.
  * @customElement jh-button
  */
-export class JhButton extends LitElement {
+export class JhButton extends JhElement {
   /** @ignore */
   static get formAssociated() {
     return true;
   }
-
-  /** @type {ElementInternals} */
-  #internals;
 
   /** @type {?string} */
   #value;
@@ -806,9 +804,7 @@ export class JhButton extends LitElement {
   constructor() {
     super();
     /** @type {ElementInternals} */
-    this.#internals = this.attachInternals();
-    /** @type {ElementInternals} */
-    this.#internals.form;
+    this.internals.form;
     /** @type {'true'|'false'} */
     this.accessibleDisabled = null;
     /** @type {?string} */
@@ -853,7 +849,7 @@ export class JhButton extends LitElement {
     const oldValue = this.#value;
     if (newValue !== oldValue) {
       this.#value = newValue;
-      this.#internals.setFormValue(newValue);
+      this.internals.setFormValue(newValue);
     }
     this.requestUpdate('value', oldValue);
   }
@@ -888,8 +884,8 @@ export class JhButton extends LitElement {
 
   #onClick(event) {
     //If I'm a submit button in a form and I'm not disabled submit the form
-    if (this.submit && this.#internals.form && !this.disabled) {
-      this.#internals.form.requestSubmit();
+    if (this.submit && this.internals.form && !this.disabled) {
+      this.internals.form.requestSubmit();
     }
   }
 
@@ -1008,5 +1004,4 @@ export class JhButton extends LitElement {
     }
   }
 }
-
-customElements.define('jh-button', JhButton);
+JhButton.register('jh-button', JhButton);

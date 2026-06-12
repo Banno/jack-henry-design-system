@@ -4669,6 +4669,10 @@
           "attribute": "accessible-label",
           "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [

@@ -6478,6 +6478,10 @@
           "attribute": "label",
           "description": "Describes the intent of the switch.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [

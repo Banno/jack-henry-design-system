@@ -2,7 +2,8 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
+import { JhElement } from '../element/element.js';
 import '@jack-henry/jh-icons/icons-wc/icon-xmark.js';
 import '../button/button.js';
 import '../tooltip/tooltip.js';
@@ -42,7 +43,7 @@ import '../tooltip/tooltip.js';
  * @event jh-dismiss - Dispatched when the tag is dismissed.
  * @customElement jh-tag
  */
-export class JhTag extends LitElement {
+export class JhTag extends JhElement {
 
   static get styles() {
     return css`
@@ -357,13 +358,7 @@ export class JhTag extends LitElement {
 
   #handleDismissal(e) {
     e.stopPropagation();
-    this.dispatchEvent(
-      new CustomEvent('jh-dismiss', {
-        bubbles: true,
-        cancelable: true,
-        composed: true,
-      })
-    );
+    this.dispatchCustomEvent('jh-dismiss');
 
     if (this.removeOnDismiss) {
       this.remove();
@@ -422,4 +417,4 @@ export class JhTag extends LitElement {
   }
 }
 
-customElements.define('jh-tag', JhTag);
+JhTag.register('jh-tag', JhTag);

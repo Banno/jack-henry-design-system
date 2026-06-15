@@ -93,7 +93,7 @@ const createToast = (storyId) => {
 export const Playground = {
   render: (args) => {
     let handleClick = function (e) {
-      let storyId = e.target.parentElement.parentElement.id;
+      let storyId = e.target.closest('#story-root-dark, #story-root-light').id;
       createToast(storyId);
     };
     return html`

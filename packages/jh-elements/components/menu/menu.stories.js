@@ -17,8 +17,11 @@ const storyStyles = css`
     align-items: flex-start;
   }
   jh-menu {
-    width: 200px;
     margin-right: 16px;
+  }
+  .menu-wrapper {
+    height: 200px;
+    width: 200px;
   }
 `;
 
@@ -29,6 +32,7 @@ export default {
 
 export const Overview = {
   render: (args) => html`
+  <div class="menu-wrapper">
     <jh-menu>
       <jh-list-item
         show-divider
@@ -48,6 +52,7 @@ export const Overview = {
         >Item 4</jh-list-item
       >
     </jh-menu>
+  </div>
     <jh-menu>
       <jh-list-group label="Actions">
         <jh-list-item primary-text="Edit" role="menuitem" tabindex="0">
@@ -79,6 +84,7 @@ Overview.parameters = {
 
 export const Playground = {
   render: (args) => html`
+  <div class="menu-wrapper">
     <jh-menu>
       <jh-list-item tabindex="0" selected role="menuitem"
         >Item number 1</jh-list-item
@@ -89,6 +95,7 @@ export const Playground = {
         >Item number 4</jh-list-item
       >
     </jh-menu>
+  </div>
   `,
 };
 

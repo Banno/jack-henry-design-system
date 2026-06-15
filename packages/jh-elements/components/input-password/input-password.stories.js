@@ -4,8 +4,8 @@
 
 import { html, css } from 'lit';
 import './input-password.js';
+import { action } from 'storybook/actions';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import '@jack-henry/jh-icons/icons-wc/icon-id-card.js';
 
 const disableControls = {
   'password-visible': { control: { disable: true } },
@@ -19,7 +19,7 @@ const disableControls = {
   'error-text': { control: { disable: true } },
   'helper-text': { control: { disable: true } },
   'hide-left-slot': { control: { disable: true } },
-  'hide-right-slot': { table: { disable: true } },
+  'hide-right-slot': { control: { disable: true } },
   'input-mask': { control: { disable: true } },
   inputmode: { control: { disable: true } },
   invalid: { control: { disable: true } },
@@ -36,21 +36,40 @@ const disableControls = {
   value: { control: { disable: true } },
 };
 
+function logCustomEvent(name, e) {
+  return action(name)({
+    detail: e.detail,
+    type: e.type,
+    bubbles: e.bubbles,
+    cancelable: e.cancelable,
+    composed: e.composed,
+    currentTarget: e.currentTarget,
+    defaultPrevented: e.defaultPrevented,
+    eventPhase: e.eventPhase,
+    isTrusted: e.isTrusted,
+    target: e.target,
+    timeStamp: e.timeStamp,
+  });
+}
+
 export default {
   component: 'jh-input-password',
   title: 'Components/Input Password',
   tags: ['beta'],
-  parameters: {
-    actions: {
-      handles: ['jh-change', 'jh-select', 'jh-input', 'jh-maxlength', 'jh-input:clear-button-click'],
-    },
-  },
+  decorators: [
+      (story) => html`
+        <div class="story-decorator"
+          @jh-change=${(e) => logCustomEvent('jh-change', e)}
+          @jh-select=${(e) => logCustomEvent('jh-select', e)}
+          @jh-input=${(e) => logCustomEvent('jh-input', e)}
+          @jh-maxlength=${(e) => logCustomEvent('jh-maxlength', e)}
+          @jh-input:clear-button-click=${(e) => logCustomEvent('jh-input:clear-button-click', e)}
+        >
+          ${story()}
+        </div>
+      `,
+  ],
   argTypes: {
-    'jh-input-right' : {
-      table: {
-        disable: true,
-      }
-    },
     'password-visible': {
       control: 'boolean',
     },
@@ -85,6 +104,9 @@ export default {
       control: 'text',
     },
     'hide-left-slot': {
+      control: 'boolean',
+    },
+    'hide-right-slot': {
       control: 'boolean',
     },
     'input-mask': {
@@ -172,6 +194,7 @@ export const Playground = {
       args['helper-text'] === '' ? null : args['helper-text']
     )}
     ?hide-left-slot=${args['hide-left-slot']}
+    ?hide-right-slot=${args['hide-right-slot']}
     input-mask=${ifDefined(
       args['input-mask'] === '' ? null : args['input-mask']
     )}
@@ -211,6 +234,7 @@ Playground.argTypes = {
   'error-text': { control: { disable: false } },
   'helper-text': { control: { disable: false } },
   'hide-left-slot': { control: { disable: false } },
+  'hide-right-slot': { control: { disable: false } },
   'accessible-label': { control: { disable: false } },
   maxlength: { control: { disable: false } },
   minlength: { control: { disable: false } },
@@ -238,6 +262,7 @@ Playground.args = {
   'error-text': 'Error text',
   'helper-text': 'Helper text',
   'hide-left-slot': false,
+  'hide-right-slot': false,
   'accessible-label': null,
   maxlength: null,
   minlength: null,

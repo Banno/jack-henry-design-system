@@ -1,0 +1,47 @@
+# SPDX-FileCopyrightText: 2026 Jack Henry
+#
+# SPDX-License-Identifier: Apache-2.0
+
+name: Manual Publish
+on:
+  workflow_dispatch:
+    inputs:
+      package_filter:
+        description: 'Package name (e.g., @jack-henry/jh-elements) - use multiple --filter flags if needed'
+        required: true
+        default: '--filter @jack-henry/jh-elements'
+      tag:
+        description: 'NPM Tag (latest or beta)'
+        required: true
+        type: choice
+        options:
+          - latest
+          - beta
+        default: 'latest'
+
+jobs:
+  publish:
+    name: publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read     # To checkout the code
+      id-token: write    # CRITICAL for OIDC handshake with npm
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install dependencies
+        uses: ./.github/workflows/actions/install-dependencies
+
+      - name: Build
+        run: pnpm -r build
+
+      - name: Publish Specific Packages
+        run: pnpm $PACKAGE_FILTER publish --access public --no-git-checks --tag $NPM_TAG --registry https://registry.npmjs.org/
+        env:
+          PACKAGE_FILTER: ${{ github.event.inputs.package_filter }}
+          NPM_TAG: ${{ github.event.inputs.tag }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

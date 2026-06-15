@@ -4,11 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  * 
  * Do not edit directly, this file was auto-generated.
- * Generated on Wed, 12 Nov 2025 19:24:22 GMT
+ * Generated on Tue, 07 Apr 2026 18:56:06 GMT
  */
 
 export default `
   .jh-theme-dark {
+    color-scheme: dark; 
     --jh-z-index-positive-1000: 1000;
     --jh-z-index-positive-900: 900;
     --jh-z-index-positive-800: 800;

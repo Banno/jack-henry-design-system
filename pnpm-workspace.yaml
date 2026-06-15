@@ -7,3 +7,4 @@ packages:
 - 'packages/jh-tokens'
 - 'packages/jh-icons'
 - 'packages/jh-validate'
+- 'packages/jh-datasets'

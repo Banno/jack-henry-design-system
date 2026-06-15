@@ -2,7 +2,7 @@
   "compilerOptions": {
     "checkJs": true,
     "module": "es2020",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "target": "es2020"
   },
   "exclude": ["node_modules"]

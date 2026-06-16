@@ -4,12 +4,12 @@ SPDX-FileCopyrightText: 2025 Jack Henry
 SPDX-License-Identifier: Apache-2.0
 -->
 
-# Jack Henry Design System
+# Forge Design System
 
-Welcome to our monorepo! The Jack Henry Design System is a collection of reusable components, guided by clear visual and user experience
+Welcome to our monorepo! The Forge Design System is a collection of reusable components, guided by clear visual and user experience
 standards that help teams build great products. The design system is informed by internal Jack Henry patterns and extensive
 UX research. We've solved many of the common UX problems and baked in accessibility so that you can focus on your product's 
-unique needs. It's a living system constantly growing, with frequent releases that include new features and improvements. The Jack Henry
+unique needs. It's a living system constantly growing, with frequent releases that include new features and improvements. The Forge
 design system will help your product teams by:
 
 - Establishing brand and UX consistency, ensuring all products are aligned to a set of standards.
@@ -42,7 +42,7 @@ component level enabling precise control over your application's look and feel, 
 ### Scalable
 
 Our Design System is designed to be scalable, ensuring that it can grow and adapt to meet the evolving needs of our community. To achieve this, we
-prioritized extensibility and flexibility to ensure our components can be extended for your use cases and adapted to your brand. The Jack Henry Design System 
+prioritized extensibility and flexibility to ensure our components can be extended for your use cases and adapted to your brand. The Forge Design System 
 has community in mind. Our system is constantly evolving with frequent releases that include new features, bug fixes, and qualify of life improvements 
 driven by community feedback.
 

@@ -56,7 +56,6 @@ function logCustomEvent(name, e) {
 
 export default {
   component: 'jh-table',
-  tags: ['beta'],
   title: 'Components/Table/Table',
   decorators: [
       (story) => html`

@@ -6,7 +6,7 @@ SPDX-License-Identifier: Apache-2.0
 
 import { Meta } from '@storybook/addon-docs/blocks';
 
-<Meta title="Guides/Component Events" tags={['new']} />
+<Meta title="Guides/Component Events" />
 
 # Working with Component Events
 To ensure a consistent developer experience, we surface custom events to bridge the Shadow DOM boundary and provide access into internal component state. While native events, like change or input, often fail to bubble out of the Shadow DOM effectively, our custom events ensure proper composition and bubbling. They also include high-utility data, such as validity states, masked values, and form metadata, that standard browser events do not provide.

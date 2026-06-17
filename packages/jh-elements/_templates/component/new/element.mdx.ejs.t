@@ -10,7 +10,7 @@ SPDX-FileCopyrightText: 2025 Jack Henry
 
 SPDX-License-Identifier: Apache-2.0
  */}
-import { Meta, ArgTypes } from '@storybook/blocks';
+import { Meta, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as stories from './<%= unprefixedName %>.stories.js';
 
 <Meta title="Components/<%= titleName %>" of={stories} />

@@ -34,6 +34,17 @@ addons.setConfig({
         },
       },
     },
+        {
+      tags: 'deprecated',
+      badge: {
+        text: `Deprecated`,
+        style: {
+          backgroundColor: '#bd2113',
+          color: '#ffffff',
+          borderColor: '#bd2113',
+        },
+      },
+    },
     ...defaultConfig,
   ],
 });

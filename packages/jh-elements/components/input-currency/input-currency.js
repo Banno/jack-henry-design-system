@@ -4,20 +4,21 @@
 * SPDX-License-Identifier: Apache-2.0
 */
 
-import { css, html } from 'lit';
-import { JhElement } from '../element/element.js';
+import { css } from 'lit';
+import { JhInput } from '../input/input.js';
 
 /**
  * Input Currency
  * @customElement jh-input-currency
  */
-export class JhInputCurrency extends JhElement {
+export class JhInputCurrency extends JhInput {
   static get styles() {
-    return css`
-        :host {
+    return [
+      super.styles,
+      css`        
 
-      }
-    `;
+      `,
+    ];
   }
 
   static get properties() {
@@ -33,10 +34,10 @@ export class JhInputCurrency extends JhElement {
     this.someProperty = 'some initial value';
   }
 
-  render() {
-    return html`
+  // render() {
+  //   return html`
 
-    `;
-  }
+  //   `;
+  // }
 }
 JhInputCurrency.register('jh-input-currency', JhInputCurrency);

@@ -41,4 +41,4 @@ export class JhInputSearch extends JhInput {
     `;
   }
 }
-customElements.define('jh-input-search', JhInputSearch);
+JhInputSearch.register('jh-input-search', JhInputSearch);

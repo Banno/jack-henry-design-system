@@ -16,22 +16,24 @@ export class JhInputCurrency extends JhInput {
     return [
       super.styles,
       css`        
-
+        :host([horizontal-align="right"]) input {
+          text-align: right;
+        }
       `,
     ];
   }
 
   static get properties() {
     return {
-      /** Property description */
-      someProperty: { type: String }
+      /** Sets the horizontal alignment of the input text. */
+      horizontalAlign: { type: String, attribute: 'horizontal-align' },
     };
   }
 
   constructor() {
     super();
-    /** @type {?string} */
-    this.someProperty = 'some initial value';
+    /** @type {'left' | 'right'} */
+    this.horizontalAlign = 'left';
   }
 
   // render() {

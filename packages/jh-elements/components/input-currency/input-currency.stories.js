@@ -13,8 +13,7 @@ const storyStyles = css`
 `;
 
 const disableControls = {
-  attribute: { control: { disable: true } },
-  'some-attribute': { control: { disable: true } },
+  'horizontal-align': { control: { disable: true } },
 }
 
 function logCustomEvent(name, e) {
@@ -46,17 +45,17 @@ export default {
     `,
   ],
   argTypes: {
-    'some-attribute': {
+    'horizontal-align': {
       control: 'text',
     },
-    attribute: {
-      control: 'boolean',
-    }
   },
 };
 
 export const Overview = { render: (args) => html`
-  <jh-input-currency></jh-input-currency>
+  <div class="overview-story">
+    <jh-input-currency value="10000"></jh-input-currency>
+    <jh-input-currency value="1000" horizontal-align="right"></jh-input-currency>
+  </div>
 `};
 
 Overview.argTypes = {

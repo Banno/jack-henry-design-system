@@ -900,6 +900,10 @@
           "description": "Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required` property is also set. For the indicator to be displayed, the `label` property must also be set.",
           "type": "?boolean",
           "default": "false"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -4140,11 +4144,11 @@
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`."
+          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`."
         },
         {
           "name": "jh-input",
-          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`."
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`."
         },
         {
           "name": "jh-select",
@@ -5248,6 +5252,10 @@
           "attribute": "accessible-label",
           "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -6065,12 +6073,16 @@
           "attribute": "value",
           "description": "Sets the value of the radio group.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the radio group has changed."
+          "description": "Dispatched when the value of the radio group has changed. Event payload includes the `value` and can be accessed via `e.detail.state.value`."
         }
       ],
       "slots": [
@@ -6181,6 +6193,10 @@
           "attribute": "value",
           "description": "Sets the value of the radio.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -6643,7 +6659,7 @@
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the selected value changes."
+          "description": "Dispatched when the selected value changes. Event payload includes the `value` and can be accessed via `e.detail.state.value`."
         },
         {
           "name": "jh-select",
@@ -7038,6 +7054,10 @@
           "attribute": "label",
           "description": "Describes the intent of the switch.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -7358,12 +7378,16 @@
           "description": "Sets the order in which the items in the column are sorted.",
           "type": "'none' | 'ascending' | 'descending'",
           "default": "\"none\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-sort",
-          "description": "Dispatched when a sortable header cell is activated. Event payload includes the column, sorted state, and id of the header cell and can be accessed via `e.detail.column`, `e.detail.sorted`, and ` e.detail.id`."
+          "description": "Dispatched when a sortable header cell is activated. Event payload includes the column, sorted state, and id of the header cell and can be accessed via `e.detail.reference.column`, `e.detail.reference.sorted`, and `e.detail.reference.id`."
         }
       ],
       "slots": [
@@ -7711,6 +7735,10 @@
           "description": "Makes the table horizontally scrollable on smaller screens.",
           "type": "Boolean",
           "default": "false"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -7902,6 +7930,10 @@
           "description": "Removes the tag after the dismiss button is activated.",
           "type": "?Boolean",
           "default": "false"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [

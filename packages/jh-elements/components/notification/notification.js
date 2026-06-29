@@ -2,7 +2,8 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
+import { JhElement } from '../element/element.js';
 import '../button/button.js';
 import '@jack-henry/jh-icons/icons-wc/icon-xmark.js';
 
@@ -59,7 +60,7 @@ import '@jack-henry/jh-icons/icons-wc/icon-xmark.js';
  *
  * @customElement jh-notification
  */
-export class JhNotification extends LitElement {
+export class JhNotification extends JhElement {
   static get styles() {
     return css`
     :host {
@@ -253,23 +254,13 @@ export class JhNotification extends LitElement {
   }
 
   #handleDismissal() {
-    this.#dispatch('jh-dismiss');
+    this.dispatchCustomEvent('jh-dismiss');
     // if notification is wrapped by jh-toast component, do not remove notification from DOM
     if (this.parentNode.host?.nodeName === 'JH-TOAST') {
       return;
     } else {
       this.remove();
     }   
-  }
-
-  #dispatch(name) {
-    this.dispatchEvent(
-      new CustomEvent(name, {
-        bubbles: true,
-        cancelable: true,
-        composed: true,
-      })
-    );
   }
 
   #getActionButtons() {
@@ -331,5 +322,4 @@ export class JhNotification extends LitElement {
     `;
   }
 }
-
-customElements.define('jh-notification', JhNotification);
+JhNotification.register('jh-notification', JhNotification);

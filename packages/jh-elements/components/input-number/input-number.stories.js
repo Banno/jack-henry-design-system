@@ -7,6 +7,7 @@
 import { html, css } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import './input-number.js';
+import { action } from 'storybook/actions';
 import '@jack-henry/jh-icons/icons-wc/icon-thumbs-up.js';
 import '@jack-henry/jh-icons/icons-wc/icon-thumbs-down.js';
 import '@jack-henry/jh-icons/icons-wc/icon-user.js';
@@ -38,6 +39,22 @@ const disableControls = {
   value: { control: { disable: true } },
 };
 
+function logCustomEvent(name, e) {
+  return action(name)({
+    detail: e.detail,
+    type: e.type,
+    bubbles: e.bubbles,
+    cancelable: e.cancelable,
+    composed: e.composed,
+    currentTarget: e.currentTarget,
+    defaultPrevented: e.defaultPrevented,
+    eventPhase: e.eventPhase,
+    isTrusted: e.isTrusted,
+    target: e.target,
+    timeStamp: e.timeStamp,
+  });
+}
+
 const storyStyles = css`
   div[id^="story-root"] {
     display: flex;
@@ -56,11 +73,19 @@ export default {
   component: 'jh-input-number',
   title: 'Components/Input Number',
   tags: ['beta'],
-  parameters: {
-    actions: {
-      handles: ['jh-change', 'jh-select', 'jh-input', 'jh-input:clear-button-click'],
-    },
-  },
+  decorators: [
+      (story) => html`
+        <div class="story-decorator"
+          @jh-change=${(e) => logCustomEvent('jh-change', e)}
+          @jh-select=${(e) => logCustomEvent('jh-select', e)}
+          @jh-input=${(e) => logCustomEvent('jh-input', e)}
+          @jh-maxlength=${(e) => logCustomEvent('jh-maxlength', e)}
+          @jh-input:clear-button-click=${(e) => logCustomEvent('jh-input:clear-button-click', e)}
+        >
+          ${story()}
+        </div>
+      `,
+  ],
   argTypes: {
     'max': {
       control: 'text',

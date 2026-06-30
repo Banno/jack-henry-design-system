@@ -44,6 +44,10 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * Defaults to `--jh-color-container-primary-hover`.
  * @cssprop --jh-list-item-color-background-active - The list-item background-color when interactive and active.
  * Defaults to `--jh-color-container-primary-active`.
+ * @cssprop --jh-list-item-color-background-disabled - The list-item background-color when interactive and disabled.
+ * Defaults to `transparent`.
+ * @cssprop --jh-list-item-opacity-disabled - The list-item opacity when interactive and disabled.
+ * Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-list-item-color-background-selected - The list-item background-color when interactive and selected. Defaults to `--jh-color-container-primary-selected`.
  * @cssprop --jh-list-item-color-border-selected - The list-item border-left-color when interactive and selected.
  * Defaults to `--jh-border-selected-color`.
@@ -127,6 +131,14 @@ export class JhListItem extends LitElement {
           var(--jh-color-container-primary-active)
         );
       }
+      :host([tabindex][disabled]) {
+        --jh-list-item-color-text-primary-enabled: var(--jh-list-item-color-text-primary-disabled);
+        --jh-list-item-color-text-secondary-enabled: var(--jh-list-item-color-text-secondary-disabled);
+        background-color: var(--jh-list-item-color-background-disabled, transparent);
+        opacity: var(--jh-list-item-opacity-disabled, var(--jh-opacity-disabled));
+        cursor: default;
+        pointer-events: none;
+      }
       :host([tabindex][selected]) {
         --jh-list-item-color-text-primary-enabled: var(--jh-list-item-color-text-primary-selected);
         --jh-list-item-color-text-secondary-enabled: var(--jh-list-item-color-text-secondary-selected);
@@ -147,14 +159,6 @@ export class JhListItem extends LitElement {
           var(--jh-dimension-600)
         ) - var(--jh-border-selected-width));
       }
-      :host([tabindex][disabled]) {
-        --jh-list-item-color-text-primary-enabled: var(--jh-list-item-color-text-primary-disabled);
-        --jh-list-item-color-text-secondary-enabled: var(--jh-list-item-color-text-secondary-disabled);
-        opacity: var(--jh-opacity-disabled);
-        cursor: default;
-        pointer-events: none;
-      }
-
       :host([show-divider]) {
         padding-bottom: 0;
       }

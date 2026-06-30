@@ -4871,6 +4871,14 @@
           "description": "The list-item background-color when interactive and active.\nDefaults to `--jh-color-container-primary-active`."
         },
         {
+          "name": "--jh-list-item-color-background-disabled",
+          "description": "The list-item background-color when interactive and disabled.\nDefaults to `transparent`."
+        },
+        {
+          "name": "--jh-list-item-opacity-disabled",
+          "description": "The list-item opacity when interactive and disabled.\nDefaults to `--jh-opacity-disabled`."
+        },
+        {
           "name": "--jh-list-item-color-background-selected",
           "description": "The list-item background-color when interactive and selected. Defaults to `--jh-color-container-primary-selected`."
         },

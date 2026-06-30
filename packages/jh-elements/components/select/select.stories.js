@@ -14,6 +14,8 @@ import "@jack-henry/jh-icons/icons-wc/icon-arrow-down-small.js";
 import "../button/button.js";
 import { US_STATES_FLAT } from '@jack-henry/jh-datasets/datasets/us-states-flat.js';
 import { US_STATES_GROUPED } from '@jack-henry/jh-datasets/datasets/us-states-grouped.js';
+import { WORLD_CURRENCIES } from '@jack-henry/jh-datasets/datasets/world-currencies.js';
+import { CURRENCY_CODES } from '@jack-henry/jh-datasets/datasets/currency-codes.js';
 import { manageSelectDataset } from '@jack-henry/jh-datasets/utils/manageDataset.js';
 
 const testOptions = [
@@ -281,6 +283,13 @@ export const Datasets = { render: (args) => {
     <div class="select-container">
       <jh-select label="US States (grouped)" .options=${US_STATES_GROUPED}></jh-select>
     </div>
+    <div class="select-container">
+      <jh-select label="World Currencies" .options=${WORLD_CURRENCIES}></jh-select>
+    </div>
+    <div class="select-container">
+      <jh-select label="Currency Codes" .options=${CURRENCY_CODES}></jh-select>
+    </div>    
+
 
     <h3></h3>
     <div class="select-container">

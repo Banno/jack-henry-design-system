@@ -60,7 +60,7 @@ import { JhFilter } from './filtering.js';
  * @slot jh-select-trigger-open - Use to replace the default chevron icon displayed when the select menu is open.
  * @slot jh-select-trigger-closed - Use to replace the default chevron icon displayed when the select menu is closed.
  *
- * @event jh-change - Dispatched when the selected value changes.
+ * @event jh-change - Dispatched when the selected value changes. Event payload includes the `value` and can be accessed via `e.detail.state.value`.
  */
 export class JhSelect extends JhInput {
   /** @type {?string} */
@@ -454,12 +454,7 @@ export class JhSelect extends JhInput {
       this.#scrollToActiveItem();
 
       //dispatch a jh-change event when the selected value changes.
-      const options = {
-        bubbles: true,
-        composed: true,
-        cancelable: true,
-      };
-      this.dispatchEvent(new CustomEvent('jh-change', options));
+      this.dispatchCustomEvent('jh-change');
     }
   }
 
@@ -657,4 +652,4 @@ export class JhSelect extends JhInput {
   }
 }
 
-customElements.define('jh-select', JhSelect);
+JhSelect.register('jh-select', JhSelect);

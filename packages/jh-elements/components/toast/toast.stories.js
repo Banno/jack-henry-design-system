@@ -136,7 +136,7 @@ const createNewToast = (
 export const Playground = {
   render: (args) => {
     let handleClick = function (e) {
-      let storyId = e.target.parentElement.parentElement.id;
+      let storyId = e.target.closest('#story-root-dark, #story-root-light').id;
       let existingToast = document.querySelectorAll(`jh-toast#${storyId}`);
 
       if (existingToast.length) {

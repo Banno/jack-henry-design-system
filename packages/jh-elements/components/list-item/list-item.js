@@ -7,7 +7,7 @@ import '../divider/divider.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
- * @cssprop --jh-list-item-color-background - The list-item container's background-color.
+ * @cssprop --jh-list-item-color-background-enabled - The list-item container's background-color.
  * Defaults to `transparent`.
  * @cssprop --jh-list-item-color-text-primary-enabled - The list-item text color for the default, left, right slots and primary text.
  * Defaults to `--jh-color-content-primary-enabled`.
@@ -64,7 +64,7 @@ export class JhListItem extends LitElement {
   static get styles() {
     return css`
       :host {
-        background-color: var(--jh-list-item-color-background, transparent);
+        background-color: var(--jh-list-item-color-background-enabled, transparent);
         padding-bottom: var(--jh-dimension-400);
         font-family: var(--jh-font-body-medium-1-font-family);
         font-weight: var(--jh-font-body-medium-1-font-weight);

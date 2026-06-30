@@ -4791,7 +4791,7 @@
       ],
       "cssProperties": [
         {
-          "name": "--jh-list-item-color-background",
+          "name": "--jh-list-item-color-background-enabled",
           "description": "The list-item container's background-color.\nDefaults to `transparent`."
         },
         {

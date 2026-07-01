@@ -414,17 +414,14 @@ export const ProgrammaticValueChange = {
     const setSelected = (selectedValue) => {
       const select = document.querySelector('#programmatic-select');
       if (select) {
-        select.options = baseOptions.map((opt) => ({
-          ...opt,
-          selected: opt.value === selectedValue,
-        }));
-      } 
+        select.value = selectedValue;
+      }
     };
 
     const clearSelected = () => {
       const select = document.querySelector('#programmatic-select');
       if (select) {
-        select.options = baseOptions.map((opt) => ({ ...opt, selected: false }));
+        select.value = '';
       }
     };
 
@@ -433,7 +430,8 @@ export const ProgrammaticValueChange = {
         <jh-select
           id="programmatic-select"
           label="Programmatic value change"
-          helper-text="Use the buttons below to change the selected option via .options"
+          helper-text="Use the buttons below to change the selected option via .value"
+          .value=${'cd'}
           .options=${baseOptions}
         ></jh-select>
         <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">

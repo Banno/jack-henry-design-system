@@ -243,17 +243,39 @@ export class JhSelect extends JhInput {
           ...item,
         };
       });
-      // These will be the same until we add search functionality, at which point #flatOptions will be the filtered list and #allOptions will remain the source of truth.
       this.#flatOptions = this.#allOptions;
       this.#activeIndex = null;
 
-      // Set initial value from the selected flag in the data array
-      const selectedOption = this.#flatOptions.find((opt) => opt.selected);
-      if (selectedOption) {
-        this.value = String(selectedOption.value);
-        this.#displayValue = selectedOption.label;
+      // If no value is set yet, use the selected flag as the initial default
+      if (!this.value) {
+        const selectedOption = this.#flatOptions.find((opt) => opt.selected);
+        if (selectedOption) {
+          this.value = String(selectedOption.value);
+          this.#displayValue = selectedOption.label;
+        }
+      } else {
+        // Value already set — resolve display label from new options
+        this.#syncDisplayValue();
       }
     }
+
+    // Handle external value changes (e.g. .value = 'x' or value="x" attribute)
+    if (changedProperties.has('value') && !changedProperties.has('options')) {
+      this.#syncDisplayValue();
+    }
+  }
+
+  #syncDisplayValue() {
+    if (!this.value) {
+      this.#displayValue = null;
+      return;
+    }
+    const match = this.#flatOptions.find(
+      (opt) => String(opt.value) === String(this.value)
+    );
+    this.#displayValue = match
+      ? (match.label != null ? match.label : String(match.value))
+      : null;
   }
 
   #getIndexFromId(elementId) {
@@ -391,7 +413,9 @@ export class JhSelect extends JhInput {
       } else if (this.#activeIndex !== null) {
           this.#handleSelection(this.#activeIndex);
           this.#handleCloseSelect();
-        }
+      } else {
+        this.#handleCloseSelect();
+      }
         return;
 
       case 'Escape':

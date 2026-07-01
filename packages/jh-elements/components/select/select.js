@@ -249,9 +249,12 @@ export class JhSelect extends JhInput {
 
       // Set initial value from the selected flag in the data array
       const selectedOption = this.#flatOptions.find((opt) => opt.selected);
-      if (selectedOption && !this.value) {
+      if (selectedOption) {
         this.value = String(selectedOption.value);
         this.#displayValue = selectedOption.label;
+      } else {
+       this.value = '';
+       this.#displayValue = null;
       }
     }
   }
@@ -299,7 +302,7 @@ export class JhSelect extends JhInput {
     }
   }
 
-  #handleOpenSelect() {
+  #handleOpenSelect({ keyboard = false } = {}) {
     if (this.disabled || this.readonly || !this.#flatOptions.length) return;
     if (!this.#inputWrapper || !this.#menuContainer) return;
 
@@ -310,8 +313,8 @@ export class JhSelect extends JhInput {
     requestAnimationFrame(() => {
       document.addEventListener('scroll', this.#boundDocumentScroll, true);
     });
-    // Set initial active to selected item or first item
-    if (this.#activeIndex === null) {
+    // Only set active item on keyboard open to avoid showing focus ring on mouse open
+    if (keyboard && this.#activeIndex === null) {
       const selectedIdx = this.#flatOptions.findIndex(
         (opt) => String(opt.value) === String(this.value));
       this.#setActiveItem(selectedIdx !== -1 ? selectedIdx : 0);
@@ -360,22 +363,26 @@ export class JhSelect extends JhInput {
     if (e.ctrlKey || e.metaKey) return;
 
     switch (e.key) {
-      case 'ArrowDown':
-        e.preventDefault();
-        if (!this.#open) {
-          this.#handleOpenSelect();
-        } else {
-          this.#setActiveItem(this.#activeIndex === null ? 0 : this.#activeIndex + 1);
-        }
-        return;
+    case 'ArrowDown':
+      e.preventDefault();
+      if (!this.#open) {
+        this.#handleOpenSelect({ keyboard: true });
+      } else {
+        const selectedIdx = this.#flatOptions.findIndex(
+          (opt) => String(opt.value) === String(this.value));
+        this.#setActiveItem((this.#activeIndex ?? selectedIdx) + 1);
+      }
+      return;
 
       case 'ArrowUp':
         e.preventDefault();
         if (!this.#open) {
-          this.#handleOpenSelect();
+          this.#handleOpenSelect({ keyboard: true });
         } else {
+          const selectedIdx = this.#flatOptions.findIndex(
+            (opt) => String(opt.value) === String(this.value));
           this.#setActiveItem(
-            this.#activeIndex === null ? this.#flatOptions.length - 1 : this.#activeIndex - 1);
+            (this.#activeIndex ?? (selectedIdx !== -1 ? selectedIdx : this.#flatOptions.length)) - 1);
         }
         return;
 
@@ -383,8 +390,8 @@ export class JhSelect extends JhInput {
       case ' ':
         e.preventDefault();
         if (!this.#open) {
-          this.#handleOpenSelect();
-        } else if (this.#activeIndex !== null) {
+          this.#handleOpenSelect({ keyboard: true }); 
+      } else if (this.#activeIndex !== null) {
           this.#handleSelection(this.#activeIndex);
           this.#handleCloseSelect();
         }

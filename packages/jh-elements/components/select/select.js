@@ -252,9 +252,6 @@ export class JhSelect extends JhInput {
       if (selectedOption) {
         this.value = String(selectedOption.value);
         this.#displayValue = selectedOption.label;
-      } else {
-       this.value = '';
-       this.#displayValue = null;
       }
     }
   }

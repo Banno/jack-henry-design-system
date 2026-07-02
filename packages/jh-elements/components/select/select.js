@@ -247,7 +247,7 @@ export class JhSelect extends JhInput {
       this.#activeIndex = null;
 
       // If no value is set yet, use the selected flag as the initial default
-      if (!this.value) {
+      if (this.value == null) {
         const selectedOption = this.#flatOptions.find((opt) => opt.selected);
         if (selectedOption) {
           this.value = String(selectedOption.value);
@@ -266,7 +266,7 @@ export class JhSelect extends JhInput {
   }
 
   #syncDisplayValue() {
-    if (!this.value) {
+    if (this.value == null) {
       this.#displayValue = null;
       return;
     }

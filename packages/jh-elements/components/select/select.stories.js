@@ -17,6 +17,7 @@ import { US_STATES_GROUPED } from '@jack-henry/jh-datasets/datasets/us-states-gr
 import { manageSelectDataset } from '@jack-henry/jh-datasets/utils/manageDataset.js';
 
 const testOptions = [
+  { label: "select a value...", value: "" },
   { groupLabel: "Account types", groupValues: [
     {  value: "checking-01" },
     {  value: "savings-01", disabled: true },
@@ -32,7 +33,7 @@ const testOptions = [
   { label: "Certificate of Deposit", value: "cd-12-month" },
   { label: "IRA Investment", value: "ira-traditional" },
   { label: "Health Savings Account", value: "hsa-01" },
-  { label: "Brokerage Account", value: "brokerage-standard" }
+  { label: "Brokerage Account", value: "brokerage-standard" },
 ];
 
 const storyStyles = css`
@@ -67,6 +68,7 @@ const disableControls = {
   required: { control: { disable: true } },
   'show-indicator': { control: { disable: true } },
   size: { control: { disable: true } },
+  value: { control: { disable: true } },
   'flip-disabled': { control: { disable: true } },
 }
 
@@ -145,8 +147,7 @@ export default {
       description: 'Sets the size of the select.',
     },
     value: {
-      description: 'Sets the value of the select.',
-      table: { disable: true }
+      description: 'Sets the value of the select programmatically.',
     },
     'flip-disabled': { control: 'boolean' },
     // Hide inherited jh-input slots
@@ -232,6 +233,7 @@ export const Playground = { render: (args) => html`
     size=${args.size}
     ?flip-disabled=${args['flip-disabled']}
     .options=${testOptions}
+    value=${args.value}
   ></jh-select>
   </div>`
 };
@@ -255,10 +257,12 @@ Playground.args = {
   'show-indicator': false,
   size: 'medium',
   'flip-disabled': false,
+  value: "",
 };
 
 Playground.argTypes = {
   options: { control: { disable: true } },
+  value: { control: { disable: true } },
 };
 
 Playground.parameters = {

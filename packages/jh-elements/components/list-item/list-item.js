@@ -63,15 +63,15 @@ export class JhListItem extends JhElement {
     return css`
       :host {
         background-color: var(--jh-list-item-color-background-enabled, transparent);
+        color: var(
+          --jh-list-item-color-text-primary-enabled,
+          var(--jh-color-content-primary-enabled)
+        );
         padding-bottom: var(--jh-dimension-400);
         font-family: var(--jh-font-body-medium-1-font-family);
         font-weight: var(--jh-font-body-medium-1-font-weight);
         font-size: var(--jh-font-body-medium-1-font-size);
         line-height: var(--jh-font-body-medium-1-line-height);
-        color: var(
-          --jh-list-item-color-text-primary-enabled,
-          var(--jh-color-content-primary-enabled)
-        );
         display: block;
         box-sizing: border-box;
       }

@@ -17,7 +17,7 @@ import { US_STATES_GROUPED } from '@jack-henry/jh-datasets/datasets/us-states-gr
 import { manageSelectDataset } from '@jack-henry/jh-datasets/utils/manageDataset.js';
 
 const testOptions = [
-  { label: "select a value...", value: "" },
+  { label: "select a value...", value: "", selected: true },
   { groupLabel: "Account types", groupValues: [
     {  value: "checking-01" },
     {  value: "savings-01", disabled: true },
@@ -25,7 +25,7 @@ const testOptions = [
   ]},
   { groupLabel: "Credit Cards", groupValues: [
     { label: "Cash Back Rewards with a much longer label for testing", value: "cc-cash-back" },
-    { label: "Travel Rewards", value: "cc-travel", selected: true },
+    { label: "Travel Rewards", value: "cc-travel" },
     { label: "Low Interest", value: "cc-low-interest" },
   ]},
   { label: "Personal Loan", value: "loan-personal" },
@@ -207,7 +207,7 @@ export default {
 };
 
 export const Overview = { render: (args) => html`
-  <jh-select .options=${testOptions} label="Select an account" helper-text="The accounts are grouped by type"></jh-select>
+  <jh-select .options=${testOptions} label="Select an account" helper-text="The accounts are grouped by type" value="cc-travel"></jh-select>
 `};
 
 Overview.argTypes = {
@@ -321,7 +321,7 @@ export const MenuFlip = { render: (args) => html`
       <jh-select label="Top select" .options=${testOptions} helper-text="should open on bottom" menu-position="top" invalid error-text="Error text"></jh-select>
     </div>
     <div>
-      <jh-select label="Bottom select" helper-text="should open on top" .options=${testOptions}  invalid error-text="Error text" menu-position="bottom"></jh-select>
+      <jh-select label="Bottom select" helper-text="should open on top" .options=${testOptions}  invalid error-text="Error text" menu-position="bottom" value="cc-travel"></jh-select>
     </div>
   </div>
 `};
@@ -375,6 +375,7 @@ export const FormAssociated = {
           label=${args.label}
           ?required=${args.required}
           .options=${testOptions}
+          value="checking-01"
         ></jh-select>
         <jh-button label="Submit" submit @click=${onClick}></jh-button>
       </form>
@@ -425,7 +426,7 @@ export const ProgrammaticValueChange = {
     const clearSelected = () => {
       const select = document.querySelector('#programmatic-select');
       if (select) {
-        select.value = '';
+        select.value = null;
       }
     };
 
@@ -435,7 +436,7 @@ export const ProgrammaticValueChange = {
           id="programmatic-select"
           label="Programmatic value change"
           helper-text="Use the buttons below to change the selected option via .value"
-          .value=${'cd'}
+          value="cd"
           .options=${baseOptions}
         ></jh-select>
         <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">

@@ -9,8 +9,7 @@ SPDX-License-Identifier: Apache-2.0
 Welcome to our monorepo! The Forge Design System is a collection of reusable components, guided by clear visual and user experience
 standards that help teams build great products. The design system is informed by internal Jack Henry patterns and extensive
 UX research. We've solved many of the common UX problems and baked in accessibility so that you can focus on your product's 
-unique needs. It's a living system constantly growing, with frequent releases that include new features and improvements. The Jack Henry
-design system will help your product teams by:
+unique needs. It's a living system constantly growing, with frequent releases that include new features and improvements. The Forge Design System will help your product teams by:
 
 - Establishing brand and UX consistency, ensuring all products are aligned to a set of standards.
 - Reduce time to market through design and code reuse. No need to build from scratch.
@@ -60,7 +59,7 @@ you focus on solving high impact problems unique to your domain.
 
 ## Getting Started
 
-If you're just getting started, we highly recommend you first visit [jackhenry.design](https://jackhenry.design/) to learn more about the Design System and 
+If you're just getting started, we highly recommend you first visit [jackhenry.design](https://jackhenry.design/) to learn more about the Forge Design System and 
 review it's usage guidelines and style guide. If you're ready to dive into the technical side, visit our [Storybook](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/welcome-about-jh--docs) instance for documentation and to test drive our components.
 
 | Package Name         | Description                          |
@@ -73,7 +72,7 @@ review it's usage guidelines and style guide. If you're ready to dive into the t
 
 We currently maintain two documentation sites:
 
-* [Jackhenry.design](https://jackhenry.design) focuses on introducing the underlying concepts of the Design System, usage guidelines, and a style guide.
+* [Jackhenry.design](https://jackhenry.design) focuses on introducing the underlying concepts of the Forge Design System, usage guidelines, and a style guide.
 * [Storybook](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/welcome-about-jh--docs) focuses on technical implementations and considerations 
 for engineers, author guidance, and a playground where you can test drive our components.
 

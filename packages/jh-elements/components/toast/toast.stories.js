@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { html, css } from 'lit';
+import { action } from 'storybook/actions';
 import './toast.js';
 import '../button/button.js';
 
@@ -29,26 +30,41 @@ const storyStyles = css`
 `;
 
 const disableAllControls = {
-  appearance: { control: false },
   'dismiss-button-accessible-label': { control: false },
   'hide-dismiss-button': { control: false },
   stacked: { control: false },
   timeout: { control: false },
 };
 
+function logCustomEvent(name, e) {
+  return action(name)({
+    detail: e.detail,
+    type: e.type,
+    bubbles: e.bubbles,
+    cancelable: e.cancelable,
+    composed: e.composed,
+    currentTarget: e.currentTarget,
+    defaultPrevented: e.defaultPrevented,
+    eventPhase: e.eventPhase,
+    isTrusted: e.isTrusted,
+    target: e.target,
+    timeStamp: e.timeStamp,
+  });
+}
+
 export default {
   component: 'jh-toast',
   title: 'Components/Toast',
-  parameters: {
-    actions: {
-      handles: ['jh-dismiss'],
-    },
-  },
+  decorators: [
+    (story) => html`
+      <div
+        @jh-dismiss=${(e) => logCustomEvent('jh-dismiss', e)}
+      >
+        ${story()}
+      </div>
+    `,
+  ],
   argTypes: {
-    appearance: {
-      control: 'select',
-      options: ['neutral', 'positive', 'negative'],
-    },
     stacked: {
       control: 'boolean',
     },
@@ -93,7 +109,6 @@ Overview.parameters = {
 };
 
 const createNewToast = (
-  appearance,
   hideDismissButton,
   dismissButtonAccessibleLabel,
   timeout,
@@ -104,7 +119,6 @@ const createNewToast = (
   let liveRegion = story.querySelector('div.live-region');
 
   let toast = document.createElement('jh-toast');
-  toast.setAttribute('appearance', appearance);
   hideDismissButton
     ? toast.setAttribute('hide-dismiss-button', hideDismissButton)
     : null;
@@ -122,14 +136,13 @@ const createNewToast = (
 export const Playground = {
   render: (args) => {
     let handleClick = function (e) {
-      let storyId = e.target.parentElement.parentElement.id;
+      let storyId = e.target.closest('#story-root-dark, #story-root-light').id;
       let existingToast = document.querySelectorAll(`jh-toast#${storyId}`);
 
       if (existingToast.length) {
         existingToast[0].remove();
       }
       createNewToast(
-        args.appearance,
         args['hide-dismiss-button'],
         args['dismiss-button-accessible-label'],
         args.timeout,
@@ -154,7 +167,6 @@ export const Playground = {
 
 Playground.args = {
   timeout: 5000,
-  appearance: 'positive',
   'hide-dismiss-button': true,
   'dismiss-button-accessible-label': 'dismiss toast',
   stacked: false,

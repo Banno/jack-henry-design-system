@@ -2,7 +2,8 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css } from 'lit';
+import { css } from 'lit';
+import { JhElement } from '../element/element.js';
 
 /**
  * Dividers are used to group content vertically at the page or component level and should be used when whitespace does not provide a clear enough separation.
@@ -16,7 +17,7 @@ import { LitElement, css } from 'lit';
  * 
  * @customElement jh-divider
  */
-export class JhDivider extends LitElement {
+export class JhDivider extends JhElement {
   static get styles() {
     return css`
         :host {
@@ -72,7 +73,7 @@ export class JhDivider extends LitElement {
           margin-left: var(--inset, var(--jh-divider-space-inset));
         }
       `
-        }
+  }
 
   static get properties() {
     return {
@@ -92,5 +93,4 @@ export class JhDivider extends LitElement {
     this.inset = null;
   }
 }
-
-customElements.define('jh-divider', JhDivider);
+JhDivider.register('jh-divider', JhDivider);

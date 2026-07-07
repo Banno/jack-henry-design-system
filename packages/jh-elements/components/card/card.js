@@ -2,8 +2,9 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { JhElement } from '../element/element.js';
 import '../divider/divider.js';
 
 /**
@@ -11,8 +12,8 @@ import '../divider/divider.js';
  * 
  * [Card Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-card--docs)
  * @cssprop --jh-card-color-background - The card background-color. Defaults to `--jh-color-container-primary-enabled`.
- * @cssprop --jh-card-border-radius - The card border-radius. Defaults to `--jh-border-radius-400`.
- * @cssprop --jh-card-shadow - The card box-shadow. Defaults to `--jh-shadow-low`.
+ * @cssprop --jh-card-border-radius - The card border-radius. Defaults to `--jh-border-radius-200`.
+ * @cssprop --jh-card-color-border - The card border color. Defaults to `--jh-border-decorative-color`.
  * @cssprop --jh-card-media-aspect-ratio - The media slot aspect-ratio. Defaults to `auto`.
  * @cssprop --jh-card-media-space-padding - The media slot padding. Defaults to `0`.
  * @cssprop --jh-card-header-color-text - The header text color. Defaults to `--jh-color-content-primary-enabled`.
@@ -36,11 +37,11 @@ import '../divider/divider.js';
  * 
  * @customElement jh-card
  */
-export class JhCard extends LitElement {
+export class JhCard extends JhElement {
   static get styles() {
     return css`
       :host {
-        --border-radius: var(--jh-border-radius-400);
+        --border-radius: var(--jh-border-radius-200);
         background-color: var(
           --jh-card-color-background,
           var(--jh-color-container-primary-enabled)
@@ -49,7 +50,9 @@ export class JhCard extends LitElement {
           --jh-card-border-radius,
           var(--border-radius)
         );
-        box-shadow: var(--jh-card-shadow, var(--jh-shadow-low));
+        border-color: var(--jh-card-color-border, var(--jh-border-decorative-color));
+        border-width: var(--jh-border-decorative-width);
+        border-style: var(--jh-border-decorative-style);
         word-break: break-word;
         display: block;
       }
@@ -344,5 +347,4 @@ export class JhCard extends LitElement {
     `;
   }
 }
-
-customElements.define('jh-card', JhCard);
+JhCard.register('jh-card', JhCard);

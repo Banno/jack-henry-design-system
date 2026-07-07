@@ -2,10 +2,9 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-
-let id = 0;
+import { JhElement } from '../element/element.js';
 
 /**
  * A switch or toggle button is used to make an on/off selection that takes effect immediately on the page. It is not meant to be used in forms.
@@ -32,17 +31,15 @@ let id = 0;
  *
  * @customElement jh-switch
  */
-export class JhSwitch extends LitElement {
-  /** @type {?number} */
-  #id;
+export class JhSwitch extends JhElement {
 
   static get styles() {
     return css`
       :host {
-        font-family: var(--jh-font-body-regular-1-font-family);
-        font-weight: var(--jh-font-body-regular-1-font-weight);
-        font-size: var(--jh-font-body-regular-1-font-size);
-        line-height: var(--jh-font-body-regular-1-line-height);
+        font-family: var(--jh-font-body-medium-1-font-family);
+        font-weight: var(--jh-font-body-medium-1-font-weight);
+        font-size: var(--jh-font-body-medium-1-font-size);
+        line-height: var(--jh-font-body-medium-1-line-height);
         display: inline-flex;
         position: relative;
       }
@@ -257,20 +254,10 @@ export class JhSwitch extends LitElement {
     this.label = null;
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    this.#id = id++;
-  }
-
   #handleClick() {
     if (!this.disabled && this.accessibleDisabled !== 'true') {
       this.checked = !this.checked;
-      const options = {
-        bubbles: true,
-        composed: true,
-        cancelable: true,
-      };
-      this.dispatchEvent(new CustomEvent('jh-change', options));
+      this.dispatchCustomEvent('jh-change');
     }
   }
 
@@ -280,7 +267,7 @@ export class JhSwitch extends LitElement {
 
     if (this.helperText) {
       helperText = html`
-        <p class="helper-text" id="switch-helper-text-${this.#id}">
+        <p class="helper-text" id="switch-helper-text-${this.uniqueId}">
           ${this.helperText}
         </p>
       `;
@@ -289,7 +276,7 @@ export class JhSwitch extends LitElement {
     if (this.label) {
       label = html`
         <div class="label-container">
-          <label class="label-text" for="switch-label-${this.#id}">
+          <label class="label-text" for="switch-label-${this.uniqueId}">
             ${this.label}
           </label>
           ${helperText}
@@ -304,11 +291,11 @@ export class JhSwitch extends LitElement {
         aria-label="${ifDefined(this.accessibleLabel)}"
         aria-disabled="${ifDefined(this.accessibleDisabled)}"
         type="button"
-        aria-describedby=${this.helperText ? `switch-helper-text-${this.#id}` : null}
+        aria-describedby=${this.helperText ? `switch-helper-text-${this.uniqueId}` : null}
         ?checked=${this.checked}
         ?disabled=${this.disabled}
         aria-pressed="${this.checked}"
-        id="switch-label-${this.#id}"
+        id="switch-label-${this.uniqueId}"
       ></button>
       <span aria-hidden="true"></span>
       ${label}
@@ -316,4 +303,4 @@ export class JhSwitch extends LitElement {
   }
 }
 
-customElements.define('jh-switch', JhSwitch);
+JhSwitch.register('jh-switch', JhSwitch);

@@ -2,12 +2,11 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
+import { JhElement } from '../element/element.js';
 import '@jack-henry/jh-icons/icons-wc/icon-arrow-up-arrow-down.js';
 import '@jack-henry/jh-icons/icons-wc/icon-arrow-up-small.js';
 import '@jack-henry/jh-icons/icons-wc/icon-arrow-down-small.js';
-
-let id = 0;
 
 /**
  * The table header cell is used to display a column header. It should be placed inside a `<jh-table-row>` and contains text. Hooks for sorting and a sorting icon are also provided.
@@ -68,13 +67,10 @@ let id = 0;
  * @slot jh-table-sorted-none - Use to insert a custom icon for no sort.
  * @slot default - Use to insert table header text.
  * 
- * @event jh-sort - Dispatched when a sortable header cell is activated. Event payload includes the column, sorted state, and id of the header cell and can be accessed via `e.detail.column`, `e.detail.sorted`, and ` e.detail.id`.  
+ * @event jh-sort - Dispatched when a sortable header cell is activated. Event payload includes the column, sorted state, and id of the header cell and can be accessed via `e.detail.reference.column`, `e.detail.reference.sorted`, and `e.detail.reference.id`.  
  * @customElement jh-table-header-cell
  */
-export class JhTableHeaderCell extends LitElement {
-
-  /** @type {ElementInternals} */
-  #internals;
+export class JhTableHeaderCell extends JhElement {
 
   static get styles() {
     return css`
@@ -101,7 +97,7 @@ export class JhTableHeaderCell extends LitElement {
         vertical-align: var(--vertical-align, top);
         display: table-cell;
         box-sizing: border-box;
-        width: 100%;
+        width: auto;
       }
       :host([sortable]:hover) {
         border-bottom-color: var(--jh-table-header-cell-color-border-bottom-hover, var(--jh-border-decorative-color));
@@ -219,8 +215,7 @@ export class JhTableHeaderCell extends LitElement {
 
   constructor() {
     super();
-    this.#internals = this.attachInternals();
-    this.#internals.role = 'columnheader';
+    this.internals.role = 'columnheader';
     /** @type { 'left' | 'center' | 'right' } */
     this.horizontalAlign = 'left';
     /** @type {boolean} */
@@ -232,7 +227,7 @@ export class JhTableHeaderCell extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     /** @ignore */
-    this.id = `table-header-${id++}`;
+    this.id = `table-header-${this.uniqueId}`;
     if (this.sortable) {
     this.setAttribute('tabindex', '0');
     this.setAttribute('aria-sort', this.sorted);
@@ -260,18 +255,13 @@ export class JhTableHeaderCell extends LitElement {
     
     this.setAttribute('aria-sort', this.sorted);
 
-    this.dispatchEvent(
-      new CustomEvent('jh-sort', {
-        bubbles: true,
-        cancelable: true,
-        composed: true,
-        detail: {
-          column: this,
-          sorted: this.sorted,
-          id: this.id,
-        },
-      })
-    );
+    this.dispatchCustomEvent('jh-sort', {
+      reference: {
+        sorted: this.sorted,
+        column: this,
+        id: this.id,
+      },
+    });
   }
 
   #getSortingIcon() {
@@ -317,4 +307,4 @@ export class JhTableHeaderCell extends LitElement {
     }
 }
 
-customElements.define('jh-table-header-cell', JhTableHeaderCell);
+JhTableHeaderCell.register('jh-table-header-cell', JhTableHeaderCell);

@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { html, css } from 'lit';
+import { action } from 'storybook/actions';
 import './table-header-cell.js';
 import '../table-row/table-row.js';
 import '../table/table.js';
@@ -20,15 +21,35 @@ const disableControls = {
   'horizontal-align': { control: { disable: true } }
 }
 
+function logCustomEvent(name, e) {
+  return action(name)({
+    detail: e.detail,
+    type: e.type,
+    bubbles: e.bubbles,
+    cancelable: e.cancelable,
+    composed: e.composed,
+    currentTarget: e.currentTarget,
+    defaultPrevented: e.defaultPrevented,
+    eventPhase: e.eventPhase,
+    isTrusted: e.isTrusted,
+    target: e.target,
+    timeStamp: e.timeStamp,
+  });
+}
+
 export default {
   component: 'jh-table-header-cell',
   title: 'Components/Table/Table Header Cell',
   tags: ['beta'],
-  parameters: {
-    actions: {
-      handles: ['jh-sort'],
-    },
-  },
+  decorators: [
+      (story) => html`
+        <div class="story-decorator"
+          @jh-sort=${(e) => logCustomEvent('jh-sort', e)}
+        >
+          ${story()}
+        </div>
+      `,
+  ],
   argTypes: {
     sortable: {
       control: 'boolean',

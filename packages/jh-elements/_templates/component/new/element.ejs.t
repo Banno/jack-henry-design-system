@@ -11,13 +11,14 @@ to: components/<%= unprefixedName %>/<%= unprefixedName %>.js
 * SPDX-License-Identifier: Apache-2.0
 */
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
+import { JhElement } from '../element/element.js';
 
 /**
  * <%= h.changeCase.title(elementName) %>
  * @customElement <%= elementName %>
  */
-export class <%= h.changeCase.pascal(elementName) %> extends LitElement {
+export class <%= h.changeCase.pascal(elementName) %> extends JhElement {
   static get styles() {
     return css`
         :host {
@@ -45,5 +46,4 @@ export class <%= h.changeCase.pascal(elementName) %> extends LitElement {
     `;
   }
 }
-
-customElements.define('<%= elementName %>', <%= h.changeCase.pascal(elementName) %> );
+<%= className %>.register('<%= elementName %>', <%= h.changeCase.pascal(elementName) %> );

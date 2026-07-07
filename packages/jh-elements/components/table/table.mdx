@@ -4,7 +4,7 @@ SPDX-FileCopyrightText: 2025 Jack Henry
 SPDX-License-Identifier: Apache-2.0
 */}
 
-import { Meta, ArgTypes } from '@storybook/blocks';
+import { Meta, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as stories from './table.stories.js';
 
 <Meta title="Components/Table" of={stories} />
@@ -61,6 +61,8 @@ The table component makes use of suggested content related dependencies.
 
 ## Layout
 
+### Structure
+
 The table component functions like a native HTML table with some variations:
 
 - `<jh-table-data-cell>` and `<jh-table-header-cell>` components are placed inside `<jh-table-row>` components. 
@@ -72,6 +74,20 @@ The table component functions like a native HTML table with some variations:
     - `jh-table-caption` to provide a short description of the table.
     - `jh-table-toolbar` to add any action items, filtering, tagging, etc.
     - `jh-table-pagination` to add pagination controls.
+
+### Column width and scroll behavior
+The table can be adjusted for different use cases by setting widths on the table's container and its header cells. Below are some common use cases:
+
+- **Fluid:** By default, the available space will be divided equally among the columns. The table will expand to fill the width of its container.
+- **Controlled:** A specific `width` can be set on the `jh-table-header-cell` elements to control the column widths. It is strongly recommended to use percentages (%) for the column widths to ensure the table remains responsive. The table will expand to fill the width of its container.
+- **Wide/Scrollable:** For wide tables, horizontal scrolling can be enabled by setting the `scrollable` attribute on the `jh-table`. To set the width of the header cells, set `min-width` on the `jh-table-data-cell` elements. 
+This will make the table scroll horizontally when its content exceeds the width of its container.
+
+**Notes:**
+
+- To set the width of the columns, it is sufficient to set the desired `width` or `min-width` (when `scrollable` is set) on the `jh-table-header-cell` elements.
+- Do not set `border-collapse: collapse` on the table, as this will cause unexpected behavior with the table layout.
+- To keep the text on one line, set `white-space: nowrap` on the cells.
 
 ## Sorting Event
 

@@ -3,10 +3,11 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { html, css } from 'lit';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import './button.js';
 import '@jack-henry/jh-icons/icons-wc/icon-ellipsis.js';
+import '@jack-henry/jh-icons/icons-wc/icon-chevron-down-small.js';
 
 const storyStyles = css`
   div[id^="story-root"] {
@@ -34,7 +35,6 @@ const disableControls = {
   size: { control: { disable: true } },
   submit: { control: { disable: true } },
   target: { control: { disable: true } },
-  'icon-position': { control: { disable: true } },
   value: { table: { disable: true } },
 };
 
@@ -42,17 +42,13 @@ export default {
   component: 'jh-button',
   title: 'Components/Button',
   argTypes: {
-    'icon-position': {
-      control: 'select',
-      options: ['before', 'after'],
-    },
     appearance: {
       control: 'select',
       options: ['primary', 'secondary', 'tertiary', 'danger'],
     },
     size: {
       control: 'select',
-      options: ['small', 'medium', 'large'],
+      options: ['x-small','small', 'medium', 'large'],
     },
     block: {
       control: 'boolean',
@@ -90,14 +86,25 @@ export const Overview = {
   render: (args) => html`
     <div class="overview-row">
       <jh-button label="Label"></jh-button>
-      <jh-button icon-position="before" label="Label">
-        <jh-icon-ellipsis slot="jh-button-icon"></jh-icon-ellipsis>
+      <jh-button label="Label">
+        <jh-icon-ellipsis slot="jh-button-icon-left"></jh-icon-ellipsis>
       </jh-button>
-      <jh-button icon-position="after" label="Label">
-        <jh-icon-ellipsis slot="jh-button-icon"></jh-icon-ellipsis>
+      <jh-button label="Label">
+        <jh-icon-ellipsis slot="jh-button-icon-right"></jh-icon-ellipsis>
+      </jh-button>
+      <jh-button label="Label">
+        <jh-icon-ellipsis slot="jh-button-icon-left"></jh-icon-ellipsis>
+        <jh-icon-chevron-down-small slot="jh-button-icon-right"></jh-icon-chevron-down-small>
+      </jh-button>
+      <jh-button>
+        <jh-icon-ellipsis slot="jh-button-icon-left"></jh-icon-ellipsis>
+        <jh-icon-chevron-down-small slot="jh-button-icon-right"></jh-icon-chevron-down-small>
       </jh-button>
       <jh-button accessible-label="label">
-        <jh-icon-ellipsis slot="jh-button-icon"></jh-icon-ellipsis>
+        <jh-icon-ellipsis slot="jh-button-icon-left"></jh-icon-ellipsis>
+      </jh-button>
+      <jh-button accessible-label="label">
+        <jh-icon-ellipsis slot="jh-button-icon-right"></jh-icon-ellipsis>
       </jh-button>
     </div>
   `,
@@ -130,9 +137,9 @@ export const Playground = {
     size=${args.size}
     ?submit=${args.submit}
     target=${ifDefined(args.target ? args.target : null)}
-    icon-position=${args['icon-position']}
     label=${ifDefined(args.label || args.label !== '' ? args.label : null)}>
-    <jh-icon-ellipsis slot="jh-button-icon"></jh-icon-ellipsis>
+    <jh-icon-ellipsis slot="jh-button-icon-left"></jh-icon-ellipsis>
+    <jh-icon-chevron-down-small slot="jh-button-icon-right"></jh-icon-chevron-down-small>
   </jh-button>`,
 };
 
@@ -148,7 +155,6 @@ Playground.args = {
   size: 'medium',
   submit: false,
   target: null,
-  'icon-position': 'after',
 };
 
 Playground.argTypes = {
@@ -163,8 +169,8 @@ Playground.parameters = {
 
 export const Block = {
   render: (args) => html`
-  <jh-button block label="Block" icon-position="before">
-    <jh-icon-ellipsis slot="jh-button-icon"></jh-icon-ellipsis>
+  <jh-button block label="Block">
+    <jh-icon-ellipsis slot="jh-button-icon-left"></jh-icon-ellipsis>
   </jh-button>`,
 };
 
@@ -172,6 +178,71 @@ Block.argTypes = {
   ...disableControls,
 };
 
+export const IconsOnly = {
+  render: (args) => html`
+    <jh-button accessible-label="Left icon" 
+        ?block=${args.block}
+    ?disabled=${args.disabled}
+        ?pending=${args.pending}
+    size=${args.size}
+        label=${ifDefined(args.label || args.label !== '' ? args.label : null)}>
+      <jh-icon-ellipsis slot="jh-button-icon-left"></jh-icon-ellipsis>
+    </jh-button>
+    <jh-button accessible-label="Right icon"
+        ?block=${args.block}
+    ?disabled=${args.disabled}
+        ?pending=${args.pending}
+    size=${args.size}
+        label=${ifDefined(args.label || args.label !== '' ? args.label : null)}>
+      <jh-icon-ellipsis slot="jh-button-icon-right"></jh-icon-ellipsis>
+    </jh-button>
+    <jh-button accessible-label="Both icons"
+        ?block=${args.block}
+    ?disabled=${args.disabled}
+        ?pending=${args.pending}
+    size=${args.size}
+        label=${ifDefined(args.label || args.label !== '' ? args.label : null)}>
+      <jh-icon-ellipsis slot="jh-button-icon-left"></jh-icon-ellipsis>
+      <jh-icon-chevron-down-small slot="jh-button-icon-right"></jh-icon-chevron-down-small>
+    </jh-button>
+  `,
+};
+
+IconsOnly.args = {
+  block: false,
+  disabled: false,
+  label: null,
+  pending: false,
+  size: 'medium',
+};
+
+IconsOnly.argTypes = {  appearance: { control: { disable: true } },
+  'accessible-disabled': { control: { disable: true } },
+  'accessible-label': { control: { disable: true } },
+  formAssociated: { table: { disable: true } },
+  href: { control: { disable: true } },
+  name: { control: { disable: true } },
+  submit: { control: { disable: true } },
+  target: { control: { disable: true } },
+  value: { table: { disable: true } },
+};
+
+IconsOnly.parameters = {
+  styles: storyStyles,
+};
+
+/**
+ * Handle a form submit event and log the action but don't actually submit the form
+ */
+function submitAction() {
+  const onSubmit = action('onSubmit');
+  const onFormdata = action('onFormdata');
+  return (event) => {
+    event.preventDefault();
+    onFormdata([...new FormData(event.target)]);
+    onSubmit(event);
+  };
+}
 export const FormAssociated = {
   render: (args) => {
     const onClick = (event) =>
@@ -195,19 +266,6 @@ export const FormAssociated = {
   },
 };
 
-/**
- * Handle a form submit event and log the action but don't actually submit the form
- */
-function submitAction() {
-  const onSubmit = action('onSubmit');
-  const onFormdata = action('onFormdata');
-  return (event) => {
-    event.preventDefault();
-    onFormdata([...new FormData(event.target)]);
-    onSubmit(event);
-  };
-}
-
 FormAssociated.args = {
   'accessible-disabled': false,
   disabled: false,
@@ -225,5 +283,6 @@ FormAssociated.argTypes = {
   pending: { table: { disable: true } },
   size: { table: { disable: true } },
   target: { table: { disable: true } },
-  'icon-position': { table: { disable: true } },
 };
+
+

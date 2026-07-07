@@ -2,7 +2,8 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
+import { JhElement } from '../element/element.js';
 import '@jack-henry/jh-icons/icons-wc/icon-xmark.js';
 import '../button/button.js';
 import '../tooltip/tooltip.js';
@@ -46,7 +47,7 @@ import '../tooltip/tooltip.js';
  * 
  * @customElement jh-tag
  */
-export class JhTag extends LitElement {
+export class JhTag extends JhElement {
 
   static get styles() {
     return css`
@@ -361,13 +362,7 @@ export class JhTag extends LitElement {
 
   #handleDismissal(e) {
     e.stopPropagation();
-    this.dispatchEvent(
-      new CustomEvent('jh-dismiss', {
-        bubbles: true,
-        cancelable: true,
-        composed: true,
-      })
-    );
+    this.dispatchCustomEvent('jh-dismiss');
 
     if (this.removeOnDismiss) {
       this.remove();
@@ -380,19 +375,22 @@ export class JhTag extends LitElement {
     if (this.dismissible) {
       dismissBtn = html`
       <jh-button
-        size="medium"
+        size="x-small"
         appearance="secondary"
         accessible-label=${this.dismissButtonAccessibleLabel}
         @click=${this.#handleDismissal}>
-        <slot name="jh-tag-dismiss-icon" slot="jh-button-icon">
-          <jh-icon-xmark slot="jh-button-icon"></jh-icon-xmark>
+        <slot name="jh-tag-dismiss-icon" slot="jh-button-icon-left">
+          <jh-icon-xmark slot="jh-button-icon-left"></jh-icon-xmark>
         </slot>
       </jh-button>
       `;
     }
 
     if (this.dismissible && this.tooltipLabel) {
-      dismissBtn = html`<jh-tooltip label=${this.tooltipLabel}>${dismissBtn}</jh-tooltip>`;
+      dismissBtn = html`<jh-tooltip>
+        ${dismissBtn}
+        <div slot="jh-tooltip-content">${this.tooltipLabel}</div>
+      </jh-tooltip>`;
     }
     return dismissBtn;
   }
@@ -423,4 +421,4 @@ export class JhTag extends LitElement {
   }
 }
 
-customElements.define('jh-tag', JhTag);
+JhTag.register('jh-tag', JhTag);

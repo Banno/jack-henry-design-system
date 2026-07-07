@@ -6,11 +6,11 @@ import { html, css } from 'lit';
 import './radio-group.js';
 import '../radio/radio.js';
 import '../button/button.js';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 const storyStyles = css`
-  div[id^="story-root"] {
+  .story-decorator {
     display: flex;
     justify-content: center;
   }
@@ -22,6 +22,7 @@ const storyStyles = css`
 `;
 
 const disableControls = {
+  disabled: { control: { disable: true } },
   label: { control: { disable: true } },
   'helper-text': { control: { disable: true } },
   'error-text': { control: { disable: true } },
@@ -34,15 +35,38 @@ const disableControls = {
   'show-indicator': { control: { disable: true } },
 };
 
+function logCustomEvent(name, e) {
+  return action(name)({
+    detail: e.detail,
+    type: e.type,
+    bubbles: e.bubbles,
+    cancelable: e.cancelable,
+    composed: e.composed,
+    currentTarget: e.currentTarget,
+    defaultPrevented: e.defaultPrevented,
+    eventPhase: e.eventPhase,
+    isTrusted: e.isTrusted,
+    target: e.target,
+    timeStamp: e.timeStamp,
+  });
+}
+
 export default {
   component: 'jh-radio-group',
   title: 'Components/Radio Group',
-  parameters: {
-    actions: {
-      handles: ['jh-change'],
-    },
-  },
+  decorators: [
+    (story) => html`
+      <div class="story-decorator"
+        @jh-change=${(e) => logCustomEvent('jh-change', e)}
+      >
+        ${story()}
+      </div>
+    `,
+  ],
   argTypes: {
+    disabled: {
+      control: 'boolean',
+    },
     required: {
       control: 'boolean',
     },
@@ -112,6 +136,20 @@ export const Overview = {
         orientation="horizontal"
         error-text="Error text"
         invalid
+        disabled
+      >
+        <jh-radio label="radio 4" value="radio-4"></jh-radio>
+        <jh-radio label="radio 5" value="radio-5" disabled></jh-radio>
+        <jh-radio label="radio 6" value="radio-6"></jh-radio>
+      </jh-radio-group>
+    </div>
+    <div class="container">
+      <jh-radio-group
+        label="Label"
+        helper-text="Helper text group"
+        orientation="horizontal"
+        error-text="Error text"
+        invalid
       >
         <jh-radio label="radio 4" value="radio-4"></jh-radio>
         <jh-radio label="radio 5" value="radio-5" disabled></jh-radio>
@@ -140,6 +178,7 @@ export const Playground = {
       ?invalid=${args.invalid}
       error-text=${args['error-text']}
       value=${args.value}
+      ?disabled=${args.disabled}
     >
       <jh-radio
         label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus massa, mollis euismod lorem ut"
@@ -162,6 +201,7 @@ Playground.args = {
   invalid: true,
   'error-text': 'Error',
   value: 'radio-1',
+  disabled: false,
 };
 Playground.parameters = {
   styles: storyStyles,

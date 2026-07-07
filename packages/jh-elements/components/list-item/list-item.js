@@ -2,7 +2,8 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
+import { JhElement } from '../element/element.js';
 import '../divider/divider.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
@@ -45,10 +46,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * 
  * @customElement jh-list-item
  */
-export class JhListItem extends LitElement {
-  /** @type {ElementInternals} */
-  #internals;
-
+export class JhListItem extends JhElement {
   static get styles() {
     return css`
       :host {
@@ -125,7 +123,10 @@ export class JhListItem extends LitElement {
         border-left-width: var(--jh-border-selected-width);
       }
       :host([tabindex][selected]) .list-item {
-        padding-left: var(--jh-dimension-400);
+        padding-left: calc(var(
+          --jh-list-item-space-padding-left,
+          var(--jh-dimension-600)
+        ) - var(--jh-border-selected-width));
       }
       :host([tabindex][disabled]) {
         opacity: var(--jh-opacity-disabled);
@@ -292,8 +293,7 @@ export class JhListItem extends LitElement {
 
   constructor() {
     super();
-    this.#internals = this.attachInternals();
-    this.#internals.role = 'listitem';
+    this.internals.role = 'listitem';
     /** @type {boolean} */
     this.disabled = false;
     /** @type { 0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null } */
@@ -351,5 +351,4 @@ export class JhListItem extends LitElement {
     `;
   }
 }
-
-customElements.define('jh-list-item', JhListItem);
+JhListItem.register('jh-list-item', JhListItem);

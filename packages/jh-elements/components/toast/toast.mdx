@@ -4,7 +4,7 @@ SPDX-FileCopyrightText: 2025 Jack Henry
 SPDX-License-Identifier: Apache-2.0
 */}
 
-import {Meta, ArgTypes} from '@storybook/blocks';
+import {Meta, ArgTypes} from '@storybook/addon-docs/blocks';
 import * as stories from './toast.stories.js';
 
 <Meta title="Components/Toast" of={stories} />
@@ -69,8 +69,6 @@ Additionally, authors can specify which types of changes to the live region shou
 This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria.
 The following success criteria are of concern:
 
-- [WCAG 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html):
-  Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element.
 - [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html): Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.
 - [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html):
   All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes, except where the underlying function requires input that depends on the path of the user's movement and not just the endpoints.
@@ -111,7 +109,6 @@ The following success criteria are of concern:
 
 ### Author Guidance
 
-- To satisfy [WCAG 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html), ensure that information conveyed through the toast appearance is also available in text.
 - To satisfy [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html) when slotting buttons within the action slot, ensure that the buttons are keyboard operable and can be activated via the `Spacebar` and `Enter` keys. Use of the `jh-button` component will also satisfy this success criterion.
 - To satisfy [WCAG 2.2.1 Timing Adjustable](https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html), when auto dismissing the toast, authors should provide a way for users to either: turn off or adjust the the time limit before encountering it, or provide users a way to extend the time limit by at least 20 seconds before the time expires.
 - To satisfy [WCAG 2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html) when slotting buttons within the action slot, ensure that the buttons contain focus visible styles to help users determine which element has keyboard focus. Use of the `jh-button` component will also satisfy this success criterion.

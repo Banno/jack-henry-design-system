@@ -2,7 +2,8 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
+import { JhElement } from '../element/element.js';
 
 /**
  * The table row is used to display one row of table data. It contains `<jh-table-data-cell>` or `<jh-table-header-cell>` components.
@@ -19,10 +20,7 @@ import { LitElement, css, html } from 'lit';
  * @slot default - Use to insert `<jh-table-data-cell>` or `<jh-table-header-cell>` components.
  * @customElement jh-table-row
  */
-export class JhTableRow extends LitElement {
-
-  /** @type {ElementInternals} */
-  #internals;
+export class JhTableRow extends JhElement {
 
   static get styles() {
     return css`
@@ -42,8 +40,7 @@ export class JhTableRow extends LitElement {
 
   constructor() {
     super();
-    this.#internals = this.attachInternals();
-    this.#internals.role = 'row';
+    this.internals.role = 'row';
   }
 
   render() {
@@ -51,4 +48,4 @@ export class JhTableRow extends LitElement {
   }
 }
 
-customElements.define('jh-table-row', JhTableRow);
+JhTableRow.register('jh-table-row', JhTableRow);

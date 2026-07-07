@@ -2,7 +2,8 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
+import { JhElement } from '../element/element.js';
 
 /**
  * The table data cell is used to display one cell of table data. Table data cells can contain text or other content and have to be placed inside `<jh-table-row>`s.
@@ -32,10 +33,7 @@ import { LitElement, css, html } from 'lit';
  * 
  * @customElement jh-table-data-cell
  */
-export class JhTableDataCell extends LitElement {
-
-  /** @type {ElementInternals} */
-  #internals;
+export class JhTableDataCell extends JhElement {
 
   static get styles() {
     return css`
@@ -64,7 +62,8 @@ export class JhTableDataCell extends LitElement {
         font-size: var(--footer-font-size, var(--jh-font-body-regular-1-font-size));      
         font-family: var(--footer-font-family, var(--jh-font-body-regular-1-font-family));
         display: table-cell;
-        width: 100%;
+        width: auto;
+        box-sizing: border-box;
       }
       :host([horizontal-align="left"]) {
         text-align: left;
@@ -93,8 +92,7 @@ export class JhTableDataCell extends LitElement {
 
   constructor() {
     super();
-    this.#internals = this.attachInternals();
-    this.#internals.role = 'cell';
+    this.internals.role = 'cell';
     /**  @type { 'left' | 'center' | 'right' } */
     this.horizontalAlign = 'left';
   }
@@ -104,4 +102,4 @@ export class JhTableDataCell extends LitElement {
   }
 }
 
-customElements.define('jh-table-data-cell', JhTableDataCell);
+JhTableDataCell.register('jh-table-data-cell', JhTableDataCell);

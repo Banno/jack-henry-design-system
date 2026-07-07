@@ -9,20 +9,20 @@ runs:
   using: "composite"
   steps:
     - name: Install PNPM
-      uses: pnpm/action-setup@v2
+      uses: pnpm/action-setup@v6
       with:
-        version: 8.5.1
+        version: 9.15.9
 
     - name: Install Nodejs
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v6
       with:
-        node-version: 18
+        node-version: 24
+        registry-url: 'https://registry.npmjs.org'
+        cache: 'pnpm'
 
-    - name: Output .npmrc
+    - name: Update npm
       shell: bash
-      run: |
-        echo "registry=https://registry.npmjs.org/" > ~/.npmrc
-        echo "include-workspace-root: true" >> ~/.npmrc
+      run: npm install -g npm@11.5.1
       
     - name: Install dependencies
       shell: bash

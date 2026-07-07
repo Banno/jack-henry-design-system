@@ -1,7 +1,7 @@
 {
   "name": "@jack-henry/jh-icons",
   "description": "Jack Henry icon library",
-  "version": "2.0.0-beta.7",
+  "version": "2.0.0-beta.8",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Banno/jack-henry-design-system.git"
@@ -25,7 +25,7 @@
     "postpack": "rm -f NOTICE"
   },
   "dependencies": {
-    "lit": "2.1.1"
+    "lit": ">=2.1.1 <4.0.0"
   },
   "devDependencies": {
     "hygen": "6.2.11"

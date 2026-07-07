@@ -2,8 +2,9 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { JhElement } from '../element/element.js';
 
 /**
  * A progress indicator provides feedback to a user regarding loading and waiting states.
@@ -18,9 +19,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * 
  * @customElement jh-progress
  */
-export class JhProgress extends LitElement {
-  /** @type {ElementInternals} */
-  #internals;
+export class JhProgress extends JhElement {
 
   /** @type {?string} */
   #label;
@@ -207,7 +206,6 @@ export class JhProgress extends LitElement {
 
   constructor() {
     super();
-    this.#internals = this.attachInternals();
     /** @type {boolean} */
     this.indeterminate = false;
     /** @type {?string} */
@@ -219,17 +217,17 @@ export class JhProgress extends LitElement {
     /** @type {boolean} */
     this.hideValue = false;
     /** @type {?string} */
-    this.#internals.ariaLabel;
+    this.internals.ariaLabel;
     /** @type {number} */
-    this.#internals.ariaValueMax;
+    this.internals.ariaValueMax;
     /** @type {number} */
-    this.#internals.ariaValueMin;
+    this.internals.ariaValueMin;
     /** @type {?number} */
-    this.#internals.ariaValueNow;
+    this.internals.ariaValueNow;
     /** @type {?string} */
-    this.#internals.ariaValueText;
+    this.internals.ariaValueText;
     /** @type {?string} */
-    this.#internals.role = 'progressbar';
+    this.internals.role = 'progressbar';
     /** @type {?string} */
     this.accessibleLabel = null;
     /** @type {?number} */
@@ -256,10 +254,10 @@ export class JhProgress extends LitElement {
 
   // Shared setter for elementInternals properties
   #setAttribute(ariaAttribute, newValue) {
-    const oldValue = this.#internals[ariaAttribute];
+    const oldValue = this.internals[ariaAttribute];
 
     if (newValue !== oldValue) {
-      this.#internals[ariaAttribute] = newValue;
+      this.internals[ariaAttribute] = newValue;
     }
     this.requestUpdate(ariaAttribute, oldValue);
   }
@@ -280,7 +278,7 @@ export class JhProgress extends LitElement {
   }
 
   get accessibleLabel() {
-    return this.#internals.ariaLabel;
+    return this.internals.ariaLabel;
   }
 
   set accessibleLabel(newValue) {
@@ -288,7 +286,7 @@ export class JhProgress extends LitElement {
   }
 
   get min() {
-    return this.#internals.ariaValueMin;
+    return this.internals.ariaValueMin;
   }
 
   set min(newValue) {
@@ -296,7 +294,7 @@ export class JhProgress extends LitElement {
   }
 
   get max() {
-    return this.#internals.ariaValueMax;
+    return this.internals.ariaValueMax;
   }
 
   set max(newValue) {
@@ -304,7 +302,7 @@ export class JhProgress extends LitElement {
   }
 
   get accessibleValueText() {
-    return this.#internals.ariaValueText;
+    return this.internals.ariaValueText;
   }
 
   set accessibleValueText(newValue) {
@@ -312,7 +310,7 @@ export class JhProgress extends LitElement {
   }
 
   get value() {
-    return this.#internals.ariaValueNow; 
+    return this.internals.ariaValueNow; 
   }
 
   set value(newValue) {
@@ -419,4 +417,4 @@ export class JhProgress extends LitElement {
   }
 }
 
-customElements.define('jh-progress', JhProgress);
+JhProgress.register('jh-progress', JhProgress);

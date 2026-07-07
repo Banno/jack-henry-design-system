@@ -2,9 +2,8 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
-
-let id = 0;
+import { css, html } from 'lit';
+import { JhElement } from '../element/element.js';
 
 /**
  * Radio buttons, typically presented in radio groups, allow users to select only one option amongst a group of options.
@@ -68,20 +67,15 @@ let id = 0;
  *
  * @customElement jh-radio */
 
-export class JhRadio extends LitElement {
-
-  /** @type {?Number} */
-  #id;
-  /** @type {ElementInternals} */
-  #internals;
+export class JhRadio extends JhElement {
 
   static get styles() {
     return css`
       :host {
-        font-family: var(--jh-font-body-regular-1-font-family);
-        font-weight: var(--jh-font-body-regular-1-font-weight);
-        font-size: var(--jh-font-body-regular-1-font-size);
-        line-height: var(--jh-font-body-regular-1-line-height);
+        font-family: var(--jh-font-body-medium-1-font-family);
+        font-weight: var(--jh-font-body-medium-1-font-weight);
+        font-size: var(--jh-font-body-medium-1-font-size);
+        line-height: var(--jh-font-body-medium-1-line-height);
         display: inline-flex;
         position: relative;
       }
@@ -325,8 +319,7 @@ export class JhRadio extends LitElement {
 
   constructor() {
     super();
-    this.#internals = this.attachInternals();
-    this.#internals.role = 'radio';
+    this.internals.role = 'radio';
     /** @type {?string} */
     this.accessibleLabel = null;
     /** @type {boolean} */
@@ -346,14 +339,13 @@ export class JhRadio extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    this.#id = id++;
     this.setAttribute('tabindex', '0');
     this.setAttribute('aria-checked', `${this.checked}`);
     if (this.accessibleLabel) {
       this.setAttribute('aria-label', `${this.accessibleLabel}`);
     }
     if (this.helperText) {
-      this.setAttribute('aria-describedby', `radio-helper-text-${this.#id}`);
+      this.setAttribute('aria-describedby', `radio-helper-text-${this.uniqueId}`);
     }
 
     let observer = new MutationObserver(this.#updateArias.bind(this));
@@ -382,12 +374,7 @@ export class JhRadio extends LitElement {
     if (this.checked) return;
 
     this.checked = true;
-    const options = {
-      bubbles: true,
-      composed: true,
-      cancelable: true,
-    };
-    this.dispatchEvent(new CustomEvent('jh-change', options));
+    this.dispatchCustomEvent('jh-change');
   }
 
   #handleKeydown(e) {
@@ -402,7 +389,7 @@ export class JhRadio extends LitElement {
 
     if (this.helperText) {
       helperText = html`
-        <p class="helper-text" id="radio-helper-text-${this.#id}">
+        <p class="helper-text" id="radio-helper-text-${this.uniqueId}">
           ${this.helperText}
         </p>
       `;
@@ -423,4 +410,4 @@ export class JhRadio extends LitElement {
     `;
   }
 }
-customElements.define('jh-radio', JhRadio);
+JhRadio.register('jh-radio', JhRadio);

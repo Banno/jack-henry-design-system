@@ -2,7 +2,8 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
+import { JhElement } from '../element/element.js';
 
 /**
 * The icon component provides authors with a means to use their own SVG icons while still enabling access
@@ -23,11 +24,7 @@ import { LitElement, css, html } from 'lit';
 * 
 * @customElement jh-icon
 */
-export class JhIcon extends LitElement {
-
-  /** @type {ElementInternals} */
-  #internals;
-
+export class JhIcon extends JhElement {
   static get styles() {
     return css`
       :host {
@@ -88,10 +85,8 @@ export class JhIcon extends LitElement {
   }
   constructor() {
     super();
-    this.#internals = this.attachInternals();
-    this.#internals.role = 'graphics-symbol';
-    this.#internals.ariaHidden = 'true';
-
+    this.internals.role = 'graphics-symbol';
+    this.internals.ariaHidden = 'true';
     /** @type { 'x-small' | 'small' | 'medium' | 'large' | 'x-large' } */
     this.size = 'medium';
   }
@@ -102,4 +97,4 @@ export class JhIcon extends LitElement {
     `;
   }
 }
-customElements.define('jh-icon', JhIcon);
+JhIcon.register('jh-icon', JhIcon);

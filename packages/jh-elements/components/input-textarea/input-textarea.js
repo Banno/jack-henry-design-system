@@ -6,8 +6,6 @@ import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { JhInput } from '../input/input.js';
 
-let id = 0;
-
 /**
  * The input textarea component provides a multi-line text field that allows users to submit detailed, unstructured, free-form text. 
  * 
@@ -15,14 +13,22 @@ let id = 0;
  * 
  * @cssprop --jh-input-textarea-field-dimension-min-height - The input field minimum height. Defaults to `--jh-dimension-2000` when `size='small'`, `--jh-dimension-2200` when `size='medium'`, and `--jh-dimension-2400` when `size='large'`.
  *
- * @event jh-change - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`.
- * @event jh-input - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. 
+ * @event jh-change - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`.
+ * @event jh-input - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. 
  * 
  * @customElement jh-input-textarea
  */
 export class JhInputTextarea extends JhInput {
-  /** @type {?number} */
-  #id;
+  /** @type {?ResizeObserver} */
+  #resizeObserver;
+
+  get #textareaEl() {
+    return this.renderRoot?.querySelector('textarea');
+  }
+
+  get #footerContent() {
+    return this.renderRoot?.querySelector('.footer-content');
+  }
 
   static get styles() {
     return [
@@ -123,6 +129,7 @@ export class JhInputTextarea extends JhInput {
         );
       }
       :host([readonly]) textarea {
+        background-color: transparent;
         height: auto;
         border: none;
         padding-left: 0;
@@ -189,196 +196,72 @@ export class JhInputTextarea extends JhInput {
     this.wrap = null;
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    this.#id = id++;
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    if (this.#resizeObserver) {
+      this.#resizeObserver.unobserve(this.#textareaEl);
+      this.#resizeObserver.disconnect();
+      this.#resizeObserver = null;
+    }
   }
 
   firstUpdated() {
     // add resize observer to update width of footer when textarea width changes
-    let footerContent = this.shadowRoot.querySelector('.footer-content');
-    let textareaEl = this.shadowRoot.querySelector('textarea');
-
-    if (footerContent) {
-      new ResizeObserver(() => {
-        this.#updateFooterWidth(footerContent, textareaEl);
-      }).observe(textareaEl);
+    if (this.#footerContent) {
+      this.#resizeObserver = new ResizeObserver(() => {
+        this.#updateFooterWidth();
+      });
+      this.#resizeObserver.observe(this.#textareaEl);
     }
   }
 
-  #updateFooterWidth(footerContent, textareaEl) {
-    footerContent.style.width = textareaEl.offsetWidth + 'px';
+  #updateFooterWidth() {
+    if (this.#footerContent) {
+      this.#footerContent.style.width = this.#textareaEl.offsetWidth + 'px';
+    }
   }
 
-  #dispatch(eventName, details) {
-    this.dispatchEvent(
-      new CustomEvent(eventName, {
-        detail: details,
-        bubbles: true,
-        cancelable: true,
-        composed: true,
-      })
-    );
-  }
-
-  #handleInput(e) {
-    this.value = e.target.value;
-
-    this.#dispatch('jh-input', { value: this.value } );
-
+  _handleInput(e) {
+    super._handleInput(e);
+    
+    // add textarea specific autogrow
     if (this.autoGrow) {
       this.#autoGrowTextarea();
     }
   }
 
   #autoGrowTextarea() {
-    let textareaEl = this.shadowRoot.querySelector('textarea');
-    textareaEl.style.height = 'auto';
-    textareaEl.style.height = textareaEl.scrollHeight + 'px';
+    // Reset height to auto to get the correct scrollHeight
+    this.#textareaEl.style.height = 'auto';
+    // Set height to scrollHeight to accommodate content
+    this.#textareaEl.style.height = `${this.#textareaEl.scrollHeight}px`;
   }
 
-  #handleChange() {
-    let payload = {
-      'value': this.value,
-    };
-    this.#dispatch('jh-change', payload);
-  }
-
-  #handleSelect(e) {
-    const selectedString = e.target.value.substring(
-      e.target.selectionStart,
-      e.target.selectionEnd
-    );
-
-    if (selectedString) {
-      this.#dispatch('jh-select', {
-        selected: selectedString,
-        selectionStart: e.target.selectionStart,
-        selectionEnd: e.target.selectionEnd,
-      });
-    }
-  }
-
-  #handleMaxlength() {
-    this.#dispatch('jh-maxlength');
-  }
-
-  #getDescribedby() {
-    let describedbyString = '';
-
-    if (this.errorText) {
-      describedbyString += `jh-input-error-${this.#id}`;
-    }
-    if (this.helperText) {
-      describedbyString += ` jh-input-helper-${this.#id}`;
-    }
-    if (this.showCharCount) {
-      describedbyString += ` jh-input-counter-${this.#id}`;
-    }
-    return describedbyString;
-  }
-
-  render() {
-    let label;
-    let indicator;
-    let helperText;
-    let input;
-    let footer;
-    let errorText;
-    let charCount;
-    let describedby;
-
-    if (this.label) {
-      if (this.showIndicator) {
-        if (this.required) {
-          indicator = html`<span class="indicator" aria-hidden="true"> *</span>`;
-        } else {
-          indicator = html`<span class="indicator"> (optional)</span>`;
-        }
-      }
-
-      if (this.helperText) {
-        helperText = html`
-          <p id="jh-input-helper-${this.#id}" class="helper-text">
-            ${this.helperText}
-          </p>
-        `;
-      }
-
-      label = html`
-        <label for="jh-input-${this.#id}">${this.label}${indicator}</label>
-        ${helperText}
-      `;
-    }
-
-    if (this.showCharCount) {
-      let valueLength = this.value ? this.value.length : 0;
-      let charCountValue = `${this.maxlength ? `${valueLength}/${this.maxlength}` : valueLength}`;
-
-      if (valueLength && valueLength === Number(this.maxlength)) {
-        this.#handleMaxlength();
-      }
-
-      charCount = html`
-        <p class="counter" aria-hidden="true">${charCountValue}</p>
-      `;
-    }
-
-    if (this.invalid && this.errorText) {
-      errorText = html`
-        <p id="jh-input-error-${this.#id}" class="error-text">
-          ${this.errorText}
-        </p>
-      `;
-    }
-
-    if ((this.invalid && this.errorText) || this.showCharCount) {
-      footer = html`
-        <div class="footer-content">
-          ${errorText}
-          ${charCount}
-        </div>
-      `;
-    }
-
-    if (helperText || errorText || charCount) {
-      describedby = this.#getDescribedby();
-    }
-
-    input = html`
-        <textarea
-          id="jh-input-${this.#id}"
-          aria-describedby=${describedby}
-          aria-invalid=${ifDefined(this.invalid ? 'true' : null)}
-          aria-label=${ifDefined(
-            this.accessibleLabel === '' ? null : this.accessibleLabel
-          )}
-          autocomplete=${ifDefined(
-            this.autocomplete === '' ? null : this.autocomplete
-          )}          
-          cols=${ifDefined(this.cols === '' ? null : this.cols)}
-          ?disabled=${this.disabled}
-          enterkeyhint=${ifDefined(
-            this.enterkeyhint === '' ? null : this.enterkeyhint
-          )}
-          inputmode=${ifDefined(this.inputmode === '' ? null : this.inputmode)}
-          maxlength=${ifDefined(this.maxlength === '' ? null : this.maxlength)}
-          minlength=${ifDefined(this.minlength === '' ? null : this.minlength)}
-          name=${ifDefined(this.name === '' ? null : this.name)}
-          ?readonly=${this.readonly}
-          ?required=${this.required}
-          rows=${ifDefined(this.rows === '' ? null : this.rows)}
-          .value=${this.value}
-          wrap=${ifDefined(this.wrap === '' ? null : this.wrap)}
-          @change=${this.#handleChange}
-          @select=${this.#handleSelect}
-          @input=${this.#handleInput}
-        ></textarea>
-    `;
-
+  renderInput() {
     return html`
-      ${label} ${input} ${footer}
-    `;
+      <textarea
+        id="jh-input-${this.uniqueId}"
+        aria-describedby=${this._getDescribedby()}
+        aria-invalid=${ifDefined(this.invalid ? 'true' : null)}
+        aria-label=${ifDefined(this.accessibleLabel === '' ? null : this.accessibleLabel)}
+        autocomplete=${ifDefined(this.autocomplete === '' ? null : this.autocomplete)}
+        cols=${ifDefined(this.cols ? Number(this.cols) : null)}
+        ?disabled=${this.disabled}
+        enterkeyhint=${ifDefined(this.enterkeyhint || null)}
+        inputmode=${ifDefined(this.inputmode || null)}
+        maxlength=${ifDefined(this.maxlength ? Number(this.maxlength) : null)}
+        minlength=${ifDefined(this.minlength ? Number(this.minlength) : null)}
+        name=${ifDefined(this.name || null)}
+        ?readonly=${this.readonly}
+        ?required=${this.required}
+        rows=${ifDefined(this.rows ? Number(this.rows) : null)}
+        .value=${this.value}
+        wrap=${ifDefined(this.wrap || null)}
+        @change=${this._handleChange}
+        @input=${this._handleInput}
+        @select=${this._handleSelect}
+        ></textarea>
+    `
   }
 }
-customElements.define('jh-input-textarea', JhInputTextarea);
+JhInputTextarea.register('jh-input-textarea', JhInputTextarea);

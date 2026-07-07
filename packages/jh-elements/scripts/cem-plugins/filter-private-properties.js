@@ -6,7 +6,6 @@
 const INTERNALS_PROPS = ['role', 'form', 'validity'];
 
 export function filterPrivatePropertiesPlugin() {
-  console.log('Plugin is running!');
   return {
     name: 'filter-private-properties',
   packageLinkPhase({ customElementsManifest }) {

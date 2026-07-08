@@ -273,9 +273,7 @@ export class JhSelect extends JhInput {
     const match = this.#flatOptions.find(
       (opt) => String(opt.value) === String(this.value)
     );
-    this.#displayValue = match
-      ? (match.label != null ? match.label : String(match.value))
-      : null;
+    this.#displayValue = match ? (match.label ?? String(match.value)) : null;
   }
 
   #getIndexFromId(elementId) {

@@ -36,6 +36,8 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-list-item-space-padding-right - The right padding on the list-item container. Defaults to `--jh-dimension-600`.
  * @cssprop --jh-list-item-space-padding-left - The left padding on the list-item container. Defaults to `--jh-dimension-600`.
+ * @cssprop --jh-list-item-space-padding-top - The top padding on the list-item container. Defaults to `--jh-dimension-400`.
+ * @cssprop --jh-list-item-space-padding-bottom - The bottom padding on the list-item container. Defaults to `--jh-dimension-400`.
  * @cssprop --jh-list-item-size-height - The list-item's height. Defaults to `auto`.
  * @cssprop --jh-list-item-color-background-focus - The list-item background-color when interactive and focused.
  * Defaults to `--jh-color-container-primary-hover`.
@@ -67,13 +69,11 @@ export class JhListItem extends JhElement {
           --jh-list-item-color-text-primary-enabled,
           var(--jh-color-content-primary-enabled)
         );
-        padding-bottom: var(--jh-dimension-400);
         font-family: var(--jh-font-body-medium-1-font-family);
         font-weight: var(--jh-font-body-medium-1-font-weight);
         font-size: var(--jh-font-body-medium-1-font-size);
         line-height: var(--jh-font-body-medium-1-line-height);
         display: block;
-        box-sizing: border-box;
       }
       /* list item height is set to auto when styling hook is not set */
       .list-item {
@@ -85,16 +85,14 @@ export class JhListItem extends JhElement {
           --jh-list-item-space-padding-left,
           var(--jh-dimension-600)
         );
-        height: calc(var(--jh-list-item-size-height, auto) - var(--jh-dimension-400));
-        padding-top: var(--jh-dimension-400);
+        height: var(--jh-list-item-size-height, auto);
+        padding-top: var(--jh-list-item-space-padding-top, var(--jh-dimension-400));
+        padding-bottom: var(--jh-list-item-space-padding-bottom, var(--jh-dimension-400));
         gap: var(--jh-dimension-200);
         display: flex;
         flex-direction: row;
         align-items: center;
         box-sizing: border-box;
-      }
-      :host([show-divider]) .list-item {
-        height: calc(var(--jh-list-item-size-height, auto) - var(--jh-dimension-400) - 1px);
       }
       /* states for interactive list-items*/
       :host([tabindex]:focus-visible) {
@@ -133,9 +131,11 @@ export class JhListItem extends JhElement {
         --jh-list-item-color-text-primary-enabled: var(--jh-list-item-color-text-primary-disabled);
         --jh-list-item-color-text-secondary-enabled: var(--jh-list-item-color-text-secondary-disabled);
         background-color: var(--jh-list-item-color-background-disabled, transparent);
-        opacity: var(--jh-list-item-opacity-disabled, var(--jh-opacity-disabled));
         cursor: default;
         pointer-events: none;
+      }
+      :host([tabindex][disabled]) .list-item {
+        opacity: var(--jh-list-item-opacity-disabled, var(--jh-opacity-disabled));
       }
       :host([tabindex][selected]) {
         --jh-list-item-color-text-primary-enabled: var(--jh-list-item-color-text-primary-selected);
@@ -157,10 +157,8 @@ export class JhListItem extends JhElement {
           var(--jh-dimension-600)
         ) - var(--jh-border-selected-width));
       }
-      :host([show-divider]) {
-        padding-bottom: 0;
-      }
       jh-divider {
+        margin-top: 0;
         margin-bottom: 0;
       }
       slot[name="jh-list-item-left"],

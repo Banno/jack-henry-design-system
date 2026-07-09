@@ -144,18 +144,18 @@ export class JhListItem extends JhElement {
           --jh-list-item-color-background-selected,
           var(--jh-color-container-primary-selected)
         );
-        border-left-color: var(
-          --jh-list-item-color-border-selected,
-          var(--jh-border-selected-color)
-        );
-        border-left-style: var(--jh-border-selected-style);
-        border-left-width: var(--jh-border-selected-width);
       }
       :host([tabindex][selected]) .list-item {
         padding-left: calc(var(
           --jh-list-item-space-padding-left,
           var(--jh-dimension-600)
         ) - var(--jh-border-selected-width));
+        border-left-color: var(
+          --jh-list-item-color-border-selected,
+          var(--jh-border-selected-color)
+        );
+        border-left-style: var(--jh-border-selected-style);
+        border-left-width: var(--jh-border-selected-width);
       }
       jh-divider {
         margin-top: 0;

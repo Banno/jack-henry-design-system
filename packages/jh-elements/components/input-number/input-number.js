@@ -6,6 +6,7 @@
 
 import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { live } from 'lit/directives/live.js';
 import { JhInput } from '../input/input.js';
 import '../button/button.js';
 import '@jack-henry/jh-icons/icons-wc/icon-minus.js';
@@ -247,7 +248,7 @@ export class JhInputNumber extends JhInput {
             ?required=${this.required}
             step=${ifDefined(Number.isNaN(this.step) ? null : this.step)}
             type="number"
-            .value=${this.value}
+            .value=${live(this.value)}
             @change=${this._handleChange}
             @input=${this._handleInput}
             @select=${this._handleSelect}

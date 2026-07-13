@@ -12,6 +12,7 @@ import { JhElement } from '../element/element.js';
  * @cssprop --jh-icon-size-medium - The icon size when `size="medium"`. Defaults to `--jh-dimension-600`.
  * @cssprop --jh-icon-size-large - The icon size when `size="large"`. Defaults to `--jh-dimension-900`.
  * @cssprop --jh-icon-size-extra-large - The icon size when `size="extra-large"`. Defaults to `--jh-dimension-1400`.
+ * @cssprop --jh-icon-size-extra-extra-large - The icon size when `size="extra-extra-large"`. Defaults to `--jh-dimension-2100`.
  * @slot default - Use to insert the icon SVG content.
  * @customElement jh-icon
  */
@@ -57,6 +58,12 @@ export class JhIcon extends JhElement {
           var(--jh-dimension-1400)
         );
       }
+      :host([size='xx-large']) {
+        --icon-size: var(
+          --jh-icon-size-extra-extra-large,
+          var(--jh-dimension-2100)
+        );
+      }
       svg,
       ::slotted(*) {
         width: 100%;
@@ -78,7 +85,7 @@ export class JhIcon extends JhElement {
     super();
     this.internals.role = 'graphics-symbol';
     this.internals.ariaHidden = 'true';
-    /** @type {'x-small'|'small'|'medium'|'large'|'x-large'} */
+    /** @type {'x-small'|'small'|'medium'|'large'|'x-large'|'xx-large'} */
     this.size = 'medium';
   }
 

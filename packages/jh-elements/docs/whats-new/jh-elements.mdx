@@ -91,14 +91,14 @@ The `jh-icon` component now supports a new `xx-large` sizing option, along with 
 ### jh-progress
 The `jh-progress` component now supports three new size variants: `x-small`, `x-large`, and `xx-large`. A `--jh-progress-track-size-circular` styling hook has been added to customize circular progress dimensions, while the `--jh-progress-track-size-linear` hook overrides the height of linear progress bars. The thickness of the circular progress line has now been unified across all sizes.
 
-### jh-list-item and jh-tag
+### jh-list-item
 
-In version 1, the text in `jh-list-item` and `jh-tag` would atuomatically truncate at a certain width of the component. In V2 we deprecated the truncation behavior of these components. 
-This behavior was removed due to accessibility and design concerns. The text in `jh-list-item` does now wrap to a new line, while `jh-tag` will expand to contain the full text.
+In version 1, the text in `jh-list-item` would atuomatically truncate at a certain width of the component. In V2 we deprecated the truncation behavior of these components. 
+This behavior was removed due to accessibility and design concerns. The text in `jh-list-item` now wraps to a new line. We have also added the `--jh-list-item-space-padding-top` and `--jh-list-item-space-padding-bottom` styling hooks to adjust the padding top and bottom of the list item. 
 
 ### jh-menu
 
-The jh-menu component now features an improved menu-content container with `overflow-y: auto` and full-width flex styling. These additions ensure the menu remains scrollable and responsive within its parent container without breaking the layout.
+The jh-menu component now features an improved menu-content container with `overflow-y: auto` and full-width flex styling. These additions ensure the menu remains scrollable and responsive within its parent container without breaking the layout. 
 
 ### jh-radio
 The label typography tokens have changed from `--jh-font-body-regular-1-...` to `--jh-font-body-medium-1-...`.
@@ -108,6 +108,11 @@ The `jh-radio-group` now supports a `disabled` property that disables the group 
 
 ### jh-switch
 The width of `jh-switch` has been updated to 48px from 56px(as present in V1). And the `box-shadow` property has been removed from the internal thumb element. The label typography tokens have changed from `--jh-font-body-regular-1-...` to `--jh-font-body-medium-1-...`. 
+
+### jh-tag
+
+In version 1, the text in `jh-tag` would atuomatically truncate at a certain width of the component. In V2 we deprecated the truncation behavior of these components. 
+This behavior was removed due to accessibility and design concerns. The text in `jh-tag` will now expand to contain the full text.
 
 ### jh-toast
 The `appearance` property has been deprecated. The component now uses a single, neutral default color for all instances.

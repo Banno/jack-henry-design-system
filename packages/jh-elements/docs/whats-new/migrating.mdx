@@ -488,7 +488,47 @@ The `placeholder` property has been deprecated due to accessibility concerns. Pl
 * `--jh-input-left-icon-color-fill` and `--jh-input-left-icon-color-fill` are deprecated, use the icon styling hook `--jh-icon-color-fill` instead. 
 
 ### Migrating jh-radio
-The label font family, weight, size and line height tokens have changed from `--jh-font-body-regular-1-...` to `--jh-font-body-medium-1-...` to ensure consistent styling across form controls.
+The label font family, weight, size, and line height tokens have changed from `--jh-font-body-regular-1-...` to `--jh-font-body-medium-1-...` to ensure consistent styling across form controls.
+
+### Migrating jh-list-item
+The `jh-list-item` component has been simplified. Please update your code to remove the deprecated properties, hooks, and slots listed below.
+
+<table>
+  <thead>
+    <tr>
+      <th>Deprecated Item</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`primary-metadata`</td>
+      <td>Property</td>
+    </tr>
+    <tr>
+      <td>`secondary-metadata`</td>
+      <td>Property</td>
+    </tr>
+    <tr>
+      <td>`--jh-list-item-metadata-color-text-primary`</td>
+      <td>CSS Hook</td>
+    </tr>
+    <tr>
+      <td>`--jh-list-item-metadata-color-text-secondary`</td>
+      <td>CSS Hook</td>
+    </tr>
+    <tr>
+      <td>`jh-list-item-content`</td>
+      <td>Slot</td>
+    </tr>
+    <tr>
+      <td>`jh-list-item-metadata`</td>
+      <td>Slot</td>
+    </tr>
+  </tbody>
+</table>
+
+For full implementation details, visit the [`jh-list-item` layouts documentation](?path=/docs/components-list-item--docs#layouts). 
 
 ### Migrating jh-switch
 The default width of `jh-switch` has been reduced from 56px to 48px. Users should audit existing implementations to ensure horizontal alignment and spacing remain consistent within their layouts.

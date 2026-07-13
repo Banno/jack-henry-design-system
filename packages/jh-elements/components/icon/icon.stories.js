@@ -5,7 +5,7 @@
 import { html, css } from 'lit';
 import './icon.js';
 
-const sizes = ['x-small', 'small', 'medium', 'large', 'x-large'];
+const sizes = ['x-small', 'small', 'medium', 'large', 'x-large', 'xx-large'];
 
 const storyStyles = css`
   div[id^="story-root"] {
@@ -20,7 +20,7 @@ export default {
   argTypes: {
     size: {
       control: 'select',
-      options: ['x-small', 'small', 'medium', 'large', 'x-large'],
+      options: ['x-small', 'small', 'medium', 'large', 'x-large', 'xx-large'],
     },
   },
 };

@@ -42,25 +42,19 @@ export const Overview = {
       <jh-list-group accessible-label="aria-label">
         <jh-list-item
           primary-text="Primary text"
-          primary-metadata="Primary metadata"
           secondary-text="Secondary text"
-          secondary-metadata="Secondary metadata"
           ><jh-icon-user slot="jh-list-item-left"></jh-icon-user
           ><jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis
         ></jh-list-item>
         <jh-list-item
           primary-text="Primary text"
-          primary-metadata="Primary metadata"
           secondary-text="Secondary text"
-          secondary-metadata="Secondary metadata"
           ><jh-icon-user slot="jh-list-item-left"></jh-icon-user
           ><jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis
         ></jh-list-item>
         <jh-list-item
           primary-text="Primary text"
-          primary-metadata="Primary metadata"
           secondary-text="Secondary text"
-          secondary-metadata="Secondary metadata"
           ><jh-icon-user slot="jh-list-item-left"></jh-icon-user
           ><jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis
         ></jh-list-item>
@@ -68,25 +62,19 @@ export const Overview = {
       <jh-list-group label="Label">
         <jh-list-item
           primary-text="Primary text"
-          primary-metadata="Primary metadata"
           secondary-text="Secondary text"
-          secondary-metadata="Secondary metadata"
           ><jh-icon-user slot="jh-list-item-left"></jh-icon-user
           ><jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis
         ></jh-list-item>
         <jh-list-item
           primary-text="Primary text"
-          primary-metadata="Primary metadata"
           secondary-text="Secondary text"
-          secondary-metadata="Secondary metadata"
           ><jh-icon-user slot="jh-list-item-left"></jh-icon-user
           ><jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis
         ></jh-list-item>
         <jh-list-item
           primary-text="Primary text"
-          primary-metadata="Primary metadata"
           secondary-text="Secondary text"
-          secondary-metadata="Secondary metadata"
           ><jh-icon-user slot="jh-list-item-left"></jh-icon-user
           ><jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis
         ></jh-list-item>
@@ -112,25 +100,19 @@ export const Playground = {
       >
         <jh-list-item
           primary-text="Primary text"
-          primary-metadata="Primary metadata"
           secondary-text="Secondary text"
-          secondary-metadata="Secondary metadata"
           ><jh-icon-user slot="jh-list-item-left"></jh-icon-user
           ><jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis
         ></jh-list-item>
         <jh-list-item
           primary-text="Primary text"
-          primary-metadata="Primary metadata"
           secondary-text="Secondary text"
-          secondary-metadata="Secondary metadata"
           ><jh-icon-user slot="jh-list-item-left"></jh-icon-user
           ><jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis
         ></jh-list-item>
         <jh-list-item
           primary-text="Primary text"
-          primary-metadata="Primary metadata"
           secondary-text="Secondary text"
-          secondary-metadata="Secondary metadata"
           ><jh-icon-user slot="jh-list-item-left"></jh-icon-user
           ><jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis
         ></jh-list-item>

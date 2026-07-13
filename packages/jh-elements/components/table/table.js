@@ -187,6 +187,7 @@ export class JhTable extends JhElement {
       :host([scrollable]) .table {
         width: auto;
         position: relative;
+        min-width: 100%;
       }
       .table-wrapper:has(.table-container:focus-visible) {
         outline-color: var(

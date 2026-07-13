@@ -45,7 +45,7 @@ export default {
     },
     size: {
       control: 'select',
-      options: ['small', 'medium', 'large'],
+      options: ['x-small', 'small', 'medium', 'large', 'x-large', 'xx-large'],
     },
     'hide-value': {
       control: 'boolean',
@@ -241,5 +241,25 @@ Indeterminate.argTypes = {
 };
 
 Indeterminate.parameters = {
+  styles: storyStyles,
+};
+
+export const CircularSizes = {
+  render: (args) => html`
+      <jh-progress size="x-small" type="circular" value="50" label="Label"></jh-progress>
+      <jh-progress size="small" type="circular" value="50" label="Label"></jh-progress>
+      <jh-progress size="medium" type="circular" value="50" label="Label"></jh-progress>
+      <jh-progress size="large" type="circular" value="50" label="Label"></jh-progress>
+      <jh-progress size="x-large" type="circular" value="50" label="Label"></jh-progress>
+      <jh-progress size="xx-large" type="circular" value="50" label="Label"></jh-progress>
+      <jh-progress size="medium" type="circular" value="50" label="Custom size: 200px" style="--jh-progress-track-size-circular: 200px"></jh-progress>
+  `,
+};
+
+CircularSizes.argTypes = {
+  ...disableControls,
+};
+
+CircularSizes.parameters = {
   styles: storyStyles,
 };

@@ -281,8 +281,6 @@ export const Datasets = { render: (args) => {
     <div class="select-container">
       <jh-select label="US States (grouped)" .options=${US_STATES_GROUPED}></jh-select>
     </div>
-
-    <h3></h3>
     <div class="select-container">
       <jh-select label="US states customized" helper-text="Uses manageDataset to set initial value, disabled items, empty label" .options=${customizedData}></jh-select>
     </div>

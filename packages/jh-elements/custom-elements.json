@@ -5124,7 +5124,7 @@
         {
           "name": "size",
           "description": "Sets the size of the progress component.",
-          "type": "'small'|'medium'|'large'",
+          "type": " 'x-small'|'small'|'medium'|'large'|'x-large'|'xx-large'",
           "default": "\"medium\""
         },
         {
@@ -5186,7 +5186,7 @@
           "name": "size",
           "attribute": "size",
           "description": "Sets the size of the progress component.",
-          "type": "'small'|'medium'|'large'",
+          "type": " 'x-small'|'small'|'medium'|'large'|'x-large'|'xx-large'",
           "default": "\"medium\""
         },
         {
@@ -5257,6 +5257,14 @@
         {
           "name": "--jh-progress-indicator-color",
           "description": "The indicator color. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-progress-track-size-linear",
+          "description": "The height of the linear progress bar track. Defaults to the size-based height."
+        },
+        {
+          "name": "--jh-progress-track-size-circular",
+          "description": "The width and height of the circular progress indicator. Defaults to the size-based dimensions."
         }
       ]
     },

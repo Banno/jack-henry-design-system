@@ -36,7 +36,6 @@ export const Overview = {
     <jh-menu>
       <jh-list-item
         show-divider
-        primary-metadata="metadata"
         tabindex="0"
         selected
         role="menuitem"
@@ -48,7 +47,7 @@ export const Overview = {
       <jh-list-item show-divider tabindex="0" role="menuitem"
         >Item 3</jh-list-item
       >
-      <jh-list-item primary-metadata="metadata" tabindex="0" role="menuitem"
+      <jh-list-item tabindex="0" role="menuitem"
         >Item 4</jh-list-item
       >
     </jh-menu>

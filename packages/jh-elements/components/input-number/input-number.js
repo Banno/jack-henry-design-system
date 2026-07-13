@@ -51,8 +51,14 @@ export class JhInputNumber extends JhInput {
         input[type='number'] {
         -moz-appearance: textfield;
         }
-        slot[name="jh-input-right"].display-slot {
+        :host([size="small"]) slot[name="jh-input-right"].display-slot {
+          width: 56px;
+        }
+        :host([size="medium"]) slot[name="jh-input-right"].display-slot {
           width: 60px;
+        }
+        :host([size="large"]) slot[name="jh-input-right"].display-slot {
+          width: 64px;
         }
         jh-button {
           --jh-button-size: var(--jh-dimension-800);

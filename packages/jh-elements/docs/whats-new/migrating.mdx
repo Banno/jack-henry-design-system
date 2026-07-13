@@ -498,32 +498,54 @@ The `jh-list-item` component has been simplified. Please update your code to rem
     <tr>
       <th>Deprecated Item</th>
       <th>Type</th>
+      <th>Migration Action</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>`primary-metadata`</td>
       <td>Property</td>
+      <td>Remove and migrate to new layout pattern.</td>
     </tr>
     <tr>
       <td>`secondary-metadata`</td>
       <td>Property</td>
+      <td>Remove and migrate to new layout pattern.</td>
     </tr>
     <tr>
       <td>`--jh-list-item-metadata-color-text-primary`</td>
       <td>CSS Hook</td>
+      <td>Remove reference.</td>
     </tr>
     <tr>
       <td>`--jh-list-item-metadata-color-text-secondary`</td>
       <td>CSS Hook</td>
+      <td>Remove reference.</td>
+    </tr>
+    <tr>
+      <td>`--jh-list-item-color-text`</td>
+      <td>CSS Hook</td>
+      <td>Migrate to `--jh-list-item-color-text-primary-enabled`.</td>
+    </tr>
+    <tr>
+      <td>`--jh-list-item-color-text-primary`</td>
+      <td>CSS Hook</td>
+      <td>Migrate to `--jh-list-item-color-text-primary-enabled`.</td>
+    </tr>
+    <tr>
+      <td>`--jh-list-item-color-text-secondary`</td>
+      <td>CSS Hook</td>
+      <td>Migrate to `--jh-list-item-color-text-secondary-enabled`.</td>
     </tr>
     <tr>
       <td>`jh-list-item-content`</td>
       <td>Slot</td>
+      <td>Remove and migrate to new layout pattern.</td>
     </tr>
     <tr>
       <td>`jh-list-item-metadata`</td>
       <td>Slot</td>
+      <td>Remove and migrate to new layout pattern.</td>
     </tr>
   </tbody>
 </table>

@@ -14,7 +14,7 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 ## Summary
 
-The Design System team has been heavily focused on delivering the next iteration in Jack Henry's design system, with V2 representing a significant step 
+The Design System team has been heavily focused on delivering the next iteration of the Forge Design System, with V2 representing a significant step 
 forward in the evolution of the system. We've focused on establishing a more standardized and robust foundation by embracing the W3C Design Token Specification, 
 introduced a suite of new and improved components, and prioritized the tools and documentation you need to work efficiently and effectively.
 
@@ -87,9 +87,10 @@ Provides a collection of common datasets and utilities for use with design syste
 
 We're introducing our validation library mixin that authors can use to add validation to their non design system components. This mixin is utilized by our form components, providing validation support. 
 
-### jh-element component (coming soon)
+### JhElement Base Class
 
-A common base that all components extend off of. This enables us to promote code reuse, share dependencies one time, etc. All components now officially extend off this component.
+All components now officially extend from `JhElement`. This new underlying base class drives better code reuse and allows dependencies to be shared efficiently across the library. 
+Please note that `JhElement` serves strictly as a foundational class and is **not** intended to be implemented as a standalone component.
 
 ### Lit 3.0 Upgraded
 

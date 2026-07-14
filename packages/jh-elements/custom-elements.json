@@ -5683,7 +5683,7 @@
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the state of the radio has changed."
+          "description": "Dispatched when the state of the radio has changed. Event payload includes the value of the radio and can be accessed via `e.detail.state.value`."
         }
       ],
       "cssProperties": [
@@ -6611,7 +6611,7 @@
       ]
     },
     {
-      "name": "jh-table-cell",
+      "name": "jh-table-data-cell",
       "path": "./components/table-data-cell/table-data-cell.js",
       "description": "Table Cell",
       "attributes": [

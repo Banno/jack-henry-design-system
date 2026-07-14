@@ -29,7 +29,7 @@ import { JhElement } from '../element/element.js';
  * 
  * @slot default - Use to insert content.
  * 
- * @customElement jh-table-cell
+ * @customElement jh-table-data-cell
  */
 export class JhTableDataCell extends JhElement {
 

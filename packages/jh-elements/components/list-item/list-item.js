@@ -54,6 +54,30 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * @cssprop --jh-list-item-color-background-selected - The list-item background-color when interactive and selected. Defaults to `--jh-color-container-primary-selected`.
  * @cssprop --jh-list-item-color-border-selected - The list-item border-left-color when interactive and selected.
  * Defaults to `--jh-border-selected-color`.
+ * @cssprop --jh-list-item-metadata-color-text-primary-enabled - The primary metadata text color.
+ * Defaults to `--jh-color-content-primary-enabled`.
+ * @cssprop --jh-list-item-metadata-color-text-primary-focus - The primary metadata text color when interactive and focused.
+ * Defaults to `--jh-color-content-primary-enabled`.
+ * @cssprop --jh-list-item-metadata-color-text-primary-hover - The primary metadata text color when interactive and hovered.
+ * Defaults to `--jh-color-content-primary-enabled`.
+ * @cssprop --jh-list-item-metadata-color-text-primary-active - The primary metadata text color when interactive and active.
+ * Defaults to `--jh-color-content-primary-enabled`.
+ * @cssprop --jh-list-item-metadata-color-text-primary-selected - The primary metadata text color when interactive and selected.
+ * Defaults to `--jh-color-content-primary-enabled`.
+ * @cssprop --jh-list-item-metadata-color-text-primary-disabled - The primary metadata text color when interactive and disabled.
+ * Defaults to `--jh-color-content-primary-enabled`.
+ * @cssprop --jh-list-item-metadata-color-text-secondary-enabled - The secondary metadata text color.
+ * Defaults to `--jh-color-content-secondary-enabled`.
+ * @cssprop --jh-list-item-metadata-color-text-secondary-focus - The secondary metadata text color when interactive and focused.
+ * Defaults to `--jh-color-content-secondary-enabled`.
+ * @cssprop --jh-list-item-metadata-color-text-secondary-hover - The secondary metadata text color when interactive and hovered.
+ * Defaults to `--jh-color-content-secondary-enabled`.
+ * @cssprop --jh-list-item-metadata-color-text-secondary-active - The secondary metadata text color when interactive and active.
+ * Defaults to `--jh-color-content-secondary-enabled`.
+ * @cssprop --jh-list-item-metadata-color-text-secondary-selected - The secondary metadata text color when interactive and selected.
+ * Defaults to `--jh-color-content-secondary-enabled`.
+ * @cssprop --jh-list-item-metadata-color-text-secondary-disabled - The secondary metadata text color when interactive and disabled.
+ * Defaults to `--jh-color-content-secondary-enabled`.
  *
  * @slot default - Use to insert custom content into the list-item.
  * @slot jh-list-item-left - Use to insert custom content on the left the list-item. 
@@ -98,6 +122,8 @@ export class JhListItem extends JhElement {
       :host([tabindex]:focus-visible) {
         --jh-list-item-color-text-primary-enabled: var(--jh-list-item-color-text-primary-focus);
         --jh-list-item-color-text-secondary-enabled: var(--jh-list-item-color-text-secondary-focus);
+        --jh-list-item-metadata-color-text-primary-enabled: var(--jh-list-item-metadata-color-text-primary-focus);
+        --jh-list-item-metadata-color-text-secondary-enabled: var(--jh-list-item-metadata-color-text-secondary-focus);
         background-color: var(
           --jh-list-item-color-background-focus,
           var(--jh-color-container-primary-hover)
@@ -113,6 +139,8 @@ export class JhListItem extends JhElement {
       :host([tabindex]:hover) {
         --jh-list-item-color-text-primary-enabled: var(--jh-list-item-color-text-primary-hover);
         --jh-list-item-color-text-secondary-enabled: var(--jh-list-item-color-text-secondary-hover);
+        --jh-list-item-metadata-color-text-primary-enabled: var(--jh-list-item-metadata-color-text-primary-hover);
+        --jh-list-item-metadata-color-text-secondary-enabled: var(--jh-list-item-metadata-color-text-secondary-hover);
         background-color: var(
           --jh-list-item-color-background-hover,
           var(--jh-color-container-primary-hover)
@@ -122,6 +150,8 @@ export class JhListItem extends JhElement {
       :host([tabindex]:active) {
         --jh-list-item-color-text-primary-enabled: var(--jh-list-item-color-text-primary-active);
         --jh-list-item-color-text-secondary-enabled: var(--jh-list-item-color-text-secondary-active);
+        --jh-list-item-metadata-color-text-primary-enabled: var(--jh-list-item-metadata-color-text-primary-active);
+        --jh-list-item-metadata-color-text-secondary-enabled: var(--jh-list-item-metadata-color-text-secondary-active);
         background-color: var(
           --jh-list-item-color-background-active,
           var(--jh-color-container-primary-active)
@@ -130,6 +160,8 @@ export class JhListItem extends JhElement {
       :host([tabindex][disabled]) {
         --jh-list-item-color-text-primary-enabled: var(--jh-list-item-color-text-primary-disabled);
         --jh-list-item-color-text-secondary-enabled: var(--jh-list-item-color-text-secondary-disabled);
+        --jh-list-item-metadata-color-text-primary-enabled: var(--jh-list-item-metadata-color-text-primary-disabled);
+        --jh-list-item-metadata-color-text-secondary-enabled: var(--jh-list-item-metadata-color-text-secondary-disabled);
         background-color: var(--jh-list-item-color-background-disabled, transparent);
         cursor: default;
         pointer-events: none;
@@ -140,6 +172,8 @@ export class JhListItem extends JhElement {
       :host([tabindex][selected]) {
         --jh-list-item-color-text-primary-enabled: var(--jh-list-item-color-text-primary-selected);
         --jh-list-item-color-text-secondary-enabled: var(--jh-list-item-color-text-secondary-selected);
+        --jh-list-item-metadata-color-text-primary-enabled: var(--jh-list-item-metadata-color-text-primary-selected);
+        --jh-list-item-metadata-color-text-secondary-enabled: var(--jh-list-item-metadata-color-text-secondary-selected);
         background-color: var(
           --jh-list-item-color-background-selected,
           var(--jh-color-container-primary-selected)
@@ -172,11 +206,26 @@ export class JhListItem extends JhElement {
         display: none;
         min-width: 0; 
       }
+      .content {
+        gap: var(--jh-dimension-200);
+        display: none;
+        flex-direction: row;
+        flex: 1 1 auto;
+        min-width: 0;
+        align-items: center;
+      }
       .text {
         gap: var(--jh-dimension-50);
-        display: none;
+        display: flex;
         flex-direction: column;
         flex: 1 1 auto;
+        min-width: 0;
+      }
+      .metadata {
+        gap: var(--jh-dimension-50);
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 auto;
         min-width: 0;
       }
       .display, 
@@ -195,8 +244,26 @@ export class JhListItem extends JhElement {
         font-size: var(--jh-font-helper-regular-font-size);
         line-height: var(--jh-font-helper-regular-line-height);
       }
+      .primary-metadata {
+        color: var(
+          --jh-list-item-metadata-color-text-primary-enabled,
+          var(--jh-list-item-color-text-primary-enabled, var(--jh-color-content-primary-enabled))
+        );
+      }
+      .secondary-metadata {
+        color: var(
+          --jh-list-item-metadata-color-text-secondary-enabled,
+          var(--jh-list-item-color-text-secondary-enabled, var(--jh-color-content-secondary-enabled))
+        );
+        font-family: var(--jh-font-helper-regular-font-family);
+        font-weight: var(--jh-font-helper-regular-font-weight);
+        font-size: var(--jh-font-helper-regular-font-size);
+        line-height: var(--jh-font-helper-regular-line-height);
+      }
       .primary-text,
-      .secondary-text {
+      .secondary-text,
+      .primary-metadata,
+      .secondary-metadata {
         display: block;
         word-break: break-word;
       }
@@ -233,6 +300,20 @@ export class JhListItem extends JhElement {
         type: String,
         attribute: 'secondary-text',
       },
+            /**
+       * The text to show as primary metadata.
+       */
+      primaryMetadata: {
+        type: String,
+        attribute: 'primary-metadata',
+      },
+      /**
+       * The text to show as secondary metadata.
+       */
+      secondaryMetadata: {
+        type: String,
+        attribute: 'secondary-metadata',
+      },
       /**
        * Determines whether an interactive list-item is selected.
        */
@@ -265,6 +346,10 @@ export class JhListItem extends JhElement {
     this.primaryText = null;
     /** @type {?string} */
     this.secondaryText = null;
+    /** @type {?string} */
+    this.primaryMetadata = null;
+    /** @type {?string} */
+    this.secondaryMetadata = null;
     /** @type {?boolean} */
     this.selected = false;
     /** @type {?boolean} */
@@ -324,9 +409,15 @@ export class JhListItem extends JhElement {
         ></slot>
         <slot @slotchange=${this.#handleSlotChange} 
           class=${this._showFallback ? '' : 'has-content'}></slot>
-        <div class=${`text ${this._showFallback ? 'display' : ''}`}>
-          ${this.primaryText ? html`<div class="primary-text">${this.primaryText}</div>` : ''}
-          ${this.secondaryText ? html`<div class="secondary-text">${this.secondaryText}</div>` : ''}
+        <div class=${`content ${this._showFallback ? 'display' : ''}`}>
+          <div class="text">
+            ${this.primaryText ? html`<div class="primary-text">${this.primaryText}</div>` : ''}
+            ${this.secondaryText ? html`<div class="secondary-text">${this.secondaryText}</div>` : ''}
+          </div>
+          <div class="metadata">
+            ${this.primaryMetadata ? html`<div class="primary-metadata">${this.primaryMetadata}</div>` : ''}
+            ${this.secondaryMetadata ? html`<div class="secondary-metadata">${this.secondaryMetadata}</div>` : ''}
+          </div>
         </div>
         <slot
           name="jh-list-item-right"

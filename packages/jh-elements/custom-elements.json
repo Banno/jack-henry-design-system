@@ -4750,6 +4750,16 @@
           "type": "?string"
         },
         {
+          "name": "primary-metadata",
+          "description": "The text to show as primary metadata.",
+          "type": "?string"
+        },
+        {
+          "name": "secondary-metadata",
+          "description": "The text to show as secondary metadata.",
+          "type": "?string"
+        },
+        {
           "name": "selected",
           "description": "Determines whether an interactive list-item is selected.",
           "type": "?boolean",
@@ -4786,6 +4796,18 @@
           "name": "secondaryText",
           "attribute": "secondary-text",
           "description": "The text to show as secondary text.",
+          "type": "?string"
+        },
+        {
+          "name": "primaryMetadata",
+          "attribute": "primary-metadata",
+          "description": "The text to show as primary metadata.",
+          "type": "?string"
+        },
+        {
+          "name": "secondaryMetadata",
+          "attribute": "secondary-metadata",
+          "description": "The text to show as secondary metadata.",
           "type": "?string"
         },
         {
@@ -4925,6 +4947,54 @@
         {
           "name": "--jh-list-item-color-border-selected",
           "description": "The list-item border-left-color when interactive and selected.\nDefaults to `--jh-border-selected-color`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-primary-enabled",
+          "description": "The primary metadata text color.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-primary-focus",
+          "description": "The primary metadata text color when interactive and focused.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-primary-hover",
+          "description": "The primary metadata text color when interactive and hovered.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-primary-active",
+          "description": "The primary metadata text color when interactive and active.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-primary-selected",
+          "description": "The primary metadata text color when interactive and selected.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-primary-disabled",
+          "description": "The primary metadata text color when interactive and disabled.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-secondary-enabled",
+          "description": "The secondary metadata text color.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-secondary-focus",
+          "description": "The secondary metadata text color when interactive and focused.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-secondary-hover",
+          "description": "The secondary metadata text color when interactive and hovered.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-secondary-active",
+          "description": "The secondary metadata text color when interactive and active.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-secondary-selected",
+          "description": "The secondary metadata text color when interactive and selected.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-secondary-disabled",
+          "description": "The secondary metadata text color when interactive and disabled.\nDefaults to `--jh-color-content-secondary-enabled`."
         }
       ]
     },

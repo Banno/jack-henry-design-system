@@ -40,7 +40,7 @@ import '@jack-henry/jh-icons/icons-wc/icon-circle-xmark.js';
  * @cssprop --jh-input-counter-color-text - The character counter text color. Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-input-value-color-text - The value text color. Defaults to `jh-color-content-primary-enabled`.
  * @cssprop --jh-input-error-color-text - The error message text color. Defaults to `jh-color-content-negative-enabled`.
- * 
+ * @cssprop --jh-input-size - The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large.
  * @event jh-select - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.
  * @event jh-change - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.
  * @event jh-input - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.
@@ -172,13 +172,13 @@ export class JhInput extends JhElement {
 
       /* Sizes on input wrapper */
       :host([size='small']) .input-wrapper {
-        height: var(--jh-input-height-small, var(--jh-dimension-800));
+        height: var(--jh-input-size, var(--jh-dimension-800));
       }
       :host([size='medium']) .input-wrapper {
-        height: var(--jh-input-height-medium, var(--jh-dimension-1000));
+        height: var(--jh-input-size, var(--jh-dimension-1000));
       }
       :host([size='large']) .input-wrapper {
-        height: var(--jh-input-height-large, var(--jh-dimension-1200));
+        height: var(--jh-input-size, var(--jh-dimension-1200));
       }
 
       /* Input element — no border, grows to fill */

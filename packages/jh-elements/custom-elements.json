@@ -30,6 +30,10 @@
           "description": "Sets the max count to show. Appends `+` to the `max-count` when value is exceeded.",
           "type": "?number",
           "default": "99"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "cssProperties": [
@@ -207,6 +211,10 @@
           "attribute": "value",
           "description": "Sets the value of the button.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -707,6 +715,10 @@
           "attribute": "header-title",
           "description": "Provides context for the content of the card.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -896,6 +908,10 @@
           "description": "Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required` property is also set. For the indicator to be displayed, the `label` property must also be set.",
           "type": "?boolean",
           "default": "false"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -1035,12 +1051,16 @@
           "attribute": "accessible-label",
           "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the state of the checkbox has changed."
+          "description": "Dispatched when the state of the checkbox has changed. Event payload includes the `checked` state of the checkbox and can be accessed via `e.detail.state.checked`."
         }
       ],
       "cssProperties": [
@@ -1242,6 +1262,10 @@
           "attribute": "inset",
           "description": "The alignment of the left edge of the divider.",
           "type": "0|8|16|24|32|40|48|56|64|72|80|88|96"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "cssProperties": [
@@ -1281,6 +1305,10 @@
           "description": "Sets the size of the icon.",
           "type": "'x-small'|'small'|'medium'|'large'|'x-large'",
           "default": "\"medium\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -1407,6 +1435,11 @@
           "type": "?string"
         },
         {
+          "name": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
           "type": "boolean",
@@ -1449,10 +1482,6 @@
         }
       ],
       "properties": [
-        {
-          "name": "uniqueId",
-          "type": "number | null"
-        },
         {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
@@ -1555,6 +1584,12 @@
           "type": "?string"
         },
         {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
           "name": "readonly",
           "attribute": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
@@ -1601,28 +1636,32 @@
           "attribute": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-input",
-          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-maxlength",
-          "description": "Dispatched when the `maxlength` property is set and it's value is reached."
+          "description": "Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`."
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`."
         }
       ],
       "slots": [
@@ -1763,6 +1802,10 @@
         {
           "name": "--jh-input-error-color-text",
           "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-input-size",
+          "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large."
         }
       ]
     },
@@ -2342,6 +2385,10 @@
         {
           "name": "--jh-input-error-color-text",
           "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-input-size",
+          "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large."
         }
       ]
     },
@@ -2450,6 +2497,11 @@
           "type": "?string"
         },
         {
+          "name": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
           "type": "boolean",
@@ -2510,10 +2562,6 @@
           "description": "Unmasks the input field value when set.",
           "type": "boolean",
           "default": "false"
-        },
-        {
-          "name": "uniqueId",
-          "type": "number | null"
         },
         {
           "name": "accessibleLabel",
@@ -2616,6 +2664,12 @@
           "type": "?string"
         },
         {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
           "name": "readonly",
           "attribute": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
@@ -2662,28 +2716,32 @@
           "attribute": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-input",
-          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-maxlength",
-          "description": "Dispatched when the `maxlength` property is set and it's value is reached."
+          "description": "Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`."
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`."
         }
       ],
       "slots": [
@@ -2832,6 +2890,10 @@
         {
           "name": "--jh-input-error-color-text",
           "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-input-size",
+          "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large."
         }
       ]
     },
@@ -2925,6 +2987,11 @@
           "type": "?string"
         },
         {
+          "name": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
           "type": "boolean",
@@ -2967,10 +3034,6 @@
         }
       ],
       "properties": [
-        {
-          "name": "uniqueId",
-          "type": "number | null"
-        },
         {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
@@ -3072,6 +3135,12 @@
           "type": "?string"
         },
         {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
           "name": "readonly",
           "attribute": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
@@ -3118,28 +3187,32 @@
           "attribute": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-input",
-          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-maxlength",
-          "description": "Dispatched when the `maxlength` property is set and it's value is reached."
+          "description": "Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`."
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`."
         }
       ],
       "slots": [
@@ -3280,6 +3353,10 @@
         {
           "name": "--jh-input-error-color-text",
           "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-input-size",
+          "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large."
         }
       ]
     },
@@ -3373,6 +3450,11 @@
           "type": "?string"
         },
         {
+          "name": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
           "type": "boolean",
@@ -3415,10 +3497,6 @@
         }
       ],
       "properties": [
-        {
-          "name": "uniqueId",
-          "type": "number | null"
-        },
         {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
@@ -3520,6 +3598,12 @@
           "type": "?string"
         },
         {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
           "name": "readonly",
           "attribute": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
@@ -3566,28 +3650,32 @@
           "attribute": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-input",
-          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-maxlength",
-          "description": "Dispatched when the `maxlength` property is set and it's value is reached."
+          "description": "Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`."
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`."
         }
       ],
       "slots": [
@@ -3728,6 +3816,10 @@
         {
           "name": "--jh-input-error-color-text",
           "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-input-size",
+          "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large."
         }
       ]
     },
@@ -3847,6 +3939,11 @@
           "type": "?string"
         },
         {
+          "name": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value.",
           "type": "boolean",
@@ -3920,10 +4017,6 @@
           "attribute": "wrap",
           "description": "Specifies how text should be wrapped when submitted in a form. The `cols` property must be set for `wrap='hard'` to take effect.",
           "type": "'hard'|'soft'"
-        },
-        {
-          "name": "uniqueId",
-          "type": "number | null"
         },
         {
           "name": "accessibleLabel",
@@ -4026,6 +4119,12 @@
           "type": "?string"
         },
         {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
           "name": "readonly",
           "attribute": "readonly",
           "description": "Prevents users from changing the input value.",
@@ -4072,28 +4171,32 @@
           "attribute": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`."
+          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`."
         },
         {
           "name": "jh-input",
-          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`."
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`."
         },
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-maxlength",
-          "description": "Dispatched when the `maxlength` property is set and it's value is reached."
+          "description": "Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`."
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`."
         }
       ],
       "slots": [
@@ -4238,6 +4341,10 @@
         {
           "name": "--jh-input-error-color-text",
           "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-input-size",
+          "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large."
         }
       ]
     },
@@ -4331,6 +4438,11 @@
           "type": "?string"
         },
         {
+          "name": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
           "type": "boolean",
@@ -4373,10 +4485,6 @@
         }
       ],
       "properties": [
-        {
-          "name": "uniqueId",
-          "type": "number | null"
-        },
         {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
@@ -4478,6 +4586,12 @@
           "type": "?string"
         },
         {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
           "name": "readonly",
           "attribute": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
@@ -4524,28 +4638,32 @@
           "attribute": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-input",
-          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-maxlength",
-          "description": "Dispatched when the `maxlength` property is set and it's value is reached."
+          "description": "Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`."
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`."
         }
       ],
       "slots": [
@@ -4686,6 +4804,10 @@
         {
           "name": "--jh-input-error-color-text",
           "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-input-size",
+          "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large."
         }
       ]
     },
@@ -4778,6 +4900,11 @@
           "type": "?string"
         },
         {
+          "name": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
           "type": "boolean",
@@ -4820,10 +4947,6 @@
         }
       ],
       "properties": [
-        {
-          "name": "uniqueId",
-          "type": "number | null"
-        },
         {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
@@ -4925,6 +5048,12 @@
           "type": "?string"
         },
         {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
           "name": "readonly",
           "attribute": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
@@ -4971,28 +5100,32 @@
           "attribute": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-input",
-          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-maxlength",
-          "description": "Dispatched when the `maxlength` property is set and it's value is reached."
+          "description": "Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`."
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`."
         }
       ],
       "slots": [
@@ -5133,6 +5266,10 @@
         {
           "name": "--jh-input-error-color-text",
           "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-input-size",
+          "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large."
         }
       ]
     },
@@ -5163,6 +5300,10 @@
           "attribute": "accessible-label",
           "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -5289,6 +5430,10 @@
           "description": "Determines whether the divider is displayed below the list-item.",
           "type": "?boolean",
           "default": "false"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -5379,6 +5524,12 @@
     {
       "name": "jh-menu",
       "path": "./components/menu/menu.js",
+      "properties": [
+        {
+          "name": "uniqueId",
+          "type": "number"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -5480,6 +5631,10 @@
           "description": "Determines where in viewport notification is displayed. Alerts will follow typical content flow, while banners will break out of standard flow and go edge-to-edge within a container.",
           "type": "'alert'|'banner'",
           "default": "\"alert\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -5814,6 +5969,10 @@
           "attribute": "accessible-valuetext",
           "description": "Sets `aria-valuetext` on progress indicator to provide text alternative of `aria-valuenow`. To be used when progress cannot be represented as a number.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "cssProperties": [
@@ -5980,12 +6139,16 @@
           "attribute": "value",
           "description": "Sets the value of the radio group.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the radio group has changed."
+          "description": "Dispatched when the value of the radio group has changed. Event payload includes the `value` and can be accessed via `e.detail.state.value`."
         }
       ],
       "slots": [
@@ -6096,6 +6259,10 @@
           "attribute": "value",
           "description": "Sets the value of the radio.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -6329,6 +6496,11 @@
           "type": "?string"
         },
         {
+          "name": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
           "type": "boolean",
@@ -6390,10 +6562,6 @@
           "description": "Prevents the dropdown menu from automatically flipping its position when there is insufficient viewport space.",
           "type": "boolean",
           "default": "false"
-        },
-        {
-          "name": "uniqueId",
-          "type": "number | null"
         },
         {
           "name": "accessibleLabel",
@@ -6496,6 +6664,12 @@
           "type": "?string"
         },
         {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
           "name": "readonly",
           "attribute": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
@@ -6542,28 +6716,32 @@
           "attribute": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the selected value changes."
+          "description": "Dispatched when the selected value changes. Event payload includes the `value` and can be accessed via `e.detail.state.value`."
         },
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-input",
-          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-maxlength",
-          "description": "Dispatched when the `maxlength` property is set and it's value is reached."
+          "description": "Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`."
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`."
         }
       ],
       "slots": [
@@ -6864,6 +7042,10 @@
         {
           "name": "--jh-input-error-color-text",
           "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-input-size",
+          "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large."
         }
       ]
     },
@@ -6942,6 +7124,10 @@
           "attribute": "label",
           "description": "Describes the intent of the switch.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -7032,108 +7218,10 @@
           "description": "Sets the horizontal alignment of the content.",
           "type": "'left' | 'center' | 'right'",
           "default": "\"left\""
-        }
-      ],
-      "slots": [
-        {
-          "name": "default",
-          "description": "Use to insert content."
-        }
-      ],
-      "cssProperties": [
-        {
-          "name": "--jh-table-data-cell-color-text",
-          "description": "The cell text color. Defaults to `--jh-color-content-primary-enabled`."
         },
         {
-          "name": "--jh-table-data-cell-color-background",
-          "description": "The cell background color. Defaults to `--jh-color-container-primary-enabled`."
-        },
-        {
-          "name": "--jh-table-data-cell-color-border-top",
-          "description": "The cell border top color. Defaults to `transparent`."
-        },
-        {
-          "name": "--jh-table-data-cell-color-border-right",
-          "description": "The cell border right color. Defaults to `transparent`."
-        },
-        {
-          "name": "--jh-table-data-cell-color-border-left",
-          "description": "The cell border left color. Defaults to `transparent`."
-        },
-        {
-          "name": "--jh-table-data-cell-color-border-bottom",
-          "description": "The cell border bottom color. Defaults to `--jh-border-decorative-color`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-top-width",
-          "description": "The cell border top width. Defaults to `--jh-border-decorative-width`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-right-width",
-          "description": "The cell border right width. Defaults to `--jh-border-decorative-width`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-left-width",
-          "description": "The cell border left width. Defaults to `--jh-border-decorative-width`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-bottom-width",
-          "description": "The cell border bottom width. Defaults to `--jh-border-decorative-width`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-top-style",
-          "description": "The cell border top style. Defaults to `--jh-border-decorative-style`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-right-style",
-          "description": "The cell border right style. Defaults to `--jh-border-decorative-style`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-left-style",
-          "description": "The cell border left style. Defaults to `--jh-border-decorative-style`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-bottom-style",
-          "description": "The cell border bottom style. Defaults to `--jh-border-decorative-style`."
-        },
-        {
-          "name": "--jh-table-data-cell-space-padding-top",
-          "description": "The cell padding top. Defaults to `--jh-dimension-400`."
-        },
-        {
-          "name": "--jh-table-data-cell-space-padding-right",
-          "description": "The cell padding right. Defaults to `--jh-dimension-400`."
-        },
-        {
-          "name": "--jh-table-data-cell-space-padding-bottom",
-          "description": "The cell padding bottom. Defaults to `--jh-dimension-400`."
-        },
-        {
-          "name": "--jh-table-data-cell-space-padding-left",
-          "description": "The cell padding left. Defaults to `--jh-dimension-400`."
-        }
-      ]
-    },
-    {
-      "name": "jh-table-data-cell",
-      "path": "./components/table-data-cell/table-data-cell.js",
-      "description": "Table Cell",
-      "attributes": [
-        {
-          "name": "horizontal-align",
-          "description": "Sets the horizontal alignment of the content.",
-          "type": "'left' | 'center' | 'right'",
-          "default": "\"left\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "horizontalAlign",
-          "attribute": "horizontal-align",
-          "description": "Sets the horizontal alignment of the content.",
-          "type": "'left' | 'center' | 'right'",
-          "default": "\"left\""
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -7262,12 +7350,16 @@
           "description": "Sets the order in which the items in the column are sorted.",
           "type": "'none' | 'ascending' | 'descending'",
           "default": "\"none\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-sort",
-          "description": "Dispatched when a sortable header cell is activated. Event payload includes the column, sorted state, and id of the header cell and can be accessed via `e.detail.column`, `e.detail.sorted`, and ` e.detail.id`."
+          "description": "Dispatched when a sortable header cell is activated. Event payload includes the column, sorted state, and id of the header cell and can be accessed via `e.detail.reference.column`, `e.detail.reference.sorted`, and `e.detail.reference.id`."
         }
       ],
       "slots": [
@@ -7487,6 +7579,12 @@
       "name": "jh-table-row",
       "path": "./components/table-row/table-row.js",
       "description": "Table Row",
+      "properties": [
+        {
+          "name": "uniqueId",
+          "type": "number"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -7615,6 +7713,10 @@
           "description": "Makes the table horizontally scrollable on smaller screens.",
           "type": "Boolean",
           "default": "false"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -7697,6 +7799,10 @@
           "description": "Sets the alignment of the tags.",
           "type": "'start'| 'end'",
           "default": "\"start\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -7806,6 +7912,10 @@
           "description": "Removes the tag after the dismiss button is activated.",
           "type": "?Boolean",
           "default": "false"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -8042,6 +8152,10 @@
           "description": "Places action button(s) on new line, below default slot.",
           "type": "boolean",
           "default": "false"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -8123,6 +8237,10 @@
           "description": "The position of the tooltip and its arrow.",
           "type": "?string",
           "default": "\"top-center\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [

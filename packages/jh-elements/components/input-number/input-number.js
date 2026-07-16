@@ -53,17 +53,17 @@ export class JhInputNumber extends JhInput {
         }
         :host([size="small"]) slot[name="jh-input-right"].display-slot {
           width: calc(
-            var(--jh-input-height-small, var(--jh-dimension-800)) / 2 + var(--jh-dimension-1000)
+            var(--jh-input-size, var(--jh-dimension-800)) / 2 + var(--jh-dimension-1000)
           );
         }
         :host([size="medium"]) slot[name="jh-input-right"].display-slot {
           width: calc(
-            var(--jh-input-height-medium, var(--jh-dimension-1000)) / 2 + var(--jh-dimension-1000)
+            var(--jh-input-size, var(--jh-dimension-1000)) / 2 + var(--jh-dimension-1000)
           );
         }
         :host([size="large"]) slot[name="jh-input-right"].display-slot {
           width: calc(
-            var(--jh-input-height-large, var(--jh-dimension-1200)) / 2 + var(--jh-dimension-1000)
+            var(--jh-input-size, var(--jh-dimension-1200)) / 2 + var(--jh-dimension-1000)
           );
         }
         jh-button {

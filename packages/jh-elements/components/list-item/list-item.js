@@ -118,12 +118,45 @@ export class JhListItem extends JhElement {
         align-items: center;
         box-sizing: border-box;
       }
+      .secondary-text {
+        color: var(
+          --jh-list-item-color-text-secondary-enabled,
+          var(--jh-color-content-secondary-enabled)
+        );
+        font-family: var(--jh-font-helper-regular-font-family);
+        font-weight: var(--jh-font-helper-regular-font-weight);
+        font-size: var(--jh-font-helper-regular-font-size);
+        line-height: var(--jh-font-helper-regular-line-height);
+      }
+      .primary-metadata {
+        color: var(
+          --jh-list-item-metadata-color-text-primary-enabled,
+          var(--jh-list-item-color-text-primary-enabled, var(--jh-color-content-primary-enabled))
+        );
+      }
+      .secondary-metadata {
+        color: var(
+          --jh-list-item-metadata-color-text-secondary-enabled,
+          var(--jh-list-item-color-text-secondary-enabled, var(--jh-color-content-secondary-enabled))
+        );
+        font-family: var(--jh-font-helper-regular-font-family);
+        font-weight: var(--jh-font-helper-regular-font-weight);
+        font-size: var(--jh-font-helper-regular-font-size);
+        line-height: var(--jh-font-helper-regular-line-height);
+      }
+      .primary-text,
+      .secondary-text,
+      .primary-metadata,
+      .secondary-metadata {
+        display: block;
+        word-break: break-word;
+      }
       /* states for interactive list-items*/
       :host([tabindex]:focus-visible) {
-        --jh-list-item-color-text-primary-enabled: var(--jh-list-item-color-text-primary-focus);
-        --jh-list-item-color-text-secondary-enabled: var(--jh-list-item-color-text-secondary-focus);
-        --jh-list-item-metadata-color-text-primary-enabled: var(--jh-list-item-metadata-color-text-primary-focus);
-        --jh-list-item-metadata-color-text-secondary-enabled: var(--jh-list-item-metadata-color-text-secondary-focus);
+        color: var(
+          --jh-list-item-color-text-primary-focus,
+          var(--jh-list-item-color-text-primary-enabled, var(--jh-color-content-primary-enabled))
+        );
         background-color: var(
           --jh-list-item-color-background-focus,
           var(--jh-color-container-primary-hover)
@@ -136,47 +169,147 @@ export class JhListItem extends JhElement {
         outline-width: var(--jh-border-focus-width);
         outline-offset: -2px;
       }
+      :host([tabindex]:focus-visible) .secondary-text {
+        color: var(
+          --jh-list-item-color-text-secondary-focus,
+          var(--jh-list-item-color-text-secondary-enabled, var(--jh-color-content-secondary-enabled))
+        );
+      }
+      :host([tabindex]:focus-visible) .primary-metadata {
+        color: var(
+          --jh-list-item-metadata-color-text-primary-focus,
+          var(--jh-list-item-metadata-color-text-primary-enabled,
+            var(--jh-list-item-color-text-primary-enabled, var(--jh-color-content-primary-enabled)))
+        );
+      }
+      :host([tabindex]:focus-visible) .secondary-metadata {
+        color: var(
+          --jh-list-item-metadata-color-text-secondary-focus,
+          var(--jh-list-item-metadata-color-text-secondary-enabled,
+            var(--jh-list-item-color-text-secondary-enabled, var(--jh-color-content-secondary-enabled)))
+        );
+      }
       :host([tabindex]:hover) {
-        --jh-list-item-color-text-primary-enabled: var(--jh-list-item-color-text-primary-hover);
-        --jh-list-item-color-text-secondary-enabled: var(--jh-list-item-color-text-secondary-hover);
-        --jh-list-item-metadata-color-text-primary-enabled: var(--jh-list-item-metadata-color-text-primary-hover);
-        --jh-list-item-metadata-color-text-secondary-enabled: var(--jh-list-item-metadata-color-text-secondary-hover);
+        color: var(
+          --jh-list-item-color-text-primary-hover,
+          var(--jh-list-item-color-text-primary-enabled, var(--jh-color-content-primary-enabled))
+        );
         background-color: var(
           --jh-list-item-color-background-hover,
           var(--jh-color-container-primary-hover)
         );
         cursor: pointer;
       }
+      :host([tabindex]:hover) .secondary-text {
+        color: var(
+          --jh-list-item-color-text-secondary-hover,
+          var(--jh-list-item-color-text-secondary-enabled, var(--jh-color-content-secondary-enabled))
+        );
+      }
+      :host([tabindex]:hover) .primary-metadata {
+        color: var(
+          --jh-list-item-metadata-color-text-primary-hover,
+          var(--jh-list-item-metadata-color-text-primary-enabled,
+            var(--jh-list-item-color-text-primary-enabled, var(--jh-color-content-primary-enabled)))
+        );
+      }
+      :host([tabindex]:hover) .secondary-metadata {
+        color: var(
+          --jh-list-item-metadata-color-text-secondary-hover,
+          var(--jh-list-item-metadata-color-text-secondary-enabled,
+            var(--jh-list-item-color-text-secondary-enabled, var(--jh-color-content-secondary-enabled)))
+        );
+      }
       :host([tabindex]:active) {
-        --jh-list-item-color-text-primary-enabled: var(--jh-list-item-color-text-primary-active);
-        --jh-list-item-color-text-secondary-enabled: var(--jh-list-item-color-text-secondary-active);
-        --jh-list-item-metadata-color-text-primary-enabled: var(--jh-list-item-metadata-color-text-primary-active);
-        --jh-list-item-metadata-color-text-secondary-enabled: var(--jh-list-item-metadata-color-text-secondary-active);
+        color: var(
+          --jh-list-item-color-text-primary-active,
+          var(--jh-list-item-color-text-primary-enabled, var(--jh-color-content-primary-enabled))
+        );
         background-color: var(
           --jh-list-item-color-background-active,
           var(--jh-color-container-primary-active)
         );
       }
+      :host([tabindex]:active) .secondary-text {
+        color: var(
+          --jh-list-item-color-text-secondary-active,
+          var(--jh-list-item-color-text-secondary-enabled, var(--jh-color-content-secondary-enabled))
+        );
+      }
+      :host([tabindex]:active) .primary-metadata {
+        color: var(
+          --jh-list-item-metadata-color-text-primary-active,
+          var(--jh-list-item-metadata-color-text-primary-enabled,
+            var(--jh-list-item-color-text-primary-enabled, var(--jh-color-content-primary-enabled)))
+        );
+      }
+      :host([tabindex]:active) .secondary-metadata {
+        color: var(
+          --jh-list-item-metadata-color-text-secondary-active,
+          var(--jh-list-item-metadata-color-text-secondary-enabled,
+            var(--jh-list-item-color-text-secondary-enabled, var(--jh-color-content-secondary-enabled)))
+        );
+      }
       :host([tabindex][disabled]) {
-        --jh-list-item-color-text-primary-enabled: var(--jh-list-item-color-text-primary-disabled);
-        --jh-list-item-color-text-secondary-enabled: var(--jh-list-item-color-text-secondary-disabled);
-        --jh-list-item-metadata-color-text-primary-enabled: var(--jh-list-item-metadata-color-text-primary-disabled);
-        --jh-list-item-metadata-color-text-secondary-enabled: var(--jh-list-item-metadata-color-text-secondary-disabled);
+        color: var(
+          --jh-list-item-color-text-primary-disabled,
+          var(--jh-list-item-color-text-primary-enabled, var(--jh-color-content-primary-enabled))
+        );
         background-color: var(--jh-list-item-color-background-disabled, transparent);
         cursor: default;
         pointer-events: none;
+      }
+      :host([tabindex][disabled]) .secondary-text {
+        color: var(
+          --jh-list-item-color-text-secondary-disabled,
+          var(--jh-list-item-color-text-secondary-enabled, var(--jh-color-content-secondary-enabled))
+        );
+      }
+      :host([tabindex][disabled]) .primary-metadata {
+        color: var(
+          --jh-list-item-metadata-color-text-primary-disabled,
+          var(--jh-list-item-metadata-color-text-primary-enabled,
+            var(--jh-list-item-color-text-primary-enabled, var(--jh-color-content-primary-enabled)))
+        );
+      }
+      :host([tabindex][disabled]) .secondary-metadata {
+        color: var(
+          --jh-list-item-metadata-color-text-secondary-disabled,
+          var(--jh-list-item-metadata-color-text-secondary-enabled,
+            var(--jh-list-item-color-text-secondary-enabled, var(--jh-color-content-secondary-enabled)))
+        );
       }
       :host([tabindex][disabled]) .list-item {
         opacity: var(--jh-list-item-opacity-disabled, var(--jh-opacity-disabled));
       }
       :host([tabindex][selected]) {
-        --jh-list-item-color-text-primary-enabled: var(--jh-list-item-color-text-primary-selected);
-        --jh-list-item-color-text-secondary-enabled: var(--jh-list-item-color-text-secondary-selected);
-        --jh-list-item-metadata-color-text-primary-enabled: var(--jh-list-item-metadata-color-text-primary-selected);
-        --jh-list-item-metadata-color-text-secondary-enabled: var(--jh-list-item-metadata-color-text-secondary-selected);
+        color: var(
+          --jh-list-item-color-text-primary-selected,
+          var(--jh-list-item-color-text-primary-enabled, var(--jh-color-content-primary-enabled))
+        );
         background-color: var(
           --jh-list-item-color-background-selected,
           var(--jh-color-container-primary-selected)
+        );
+      }
+      :host([tabindex][selected]) .secondary-text {
+        color: var(
+          --jh-list-item-color-text-secondary-selected,
+          var(--jh-list-item-color-text-secondary-enabled, var(--jh-color-content-secondary-enabled))
+        );
+      }
+      :host([tabindex][selected]) .primary-metadata {
+        color: var(
+          --jh-list-item-metadata-color-text-primary-selected,
+          var(--jh-list-item-metadata-color-text-primary-enabled,
+            var(--jh-list-item-color-text-primary-enabled, var(--jh-color-content-primary-enabled)))
+        );
+      }
+      :host([tabindex][selected]) .secondary-metadata {
+        color: var(
+          --jh-list-item-metadata-color-text-secondary-selected,
+          var(--jh-list-item-metadata-color-text-secondary-enabled,
+            var(--jh-list-item-color-text-secondary-enabled, var(--jh-color-content-secondary-enabled)))
         );
       }
       :host([tabindex][selected]) .list-item {
@@ -233,39 +366,6 @@ export class JhListItem extends JhElement {
       slot[name="jh-list-item-right"].has-content,
       slot:not([name]).has-content {
         display: flex;
-      }
-      .secondary-text {
-        color: var(
-          --jh-list-item-color-text-secondary-enabled,
-          var(--jh-color-content-secondary-enabled)
-        );
-        font-family: var(--jh-font-helper-regular-font-family);
-        font-weight: var(--jh-font-helper-regular-font-weight);
-        font-size: var(--jh-font-helper-regular-font-size);
-        line-height: var(--jh-font-helper-regular-line-height);
-      }
-      .primary-metadata {
-        color: var(
-          --jh-list-item-metadata-color-text-primary-enabled,
-          var(--jh-list-item-color-text-primary-enabled, var(--jh-color-content-primary-enabled))
-        );
-      }
-      .secondary-metadata {
-        color: var(
-          --jh-list-item-metadata-color-text-secondary-enabled,
-          var(--jh-list-item-color-text-secondary-enabled, var(--jh-color-content-secondary-enabled))
-        );
-        font-family: var(--jh-font-helper-regular-font-family);
-        font-weight: var(--jh-font-helper-regular-font-weight);
-        font-size: var(--jh-font-helper-regular-font-size);
-        line-height: var(--jh-font-helper-regular-line-height);
-      }
-      .primary-text,
-      .secondary-text,
-      .primary-metadata,
-      .secondary-metadata {
-        display: block;
-        word-break: break-word;
       }
     `;
   }

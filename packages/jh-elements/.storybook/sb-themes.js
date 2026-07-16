@@ -8,9 +8,9 @@ import { create } from 'storybook/theming';
 export const lightTheme = create({
   base: 'light',
   // Brand assets
-  brandTitle: 'Jack Henry Storybook',
+  brandTitle: 'Forge Design System',
   brandUrl: 'https://jackhenry.design',
-  brandImage: '/logos/Jack-Henry-Wordmark-Hex.png',
+  brandImage: '/logos/forge-dark.svg',
   //sets the background of the preview in Canvas
   appPreviewBg: '#FFFFFF',
 });
@@ -18,8 +18,8 @@ export const lightTheme = create({
 export const darkTheme = create({
   base: 'dark',
   // Brand assets
-  brandTitle: 'Jack Henry Storybook',
+  brandTitle: 'Forge Design System',
   brandUrl: 'https://jackhenry.design',
-  brandImage: '/logos/Jack-Henry-Wordmark-Hex-Inversed.png',
+  brandImage: '/logos/forge-light.svg',
   appPreviewBg: '#333333',
 });

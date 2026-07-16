@@ -34,6 +34,10 @@
         {
           "name": "uniqueId",
           "type": "number"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "cssProperties": [
@@ -1294,7 +1298,7 @@
         {
           "name": "size",
           "description": "Sets the size of the icon.",
-          "type": "'x-small'|'small'|'medium'|'large'|'x-large'",
+          "type": "'x-small'|'small'|'medium'|'large'|'x-large'|'xx-large'",
           "default": "\"medium\""
         }
       ],
@@ -1303,7 +1307,7 @@
           "name": "size",
           "attribute": "size",
           "description": "Sets the size of the icon.",
-          "type": "'x-small'|'small'|'medium'|'large'|'x-large'",
+          "type": "'x-small'|'small'|'medium'|'large'|'x-large'|'xx-large'",
           "default": "\"medium\""
         },
         {
@@ -1341,6 +1345,10 @@
         {
           "name": "--jh-icon-size-extra-large",
           "description": "The icon size when `size=\"extra-large\"`. Defaults to `--jh-dimension-1400`."
+        },
+        {
+          "name": "--jh-icon-size-extra-extra-large",
+          "description": "The icon size when `size=\"extra-extra-large\"`. Defaults to `--jh-dimension-2100`."
         }
       ]
     },
@@ -5347,18 +5355,8 @@
           "type": "null|0|8|16|24|32|40|48|56|64|72|80|88|96"
         },
         {
-          "name": "primary-metadata",
-          "description": "The text to show as primary metadata.",
-          "type": "?string"
-        },
-        {
           "name": "primary-text",
           "description": "The text to show as primary text.",
-          "type": "?string"
-        },
-        {
-          "name": "secondary-metadata",
-          "description": "The text to show as secondary metadata.",
           "type": "?string"
         },
         {
@@ -5394,21 +5392,9 @@
           "type": "null|0|8|16|24|32|40|48|56|64|72|80|88|96"
         },
         {
-          "name": "primaryMetadata",
-          "attribute": "primary-metadata",
-          "description": "The text to show as primary metadata.",
-          "type": "?string"
-        },
-        {
           "name": "primaryText",
           "attribute": "primary-text",
           "description": "The text to show as primary text.",
-          "type": "?string"
-        },
-        {
-          "name": "secondaryMetadata",
-          "attribute": "secondary-metadata",
-          "description": "The text to show as secondary metadata.",
           "type": "?string"
         },
         {
@@ -5439,7 +5425,7 @@
       "slots": [
         {
           "name": "default",
-          "description": "Use to insert fully customized content into the list-item. Cannot be used with the other slots."
+          "description": "Use to insert custom content into the list-item."
         },
         {
           "name": "jh-list-item-left",
@@ -5448,24 +5434,60 @@
         {
           "name": "jh-list-item-right",
           "description": "Use to insert custom content on the right the list-item."
-        },
-        {
-          "name": "jh-list-item-content",
-          "description": "Use to insert custom content into the list-item."
-        },
-        {
-          "name": "jh-list-item-metadata",
-          "description": "Use to insert custom metadata into the list-item."
         }
       ],
       "cssProperties": [
         {
-          "name": "--jh-list-item-color-background",
+          "name": "--jh-list-item-color-background-enabled",
           "description": "The list-item container's background-color.\nDefaults to `transparent`."
         },
         {
-          "name": "--jh-list-item-color-text",
-          "description": "The default, left, text, metadata, right, primary, and secondary slot text color. Defaults to `--jh-color-content-primary-enabled`."
+          "name": "--jh-list-item-color-text-primary-enabled",
+          "description": "The list-item text color for the default, left, right slots and primary text.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-primary-focus",
+          "description": "The list-item text color for the default, left, right slots and primary text when interactive and focused.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-primary-hover",
+          "description": "The list-item text color for the default, left, right slots and primary text when interactive and hovered.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-primary-active",
+          "description": "The list-item text color for the default, left, right slots and primary text when interactive and active.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-primary-selected",
+          "description": "The list-item text color for the default, left, right slots and primary text when interactive and selected.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-primary-disabled",
+          "description": "The list-item text color for the default, left, right slots and primary text when interactive and disabled.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary-enabled",
+          "description": "The secondary text color.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary-focus",
+          "description": "The secondary text color when interactive and focused.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary-hover",
+          "description": "The secondary text color when interactive and hovered.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary-active",
+          "description": "The secondary text color when interactive and active.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary-selected",
+          "description": "The secondary text color when interactive and selected.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary-disabled",
+          "description": "The secondary text color when interactive and disabled.\nDefaults to `--jh-color-content-secondary-enabled`."
         },
         {
           "name": "--jh-list-item-space-padding-right",
@@ -5476,24 +5498,16 @@
           "description": "The left padding on the list-item container. Defaults to `--jh-dimension-600`."
         },
         {
+          "name": "--jh-list-item-space-padding-top",
+          "description": "The top padding on the list-item container. Defaults to `--jh-dimension-400`."
+        },
+        {
+          "name": "--jh-list-item-space-padding-bottom",
+          "description": "The bottom padding on the list-item container. Defaults to `--jh-dimension-400`."
+        },
+        {
           "name": "--jh-list-item-size-height",
           "description": "The list-item's height. Defaults to `auto`."
-        },
-        {
-          "name": "--jh-list-item-color-text-primary",
-          "description": "The primary text color.\nDefaults to `--jh-color-content-primary-enabled`."
-        },
-        {
-          "name": "--jh-list-item-color-text-secondary",
-          "description": "The secondary text color.\nDefaults to `--jh-color-content-secondary-enabled`."
-        },
-        {
-          "name": "--jh-list-item-metadata-color-text-primary",
-          "description": "The primary metadata text color.\nDefaults to `--jh-color-content-primary-enabled`."
-        },
-        {
-          "name": "--jh-list-item-metadata-color-text-secondary",
-          "description": "The secondary metadata text color.\nDefaults to `--jh-color-content-secondary-enabled`."
         },
         {
           "name": "--jh-list-item-color-background-focus",
@@ -5510,6 +5524,14 @@
         {
           "name": "--jh-list-item-color-background-active",
           "description": "The list-item background-color when interactive and active.\nDefaults to `--jh-color-container-primary-active`."
+        },
+        {
+          "name": "--jh-list-item-color-background-disabled",
+          "description": "The list-item background-color when interactive and disabled.\nDefaults to `transparent`."
+        },
+        {
+          "name": "--jh-list-item-opacity-disabled",
+          "description": "The list-item opacity when interactive and disabled.\nDefaults to `--jh-opacity-disabled`."
         },
         {
           "name": "--jh-list-item-color-background-selected",
@@ -5858,7 +5880,7 @@
         {
           "name": "size",
           "description": "Sets the size of the progress component.",
-          "type": "'small'|'medium'|'large'",
+          "type": " 'x-small'|'small'|'medium'|'large'|'x-large'|'xx-large'",
           "default": "\"medium\""
         },
         {
@@ -5920,7 +5942,7 @@
           "name": "size",
           "attribute": "size",
           "description": "Sets the size of the progress component.",
-          "type": "'small'|'medium'|'large'",
+          "type": " 'x-small'|'small'|'medium'|'large'|'x-large'|'xx-large'",
           "default": "\"medium\""
         },
         {
@@ -5995,6 +6017,14 @@
         {
           "name": "--jh-progress-indicator-color",
           "description": "The indicator color. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-progress-track-size-linear",
+          "description": "The height of the linear progress bar track. Defaults to the size-based height."
+        },
+        {
+          "name": "--jh-progress-track-size-circular",
+          "description": "The width and height of the circular progress indicator. Defaults to the size-based dimensions."
         }
       ]
     },
@@ -6268,7 +6298,7 @@
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the state of the radio has changed."
+          "description": "Dispatched when the state of the radio has changed. Event payload includes the value of the radio and can be accessed via `e.detail.state.value`."
         }
       ],
       "cssProperties": [
@@ -7200,7 +7230,7 @@
       ]
     },
     {
-      "name": "jh-table-cell",
+      "name": "jh-table-data-cell",
       "path": "./components/table-data-cell/table-data-cell.js",
       "description": "Table Cell",
       "attributes": [
@@ -8261,6 +8291,10 @@
         {
           "name": "--jh-tooltip-color-text",
           "description": "The tooltip text color. Defaults to `--jh-color-content-on-primary-enabled`."
+        },
+        {
+          "name": "--jh-tooltip-size-max-width",
+          "description": "The maximum width of the tooltip. Defaults to `160px`."
         }
       ]
     }

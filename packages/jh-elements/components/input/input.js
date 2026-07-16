@@ -172,13 +172,13 @@ export class JhInput extends JhElement {
 
       /* Sizes on input wrapper */
       :host([size='small']) .input-wrapper {
-        height: var(--jh-dimension-800);
+        height: var(--jh-input-height-small, var(--jh-dimension-800));
       }
       :host([size='medium']) .input-wrapper {
-        height: var(--jh-dimension-1000);
+        height: var(--jh-input-height-medium, var(--jh-dimension-1000));
       }
       :host([size='large']) .input-wrapper {
-        height: var(--jh-dimension-1200);
+        height: var(--jh-input-height-large, var(--jh-dimension-1200));
       }
 
       /* Input element — no border, grows to fill */

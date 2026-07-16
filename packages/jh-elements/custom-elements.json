@@ -34,10 +34,6 @@
         {
           "name": "uniqueId",
           "type": "number"
-        },
-        {
-          "name": "uniqueId",
-          "type": "number"
         }
       ],
       "cssProperties": [

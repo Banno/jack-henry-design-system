@@ -360,6 +360,7 @@ export class JhListItem extends JhElement {
         flex-direction: column;
         flex: 0 0 auto;
         min-width: 0;
+        align-items: flex-end;
       }
       .display, 
       slot[name="jh-list-item-left"].has-content,

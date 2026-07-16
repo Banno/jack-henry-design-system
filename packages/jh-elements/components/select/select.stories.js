@@ -19,6 +19,7 @@ import { CURRENCY_CODES } from '@jack-henry/jh-datasets/datasets/currency-codes.
 import { manageSelectDataset } from '@jack-henry/jh-datasets/utils/manageDataset.js';
 
 const testOptions = [
+  { label: "select a value...", value: "", selected: true },
   { groupLabel: "Account types", groupValues: [
     {  value: "checking-01" },
     {  value: "savings-01", disabled: true },
@@ -26,7 +27,7 @@ const testOptions = [
   ]},
   { groupLabel: "Credit Cards", groupValues: [
     { label: "Cash Back Rewards with a much longer label for testing", value: "cc-cash-back" },
-    { label: "Travel Rewards", value: "cc-travel", selected: true },
+    { label: "Travel Rewards", value: "cc-travel" },
     { label: "Low Interest", value: "cc-low-interest" },
   ]},
   { label: "Personal Loan", value: "loan-personal" },
@@ -34,7 +35,7 @@ const testOptions = [
   { label: "Certificate of Deposit", value: "cd-12-month" },
   { label: "IRA Investment", value: "ira-traditional" },
   { label: "Health Savings Account", value: "hsa-01" },
-  { label: "Brokerage Account", value: "brokerage-standard" }
+  { label: "Brokerage Account", value: "brokerage-standard" },
 ];
 
 const storyStyles = css`
@@ -69,6 +70,7 @@ const disableControls = {
   required: { control: { disable: true } },
   'show-indicator': { control: { disable: true } },
   size: { control: { disable: true } },
+  value: { control: { disable: true } },
   'flip-disabled': { control: { disable: true } },
 }
 
@@ -147,8 +149,7 @@ export default {
       description: 'Sets the size of the select.',
     },
     value: {
-      description: 'Sets the value of the select.',
-      table: { disable: true }
+      description: 'Sets the value of the select programmatically.',
     },
     'flip-disabled': { control: 'boolean' },
     // Hide inherited jh-input slots
@@ -208,7 +209,7 @@ export default {
 };
 
 export const Overview = { render: (args) => html`
-  <jh-select .options=${testOptions} label="Select an account" helper-text="The accounts are grouped by type"></jh-select>
+  <jh-select .options=${testOptions} label="Select an account" helper-text="The accounts are grouped by type" value="cc-travel"></jh-select>
 `};
 
 Overview.argTypes = {
@@ -234,6 +235,7 @@ export const Playground = { render: (args) => html`
     size=${args.size}
     ?flip-disabled=${args['flip-disabled']}
     .options=${testOptions}
+    value=${args.value}
   ></jh-select>
   </div>`
 };
@@ -257,10 +259,12 @@ Playground.args = {
   'show-indicator': false,
   size: 'medium',
   'flip-disabled': false,
+  value: "",
 };
 
 Playground.argTypes = {
   options: { control: { disable: true } },
+  value: { control: { disable: true } },
 };
 
 Playground.parameters = {
@@ -283,15 +287,6 @@ export const Datasets = { render: (args) => {
     <div class="select-container">
       <jh-select label="US States (grouped)" .options=${US_STATES_GROUPED}></jh-select>
     </div>
-    <div class="select-container">
-      <jh-select label="World Currencies" .options=${WORLD_CURRENCIES}></jh-select>
-    </div>
-    <div class="select-container">
-      <jh-select label="Currency Codes" .options=${CURRENCY_CODES}></jh-select>
-    </div>    
-
-
-    <h3></h3>
     <div class="select-container">
       <jh-select label="US states customized" helper-text="Uses manageDataset to set initial value, disabled items, empty label" .options=${customizedData}></jh-select>
     </div>
@@ -326,7 +321,7 @@ export const MenuFlip = { render: (args) => html`
       <jh-select label="Top select" .options=${testOptions} helper-text="should open on bottom" menu-position="top" invalid error-text="Error text"></jh-select>
     </div>
     <div>
-      <jh-select label="Bottom select" helper-text="should open on top" .options=${testOptions}  invalid error-text="Error text" menu-position="bottom"></jh-select>
+      <jh-select label="Bottom select" helper-text="should open on top" .options=${testOptions}  invalid error-text="Error text" menu-position="bottom" value="cc-travel"></jh-select>
     </div>
   </div>
 `};
@@ -380,6 +375,7 @@ export const FormAssociated = {
           label=${args.label}
           ?required=${args.required}
           .options=${testOptions}
+          value="checking-01"
         ></jh-select>
         <jh-button label="Submit" submit @click=${onClick}></jh-button>
       </form>
@@ -411,5 +407,55 @@ FormAssociated.parameters = {
   styles: storyStyles,
 };
 
+export const ProgrammaticValueChange = {
+  render: () => {
+    const baseOptions = [
+      { label: 'Checking', value: 'checking' },
+      { label: 'Savings', value: 'savings' },
+      { label: 'Money Market', value: 'money-market' },
+      { label: 'Certificate of Deposit', value: 'cd' },
+    ];
 
+    const setSelected = (selectedValue) => {
+      const select = document.querySelector('#programmatic-select');
+      if (select) {
+        select.value = selectedValue;
+      }
+    };
+
+    const clearSelected = () => {
+      const select = document.querySelector('#programmatic-select');
+      if (select) {
+        select.value = null;
+      }
+    };
+
+    return html`
+      <div class="select-container">
+        <jh-select
+          id="programmatic-select"
+          label="Programmatic value change"
+          helper-text="Use the buttons below to change the selected option via .value"
+          value="cd"
+          .options=${baseOptions}
+        ></jh-select>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+          <jh-button label="Select 'checking'" @click=${() => setSelected('checking')}></jh-button>
+          <jh-button label="Select 'savings'" @click=${() => setSelected('savings')}></jh-button>
+          <jh-button label="Select 'money-market'" @click=${() => setSelected('money-market')}></jh-button>
+          <jh-button label="Select 'cd'" @click=${() => setSelected('cd')}></jh-button>
+          <jh-button label="Clear selection" appearance="secondary" @click=${() => clearSelected()}></jh-button>
+        </div>
+      </div>
+    `;
+  },
+};
+
+ProgrammaticValueChange.argTypes = {
+  ...disableControls,
+};
+
+ProgrammaticValueChange.parameters = {
+  styles: storyStyles,
+};
 

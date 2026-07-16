@@ -348,6 +348,60 @@ import '@jack-henry/jh-ui/components/divider/divider.js';
 // NEW
 import '@jack-henry/jh-elements/components/divider/divider.js';
 ```
+
+### JhElement Base Class
+
+`JhElement` introduces a new event API. The existing payload structures (event.detail) for our component events have been updated, and event listeners will need to use the new property paths below.
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Event</th>
+      <th>Previous Property Path</th>
+      <th>New Property Path</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Input Components</td>
+      <td>`jh-change`</td>
+      <td>`e.detail.value`, `e.detail.rawValue`</td>
+      <td>`e.detail.state.value`, `e.detail.state.rawValue`</td>
+    </tr>
+    <tr>
+      <td>Input Components</td>
+      <td>`jh-input`</td>
+      <td>`e.detail.value`</td>
+      <td>`e.detail.state.value`</td>
+    </tr>
+    <tr>
+      <td>Input Components</td>
+      <td>`jh-input:clear-button-click`</td>
+      <td>`e.detail.previousValue`</td>
+      <td>`e.detail.state.previousValue`</td>
+    </tr>
+    <tr>
+      <td>Input Components</td>
+      <td>`jh-select`</td>
+      <td>`e.detail.selected`, `e.detail.selectionStart`, `e.detail.selectionEnd`</td>
+      <td>`e.detail.state.selected`, `e.detail.state.selectionStart`, `e.detail.state.selectionEnd`</td>
+    </tr>
+    <tr>
+      <td>Select</td>
+      <td>`jh-change`</td>
+      <td>`e.detail.value`</td>
+      <td>`e.detail.state.value`</td>
+    </tr>
+    <tr>
+      <td>Table Header Cell</td>
+      <td>`jh-change`</td>
+      <td>`e.detail.column`, `e.detail.sorted`, `e.detail.id`</td>
+      <td>`e.detail.reference.column`, `e.detail.reference.sorted`, `e.detail.reference.id`</td>
+    </tr>
+  </tbody>
+</table>
+
 ### Migrating jh-badge
 The background color of `jh-badge` has been changed from `--jh-color-content-brand-enabled` to `--jh-color-content-negative-enabled`. font family, weight, size and line height tokens have changed from `--jh-font-helper-medium-...` to `--jh-font-helper-bold-...`.
 The `max-count` property is now set to `99` by default. 
@@ -488,7 +542,69 @@ The `placeholder` property has been deprecated due to accessibility concerns. Pl
 * `--jh-input-left-icon-color-fill` and `--jh-input-left-icon-color-fill` are deprecated, use the icon styling hook `--jh-icon-color-fill` instead. 
 
 ### Migrating jh-radio
-The label font family, weight, size and line height tokens have changed from `--jh-font-body-regular-1-...` to `--jh-font-body-medium-1-...` to ensure consistent styling across form controls.
+The label font family, weight, size, and line height tokens have changed from `--jh-font-body-regular-1-...` to `--jh-font-body-medium-1-...` to ensure consistent styling across form controls.
+
+### Migrating jh-list-item
+The `jh-list-item` component has been simplified. Please update your code to remove the deprecated properties, hooks, and slots listed below.
+
+<table>
+  <thead>
+    <tr>
+      <th>Deprecated Item</th>
+      <th>Type</th>
+      <th>Migration Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`primary-metadata`</td>
+      <td>Property</td>
+      <td>Remove and migrate to new layout pattern.</td>
+    </tr>
+    <tr>
+      <td>`secondary-metadata`</td>
+      <td>Property</td>
+      <td>Remove and migrate to new layout pattern.</td>
+    </tr>
+    <tr>
+      <td>`--jh-list-item-metadata-color-text-primary`</td>
+      <td>CSS Hook</td>
+      <td>Remove reference.</td>
+    </tr>
+    <tr>
+      <td>`--jh-list-item-metadata-color-text-secondary`</td>
+      <td>CSS Hook</td>
+      <td>Remove reference.</td>
+    </tr>
+    <tr>
+      <td>`--jh-list-item-color-text`</td>
+      <td>CSS Hook</td>
+      <td>Migrate to `--jh-list-item-color-text-primary-enabled`.</td>
+    </tr>
+    <tr>
+      <td>`--jh-list-item-color-text-primary`</td>
+      <td>CSS Hook</td>
+      <td>Migrate to `--jh-list-item-color-text-primary-enabled`.</td>
+    </tr>
+    <tr>
+      <td>`--jh-list-item-color-text-secondary`</td>
+      <td>CSS Hook</td>
+      <td>Migrate to `--jh-list-item-color-text-secondary-enabled`.</td>
+    </tr>
+    <tr>
+      <td>`jh-list-item-content`</td>
+      <td>Slot</td>
+      <td>Remove and migrate to new layout pattern.</td>
+    </tr>
+    <tr>
+      <td>`jh-list-item-metadata`</td>
+      <td>Slot</td>
+      <td>Remove and migrate to new layout pattern.</td>
+    </tr>
+  </tbody>
+</table>
+
+For full implementation details, visit the [`jh-list-item` layouts documentation](?path=/docs/components-list-item--docs#layouts). 
 
 ### Migrating jh-switch
 The default width of `jh-switch` has been reduced from 56px to 48px. Users should audit existing implementations to ensure horizontal alignment and spacing remain consistent within their layouts.

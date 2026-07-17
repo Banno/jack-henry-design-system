@@ -53,12 +53,15 @@ The list item component makes use of both required compositional and suggested c
 List items offer multiple ways to display content:
 - Use the default slot to provide custom content. The default slot can be used alone 
 or in combination with the left and right slots.
-- Use the `primary-text` and `secondary-text` properties to display formatted text. 
-Properties can be used alone or in combination with the left and right slots. 
 - Use the left and right slots to insert supplementary content such as icons or actions 
 on either side of the list item.
-- The default slot and properties (`primary-text`, `secondary-text`) are mutually exclusive. 
-If content is provided in the default slot, the properties will not be displayed. 
+- Use the `primary-text` and `secondary-text` properties to display formatted text. 
+These properties can be used alone or in combination with the left and right slots. 
+- Use the `primary-metadata` and `secondary-metadata` properties to display 
+metadata aligned to the right of the text content. Metadata properties can be used in combination 
+with `primary-text` and `secondary-text` and in combination with the left and right slots.
+- The default slot and properties (`primary-text`, `secondary-text`, `primary-metadata`, `secondary-metadata`) 
+are mutually exclusive. If content is provided in the default slot, the properties will not be displayed. 
 
 ## Interactivity
 By default, list items are not interactive and cannot be reached via keyboard navigation, however list items 

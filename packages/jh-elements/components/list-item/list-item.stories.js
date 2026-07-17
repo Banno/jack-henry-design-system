@@ -22,6 +22,8 @@ const storyStyles = css`
 const disableControls = {
   'primary-text': { control: { disable: true } },
   'secondary-text': { control: { disable: true } },
+  'primary-metadata': { control: { disable: true } },
+  'secondary-metadata': { control: { disable: true } },
   'show-divider': { control: { disable: true } },
   'divider-inset': { control: { disable: true } },
   disabled: { control: { disable: true } },
@@ -32,12 +34,22 @@ export default {
   component: 'jh-list-item',
   title: 'Components/List Item',
   argTypes: {
-    'primary-text': {
+      'primary-text': {
+        control: {
+          type: 'text',
+        },
+      },
+      'secondary-text': {
+        control: {
+          type: 'text',
+        },
+      },
+    'primary-metadata': {
       control: {
         type: 'text',
       },
     },
-    'secondary-text': {
+    'secondary-metadata': {
       control: {
         type: 'text',
       },
@@ -69,7 +81,7 @@ export const Overview = {
     <div role="list" class="list">
       <jh-list-item>
         <div slot="jh-list-item-left">Left slot</div>
-        <div>Content slot</div>
+        <div>Default slot</div>
         <div slot="jh-list-item-right">Right slot</div>
       </jh-list-item>
       <jh-list-item>
@@ -83,12 +95,16 @@ export const Overview = {
         show-divider
         primary-text=${args['primary-text']}
         secondary-text=${args['secondary-text']}
+        primary-metadata=${args['primary-metadata']}
+        secondary-metadata=${args['secondary-metadata']}
       ><div slot="jh-list-item-left">Left slot</div>
       <div slot="jh-list-item-right">Right slot</div>
     </jh-list-item>
       <jh-list-item
         primary-text=${args['primary-text']}
         secondary-text=${args['secondary-text']}
+        primary-metadata=${args['primary-metadata']}
+        secondary-metadata=${args['secondary-metadata']}
       ><jh-icon-user slot="jh-list-item-left"></jh-icon-user>
         <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
       </jh-list-item>
@@ -98,6 +114,8 @@ export const Overview = {
         tabindex="0"
         primary-text=${args['primary-text']}
         secondary-text=${args['secondary-text']}
+        primary-metadata=${args['primary-metadata']}
+        secondary-metadata=${args['secondary-metadata']}
       >
         <div slot="jh-list-item-left">Left slot</div>
         <div slot="jh-list-item-right">Right slot</div>
@@ -106,6 +124,8 @@ export const Overview = {
         tabindex="0"
         primary-text=${args['primary-text']}
         secondary-text=${args['secondary-text']}
+        primary-metadata=${args['primary-metadata']}
+        secondary-metadata=${args['secondary-metadata']}
       >
         <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
         <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
@@ -117,6 +137,8 @@ export const Overview = {
 Overview.args = {
   'primary-text': 'Primary text',
   'secondary-text': 'Secondary text',
+  'primary-metadata': 'Primary metadata',
+  'secondary-metadata': 'Secondary metadata',
 };
 Overview.parameters = {
   styles: storyStyles,
@@ -135,6 +157,8 @@ export const Playground = {
         ?selected=${args.selected}
         primary-text=${args['primary-text']}
         secondary-text=${args['secondary-text']}
+        primary-metadata=${args['primary-metadata']}
+        secondary-metadata=${args['secondary-metadata']}
       >
         <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
         <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
@@ -145,6 +169,8 @@ export const Playground = {
 Playground.args = {
   'primary-text': 'Primary text',
   'secondary-text': 'Secondary text',
+  'primary-metadata': 'Primary metadata',
+  'secondary-metadata': 'Secondary metadata',
   'show-divider': false,
   'divider-inset': null,
   disabled: false,
@@ -178,7 +204,7 @@ export const DefaultLayout = {
     html` <div role="list" class="list">
       <jh-list-item>
         <div slot="jh-list-item-left">Left slot</div>
-        <div>Content slot</div>
+        <div>Default slot</div>
         <div slot="jh-list-item-right">Right slot</div>
       </jh-list-item>
       <jh-list-item>
@@ -202,18 +228,29 @@ export const LayoutWithProperties = {
       <jh-list-item
         primary-text=${args['primary-text']}
         secondary-text=${args['secondary-text']}
+        primary-metadata=${args['primary-metadata']}
+        secondary-metadata=${args['secondary-metadata']}
       >
         <div slot="jh-list-item-left">Left slot</div>
         <div slot="jh-list-item-right">Right slot</div>
       </jh-list-item>
       <jh-list-item
         primary-text=${args['primary-text']}
+        primary-metadata=${args['primary-metadata']}
+      >
+        <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
+        <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
+      </jh-list-item>
+            <jh-list-item
+        primary-text=${args['primary-text']}
+        secondary-metadata=${args['secondary-metadata']}
       >
         <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
         <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
       </jh-list-item>
             <jh-list-item
         secondary-text=${args['secondary-text']}
+        secondary-metadata=${args['secondary-metadata']}
       >
         <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
         <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
@@ -224,6 +261,8 @@ export const LayoutWithProperties = {
 LayoutWithProperties.args = {
   'primary-text': 'Primary text',
   'secondary-text': 'Secondary text',
+  'primary-metadata': 'Primary metadata',
+  'secondary-metadata': 'Secondary metadata',
 };
 LayoutWithProperties.parameters = {
   styles: storyStyles,
@@ -239,7 +278,9 @@ export const InteractiveList = {
         tabindex="0"
         show-divider
         primary-text=${args['primary-text']}
-        secondary-text=${args['secondary-text']}>
+        secondary-text=${args['secondary-text']}
+        primary-metadata=${args['primary-metadata']}
+        secondary-metadata=${args['secondary-metadata']}>
         <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
         <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
       </jh-list-item>
@@ -249,7 +290,9 @@ export const InteractiveList = {
         ?disabled=${args.disabled}
         ?selected=${args.selected}
         primary-text=${args['primary-text']}
-        secondary-text=${args['secondary-text']}>
+        secondary-text=${args['secondary-text']}
+        primary-metadata=${args['primary-metadata']}
+        secondary-metadata=${args['secondary-metadata']}>
         <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
         <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
       </jh-list-item>
@@ -257,7 +300,9 @@ export const InteractiveList = {
         show-divider
         tabindex="0"
         primary-text=${args['primary-text']}
-        secondary-text=${args['secondary-text']}>
+        secondary-text=${args['secondary-text']}
+        primary-metadata=${args['primary-metadata']}
+        secondary-metadata=${args['secondary-metadata']}>
         <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
         <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
       </jh-list-item>
@@ -269,6 +314,8 @@ InteractiveList.args = {
   disabled: false,
   'primary-text': 'Primary text',
   'secondary-text': 'Secondary text',
+  'primary-metadata': 'Primary metadata',
+  'secondary-metadata': 'Secondary metadata',
 };
 InteractiveList.parameters = {
   styles: storyStyles,
@@ -276,6 +323,8 @@ InteractiveList.parameters = {
 InteractiveList.argTypes = {
   'primary-text': { control: { disable: true } },
   'secondary-text': { control: { disable: true } },
+  'primary-metadata': { control: { disable: true } },
+  'secondary-metadata': { control: { disable: true } },
   'show-divider': { control: { disable: true } },
   'divider-inset': { control: { disable: true } },
 };
@@ -285,8 +334,11 @@ export const TextWrapping = {
     html`
       <div role="list" class="list">
         <jh-list-item
-          primary-text="Primarytextlongtextwrapstoanewline"
+          primary-text="Primary text long text wraps to a new line"
           secondary-text="Secondary text"
+          primary-metadata="$100.00"
+          secondary-metadata="Jan 1"
+          show-divider
         >
           <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
           <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
@@ -294,6 +346,9 @@ export const TextWrapping = {
         <jh-list-item
           primary-text="Primary text"
           secondary-text="Secondary text - lorem ipsum dolor"
+          primary-metadata="Expenses: $250.00"
+          secondary-metadata="Feb 14"
+          show-divider
         >
           <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
           <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
@@ -301,6 +356,9 @@ export const TextWrapping = {
         <jh-list-item
           primary-text="Primary text - long text wraps to new lines"
           secondary-text="Secondary text - lorem ipsum dolor"
+          primary-metadata="$1,000.00"
+          secondary-metadata="Secondary metadata"
+          show-divider
         >
           <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
           <jh-icon-user slot="jh-list-item-left"></jh-icon-user>

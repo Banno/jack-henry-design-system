@@ -541,11 +541,9 @@ The `placeholder` property has been deprecated due to accessibility concerns. Pl
 * The remaining styling hooks targeting the input **field** have been renamed from `jh-input-*` to `jh-input-field-*`. **Note**: this does not apply to tokens targeting the clear button i.e. `jh-input-clear-*`. 
 * `--jh-input-left-icon-color-fill` and `--jh-input-left-icon-color-fill` are deprecated, use the icon styling hook `--jh-icon-color-fill` instead. 
 
-### Migrating jh-radio
-The label font family, weight, size, and line height tokens have changed from `--jh-font-body-regular-1-...` to `--jh-font-body-medium-1-...` to ensure consistent styling across form controls.
-
 ### Migrating jh-list-item
-The `jh-list-item` component has been simplified. Please update your code to remove the deprecated properties, hooks, and slots listed below.
+The `jh-list-item` component has been simplified. The `jh-list-item-content` and `jh-list-item-metadata` slots have been removed, in favor of a more streamlined layout that uses the `default` slot along with the  `jh-list-item-left`, and `jh-list-item-right` slots.
+Alternatively, the `primary-text`, `secondary-text`, `primary-metadata`, and `secondary-metadata` properties can be used alone or in combination with the left and right slots.
 
 <table>
   <thead>
@@ -556,25 +554,25 @@ The `jh-list-item` component has been simplified. Please update your code to rem
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>`primary-metadata`</td>
-      <td>Property</td>
+      <tr>
+      <td>`jh-list-item-content`</td>
+      <td>Slot</td>
       <td>Remove and migrate to new layout pattern.</td>
     </tr>
     <tr>
-      <td>`secondary-metadata`</td>
-      <td>Property</td>
+      <td>`jh-list-item-metadata`</td>
+      <td>Slot</td>
       <td>Remove and migrate to new layout pattern.</td>
     </tr>
     <tr>
       <td>`--jh-list-item-metadata-color-text-primary`</td>
       <td>CSS Hook</td>
-      <td>Remove reference.</td>
+      <td>Migrate to `--jh-list-item-metadata-color-text-primary-enabled`.</td>
     </tr>
     <tr>
       <td>`--jh-list-item-metadata-color-text-secondary`</td>
       <td>CSS Hook</td>
-      <td>Remove reference.</td>
+      <td>Migrate to `--jh-list-item-metadata-color-text-secondary-enabled`.</td>
     </tr>
     <tr>
       <td>`--jh-list-item-color-text`</td>
@@ -591,20 +589,13 @@ The `jh-list-item` component has been simplified. Please update your code to rem
       <td>CSS Hook</td>
       <td>Migrate to `--jh-list-item-color-text-secondary-enabled`.</td>
     </tr>
-    <tr>
-      <td>`jh-list-item-content`</td>
-      <td>Slot</td>
-      <td>Remove and migrate to new layout pattern.</td>
-    </tr>
-    <tr>
-      <td>`jh-list-item-metadata`</td>
-      <td>Slot</td>
-      <td>Remove and migrate to new layout pattern.</td>
-    </tr>
   </tbody>
 </table>
 
 For full implementation details, visit the [`jh-list-item` layouts documentation](?path=/docs/components-list-item--docs#layouts). 
+
+### Migrating jh-radio
+The label font family, weight, size, and line height tokens have changed from `--jh-font-body-regular-1-...` to `--jh-font-body-medium-1-...` to ensure consistent styling across form controls.
 
 ### Migrating jh-switch
 The default width of `jh-switch` has been reduced from 56px to 48px. Users should audit existing implementations to ensure horizontal alignment and spacing remain consistent within their layouts.

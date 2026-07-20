@@ -5117,7 +5117,7 @@
       "events": [
         {
           "name": "jh-dismiss",
-          "description": "Dispatched when the notification is dismissed."
+          "description": "Dispatched when the notification is dismissed. Event payload includes the dismissal method of the notification and can be accessed via `e.detail.reference.dismissMethod`"
         }
       ],
       "slots": [
@@ -7642,7 +7642,7 @@
       "events": [
         {
           "name": "jh-dismiss",
-          "description": "Dispatched when the toast is dismissed."
+          "description": "Dispatched when the toast is dismissed. Event payload includes the dismissal method of the toast and can be accessed via `e.detail.reference.dismissMethod`"
         }
       ],
       "slots": [

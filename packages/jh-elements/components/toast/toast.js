@@ -13,7 +13,7 @@ import '../notification/notification.js';
  * @slot jh-toast-icon - Use to insert a button or icon to the left of the default slot.
  * @slot jh-toast-dismiss-icon - Use to insert icon within the dismiss button.
  * @slot jh-toast-action - Use to insert action button(s). Placed to the right of the default slot. Set `stacked` property to place slot below default slot.
- * @event jh-dismiss - Dispatched when the toast is dismissed.
+ * @event jh-dismiss - Dispatched when the toast is dismissed. Event payload includes the dismissal method of the toast and can be accessed via `e.detail.reference.dismissMethod`
  * @customElement jh-toast
  */
 export class JhToast extends JhElement {
@@ -115,7 +115,7 @@ export class JhToast extends JhElement {
   }
 
   #removeToast() {
-    this.dispatchCustomEvent('jh-dismiss');
+    this.dispatchCustomEvent('jh-dismiss', { reference: { dismissMethod: 'timeout' } });
   }
 
   #handleDismiss() {

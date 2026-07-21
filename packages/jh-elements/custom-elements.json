@@ -1816,6 +1816,7 @@
     {
       "name": "jh-input-number",
       "path": "./components/input-number/input-number.js",
+      "description": "Input Number",
       "attributes": [
         {
           "name": "accessible-label-increment-stepper",
@@ -2194,7 +2195,7 @@
         },
         {
           "name": "jh-input-number-stepper-decrement",
-          "description": "Use to insert an icon in the decrement stepper button.\n\nInput Number"
+          "description": "Use to insert an icon in the decrement stepper button."
         },
         {
           "name": "jh-input-left",

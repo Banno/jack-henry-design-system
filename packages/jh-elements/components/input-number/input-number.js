@@ -13,6 +13,8 @@ import '@jack-henry/jh-icons/icons-wc/icon-minus.js';
 import '@jack-henry/jh-icons/icons-wc/icon-plus.js';
 
 /**
+ * Input Number
+ * 
  * @cssprop --jh-input-number-stepper-border-radius - The button container border-radius. Defaults to `--jh-border-radius-100`.
  * @cssprop --jh-input-number-stepper-color-background-enabled - The stepper button background-color when enabled. Defaults to `transparent`.
  * @cssprop --jh-input-number-stepper-color-border-enabled - The stepper button border-color when enabled. Defaults to `transparent`.
@@ -30,7 +32,6 @@ import '@jack-henry/jh-icons/icons-wc/icon-plus.js';
  * @slot jh-input-number-stepper-increment - Use to insert an icon in the increment stepper button.
  * @slot jh-input-number-stepper-decrement - Use to insert an icon in the decrement stepper button.
  *
- * Input Number
  * @customElement jh-input-number
  */
 export class JhInputNumber extends JhInput {

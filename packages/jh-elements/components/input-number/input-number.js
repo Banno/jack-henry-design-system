@@ -52,23 +52,22 @@ export class JhInputNumber extends JhInput {
         input[type='number'] {
         -moz-appearance: textfield;
         }
-        :host([size="small"]) slot[name="jh-input-right"].display-slot {
-          width: calc(
-            var(--jh-input-size, var(--jh-dimension-800)) / 2 + var(--jh-dimension-1000)
+        :host([size="small"]) .input-wrapper {
+          padding-right: calc(
+            var(--jh-input-size, var(--jh-dimension-800)) / 2 - var(--jh-dimension-300)
           );
         }
-        :host([size="medium"]) slot[name="jh-input-right"].display-slot {
-          width: calc(
-            var(--jh-input-size, var(--jh-dimension-1000)) / 2 + var(--jh-dimension-1000)
+        :host([size="medium"]) .input-wrapper {
+          padding-right: calc(
+            var(--jh-input-size, var(--jh-dimension-1000)) / 2 - var(--jh-dimension-300)
           );
         }
-        :host([size="large"]) slot[name="jh-input-right"].display-slot {
-          width: calc(
-            var(--jh-input-size, var(--jh-dimension-1200)) / 2 + var(--jh-dimension-1000)
+        :host([size="large"]) .input-wrapper {
+          padding-right: calc(
+            var(--jh-input-size, var(--jh-dimension-1200)) / 2 - var(--jh-dimension-300)
           );
         }
         jh-button {
-          --jh-button-size: var(--jh-dimension-800);
           --jh-button-border-radius: var(--jh-input-number-stepper-border-radius);
           --jh-button-color-background-tertiary-enabled: var(--jh-input-number-stepper-color-background-enabled);
           --jh-button-color-border-tertiary-enabled: var(--jh-input-number-stepper-color-border-enabled);

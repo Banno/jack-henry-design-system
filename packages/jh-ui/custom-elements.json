@@ -85,7 +85,7 @@
         {
           "name": "icon-position",
           "description": "Sets location of icon in relation to the label.",
-          "type": "string",
+          "type": "'before'|'after'",
           "default": "\"before\"",
           "deprecatedMessage": "Use new icon placement system instead."
         },
@@ -172,7 +172,7 @@
           "name": "iconPosition",
           "attribute": "icon-position",
           "description": "Sets location of icon in relation to the label.",
-          "type": "string",
+          "type": "'before'|'after'",
           "default": "\"before\"",
           "deprecatedMessage": "Use new icon placement system instead."
         },

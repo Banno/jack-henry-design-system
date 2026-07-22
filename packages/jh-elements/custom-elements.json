@@ -2228,22 +2228,6 @@
           "description": "The stepper button icon color when enabled. Defaults to `--jh-color-content-brand-enabled`."
         },
         {
-          "name": "--jh-input-number-stepper-color-background-focus",
-          "description": "The stepper button background-color when focused. Defaults to `--jh-color-content-brand-hover`."
-        },
-        {
-          "name": "--jh-input-number-stepper-color-border-focus",
-          "description": "The stepper button border-color when focused. Defaults to `transparent`."
-        },
-        {
-          "name": "--jh-input-number-stepper-icon-color-fill-focus",
-          "description": "The stepper button icon color when focused. Defaults to `--jh-color-content-on-brand-hover`."
-        },
-        {
-          "name": "--jh-input-number-stepper-color-focus",
-          "description": "The stepper button outline color when focused. Defaults to `--jh-border-focus-color`."
-        },
-        {
           "name": "--jh-input-number-stepper-color-background-hover",
           "description": "The stepper button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
         },

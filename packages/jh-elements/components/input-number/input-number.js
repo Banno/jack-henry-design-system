@@ -19,10 +19,6 @@ import '@jack-henry/jh-icons/icons-wc/icon-plus.js';
  * @cssprop --jh-input-number-stepper-color-background-enabled - The stepper button background-color when enabled. Defaults to `transparent`.
  * @cssprop --jh-input-number-stepper-color-border-enabled - The stepper button border-color when enabled. Defaults to `transparent`.
  * @cssprop --jh-input-number-stepper-icon-color-fill-enabled - The stepper button icon color when enabled. Defaults to `--jh-color-content-brand-enabled`.
- * @cssprop --jh-input-number-stepper-color-background-focus - The stepper button background-color when focused. Defaults to `--jh-color-content-brand-hover`.
- * @cssprop --jh-input-number-stepper-color-border-focus - The stepper button border-color when focused. Defaults to `transparent`.
- * @cssprop --jh-input-number-stepper-icon-color-fill-focus - The stepper button icon color when focused. Defaults to `--jh-color-content-on-brand-hover`.
- * @cssprop --jh-input-number-stepper-color-focus - The stepper button outline color when focused. Defaults to `--jh-border-focus-color`.
  * @cssprop --jh-input-number-stepper-color-background-hover - The stepper button background-color when hovered. Defaults to `--jh-color-content-brand-hover`.
  * @cssprop --jh-input-number-stepper-color-border-hover - The stepper button border-color when hovered. Defaults to `transparent`.
  * @cssprop --jh-input-number-stepper-icon-color-fill-hover - The stepper button icon color when hovered. Defaults to `--jh-color-content-on-brand-hover`.
@@ -72,10 +68,6 @@ export class JhInputNumber extends JhInput {
           --jh-button-color-background-tertiary-enabled: var(--jh-input-number-stepper-color-background-enabled);
           --jh-button-color-border-tertiary-enabled: var(--jh-input-number-stepper-color-border-enabled);
           --jh-button-icon-color-fill-tertiary-enabled: var(--jh-input-number-stepper-icon-color-fill-enabled);
-          --jh-button-color-background-tertiary-focus: var(--jh-input-number-stepper-color-background-focus);
-          --jh-button-color-border-tertiary-focus: var(--jh-input-number-stepper-color-border-focus);
-          --jh-button-icon-color-fill-tertiary-focus: var(--jh-input-number-stepper-icon-color-fill-focus);
-          --jh-button-color-focus: var(--jh-input-number-stepper-color-focus);
           --jh-button-color-background-tertiary-hover: var(--jh-input-number-stepper-color-background-hover);
           --jh-button-color-border-tertiary-hover: var(--jh-input-number-stepper-color-border-hover);
           --jh-button-icon-color-fill-tertiary-hover: var(--jh-input-number-stepper-icon-color-fill-hover);

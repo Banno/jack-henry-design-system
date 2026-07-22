@@ -56,6 +56,7 @@ function logCustomEvent(name, e) {
 export default {
   component: 'jh-toast',
   title: 'Components/Toast',
+  tags: ['has-deprecations'],
   decorators: [
     (story) => html`
       <div

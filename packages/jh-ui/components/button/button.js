@@ -813,6 +813,7 @@ export class JhButton extends LitElement {
     /** @type {?string} */
     this.href = null;
     /** @type {'before'|'after'} */
+    /** @deprecated Use new icon placement system instead. */
     this.iconPosition = 'before';
     /** @type {?boolean} */
     this.pending = false;

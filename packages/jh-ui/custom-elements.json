@@ -85,8 +85,9 @@
         {
           "name": "icon-position",
           "description": "Sets location of icon in relation to the label.",
-          "type": "'before'|'after'",
-          "default": "\"before\""
+          "type": "string",
+          "default": "\"before\"",
+          "deprecatedMessage": "Use new icon placement system instead."
         },
         {
           "name": "pending",
@@ -171,8 +172,9 @@
           "name": "iconPosition",
           "attribute": "icon-position",
           "description": "Sets location of icon in relation to the label.",
-          "type": "'before'|'after'",
-          "default": "\"before\""
+          "type": "string",
+          "default": "\"before\"",
+          "deprecatedMessage": "Use new icon placement system instead."
         },
         {
           "name": "pending",
@@ -223,7 +225,8 @@
       "slots": [
         {
           "name": "jh-button-icon",
-          "description": "Use to insert an icon."
+          "description": "Use to insert an icon.",
+          "deprecatedMessage": "Use `jh-button-icon-left` or `jh-button-icon-right` instead."
         }
       ],
       "cssProperties": [
@@ -1323,12 +1326,14 @@
         {
           "name": "accessible-label-hide-password",
           "description": "Sets an `aria-label` on the button encapsulating the `jh-input-password-visible` slot to assist screen reader users. Present when input `type=\"password\"` and `password-visible` is false. Indicates that\nclicking on the button will result in a masked password.",
-          "type": "?string"
+          "type": "?string",
+          "deprecatedMessage": "Use with `jh-input-password` instead."
         },
         {
           "name": "accessible-label-show-password",
           "description": "Sets an `aria-label` on the button encapsulating `jh-input-password-hidden` slot to assist screen reader users. Present when input `type=\"password\"` and `password-visible` is true. Indicates that\nclicking on the button will result in an unmasked password.",
-          "type": "?string"
+          "type": "?string",
+          "deprecatedMessage": "Use with `jh-input-password` instead."
         },
         {
           "name": "autocomplete",
@@ -1339,12 +1344,14 @@
           "name": "auto-grow",
           "description": "Enables the input height to grow automatically to accomodate user input when `type=\"textarea\"`.\n`auto-grow` will also remove the textarea's native resize capability.",
           "type": "boolean",
-          "default": "false"
+          "default": "false",
+          "deprecatedMessage": "Use with `jh-input-textarea` instead."
         },
         {
           "name": "cols",
           "description": "Sets the width of input when `type=”textarea”`.",
-          "type": "?string"
+          "type": "?string",
+          "deprecatedMessage": "Use with `jh-input-textarea` instead."
         },
         {
           "name": "disabled",
@@ -1377,7 +1384,8 @@
           "name": "password-visible",
           "description": "Unmasks password when input `type=\"password\"`.",
           "type": "boolean",
-          "default": "false"
+          "default": "false",
+          "deprecatedMessage": "Use with `jh-input-password` instead."
         },
         {
           "name": "hide-right-slot",
@@ -1420,12 +1428,14 @@
           "name": "no-resize",
           "description": "Removes native resize capability when input `type=”textarea”`.",
           "type": "boolean",
-          "default": "false"
+          "default": "false",
+          "deprecatedMessage": "Use with `jh-input-textarea` instead."
         },
         {
           "name": "placeholder",
           "description": "Sets placeholder text.",
-          "type": "?string"
+          "type": "?string",
+          "deprecatedMessage": "Use `helper-text` and `label` properties instead."
         },
         {
           "name": "readonly",
@@ -1442,7 +1452,8 @@
         {
           "name": "rows",
           "description": "The number of visible text lines when `type=”textarea”`.",
-          "type": "?string"
+          "type": "?string",
+          "deprecatedMessage": "Use with `jh-input-textarea` instead."
         },
         {
           "name": "show-clear-button",
@@ -1471,7 +1482,8 @@
           "name": "type",
           "description": "Sets type of input control.",
           "type": "'text'|'search'|'password'|'email'|'tel'|'url'|'textarea'",
-          "default": "\"text\""
+          "default": "\"text\"",
+          "deprecatedMessage": "Use discrete components (`jh-input-search`, `jh-input-password`, `jh-input-textarea`, `jh-input-email`, `jh-input-url`, `jh-input-telephone`) instead."
         },
         {
           "name": "value",
@@ -1481,7 +1493,8 @@
         {
           "name": "wrap",
           "description": "Specifies how text should be wrapped when submitted in a form and input `type=\"textarea\"`.",
-          "type": "'hard'|'soft'"
+          "type": "'hard'|'soft'",
+          "deprecatedMessage": "Use with `jh-input-textarea` instead."
         }
       ],
       "properties": [
@@ -1501,13 +1514,15 @@
           "name": "accessibleLabelHidePassword",
           "attribute": "accessible-label-hide-password",
           "description": "Sets an `aria-label` on the button encapsulating the `jh-input-password-visible` slot to assist screen reader users. Present when input `type=\"password\"` and `password-visible` is false. Indicates that\nclicking on the button will result in a masked password.",
-          "type": "?string"
+          "type": "?string",
+          "deprecatedMessage": "Use with `jh-input-password` instead."
         },
         {
           "name": "accessibleLabelShowPassword",
           "attribute": "accessible-label-show-password",
           "description": "Sets an `aria-label` on the button encapsulating `jh-input-password-hidden` slot to assist screen reader users. Present when input `type=\"password\"` and `password-visible` is true. Indicates that\nclicking on the button will result in an unmasked password.",
-          "type": "?string"
+          "type": "?string",
+          "deprecatedMessage": "Use with `jh-input-password` instead."
         },
         {
           "name": "autocomplete",
@@ -1520,13 +1535,15 @@
           "attribute": "auto-grow",
           "description": "Enables the input height to grow automatically to accomodate user input when `type=\"textarea\"`.\n`auto-grow` will also remove the textarea's native resize capability.",
           "type": "boolean",
-          "default": "false"
+          "default": "false",
+          "deprecatedMessage": "Use with `jh-input-textarea` instead."
         },
         {
           "name": "cols",
           "attribute": "cols",
           "description": "Sets the width of input when `type=”textarea”`.",
-          "type": "?string"
+          "type": "?string",
+          "deprecatedMessage": "Use with `jh-input-textarea` instead."
         },
         {
           "name": "disabled",
@@ -1565,7 +1582,8 @@
           "attribute": "password-visible",
           "description": "Unmasks password when input `type=\"password\"`.",
           "type": "boolean",
-          "default": "false"
+          "default": "false",
+          "deprecatedMessage": "Use with `jh-input-password` instead."
         },
         {
           "name": "hideRightSlot",
@@ -1616,13 +1634,15 @@
           "attribute": "no-resize",
           "description": "Removes native resize capability when input `type=”textarea”`.",
           "type": "boolean",
-          "default": "false"
+          "default": "false",
+          "deprecatedMessage": "Use with `jh-input-textarea` instead."
         },
         {
           "name": "placeholder",
           "attribute": "placeholder",
           "description": "Sets placeholder text.",
-          "type": "?string"
+          "type": "?string",
+          "deprecatedMessage": "Use `helper-text` and `label` properties instead."
         },
         {
           "name": "readonly",
@@ -1642,7 +1662,8 @@
           "name": "rows",
           "attribute": "rows",
           "description": "The number of visible text lines when `type=”textarea”`.",
-          "type": "?string"
+          "type": "?string",
+          "deprecatedMessage": "Use with `jh-input-textarea` instead."
         },
         {
           "name": "showClearButton",
@@ -1676,7 +1697,8 @@
           "attribute": "type",
           "description": "Sets type of input control.",
           "type": "'text'|'search'|'password'|'email'|'tel'|'url'|'textarea'",
-          "default": "\"text\""
+          "default": "\"text\"",
+          "deprecatedMessage": "Use discrete components (`jh-input-search`, `jh-input-password`, `jh-input-textarea`, `jh-input-email`, `jh-input-url`, `jh-input-telephone`) instead."
         },
         {
           "name": "value",
@@ -1688,21 +1710,22 @@
           "name": "wrap",
           "attribute": "wrap",
           "description": "Specifies how text should be wrapped when submitted in a form and input `type=\"textarea\"`.",
-          "type": "'hard'|'soft'"
+          "type": "'hard'|'soft'",
+          "deprecatedMessage": "Use with `jh-input-textarea` instead."
         }
       ],
       "events": [
         {
           "name": "jh-clear",
-          "description": "Dispatched when the clear button is activated."
+          "description": "Dispatched when the clear button is activated. **V2 payload change:** `e.detail.previousValue` moves to `e.detail.state.previousValue`."
         },
         {
           "name": "jh-select",
-          "description": "Dispatched when text has been selected. Event payload includes the selected text and can be accessed via e.detail.selected."
+          "description": "Dispatched when text has been selected. Event payload includes the selected text and can be accessed via e.detail.selected. **V2 payload change:** `e.detail.selected` moves to `e.detail.state.selected`."
         },
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus."
+          "description": "Dispatched when the value of the input has changed and input loses focus. **V2 payload change:** `e.detail.value` moves to `e.detail.state.value`."
         }
       ],
       "slots": [
@@ -1716,11 +1739,13 @@
         },
         {
           "name": "jh-input-password-visible",
-          "description": "Use to insert a custom icon to the right of the default slot when input `type=\"password\"` and `password-visible` is true."
+          "description": "Use to insert a custom icon to the right of the default slot when input `type=\"password\"` and `password-visible` is true.",
+          "deprecatedMessage": "Use with `jh-input-password` instead of `jh-input`."
         },
         {
           "name": "jh-input-password-hidden",
-          "description": "Use to insert a custom icon to the right of the default slot when input `type=\"password\"` and `password-visible` is false."
+          "description": "Use to insert a custom icon to the right of the default slot when input `type=\"password\"` and `password-visible` is false.",
+          "deprecatedMessage": "Use with `jh-input-password` instead of `jh-input`."
         },
         {
           "name": "jh-input-clear-button",
@@ -1730,11 +1755,13 @@
       "cssProperties": [
         {
           "name": "--jh-input-left-icon-color-fill",
-          "description": "The left icon fill color. Defaults to `--jh-color-content-secondary-enabled`."
+          "description": "The left icon fill color. Defaults to `--jh-color-content-secondary-enabled`.",
+          "deprecatedMessage": "Use `--jh-icon-color-fill` instead."
         },
         {
           "name": "--jh-input-right-icon-color-fill",
-          "description": "The right icon fill color. Defaults to `--jh-color-content-secondary-enabled`."
+          "description": "The right icon fill color. Defaults to `--jh-color-content-secondary-enabled`.",
+          "deprecatedMessage": "Use `--jh-icon-color-fill` instead."
         },
         {
           "name": "--jh-input-label-color-text",
@@ -1742,59 +1769,73 @@
         },
         {
           "name": "--jh-input-placeholder-color-text",
-          "description": "The placeholder text color. Defaults to `--jh-color-content-secondary-enabled`."
+          "description": "The placeholder text color. Defaults to `--jh-color-content-secondary-enabled`.",
+          "deprecatedMessage": "Deprecated along with the `placeholder` property."
         },
         {
           "name": "--jh-input-color-background",
-          "description": "The input field background-color. Defaults to `--jh-color-container-primary-enabled`."
+          "description": "The input field background-color. Defaults to `--jh-color-container-primary-enabled`.",
+          "deprecatedMessage": "Use `--jh-input-field-color-background` instead."
         },
         {
           "name": "--jh-input-color-border-enabled",
-          "description": "The input field border-color. Defaults to `--jh-color-divider-primary`."
+          "description": "The input field border-color. Defaults to `--jh-color-divider-primary`.",
+          "deprecatedMessage": "Use `--jh-input-field-color-border-enabled` instead."
         },
         {
           "name": "--jh-input-border-radius",
-          "description": "The input field border radius. Defaults to `--jh-border-radius-100`."
+          "description": "The input field border radius. Defaults to `--jh-border-radius-100`.",
+          "deprecatedMessage": "Use `--jh-input-field-border-radius` instead."
         },
         {
           "name": "--jh-input-shadow-focus",
-          "description": "The input field box shadow when in focus. Defaults to `--jh-shadow-focus`."
+          "description": "The input field box shadow when in focus. Defaults to `--jh-shadow-focus`.",
+          "deprecatedMessage": "Use `--jh-input-field-color-border-focus` instead."
         },
         {
           "name": "--jh-input-color-border-focus",
-          "description": "The input field border-color when in focus. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The input field border-color when in focus. Defaults to `--jh-color-content-brand-hover`.",
+          "deprecatedMessage": "Use `--jh-input-field-color-border-focus` instead."
         },
         {
           "name": "--jh-input-color-border-hover",
-          "description": "The input field border-color when hovered. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The input field border-color when hovered. Defaults to `--jh-color-content-brand-hover`.",
+          "deprecatedMessage": "Use `--jh-input-field-color-border-hover` instead."
         },
         {
           "name": "--jh-input-color-border-active",
-          "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`."
+          "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
+          "deprecatedMessage": "Use `--jh-input-field-color-border-active` instead."
         },
         {
           "name": "--jh-input-color-border-disabled",
-          "description": "The input field border-color when disabled. Defaults to `--jh-color-divider-primary`."
+          "description": "The input field border-color when disabled. Defaults to `--jh-color-divider-primary`.",
+          "deprecatedMessage": "Use `--jh-input-field-color-border-disabled` instead."
         },
         {
           "name": "--jh-input-opacity-disabled",
-          "description": "The input opacity when disabled. Defaults to `--jh-opacity-300`."
+          "description": "The input opacity when disabled. Defaults to `--jh-opacity-300`.",
+          "deprecatedMessage": "Use `--jh-input-field-opacity-disabled` instead."
         },
         {
           "name": "--jh-input-color-border-error",
-          "description": "The input field border-color when invalid. Defaults to `--jh-color-content-negative-enabled`."
+          "description": "The input field border-color when invalid. Defaults to `--jh-color-content-negative-enabled`.",
+          "deprecatedMessage": "Use `--jh-input-field-color-border-error` instead."
         },
         {
           "name": "--jh-input-size-min-height-text-area-small",
-          "description": "The input min-height when `type=\"textarea\"` and `size=\"small\"`. Defaults to `--jh-size-2000`."
+          "description": "The input min-height when `type=\"textarea\"` and `size=\"small\"`. Defaults to `--jh-size-2000`.",
+          "deprecatedMessage": "Use `--jh-input-textarea-field-dimension-min-height` instead."
         },
         {
           "name": "--jh-input-size-min-height-text-area-medium",
-          "description": "The input min-height when `type=\"textarea\"` and `size=\"medium\"`. Defaults to `--jh-size-2200`."
+          "description": "The input min-height when `type=\"textarea\"` and `size=\"medium\"`. Defaults to `--jh-size-2200`.",
+          "deprecatedMessage": "Use `--jh-input-textarea-field-dimension-min-height` instead."
         },
         {
           "name": "--jh-input-size-min-height-text-area-large",
-          "description": "The input min-height when `type=\"textarea\"` and `size=\"large\"`. Defaults to `jh-size-2400`."
+          "description": "The input min-height when `type=\"textarea\"` and `size=\"large\"`. Defaults to `jh-size-2400`.",
+          "deprecatedMessage": "Use `--jh-input-textarea-field-dimension-min-height` instead."
         },
         {
           "name": "--jh-input-required-color-text",
@@ -1810,7 +1851,8 @@
         },
         {
           "name": "--jh-input-color-text",
-          "description": "The value text color. Defaults to `jh-color-content-primary-enabled`."
+          "description": "The value text color. Defaults to `jh-color-content-primary-enabled`.",
+          "deprecatedMessage": "Use `--jh-input-field-color-text` instead."
         },
         {
           "name": "--jh-input-error-color-text",
@@ -1842,7 +1884,8 @@
         },
         {
           "name": "--jh-input-clear-shadow-focus",
-          "description": "The clear button box-shadow when in focus. Defaults to `jh-button-shadow-focus`."
+          "description": "The clear button box-shadow when in focus. Defaults to `jh-button-shadow-focus`.",
+          "deprecatedMessage": "Use `--jh-input-clear-color-focus` instead."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-focus",
@@ -1874,19 +1917,23 @@
         },
         {
           "name": "--jh-input-clear-color-background-disabled",
-          "description": "The clear button background-color when disabled. Defaults to `jh-button-color-background-tertiary-disabled`."
+          "description": "The clear button background-color when disabled. Defaults to `jh-button-color-background-tertiary-disabled`.",
+          "deprecatedMessage": "No replacement token."
         },
         {
           "name": "--jh-input-clear-color-border-disabled",
-          "description": "The clear button border-color when disabled. Defaults to `jh-button-color-border-tertiary-disabled`."
+          "description": "The clear button border-color when disabled. Defaults to `jh-button-color-border-tertiary-disabled`.",
+          "deprecatedMessage": "No replacement token."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-disabled",
-          "description": "The clear button icon fill color when disabled. Defaults to\n`jh-button-icon-color-fill-tertiary-disabled`."
+          "description": "The clear button icon fill color when disabled. Defaults to\n`jh-button-icon-color-fill-tertiary-disabled`.",
+          "deprecatedMessage": "No replacement token."
         },
         {
           "name": "--jh-input-clear-opacity-disabled",
-          "description": "The clear button container when disabled. Defaults to `jh-button-opacity-disabled`."
+          "description": "The clear button container when disabled. Defaults to `jh-button-opacity-disabled`.",
+          "deprecatedMessage": "No replacement token."
         }
       ]
     },
@@ -2060,11 +2107,13 @@
         },
         {
           "name": "jh-list-item-content",
-          "description": "Use to insert custom content into the list-item."
+          "description": "Use to insert custom content into the list-item.",
+          "deprecatedMessage": "Use default slot with `jh-list-item-left` and `jh-list-item-right` slots."
         },
         {
           "name": "jh-list-item-metadata",
-          "description": "Use to insert custom metadata into the list-item."
+          "description": "Use to insert custom metadata into the list-item.",
+          "deprecatedMessage": "Use `primary-metadata` and `secondary-metadata` properties instead."
         }
       ],
       "cssProperties": [
@@ -2074,7 +2123,8 @@
         },
         {
           "name": "--jh-list-item-color-text",
-          "description": "The default, left, text, metadata, right, primary, and secondary slot text color. Defaults to `--jh-color-content-primary-enabled`."
+          "description": "The default, left, text, metadata, right, primary, and secondary slot text color. Defaults to `--jh-color-content-primary-enabled`.",
+          "deprecatedMessage": "Use `--jh-list-item-color-text-primary-enabled` instead."
         },
         {
           "name": "--jh-list-item-space-padding-right",
@@ -2090,19 +2140,23 @@
         },
         {
           "name": "--jh-list-item-color-text-primary",
-          "description": "The primary text color.\nDefaults to `--jh-color-content-primary-enabled`."
+          "description": "The primary text color.\nDefaults to `--jh-color-content-primary-enabled`.",
+          "deprecatedMessage": "Use `--jh-list-item-color-text-primary-enabled` instead."
         },
         {
           "name": "--jh-list-item-color-text-secondary",
-          "description": "The secondary text color.\nDefaults to `--jh-color-content-secondary-enabled`."
+          "description": "The secondary text color.\nDefaults to `--jh-color-content-secondary-enabled`.",
+          "deprecatedMessage": "Use `--jh-list-item-color-text-secondary-enabled` instead."
         },
         {
           "name": "--jh-list-item-metadata-color-text-primary",
-          "description": "The primary metadata text color.\nDefaults to `--jh-color-content-primary-enabled`."
+          "description": "The primary metadata text color.\nDefaults to `--jh-color-content-primary-enabled`.",
+          "deprecatedMessage": "Use `--jh-list-item-metadata-color-text-primary-enabled` instead."
         },
         {
           "name": "--jh-list-item-metadata-color-text-secondary",
-          "description": "The secondary metadata text color.\nDefaults to `--jh-color-content-secondary-enabled`."
+          "description": "The secondary metadata text color.\nDefaults to `--jh-color-content-secondary-enabled`.",
+          "deprecatedMessage": "Use `--jh-list-item-metadata-color-text-secondary-enabled` instead."
         },
         {
           "name": "--jh-list-item-color-background-focus",
@@ -3455,9 +3509,9 @@
         },
         {
           "name": "appearance",
-          "description": "Sets the background color of the toast to convey message connotation.",
           "type": "'positive'|'neutral'|'negative'",
-          "default": "\"neutral\""
+          "default": "\"neutral\"",
+          "deprecatedMessage": "Component now uses a single neutral color."
         },
         {
           "name": "dismiss-button-accessible-label",
@@ -3488,9 +3542,9 @@
         {
           "name": "appearance",
           "attribute": "appearance",
-          "description": "Sets the background color of the toast to convey message connotation.",
           "type": "'positive'|'neutral'|'negative'",
-          "default": "\"neutral\""
+          "default": "\"neutral\"",
+          "deprecatedMessage": "Component now uses a single neutral color."
         },
         {
           "name": "dismissButtonAccessibleLabel",
@@ -3560,8 +3614,8 @@
         },
         {
           "name": "label",
-          "description": "Provides information about the item which triggered the tooltip.",
-          "type": "?string"
+          "type": "?string",
+          "deprecatedMessage": "Use the jh-tooltip-content slot instead."
         },
         {
           "name": "open",
@@ -3587,8 +3641,8 @@
         {
           "name": "label",
           "attribute": "label",
-          "description": "Provides information about the item which triggered the tooltip.",
-          "type": "?string"
+          "type": "?string",
+          "deprecatedMessage": "Use the jh-tooltip-content slot instead."
         },
         {
           "name": "open",

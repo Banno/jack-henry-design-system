@@ -100,6 +100,7 @@ function logCustomEvent(name, e) {
 export default {
   component: 'jh-input',
   title: 'Components/Input',
+  tags: ['has-deprecations'],
   decorators: [
     (story) => html`
       <div class="story-decorator"

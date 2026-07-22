@@ -202,7 +202,7 @@ export class JhTooltip extends LitElement {
         attribute: 'flip-disabled',
       },
       /**
-       * Provides information about the item which triggered the tooltip.
+       * @deprecated Use the jh-tooltip-content slot instead.
        */
       label: {
         type: String,

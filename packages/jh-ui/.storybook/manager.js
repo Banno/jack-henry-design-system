@@ -10,12 +10,12 @@ addons.setConfig({
   //sets the default theme to be used by the browser.
   //It switches to dark theme automatically if your browser is set to dark mode.
   theme: lightTheme,
-  //custom colors for the badges in the sidbar and toolbar
+  //custom colors for the badges in the sidebar and toolbar
   tagBadges: [
     {
       tags: 'new',
       badge: {
-        text: `New`,
+        text: 'New',
         style: {
           backgroundColor: '#1f883d',
           color: '#ffffff',
@@ -24,9 +24,41 @@ addons.setConfig({
       },
     },
     {
+      tags: 'deprecated',
+      badge: {
+        text: 'Deprecated',
+        style: {
+          backgroundColor: '#cf222e',
+          color: '#ffffff',
+          borderColor: '#cf222e',
+        },
+      },
+    },
+    {
+      tags: 'has-deprecations',
+      badge: {
+        text: '⚠️',
+        style: {
+          backgroundColor: 'transparent',
+          borderColor: 'transparent',
+        },
+      },
+    },
+    {
+      tags: 'experimental',
+      badge: {
+        text: 'Lab',
+        style: {
+          backgroundColor: '#8250df',
+          color: '#ffffff',
+          borderColor: '#8250df',
+        },
+      },
+    },
+    {
       tags: 'beta',
       badge: {
-        text: `Beta`,
+        text: 'Beta',
         style: {
           backgroundColor: '#747474',
           color: '#ffffff',

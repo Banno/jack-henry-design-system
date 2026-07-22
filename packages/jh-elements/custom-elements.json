@@ -2252,6 +2252,22 @@
           "description": "The stepper button icon color when active. Defaults to `--jh-color-content-on-brand-active`."
         },
         {
+          "name": "--jh-input-number-stepper-icon-color-fill-disabled",
+          "description": "The stepper button icon color when disabled. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-input-number-stepper-color-border-disabled",
+          "description": "The stepper button border-color when disabled. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-input-number-stepper-color-background-disabled",
+          "description": "The stepper button background-color when disabled. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-input-number-stepper-opacity-disabled",
+          "description": "The stepper button opacity when disabled. Defaults to `--jh-opacity-disabled`."
+        },
+        {
           "name": "--jh-input-label-color-text",
           "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
         },

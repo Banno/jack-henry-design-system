@@ -25,6 +25,11 @@ import '@jack-henry/jh-icons/icons-wc/icon-plus.js';
  * @cssprop --jh-input-number-stepper-color-background-active - The stepper button background-color when active. Defaults to `--jh-color-content-brand-active`.
  * @cssprop --jh-input-number-stepper-color-border-active - The stepper button border-color when active. Defaults to `transparent`.
  * @cssprop --jh-input-number-stepper-icon-color-fill-active - The stepper button icon color when active. Defaults to `--jh-color-content-on-brand-active`.
+ * @cssprop --jh-input-number-stepper-icon-color-fill-disabled - The stepper button icon color when disabled. Defaults to `--jh-color-content-brand-enabled`.
+ * @cssprop --jh-input-number-stepper-color-border-disabled - The stepper button border-color when disabled. Defaults to `transparent`.
+ * @cssprop --jh-input-number-stepper-color-background-disabled - The stepper button background-color when disabled. Defaults to `transparent`.
+ * @cssprop --jh-input-number-stepper-opacity-disabled - The stepper button opacity when disabled. Defaults to `--jh-opacity-disabled`.
+ * 
  * @slot jh-input-number-stepper-increment - Use to insert an icon in the increment stepper button.
  * @slot jh-input-number-stepper-decrement - Use to insert an icon in the decrement stepper button.
  *
@@ -74,6 +79,10 @@ export class JhInputNumber extends JhInput {
           --jh-button-color-background-tertiary-active: var(--jh-input-number-stepper-color-background-active);
           --jh-button-color-border-tertiary-active: var(--jh-input-number-stepper-color-border-active);
           --jh-button-icon-color-fill-tertiary-active: var(--jh-input-number-stepper-icon-color-fill-active);
+          --jh-button-opacity-disabled: var(--jh-input-number-stepper-opacity-disabled);
+          --jh-button-color-background-tertiary-disabled: var(--jh-input-number-stepper-color-background-disabled);
+          --jh-button-color-border-tertiary-disabled: var(--jh-input-number-stepper-color-border-disabled);
+          --jh-button-icon-color-fill-tertiary-disabled: var(--jh-input-number-stepper-icon-color-fill-disabled);
         }
         .increment-button {
           margin-left: var(--jh-dimension-100);

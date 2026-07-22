@@ -11,7 +11,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you for taking the time to report a bug in the Jack Henry Design System! Please remember to search for open and closed issues before submitting.
+        Thank you for taking the time to report a bug in the Forge Design System! Please remember to search for open and closed issues before submitting.
 
         Jack Henry teams seeking support should report issues through our internal Slack channel.
   - type: checkboxes

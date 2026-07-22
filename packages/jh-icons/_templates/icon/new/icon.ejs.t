@@ -58,6 +58,12 @@ export default class <%= h.inflection.classify(prefix.replace(/-/gi,'_')) %>Icon
           var(--jh-dimension-1400)
         );
       }
+      :host([size='xx-large']) {
+        --icon-size: var(
+          --jh-icon-size-extra-extra-large,
+          var(--jh-dimension-2100)
+        );
+      }
       svg {
         width: 100%;
         height: 100%;
@@ -82,7 +88,7 @@ export default class <%= h.inflection.classify(prefix.replace(/-/gi,'_')) %>Icon
     this.#internals.role = 'graphics-symbol';
     this.#internals.ariaHidden = 'true';
 
-    /** @type {'x-small'|'small'|'medium'|'large'|'x-large'} */
+    /** @type {'x-small'|'small'|'medium'|'large'|'x-large'|'xx-large'} */
     this.size = 'medium';
   }
 

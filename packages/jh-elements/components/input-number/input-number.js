@@ -194,6 +194,7 @@ export class JhInputNumber extends JhInput {
     return html`
       <slot name="jh-input-right" @slotchange=${this._handleSlotChange}>       
         <jh-button
+          tabindex="-1"
           size="x-small"
           appearance="tertiary"
           @click=${this.#handleDecrement}
@@ -206,6 +207,7 @@ export class JhInputNumber extends JhInput {
           ><slot name="jh-input-number-stepper-decrement" slot="jh-button-icon-left"><jh-icon-minus slot="jh-button-icon"></jh-icon-minus></slot>
         </jh-button>
         <jh-button
+          tabindex="-1"
           size="x-small"
           class="increment-button"
           appearance="tertiary"

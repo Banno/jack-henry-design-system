@@ -115,7 +115,7 @@ export class JhToast extends JhElement {
   }
 
   #removeToast() {
-    this.dispatchCustomEvent('jh-dismiss', { reference: { dismissMethod: 'timeout' } });
+    this.dispatchCustomEvent('jh-dismiss', { reference: { dismissMethod: 'timeout'} });
   }
 
   #handleDismiss() {

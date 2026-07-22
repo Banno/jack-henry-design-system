@@ -255,16 +255,19 @@ export class JhNotification extends JhElement {
 
   #handleDismissal(e) {
     let dismissMethod = 'unknown';
+
     if (e.pointerType) {
       dismissMethod = 'mouse';
     } else if (e.detail === 0) {
       dismissMethod = 'keyboard';
     }
-    this.dispatchCustomEvent('jh-dismiss', { reference: { dismissMethod } });
+
     // if notification is wrapped by jh-toast component, do not remove notification from DOM
     if (this.parentNode.host?.nodeName === 'JH-TOAST') {
+      this.dispatchCustomEvent('jh-dismiss', { reference: { dismissMethod: dismissMethod, originHost: 'jh-toast' } });
       return;
     } else {
+      this.dispatchCustomEvent('jh-dismiss', { reference: { dismissMethod } });
       this.remove();
     }   
   }

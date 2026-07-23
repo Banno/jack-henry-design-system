@@ -1252,16 +1252,29 @@
       "attributes": [
         {
           "name": "inset",
-          "description": "The alignment of the left edge of the divider.",
+          "description": "The alignment of the left edge of the horizontal divider.",
           "type": "0|8|16|24|32|40|48|56|64|72|80|88|96"
+        },
+        {
+          "name": "orientation",
+          "description": "The orientation of the divider.",
+          "type": "'horizontal'|'vertical'",
+          "default": "\"horizontal\""
         }
       ],
       "properties": [
         {
           "name": "inset",
           "attribute": "inset",
-          "description": "The alignment of the left edge of the divider.",
+          "description": "The alignment of the left edge of the horizontal divider.",
           "type": "0|8|16|24|32|40|48|56|64|72|80|88|96"
+        },
+        {
+          "name": "orientation",
+          "attribute": "orientation",
+          "description": "The orientation of the divider.",
+          "type": "'horizontal'|'vertical'",
+          "default": "\"horizontal\""
         },
         {
           "name": "uniqueId",
@@ -1283,7 +1296,7 @@
         },
         {
           "name": "--jh-divider-space-inset",
-          "description": "The divider margin-left. Defaults to `0`."
+          "description": "The horizontal divider margin-left. Defaults to `0`."
         }
       ]
     },

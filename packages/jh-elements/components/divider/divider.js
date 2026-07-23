@@ -9,7 +9,7 @@ import { JhElement } from '../element/element.js';
  * @cssprop --jh-divider-border-width - The divider width. Defaults to `--jh-border-decorative-width`.
  * @cssprop --jh-divider-border-style - The divider style. Defaults to `--jh-border-decorative-style`.
  * @cssprop --jh-divider-color-border - The divider color. Defaults to `--jh-border-decorative-color`.
- * @cssprop --jh-divider-space-inset - The divider margin-left. Defaults to `0`.
+ * @cssprop --jh-divider-space-inset - The horizontal divider margin-left. Defaults to `0`.
  * @customElement jh-divider
  */
 export class JhDivider extends JhElement {
@@ -23,6 +23,19 @@ export class JhDivider extends JhElement {
           margin-top: 16px;
           margin-bottom: 16px;
           box-sizing: content-box;
+        }
+        :host([orientation='vertical']) {
+          border-bottom: none;
+          border-left-width: var(--jh-divider-border-width, var(--jh-border-decorative-width));
+          border-left-style: var(--jh-divider-border-style, var(--jh-border-decorative-style));
+          border-left-color: var(--jh-divider-color-border, var(--jh-border-decorative-color));
+          margin-top: 0;
+          margin-bottom: 0;
+          margin-left: 16px;
+          margin-right: 16px;
+          height: 100%;
+          width: 0px;
+          align-self: stretch;
         }
         :host([inset='0']) {
           --inset: 0;
@@ -63,8 +76,8 @@ export class JhDivider extends JhElement {
         :host([inset='96']) {
           --inset: var(--jh-dimension-2400);
         }
-        :host,
-        :host[inset] {
+        :host(:not([orientation='vertical'])),
+        :host(:not([orientation='vertical'])[inset]) {
           margin-left: var(--inset, var(--jh-divider-space-inset));
         }
       `
@@ -73,19 +86,35 @@ export class JhDivider extends JhElement {
   static get properties() {
     return {
       /**
-       * The alignment of the left edge of the divider.
+       * The alignment of the left edge of the horizontal divider.
        */
       inset: {
         type: Number,
         reflect: true,
       },
+      /**
+       * The orientation of the divider.
+       */
+      orientation: {
+        type: String,
+        reflect: true,
+      },
     };
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has('orientation')) {
+      this.internals.ariaOrientation = this.orientation;
+    }
   }
 
   constructor() {
     super();
+    this.internals.role="separator"
     /** @type {0|8|16|24|32|40|48|56|64|72|80|88|96} */
     this.inset = null;
+    /** @type {'horizontal'|'vertical'} */
+    this.orientation = 'horizontal';
   }
 }
 JhDivider.register('jh-divider', JhDivider);

@@ -31,14 +31,19 @@ Declaring a `jh-divider`:
 <jh-divider inset="8"></jh-divider>
 ```
 
-## Inset Override
+## Inset Override for Horizontal Dividers
 
 There are thirteen left-inset options available to help align the divider with its associated content. If an inset outside of the thirteen provided options is desired, use the `--jh-divider-inset-space` component token. Note that if both the `inset` property and `--jh-divider-inset-space` component token are present, the `inset` property will take priority for that instance of the component. 
 
 ## Accessibility
 
-Because Divider is non-focusable and decorative there are no accessibility concerns. 
+This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria. The following success criteria are of concern:
 
+- [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html): Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.
+
+### What we provide
+
+- To satisfy [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html), the divider has a role of `separator` and an `aria-orientation` that reflects the `orientation` property, enabling assistive technologies to programmatically determine the divider's purpose and direction.
 ## Component API
 
 <ArgTypes />

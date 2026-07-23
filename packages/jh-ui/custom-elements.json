@@ -1717,15 +1717,15 @@
       "events": [
         {
           "name": "jh-clear",
-          "description": "Dispatched when the clear button is activated. **V2 payload change:** `e.detail.previousValue` moves to `e.detail.state.previousValue`.\n\n"
+          "description": "**⚠️ Deprecated. Use `jh-input:clear-button-click` instead.** \n\nDispatched when the clear button is activated."
         },
         {
           "name": "jh-select",
-          "description": "Dispatched when text has been selected. Event payload includes the selected text and can be accessed via e.detail.selected. **V2 payload change:** `e.detail.selected` moves to `e.detail.state.selected`.\n\n"
+          "description": "**⚠️ V2 payload change: `e.detail.selected` moves to `e.detail.state.selected`**.\n\nDispatched when text has been selected. Event payload includes the selected text and can be accessed via e.detail.selected."
         },
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus. **V2 payload change:** `e.detail.value` moves to `e.detail.state.value`.\n\n"
+          "description": "Dispatched when the value of the input has changed and input loses focus."
         }
       ],
       "slots": [

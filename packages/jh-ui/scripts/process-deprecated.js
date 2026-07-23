@@ -65,14 +65,12 @@ const deprecations = {
       '--jh-input-color-border-hover': 'Use `--jh-input-field-color-border-hover` instead.',
       '--jh-input-color-border-active': 'Use `--jh-input-field-color-border-active` instead.',
       '--jh-input-color-border-disabled': 'Use `--jh-input-field-color-border-disabled` instead.',
-      '--jh-input-opacity-disabled': 'Use `--jh-input-field-opacity-disabled` instead.',
       '--jh-input-color-border-error': 'Use `--jh-input-field-color-border-error` instead.',
-      '--jh-input-color-text': 'Use `--jh-input-field-color-text` instead.',
+      '--jh-input-color-text': 'Use `--jh-input-value-color-text` instead.',
     },
     events: {
-      'jh-clear': { appendToDescription: '**V2 payload change:** `e.detail.previousValue` moves to `e.detail.state.previousValue`.\n\n' },
-      'jh-select': { appendToDescription: '**V2 payload change:** `e.detail.selected` moves to `e.detail.state.selected`.\n\n' },
-      'jh-change': { appendToDescription: '**V2 payload change:** `e.detail.value` moves to `e.detail.state.value`.\n\n' },
+      'jh-clear': { prependToDescription: '**⚠️ Deprecated. Use `jh-input:clear-button-click` instead.** \n\n' },
+      'jh-select': { prependToDescription: '**⚠️ V2 payload change: `e.detail.selected` moves to `e.detail.state.selected`**.\n\n' },
     },
   },
 };
@@ -104,15 +102,13 @@ json.tags.forEach(tag => {
   if (config.events) {
     (tag.events || []).forEach(event => {
       const eventConfig = config.events[event.name];
-      if (eventConfig?.appendToDescription) {
-        // Only append if not already present
-        if (!event.description.includes('V2 payload change')) {
-          event.description = `${event.description} ${eventConfig.appendToDescription}`;
+      if (eventConfig?.prependToDescription) {
+          event.description = `${eventConfig.prependToDescription}${event.description}`;
         }
-      }
-    });
-  }
-});
+      });
+    }
+  });
+    
 
 fs.writeFileSync(jsonPath, JSON.stringify(json, null, 2) + '\n');
 

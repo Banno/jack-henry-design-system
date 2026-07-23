@@ -12,6 +12,7 @@
     "Brad McCormick",
     "Maya Buser De"
   ],
+  "type": "module",
   "license": "Apache-2.0",
   "files": [
     "components/**/!(*.stories).js",

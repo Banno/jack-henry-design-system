@@ -38,6 +38,10 @@ import '@jack-henry/jh-icons/icons-wc/icon-plus.js';
 export class JhInputNumber extends JhInput {
   /** @type {?string} */
   #stepperAnnouncement;
+  /** @type {boolean} */
+  #incrementDisabled = false;
+  /** @type {boolean} */
+  #decrementDisabled = false;
 
   static get styles() {
     return [
@@ -104,16 +108,6 @@ export class JhInputNumber extends JhInput {
 
   static get properties() {
     return {
-      /** Sets the accessible label for the increment stepper button. */
-      accessibleLabelIncrementStepper: {
-        type: String,
-        attribute: 'accessible-label-increment-stepper',
-      },
-      /** Sets the accessible label for the decrement stepper button. */
-      accessibleLabelDecrementStepper: {
-        type: String,
-        attribute: 'accessible-label-decrement-stepper',
-      },
       /** Sets the maximum value for the input number. */
       max: { type: Number },
       /** Sets the minimum value for the input number. */
@@ -125,16 +119,21 @@ export class JhInputNumber extends JhInput {
 
   constructor() {
     super();
-    /** @type {?string} */
-    this.accessibleLabelIncrementStepper = null;
-    /** @type {?string} */
-    this.accessibleLabelDecrementStepper = null;
     /** @type {?number} */
     this.max = null;
     /** @type {?number} */
     this.min = null;
     /** @type {number} */
     this.step = 1;
+  }
+
+  willUpdate(changedProperties) {
+    if (changedProperties.has('value') ||
+        changedProperties.has('min') ||
+        changedProperties.has('max')
+    ) {
+      this.#updateStepperDisabledState();
+    }
   }
 
   #dispatchEvents() {
@@ -190,34 +189,32 @@ export class JhInputNumber extends JhInput {
     this.#stepperAnnouncement = '';
   }
 
+  // when max is reached, disable the increment button, and when min is reached, disable the decrement button
+  #updateStepperDisabledState() {
+    this.#incrementDisabled = this.max !== null && Number(this.value) >= this.max;
+    this.#decrementDisabled = this.min !== null && Number(this.value) <= this.min;
+  }
+
   renderRightSlot() {
     return html`
       <slot name="jh-input-right" @slotchange=${this._handleSlotChange}>       
         <jh-button
           tabindex="-1"
+          aria-hidden="true"
           size="x-small"
           appearance="tertiary"
           @click=${this.#handleDecrement}
-          ?disabled=${this.disabled}
-          accessible-label=${ifDefined(
-            this.accessibleLabelDecrementStepper === ''
-              ? null
-              : this.accessibleLabelDecrementStepper
-          )}
+          ?disabled=${this.disabled || this.#decrementDisabled}
           ><slot name="jh-input-number-stepper-decrement" slot="jh-button-icon-left"><jh-icon-minus slot="jh-button-icon"></jh-icon-minus></slot>
         </jh-button>
         <jh-button
           tabindex="-1"
+          aria-hidden="true"
           size="x-small"
           class="increment-button"
           appearance="tertiary"
           @click=${this.#handleIncrement}
-          ?disabled=${this.disabled}
-          accessible-label=${ifDefined(
-          this.accessibleLabelIncrementStepper === ''
-            ? null
-            : this.accessibleLabelIncrementStepper
-          )}
+          ?disabled=${this.disabled || this.#incrementDisabled}
           ><slot name="jh-input-number-stepper-increment" slot="jh-button-icon-left"><jh-icon-plus slot="jh-button-icon"></jh-icon-plus></slot>
         </jh-button>
       </slot> 

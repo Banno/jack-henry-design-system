@@ -16,8 +16,6 @@ const disableControls = {
   'max': { control: { disable: true } },
   'min': { control: { disable: true } },
   'step': { control: { disable: true } },
-  'accessible-label-increment-stepper': { control: { disable: true } },
-  'accessible-label-decrement-stepper': { control: { disable: true } },
   'accessible-label': { control: { disable: true } },
   'accessible-label-clear-button': { control: { disable: true } },
   autocomplete: { control: { disable: true } },
@@ -94,12 +92,6 @@ export default {
       control: 'text',
     },
     'step': {
-      control: 'text',
-    },
-    'accessible-label-increment-stepper': {
-      control: 'text',
-    },
-    'accessible-label-decrement-stepper': {
       control: 'text',
     },
     'accessible-label': {
@@ -217,16 +209,6 @@ export const Playground = { render: (args) => html`
       min=${ifDefined(args.min === '' ? null : args.min)}
       max=${ifDefined(args.max === '' ? null : args.max)}
       step=${ifDefined(args.step === '' ? null : args.step)}
-      accessible-label-increment-stepper=${ifDefined(
-        args['accessible-label-increment-stepper'] === ''
-          ? null
-          : args['accessible-label-increment-stepper']
-      )}
-      accessible-label-decrement-stepper=${ifDefined(
-        args['accessible-label-decrement-stepper'] === ''
-          ? null
-          : args['accessible-label-decrement-stepper']
-      )}
      accessible-label=${ifDefined(
         args['accessible-label'] === ''
           ? null
@@ -269,8 +251,6 @@ Playground.args = {
   min: null,
   max: null,
   step: null,
-  'accessible-label-increment-stepper': null,
-  'accessible-label-decrement-stepper': null,
   size: 'medium',
   disabled: false,
   readonly: false,
@@ -309,16 +289,6 @@ export const Slots = { render: (args) => html`
       min=${ifDefined(args.min === '' ? null : args.min)}
       max=${ifDefined(args.max === '' ? null : args.max)}
       step=${ifDefined(args.step === '' ? null : args.step)}
-      accessible-label-increment-stepper=${ifDefined(
-        args['accessible-label-increment-stepper'] === ''
-          ? null
-          : args['accessible-label-increment-stepper']
-      )}
-      accessible-label-decrement-stepper=${ifDefined(
-        args['accessible-label-decrement-stepper'] === ''
-          ? null
-          : args['accessible-label-decrement-stepper']
-      )}
       ?hide-left-slot=${args['hide-left-slot']}
       label="User rating"
       helper-text="Use thumbs down and thumbs up to decrease or increase this user's rating"
@@ -332,8 +302,6 @@ Slots.args = {
   min: null,
   max: null,
   step: null,
-  'accessible-label-increment-stepper': null,
-  'accessible-label-decrement-stepper': null,
   disabled: false,
   readonly: false,
 };
@@ -343,8 +311,6 @@ Slots.argTypes = {
   'hide-left-slot': { table: { disable: false } },
   min: { table: { disable: false } },
   max: { table: { disable: false } },
-  'accessible-label-increment-stepper': { table: { disable: false } },
-  'accessible-label-decrement-stepper': { table: { disable: false } },
   step: { table: { disable: false } },
   disabled: { table: { disable: false } },
   readonly: { table: { disable: false } },

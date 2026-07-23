@@ -32,8 +32,6 @@ To use `<jh-input-number>`:
   helper-text="Enter a number between 1 and 10"
   min="1"
   max="10"
-  accessible-label-decrement-stepper="Decrease quantity"
-  accessible-label-increment-stepper="Increase quantity"
 ></jh-input-number>
 ```
 
@@ -91,7 +89,7 @@ In addition to the accessibility features provided by `jh-input`, `jh-input-numb
 - To satisfy [WCAG 2.4.6 Headings and Labels](https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html) and [WCAG 3.3.2 Labels or Instructions](https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html), ensure the `label` property or the `accessible-label` attribute are descriptive.
 - To satisfy [WCAG 3.3.1 Error Identification](https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html), set the `invalid` attribute to generate an `aria-invalid` attribute on input to indicate an error. Utilize the `error-text` attribute to provide feedback on a failed value.
 - To satisfy [WCAG 3.3.3 Error Suggestion](https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html), use the `error-text` attribute to provide a suggestion to correct the input error when appropriate.
-- To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value), set the `accessible-label` attribute(s) to generate an aria-label when a visible label cannot be used.
+- To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value), set the `accessible-label` attribute to generate an aria-label when a visible label cannot be used.
 
 ## Component API
 

@@ -1819,16 +1819,6 @@
       "description": "Input Number",
       "attributes": [
         {
-          "name": "accessible-label-increment-stepper",
-          "description": "Sets the accessible label for the increment stepper button.",
-          "type": "?string"
-        },
-        {
-          "name": "accessible-label-decrement-stepper",
-          "description": "Sets the accessible label for the decrement stepper button.",
-          "type": "?string"
-        },
-        {
           "name": "max",
           "description": "Sets the maximum value for the input number.",
           "type": "?number"
@@ -1976,18 +1966,6 @@
         }
       ],
       "properties": [
-        {
-          "name": "accessibleLabelIncrementStepper",
-          "attribute": "accessible-label-increment-stepper",
-          "description": "Sets the accessible label for the increment stepper button.",
-          "type": "?string"
-        },
-        {
-          "name": "accessibleLabelDecrementStepper",
-          "attribute": "accessible-label-decrement-stepper",
-          "description": "Sets the accessible label for the decrement stepper button.",
-          "type": "?string"
-        },
         {
           "name": "max",
           "attribute": "max",

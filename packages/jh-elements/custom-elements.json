@@ -917,7 +917,7 @@
       "events": [
         {
           "name": "jh-change",
-          "description": "Fired when the selection of checkboxes changes. Event payload includes the the selected checkbox values and can be accessed via `e.detail.state.selectedValue`."
+          "description": "Fired when the selection of checkboxes changes. Event payload includes both current and previous selections, accessible via `e.detail.state.selectedValue` and `e.detail.state.previousSelectedValue`."
         }
       ],
       "slots": [

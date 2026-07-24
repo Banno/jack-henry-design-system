@@ -19,13 +19,16 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * @cssprop --jh-checkbox-group-error-color-text - The error-text text color.
  * Defaults to `--jh-color-content-negative-enabled`.
  * 
- * @event jh-change - Fired when the selection of checkboxes changes. Event payload includes the the selected checkbox values and can be accessed via `e.detail.state.selectedValue`.
+ * @event jh-change - Fired when the selection of checkboxes changes. Event payload includes both current and previous selections, accessible via `e.detail.state.selectedValue` and `e.detail.state.previousSelectedValue`.
  *
  * @slot default - Use to insert `<jh-checkbox>` component(s).
  *
  * @customElement jh-checkbox-group
  */
 export class JhCheckboxGroup extends JhElement {
+  #previousSelectedValue = [];
+
+
   static get styles() {
     return css`
       :host {
@@ -244,13 +247,21 @@ export class JhCheckboxGroup extends JhElement {
     }
   }
 
-    #handleChange(e) {
+  #handleChange(e) {
     if (e.detail.reference.originHost === 'jh-checkbox') {
-      let selectedValues = Array.from(this.querySelectorAll('jh-checkbox'))
+      const previousSelectedValue = [...this.#previousSelectedValue];
+      const selectedValues = Array.from(this.querySelectorAll('jh-checkbox'))
         .filter(checkbox => checkbox.checked)
         .map(checkbox => checkbox.value);
-   
-      this.dispatchCustomEvent('jh-change', { state: { selectedValue: selectedValues }} );
+
+      this.#previousSelectedValue = [...selectedValues];
+
+      this.dispatchCustomEvent('jh-change', {
+        state: {
+          previousSelectedValue,
+          selectedValue: selectedValues,
+        },
+      });
     }
   }
 

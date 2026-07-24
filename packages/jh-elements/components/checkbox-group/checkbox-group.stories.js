@@ -171,21 +171,25 @@ export const Playground = {
       <jh-checkbox
         label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus massa, mollis euismod lorem ut, tincidunt dignissim ex."
         name="checkbox-1"
+        value="value-1"
         helper-text="Helper text"
       ></jh-checkbox>
       <jh-checkbox
         label="Label"
         name="checkbox-2"
+        value="value-2"
         helper-text="Helper text"
       ></jh-checkbox>
       <jh-checkbox
         label="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         name="checkbox-3"
+        value="value-3"
         helper-text="Helper text"
       ></jh-checkbox>
       <jh-checkbox
         label="Slightly longer label"
         name="checkbox-3"
+        value="value-4"
         helper-text="Helper text"
       ></jh-checkbox>
     </jh-checkbox-group>

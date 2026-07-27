@@ -70,7 +70,7 @@ const deprecations = {
     },
     events: {
       'jh-clear': { prependToDescription: '**⚠️ Deprecated. Use `jh-input:clear-button-click` instead.** \n\n' },
-      'jh-select': { prependToDescription: '**⚠️ V2 payload change: `e.detail.selected` moves to `e.detail.state.selected`**.\n\n' },
+      'jh-select': { prependToDescription: '**⚠️ V2 payload change: `e.detail.selected` moves to `e.detail.state.selection`**.\n\n' },
     },
   },
 };

@@ -48,6 +48,7 @@ const disabledControls = {
 export default {
   component: 'jh-tooltip',
   title: 'Components/Tooltip',
+  tags: ['has-deprecations'],
   argTypes: {
     position: {
       control: 'select',

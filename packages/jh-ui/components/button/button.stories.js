@@ -41,6 +41,7 @@ const disableControls = {
 export default {
   component: 'jh-button',
   title: 'Components/Button',
+  tags: ['has-deprecations'],
   argTypes: {
     'icon-position': {
       control: 'select',

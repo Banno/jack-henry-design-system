@@ -15,6 +15,17 @@ import { DocsContainer } from '@storybook/addon-docs/blocks';
 import { useDarkMode } from 'storybook-dark-mode';
 import { withActions } from 'storybook/actions/decorator';
 
+customElements.tags.forEach(tag => {
+  ['attributes', 'properties', 'cssProperties', 'events', 'slots'].forEach(key => {
+    (tag[key] || []).forEach(item => {
+      const msg = item.deprecatedMessage || (item.deprecated && typeof item.deprecated === 'string' ? item.deprecated : null);
+      if (item.deprecated || item.deprecatedMessage) {
+        item.description = `⚠️ **Deprecated. ${msg || ''}**\n\n ${item.description}`.trim();
+      }
+    });
+  });
+});
+
 setCustomElements(customElements);
 
 const preview = {

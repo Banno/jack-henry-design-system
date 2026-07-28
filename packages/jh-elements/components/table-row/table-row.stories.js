@@ -15,7 +15,6 @@ const storyStyles = css`
 export default {
   component: 'jh-table-row',
   title: 'Components/Table/Table Row',
-  tags: ['beta'],
 };
 
 export const Overview = { render: (args) => html`

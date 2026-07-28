@@ -58,7 +58,6 @@ function logCustomEvent(name, e) {
 export default {
   component: 'jh-input-textarea',
   title: 'Components/Input Textarea',
-  tags: ['beta'],
   decorators: [
       (story) => html`
         <div class="story-decorator"

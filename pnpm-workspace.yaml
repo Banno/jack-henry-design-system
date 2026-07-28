@@ -3,6 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 packages:  
-- 'packages/jh-ui'
-- 'packages/jh-core'
+- 'packages/jh-elements'
+- 'packages/jh-tokens'
 - 'packages/jh-icons'
+- 'packages/jh-datasets'

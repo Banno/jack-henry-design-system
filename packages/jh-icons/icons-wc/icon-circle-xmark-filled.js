@@ -1,7 +1,8 @@
-// SPDX-FileCopyrightText: 2025 Jack Henry
-//
-// SPDX-License-Identifier: Apache-2.0
-
+/**
+* SPDX-FileCopyrightText: 2025 Jack Henry
+*
+* SPDX-License-Identifier: Apache-2.0
+*/
 import {LitElement, css, html} from 'lit';
 
 export default class JhIconCircleXmarkFilled extends LitElement {
@@ -22,31 +23,37 @@ export default class JhIconCircleXmarkFilled extends LitElement {
       :host([size='x-small']) {
         --icon-size: var(
           --jh-icon-size-extra-small,
-          var(--jh-size-400)
+          var(--jh-dimension-400)
         );
       }
       :host([size='small']) {
         --icon-size: var(
           --jh-icon-size-small,
-          var(--jh-size-500)
+          var(--jh-dimension-500)
         );
       }
       :host([size='medium']) {
         --icon-size: var(
           --jh-icon-size-medium,
-          var(--jh-size-600)
+          var(--jh-dimension-600)
         );
       }
       :host([size='large']) {
         --icon-size: var(
           --jh-icon-size-large,
-          var(--jh-size-900)
+          var(--jh-dimension-900)
         );
       }
       :host([size='x-large']) {
         --icon-size: var(
           --jh-icon-size-extra-large,
-          var(--jh-size-1400)
+          var(--jh-dimension-1400)
+        );
+      }
+      :host([size='xx-large']) {
+        --icon-size: var(
+          --jh-icon-size-extra-extra-large,
+          var(--jh-dimension-2100)
         );
       }
       svg {
@@ -73,7 +80,7 @@ export default class JhIconCircleXmarkFilled extends LitElement {
     this.#internals.role = 'graphics-symbol';
     this.#internals.ariaHidden = 'true';
 
-    /** @type {'x-small'|'small'|'medium'|'large'|'x-large'} */
+    /** @type {'x-small'|'small'|'medium'|'large'|'x-large'|'xx-large'} */
     this.size = 'medium';
   }
 

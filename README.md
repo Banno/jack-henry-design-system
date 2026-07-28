@@ -9,8 +9,7 @@ SPDX-License-Identifier: Apache-2.0
 Welcome to our monorepo! The Forge Design System is a collection of reusable components, guided by clear visual and user experience
 standards that help teams build great products. The design system is informed by internal Jack Henry patterns and extensive
 UX research. We've solved many of the common UX problems and baked in accessibility so that you can focus on your product's 
-unique needs. It's a living system constantly growing, with frequent releases that include new features and improvements. The Forge
-Design System will help your product teams by:
+unique needs. It's a living system constantly growing, with frequent releases that include new features and improvements. The Forge Design System will help your product teams by:
 
 - Establishing brand and UX consistency, ensuring all products are aligned to a set of standards.
 - Reduce time to market through design and code reuse. No need to build from scratch.
@@ -65,8 +64,8 @@ review it's usage guidelines and style guide. If you're ready to dive into the t
 
 | Package Name         | Description                          |
 |----------------------|--------------------------------------|
-| [@jack-henry/jh-ui](./packages/jh-ui/)    | Web Components                       |
-| [@jack-henry/jh-core](./packages/jh-core/)  | Design Tokens                        |
+| [@jack-henry/jh-elements](./packages/jh-elements/)    | Web Components                       |
+| [@jack-henry/jh-tokens](./packages/jh-tokens/)  | Design Tokens                        |
 | [@jack-henry/jh-icons](./packages/jh-icons/) | SVG and Web Component icons |
 
 ## Documentation

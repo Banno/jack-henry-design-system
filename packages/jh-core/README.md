@@ -10,3 +10,6 @@ Contains Jack Henry's core design tokens designed to be used with our [design sy
 
 * [jackhenry.design tokens](https://jackhenry.design/pages/foundations/design-tokens/overview/) provides documentation on our design tokens.
 * [Jackhenry.design](https://jackhenry.design) focuses on introducing the underlying concepts of the Design System, usage guidelines, and a style guide.
+
+### Package Status
+This package is now in maintenance mode. We will continue to provide bug fixes as needed, but all new feature development has moved to V2 in the [@jack-henry/jh-tokens](https://www.npmjs.com/package/@jack-henry/jh-tokens) package. We recommend migrating to V2.

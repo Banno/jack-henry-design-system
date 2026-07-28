@@ -38,10 +38,10 @@ importers:
   packages/jh-ui:
     dependencies:
       '@jack-henry/jh-core':
-        specifier: workspace:1.6.0
+        specifier: workspace:1.6.1
         version: link:../jh-core
       '@jack-henry/jh-icons':
-        specifier: workspace:1.2.0
+        specifier: workspace:1.2.1
         version: link:../jh-icons
       lit:
         specifier: 2.1.1

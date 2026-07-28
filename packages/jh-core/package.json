@@ -1,7 +1,7 @@
 {
   "name": "@jack-henry/jh-core",
   "description": "Forge Design System core design tokens.",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Banno/jack-henry-design-system.git"

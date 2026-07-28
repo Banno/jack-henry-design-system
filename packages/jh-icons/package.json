@@ -1,7 +1,7 @@
 {
   "name": "@jack-henry/jh-icons",
   "description": "Forge Design System icon library",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Banno/jack-henry-design-system.git"

@@ -71,7 +71,8 @@ export class JhToast extends LitElement {
 
   static get properties() {
     return {
-      /** Sets the background color of the toast to convey message connotation. */
+      /** Sets the background color of the toast to convey message connotation. 
+       * @deprecated The component now uses a single neutral color. */
       appearance: { type: String, reflect: true },
       /** Adds an aria-label to the dismiss button to assist screen readers. */
       dismissButtonAccessibleLabel: {

@@ -203,6 +203,7 @@ export class JhTooltip extends LitElement {
       },
       /**
        * Provides information about the item which triggered the tooltip.
+       * @deprecated Use the `jh-tooltip-content` slot instead.
        */
       label: {
         type: String,

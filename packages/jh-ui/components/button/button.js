@@ -755,7 +755,9 @@ export class JhButton extends LitElement {
       href: {
         type: String,
       },
-      /** Sets location of icon in relation to the label. */
+      /** Sets location of icon in relation to the label.
+       * @deprecated Use new icon placement system instead.
+       */
       iconPosition: {
         type: String,
         attribute: 'icon-position',

@@ -40,7 +40,6 @@ function logCustomEvent(name, e) {
 export default {
   component: 'jh-table-header-cell',
   title: 'Components/Table/Table Header Cell',
-  tags: ['beta'],
   decorators: [
       (story) => html`
         <div class="story-decorator"

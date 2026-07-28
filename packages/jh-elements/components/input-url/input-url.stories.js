@@ -58,7 +58,6 @@ function logCustomEvent(name, e) {
 export default {
   component: 'jh-input-url',
   title: 'Components/Input Url',
-  tags: ['beta'],
   decorators: [
       (story) => html`
         <div class="story-decorator"

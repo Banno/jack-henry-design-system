@@ -58,7 +58,6 @@ function logCustomEvent(name, e) {
 export default {
   component: 'jh-input-telephone',
   title: 'Components/Input Telephone',
-  tags: ['beta'],
   decorators: [
       (story) => html`
         <div class="story-decorator"

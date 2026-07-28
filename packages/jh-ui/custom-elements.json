@@ -1721,7 +1721,7 @@
         },
         {
           "name": "jh-select",
-          "description": "**⚠️ V2 payload change: `e.detail.selected` moves to `e.detail.state.selected`**.\n\nDispatched when text has been selected. Event payload includes the selected text and can be accessed via e.detail.selected."
+          "description": "**⚠️ V2 payload change: `e.detail.selected` moves to `e.detail.state.selection`**.\n\nDispatched when text has been selected. Event payload includes the selected text and can be accessed via e.detail.selected."
         },
         {
           "name": "jh-change",
@@ -1814,8 +1814,7 @@
         },
         {
           "name": "--jh-input-opacity-disabled",
-          "description": "The input opacity when disabled. Defaults to `--jh-opacity-300`.",
-          "deprecatedMessage": "Use `--jh-input-field-opacity-disabled` instead."
+          "description": "The input opacity when disabled. Defaults to `--jh-opacity-300`."
         },
         {
           "name": "--jh-input-color-border-error",
@@ -1852,7 +1851,7 @@
         {
           "name": "--jh-input-color-text",
           "description": "The value text color. Defaults to `jh-color-content-primary-enabled`.",
-          "deprecatedMessage": "Use `--jh-input-field-color-text` instead."
+          "deprecatedMessage": "Use `--jh-input-value-color-text` instead."
         },
         {
           "name": "--jh-input-error-color-text",

@@ -91,7 +91,6 @@ function logCustomEvent(name, e) {
 export default {
   component: 'jh-select',
   title: 'Components/Select',
-  tags: ['beta'],
   decorators: [
       (story) => html`
         <div class="story-decorator"

@@ -55,7 +55,6 @@ function logCustomEvent(name, e) {
 export default {
   component: 'jh-input-password',
   title: 'Components/Input Password',
-  tags: ['beta'],
   decorators: [
       (story) => html`
         <div class="story-decorator"

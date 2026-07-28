@@ -512,6 +512,7 @@ export class JhInput extends LitElement {
       /**
        * Sets an `aria-label` on the button encapsulating the `jh-input-password-visible` slot to assist screen reader users. Present when input `type="password"` and `password-visible` is false. Indicates that
        * clicking on the button will result in a masked password.
+       * @deprecated Use with `jh-input-password` instead.
        */
       accessibleLabelHidePassword: {
         type: String,
@@ -519,6 +520,7 @@ export class JhInput extends LitElement {
       },
       /** Sets an `aria-label` on the button encapsulating `jh-input-password-hidden` slot to assist screen reader users. Present when input `type="password"` and `password-visible` is true. Indicates that
        * clicking on the button will result in an unmasked password.
+       * @deprecated Use with `jh-input-password` instead.
        */
       accessibleLabelShowPassword: {
         type: String,
@@ -537,13 +539,16 @@ export class JhInput extends LitElement {
       /**
        * Enables the input height to grow automatically to accomodate user input when `type="textarea"`.
        * `auto-grow` will also remove the textarea's native resize capability.
+       * @deprecated Use with `jh-input-textarea` instead.
        */
       autoGrow: {
         type: Boolean,
         attribute: 'auto-grow',
         reflect: true,
       },
-      /** Sets the width of input when `type=”textarea”`.  */
+      /** Sets the width of input when `type=”textarea”`.
+       * @deprecated Use with `jh-input-textarea` instead.
+       */
       cols: {
         type: String,
       },
@@ -576,7 +581,9 @@ export class JhInput extends LitElement {
         attribute: 'hide-left-slot',
         reflect: true,
       },
-      /** Unmasks password when input `type="password"`. */
+      /** Unmasks password when input `type="password"`.
+       *  @deprecated Use with `jh-input-password` instead.
+       */
       passwordVisible: {
         type: Boolean,
         attribute: 'password-visible',
@@ -615,13 +622,17 @@ export class JhInput extends LitElement {
       name: {
         type: String,
       },
-      /** Removes native resize capability when input `type=”textarea”`. */
+      /** Removes native resize capability when input `type=”textarea”`.
+       *  @deprecated Use with `jh-input-textarea` instead. 
+       */
       noResize: {
         type: Boolean,
         attribute: 'no-resize',
         reflect: true,
       },
-      /** Sets placeholder text. */
+      /** Sets placeholder text.
+       * @deprecated Use `helper-text` and `label` properties instead.
+       */
       placeholder: {
         type: String,
       },
@@ -635,7 +646,9 @@ export class JhInput extends LitElement {
         type: Boolean,
         reflect: true,
       },
-      /** The number of visible text lines when `type=”textarea”`. */
+      /** The number of visible text lines when `type=”textarea”`. 
+       * @deprecated Use with `jh-input-textarea` instead.
+      */
       rows: {
         type: String,
       },
@@ -661,7 +674,8 @@ export class JhInput extends LitElement {
       spellcheck: {
         type: String,
       },
-      /** Sets type of input control. */
+      /** Sets type of input control.
+       * @deprecated Use discrete components (`jh-input-search`, `jh-input-password`, `jh-input-textarea`, `jh-input-email`, `jh-input-url`, `jh-input-telephone`) instead. */
       type: {
         type: String,
         reflect: true,
@@ -670,7 +684,9 @@ export class JhInput extends LitElement {
       value: {
         type: String,
       },
-      /** Specifies how text should be wrapped when submitted in a form and input `type="textarea"`. */
+      /** Specifies how text should be wrapped when submitted in a form and input `type="textarea"`. 
+       * @deprecated Use with `jh-input-textarea` instead.
+      */
       wrap: {
         type: String,
       },

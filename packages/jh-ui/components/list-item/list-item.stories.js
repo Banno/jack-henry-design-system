@@ -33,6 +33,7 @@ const disableControls = {
 export default {
   component: 'jh-list-item',
   title: 'Components/List Item',
+  tags: ['has-deprecations'],
   argTypes: {
     'primary-text': {
       control: {

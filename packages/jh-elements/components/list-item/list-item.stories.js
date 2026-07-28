@@ -34,17 +34,17 @@ export default {
   component: 'jh-list-item',
   title: 'Components/List Item',
   argTypes: {
-    'primary-text': {
-      control: {
-        type: 'text',
+      'primary-text': {
+        control: {
+          type: 'text',
+        },
       },
-    },
+      'secondary-text': {
+        control: {
+          type: 'text',
+        },
+      },
     'primary-metadata': {
-      control: {
-        type: 'text',
-      },
-    },
-    'secondary-text': {
       control: {
         type: 'text',
       },
@@ -81,15 +81,13 @@ export const Overview = {
     <div role="list" class="list">
       <jh-list-item>
         <div slot="jh-list-item-left">Left slot</div>
-        <div slot="jh-list-item-content">Content slot</div>
-        <div slot="jh-list-item-metadata">Metadata slot</div>
+        <div>Default slot</div>
         <div slot="jh-list-item-right">Right slot</div>
       </jh-list-item>
       <jh-list-item>
         <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
         <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
-        <div slot="jh-list-item-content">Lorem ipsum dolor sit amet</div>
-        <div slot="jh-list-item-metadata">Lorem ipsum</div>
+        <div>Lorem ipsum dolor sit amet</div>
       </jh-list-item>
     </div>
     <div role="list" class="list">
@@ -99,17 +97,15 @@ export const Overview = {
         secondary-text=${args['secondary-text']}
         primary-metadata=${args['primary-metadata']}
         secondary-metadata=${args['secondary-metadata']}
-      >
-        <div slot="jh-list-item-left">Left slot</div>
-        <div slot="jh-list-item-right">Right slot</div>
-      </jh-list-item>
+      ><div slot="jh-list-item-left">Left slot</div>
+      <div slot="jh-list-item-right">Right slot</div>
+    </jh-list-item>
       <jh-list-item
         primary-text=${args['primary-text']}
         secondary-text=${args['secondary-text']}
         primary-metadata=${args['primary-metadata']}
         secondary-metadata=${args['secondary-metadata']}
-      >
-        <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
+      ><jh-icon-user slot="jh-list-item-left"></jh-icon-user>
         <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
       </jh-list-item>
     </div>
@@ -140,8 +136,8 @@ export const Overview = {
 
 Overview.args = {
   'primary-text': 'Primary text',
-  'primary-metadata': 'Primary metadata',
   'secondary-text': 'Secondary text',
+  'primary-metadata': 'Primary metadata',
   'secondary-metadata': 'Secondary metadata',
 };
 Overview.parameters = {
@@ -172,8 +168,8 @@ export const Playground = {
 
 Playground.args = {
   'primary-text': 'Primary text',
-  'primary-metadata': 'Primary metadata',
   'secondary-text': 'Secondary text',
+  'primary-metadata': 'Primary metadata',
   'secondary-metadata': 'Secondary metadata',
   'show-divider': false,
   'divider-inset': null,
@@ -208,15 +204,13 @@ export const DefaultLayout = {
     html` <div role="list" class="list">
       <jh-list-item>
         <div slot="jh-list-item-left">Left slot</div>
-        <div slot="jh-list-item-content">Content slot</div>
-        <div slot="jh-list-item-metadata">Metadata slot</div>
+        <div>Default slot</div>
         <div slot="jh-list-item-right">Right slot</div>
       </jh-list-item>
       <jh-list-item>
         <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
         <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
-        <div slot="jh-list-item-content">Lorem ipsum dolor sit amet</div>
-        <div slot="jh-list-item-metadata">Lorem ipsum</div>
+        <div>Lorem ipsum dolor sit amet</div>
       </jh-list-item>
     </div>`,
 };
@@ -242,8 +236,20 @@ export const LayoutWithProperties = {
       </jh-list-item>
       <jh-list-item
         primary-text=${args['primary-text']}
-        secondary-text=${args['secondary-text']}
         primary-metadata=${args['primary-metadata']}
+      >
+        <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
+        <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
+      </jh-list-item>
+            <jh-list-item
+        primary-text=${args['primary-text']}
+        secondary-metadata=${args['secondary-metadata']}
+      >
+        <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
+        <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
+      </jh-list-item>
+            <jh-list-item
+        secondary-text=${args['secondary-text']}
         secondary-metadata=${args['secondary-metadata']}
       >
         <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
@@ -254,8 +260,8 @@ export const LayoutWithProperties = {
 
 LayoutWithProperties.args = {
   'primary-text': 'Primary text',
-  'primary-metadata': 'Primary metadata',
   'secondary-text': 'Secondary text',
+  'primary-metadata': 'Primary metadata',
   'secondary-metadata': 'Secondary metadata',
 };
 LayoutWithProperties.parameters = {
@@ -274,8 +280,7 @@ export const InteractiveList = {
         primary-text=${args['primary-text']}
         secondary-text=${args['secondary-text']}
         primary-metadata=${args['primary-metadata']}
-        secondary-metadata=${args['secondary-metadata']}
-      >
+        secondary-metadata=${args['secondary-metadata']}>
         <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
         <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
       </jh-list-item>
@@ -287,8 +292,7 @@ export const InteractiveList = {
         primary-text=${args['primary-text']}
         secondary-text=${args['secondary-text']}
         primary-metadata=${args['primary-metadata']}
-        secondary-metadata=${args['secondary-metadata']}
-      >
+        secondary-metadata=${args['secondary-metadata']}>
         <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
         <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
       </jh-list-item>
@@ -298,8 +302,7 @@ export const InteractiveList = {
         primary-text=${args['primary-text']}
         secondary-text=${args['secondary-text']}
         primary-metadata=${args['primary-metadata']}
-        secondary-metadata=${args['secondary-metadata']}
-      >
+        secondary-metadata=${args['secondary-metadata']}>
         <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
         <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
       </jh-list-item>
@@ -310,8 +313,8 @@ InteractiveList.args = {
   selected: false,
   disabled: false,
   'primary-text': 'Primary text',
-  'primary-metadata': 'Primary metadata',
   'secondary-text': 'Secondary text',
+  'primary-metadata': 'Primary metadata',
   'secondary-metadata': 'Secondary metadata',
 };
 InteractiveList.parameters = {
@@ -331,19 +334,21 @@ export const TextWrapping = {
     html`
       <div role="list" class="list">
         <jh-list-item
-          primary-text="Primarytextlongtextwrapstoanewline"
-          primary-metadata="Primary metadata"
+          primary-text="Primary text long text wraps to a new line"
           secondary-text="Secondary text"
-          secondary-metadata="Secondary metadata"
+          primary-metadata="$100.00"
+          secondary-metadata="Jan 1"
+          show-divider
         >
           <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
           <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
         </jh-list-item>
         <jh-list-item
           primary-text="Primary text"
-          primary-metadata="Long primary metadata"
           secondary-text="Secondary text - lorem ipsum dolor"
-          secondary-metadata="Secondary metadata"
+          primary-metadata="Expenses: $250.00"
+          secondary-metadata="Feb 14"
+          show-divider
         >
           <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
           <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
@@ -351,10 +356,12 @@ export const TextWrapping = {
         <jh-list-item
           primary-text="Primary text - long text wraps to new lines"
           secondary-text="Secondary text - lorem ipsum dolor"
+          primary-metadata="$1,000.00"
+          secondary-metadata="Secondary metadata"
+          show-divider
         >
           <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
           <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
-          <div slot="jh-list-item-metadata">Metadata Slot - Lorem ipsum</div>
         </jh-list-item>
       </div>
     `,

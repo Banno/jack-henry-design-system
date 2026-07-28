@@ -10,56 +10,17 @@ import { Meta } from '@storybook/addon-docs/blocks';
 <div className="toc-ignore">
 # V2 Release
 
-**Warning!** This page is continuously changing. We may add or remove scope as needed. Explore the [latest v2 Storybook instance](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/welcome-about-jh--docs).
-
 ## Summary
 
-The Design System team has been heavily focused on delivering the next iteration in Jack Henry's design system, with V2 representing a significant step 
+The Design System team has been heavily focused on delivering the next iteration of the Forge Design System, with V2 representing a significant step 
 forward in the evolution of the system. We've focused on establishing a more standardized and robust foundation by embracing the W3C Design Token Specification, 
 introduced a suite of new and improved components, and prioritized the tools and documentation you need to work efficiently and effectively.
 
-Read on to learn more about what's new in v2!
-
-**Note: v2 is current in pre-release and will continue to undergo significant breaking changes.**
-
-## Working with Pre-releases
-
-### Installing packages
-
-Design System packages follow semantic versioning conventions, which extend to pre-release cycles. This involves a progression from alpha -> beta -> release candidate (rc) -> 
-general availability (ga). Refer to our [release process](https://github.com/Banno/jack-henry-design-system) for more info.
-
-Due to the volatility of pre-release code, it is recommended that you pin the exact version of the package dependency in your package.json to prevent inadvertently introducing new breaking changes. 
-This is also necessary as the pre-release tag will change as our confidence in the release increases and so the package version will need to be manually updated.
-
-Yarn
-
-```bash
-yarn install @jack-henry/jh-elements
-```
-
-NPM
-
-```bash
-npm install @jack-henry/jh-elements
-```
-
-PNPM
-
-```bash
-pnpm install @jack-henry/jh-elements
-```
-
-### Updating to v2
-
 Version 2 introduces extensive breaking changes to `jh-core` and `jh-ui` packages. Follow our [migration guide](/docs/what-s-new-migrating--docs) to assist in updating your codebase to work with v2.
 
-### Early feedback
+The documentation for V1 is still available for reference in the [v1 branch](https://release-v1--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/welcome-about-jh--docs) of Storybook.
 
-Your feedback is an essential part of the pre-release process. As we work to refine the release and improve its overall quality, field testing with engineers is helpful
-in identifying issues early on before releasing code at scale. Our focus is always to produce the best developer experience possible and minimize impacts to your workflows.
-To report an issue, log a [new issue](https://github.com/Banno/jack-henry-design-system/issues) on GitHub or open a [GitHub discussion](https://github.com/Banno/jack-henry-design-system/discussions).
-
+Read on to learn more about what's new in v2!
 ## Package Organization 
 
 Package naming has been updated to better reflect the purpose and contents of each package. We will also be introducing two new packages that reduce the amount of code needed to work with the system. 
@@ -87,9 +48,10 @@ Provides a collection of common datasets and utilities for use with design syste
 
 We're introducing our validation library mixin that authors can use to add validation to their non design system components. This mixin is utilized by our form components, providing validation support. 
 
-### jh-element component (coming soon)
+### JhElement Base Class
 
-A common base that all components extend off of. This enables us to promote code reuse, share dependencies one time, etc. All components now officially extend off this component.
+All components now officially extend from `JhElement`. This new underlying base class drives better code reuse and allows dependencies to be shared efficiently across the library. The base class introduces a new event API, and several `event.detail` property paths have changed. Please refer to the [JhElement Base Class Migration Guide](?path=/docs/what-s-new-migrating--docs#jhelement-base-class) for the updated paths. Additional properties will be added to event payloads soon. 
+Please note that `JhElement` serves strictly as a foundational class and is **not** intended to be implemented as a standalone component.
 
 ### Lit 3.0 Upgraded
 

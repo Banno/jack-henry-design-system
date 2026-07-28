@@ -71,13 +71,13 @@ export class JhIconsList extends LitElement {
   }
 
   #handleSearch(e) {
-    if (!e.detail.value) {
+    if (!e.detail.state.value) {
       // If the search input is cleared, reset icons to all available icons
       this.icons = iconMap;
       this.#renderIcons();
       return;
     }
-    const searchTerm = e.detail.value.toLowerCase();
+    const searchTerm = e.detail.state.value.toLowerCase();
     // Filter icons based on search term
     this.icons = iconMap.filter((icon) =>
       icon.toLowerCase().includes(searchTerm)

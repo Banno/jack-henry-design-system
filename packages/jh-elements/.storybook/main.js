@@ -9,13 +9,21 @@ const config = {
     '@storybook/addon-a11y',
     'storybook-addon-tag-badges',
     'storybook-dark-mode',
-    '@storybook/addon-docs'
+    '@storybook/addon-docs',
   ],
+  // disable the onboarding checklist in the sidebar.
+  features: {
+    sidebarOnboardingChecklist: false,
+  },
   framework: {
     name: '@storybook/web-components-vite',
     options: {}
   },
   staticDirs: ['./public'],
+  managerHead: (head) => `
+    ${head}
+    <link rel="icon" type="image/svg+xml" href="/logos/forge-favicon.svg" />
+  `,
   // Vite fix for the file:// import issue when using MDX stories in Storybook
   viteFinal: async (config) => {
     if (!config.plugins) config.plugins = [];

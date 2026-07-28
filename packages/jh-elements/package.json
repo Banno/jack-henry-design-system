@@ -1,7 +1,7 @@
 {
   "name": "@jack-henry/jh-elements",
-  "description": "Jack Henry's design system web components.",
-  "version": "2.0.0-beta.14",
+  "description": "Forge Design System web components.",
+  "version": "2.0.0-beta.16",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Banno/jack-henry-design-system.git"
@@ -12,6 +12,7 @@
     "Brad McCormick",
     "Maya Buser De"
   ],
+  "type": "module",
   "license": "Apache-2.0",
   "files": [
     "components/**/!(*.stories).js",
@@ -25,13 +26,13 @@
     "generate": "hygen component new",
     "storybook": "storybook dev --port 6006",
     "build-storybook": "storybook build",
-    "analyze": "wca analyze components --format json --outFile custom-elements.json",
+    "analyze": "wca analyze components --format json --outFile custom-elements.json && node scripts/process-deprecated.js",
     "prepack": "cp ../../NOTICE .",
     "postpack": "rm -f NOTICE"
   },
   "dependencies": {
     "@jack-henry/jh-tokens": "workspace:2.0.0-beta.9",
-    "@jack-henry/jh-icons": "workspace:2.0.0-beta.8",
+    "@jack-henry/jh-icons": "workspace:2.0.0-beta.9",
     "lit": "3.3.1"
   },
   "devDependencies": {

@@ -11,7 +11,8 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Upgrading to V2
 
-All features noted as deprecated will be removed in the v2 release.
+This guide provides detailed instructions for migrating your codebase to be compatible with the latest version of the Forge Design System. 
+Version 2 introduces significant changes, including package renaming, token updates, and component refactors.
 
 ## Installing
 
@@ -348,6 +349,61 @@ import '@jack-henry/jh-ui/components/divider/divider.js';
 // NEW
 import '@jack-henry/jh-elements/components/divider/divider.js';
 ```
+
+### JhElement Base Class
+
+`JhElement` introduces a new event API. The existing payload structures (event.detail) for our component events have been updated, and event listeners will need to use the new property paths below.
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Event</th>
+      <th>Previous Property Path</th>
+      <th>New Property Path</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Input Components</td>
+      <td>`jh-change`</td>
+      <td>`e.detail.value`, `e.detail.rawValue`</td>
+      <td>`e.detail.state.value`, `e.detail.state.rawValue`</td>
+    </tr>
+    <tr>
+      <td>Input Components</td>
+      <td>`jh-input`</td>
+      <td>`e.detail.value`</td>
+      <td>`e.detail.state.value`</td>
+    </tr>
+    <tr>
+      <td>Input Components</td>
+      <td>`jh-input:clear-button-click`
+      <br />**Note:** this replaces the `jh-clear` event that was used in V1.</td>
+      <td>`e.detail.previousValue`</td>
+      <td>`e.detail.state.previousValue`</td>
+    </tr>
+    <tr>
+      <td>Input Components</td>
+      <td>`jh-select`</td>
+      <td>`e.detail.selected`, `e.detail.selectionStart`, `e.detail.selectionEnd`</td>
+      <td>`e.detail.state.selected`, `e.detail.state.selectionStart`, `e.detail.state.selectionEnd`</td>
+    </tr>
+    <tr>
+      <td>Select</td>
+      <td>`jh-change`</td>
+      <td>`e.detail.value`</td>
+      <td>`e.detail.state.value`</td>
+    </tr>
+    <tr>
+      <td>Table Header Cell</td>
+      <td>`jh-change`</td>
+      <td>`e.detail.column`, `e.detail.sorted`, `e.detail.id`</td>
+      <td>`e.detail.reference.column`, `e.detail.reference.sorted`, `e.detail.reference.id`</td>
+    </tr>
+  </tbody>
+</table>
+
 ### Migrating jh-badge
 The background color of `jh-badge` has been changed from `--jh-color-content-brand-enabled` to `--jh-color-content-negative-enabled`. font family, weight, size and line height tokens have changed from `--jh-font-helper-medium-...` to `--jh-font-helper-bold-...`.
 The `max-count` property is now set to `99` by default. 
@@ -416,8 +472,10 @@ The `type` property is no longer supported on the `jh-input`. You must now use s
 #### Updated Input Sizes
 To match the new button dimensions, all existing input sizes (`small`, `medium`, and `large`) have been downsized by 8px each.
 
-#### Deprecated Properties
-The `placeholder` property has been deprecated due to accessibility concerns. Please leverage the `helper-text` and `label` properties to provide clear, persistent guidance for users. 
+#### Deprecated Properties and Slots
+- The `placeholder` property has been deprecated due to accessibility concerns. Please leverage the `helper-text` and `label` properties to provide clear, persistent guidance for users. 
+- The `textarea` specific properties have moved to `jh-input-textarea`.
+- The `password` specific properties and slots have moved to `jh-input-password`.
 
 #### Deprecated jh-input styling hooks
 
@@ -430,40 +488,8 @@ The `placeholder` property has been deprecated due to accessibility concerns. Pl
   </thead>
   <tbody>
     <tr>
-      <td>--jh-input-clear-shadow-focus</td>
-      <td>--jh-input-clear-color-focus</td>
-    </tr>
-    <tr>
-      <td>--jh-input-shadow-focus</td>
-      <td>--jh-input-field-color-border-focus</td>
-    </tr>
-    <tr>
-      <td>--jh-input-size-min-height-text-area-small</td>
-      <td>--jh-input-textarea-field-dimension-min-height</td>
-    </tr>
-    <tr>
-      <td>--jh-input-size-min-height-text-area-medium</td>
-      <td>--jh-input-textarea-field-dimension-min-height</td>
-    </tr>
-    <tr>
-      <td>--jh-input-size-min-height-text-area-large</td>
-      <td>--jh-input-textarea-field-dimension-min-height</td>
-    </tr>
-    <tr>
-      <td>--jh-input-field-dimension-padding-top</td>
-      <td>No replacement token</td>
-    </tr>
-    <tr>
-      <td>--jh-input-field-dimension-padding-bottom</td>
-      <td>No replacement token</td>
-    </tr>
-    <tr>
-      <td>--jh-input-field-dimension-padding-left</td>
-      <td>No replacement token</td>
-    </tr>
-    <tr>
-      <td>--jh-input-field-dimension-padding-right</td>
-      <td>No replacement token</td>
+      <td>--jh-input-border-radius</td>
+      <td>--jh-input-field-border-radius</td>
     </tr>
     <tr>
       <td>--jh-input-clear-color-background-disabled</td>
@@ -481,14 +507,128 @@ The `placeholder` property has been deprecated due to accessibility concerns. Pl
       <td>--jh-input-clear-opacity-disabled</td>
       <td>No replacement token</td>
     </tr>
+    <tr>
+      <td>--jh-input-clear-shadow-focus</td>
+      <td>--jh-input-clear-color-focus</td>
+    </tr>
+    <tr>
+      <td>--jh-input-color-background</td>
+      <td>--jh-input-field-color-background</td>
+    </tr>
+    <tr>
+      <td>--jh-input-color-border-active</td>
+      <td>--jh-input-field-color-border-active</td>
+    </tr>
+    <tr>
+      <td>--jh-input-color-border-disabled</td>
+      <td>--jh-input-field-color-border-disabled</td>
+    </tr>
+    <tr>
+      <td>--jh-input-color-border-enabled</td>
+      <td>--jh-input-field-color-border-enabled</td>
+    </tr>
+    <tr>
+      <td>--jh-input-color-border-error</td>
+      <td>--jh-input-field-color-border-error</td>
+    </tr>
+    <tr>
+      <td>--jh-input-color-border-focus</td>
+      <td>--jh-input-field-color-border-focus</td>
+    </tr>
+    <tr>
+      <td>--jh-input-color-border-hover</td>
+      <td>--jh-input-field-color-border-hover</td>
+    </tr>
+    <tr>
+      <td>--jh-input-color-text</td>
+      <td>--jh-input-value-color-text</td>
+    </tr>
+    <tr>
+      <td>--jh-input-left-icon-color-fill</td>
+      <td>--jh-icon-color-fill</td>
+    </tr>
+    <tr>
+      <td>--jh-input-placeholder-color-text</td>
+      <td>Deprecated along with the <code>placeholder</code> property</td>
+    </tr>
+    <tr>
+      <td>--jh-input-right-icon-color-fill</td>
+      <td>--jh-icon-color-fill</td>
+    </tr>
+    <tr>
+      <td>--jh-input-shadow-focus</td>
+      <td>--jh-input-field-color-border-focus</td>
+    </tr>
+    <tr>
+      <td>--jh-input-size-min-height-text-area-large</td>
+      <td>--jh-input-textarea-field-dimension-min-height</td>
+    </tr>
+    <tr>
+      <td>--jh-input-size-min-height-text-area-medium</td>
+      <td>--jh-input-textarea-field-dimension-min-height</td>
+    </tr>
+    <tr>
+      <td>--jh-input-size-min-height-text-area-small</td>
+      <td>--jh-input-textarea-field-dimension-min-height</td>
+    </tr>
   </tbody>
 </table>
 
-* The remaining styling hooks targeting the input **field** have been renamed from `jh-input-*` to `jh-input-field-*`. **Note**: this does not apply to tokens targeting the clear button i.e. `jh-input-clear-*`. 
-* `--jh-input-left-icon-color-fill` and `--jh-input-left-icon-color-fill` are deprecated, use the icon styling hook `--jh-icon-color-fill` instead. 
+### Migrating jh-list-item
+The `jh-list-item` component has been simplified. The `jh-list-item-content` and `jh-list-item-metadata` slots have been removed, in favor of a more streamlined layout that uses the `default` slot along with the  `jh-list-item-left`, and `jh-list-item-right` slots.
+Alternatively, the `primary-text`, `secondary-text`, `primary-metadata`, and `secondary-metadata` properties can be used alone or in combination with the left and right slots.
+
+<table>
+  <thead>
+    <tr>
+      <th>Deprecated Item</th>
+      <th>Type</th>
+      <th>Migration Action</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+      <td>`jh-list-item-content`</td>
+      <td>Slot</td>
+      <td>Remove and migrate to new layout pattern.</td>
+    </tr>
+    <tr>
+      <td>`jh-list-item-metadata`</td>
+      <td>Slot</td>
+      <td>Remove and migrate to new layout pattern.</td>
+    </tr>
+    <tr>
+      <td>`--jh-list-item-metadata-color-text-primary`</td>
+      <td>CSS Hook</td>
+      <td>Migrate to `--jh-list-item-metadata-color-text-primary-enabled`.</td>
+    </tr>
+    <tr>
+      <td>`--jh-list-item-metadata-color-text-secondary`</td>
+      <td>CSS Hook</td>
+      <td>Migrate to `--jh-list-item-metadata-color-text-secondary-enabled`.</td>
+    </tr>
+    <tr>
+      <td>`--jh-list-item-color-text`</td>
+      <td>CSS Hook</td>
+      <td>Migrate to `--jh-list-item-color-text-primary-enabled`.</td>
+    </tr>
+    <tr>
+      <td>`--jh-list-item-color-text-primary`</td>
+      <td>CSS Hook</td>
+      <td>Migrate to `--jh-list-item-color-text-primary-enabled`.</td>
+    </tr>
+    <tr>
+      <td>`--jh-list-item-color-text-secondary`</td>
+      <td>CSS Hook</td>
+      <td>Migrate to `--jh-list-item-color-text-secondary-enabled`.</td>
+    </tr>
+  </tbody>
+</table>
+
+For full implementation details, visit the [`jh-list-item` layouts documentation](?path=/docs/components-list-item--docs#layouts). 
 
 ### Migrating jh-radio
-The label font family, weight, size and line height tokens have changed from `--jh-font-body-regular-1-...` to `--jh-font-body-medium-1-...` to ensure consistent styling across form controls.
+The label font family, weight, size, and line height tokens have changed from `--jh-font-body-regular-1-...` to `--jh-font-body-medium-1-...` to ensure consistent styling across form controls.
 
 ### Migrating jh-switch
 The default width of `jh-switch` has been reduced from 56px to 48px. Users should audit existing implementations to ensure horizontal alignment and spacing remain consistent within their layouts.

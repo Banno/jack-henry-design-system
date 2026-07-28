@@ -12,6 +12,7 @@
     "Brad McCormick",
     "Maya Buser De"
   ],
+  "type": "module",
   "license": "Apache-2.0",
   "files": [
     "components/**/!(*.stories).js",
@@ -25,7 +26,7 @@
     "generate": "hygen component new",
     "storybook": "storybook dev --port 6006",
     "build-storybook": "storybook build",
-    "analyze": "wca analyze components --format json --outFile custom-elements.json",
+    "analyze": "wca analyze components --format json --outFile custom-elements.json && node scripts/process-deprecated.js",
     "prepack": "cp ../../NOTICE .",
     "postpack": "rm -f NOTICE"
   },

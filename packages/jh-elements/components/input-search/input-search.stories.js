@@ -59,7 +59,6 @@ function logCustomEvent(name, e) {
 export default {
   component: 'jh-input-search',
   title: 'Components/Input Search',
-  tags: ['beta'],
   decorators: [
       (story) => html`
         <div class="story-decorator"

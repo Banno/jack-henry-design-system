@@ -58,7 +58,6 @@ function logCustomEvent(name, e) {
 export default {
   component: 'jh-input-email',
   title: 'Components/Input Email',
-  tags: ['beta'],
   decorators: [
       (story) => html`
         <div class="story-decorator"

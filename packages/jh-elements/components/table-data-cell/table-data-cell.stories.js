@@ -20,7 +20,6 @@ const disableControls = {
 export default {
   component: 'jh-table-data-cell',
   title: 'Components/Table/Table Data Cell',
-  tags: ['beta'],
   argTypes: {
     'horizontal-align': {
       control: 'select',

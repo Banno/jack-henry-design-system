@@ -1,0 +1,101 @@
+{
+  "shadow": {
+    "$type": "shadow",
+    "low": {
+      "$value": [
+        {
+          "color": "{color.shadow.primary}",
+          "offsetX": "0px",
+          "offsetY": "4px",
+          "blur": "6px",
+          "spread": "0px"
+        },
+        {
+          "color": "{color.shadow.secondary}",
+          "offsetX": "0px",
+          "offsetY": "2px",
+          "blur": "2px",
+          "spread": "0px"
+        }
+      ],
+      "$description": "Used on surface-level content and components such as cards and control thumbs",
+      "$extensions": {
+        "alias": true,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "mid": {
+      "$value": [
+        {
+          "color": "{color.shadow.primary}",
+          "offsetX": "0px",
+          "offsetY": "8px",
+          "blur": "12px",
+          "spread": "0px"
+        },
+        {
+          "color": "{color.shadow.secondary}",
+          "offsetX": "0px",
+          "offsetY": "4px",
+          "blur": "4px",
+          "spread": "0px"
+        }
+      ],
+      "$description": "Used on elevated components such as FABs and toasts",
+      "$extensions": {
+        "alias": true,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "high": {
+      "$value": [
+        {
+          "color": "{color.shadow.primary}",
+          "offsetX": "0px",
+          "offsetY": "12px",
+          "blur": "18px",
+          "spread": "0px"
+        },
+        {
+          "color": "{color.shadow.secondary}",
+          "offsetX": "0px",
+          "offsetY": "6px",
+          "blur": "6px",
+          "spread": "0px"
+        }
+      ],
+      "$description": "Used on menus and dropdowns",
+      "$extensions": {
+        "alias": true,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "overlay": {
+      "$value": [
+        {
+          "color": "{color.shadow.primary}",
+          "offsetX": "0px",
+          "offsetY": "16px",
+          "blur": "24px",
+          "spread": "0px"
+        },
+        {
+          "color": "{color.shadow.secondary}",
+          "offsetX": "0px",
+          "offsetY": "8px",
+          "blur": "8px",
+          "spread": "0px"
+        }
+      ],
+      "$description": "Used on components that should overlay the entire UI such as modals and dialogs",
+      "$extensions": {
+        "alias": true,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    }
+  }
+}

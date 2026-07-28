@@ -6,9 +6,7 @@ SPDX-License-Identifier: Apache-2.0
 
 # Jack Henry Iconography
 
-Jack Henry icons are designed to provide a consistent look and feel across your products. Our icon set is 
-open source and intended to be used with the Forge Design System. The icons are available as an 
-npm package which includes:
+Jack Henry icons are designed to provide a consistent look and feel across your products. Our icon set is open source and intended to be used with the Forge Design System. The icons are available as an npm package which includes:
 
 - SVG icon files
 - ES module based web component for each icon
@@ -35,7 +33,7 @@ Please note that any files with the same filename as the output web component wi
 
 ## Icon Documentation
 
-Access documentation on our [iconography](https://jackhenry.design/pages/foundations/icons/) and [icon web component](https://jackhenry.design/pages/components/icon/).
+Access documentation on our [iconography](https://jackhenry.design/v2/foundations/icons/) and [icon web component](https://jackhenry.design/pages/components/icon/).
 
 ## Contributing
 

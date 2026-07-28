@@ -25,6 +25,6 @@ jobs:
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          workingDir: packages/jh-ui
+          workingDir: packages/jh-elements
           exitZeroOnChanges: true
           skip: "${{ !contains(github.event.pull_request.labels.*.name, 'status: visual review') }}"

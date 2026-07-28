@@ -1,0 +1,163 @@
+{/*
+SPDX-FileCopyrightText: 2026 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+*/}
+
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="What's New/V2 Release/jh-elements" />
+
+# jh-elements
+
+## Keyboard focus styles moved to outline
+
+In v1, the focus styles for interactive components were implemented using a `box-shadow` to create a focus ring around the component.
+In v2, we have moved to using the CSS `outline` property to create focus styles. This change makes our keyboard focus styles more accessible and robust.
+As a result, in v2 the format of the styling hooks for the focus ring have changed from `jh-<element>-shadow-focus` to `jh-<element>-color-focus`.
+For example, the `jh-button-shadow-focus` styling hook in v1 has been renamed to `jh-button-color-focus` in v2.
+
+## Changes to Existing Components
+
+### jh-badge
+The background color of `jh-badge` has been changed from `--jh-color-content-brand-enabled` to `--jh-color-content-negative-enabled`. font family, weight, size and line height tokens have changed from `--jh-font-helper-medium-...` to `--jh-font-helper-bold-...`.
+The `max-count` property is now set to `99` by default. 
+
+### jh-button
+`jh-button` now supports a new `size="x-small"` option. To accommodate this, all existing button sizes have been downsized by 8px, which impacts the layout of components that import `jh-button` (including `jh-notification` and `jh-input`). For more information on these related breaking changes, review the specific component sections in the migration guide.
+
+### jh-card
+The border-radius of `jh-card` has been reduced from 16px to 8px, the `box-shadow` property has been removed, and the `--jh-card-color-border` styling hook has been introduced to allow for easy customization of the border color.
+
+### jh-checkbox
+The label typography tokens have changed from `--jh-font-body-regular-1-...` to `--jh-font-body-medium-1-...`. 
+
+### jh-checkbox-group
+The `jh-checkbox-group` now supports a `disabled` property that disables the group itself and the `jh-checkbox` components within it. The label typography tokens have changed from `--jh-font-helper-regular-...` to `--jh-font-helper-medium-...`.
+
+### jh-input
+
+In version 1, the design system offered a single input component (jh-input) that supported multiple specialized types, including text, search, email, password, tel, url, and textarea. This approach led to scalability and maintainability issues due to the complexity of managing all unique properties and logic within a single component.
+
+The `jh-input` has been refactored into a base class that is comprised of common properties and features, significantly reducing API overhead. This base class is designed to be extensible, allowing authors to utilize `jh-input` as a foundation for their own specialized input components.
+
+#### Enhanced Slot Support
+
+The `jh-input` component's left and right slots have been refactored to support a broader range of content. The input will automatically adjust to accommodate elements of varying heights and widths.
+
+#### Deprecated Property:
+- The `type` property has been deprecated, and specialized types are now separated into the following discrete components:
+
+  - `jh-input-search`
+   
+  - `jh-input-password`
+   
+  - `jh-input-textarea`
+   
+  - `jh-input-email`
+   
+  - `jh-input-url`
+  
+  - `jh-input-telephone`
+    
+- The `placeholder` property has been deprecated due to accessibility concerns. Users should leverage the `helper-text` and `label` properties to provide guidance on the expected type of user data. 
+
+#### New Properties: 
+- The `show-char-count` property displays a character counter at the bottom right corner of the input field. A `jh-maxlength` event is dispatched when the maxlength is reached, allowing authors to apply the `invalid` property along with the corresponding `error-text` attribute, helping to inform the user that the character limit has been reached.
+- The `input-mask` property restricts the format of the input field data, providing better control over input validation.
+
+###### Example Usage of input-mask Property:
+
+For instance, to restrict the input to a phone number format, set the input-mask property to a pattern that matches the desired phone number format.
+
+``` javascript
+
+<jh-input input-mask="(999) 999-9999"></jh-input>
+
+```
+
+#### Label Typography 
+The label typography tokens have changed from `--jh-font-helper-regular-...` to `--jh-font-helper-medium-...`.
+
+Review the [jh-input documentation](/docs/components-input--docs) for more information on its features. 
+
+#### Deprecated Styling Hooks:
+
+A detailed list of [jh-input deprecated styling hooks](/docs/what-s-new-migrating--docs#deprecated-jh-input-styling-hooks) is available under our migration docs.
+
+### jh-icon
+The `jh-icon` component now supports a new `xx-large` sizing option, along with a corresponding styling hook (`--jh-icon-size-extra-extra-large`) for easy overrides.
+
+### jh-list-item
+
+In version 1, the text in `jh-list-item` would atuomatically truncate at a certain width of the component. In V2 we deprecated the truncation behavior of these components. 
+This behavior was removed due to accessibility and design concerns. The text in `jh-list-item` now wraps to a new line. 
+
+We have also added styling hooks to adjust the padding and text color of the list items. For a complete list of available styling hooks, review the [list item styling hooks table](?path=/docs/components-list-item--docs#component-api).
+
+### jh-menu
+
+The jh-menu component now features an improved menu-content container with `overflow-y: auto` and full-width flex styling. These additions ensure the menu remains scrollable and responsive within its parent container without breaking the layout. 
+
+### jh-progress
+The `jh-progress` component now supports three new size variants: `x-small`, `x-large`, and `xx-large`. A `--jh-progress-track-size-circular` styling hook has been added to customize circular progress dimensions, while the `--jh-progress-track-size-linear` hook overrides the height of linear progress bars. The thickness of the circular progress line now scales automatically to align with the corresponding icon stroke widths.
+
+### jh-radio
+The label typography tokens have changed from `--jh-font-body-regular-1-...` to `--jh-font-body-medium-1-...`.
+
+### jh-radio-group
+The `jh-radio-group` now supports a `disabled` property that disables the group itself and the `jh-radio` components within it. The label typography tokens have changed from `--jh-font-helper-regular-...` to `--jh-font-helper-medium-...`.
+
+### jh-switch
+The width of `jh-switch` has been updated to 48px from 56px(as present in V1). And the `box-shadow` property has been removed from the internal thumb element. The label typography tokens have changed from `--jh-font-body-regular-1-...` to `--jh-font-body-medium-1-...`. 
+
+### jh-tag
+
+In version 1, the text in `jh-tag` would atuomatically truncate at a certain width of the component. In V2 we deprecated the truncation behavior of these components. 
+This behavior was removed due to accessibility and design concerns. The text in `jh-tag` will now expand to contain the full text.
+
+### jh-toast
+The `appearance` property has been deprecated. The component now uses a single, neutral default color for all instances.
+
+### jh-tooltip
+The `jh-tooltip` component now utilizes a content slot instead of the deprecated `label` property to provide greater layout flexibility. 
+Additionally, authors can now control the component's maximum width using the new `--jh-tooltip-size-max-width` styling hook. The typography tokens have also changed from `--jh-font-helper-regular-...` to `--jh-font-helper-bold-...`.
+
+## New Components
+
+### jh-input-email
+
+A single-line text field for email entry.
+
+### jh-input-password
+
+A single-line text field designed for password entry, featuring a toggle visibility button.
+
+### jh-input-search
+
+A single-line text field for queries, featuring a magnifying-glass icon in the left slot that can be overridden. 
+
+### jh-input-telephone
+
+A single-line text field for telephone number entry.
+
+### jh-input-textarea
+
+A multi-line text field for longer text input.
+
+### jh-input-url
+
+A single-line text field for URL entry.
+
+### jh-select
+
+A non-editable single select dropdown component that displays a list of options. The `jh-select` component integrates seamlessly with the `jh-datasets` package, allowing you to quickly populate the menu with pre-formatted datasets like US states without manually structuring the data.
+
+### jh-table
+
+An enhanced HTML table component, which includes sorting hooks, and all its supcomponents:
+
+- `jh-table`: the table component, which also includes caption, toolbar and pagination slots.
+- `jh-table-row`: the table row component, which contains header and data cells.
+- `jh-table-header-cell`: the table header cell component.
+- `jh-table-data-cell`: the table data cell component.

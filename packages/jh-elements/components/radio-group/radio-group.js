@@ -1,0 +1,440 @@
+// SPDX-FileCopyrightText: 2025 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
+import { css, html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { JhElement } from '../element/element.js';
+
+/**
+ *
+ * @cssprop --jh-radio-group-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
+ * @cssprop --jh-radio-group-required-color-text - The required indicator color. 
+ * Defaults to `--jh-color-content-negative-enabled`.
+ * @cssprop --jh-radio-group-required-color-text-optional - The optional indicator text color.
+ * Defaults to `--jh-color-content-primary-enabled`.
+ * @cssprop --jh-radio-group-helper-color-text - The helper-text text color. 
+ * Defaults to `--jh-color-content-secondary-enabled`.
+ * @cssprop --jh-radio-group-error-color-text - The error-text text color. 
+ * Defaults to `--jh-color-content-negative-enabled`.
+ * @cssprop --jh-radio-group-opacity-disabled - The opacity of the radio group when disabled. Defaults to `--jh-opacity-disabled`.
+ *
+ * @slot default - Use to insert `<jh-radio>` components(s).
+ * 
+ * @event jh-change - Dispatched when the value of the radio group has changed. Event payload includes the `value` and can be accessed via `e.detail.state.value`.
+ *
+ * @customElement jh-radio-group
+ */
+export class JhRadioGroup extends JhElement {
+  static get formAssociated() {
+    return true;
+  }
+  #checked;
+  /** @type {?string} */
+  #value;
+
+  static get styles() {
+    return css`
+      :host {
+        --radio-group-helper-regular-font-family: var(--jh-font-helper-regular-font-family);
+        --radio-group-helper-regular-font-weight: var(--jh-font-helper-regular-font-weight);
+        --radio-group-helper-regular-font-size: var(--jh-font-helper-regular-font-size);
+        --radio-group-helper-regular-line-height: var(--jh-font-helper-regular-line-height);
+        font-family: var(--radio-group-helper-regular-font-family);
+        font-weight: var(--radio-group-helper-regular-font-weight);
+        font-size: var(--radio-group-helper-regular-font-size);
+        line-height: var(--radio-group-helper-regular-line-height);
+        display: block;
+      }
+      /* reset styling on fieldset and legend */
+      :host fieldset {
+        border: none;
+        padding: 0;
+        margin: 0;
+      }
+      :host([disabled]) {
+        --group-disabled-opacity: var(--jh-radio-group-opacity-disabled, var(--jh-opacity-disabled));
+      }
+      :host([disabled]) .label,
+      :host([disabled]) .helper-text,
+      :host([disabled]) .error-text {
+        opacity: var(--group-disabled-opacity);
+        pointer-events: none;
+      }
+      :host([disabled]) ::slotted(jh-radio) {
+        --jh-radio-opacity-disabled: var(--group-disabled-opacity);
+      }
+      :host legend {
+        padding: 0;
+      }
+      :host([label]) .controls {
+        margin-top: var(--jh-dimension-200);
+      }
+      :host([orientation='vertical']) .controls {
+        display: flex;
+        flex-direction: column;
+      }
+      :host([orientation='vertical']) ::slotted(*) {
+        margin-bottom: var(--jh-dimension-200);
+        flex: 1;
+      }
+      :host([orientation='vertical']) ::slotted(:last-of-type) {
+        margin-bottom: 0;
+      }
+      :host([orientation='horizontal']) .controls {
+        display: flex;
+        flex-direction: row;
+      }
+      :host([orientation='horizontal']) ::slotted(*) {
+        margin-right: var(--jh-dimension-400);
+        margin-bottom: 0;
+        flex: 1;
+      }
+      :host([orientation='horizontal']) ::slotted(:last-of-type) {
+        margin-right: 0;
+      }
+      .label {
+        color: var(
+          --jh-radio-group-label-color-text,
+          var(--jh-color-content-primary-enabled)
+        );
+        font-family: var(--jh-font-helper-medium-font-family);
+        font-weight: var(--jh-font-helper-medium-font-weight);
+        font-size: var(--jh-font-helper-medium-font-size);
+        line-height: var(--jh-font-helper-medium-line-height);
+      }
+      .helper-text {
+        color: var(
+          --jh-radio-group-helper-color-text,
+          var(--jh-color-content-secondary-enabled)
+        );
+        margin: 0;
+      }
+      .label-text,
+      .helper-text,
+      :host([invalid]) .error-text {
+        word-break: break-word;
+      }
+      :host([invalid]) .error-text {
+        color: var(
+          --jh-radio-group-error-color-text,
+          var(--jh-color-content-negative-enabled)
+        );
+        margin: var(--jh-dimension-200) 0 0 0;
+      }
+      :host([show-indicator]) .indicator {
+        color: var(
+          --jh-radio-group-required-color-text-optional,
+          var(--jh-color-content-primary-enabled)
+        );
+        font-family: var(--radio-group-helper-regular-font-family);
+        font-weight: var(--radio-group-helper-regular-font-weight);
+        font-size: var(--radio-group-helper-regular-font-size);
+        line-height: var(--radio-group-helper-regular-line-height);
+      }
+      :host([show-indicator][required]) .indicator {
+        color: var(
+          --jh-radio-group-required-color-text,
+          var(--jh-color-content-negative-enabled)
+        );
+      }
+    `;
+  }
+  static get properties() {
+    return {
+      /** Sets an `aria-label` to assist screen reader users when no visible label is present. */
+      accessibleLabel: {
+        type: String,
+        attribute: 'accessible-label',
+      },
+      /** Disables the radio group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT). */      
+      disabled: {
+        type: Boolean,
+        reflect: true
+      },
+      /** Text to be displayed when radio group has failed validation and `invalid` is true. */
+      errorText: {
+        type: String,
+        attribute: 'error-text',
+      },
+      /**
+       * Provides additional context or guidance for using the radio group. For `helper-text` to be displayed, the `label` property must also be set.
+       */
+      helperText: {
+        attribute: 'helper-text',
+      },
+      /** Sets an `aria-invalid` on the radio group to indicate the value supplied was invalid and displays `error-text` when set. */
+      invalid: {
+        type: Boolean,
+        reflect: true,
+      },
+      /**
+       * Describes the type of data to be collected.
+       */
+      label: {
+        type: String,
+      },
+      /** Sets the name of the radio group data when submitted in a form. */
+      name: {
+        type: String,
+      },
+      /** Indicates a value is required. */
+      required: {
+        type: Boolean,
+        reflect: true,
+      },
+      /** Determines the orientation of the radio group. */
+      orientation: {
+        type: String,
+        reflect: true,
+      },
+      /** Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required`
+       * property is also set. For the indicator to be displayed, the `label` property must also be set.*/
+      showIndicator: {
+        type: Boolean,
+        reflect: true,
+        attribute: 'show-indicator',
+      },
+      /** Sets the value of the radio group. */
+      value: {
+        type: String,
+        reflect: true,
+      },
+    };
+  }
+  constructor() {
+    super();
+    /** @type {?string} */
+    this.accessibleLabel = null;
+    /** @type {boolean} */
+    this.disabled = false;
+    /** @type {?string} */
+    this.errorText = null;
+    /** @type {?string} */
+    this.helperText = null;
+    /** @type {?boolean} */
+    this.invalid = false;
+    /** @type {?string} */
+    this.label = null;
+    /** @type {?string} */
+    this.name = null;
+    /** @type {?boolean} */
+    this.required = false;
+    /** @type {'vertical'|'horizontal'} */
+    this.orientation = 'vertical';
+    /** @type {?boolean} */
+    this.showIndicator = false;
+    /** @type {?string} */
+    this.value = null;
+
+    this.addEventListener('jh-change', this.#handleChange);
+    this.addEventListener('keydown', this.#handleKeydown);
+    this.addEventListener('focusout', this.#handleFocusOut);
+  }
+
+  firstUpdated() {
+    this._syncDisabledToChildren();
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has('disabled')) {
+      this._syncDisabledToChildren();
+    }
+  }
+
+  /**
+   * Returns the radio group's parent form element.
+   * @type {?HTMLFormElement}
+   */
+  get form() {
+    return this.internals.form;
+  }
+
+  /** @ignore */
+  get validity() {
+    return this.internals.validity;
+  }
+
+  /** @type {?string} */
+  get value() {
+    return this.#value;
+  }
+
+  set value(newValue) {
+    const oldValue = this.#value;
+    if (newValue !== oldValue) {
+      this.#value = newValue;
+      this.internals.setFormValue(newValue);
+    }
+    this.requestUpdate('value', oldValue);
+  }
+
+  _syncDisabledToChildren() {
+    const slot = this.renderRoot.querySelector('slot');
+    if(!slot) return;
+
+    const radios = slot.assignedElements().filter((el) => el.tagName === 'JH-RADIO');
+    radios.forEach((radio) => {
+      radio.disabled = this.disabled;
+    });
+  }
+
+  #getRadios() {
+    return [...this.querySelectorAll('jh-radio')];
+  }
+
+  #handleSlotChange() {
+    const radios = this.#getRadios();
+
+    this.#checked = radios.find((radio) => radio.value === this.value && this.value !== null);
+    
+    if (!this.#checked) {
+      const checkedRadio = radios.find((radio) => radio.checked);
+      if (checkedRadio) {
+        this.value = checkedRadio.value;
+        this.#checked = checkedRadio;
+      } else {
+        this.value = null;
+        this.#checked = null;
+      }
+    }
+    this.#updateChecked();
+    if (!this.#checked) {
+      radios[0].tabIndex = 0;
+    }
+
+    this._syncDisabledToChildren();
+  }
+
+  #handleChange(e) {
+    if (e.target.tagName === 'JH-RADIO') {
+      this.value = e.target.value;
+      this.#checked = e.target;
+      this.#updateChecked();
+
+      this.dispatchCustomEvent('jh-change');
+    }
+  }
+
+  #handleKeydown(e) {
+    const keyCodes = [
+      'ArrowDown',
+      'ArrowRight',
+      'ArrowUp',
+      'ArrowLeft',
+      'Space',
+    ];
+    if (!keyCodes.includes(e.code)) return;
+  
+    const radios = this.#getRadios().filter((radio) => !radio.disabled);
+    const numberOfItems = radios.length;
+    let index = radios.findIndex((radio) => radio.checked);
+    //if no radio is checked use the first radio as starting point.
+    index = index === -1 ? 0 : index;
+
+    if (e.code === 'ArrowDown' || e.code === 'ArrowRight') {
+      e.preventDefault();
+      if (index + 1 < numberOfItems) {
+        index++;
+      } else {
+        index = 0;
+      }
+    } else if (e.code === 'ArrowUp' || e.code === 'ArrowLeft') {
+      e.preventDefault();
+      if (index - 1 >= 0) {
+        index--;
+      } else {
+        index = numberOfItems - 1;
+      }
+    }
+    this.value = radios[index].value;
+    radios[index].click();
+    this.#checked = radios[index];
+    this.#updateChecked();
+    radios[index].focus();
+  }
+
+  #handleFocusOut() {
+    const radios = this.#getRadios().filter((radio) => !radio.disabled);
+
+    if (!radios.some((radio) => radio.checked)) return;
+
+    radios.forEach((radio) =>
+      radio.checked ? (radio.tabIndex = 0) : (radio.tabIndex = -1)
+    );
+  }
+
+  #updateChecked() {
+    const radios = this.#getRadios();
+
+    radios.forEach((radio) => {
+      radio.checked = this.#checked === radio;
+      radio.checked ? (radio.tabIndex = 0) : (radio.tabIndex = -1);
+    });
+  }
+
+  #getAriaDescribedBy() {
+    if (this.errorText && this.invalid && this.helperText && this.label) {
+      return `radio-group-error-${this.uniqueId} radio-group-helper-${this.uniqueId}`;
+    } else if (this.errorText && this.invalid) {
+      return `radio-group-error-${this.uniqueId}`;
+    } else if (this.helperText && this.label) {
+      return `radio-group-helper-${this.uniqueId}`;
+    }
+  }
+
+  render() {
+    let indicator;
+    let helperText;
+    let label;
+    let errorText;
+
+    if (this.showIndicator) {
+      if (this.required) {
+        indicator = html`<span class="indicator" aria-hidden="true"> *</span>`;
+      } else {
+        indicator = html`<span class="indicator"> (optional)</span>`;
+      }
+    }
+
+    if (this.helperText) {
+      helperText = html`<p
+        class="helper-text"
+        id="radio-group-helper-${this.uniqueId}"
+      >
+        ${this.helperText}
+      </p>`;
+    }
+
+    if (this.label) {
+      label = html`<legend class="label" for="radio-group-label-${this.uniqueId}">
+          ${this.label}${indicator}
+        </legend>
+        ${helperText}`;
+    }
+
+    if (this.invalid && this.errorText) {
+      errorText = html`<p class="error-text" id="radio-group-error-${this.uniqueId}">
+        ${this.errorText}
+      </p>`;
+    }
+    return html`
+      <fieldset
+        role="radiogroup"
+        id=${ifDefined(this.label ? `radio-group-label-${this.uniqueId}` : null)}
+        aria-describedby=${ifDefined(this.#getAriaDescribedBy())}
+        aria-disabled=${ifDefined(this.disabled ? 'true' : null)}
+        aria-required=${ifDefined(this.required ? 'true' : 'false')}
+        aria-invalid=${ifDefined(this.invalid ? 'true' : null)}
+        aria-label=${ifDefined(this.accessibleLabel)}
+      >
+        ${label}
+        <div class="controls">
+          <slot @slotchange=${this.#handleSlotChange}></slot>
+        </div>
+        ${errorText}
+      </fieldset>
+    `;
+  }
+}
+JhRadioGroup.register('jh-radio-group', JhRadioGroup);

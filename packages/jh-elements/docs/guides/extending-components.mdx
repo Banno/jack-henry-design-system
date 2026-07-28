@@ -1,0 +1,263 @@
+{/*
+SPDX-FileCopyrightText: 2025 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+*/}
+
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Guides/Extending Components" tags={['new']} />
+
+# Extending Components
+
+While our design system provides a comprehensive set of web components for most use cases, there may be instances where additional features are required that go beyond the scope of the existing components.
+
+When specialized components are required, we suggest extending our existing components. By leveraging our existing components, you utilize built-in properties, methods, styles, and accessibility features, ensuring seamless integration while saving significant development time.
+
+## Extending Existing Components
+
+Use this approach to create "smarter" versions of components that already exist. This preserves the accessibility and logic of the original component while adding your unique requirements.
+
+### Identify Component to Extend
+- Determine which component you need to extend. Review its existing functionality and identify the specific features you'd like to add.
+
+### Create New Component Class 
+1. Import the existing component that you wish to extend.
+
+2. Create a new class that extends the existing component. Use the `extends` keyword to inherit the base component's template, properties, methods, and events. 
+
+3. Register the new component using the `register` method inherited from the base class. This prevents registry conflicts if the script is loaded multiple times. 
+
+``` javascript
+// Import existing component 
+import { JhInput } from '@jack-henry/jh-elements/components/jh-input/jh-input.js'; 
+// Extend from existing component
+class MyExtendedComponent extends JhInput { 
+  ...
+}
+// Register new component
+MyExtendedComponent.register('my-extended-component', MyExtendedComponent); 
+```
+
+### Add Properties and Methods
+
+Add new properties and methods to introduce additional functionality.
+
+``` javascript
+import { JhInput } from '@jack-henry/jh-elements/components/jh-input/jh-input.js'; 
+class MyExtendedComponent extends JhInput {
+
+  // Add properties
+  static get properties() {
+    return {
+      newProperty: { type: String, attribute: 'new-property' },
+    };
+  }
+
+  // Initiate new properties 
+  constructor() {
+    super();
+    this.newProperty = null;
+  }
+  
+  // Add methods
+  newMethod() {
+    ...
+  }
+}
+```
+
+### Customize Styles
+
+Extend the styles of the base component by adding new CSS rules or modifying existing ones. 
+
+``` javascript
+class MyExtendedComponent extends JhInput {
+  static get styles() {
+    return [
+      JhInput.styles,
+      css`
+        /* Custom styles */
+        :host {
+          background-color: var(--my-custom-bg-color, #fff);
+        }
+      `
+    ];
+  }
+}
+```
+### Modify the Template
+
+Modify the template of the base component, use the super.render() method to include the base component's template and add your custom HTML.
+
+``` javascript
+class MyExtendedComponent extends JhInput {
+  render() {
+    return html`
+      ${super.render()}
+      <div class="custom-content">
+        ...
+      </div>
+    `;
+  }
+}
+```
+### Customize Slots
+
+Some components expose slots that act as placeholders within the template, allowing authors to insert their own content. Adding content to these slots can be done directly via HTML without the need to extend the component.
+
+However, if you need to modify a slot's fallback content or add event listeners you will need to create an extended class. 
+
+#### Modify Fallback Content 
+
+For example, the search input includes a fallback magnifying glass icon in the jh-input-left slot. You can replace this fallback icon with a user icon using the following code.
+
+```javascript
+export class ExtendJhSearch extends JhInputSearch {
+
+  firstUpdated() {
+    // access jh-input-left slot
+    let leftSlot = this.shadowRoot.querySelector('slot[name=jh-input-left]')
+    
+    // check that no element has been assigned to the slot 
+    if (leftSlot.assignedElements().length === 0) {
+      // assign icon to jh-input-left slot 
+      this.innerHTML = `<jh-icon-user slot="jh-input-left"></jh-icon-user>`;
+    }
+  }   
+}
+```
+
+#### Attach Event Listeners to Slots
+
+Adding event listeners to slots can enhance the interactivity and responsiveness of your components. 
+
+Below is an example of how to add a click event listener to the jh-input-left slot, which could be used to trigger an API call for a user search:
+
+```javascript
+export class ExtendJhSearch extends JhInputSearch {
+
+  firstUpdated() {
+    let leftSlot = this.shadowRoot.querySelector('slot[name=jh-input-left]')
+
+    if (leftSlot.assignedElements().length === 0) {
+      this.innerHTML = `<jh-button slot="jh-input-left"><jh-icon-user slot="jh-button-icon-left"></jh-icon-user></jh-button>`;
+    }
+
+    leftSlot.addEventListener('click', () => {
+      this.searchUser();
+    });
+  }
+
+  searchUser() {
+    ...
+  }
+}
+```
+
+### Extending Component Example
+
+Let's walk through an example of extending the `jh-input` component to add a floating label. 
+
+Steps Taken:
+
+1. Import `JhInput` and create `MyInput` by extending `JhInput`. 
+
+2. Override `JhInput` label styles to change location of the label. 
+
+3. Add `onFocus` and `onBlur` event listeners to native `<input>` element located within `JhInput` shadowRoot to “float” and “unfloat” label. 
+
+4. Define `newHelperText` property and corresponding aria attributes since the floated label will obscure the `helper-text` provided by `JhIpnut`. 
+
+5. Add `newHelperText` to template. 
+
+``` javascript
+import { css, html } from 'lit';
+// import JhInput
+import { JhInput } from '@jack-henry/jh-elements/components/input/input.js';
+
+// extend JhInput
+export class MyInput extends JhInput {
+  // add label styles to override base class 
+  static get styles() {
+    return [
+      JhInput.styles,
+      css`
+      @keyframes fadeInUp  {
+        0% {
+          opacity: 0;
+          transform: translateY(105%);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      :host {
+        position: relative;
+      }
+      label {
+        position: absolute;
+        background: white;
+        bottom: 65%;
+        padding: 0 6px;
+        left: 8px;
+      }
+      .float-label {
+        bottom: 90%;
+        animation: 0.5s cubic-bezier(0.1, 0.5, 0.1, 1) fadeInUp;
+        animation-delay: initial;
+        animation-iteration-count: 1;
+        animation-fill-mode: backwards;
+        animation-play-state: initial;
+      }
+      `
+    ];
+  }
+
+  // define additional properties 
+  static get properties() {
+    return {
+      newHelperText: { type: String, attribute: 'new-helper-text' },
+    };
+  }
+
+  // initiate new properties 
+  constructor() {
+    super();
+    this.newHelperText = null;
+  }
+
+ // attach event listeners to the input element within the component shadowRoot
+  firstUpdated() {
+    let inputEl = this.shadowRoot.querySelector('input');
+
+    inputEl.addEventListener('focus', this.floatLabel);
+    inputEl.addEventListener('blur', this.unFloatLabel);
+
+    // associate the new label with the input field to satisfy WCAG 1.3.1
+    let inputDescBy = inputEl.getAttribute('aria-describedby');
+    let pEl = this.shadowRoot.querySelector('p');
+    pEl.setAttribute('id', inputDescBy);
+  }
+
+  floatLabel = () => {
+    let labelEl = this.shadowRoot.querySelector('label');
+    labelEl.classList.add('float-label');
+  }
+
+  unFloatLabel = () => {
+    let labelEl = this.shadowRoot.querySelector('label');
+    labelEl.classList.remove('float-label');
+  }
+
+ // add newHelperText property to template
+  render() {
+    return html`
+    ${super.render()}
+    <p>${this.newHelperText}</p>
+    `;
+  }
+}
+JhInput.register('my-input', MyInput);
+```

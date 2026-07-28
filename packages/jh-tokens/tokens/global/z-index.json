@@ -1,0 +1,117 @@
+{
+  "z-index": {
+    "$type": "number",
+    "0": {
+      "$value": 0,
+      "$description": "Z-index 0",
+      "$extensions": {
+        "alias": false,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "negative": {
+      "100": {
+        "$value": -100,
+        "$description": "Z-index -100",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      }
+    },
+    "positive": {
+      "100": {
+        "$value": 100,
+        "$description": "Z-index 100",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "200": {
+        "$value": 200,
+        "$description": "Z-index 200",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "300": {
+        "$value": 300,
+        "$description": "Z-index 300",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "400": {
+        "$value": 400,
+        "$description": "Z-index 400",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "500": {
+        "$value": 500,
+        "$description": "Z-index 500",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "600": {
+        "$value": 600,
+        "$description": "Z-index 600",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "700": {
+        "$value": 700,
+        "$description": "Z-index 700",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "800": {
+        "$value": 800,
+        "$description": "Z-index 800",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "900": {
+        "$value": 900,
+        "$description": "Z-index 900",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "1000": {
+        "$value": 1000,
+        "$description": "Z-index 1000",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      }
+    }
+  }
+}

@@ -42,3 +42,6 @@ Access documentation on our [iconography](https://jackhenry.design/pages/foundat
 We're always looking to expand our icon set and you can help! If you would like to recommend and icon or
 are interested in contributing one that you created, please visit our design system
 repo and open an issue for an [Icon Request](https://github.com/Banno/jack-henry-design-system/issues).
+
+### Package Status
+This package is now in maintenance mode and will receive bug fixes only. All new feature development has moved to V2, and we recommend migrating.

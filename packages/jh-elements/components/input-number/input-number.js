@@ -88,6 +88,10 @@ export class JhInputNumber extends JhInput {
           --jh-button-color-border-tertiary-disabled: var(--jh-input-number-stepper-color-border-disabled);
           --jh-button-icon-color-fill-tertiary-disabled: var(--jh-input-number-stepper-icon-color-fill-disabled);
         }
+        /* Keep stepper functionally disabled while using parent disabled visuals. */
+        :host([disabled]) jh-button {
+          pointer-events: none;
+        }
         .increment-button {
           margin-left: var(--jh-dimension-100);
         }
@@ -204,7 +208,7 @@ export class JhInputNumber extends JhInput {
           size="x-small"
           appearance="tertiary"
           @click=${this.#handleDecrement}
-          ?disabled=${this.disabled || this.#decrementDisabled}
+          ?disabled=${this.disabled ? false : this.#decrementDisabled}
           ><slot name="jh-input-number-stepper-decrement" slot="jh-button-icon-left"><jh-icon-minus slot="jh-button-icon"></jh-icon-minus></slot>
         </jh-button>
         <jh-button
@@ -214,7 +218,7 @@ export class JhInputNumber extends JhInput {
           class="increment-button"
           appearance="tertiary"
           @click=${this.#handleIncrement}
-          ?disabled=${this.disabled || this.#incrementDisabled}
+          ?disabled=${this.disabled ? false : this.#incrementDisabled}
           ><slot name="jh-input-number-stepper-increment" slot="jh-button-icon-left"><jh-icon-plus slot="jh-button-icon"></jh-icon-plus></slot>
         </jh-button>
       </slot> 

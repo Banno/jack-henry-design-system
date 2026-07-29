@@ -35,6 +35,7 @@ const disableControls = {
   'show-indicator': { control: { disable: true } },
   size: { control: { disable: true } },
   value: { control: { disable: true } },
+  pattern: { control: { disable: true } },
 };
 
 function logCustomEvent(name, e) {
@@ -185,6 +186,9 @@ export default {
     value: {
       control: 'text',
     },
+    pattern: {
+      control: 'text',
+    },
   },
 };
 
@@ -244,6 +248,7 @@ export const Playground = { render: (args) => html`
       ?show-indicator=${args['show-indicator']}
       size=${args.size}
       value=${ifDefined(args.value === '' ? null : args.value)}
+      pattern=${ifDefined(args.pattern === '' ? null : args.pattern)}
   ></jh-input-number>
 `};
 
@@ -270,6 +275,7 @@ Playground.args = {
   inputmode: null,
   name: null,
   value: null,
+  pattern: null,
 };
 
 Playground.parameters = {

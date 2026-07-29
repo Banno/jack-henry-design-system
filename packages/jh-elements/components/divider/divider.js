@@ -16,13 +16,15 @@ export class JhDivider extends JhElement {
   static get styles() {
     return css`
         :host {
+          display: block;
+          box-sizing: content-box;
+        }
+        :host([orientation='horizontal']) {
           border-bottom-width: var(--jh-divider-border-width, var(--jh-border-decorative-width));
           border-bottom-style: var(--jh-divider-border-style, var(--jh-border-decorative-style));
           border-bottom-color: var(--jh-divider-color-border, var(--jh-border-decorative-color));
-          display: block;
           margin-top: 16px;
           margin-bottom: 16px;
-          box-sizing: content-box;
         }
         :host([orientation='vertical']) {
           border-bottom: none;

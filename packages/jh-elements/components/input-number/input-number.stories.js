@@ -70,7 +70,7 @@ const storyStyles = css`
 export default {
   component: 'jh-input-number',
   title: 'Components/Input Number',
-  tags: ['beta'],
+  tags: ['new'],
   decorators: [
       (story) => html`
         <div class="story-decorator"

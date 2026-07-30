@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Jack Henry
+#
+# SPDX-License-Identifier: Apache-2.0
+
 lockfileVersion: '9.0'
 
 settings:
@@ -30,7 +34,7 @@ importers:
         version: 3.3.1
     devDependencies:
       '@jack-henry/jh-datasets':
-        specifier: workspace:2.0.1
+        specifier: workspace:2.0.0
         version: link:../jh-datasets
       '@storybook/addon-a11y':
         specifier: 10.4.0

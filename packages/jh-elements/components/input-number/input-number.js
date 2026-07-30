@@ -195,6 +195,12 @@ export class JhInputNumber extends JhInput {
 
   // when max is reached, disable the increment button, and when min is reached, disable the decrement button
   #updateStepperDisabledState() {
+    // check that there is a value first
+    if (this.value === null || this.value === undefined || this.value === '') {
+      this.#incrementDisabled = false;
+      this.#decrementDisabled = false;
+      return;
+    }
     this.#incrementDisabled = this.max !== null && Number(this.value) >= this.max;
     this.#decrementDisabled = this.min !== null && Number(this.value) <= this.min;
   }

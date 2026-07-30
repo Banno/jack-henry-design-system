@@ -198,7 +198,7 @@ export class JhInputNumber extends JhInput {
     // allow backspace, tab, arrow keys, etc. 
     if (e.key.length > 1) return;
     // prevent non-numeric characters
-    if (!/[0-9+\-e]/.test(e.key)) {
+    if (!/[0-9+\-e.]/.test(e.key)) {
       e.preventDefault();
     }
   }

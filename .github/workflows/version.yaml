@@ -5,7 +5,7 @@
 name: Version
 on:
   push:
-    branches: next
+    branches: [next, feature/restore-changesets]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref_name }}

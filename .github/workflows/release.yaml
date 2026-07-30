@@ -5,7 +5,7 @@
 name: Release
 on:
   push:
-    branches: [main] # Adjust branch name as needed
+    branches: [main, feature/restore-changesets] # Adjust branch name as needed
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref_name }}  
@@ -31,11 +31,14 @@ jobs:
       - name: Build
         run: pnpm -r build
 
-      - name: Publish Packages
-        id: changesets
-        uses: changesets/action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          publish: pnpm run release
-          createGithubReleases: true
+      - name: Publish (DRY RUN — remove before merge)
+        run: pnpm -r publish --dry-run --no-git-checks --registry https://registry.npmjs.org/
+
+      # - name: Publish Packages
+      #   id: changesets
+      #   uses: changesets/action@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     publish: pnpm run release
+      #     createGithubReleases: true

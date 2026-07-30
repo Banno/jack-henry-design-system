@@ -1,8 +1,7 @@
-  
 {
   "name": "@jack-henry/jh-datasets",
   "description": "Forge Design System's datasets utility",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Banno/jack-henry-design-system.git"
@@ -22,5 +21,5 @@
   "scripts": {
     "prepack": "cp ../../NOTICE .",
     "postpack": "rm -f NOTICE"
-}
+  }
 }

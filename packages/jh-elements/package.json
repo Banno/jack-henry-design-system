@@ -1,7 +1,7 @@
 {
   "name": "@jack-henry/jh-elements",
   "description": "Forge Design System web components.",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Banno/jack-henry-design-system.git"
@@ -36,7 +36,7 @@
     "lit": "3.3.1"
   },
   "devDependencies": {
-    "@jack-henry/jh-datasets": "workspace:2.0.0",
+    "@jack-henry/jh-datasets": "workspace:2.0.1",
     "@storybook/addon-a11y": "10.4.0",
     "@storybook/web-components-vite": "10.4.0",
     "chromatic": "5.8.3",
@@ -45,7 +45,7 @@
     "storybook-addon-tag-badges": "3.1.0",
     "web-component-analyzer": "1.1.6",
     "vite": "5.4.12",
-    "@storybook/addon-docs": "10.4.0", 
+    "@storybook/addon-docs": "10.4.0",
     "storybook-dark-mode": "5.0.0"
   }
 }

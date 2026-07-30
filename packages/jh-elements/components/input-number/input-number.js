@@ -193,6 +193,16 @@ export class JhInputNumber extends JhInput {
     this.#stepperAnnouncement = '';
   }
 
+  // Firefox: prevent non number chars from being entered in the input field
+  _handleKeydown(e) {
+    // allow backspace, tab, arrow keys, etc. 
+    if (e.key.length > 1) return;
+    // prevent non-numeric characters
+    if (!/[0-9+\-e]/.test(e.key)) {
+      e.preventDefault();
+    }
+  }
+
   // when max is reached, disable the increment button, and when min is reached, disable the decrement button
   #updateStepperDisabledState() {
     // check that there is a value first
@@ -277,6 +287,7 @@ export class JhInputNumber extends JhInput {
             @change=${this._handleChange}
             @input=${this._handleInput}
             @select=${this._handleSelect}
+            @keydown=${this._handleKeydown}
           />
           ${clearButton}
           ${rightSlot}

@@ -269,7 +269,7 @@ export class JhCheckboxGroup extends JhElement {
   #getPreviousValues() {
     const previousSelectedValue = [...this.#previousSelectedValue];
     const selectedValues = Array.from(this.querySelectorAll('jh-checkbox'))
-        .filter(checkbox => checkbox.checked)
+        .filter(checkbox => checkbox.checked && !checkbox.indeterminate)
         .map(checkbox => checkbox.value);
 
     this.#previousSelectedValue = [...selectedValues];

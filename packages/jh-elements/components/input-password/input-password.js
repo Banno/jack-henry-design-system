@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { html } from 'lit';
+import { html, css } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { JhInput } from '../input/input.js';
 import '@jack-henry/jh-icons/icons-wc/icon-eye-slash.js';
@@ -16,6 +16,18 @@ let id = 0;
  * @customElement jh-input-password
  */
 export class JhInputPassword extends JhInput {
+  static get styles() {
+    return [
+      super.styles,
+      css`
+        /* Prevent double dimming: the input host already applies disabled opacity. */
+        :host([disabled]) .password-toggle-btn {
+          --jh-button-opacity-disabled: 1;
+        }
+      `,
+    ];
+  }
+
   static get properties() {
     return {
       /** Unmasks the input field value when set. */

@@ -178,6 +178,7 @@ export const Playground = {
       <jh-checkbox
         label="Label"
         indeterminate
+        checked
         name="checkbox-2"
         value="value-2"
         helper-text="Helper text"

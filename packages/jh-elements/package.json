@@ -12,7 +12,6 @@
     "Brad McCormick",
     "Maya Buser De"
   ],
-  "type": "module",
   "license": "Apache-2.0",
   "files": [
     "components/**/!(*.stories).js",
@@ -44,7 +43,7 @@
     "storybook": "10.4.0",
     "storybook-addon-tag-badges": "3.1.0",
     "web-component-analyzer": "1.1.6",
-    "vite": "5.4.12",
+    "vite": "6.4.3",
     "@storybook/addon-docs": "10.4.0", 
     "storybook-dark-mode": "5.0.0"
   }

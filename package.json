@@ -28,5 +28,29 @@
   "devDependencies": {
     "@changesets/changelog-github": "0.4.8",
     "@changesets/cli": "2.26.2"
+  },
+  "pnpm": {
+    "overrides": {
+      "@babel/runtime": "^7.26.10",
+      "brace-expansion@1": "^1.1.18",
+      "brace-expansion@2": "^2.1.4",
+      "braces": "^3.0.3",
+      "cross-spawn": "^7.0.6",
+      "degit": "^2.8.6",
+      "ejs": "^3.1.10",
+      "esbuild": "^0.25.0",
+      "glob@10": "^10.5.0",
+      "js-yaml@3": "^3.15.0",
+      "micromatch": "^4.0.8",
+      "minimatch@3": "^3.1.4",
+      "minimatch@5": "^5.1.8",
+      "minimatch@9": "^9.0.7",
+      "picomatch@2": "^2.3.2",
+      "postcss": "^8.5.23",
+      "qs": "^6.15.2",
+      "rollup": "^4.59.0",
+      "tmp": "^0.2.6",
+      "yaml": "^2.8.3"
+    }
   }
 }

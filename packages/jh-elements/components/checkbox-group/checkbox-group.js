@@ -217,12 +217,18 @@ export class JhCheckboxGroup extends JhElement {
   firstUpdated() {
     const slot = this.renderRoot?.querySelector('slot');
     this.#syncDisabledToChildren();
+    this.#getPreviousValues();
   }
 
   updated(changedProperties) {
     if (changedProperties.has('disabled')) {
       this.#syncDisabledToChildren();
     }
+  }
+
+  #handleSlotChange() {
+    this.#syncDisabledToChildren();
+    this.#getPreviousValues();
   }
 
   #syncDisabledToChildren() {
@@ -249,12 +255,7 @@ export class JhCheckboxGroup extends JhElement {
 
   #handleChange(e) {
     if (e.detail.reference.originHost === 'jh-checkbox') {
-      const previousSelectedValue = [...this.#previousSelectedValue];
-      const selectedValues = Array.from(this.querySelectorAll('jh-checkbox'))
-        .filter(checkbox => checkbox.checked)
-        .map(checkbox => checkbox.value);
-
-      this.#previousSelectedValue = [...selectedValues];
+      const { previousSelectedValue, selectedValues } = this.#getPreviousValues();
 
       this.dispatchCustomEvent('jh-change', {
         state: {
@@ -263,6 +264,17 @@ export class JhCheckboxGroup extends JhElement {
         },
       });
     }
+  }
+
+  #getPreviousValues() {
+    const previousSelectedValue = [...this.#previousSelectedValue];
+    const selectedValues = Array.from(this.querySelectorAll('jh-checkbox'))
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.value);
+
+    this.#previousSelectedValue = [...selectedValues];
+
+    return { previousSelectedValue, selectedValues };
   }
 
   render() {
@@ -304,7 +316,7 @@ export class JhCheckboxGroup extends JhElement {
         aria-disabled=${ifDefined(this.disabled ? 'true' : null)}
         aria-label=${ifDefined(this.accessibleLabel)}>
         ${label}
-        <div class="controls"><slot @slotchange=${() => this.#syncDisabledToChildren()} ></slot></div>
+        <div class="controls"><slot @slotchange=${this.#handleSlotChange}></slot></div>
         ${errorText}
       </fieldset>
     `;

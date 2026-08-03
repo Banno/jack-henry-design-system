@@ -8,8 +8,6 @@ import { JhInput } from '../input/input.js';
 import '@jack-henry/jh-icons/icons-wc/icon-eye-slash.js';
 import '@jack-henry/jh-icons/icons-wc/icon-eye.js';
 
-let id = 0;
-
 /**
  * @slot jh-input-password-hidden - Use to insert a custom icon within the toggle password button when the input value is masked. 
  * @slot jh-input-password-visible - Use to insert a custom icon within the toggle password button when the input value is unmasked.

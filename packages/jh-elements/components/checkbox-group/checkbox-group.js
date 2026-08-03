@@ -19,7 +19,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * @cssprop --jh-checkbox-group-error-color-text - The error-text text color.
  * Defaults to `--jh-color-content-negative-enabled`.
  * 
- * @event jh-change - Fired when the selection of checkboxes changes. Event payload includes both current and previous selections, accessible via `e.detail.state.selectedValue` and `e.detail.state.previousSelectedValue`.
+ * @event jh-change - Fired when the selection of checkboxes is changed by the user. Event payload includes both current and previous selections, accessible via `e.detail.state.selectedValue` and `e.detail.state.previousSelectedValue`.
  *
  * @slot default - Use to insert `<jh-checkbox>` component(s).
  *

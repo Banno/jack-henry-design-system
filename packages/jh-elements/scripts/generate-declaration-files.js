@@ -42,46 +42,44 @@ function generateProperties(members) {
       ].filter(Boolean);
 
       return `
-    /**
-     * ${jsdocLines.join('\n     * ')}
-     */
-    ${propName}: ${propType};`;
+  /**
+   * ${jsdocLines.join('\n   * ')}
+   */
+  ${propName}: ${propType};`;
     })
     .join('\n');
 }
 
 function generateClassLevelJsDoc(declaration) {
-  const lines = [];
-  
+  const blocks = [];
+
   // Component description
   if (declaration.description) {
-    lines.push(declaration.description);
-    lines.push('');
+    blocks.push(declaration.description);
   }
-  
-  // Element tag
-  lines.push(`@element ${declaration.tagName}`);
-  
+
+  // Element tag (base classes without a tagName skip this)
+  if (declaration.tagName) {
+    blocks.push(`@element ${declaration.tagName}`);
+  }
+
   // Slots
-  if (declaration.slots && declaration.slots.length > 0) {
-    declaration.slots.forEach(slot => {
-      //may not be needed if I want to keep default
-      const slotName = slot.name === 'default' ? 'default' : slot.name;
-      const desc = slot.description || '';
-      lines.push(`@slot ${slotName}${desc ? ` - ${desc}` : ''}`);
-    });
-  }
-  
+  (declaration.slots || []).forEach(slot => {
+    const desc = slot.description || '';
+    blocks.push(`@slot ${slot.name}${desc ? ` - ${desc}` : ''}`);
+  });
+
   // Custom Events
-  if (declaration.events && declaration.events.length > 0) {
-    lines.push('');
-    declaration.events.forEach(event => {
-      const desc = event.description || 'Dispatched by the component.';
-      lines.push(`@fires ${event.name} - ${desc}`);
-    });
-  }
-  
-  return lines.map(line => ` * ${line}`).join('\n');
+  (declaration.events || []).forEach(event => {
+    const desc = event.description || 'Dispatched by the component.';
+    blocks.push(`@fires ${event.name} - ${desc}`);
+  });
+
+  return blocks
+    .join('\n')
+    .split('\n')
+    .map(line => ` * ${line}`)
+    .join('\n');
 }
 
 function generateComponentDts(declaration, currentModulePath) {
@@ -101,34 +99,31 @@ function generateComponentDts(declaration, currentModulePath) {
     if (!relativePath.startsWith('.')) relativePath = './' + relativePath;
     importStatement = `import { ${superclassName} } from '${relativePath}';`;
     extendsClause = ` extends ${superclassName}`;
+  } else if (declaration.superclass && declaration.superclass.name === 'LitElement') {
+    // Base classes (e.g. JhElement) extend LitElement directly so the type chain is preserved.
+    importStatement = `import { LitElement } from 'lit';`;
+    extendsClause = ` extends LitElement`;
   }
 
-  const interfaceProperties = generateProperties(declaration.members || []);
+  const classProperties = generateProperties(declaration.members || []);
   const classJsDoc = generateClassLevelJsDoc(declaration);
 
-  const allMembers = declaration.members || [];
-  const publicFields = allMembers.filter(isOwnField);
-  const classProperties = publicFields.map(m => {
-    const propType = getTsType(m.type);
-    return `  ${m.name}: ${propType};`;
-  }).join('\n');
+  // Base classes (no tagName) are not registered elements, so skip the tag name map.
+  const tagNameMapBlock = tagName
+    ? `\ndeclare global {
+  interface HTMLElementTagNameMap {
+    '${tagName}': ${className};
+  }
+}
+`
+    : '';
 
   return `
 // SPDX-FileCopyrightText: 2026 Jack Henry
 //
 // SPDX-License-Identifier: Apache-2.0
 ${importStatement ? '\n' + importStatement : ''}
-
-declare global {
-  interface HTMLElementTagNameMap {
-    '${tagName}': ${className};
-  }
-}
-
-export declare interface ${className} {
-${interfaceProperties}
-}
-
+${tagNameMapBlock}
 /**
 ${classJsDoc}
  */
@@ -140,13 +135,30 @@ ${classProperties}
 try {
   const manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
 
+  // Collect base classes that components extend (e.g. JhElement) so declaration
+  // files are generated for them too, even though they have no tagName.
+  const baseClassNames = new Set();
   manifest.modules.forEach((module) => {
     module.declarations.forEach((declaration) => {
-      if (
+      const superclass = declaration.superclass;
+      if (superclass && superclass.module && superclass.name !== 'LitElement') {
+        baseClassNames.add(superclass.name);
+      }
+    });
+  });
+
+  manifest.modules.forEach((module) => {
+    module.declarations.forEach((declaration) => {
+      const isComponent =
         declaration.kind === 'class' &&
         declaration.customElement &&
-        declaration.tagName
-      ) {
+        declaration.tagName;
+      const isBaseClass =
+        declaration.kind === 'class' &&
+        !declaration.tagName &&
+        baseClassNames.has(declaration.name);
+
+      if (isComponent || isBaseClass) {
         const sourceDir = path.dirname(module.path); // 'components/checkbox'
         const sourceFileName = path.basename(module.path, '.js'); // 'checkbox'
         const fileName = `${sourceFileName}.d.ts`; // e.g., checkbox.d.ts

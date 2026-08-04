@@ -31,11 +31,13 @@ function generateProperties(members) {
       const description = m.description || '';
       const attribute = m.attribute ? `@attr ${m.attribute}` : '';
       const defaultValue = m.default ? `@default ${m.default}` : '';
+      const deprecated = m.deprecated ? `@deprecated ${m.deprecated}` : '';
 
       const jsdocLines = [
         description,
         attribute,
-        defaultValue
+        defaultValue,
+        deprecated
         //filter out empty lines
       ].filter(Boolean);
 

@@ -20,8 +20,8 @@ const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 
 const options = {
   hideCssPropertiesDocs: true,
-  hideEventDocs: true,
-  hideSlotDocs: true,
+  hideEventDocs: false,
+  hideSlotDocs: false,
 };
 
 const webTypesString = getWebTypesData(manifest, options);

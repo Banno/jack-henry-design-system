@@ -2,7 +2,6 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { customElementJetBrainsPlugin } from "custom-element-jet-brains-integration";
 import { filterPrivatePropertiesPlugin } from "./cem-plugins/filter-private-properties.js";
 import { filterEventsPlugin } from "./cem-plugins/filter-jh-events.js";
 
@@ -24,12 +23,6 @@ export default {
   plugins: [
     filterPrivatePropertiesPlugin(),
     //additional prefix can be passed if needed
-    filterEventsPlugin('jh-'),
-    customElementJetBrainsPlugin({
-      // hide parts of JSDocs that are bleeding into description.
-      hideCssPropertiesDocs: true,
-      hideEventDocs: true,
-      hideSlotDocs: true,
-    })
+    filterEventsPlugin('jh-')
   ]
 }

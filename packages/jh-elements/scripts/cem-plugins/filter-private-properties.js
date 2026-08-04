@@ -8,7 +8,7 @@ const INTERNALS_PROPS = ['role', 'form', 'validity'];
 export function filterPrivatePropertiesPlugin() {
   return {
     name: 'filter-private-properties',
-  packageLinkPhase({ customElementsManifest }) {
+    packageLinkPhase({ customElementsManifest }) {
     
     customElementsManifest.modules?.forEach(module => {
       module.declarations?.forEach(declaration => {
@@ -19,6 +19,9 @@ export function filterPrivatePropertiesPlugin() {
             
             // Filter native private names
             if (member.name?.startsWith('#')) return false;
+
+            // Filter native protected names (internal reactive properties)
+            if (member.name?.startsWith('_')) return false;
 
             // Filter static members (like formAssociated getter)
             if (member.static) return false;

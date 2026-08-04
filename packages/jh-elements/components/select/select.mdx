@@ -31,9 +31,9 @@ To use `<jh-select>`, set the necessary attributes and pass your options using t
 const myOptions = [
   { label: "Basic Checking", value: "checking-01" },
   { label: "High-Yield Savings", value: "savings-01", disabled: true },
-  { label: "Money Market", value: "money-market-01", selected: true },
+  { label: "Money Market", value: "money-market-01" },
 ];
-<jh-select label="Account type" helper-text="Choose an account" .options=${myOptions}></jh-select>
+<jh-select label="Account type" helper-text="Choose an account" .options=${myOptions} value="checking-01"></jh-select>
 ```
 
 In situations where the above approach is not available, authors can use an imperative API to set options and other properties via JavaScript:
@@ -41,6 +41,7 @@ In situations where the above approach is not available, authors can use an impe
 ```javascript
 const select = document.querySelector('jh-select');
 select.options = myOptions;
+select.value = 'checking-01';
 ```
 
 ## Options Data Format
@@ -49,9 +50,10 @@ Authors must provide the options as an array of objects to the `.options` proper
 
 - Each option object must include a unique `value` string and a `label` string for display.
 - If no `label` is provided, the `value` will be used as the display text in the menu and input. 
-- An empty option can be included by providing an option object with a `label` string and an empty string for the `value`. 
 - Options can be made disabled by setting the `disabled: true` flag. 
-- Flag an option as `selected: true` to set it as the default option showing in the input field.
+- Flag an option as `selected: true` to set the initial default when no `value` is provided. 
+Once a `value` is set — either by the author or by user interaction — the `selected` flag is ignored. Use the `value` attribute or property to control the selected option.
+- An empty option can be included by providing an `option` object with a `label` string and an empty string for the `value` (e.g. `{ label: "Select a state...", value: "" }`). 
 
 Options can be provided in a flat structure or grouped by category: 
 - Flat options are displayed as `jh-list-item` elements, 
@@ -81,6 +83,47 @@ const groupedOptions = [
   ]},
 ];
 ```
+
+## Setting the Value
+
+### Initial value
+There are two ways to set the initial selected option:
+
+**Using the `value` attribute** (recommended) — set the `value` attribute to match an option's `value`:
+
+```html
+<jh-select label="Account type" value="checking-01" .options=${myOptions}></jh-select>
+```
+
+**Using the `selected` flag** — flag an option as `selected: true` in the options array. This only applies on initial render and when no `value` attribute is set:
+
+```javascript
+const myOptions = [
+  { label: "Basic Checking", value: "checking-01", selected: true },
+  { label: "High-Yield Savings", value: "savings-01" },
+];
+<jh-select label="Account type" .options=${myOptions}></jh-select>
+```
+
+### Placeholder options
+An empty option can be used as a placeholder — include an option with `value: ""` and a descriptive label. To display it on initial render, either set `value=""` on the select or set the `selected` flag on the placeholder option:
+
+```html
+<jh-select label="State" value="" .options=${stateOptions}></jh-select>
+```
+
+### Changing the value programmatically
+To change the selected value programmatically after initialization, set the value property:
+
+```javascript
+const select = document.querySelector('jh-select');
+select.value = 'savings-01';
+```
+
+To clear the selection, set value to null.
+
+**Note:** Setting value programmatically does not dispatch the `jh-change` event. Only user interactions dispatch events.
+
 ## Using the jh-datasets package with jh-select
 
 The datasets package provides a set of common datasets in the correct format for use with the jh-select component. 

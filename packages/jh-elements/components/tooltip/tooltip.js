@@ -18,6 +18,7 @@ const openAttr = 'open';
  * 
  * @cssprop --jh-tooltip-color-background - The tooltip and arrow background-color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-tooltip-color-text - The tooltip text color. Defaults to `--jh-color-content-on-primary-enabled`.
+ * @cssprop --jh-tooltip-size-max-width - The maximum width of the tooltip. Defaults to `160px`.
  *
  * @slot default - Use to insert the element that triggers the tooltip.
  * @slot jh-tooltip-content - Use to insert the content of the tooltip.
@@ -41,13 +42,13 @@ export class JhTooltip extends JhElement {
           --jh-tooltip-color-text,
           var(--jh-color-content-on-primary-enabled)
         );
+        max-width: var(--jh-tooltip-size-max-width, 160px);
         border-radius: var(--jh-border-radius-100);
         padding: var(--jh-dimension-200);
         font-family: var(--jh-font-helper-bold-font-family);
         font-weight: var(--jh-font-helper-bold-font-weight);
         font-size: var(--jh-font-helper-bold-font-size);
         line-height: var(--jh-font-helper-bold-line-height);
-        max-width: 160px;
         width: max-content;
         position: absolute;
         box-sizing: border-box;

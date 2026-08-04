@@ -115,6 +115,298 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/card/card.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Cards are content structures that provide an entry point for more complex and detailed information.\n\n[Card Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-card--docs)",
+          "name": "JhCard",
+          "cssProperties": [
+            {
+              "description": "The card background-color. Defaults to `--jh-color-container-primary-enabled`.",
+              "name": "--jh-card-color-background"
+            },
+            {
+              "description": "The card border-radius. Defaults to `--jh-border-radius-200`.",
+              "name": "--jh-card-border-radius"
+            },
+            {
+              "description": "The card border color. Defaults to `--jh-border-decorative-color`.",
+              "name": "--jh-card-color-border"
+            },
+            {
+              "description": "The media slot aspect-ratio. Defaults to `auto`.",
+              "name": "--jh-card-media-aspect-ratio"
+            },
+            {
+              "description": "The media slot padding. Defaults to `0`.",
+              "name": "--jh-card-media-space-padding"
+            },
+            {
+              "description": "The header text color. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-card-header-color-text"
+            },
+            {
+              "description": "The header slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600 0`. When `padding=\"small\"`, defaults to `--jh-dimension-400 --jh-dimension-400 0`. When `padding=\"small\"` and `show-header-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none'` and `show-header-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`.",
+              "name": "--jh-card-header-space-padding"
+            },
+            {
+              "description": "The default slot text color. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-card-default-color-text"
+            },
+            {
+              "description": "The default slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600`. When `padding=\"small\"`, defaults to `--jh-dimension-400`. When `padding=\"none\"`, defaults to `--jh-dimension-400 0`.",
+              "name": "--jh-card-default-space-padding"
+            },
+            {
+              "description": "The footer slot text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-card-footer-color-text"
+            },
+            {
+              "description": "The footer slot padding. Defaults to `0 --jh-dimension-600 --jh-dimension-400`. When `padding=\"small\"`, defaults to `0 --jh-dimension-400 --jh-dimension-400`. When `padding=\"small\"` and `show-footer-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none\"` and `show-footer-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`.",
+              "name": "--jh-card-footer-space-padding"
+            },
+            {
+              "description": "The header title text color. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-card-header-title-color-text"
+            },
+            {
+              "description": "The header subtitle text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-card-header-subtitle-color-text"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Use to insert card body content.",
+              "name": "default"
+            },
+            {
+              "description": "Use to insert media content in the top section of the card. User may need to add addtional styling to elements such as border, object-fit, etc.",
+              "name": "jh-card-media"
+            },
+            {
+              "description": "Use to insert custom card header layout. Default layout includes `headerTitle` and `headerSubtitle` properties.",
+              "name": "jh-card-header"
+            },
+            {
+              "description": "Use to insert card footer content.",
+              "name": "jh-card-footer"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "footerDividerInset",
+              "privacy": "public",
+              "type": {
+                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
+              },
+              "description": "Sets the alignment of the left edge of the divider above the footer.",
+              "default": "null",
+              "attribute": "footer-divider-inset"
+            },
+            {
+              "kind": "field",
+              "name": "headerDividerInset",
+              "privacy": "public",
+              "type": {
+                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
+              },
+              "description": "Sets the alignment of the left edge of the divider below the header.",
+              "default": "null",
+              "attribute": "header-divider-inset"
+            },
+            {
+              "kind": "field",
+              "name": "titleHeadingLevel",
+              "privacy": "public",
+              "type": {
+                "text": "1|2|3|4|5|6"
+              },
+              "description": "Informs assistive technologies what heading level the card title represents. Defaults to h2.",
+              "default": "2",
+              "attribute": "title-heading-level"
+            },
+            {
+              "kind": "field",
+              "name": "padding",
+              "privacy": "public",
+              "type": {
+                "text": "'small' | 'medium' | 'none'"
+              },
+              "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
+              "default": "'medium'",
+              "attribute": "padding",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "showFooterDivider",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
+              "default": "false",
+              "attribute": "show-footer-divider",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "showHeaderDivider",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a divider below the header to create a clearer definition between the header and body.",
+              "default": "false",
+              "attribute": "show-header-divider",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "headerSubtitle",
+              "privacy": "public",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Adds additional information about the card below the title.",
+              "default": "null",
+              "attribute": "header-subtitle"
+            },
+            {
+              "kind": "field",
+              "name": "headerTitle",
+              "privacy": "public",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Provides context for the content of the card.",
+              "default": "null",
+              "attribute": "header-title"
+            },
+            {
+              "kind": "field",
+              "name": "uniqueId",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "dispatchCustomEvent",
+              "parameters": [
+                {
+                  "name": "eventName"
+                },
+                {
+                  "name": "detail",
+                  "default": "{}"
+                }
+              ],
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "footer-divider-inset",
+              "type": {
+                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
+              },
+              "description": "Sets the alignment of the left edge of the divider above the footer.",
+              "default": "null",
+              "fieldName": "footerDividerInset"
+            },
+            {
+              "name": "header-divider-inset",
+              "type": {
+                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
+              },
+              "description": "Sets the alignment of the left edge of the divider below the header.",
+              "default": "null",
+              "fieldName": "headerDividerInset"
+            },
+            {
+              "name": "show-footer-divider",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
+              "default": "false",
+              "fieldName": "showFooterDivider"
+            },
+            {
+              "name": "show-header-divider",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a divider below the header to create a clearer definition between the header and body.",
+              "default": "false",
+              "fieldName": "showHeaderDivider"
+            },
+            {
+              "name": "padding",
+              "type": {
+                "text": "'small' | 'medium' | 'none'"
+              },
+              "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
+              "default": "'medium'",
+              "fieldName": "padding"
+            },
+            {
+              "name": "header-subtitle",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Adds additional information about the card below the title.",
+              "default": "null",
+              "fieldName": "headerSubtitle"
+            },
+            {
+              "name": "header-title",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Provides context for the content of the card.",
+              "default": "null",
+              "fieldName": "headerTitle"
+            },
+            {
+              "name": "title-heading-level",
+              "type": {
+                "text": "1|2|3|4|5|6"
+              },
+              "description": "Informs assistive technologies what heading level the card title represents. Defaults to h2.",
+              "default": "2",
+              "fieldName": "titleHeadingLevel"
+            }
+          ],
+          "superclass": {
+            "name": "JhElement",
+            "module": "/components/element/element.js"
+          },
+          "tagName": "jh-card",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JhCard",
+          "declaration": {
+            "name": "JhCard",
+            "module": "components/card/card.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/button/button.js",
       "declarations": [
         {
@@ -677,26 +969,6 @@
             },
             {
               "kind": "field",
-              "name": "_hasLeftSlotContent",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "_hasLeftSlotContent"
-            },
-            {
-              "kind": "field",
-              "name": "_hasRightSlotContent",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "_hasRightSlotContent"
-            },
-            {
-              "kind": "field",
               "name": "uniqueId",
               "readonly": true,
               "inheritedFrom": {
@@ -872,298 +1144,6 @@
           "declaration": {
             "name": "JhButton",
             "module": "components/button/button.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/card/card.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Cards are content structures that provide an entry point for more complex and detailed information.\n\n[Card Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-card--docs)",
-          "name": "JhCard",
-          "cssProperties": [
-            {
-              "description": "The card background-color. Defaults to `--jh-color-container-primary-enabled`.",
-              "name": "--jh-card-color-background"
-            },
-            {
-              "description": "The card border-radius. Defaults to `--jh-border-radius-200`.",
-              "name": "--jh-card-border-radius"
-            },
-            {
-              "description": "The card border color. Defaults to `--jh-border-decorative-color`.",
-              "name": "--jh-card-color-border"
-            },
-            {
-              "description": "The media slot aspect-ratio. Defaults to `auto`.",
-              "name": "--jh-card-media-aspect-ratio"
-            },
-            {
-              "description": "The media slot padding. Defaults to `0`.",
-              "name": "--jh-card-media-space-padding"
-            },
-            {
-              "description": "The header text color. Defaults to `--jh-color-content-primary-enabled`.",
-              "name": "--jh-card-header-color-text"
-            },
-            {
-              "description": "The header slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600 0`. When `padding=\"small\"`, defaults to `--jh-dimension-400 --jh-dimension-400 0`. When `padding=\"small\"` and `show-header-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none'` and `show-header-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`.",
-              "name": "--jh-card-header-space-padding"
-            },
-            {
-              "description": "The default slot text color. Defaults to `--jh-color-content-primary-enabled`.",
-              "name": "--jh-card-default-color-text"
-            },
-            {
-              "description": "The default slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600`. When `padding=\"small\"`, defaults to `--jh-dimension-400`. When `padding=\"none\"`, defaults to `--jh-dimension-400 0`.",
-              "name": "--jh-card-default-space-padding"
-            },
-            {
-              "description": "The footer slot text color. Defaults to `--jh-color-content-secondary-enabled`.",
-              "name": "--jh-card-footer-color-text"
-            },
-            {
-              "description": "The footer slot padding. Defaults to `0 --jh-dimension-600 --jh-dimension-400`. When `padding=\"small\"`, defaults to `0 --jh-dimension-400 --jh-dimension-400`. When `padding=\"small\"` and `show-footer-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none\"` and `show-footer-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`.",
-              "name": "--jh-card-footer-space-padding"
-            },
-            {
-              "description": "The header title text color. Defaults to `--jh-color-content-primary-enabled`.",
-              "name": "--jh-card-header-title-color-text"
-            },
-            {
-              "description": "The header subtitle text color. Defaults to `--jh-color-content-secondary-enabled`.",
-              "name": "--jh-card-header-subtitle-color-text"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Use to insert card body content.",
-              "name": "default"
-            },
-            {
-              "description": "Use to insert media content in the top section of the card. User may need to add addtional styling to elements such as border, object-fit, etc.",
-              "name": "jh-card-media"
-            },
-            {
-              "description": "Use to insert custom card header layout. Default layout includes `headerTitle` and `headerSubtitle` properties.",
-              "name": "jh-card-header"
-            },
-            {
-              "description": "Use to insert card footer content.",
-              "name": "jh-card-footer"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "footerDividerInset",
-              "privacy": "public",
-              "type": {
-                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
-              },
-              "description": "Sets the alignment of the left edge of the divider above the footer.",
-              "default": "null",
-              "attribute": "footer-divider-inset"
-            },
-            {
-              "kind": "field",
-              "name": "headerDividerInset",
-              "privacy": "public",
-              "type": {
-                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
-              },
-              "description": "Sets the alignment of the left edge of the divider below the header.",
-              "default": "null",
-              "attribute": "header-divider-inset"
-            },
-            {
-              "kind": "field",
-              "name": "titleHeadingLevel",
-              "privacy": "public",
-              "type": {
-                "text": "1|2|3|4|5|6"
-              },
-              "description": "Informs assistive technologies what heading level the card title represents. Defaults to h2.",
-              "default": "2",
-              "attribute": "title-heading-level"
-            },
-            {
-              "kind": "field",
-              "name": "padding",
-              "privacy": "public",
-              "type": {
-                "text": "'small' | 'medium' | 'none'"
-              },
-              "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
-              "default": "'medium'",
-              "attribute": "padding",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "showFooterDivider",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
-              "default": "false",
-              "attribute": "show-footer-divider",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "showHeaderDivider",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a divider below the header to create a clearer definition between the header and body.",
-              "default": "false",
-              "attribute": "show-header-divider",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "headerSubtitle",
-              "privacy": "public",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Adds additional information about the card below the title.",
-              "default": "null",
-              "attribute": "header-subtitle"
-            },
-            {
-              "kind": "field",
-              "name": "headerTitle",
-              "privacy": "public",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Provides context for the content of the card.",
-              "default": "null",
-              "attribute": "header-title"
-            },
-            {
-              "kind": "field",
-              "name": "uniqueId",
-              "readonly": true,
-              "inheritedFrom": {
-                "name": "JhElement",
-                "module": "components/element/element.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "dispatchCustomEvent",
-              "parameters": [
-                {
-                  "name": "eventName"
-                },
-                {
-                  "name": "detail",
-                  "default": "{}"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhElement",
-                "module": "components/element/element.js"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "footer-divider-inset",
-              "type": {
-                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
-              },
-              "description": "Sets the alignment of the left edge of the divider above the footer.",
-              "default": "null",
-              "fieldName": "footerDividerInset"
-            },
-            {
-              "name": "header-divider-inset",
-              "type": {
-                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
-              },
-              "description": "Sets the alignment of the left edge of the divider below the header.",
-              "default": "null",
-              "fieldName": "headerDividerInset"
-            },
-            {
-              "name": "show-footer-divider",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
-              "default": "false",
-              "fieldName": "showFooterDivider"
-            },
-            {
-              "name": "show-header-divider",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a divider below the header to create a clearer definition between the header and body.",
-              "default": "false",
-              "fieldName": "showHeaderDivider"
-            },
-            {
-              "name": "padding",
-              "type": {
-                "text": "'small' | 'medium' | 'none'"
-              },
-              "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
-              "default": "'medium'",
-              "fieldName": "padding"
-            },
-            {
-              "name": "header-subtitle",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Adds additional information about the card below the title.",
-              "default": "null",
-              "fieldName": "headerSubtitle"
-            },
-            {
-              "name": "header-title",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Provides context for the content of the card.",
-              "default": "null",
-              "fieldName": "headerTitle"
-            },
-            {
-              "name": "title-heading-level",
-              "type": {
-                "text": "1|2|3|4|5|6"
-              },
-              "description": "Informs assistive technologies what heading level the card title represents. Defaults to h2.",
-              "default": "2",
-              "fieldName": "titleHeadingLevel"
-            }
-          ],
-          "superclass": {
-            "name": "JhElement",
-            "module": "/components/element/element.js"
-          },
-          "tagName": "jh-card",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JhCard",
-          "declaration": {
-            "name": "JhCard",
-            "module": "components/card/card.js"
           }
         }
       ]
@@ -1578,102 +1558,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/divider/divider.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Dividers are used to group content vertically at the page or component level and should be used when whitespace does not provide a clear enough separation.\n\n[Divider Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-divider--docs)",
-          "name": "JhDivider",
-          "cssProperties": [
-            {
-              "description": "The divider width. Defaults to `--jh-border-decorative-width`.",
-              "name": "--jh-divider-border-width"
-            },
-            {
-              "description": "The divider style. Defaults to `--jh-border-decorative-style`.",
-              "name": "--jh-divider-border-style"
-            },
-            {
-              "description": "The divider color. Defaults to `--jh-border-decorative-color`.",
-              "name": "--jh-divider-color-border"
-            },
-            {
-              "description": "The divider margin-left. Defaults to `0`.",
-              "name": "--jh-divider-space-inset"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "inset",
-              "privacy": "public",
-              "type": {
-                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
-              },
-              "description": "The alignment of the left edge of the divider.",
-              "default": "null",
-              "attribute": "inset",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "uniqueId",
-              "readonly": true,
-              "inheritedFrom": {
-                "name": "JhElement",
-                "module": "components/element/element.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "dispatchCustomEvent",
-              "parameters": [
-                {
-                  "name": "eventName"
-                },
-                {
-                  "name": "detail",
-                  "default": "{}"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhElement",
-                "module": "components/element/element.js"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "inset",
-              "type": {
-                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
-              },
-              "description": "The alignment of the left edge of the divider.",
-              "default": "null",
-              "fieldName": "inset"
-            }
-          ],
-          "superclass": {
-            "name": "JhElement",
-            "module": "/components/element/element.js"
-          },
-          "tagName": "jh-divider",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JhDivider",
-          "declaration": {
-            "name": "JhDivider",
-            "module": "components/divider/divider.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/checkbox-group/checkbox-group.js",
       "declarations": [
         {
@@ -1948,6 +1832,102 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/divider/divider.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Dividers are used to group content vertically at the page or component level and should be used when whitespace does not provide a clear enough separation.\n\n[Divider Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-divider--docs)",
+          "name": "JhDivider",
+          "cssProperties": [
+            {
+              "description": "The divider width. Defaults to `--jh-border-decorative-width`.",
+              "name": "--jh-divider-border-width"
+            },
+            {
+              "description": "The divider style. Defaults to `--jh-border-decorative-style`.",
+              "name": "--jh-divider-border-style"
+            },
+            {
+              "description": "The divider color. Defaults to `--jh-border-decorative-color`.",
+              "name": "--jh-divider-color-border"
+            },
+            {
+              "description": "The divider margin-left. Defaults to `0`.",
+              "name": "--jh-divider-space-inset"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "inset",
+              "privacy": "public",
+              "type": {
+                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
+              },
+              "description": "The alignment of the left edge of the divider.",
+              "default": "null",
+              "attribute": "inset",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "uniqueId",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "dispatchCustomEvent",
+              "parameters": [
+                {
+                  "name": "eventName"
+                },
+                {
+                  "name": "detail",
+                  "default": "{}"
+                }
+              ],
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "inset",
+              "type": {
+                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
+              },
+              "description": "The alignment of the left edge of the divider.",
+              "default": "null",
+              "fieldName": "inset"
+            }
+          ],
+          "superclass": {
+            "name": "JhElement",
+            "module": "/components/element/element.js"
+          },
+          "tagName": "jh-divider",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JhDivider",
+          "declaration": {
+            "name": "JhDivider",
+            "module": "components/divider/divider.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/element/element.js",
       "declarations": [
         {
@@ -2032,6 +2012,10 @@
             {
               "description": "The icon size when `size=\"extra-large\"`. Defaults to `--jh-dimension-1400`.",
               "name": "--jh-icon-size-extra-large"
+            },
+            {
+              "description": "The icon size when `size=\"extra-extra-large\"`. Defaults to `--jh-dimension-2100`.",
+              "name": "--jh-icon-size-extra-extra-large"
             }
           ],
           "slots": [
@@ -2054,7 +2038,7 @@
               "name": "size",
               "privacy": "public",
               "type": {
-                "text": "'x-small' | 'small' | 'medium' | 'large' | 'x-large'"
+                "text": "'x-small' | 'small' | 'medium' | 'large' | 'x-large'|'xx-large'"
               },
               "description": "Sets the size of the icon.",
               "default": "'medium'",
@@ -2092,7 +2076,7 @@
             {
               "name": "size",
               "type": {
-                "text": "'x-small' | 'small' | 'medium' | 'large' | 'x-large'"
+                "text": "'x-small' | 'small' | 'medium' | 'large' | 'x-large'|'xx-large'"
               },
               "description": "Sets the size of the icon.",
               "default": "'medium'",
@@ -2280,59 +2264,6 @@
             },
             {
               "kind": "method",
-              "name": "_handleInput",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "_handleKeydown",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "_handleChange"
-            },
-            {
-              "kind": "method",
-              "name": "_handleSelect",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "_handleMaxlength"
-            },
-            {
-              "kind": "method",
-              "name": "_handleClearButtonClick",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "_handleSlotChange",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ]
-            },
-            {
-              "kind": "method",
               "name": "renderLeftSlot"
             },
             {
@@ -2342,10 +2273,6 @@
             {
               "kind": "method",
               "name": "renderClearButton"
-            },
-            {
-              "kind": "method",
-              "name": "_getDescribedby"
             },
             {
               "kind": "method",
@@ -2940,87 +2867,6 @@
             },
             {
               "kind": "method",
-              "name": "_handleInput",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleKeydown",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleChange",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleSelect",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleMaxlength",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleClearButtonClick",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleSlotChange",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
               "name": "renderLeftSlot",
               "inheritedFrom": {
                 "name": "JhInput",
@@ -3038,14 +2884,6 @@
             {
               "kind": "method",
               "name": "renderClearButton",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_getDescribedby",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -4194,87 +4032,6 @@
             },
             {
               "kind": "method",
-              "name": "_handleInput",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleKeydown",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleChange",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleSelect",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleMaxlength",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleClearButtonClick",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleSlotChange",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
               "name": "renderLeftSlot",
               "inheritedFrom": {
                 "name": "JhInput",
@@ -4284,14 +4041,6 @@
             {
               "kind": "method",
               "name": "renderClearButton",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_getDescribedby",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -5372,87 +5121,6 @@
             },
             {
               "kind": "method",
-              "name": "_handleInput",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleKeydown",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleChange",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleSelect",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleMaxlength",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleClearButtonClick",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleSlotChange",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
               "name": "renderRightSlot",
               "inheritedFrom": {
                 "name": "JhInput",
@@ -5462,14 +5130,6 @@
             {
               "kind": "method",
               "name": "renderClearButton",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_getDescribedby",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -6549,87 +6209,6 @@
             },
             {
               "kind": "method",
-              "name": "_handleInput",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleKeydown",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleChange",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleSelect",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleMaxlength",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleClearButtonClick",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleSlotChange",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
               "name": "renderLeftSlot",
               "inheritedFrom": {
                 "name": "JhInput",
@@ -6647,14 +6226,6 @@
             {
               "kind": "method",
               "name": "renderClearButton",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_getDescribedby",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -7973,19 +7544,6 @@
           "members": [
             {
               "kind": "method",
-              "name": "_handleInput",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
               "name": "renderInput",
               "inheritedFrom": {
                 "name": "JhInput",
@@ -8095,74 +7653,6 @@
             },
             {
               "kind": "method",
-              "name": "_handleKeydown",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleChange",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleSelect",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleMaxlength",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleClearButtonClick",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleSlotChange",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
               "name": "renderLeftSlot",
               "inheritedFrom": {
                 "name": "JhInput",
@@ -8180,14 +7670,6 @@
             {
               "kind": "method",
               "name": "renderClearButton",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_getDescribedby",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -9023,87 +8505,6 @@
             },
             {
               "kind": "method",
-              "name": "_handleInput",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleKeydown",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleChange",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleSelect",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleMaxlength",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleClearButtonClick",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleSlotChange",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
               "name": "renderLeftSlot",
               "inheritedFrom": {
                 "name": "JhInput",
@@ -9121,14 +8522,6 @@
             {
               "kind": "method",
               "name": "renderClearButton",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_getDescribedby",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -10314,11 +9707,55 @@
           "cssProperties": [
             {
               "description": "The list-item container's background-color. Defaults to `transparent`.",
-              "name": "--jh-list-item-color-background"
+              "name": "--jh-list-item-color-background-enabled"
             },
             {
-              "description": "The default, left, text, metadata, right, primary, and secondary slot text color. Defaults to `--jh-color-content-primary-enabled`.",
-              "name": "--jh-list-item-color-text"
+              "description": "The list-item text color for the default, left, right slots and primary text. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-list-item-color-text-primary-enabled"
+            },
+            {
+              "description": "The list-item text color for the default, left, right slots and primary text when interactive and focused. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-list-item-color-text-primary-focus"
+            },
+            {
+              "description": "The list-item text color for the default, left, right slots and primary text when interactive and hovered. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-list-item-color-text-primary-hover"
+            },
+            {
+              "description": "The list-item text color for the default, left, right slots and primary text when interactive and active. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-list-item-color-text-primary-active"
+            },
+            {
+              "description": "The list-item text color for the default, left, right slots and primary text when interactive and selected. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-list-item-color-text-primary-selected"
+            },
+            {
+              "description": "The list-item text color for the default, left, right slots and primary text when interactive and disabled. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-list-item-color-text-primary-disabled"
+            },
+            {
+              "description": "The secondary text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-list-item-color-text-secondary-enabled"
+            },
+            {
+              "description": "The secondary text color when interactive and focused. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-list-item-color-text-secondary-focus"
+            },
+            {
+              "description": "The secondary text color when interactive and hovered. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-list-item-color-text-secondary-hover"
+            },
+            {
+              "description": "The secondary text color when interactive and active. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-list-item-color-text-secondary-active"
+            },
+            {
+              "description": "The secondary text color when interactive and selected. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-list-item-color-text-secondary-selected"
+            },
+            {
+              "description": "The secondary text color when interactive and disabled. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-list-item-color-text-secondary-disabled"
             },
             {
               "description": "The right padding on the list-item container. Defaults to `--jh-dimension-600`.",
@@ -10329,24 +9766,16 @@
               "name": "--jh-list-item-space-padding-left"
             },
             {
+              "description": "The top padding on the list-item container. Defaults to `--jh-dimension-400`.",
+              "name": "--jh-list-item-space-padding-top"
+            },
+            {
+              "description": "The bottom padding on the list-item container. Defaults to `--jh-dimension-400`.",
+              "name": "--jh-list-item-space-padding-bottom"
+            },
+            {
               "description": "The list-item's height. Defaults to `auto`.",
               "name": "--jh-list-item-size-height"
-            },
-            {
-              "description": "The primary text color. Defaults to `--jh-color-content-primary-enabled`.",
-              "name": "--jh-list-item-color-text-primary"
-            },
-            {
-              "description": "The secondary text color. Defaults to `--jh-color-content-secondary-enabled`.",
-              "name": "--jh-list-item-color-text-secondary"
-            },
-            {
-              "description": "The primary metadata text color. Defaults to `--jh-color-content-primary-enabled`.",
-              "name": "--jh-list-item-metadata-color-text-primary"
-            },
-            {
-              "description": "The secondary metadata text color. Defaults to `--jh-color-content-secondary-enabled`.",
-              "name": "--jh-list-item-metadata-color-text-secondary"
             },
             {
               "description": "The list-item background-color when interactive and focused. Defaults to `--jh-color-container-primary-hover`.",
@@ -10365,17 +9794,73 @@
               "name": "--jh-list-item-color-background-active"
             },
             {
+              "description": "The list-item background-color when interactive and disabled. Defaults to `transparent`.",
+              "name": "--jh-list-item-color-background-disabled"
+            },
+            {
+              "description": "The list-item opacity when interactive and disabled. Defaults to `--jh-opacity-disabled`.",
+              "name": "--jh-list-item-opacity-disabled"
+            },
+            {
               "description": "The list-item background-color when interactive and selected. Defaults to `--jh-color-container-primary-selected`.",
               "name": "--jh-list-item-color-background-selected"
             },
             {
               "description": "The list-item border-left-color when interactive and selected. Defaults to `--jh-border-selected-color`.",
               "name": "--jh-list-item-color-border-selected"
+            },
+            {
+              "description": "The primary metadata text color. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-list-item-metadata-color-text-primary-enabled"
+            },
+            {
+              "description": "The primary metadata text color when interactive and focused. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-list-item-metadata-color-text-primary-focus"
+            },
+            {
+              "description": "The primary metadata text color when interactive and hovered. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-list-item-metadata-color-text-primary-hover"
+            },
+            {
+              "description": "The primary metadata text color when interactive and active. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-list-item-metadata-color-text-primary-active"
+            },
+            {
+              "description": "The primary metadata text color when interactive and selected. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-list-item-metadata-color-text-primary-selected"
+            },
+            {
+              "description": "The primary metadata text color when interactive and disabled. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-list-item-metadata-color-text-primary-disabled"
+            },
+            {
+              "description": "The secondary metadata text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-list-item-metadata-color-text-secondary-enabled"
+            },
+            {
+              "description": "The secondary metadata text color when interactive and focused. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-list-item-metadata-color-text-secondary-focus"
+            },
+            {
+              "description": "The secondary metadata text color when interactive and hovered. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-list-item-metadata-color-text-secondary-hover"
+            },
+            {
+              "description": "The secondary metadata text color when interactive and active. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-list-item-metadata-color-text-secondary-active"
+            },
+            {
+              "description": "The secondary metadata text color when interactive and selected. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-list-item-metadata-color-text-secondary-selected"
+            },
+            {
+              "description": "The secondary metadata text color when interactive and disabled. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-list-item-metadata-color-text-secondary-disabled"
             }
           ],
           "slots": [
             {
-              "description": "Use to insert fully customized content into the list-item. Cannot be used with the other slots.",
+              "description": "Use to insert custom content into the list-item.",
               "name": "default"
             },
             {
@@ -10385,14 +9870,6 @@
             {
               "description": "Use to insert custom content on the right the list-item.",
               "name": "jh-list-item-right"
-            },
-            {
-              "description": " Use to insert custom content into the list-item.",
-              "name": "jh-list-item-content"
-            },
-            {
-              "description": "Use to insert custom metadata into the list-item.",
-              "name": "jh-list-item-metadata"
             }
           ],
           "members": [
@@ -10421,17 +9898,6 @@
             },
             {
               "kind": "field",
-              "name": "primaryMetadata",
-              "privacy": "public",
-              "type": {
-                "text": "?string"
-              },
-              "description": "The text to show as primary metadata.",
-              "default": "null",
-              "attribute": "primary-metadata"
-            },
-            {
-              "kind": "field",
               "name": "primaryText",
               "privacy": "public",
               "type": {
@@ -10443,17 +9909,6 @@
             },
             {
               "kind": "field",
-              "name": "secondaryMetadata",
-              "privacy": "public",
-              "type": {
-                "text": "?string"
-              },
-              "description": "The text to show as secondary metadata.",
-              "default": "null",
-              "attribute": "secondary-metadata"
-            },
-            {
-              "kind": "field",
               "name": "secondaryText",
               "privacy": "public",
               "type": {
@@ -10462,6 +9917,28 @@
               "description": "The text to show as secondary text.",
               "default": "null",
               "attribute": "secondary-text"
+            },
+            {
+              "kind": "field",
+              "name": "primaryMetadata",
+              "privacy": "public",
+              "type": {
+                "text": "?string"
+              },
+              "description": "The text to show as primary metadata.",
+              "default": "null",
+              "attribute": "primary-metadata"
+            },
+            {
+              "kind": "field",
+              "name": "secondaryMetadata",
+              "privacy": "public",
+              "type": {
+                "text": "?string"
+              },
+              "description": "The text to show as secondary metadata.",
+              "default": "null",
+              "attribute": "secondary-metadata"
             },
             {
               "kind": "field",
@@ -10534,15 +10011,6 @@
               "fieldName": "dividerInset"
             },
             {
-              "name": "primary-metadata",
-              "type": {
-                "text": "?string"
-              },
-              "description": "The text to show as primary metadata.",
-              "default": "null",
-              "fieldName": "primaryMetadata"
-            },
-            {
               "name": "primary-text",
               "type": {
                 "text": "?string"
@@ -10552,15 +10020,6 @@
               "fieldName": "primaryText"
             },
             {
-              "name": "secondary-metadata",
-              "type": {
-                "text": "?string"
-              },
-              "description": "The text to show as secondary metadata.",
-              "default": "null",
-              "fieldName": "secondaryMetadata"
-            },
-            {
               "name": "secondary-text",
               "type": {
                 "text": "?string"
@@ -10568,6 +10027,24 @@
               "description": "The text to show as secondary text.",
               "default": "null",
               "fieldName": "secondaryText"
+            },
+            {
+              "name": "primary-metadata",
+              "type": {
+                "text": "?string"
+              },
+              "description": "The text to show as primary metadata.",
+              "default": "null",
+              "fieldName": "primaryMetadata"
+            },
+            {
+              "name": "secondary-metadata",
+              "type": {
+                "text": "?string"
+              },
+              "description": "The text to show as secondary metadata.",
+              "default": "null",
+              "fieldName": "secondaryMetadata"
             },
             {
               "name": "selected",
@@ -10586,6 +10063,30 @@
               "description": "Determines whether the divider is displayed below the list-item.",
               "default": "false",
               "fieldName": "showDivider"
+            },
+            {
+              "name": "_showFallback",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true",
+              "fieldName": "_showFallback"
+            },
+            {
+              "name": "_hasLeftSlotContent",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "_hasLeftSlotContent"
+            },
+            {
+              "name": "_hasRightSlotContent",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "_hasRightSlotContent"
             }
           ],
           "superclass": {
@@ -11058,6 +10559,297 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/progress/progress.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A progress indicator provides feedback to a user regarding loading and waiting states.\n\n[Progress Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-progress--docs)",
+          "name": "JhProgress",
+          "cssProperties": [
+            {
+              "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-progress-label-color"
+            },
+            {
+              "description": "The value text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-progress-value-color"
+            },
+            {
+              "description": "The track color. Defaults to `--jh-color-control-enabled`.",
+              "name": "--jh-progress-track-color"
+            },
+            {
+              "description": "The track border-radius. Defaults to `--jh-border-radius-50`.",
+              "name": "--jh-progress-track-border-radius"
+            },
+            {
+              "description": "The indicator color. Defaults to `--jh-color-content-brand-enabled`.",
+              "name": "--jh-progress-indicator-color"
+            },
+            {
+              "description": "The height of the linear progress bar track. Defaults to the size-based height.",
+              "name": "--jh-progress-track-size-linear"
+            },
+            {
+              "description": "The width and height of the circular progress indicator. Defaults to the size-based dimensions.",
+              "name": "--jh-progress-track-size-circular"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Provides information about the item which triggered the progress component.",
+              "default": "null",
+              "attribute": "label",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "accessibleLabel",
+              "privacy": "public",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+              "default": "null",
+              "attribute": "accessible-label"
+            },
+            {
+              "kind": "field",
+              "name": "min",
+              "privacy": "public",
+              "type": {
+                "text": "?number"
+              },
+              "description": "Defines the minimum allowed value and sets `aria-valuemin` attribute.",
+              "default": "0",
+              "attribute": "min"
+            },
+            {
+              "kind": "field",
+              "name": "max",
+              "privacy": "public",
+              "type": {
+                "text": "?number"
+              },
+              "description": "Defines the maximum allowed value and sets `aria-valuemax` attribute.",
+              "default": "100",
+              "attribute": "max"
+            },
+            {
+              "kind": "field",
+              "name": "accessibleValueText",
+              "privacy": "public",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Sets `aria-valuetext` on progress indicator to provide text alternative of `aria-valuenow`. To be used when progress cannot be represented as a number.",
+              "default": "null",
+              "attribute": "accessible-valuetext"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "privacy": "public",
+              "type": {
+                "text": "?number"
+              },
+              "description": "Specifies how much of the task has been completed. This value is used to calculate the percentage complete based on the min and max values.",
+              "default": "0",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "indeterminate",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Sets the indeterminate state on progress. To be used when progress cannot be calculated.",
+              "default": "false",
+              "attribute": "indeterminate",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "privacy": "public",
+              "type": {
+                "text": "'x-small'| 'small' | 'medium' | 'large'|'x-large'|'xx-large'"
+              },
+              "description": "Sets the size of the progress component.",
+              "default": "'medium'",
+              "attribute": "size",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "privacy": "public",
+              "type": {
+                "text": "'linear' | 'circular'"
+              },
+              "description": "Determines the style of progress to display.",
+              "default": "'linear'",
+              "attribute": "type",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hideValue",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the `value` text.",
+              "default": "false",
+              "attribute": "hide-value"
+            },
+            {
+              "kind": "field",
+              "name": "uniqueId",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "dispatchCustomEvent",
+              "parameters": [
+                {
+                  "name": "eventName"
+                },
+                {
+                  "name": "detail",
+                  "default": "{}"
+                }
+              ],
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "accessible-label",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+              "default": "null",
+              "fieldName": "accessibleLabel"
+            },
+            {
+              "name": "accessible-valuetext",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Sets `aria-valuetext` on progress indicator to provide text alternative of `aria-valuenow`. To be used when progress cannot be represented as a number.",
+              "default": "null",
+              "fieldName": "accessibleValueText"
+            },
+            {
+              "name": "hide-value",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the `value` text.",
+              "default": "false",
+              "fieldName": "hideValue"
+            },
+            {
+              "name": "indeterminate",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Sets the indeterminate state on progress. To be used when progress cannot be calculated.",
+              "default": "false",
+              "fieldName": "indeterminate"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "?string"
+              },
+              "description": "Provides information about the item which triggered the progress component.",
+              "default": "null",
+              "fieldName": "label"
+            },
+            {
+              "name": "max",
+              "type": {
+                "text": "?number"
+              },
+              "description": "Defines the maximum allowed value and sets `aria-valuemax` attribute.",
+              "default": "100",
+              "fieldName": "max"
+            },
+            {
+              "name": "min",
+              "type": {
+                "text": "?number"
+              },
+              "description": "Defines the minimum allowed value and sets `aria-valuemin` attribute.",
+              "default": "0",
+              "fieldName": "min"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "'x-small'| 'small' | 'medium' | 'large'|'x-large'|'xx-large'"
+              },
+              "description": "Sets the size of the progress component.",
+              "default": "'medium'",
+              "fieldName": "size"
+            },
+            {
+              "name": "type",
+              "type": {
+                "text": "'linear' | 'circular'"
+              },
+              "description": "Determines the style of progress to display.",
+              "default": "'linear'",
+              "fieldName": "type"
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "?number"
+              },
+              "description": "Specifies how much of the task has been completed. This value is used to calculate the percentage complete based on the min and max values.",
+              "default": "0",
+              "fieldName": "value"
+            }
+          ],
+          "superclass": {
+            "name": "JhElement",
+            "module": "/components/element/element.js"
+          },
+          "tagName": "jh-progress",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JhProgress",
+          "declaration": {
+            "name": "JhProgress",
+            "module": "components/progress/progress.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/radio/radio.js",
       "declarations": [
         {
@@ -11284,7 +11076,7 @@
           ],
           "events": [
             {
-              "description": "Dispatched when the state of the radio has changed.",
+              "description": "Dispatched when the state of the radio has changed. Event payload includes the value of the radio and can be accessed via `e.detail.state.value`.",
               "name": "jh-change"
             }
           ],
@@ -11365,289 +11157,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/progress/progress.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "A progress indicator provides feedback to a user regarding loading and waiting states.\n\n[Progress Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-progress--docs)",
-          "name": "JhProgress",
-          "cssProperties": [
-            {
-              "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`.",
-              "name": "--jh-progress-label-color"
-            },
-            {
-              "description": "The value text color. Defaults to `--jh-color-content-secondary-enabled`.",
-              "name": "--jh-progress-value-color"
-            },
-            {
-              "description": "The track color. Defaults to `--jh-color-control-enabled`.",
-              "name": "--jh-progress-track-color"
-            },
-            {
-              "description": "The track border-radius. Defaults to `--jh-border-radius-50`.",
-              "name": "--jh-progress-track-border-radius"
-            },
-            {
-              "description": "The indicator color. Defaults to `--jh-color-content-brand-enabled`.",
-              "name": "--jh-progress-indicator-color"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "label",
-              "privacy": "public",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Provides information about the item which triggered the progress component.",
-              "default": "null",
-              "attribute": "label",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "accessibleLabel",
-              "privacy": "public",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-              "default": "null",
-              "attribute": "accessible-label"
-            },
-            {
-              "kind": "field",
-              "name": "min",
-              "privacy": "public",
-              "type": {
-                "text": "?number"
-              },
-              "description": "Defines the minimum allowed value and sets `aria-valuemin` attribute.",
-              "default": "0",
-              "attribute": "min"
-            },
-            {
-              "kind": "field",
-              "name": "max",
-              "privacy": "public",
-              "type": {
-                "text": "?number"
-              },
-              "description": "Defines the maximum allowed value and sets `aria-valuemax` attribute.",
-              "default": "100",
-              "attribute": "max"
-            },
-            {
-              "kind": "field",
-              "name": "accessibleValueText",
-              "privacy": "public",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Sets `aria-valuetext` on progress indicator to provide text alternative of `aria-valuenow`. To be used when progress cannot be represented as a number.",
-              "default": "null",
-              "attribute": "accessible-valuetext"
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "privacy": "public",
-              "type": {
-                "text": "?number"
-              },
-              "description": "Specifies how much of the task has been completed. This value is used to calculate the percentage complete based on the min and max values.",
-              "default": "0",
-              "attribute": "value"
-            },
-            {
-              "kind": "field",
-              "name": "indeterminate",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Sets the indeterminate state on progress. To be used when progress cannot be calculated.",
-              "default": "false",
-              "attribute": "indeterminate",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "privacy": "public",
-              "type": {
-                "text": "'small' | 'medium' | 'large'"
-              },
-              "description": "Sets the size of the progress component.",
-              "default": "'medium'",
-              "attribute": "size",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "type",
-              "privacy": "public",
-              "type": {
-                "text": "'linear' | 'circular'"
-              },
-              "description": "Determines the style of progress to display.",
-              "default": "'linear'",
-              "attribute": "type",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "hideValue",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Hides the `value` text.",
-              "default": "false",
-              "attribute": "hide-value"
-            },
-            {
-              "kind": "field",
-              "name": "uniqueId",
-              "readonly": true,
-              "inheritedFrom": {
-                "name": "JhElement",
-                "module": "components/element/element.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "dispatchCustomEvent",
-              "parameters": [
-                {
-                  "name": "eventName"
-                },
-                {
-                  "name": "detail",
-                  "default": "{}"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhElement",
-                "module": "components/element/element.js"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "accessible-label",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-              "default": "null",
-              "fieldName": "accessibleLabel"
-            },
-            {
-              "name": "accessible-valuetext",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Sets `aria-valuetext` on progress indicator to provide text alternative of `aria-valuenow`. To be used when progress cannot be represented as a number.",
-              "default": "null",
-              "fieldName": "accessibleValueText"
-            },
-            {
-              "name": "hide-value",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Hides the `value` text.",
-              "default": "false",
-              "fieldName": "hideValue"
-            },
-            {
-              "name": "indeterminate",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Sets the indeterminate state on progress. To be used when progress cannot be calculated.",
-              "default": "false",
-              "fieldName": "indeterminate"
-            },
-            {
-              "name": "label",
-              "type": {
-                "text": "?string"
-              },
-              "description": "Provides information about the item which triggered the progress component.",
-              "default": "null",
-              "fieldName": "label"
-            },
-            {
-              "name": "max",
-              "type": {
-                "text": "?number"
-              },
-              "description": "Defines the maximum allowed value and sets `aria-valuemax` attribute.",
-              "default": "100",
-              "fieldName": "max"
-            },
-            {
-              "name": "min",
-              "type": {
-                "text": "?number"
-              },
-              "description": "Defines the minimum allowed value and sets `aria-valuemin` attribute.",
-              "default": "0",
-              "fieldName": "min"
-            },
-            {
-              "name": "size",
-              "type": {
-                "text": "'small' | 'medium' | 'large'"
-              },
-              "description": "Sets the size of the progress component.",
-              "default": "'medium'",
-              "fieldName": "size"
-            },
-            {
-              "name": "type",
-              "type": {
-                "text": "'linear' | 'circular'"
-              },
-              "description": "Determines the style of progress to display.",
-              "default": "'linear'",
-              "fieldName": "type"
-            },
-            {
-              "name": "value",
-              "type": {
-                "text": "?number"
-              },
-              "description": "Specifies how much of the task has been completed. This value is used to calculate the percentage complete based on the min and max values.",
-              "default": "0",
-              "fieldName": "value"
-            }
-          ],
-          "superclass": {
-            "name": "JhElement",
-            "module": "/components/element/element.js"
-          },
-          "tagName": "jh-progress",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JhProgress",
-          "declaration": {
-            "name": "JhProgress",
-            "module": "components/progress/progress.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/radio-group/radio-group.js",
       "declarations": [
         {
@@ -11698,10 +11207,6 @@
               "default": "null",
               "attribute": "value",
               "reflects": true
-            },
-            {
-              "kind": "method",
-              "name": "_syncDisabledToChildren"
             },
             {
               "kind": "field",
@@ -12524,96 +12029,7 @@
             },
             {
               "kind": "method",
-              "name": "_handleInput",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleKeydown",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleChange",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleSelect",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleMaxlength",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleClearButtonClick",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_handleSlotChange",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
               "name": "renderClearButton",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_getDescribedby",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -14840,90 +14256,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/tag-group/tag-group.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "A tag group is used to group `<jh-tag>` components to provide layout and alignment support. \n\n[Tag Group Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tag-group--docs)",
-          "name": "JhTagGroup",
-          "slots": [
-            {
-              "description": "Use to insert `<jh-tag>` component(s).",
-              "name": "default"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "alignment",
-              "privacy": "public",
-              "type": {
-                "text": "'start' | 'end'"
-              },
-              "description": "Sets the alignment of the tags.",
-              "default": "'start'",
-              "attribute": "alignment",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "uniqueId",
-              "readonly": true,
-              "inheritedFrom": {
-                "name": "JhElement",
-                "module": "components/element/element.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "dispatchCustomEvent",
-              "parameters": [
-                {
-                  "name": "eventName"
-                },
-                {
-                  "name": "detail",
-                  "default": "{}"
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhElement",
-                "module": "components/element/element.js"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "alignment",
-              "type": {
-                "text": "'start' | 'end'"
-              },
-              "description": "Sets the alignment of the tags.",
-              "default": "'start'",
-              "fieldName": "alignment"
-            }
-          ],
-          "superclass": {
-            "name": "JhElement",
-            "module": "/components/element/element.js"
-          },
-          "tagName": "jh-tag-group",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JhTagGroup",
-          "declaration": {
-            "name": "JhTagGroup",
-            "module": "components/tag-group/tag-group.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/toast/toast.js",
       "declarations": [
         {
@@ -15108,6 +14440,90 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/tag-group/tag-group.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A tag group is used to group `<jh-tag>` components to provide layout and alignment support. \n\n[Tag Group Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tag-group--docs)",
+          "name": "JhTagGroup",
+          "slots": [
+            {
+              "description": "Use to insert `<jh-tag>` component(s).",
+              "name": "default"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "alignment",
+              "privacy": "public",
+              "type": {
+                "text": "'start' | 'end'"
+              },
+              "description": "Sets the alignment of the tags.",
+              "default": "'start'",
+              "attribute": "alignment",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "uniqueId",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "dispatchCustomEvent",
+              "parameters": [
+                {
+                  "name": "eventName"
+                },
+                {
+                  "name": "detail",
+                  "default": "{}"
+                }
+              ],
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "alignment",
+              "type": {
+                "text": "'start' | 'end'"
+              },
+              "description": "Sets the alignment of the tags.",
+              "default": "'start'",
+              "fieldName": "alignment"
+            }
+          ],
+          "superclass": {
+            "name": "JhElement",
+            "module": "/components/element/element.js"
+          },
+          "tagName": "jh-tag-group",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JhTagGroup",
+          "declaration": {
+            "name": "JhTagGroup",
+            "module": "components/tag-group/tag-group.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/toast-controller/toast-controller.js",
       "declarations": [
         {
@@ -15219,6 +14635,10 @@
             {
               "description": "The tooltip text color. Defaults to `--jh-color-content-on-primary-enabled`.",
               "name": "--jh-tooltip-color-text"
+            },
+            {
+              "description": "The maximum width of the tooltip. Defaults to `160px`.",
+              "name": "--jh-tooltip-size-max-width"
             }
           ],
           "slots": [

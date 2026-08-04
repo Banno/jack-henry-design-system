@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
   "name": "@jack-henry/jh-elements",
-  "version": "2.0.0-beta.14",
+  "version": "2.0.0",
   "description-markup": "markdown",
   "contributions": {
     "html": {
@@ -40,6 +40,144 @@
                 "name": "maxCount",
                 "description": "Sets the max count to show. Appends `+` to the `max-count` when value is exceeded.",
                 "type": "?number"
+              },
+              {
+                "name": "uniqueId"
+              }
+            ],
+            "events": []
+          }
+        },
+        {
+          "name": "jh-card",
+          "description": "Cards are content structures that provide an entry point for more complex and detailed information.\n\n[Card Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-card--docs)\n---\n",
+          "doc-url": "",
+          "attributes": [
+            {
+              "name": "footer-divider-inset",
+              "description": "Sets the alignment of the left edge of the divider above the footer.",
+              "value": {
+                "type": "\"0\"|\"8\"|\"16\"|\"24\"|\"32\"|\"40\"|\"48\"|\"56\"|\"64\"|\"72\"|\"80\"|\"88\"|\"96\"|null",
+                "default": "null"
+              }
+            },
+            {
+              "name": "header-divider-inset",
+              "description": "Sets the alignment of the left edge of the divider below the header.",
+              "value": {
+                "type": "\"0\"|\"8\"|\"16\"|\"24\"|\"32\"|\"40\"|\"48\"|\"56\"|\"64\"|\"72\"|\"80\"|\"88\"|\"96\"|null",
+                "default": "null"
+              }
+            },
+            {
+              "name": "show-footer-divider",
+              "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
+              "name": "show-header-divider",
+              "description": "Adds a divider below the header to create a clearer definition between the header and body.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
+              "name": "padding",
+              "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
+              "value": {
+                "type": "'small' | 'medium' | 'none'",
+                "default": "'medium'"
+              }
+            },
+            {
+              "name": "header-subtitle",
+              "description": "Adds additional information about the card below the title.",
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
+            },
+            {
+              "name": "header-title",
+              "description": "Provides context for the content of the card.",
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
+            },
+            {
+              "name": "title-heading-level",
+              "description": "Informs assistive technologies what heading level the card title represents. Defaults to h2.",
+              "value": {
+                "type": "\"1\"|\"2\"|\"3\"|\"4\"|\"5\"|\"6\"",
+                "default": "2"
+              }
+            }
+          ],
+          "slots": [
+            {
+              "name": "default",
+              "description": "Use to insert card body content."
+            },
+            {
+              "name": "jh-card-media",
+              "description": "Use to insert media content in the top section of the card. User may need to add addtional styling to elements such as border, object-fit, etc."
+            },
+            {
+              "name": "jh-card-header",
+              "description": "Use to insert custom card header layout. Default layout includes `headerTitle` and `headerSubtitle` properties."
+            },
+            {
+              "name": "jh-card-footer",
+              "description": "Use to insert card footer content."
+            }
+          ],
+          "events": [],
+          "js": {
+            "properties": [
+              {
+                "name": "footerDividerInset",
+                "description": "Sets the alignment of the left edge of the divider above the footer.",
+                "type": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
+              },
+              {
+                "name": "headerDividerInset",
+                "description": "Sets the alignment of the left edge of the divider below the header.",
+                "type": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
+              },
+              {
+                "name": "titleHeadingLevel",
+                "description": "Informs assistive technologies what heading level the card title represents. Defaults to h2.",
+                "type": "1|2|3|4|5|6"
+              },
+              {
+                "name": "padding",
+                "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
+                "type": "'small' | 'medium' | 'none'"
+              },
+              {
+                "name": "showFooterDivider",
+                "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
+                "type": "boolean"
+              },
+              {
+                "name": "showHeaderDivider",
+                "description": "Adds a divider below the header to create a clearer definition between the header and body.",
+                "type": "boolean"
+              },
+              {
+                "name": "headerSubtitle",
+                "description": "Adds additional information about the card below the title.",
+                "type": "?string"
+              },
+              {
+                "name": "headerTitle",
+                "description": "Provides context for the content of the card.",
+                "type": "?string"
               },
               {
                 "name": "uniqueId"
@@ -251,152 +389,6 @@
                 "type": "'_blank' | '_self' | '_parent' | '_top' | null"
               },
               {
-                "name": "_hasLeftSlotContent",
-                "type": "boolean"
-              },
-              {
-                "name": "_hasRightSlotContent",
-                "type": "boolean"
-              },
-              {
-                "name": "uniqueId"
-              }
-            ],
-            "events": []
-          }
-        },
-        {
-          "name": "jh-card",
-          "description": "Cards are content structures that provide an entry point for more complex and detailed information.\n\n[Card Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-card--docs)\n---\n",
-          "doc-url": "",
-          "attributes": [
-            {
-              "name": "footer-divider-inset",
-              "description": "Sets the alignment of the left edge of the divider above the footer.",
-              "value": {
-                "type": "\"0\"|\"8\"|\"16\"|\"24\"|\"32\"|\"40\"|\"48\"|\"56\"|\"64\"|\"72\"|\"80\"|\"88\"|\"96\"|null",
-                "default": "null"
-              }
-            },
-            {
-              "name": "header-divider-inset",
-              "description": "Sets the alignment of the left edge of the divider below the header.",
-              "value": {
-                "type": "\"0\"|\"8\"|\"16\"|\"24\"|\"32\"|\"40\"|\"48\"|\"56\"|\"64\"|\"72\"|\"80\"|\"88\"|\"96\"|null",
-                "default": "null"
-              }
-            },
-            {
-              "name": "show-footer-divider",
-              "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
-              "value": {
-                "type": "boolean",
-                "default": "false"
-              }
-            },
-            {
-              "name": "show-header-divider",
-              "description": "Adds a divider below the header to create a clearer definition between the header and body.",
-              "value": {
-                "type": "boolean",
-                "default": "false"
-              }
-            },
-            {
-              "name": "padding",
-              "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
-              "value": {
-                "type": "'small' | 'medium' | 'none'",
-                "default": "'medium'"
-              }
-            },
-            {
-              "name": "header-subtitle",
-              "description": "Adds additional information about the card below the title.",
-              "value": {
-                "type": "?string",
-                "default": "null"
-              }
-            },
-            {
-              "name": "header-title",
-              "description": "Provides context for the content of the card.",
-              "value": {
-                "type": "?string",
-                "default": "null"
-              }
-            },
-            {
-              "name": "title-heading-level",
-              "description": "Informs assistive technologies what heading level the card title represents. Defaults to h2.",
-              "value": {
-                "type": "\"1\"|\"2\"|\"3\"|\"4\"|\"5\"|\"6\"",
-                "default": "2"
-              }
-            }
-          ],
-          "slots": [
-            {
-              "name": "default",
-              "description": "Use to insert card body content."
-            },
-            {
-              "name": "jh-card-media",
-              "description": "Use to insert media content in the top section of the card. User may need to add addtional styling to elements such as border, object-fit, etc."
-            },
-            {
-              "name": "jh-card-header",
-              "description": "Use to insert custom card header layout. Default layout includes `headerTitle` and `headerSubtitle` properties."
-            },
-            {
-              "name": "jh-card-footer",
-              "description": "Use to insert card footer content."
-            }
-          ],
-          "events": [],
-          "js": {
-            "properties": [
-              {
-                "name": "footerDividerInset",
-                "description": "Sets the alignment of the left edge of the divider above the footer.",
-                "type": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
-              },
-              {
-                "name": "headerDividerInset",
-                "description": "Sets the alignment of the left edge of the divider below the header.",
-                "type": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
-              },
-              {
-                "name": "titleHeadingLevel",
-                "description": "Informs assistive technologies what heading level the card title represents. Defaults to h2.",
-                "type": "1|2|3|4|5|6"
-              },
-              {
-                "name": "padding",
-                "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
-                "type": "'small' | 'medium' | 'none'"
-              },
-              {
-                "name": "showFooterDivider",
-                "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
-                "type": "boolean"
-              },
-              {
-                "name": "showHeaderDivider",
-                "description": "Adds a divider below the header to create a clearer definition between the header and body.",
-                "type": "boolean"
-              },
-              {
-                "name": "headerSubtitle",
-                "description": "Adds additional information about the card below the title.",
-                "type": "?string"
-              },
-              {
-                "name": "headerTitle",
-                "description": "Provides context for the content of the card.",
-                "type": "?string"
-              },
-              {
                 "name": "uniqueId"
               }
             ],
@@ -531,35 +523,6 @@
                 "description": "Dispatched when the state of the checkbox has changed. Event payload includes the `checked` state of the checkbox and can be accessed via `e.detail.state.checked`."
               }
             ]
-          }
-        },
-        {
-          "name": "jh-divider",
-          "description": "Dividers are used to group content vertically at the page or component level and should be used when whitespace does not provide a clear enough separation.\n\n[Divider Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-divider--docs)\n---\n",
-          "doc-url": "",
-          "attributes": [
-            {
-              "name": "inset",
-              "description": "The alignment of the left edge of the divider.",
-              "value": {
-                "type": "\"0\"|\"8\"|\"16\"|\"24\"|\"32\"|\"40\"|\"48\"|\"56\"|\"64\"|\"72\"|\"80\"|\"88\"|\"96\"|null",
-                "default": "null"
-              }
-            }
-          ],
-          "events": [],
-          "js": {
-            "properties": [
-              {
-                "name": "inset",
-                "description": "The alignment of the left edge of the divider.",
-                "type": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
-              },
-              {
-                "name": "uniqueId"
-              }
-            ],
-            "events": []
           }
         },
         {
@@ -702,6 +665,35 @@
           }
         },
         {
+          "name": "jh-divider",
+          "description": "Dividers are used to group content vertically at the page or component level and should be used when whitespace does not provide a clear enough separation.\n\n[Divider Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-divider--docs)\n---\n",
+          "doc-url": "",
+          "attributes": [
+            {
+              "name": "inset",
+              "description": "The alignment of the left edge of the divider.",
+              "value": {
+                "type": "\"0\"|\"8\"|\"16\"|\"24\"|\"32\"|\"40\"|\"48\"|\"56\"|\"64\"|\"72\"|\"80\"|\"88\"|\"96\"|null",
+                "default": "null"
+              }
+            }
+          ],
+          "events": [],
+          "js": {
+            "properties": [
+              {
+                "name": "inset",
+                "description": "The alignment of the left edge of the divider.",
+                "type": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
+              },
+              {
+                "name": "uniqueId"
+              }
+            ],
+            "events": []
+          }
+        },
+        {
           "name": "jh-icon",
           "description": "The icon component provides authors with a means to use their own SVG icons while still enabling access\nto our design tokens, encouraging consistency across your product. In addition to the icon component, Jack Henry \nalso maintains a robust icon library available as raw SVGs and as discrete web components, with each component \nutilizing our design tokens.\n\n[Icon Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-icon--docs)\n---\n",
           "doc-url": "",
@@ -710,7 +702,7 @@
               "name": "size",
               "description": "Sets the size of the icon.",
               "value": {
-                "type": "'x-small' | 'small' | 'medium' | 'large' | 'x-large'",
+                "type": "'x-small' | 'small' | 'medium' | 'large' | 'x-large'|'xx-large'",
                 "default": "'medium'"
               }
             }
@@ -731,7 +723,7 @@
               {
                 "name": "size",
                 "description": "Sets the size of the icon.",
-                "type": "'x-small' | 'small' | 'medium' | 'large' | 'x-large'"
+                "type": "'x-small' | 'small' | 'medium' | 'large' | 'x-large'|'xx-large'"
               },
               {
                 "name": "uniqueId"
@@ -3610,14 +3602,6 @@
               }
             },
             {
-              "name": "primary-metadata",
-              "description": "The text to show as primary metadata.",
-              "value": {
-                "type": "?string",
-                "default": "null"
-              }
-            },
-            {
               "name": "primary-text",
               "description": "The text to show as primary text.",
               "value": {
@@ -3626,16 +3610,24 @@
               }
             },
             {
-              "name": "secondary-metadata",
-              "description": "The text to show as secondary metadata.",
+              "name": "secondary-text",
+              "description": "The text to show as secondary text.",
               "value": {
                 "type": "?string",
                 "default": "null"
               }
             },
             {
-              "name": "secondary-text",
-              "description": "The text to show as secondary text.",
+              "name": "primary-metadata",
+              "description": "The text to show as primary metadata.",
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
+            },
+            {
+              "name": "secondary-metadata",
+              "description": "The text to show as secondary metadata.",
               "value": {
                 "type": "?string",
                 "default": "null"
@@ -3656,12 +3648,33 @@
                 "type": "boolean",
                 "default": "false"
               }
+            },
+            {
+              "name": "_showFallback",
+              "value": {
+                "type": "boolean",
+                "default": "true"
+              }
+            },
+            {
+              "name": "_hasLeftSlotContent",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
+              "name": "_hasRightSlotContent",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
             }
           ],
           "slots": [
             {
               "name": "default",
-              "description": "Use to insert fully customized content into the list-item. Cannot be used with the other slots."
+              "description": "Use to insert custom content into the list-item."
             },
             {
               "name": "jh-list-item-left",
@@ -3670,14 +3683,6 @@
             {
               "name": "jh-list-item-right",
               "description": "Use to insert custom content on the right the list-item."
-            },
-            {
-              "name": "jh-list-item-content",
-              "description": " Use to insert custom content into the list-item."
-            },
-            {
-              "name": "jh-list-item-metadata",
-              "description": "Use to insert custom metadata into the list-item."
             }
           ],
           "events": [],
@@ -3694,23 +3699,23 @@
                 "type": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
               },
               {
-                "name": "primaryMetadata",
-                "description": "The text to show as primary metadata.",
-                "type": "?string"
-              },
-              {
                 "name": "primaryText",
                 "description": "The text to show as primary text.",
                 "type": "?string"
               },
               {
-                "name": "secondaryMetadata",
-                "description": "The text to show as secondary metadata.",
+                "name": "secondaryText",
+                "description": "The text to show as secondary text.",
                 "type": "?string"
               },
               {
-                "name": "secondaryText",
-                "description": "The text to show as secondary text.",
+                "name": "primaryMetadata",
+                "description": "The text to show as primary metadata.",
+                "type": "?string"
+              },
+              {
+                "name": "secondaryMetadata",
+                "description": "The text to show as secondary metadata.",
                 "type": "?string"
               },
               {
@@ -3861,110 +3866,6 @@
           }
         },
         {
-          "name": "jh-radio",
-          "description": "Radio buttons, typically presented in radio groups, allow users to select only one option amongst a group of options.\n\n[Radio Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-radio--docs)\n---\n",
-          "doc-url": "",
-          "attributes": [
-            {
-              "name": "accessible-label",
-              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-              "value": {
-                "type": "?string",
-                "default": "null"
-              }
-            },
-            {
-              "name": "checked",
-              "description": "Sets the selected or 'checked' state on the radio.",
-              "value": {
-                "type": "boolean",
-                "default": "false"
-              }
-            },
-            {
-              "name": "disabled",
-              "description": "Disables the radio and prevents all user interactions. May cause radio to be ignored by assistive technologies(AT).",
-              "value": {
-                "type": "boolean",
-                "default": "false"
-              }
-            },
-            {
-              "name": "helper-text",
-              "description": "Provides additional context or guidance for using the radio. For `helper-text` to be displayed, the `label` property must also be set.",
-              "value": {
-                "type": "?string",
-                "default": "null"
-              }
-            },
-            {
-              "name": "label",
-              "description": "Sets the value of the data to be collected when selected.",
-              "value": {
-                "type": "?string",
-                "default": "null"
-              }
-            },
-            {
-              "name": "value",
-              "description": "Sets the value of the radio.",
-              "value": {
-                "type": "?string",
-                "default": "null"
-              }
-            }
-          ],
-          "events": [
-            {
-              "name": "jh-change",
-              "description": "Dispatched when the state of the radio has changed."
-            }
-          ],
-          "js": {
-            "properties": [
-              {
-                "name": "accessibleLabel",
-                "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-                "type": "?string"
-              },
-              {
-                "name": "checked",
-                "description": "Sets the selected or 'checked' state on the radio.",
-                "type": "boolean"
-              },
-              {
-                "name": "disabled",
-                "description": "Disables the radio and prevents all user interactions. May cause radio to be ignored by assistive technologies(AT).",
-                "type": "boolean"
-              },
-              {
-                "name": "helperText",
-                "description": "Provides additional context or guidance for using the radio. For `helper-text` to be displayed, the `label` property must also be set.",
-                "type": "?string"
-              },
-              {
-                "name": "label",
-                "description": "Sets the value of the data to be collected when selected.",
-                "type": "?string"
-              },
-              {
-                "name": "value",
-                "description": "Sets the value of the radio.",
-                "type": "?string"
-              },
-              {
-                "name": "uniqueId"
-              }
-            ],
-            "events": [
-              {
-                "name": "jh-change",
-                "description": "Dispatched when the state of the radio has changed."
-              }
-            ]
-          }
-        },
-        {
           "name": "jh-progress",
           "description": "A progress indicator provides feedback to a user regarding loading and waiting states.\n\n[Progress Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-progress--docs)\n---\n",
           "doc-url": "",
@@ -4029,7 +3930,7 @@
               "name": "size",
               "description": "Sets the size of the progress component.",
               "value": {
-                "type": "'small' | 'medium' | 'large'",
+                "type": "'x-small'| 'small' | 'medium' | 'large'|'x-large'|'xx-large'",
                 "default": "'medium'"
               }
             },
@@ -4091,7 +3992,7 @@
               {
                 "name": "size",
                 "description": "Sets the size of the progress component.",
-                "type": "'small' | 'medium' | 'large'"
+                "type": "'x-small'| 'small' | 'medium' | 'large'|'x-large'|'xx-large'"
               },
               {
                 "name": "type",
@@ -4108,6 +4009,110 @@
               }
             ],
             "events": []
+          }
+        },
+        {
+          "name": "jh-radio",
+          "description": "Radio buttons, typically presented in radio groups, allow users to select only one option amongst a group of options.\n\n[Radio Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-radio--docs)\n---\n",
+          "doc-url": "",
+          "attributes": [
+            {
+              "name": "accessible-label",
+              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
+            },
+            {
+              "name": "checked",
+              "description": "Sets the selected or 'checked' state on the radio.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
+              "name": "disabled",
+              "description": "Disables the radio and prevents all user interactions. May cause radio to be ignored by assistive technologies(AT).",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
+              "name": "helper-text",
+              "description": "Provides additional context or guidance for using the radio. For `helper-text` to be displayed, the `label` property must also be set.",
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
+            },
+            {
+              "name": "label",
+              "description": "Sets the value of the data to be collected when selected.",
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
+            },
+            {
+              "name": "value",
+              "description": "Sets the value of the radio.",
+              "value": {
+                "type": "?string",
+                "default": "null"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "jh-change",
+              "description": "Dispatched when the state of the radio has changed. Event payload includes the value of the radio and can be accessed via `e.detail.state.value`."
+            }
+          ],
+          "js": {
+            "properties": [
+              {
+                "name": "accessibleLabel",
+                "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+                "type": "?string"
+              },
+              {
+                "name": "checked",
+                "description": "Sets the selected or 'checked' state on the radio.",
+                "type": "boolean"
+              },
+              {
+                "name": "disabled",
+                "description": "Disables the radio and prevents all user interactions. May cause radio to be ignored by assistive technologies(AT).",
+                "type": "boolean"
+              },
+              {
+                "name": "helperText",
+                "description": "Provides additional context or guidance for using the radio. For `helper-text` to be displayed, the `label` property must also be set.",
+                "type": "?string"
+              },
+              {
+                "name": "label",
+                "description": "Sets the value of the data to be collected when selected.",
+                "type": "?string"
+              },
+              {
+                "name": "value",
+                "description": "Sets the value of the radio.",
+                "type": "?string"
+              },
+              {
+                "name": "uniqueId"
+              }
+            ],
+            "events": [
+              {
+                "name": "jh-change",
+                "description": "Dispatched when the state of the radio has changed. Event payload includes the value of the radio and can be accessed via `e.detail.state.value`."
+              }
+            ]
           }
         },
         {
@@ -5229,41 +5234,6 @@
           }
         },
         {
-          "name": "jh-tag-group",
-          "description": "A tag group is used to group `<jh-tag>` components to provide layout and alignment support. \n\n[Tag Group Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tag-group--docs)\n---\n",
-          "doc-url": "",
-          "attributes": [
-            {
-              "name": "alignment",
-              "description": "Sets the alignment of the tags.",
-              "value": {
-                "type": "'start' | 'end'",
-                "default": "'start'"
-              }
-            }
-          ],
-          "slots": [
-            {
-              "name": "default",
-              "description": "Use to insert `<jh-tag>` component(s)."
-            }
-          ],
-          "events": [],
-          "js": {
-            "properties": [
-              {
-                "name": "alignment",
-                "description": "Sets the alignment of the tags.",
-                "type": "'start' | 'end'"
-              },
-              {
-                "name": "uniqueId"
-              }
-            ],
-            "events": []
-          }
-        },
-        {
           "name": "jh-toast",
           "description": "The toast component displays a message that informs users on the outcome of an action. They are temporary by default, but can be modified to remain when needed.\n\n[Toast Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-toast--docs)\n---\n",
           "doc-url": "",
@@ -5357,6 +5327,41 @@
                 "description": "Dispatched when the toast is dismissed."
               }
             ]
+          }
+        },
+        {
+          "name": "jh-tag-group",
+          "description": "A tag group is used to group `<jh-tag>` components to provide layout and alignment support. \n\n[Tag Group Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tag-group--docs)\n---\n",
+          "doc-url": "",
+          "attributes": [
+            {
+              "name": "alignment",
+              "description": "Sets the alignment of the tags.",
+              "value": {
+                "type": "'start' | 'end'",
+                "default": "'start'"
+              }
+            }
+          ],
+          "slots": [
+            {
+              "name": "default",
+              "description": "Use to insert `<jh-tag>` component(s)."
+            }
+          ],
+          "events": [],
+          "js": {
+            "properties": [
+              {
+                "name": "alignment",
+                "description": "Sets the alignment of the tags.",
+                "type": "'start' | 'end'"
+              },
+              {
+                "name": "uniqueId"
+              }
+            ],
+            "events": []
           }
         },
         {
@@ -5494,6 +5499,58 @@
         {
           "name": "--jh-badge-color-text-enabled",
           "description": "The badge text color. Defaults to `--jh-color-content-on-negative-enabled`."
+        },
+        {
+          "name": "--jh-card-color-background",
+          "description": "The card background-color. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-card-border-radius",
+          "description": "The card border-radius. Defaults to `--jh-border-radius-200`."
+        },
+        {
+          "name": "--jh-card-color-border",
+          "description": "The card border color. Defaults to `--jh-border-decorative-color`."
+        },
+        {
+          "name": "--jh-card-media-aspect-ratio",
+          "description": "The media slot aspect-ratio. Defaults to `auto`."
+        },
+        {
+          "name": "--jh-card-media-space-padding",
+          "description": "The media slot padding. Defaults to `0`."
+        },
+        {
+          "name": "--jh-card-header-color-text",
+          "description": "The header text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-card-header-space-padding",
+          "description": "The header slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600 0`. When `padding=\"small\"`, defaults to `--jh-dimension-400 --jh-dimension-400 0`. When `padding=\"small\"` and `show-header-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none'` and `show-header-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`."
+        },
+        {
+          "name": "--jh-card-default-color-text",
+          "description": "The default slot text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-card-default-space-padding",
+          "description": "The default slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600`. When `padding=\"small\"`, defaults to `--jh-dimension-400`. When `padding=\"none\"`, defaults to `--jh-dimension-400 0`."
+        },
+        {
+          "name": "--jh-card-footer-color-text",
+          "description": "The footer slot text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-card-footer-space-padding",
+          "description": "The footer slot padding. Defaults to `0 --jh-dimension-600 --jh-dimension-400`. When `padding=\"small\"`, defaults to `0 --jh-dimension-400 --jh-dimension-400`. When `padding=\"small\"` and `show-footer-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none\"` and `show-footer-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`."
+        },
+        {
+          "name": "--jh-card-header-title-color-text",
+          "description": "The header title text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-card-header-subtitle-color-text",
+          "description": "The header subtitle text color. Defaults to `--jh-color-content-secondary-enabled`."
         },
         {
           "name": "--jh-button-color-background-primary-enabled",
@@ -5880,58 +5937,6 @@
           "description": "The button width of single icon buttons, and the button height. Button width and height defaults to `--jh-dimension-600` when `size=\"x-small\"`,`--jh-dimension-800` when `size=\"small\"`, `--jh-dimension-1000` when `size=\"medium\"`, and `--jh-dimension-1200` when `size=\"large\"`."
         },
         {
-          "name": "--jh-card-color-background",
-          "description": "The card background-color. Defaults to `--jh-color-container-primary-enabled`."
-        },
-        {
-          "name": "--jh-card-border-radius",
-          "description": "The card border-radius. Defaults to `--jh-border-radius-200`."
-        },
-        {
-          "name": "--jh-card-color-border",
-          "description": "The card border color. Defaults to `--jh-border-decorative-color`."
-        },
-        {
-          "name": "--jh-card-media-aspect-ratio",
-          "description": "The media slot aspect-ratio. Defaults to `auto`."
-        },
-        {
-          "name": "--jh-card-media-space-padding",
-          "description": "The media slot padding. Defaults to `0`."
-        },
-        {
-          "name": "--jh-card-header-color-text",
-          "description": "The header text color. Defaults to `--jh-color-content-primary-enabled`."
-        },
-        {
-          "name": "--jh-card-header-space-padding",
-          "description": "The header slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600 0`. When `padding=\"small\"`, defaults to `--jh-dimension-400 --jh-dimension-400 0`. When `padding=\"small\"` and `show-header-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none'` and `show-header-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`."
-        },
-        {
-          "name": "--jh-card-default-color-text",
-          "description": "The default slot text color. Defaults to `--jh-color-content-primary-enabled`."
-        },
-        {
-          "name": "--jh-card-default-space-padding",
-          "description": "The default slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600`. When `padding=\"small\"`, defaults to `--jh-dimension-400`. When `padding=\"none\"`, defaults to `--jh-dimension-400 0`."
-        },
-        {
-          "name": "--jh-card-footer-color-text",
-          "description": "The footer slot text color. Defaults to `--jh-color-content-secondary-enabled`."
-        },
-        {
-          "name": "--jh-card-footer-space-padding",
-          "description": "The footer slot padding. Defaults to `0 --jh-dimension-600 --jh-dimension-400`. When `padding=\"small\"`, defaults to `0 --jh-dimension-400 --jh-dimension-400`. When `padding=\"small\"` and `show-footer-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none\"` and `show-footer-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`."
-        },
-        {
-          "name": "--jh-card-header-title-color-text",
-          "description": "The header title text color. Defaults to `--jh-color-content-primary-enabled`."
-        },
-        {
-          "name": "--jh-card-header-subtitle-color-text",
-          "description": "The header subtitle text color. Defaults to `--jh-color-content-secondary-enabled`."
-        },
-        {
           "name": "--jh-checkbox-opacity-disabled",
           "description": "The checkbox opacity when disabled. Defaults to `--jh-opacity-disabled`."
         },
@@ -6112,22 +6117,6 @@
           "description": "The checkbox color when indeterminate status mark when disabled. Defaults to `--jh-color-content-on-brand-enabled`."
         },
         {
-          "name": "--jh-divider-border-width",
-          "description": "The divider width. Defaults to `--jh-border-decorative-width`."
-        },
-        {
-          "name": "--jh-divider-border-style",
-          "description": "The divider style. Defaults to `--jh-border-decorative-style`."
-        },
-        {
-          "name": "--jh-divider-color-border",
-          "description": "The divider color. Defaults to `--jh-border-decorative-color`."
-        },
-        {
-          "name": "--jh-divider-space-inset",
-          "description": "The divider margin-left. Defaults to `0`."
-        },
-        {
           "name": "--jh-checkbox-group-label-color-text",
           "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
         },
@@ -6152,6 +6141,22 @@
           "description": "The error-text text color. Defaults to `--jh-color-content-negative-enabled`."
         },
         {
+          "name": "--jh-divider-border-width",
+          "description": "The divider width. Defaults to `--jh-border-decorative-width`."
+        },
+        {
+          "name": "--jh-divider-border-style",
+          "description": "The divider style. Defaults to `--jh-border-decorative-style`."
+        },
+        {
+          "name": "--jh-divider-color-border",
+          "description": "The divider color. Defaults to `--jh-border-decorative-color`."
+        },
+        {
+          "name": "--jh-divider-space-inset",
+          "description": "The divider margin-left. Defaults to `0`."
+        },
+        {
           "name": "--jh-icon-color-fill",
           "description": "The icon color. Defaults to `--jh-color-content-secondary-enabled`."
         },
@@ -6174,6 +6179,10 @@
         {
           "name": "--jh-icon-size-extra-large",
           "description": "The icon size when `size=\"extra-large\"`. Defaults to `--jh-dimension-1400`."
+        },
+        {
+          "name": "--jh-icon-size-extra-extra-large",
+          "description": "The icon size when `size=\"extra-extra-large\"`. Defaults to `--jh-dimension-2100`."
         },
         {
           "name": "--jh-input-label-color-text",
@@ -7064,12 +7073,56 @@
           "description": "The subheader padding-left. Defaults to `--jh-dimension-600`"
         },
         {
-          "name": "--jh-list-item-color-background",
+          "name": "--jh-list-item-color-background-enabled",
           "description": "The list-item container's background-color. Defaults to `transparent`."
         },
         {
-          "name": "--jh-list-item-color-text",
-          "description": "The default, left, text, metadata, right, primary, and secondary slot text color. Defaults to `--jh-color-content-primary-enabled`."
+          "name": "--jh-list-item-color-text-primary-enabled",
+          "description": "The list-item text color for the default, left, right slots and primary text. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-primary-focus",
+          "description": "The list-item text color for the default, left, right slots and primary text when interactive and focused. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-primary-hover",
+          "description": "The list-item text color for the default, left, right slots and primary text when interactive and hovered. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-primary-active",
+          "description": "The list-item text color for the default, left, right slots and primary text when interactive and active. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-primary-selected",
+          "description": "The list-item text color for the default, left, right slots and primary text when interactive and selected. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-primary-disabled",
+          "description": "The list-item text color for the default, left, right slots and primary text when interactive and disabled. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary-enabled",
+          "description": "The secondary text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary-focus",
+          "description": "The secondary text color when interactive and focused. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary-hover",
+          "description": "The secondary text color when interactive and hovered. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary-active",
+          "description": "The secondary text color when interactive and active. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary-selected",
+          "description": "The secondary text color when interactive and selected. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary-disabled",
+          "description": "The secondary text color when interactive and disabled. Defaults to `--jh-color-content-secondary-enabled`."
         },
         {
           "name": "--jh-list-item-space-padding-right",
@@ -7080,24 +7133,16 @@
           "description": "The left padding on the list-item container. Defaults to `--jh-dimension-600`."
         },
         {
+          "name": "--jh-list-item-space-padding-top",
+          "description": "The top padding on the list-item container. Defaults to `--jh-dimension-400`."
+        },
+        {
+          "name": "--jh-list-item-space-padding-bottom",
+          "description": "The bottom padding on the list-item container. Defaults to `--jh-dimension-400`."
+        },
+        {
           "name": "--jh-list-item-size-height",
           "description": "The list-item's height. Defaults to `auto`."
-        },
-        {
-          "name": "--jh-list-item-color-text-primary",
-          "description": "The primary text color. Defaults to `--jh-color-content-primary-enabled`."
-        },
-        {
-          "name": "--jh-list-item-color-text-secondary",
-          "description": "The secondary text color. Defaults to `--jh-color-content-secondary-enabled`."
-        },
-        {
-          "name": "--jh-list-item-metadata-color-text-primary",
-          "description": "The primary metadata text color. Defaults to `--jh-color-content-primary-enabled`."
-        },
-        {
-          "name": "--jh-list-item-metadata-color-text-secondary",
-          "description": "The secondary metadata text color. Defaults to `--jh-color-content-secondary-enabled`."
         },
         {
           "name": "--jh-list-item-color-background-focus",
@@ -7116,12 +7161,68 @@
           "description": "The list-item background-color when interactive and active. Defaults to `--jh-color-container-primary-active`."
         },
         {
+          "name": "--jh-list-item-color-background-disabled",
+          "description": "The list-item background-color when interactive and disabled. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-list-item-opacity-disabled",
+          "description": "The list-item opacity when interactive and disabled. Defaults to `--jh-opacity-disabled`."
+        },
+        {
           "name": "--jh-list-item-color-background-selected",
           "description": "The list-item background-color when interactive and selected. Defaults to `--jh-color-container-primary-selected`."
         },
         {
           "name": "--jh-list-item-color-border-selected",
           "description": "The list-item border-left-color when interactive and selected. Defaults to `--jh-border-selected-color`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-primary-enabled",
+          "description": "The primary metadata text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-primary-focus",
+          "description": "The primary metadata text color when interactive and focused. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-primary-hover",
+          "description": "The primary metadata text color when interactive and hovered. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-primary-active",
+          "description": "The primary metadata text color when interactive and active. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-primary-selected",
+          "description": "The primary metadata text color when interactive and selected. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-primary-disabled",
+          "description": "The primary metadata text color when interactive and disabled. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-secondary-enabled",
+          "description": "The secondary metadata text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-secondary-focus",
+          "description": "The secondary metadata text color when interactive and focused. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-secondary-hover",
+          "description": "The secondary metadata text color when interactive and hovered. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-secondary-active",
+          "description": "The secondary metadata text color when interactive and active. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-secondary-selected",
+          "description": "The secondary metadata text color when interactive and selected. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-secondary-disabled",
+          "description": "The secondary metadata text color when interactive and disabled. Defaults to `--jh-color-content-secondary-enabled`."
         },
         {
           "name": "--jh-menu-z-index",
@@ -7324,6 +7425,34 @@
           "description": "The action button(s) progress indicator color when pending. Defaults to `--jh-color-content-inverse-enabled`."
         },
         {
+          "name": "--jh-progress-label-color",
+          "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-progress-value-color",
+          "description": "The value text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-progress-track-color",
+          "description": "The track color. Defaults to `--jh-color-control-enabled`."
+        },
+        {
+          "name": "--jh-progress-track-border-radius",
+          "description": "The track border-radius. Defaults to `--jh-border-radius-50`."
+        },
+        {
+          "name": "--jh-progress-indicator-color",
+          "description": "The indicator color. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-progress-track-size-linear",
+          "description": "The height of the linear progress bar track. Defaults to the size-based height."
+        },
+        {
+          "name": "--jh-progress-track-size-circular",
+          "description": "The width and height of the circular progress indicator. Defaults to the size-based dimensions."
+        },
+        {
           "name": "--jh-radio-opacity-disabled",
           "description": "The radio opacity when disabled. Defaults to `--jh-opacity-disabled`."
         },
@@ -7442,26 +7571,6 @@
         {
           "name": "--jh-radio-status-color-background-selected-disabled",
           "description": "The status mark color when selected and disabled. Defaults to `--jh-color-content-brand-enabled`."
-        },
-        {
-          "name": "--jh-progress-label-color",
-          "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
-        },
-        {
-          "name": "--jh-progress-value-color",
-          "description": "The value text color. Defaults to `--jh-color-content-secondary-enabled`."
-        },
-        {
-          "name": "--jh-progress-track-color",
-          "description": "The track color. Defaults to `--jh-color-control-enabled`."
-        },
-        {
-          "name": "--jh-progress-track-border-radius",
-          "description": "The track border-radius. Defaults to `--jh-border-radius-50`."
-        },
-        {
-          "name": "--jh-progress-indicator-color",
-          "description": "The indicator color. Defaults to `--jh-color-content-brand-enabled`."
         },
         {
           "name": "--jh-radio-group-label-color-text",
@@ -8278,6 +8387,10 @@
         {
           "name": "--jh-tooltip-color-text",
           "description": "The tooltip text color. Defaults to `--jh-color-content-on-primary-enabled`."
+        },
+        {
+          "name": "--jh-tooltip-size-max-width",
+          "description": "The maximum width of the tooltip. Defaults to `160px`."
         }
       ],
       "pseudo-elements": []

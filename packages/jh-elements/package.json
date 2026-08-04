@@ -1,12 +1,11 @@
 {
   "name": "@jack-henry/jh-elements",
-  "description": "Jack Henry's design system web components.",
-  "version": "2.0.0-beta.14",
+  "description": "Forge Design System web components.",
+  "version": "2.0.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Banno/jack-henry-design-system.git"
   },
-  "type": "module",
   "customElements": "custom-elements.json",
   "web-types": "web-types.json",
   "contributors": [
@@ -14,6 +13,7 @@
     "Brad McCormick",
     "Maya Buser De"
   ],
+  "type": "module",
   "license": "Apache-2.0",
   "files": [
     "components/**/!(*.stories).js",
@@ -29,23 +29,23 @@
     "storybook": "storybook dev --port 6006",
     "build-storybook": "storybook build",
     "analyze": "cem analyze --config scripts/custom-elements-manifest.config.js && pnpm run postanalyze",
-    "postanalyze": "node scripts/clean-web-types-numbers.js",
+    "postanalyze": "node scripts/process-deprecated.js && node scripts/clean-web-types-numbers.js",
     "types": "node scripts/generate-declaration-files.js",
     "define": "pnpm run analyze && pnpm run types",
     "prepack": "cp ../../NOTICE .",
     "postpack": "rm -f NOTICE"
   },
   "dependencies": {
-    "@jack-henry/jh-tokens": "workspace:2.0.0-beta.9",
-    "@jack-henry/jh-icons": "workspace:2.0.0-beta.8",
+    "@jack-henry/jh-tokens": "workspace:2.0.0",
+    "@jack-henry/jh-icons": "workspace:2.0.0",
     "lit": "3.3.1"
   },
   "devDependencies": {
-    "@jack-henry/jh-datasets": "workspace:2.0.0-beta.1",
+    "@jack-henry/jh-datasets": "workspace:2.0.0",
     "@custom-elements-manifest/analyzer": "0.10.8",
     "@storybook/addon-a11y": "10.4.0",
     "@storybook/web-components-vite": "10.4.0",
-    "chromatic": "5.8.3",
+    "chromatic": "18.1.0",
     "custom-element-jet-brains-integration": "1.7.0",
     "hygen": "6.2.11",
     "storybook": "10.4.0",

@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@jack-henry/jh-icons": "workspace:2.0.0-beta.8",
-   "@jack-henry/jh-elements": "workspace:2.0.0-beta.14",
+    "@jack-henry/jh-icons": "workspace:2.0.0",
+    "@jack-henry/jh-elements": "workspace:2.0.0",
     "lit": "3.3.1"
   },
   "devDependencies": {

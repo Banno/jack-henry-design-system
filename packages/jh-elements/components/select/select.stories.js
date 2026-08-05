@@ -93,7 +93,6 @@ function logCustomEvent(name, e) {
 export default {
   component: 'jh-select',
   title: 'Components/Select',
-  tags: ['beta'],
   decorators: [
       (story) => html`
         <div class="story-decorator"
@@ -404,58 +403,6 @@ FormAssociated.argTypes = {
 };
 
 FormAssociated.parameters = {
-  styles: storyStyles,
-};
-
-export const ProgrammaticValueChange = {
-  render: () => {
-    const baseOptions = [
-      { label: 'Checking', value: 'checking' },
-      { label: 'Savings', value: 'savings' },
-      { label: 'Money Market', value: 'money-market' },
-      { label: 'Certificate of Deposit', value: 'cd' },
-    ];
-
-    const setSelected = (selectedValue) => {
-      const select = document.querySelector('#programmatic-select');
-      if (select) {
-        select.value = selectedValue;
-      }
-    };
-
-    const clearSelected = () => {
-      const select = document.querySelector('#programmatic-select');
-      if (select) {
-        select.value = null;
-      }
-    };
-
-    return html`
-      <div class="select-container">
-        <jh-select
-          id="programmatic-select"
-          label="Programmatic value change"
-          helper-text="Use the buttons below to change the selected option via .value"
-          value="cd"
-          .options=${baseOptions}
-        ></jh-select>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
-          <jh-button label="Select 'checking'" @click=${() => setSelected('checking')}></jh-button>
-          <jh-button label="Select 'savings'" @click=${() => setSelected('savings')}></jh-button>
-          <jh-button label="Select 'money-market'" @click=${() => setSelected('money-market')}></jh-button>
-          <jh-button label="Select 'cd'" @click=${() => setSelected('cd')}></jh-button>
-          <jh-button label="Clear selection" appearance="secondary" @click=${() => clearSelected()}></jh-button>
-        </div>
-      </div>
-    `;
-  },
-};
-
-ProgrammaticValueChange.argTypes = {
-  ...disableControls,
-};
-
-ProgrammaticValueChange.parameters = {
   styles: storyStyles,
 };
 

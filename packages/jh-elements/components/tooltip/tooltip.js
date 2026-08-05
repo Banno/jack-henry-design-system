@@ -293,6 +293,7 @@ export class JhTooltip extends JhElement {
   }
 
   //calls flipTooltip whenever the tooltip is updated, including manually opened with 'open' property.
+  /** @protected */
   updated() {
     if (this.open) this.#flipTooltip();
   }
@@ -468,6 +469,7 @@ export class JhTooltip extends JhElement {
     return elemEdge + elemDimension / 2 - tooltipDimension / 2 > 0;
   }
 
+  /** @protected */
   render() {
     return html`
       <slot @slotchange=${this.#handleSlotChange}></slot>

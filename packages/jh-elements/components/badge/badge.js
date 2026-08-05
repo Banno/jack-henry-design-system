@@ -55,12 +55,13 @@ export class JhBadge extends JhElement {
 
   constructor() {
     super();
-    /** @type {?number} */
+    /** @type {number | null} */
     this.count = null;
-    /** @type {?number} */
+    /** @type {number | null} */
     this.maxCount = 99;
   }
 
+  /** @protected */
   render() {
     let count;
 

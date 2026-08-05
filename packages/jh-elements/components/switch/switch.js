@@ -242,15 +242,15 @@ export class JhSwitch extends JhElement {
     super();
     /** @type { 'true' | 'false' | null } */
     this.accessibleDisabled = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.accessibleLabel = null;
     /** @type {boolean} */
     this.checked = false;
     /** @type {boolean} */
     this.disabled = false;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.helperText = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.label = null;
   }
 
@@ -261,6 +261,7 @@ export class JhSwitch extends JhElement {
     }
   }
 
+  /** @protected */
   render() {
     let helperText;
     let label;

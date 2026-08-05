@@ -447,20 +447,23 @@ export class JhListItem extends JhElement {
     this.disabled = false;
     /** @type { 0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null } */
     this.dividerInset = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.primaryText = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.secondaryText = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.primaryMetadata = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.secondaryMetadata = null;
     /** @type {boolean} */
     this.selected = false;
     /** @type {boolean} */
     this.showDivider = false;
+    /** @internal @type {boolean} */
     this._showFallback = true;
+    /** @internal @type {boolean} */
     this._hasLeftSlotContent = false;
+    /** @internal @type {boolean} */
     this._hasRightSlotContent = false;
   }
 
@@ -488,6 +491,7 @@ export class JhListItem extends JhElement {
   }
 }
 
+  /** @protected */
   render() {
     let showDivider;
 

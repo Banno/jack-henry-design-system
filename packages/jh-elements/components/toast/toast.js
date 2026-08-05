@@ -102,7 +102,7 @@ export class JhToast extends JhElement {
     super();
     /** @type {number} */
     this.timeout = 5000;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.dismissButtonAccessibleLabel = null;
     /** @type {boolean} */
     this.hideDismissButton = false;
@@ -111,6 +111,7 @@ export class JhToast extends JhElement {
     this.addEventListener('jh-dismiss', this.#handleDismiss);
   }
 
+  /** @protected */
   firstUpdated() {
     this.#startTimeout();
   }
@@ -144,6 +145,7 @@ export class JhToast extends JhElement {
     }
   }
 
+  /** @protected */
   render() {
     return html`
       <jh-notification

@@ -271,7 +271,7 @@ export class JhTable extends JhElement {
     this.striped = false;
     /** @type { 'medium' | 'small' } */
     this.padding = 'medium';
-    /** @type {?string} */
+    /** @type {string | null} */
     this.accessibleLabel = null;
     /** @type {boolean} */
     this.stickyHeader = false;
@@ -290,6 +290,7 @@ export class JhTable extends JhElement {
     }
   }
 
+  /** @protected */
   async firstUpdated() {
     if (!this.scrollable) return;
 
@@ -336,6 +337,7 @@ export class JhTable extends JhElement {
     }
   }
 
+  /** @protected */
   render() {
     return html`
       <slot name="jh-table-caption" id="table-caption-${this.uniqueId}" @slotchange=${this.#handleSlot}></slot>

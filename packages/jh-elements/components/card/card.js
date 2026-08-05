@@ -260,9 +260,9 @@ export class JhCard extends JhElement {
     this.showFooterDivider = false;
     /** @type {boolean} */
     this.showHeaderDivider = false;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.headerSubtitle = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.headerTitle = null;
   }
 
@@ -299,6 +299,7 @@ export class JhCard extends JhElement {
     }
   }
 
+  /** @protected */
   render() {
     let cardHeader;
     let headerDivider;

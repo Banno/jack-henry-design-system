@@ -249,7 +249,7 @@ export class JhNotification extends JhElement {
     super();
     /** @type { 'positive' | 'neutral' | 'negative' } */
     this.appearance = 'neutral';
-    /** @type {?string} */
+    /** @type {string | null} */
     this.dismissButtonAccessibleLabel = null;
     /** @type {boolean} */
     this.hideDismissButton = false;
@@ -300,6 +300,7 @@ export class JhNotification extends JhElement {
     }
   }
 
+  /** @protected */
   render() {
     let dismissBtn;
     

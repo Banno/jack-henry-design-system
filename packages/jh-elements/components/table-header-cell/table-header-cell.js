@@ -220,7 +220,7 @@ export class JhTableHeaderCell extends JhElement {
     this.horizontalAlign = 'left';
     /** @type {boolean} */
     this.sortable = false;
-    /** @type { 'none' | 'ascending' | 'descending' } */
+    /** @type { 'none' | 'ascending' | 'descending' | null } */
     this.sorted = 'none';
   }
 
@@ -293,6 +293,7 @@ export class JhTableHeaderCell extends JhElement {
     }
   } 
 
+  /** @protected */
   render() {
     return this.sortable ? 
     html`

@@ -69,7 +69,7 @@ export class JhCheckbox extends JhElement {
   #checked;
   /** @type {boolean} */
   #indeterminate;
-  /** @type {?string} */
+  /** @type {string | null} */
   #value;
 
   static get styles() {
@@ -461,21 +461,21 @@ export class JhCheckbox extends JhElement {
     this.indeterminate = false;
     /** @type {boolean} */
     this.disabled = false;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.label = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.helperText = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.name = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.value = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.accessibleLabel = null;
   }
 
   /**
    * Returns the checkbox's parent form element.
-   * @type {?HTMLFormElement}
+   * @type {HTMLFormElement | null}
    */
   get form() {
     return this.internals.form;
@@ -484,11 +484,12 @@ export class JhCheckbox extends JhElement {
   get validity() {
     return this.internals.validity;
   }
-  /** @type {?string} */
-    get value() {
+  /** @type {string | null} */
+  get value() {
     return this.#value;
   }
 
+  /** @param {string | null} newValue */
   set value(newValue) {
     const oldValue = this.#value;
     if (newValue !== oldValue) {
@@ -502,6 +503,7 @@ export class JhCheckbox extends JhElement {
     return this.#checked;
   }
 
+  /** @param {boolean} newValue */
   set checked(newValue) {
     const oldValue = this.#checked;
     if (newValue !== oldValue) {
@@ -515,6 +517,7 @@ export class JhCheckbox extends JhElement {
     return this.#indeterminate;
   }
 
+  /** @param {boolean} newValue */
   set indeterminate(newValue) {
     const oldValue = this.#indeterminate;
     if (newValue !== oldValue) {
@@ -541,6 +544,7 @@ export class JhCheckbox extends JhElement {
     });
   }
 
+  /** @protected */
   render() {
     let helperText;
     let label;

@@ -25,6 +25,7 @@ export class JhInputUrl extends JhInput {
     ];
   }
 
+  /** @protected */
   firstUpdated() {
     super.firstUpdated();
     let inputEl = this.shadowRoot.querySelector('input');

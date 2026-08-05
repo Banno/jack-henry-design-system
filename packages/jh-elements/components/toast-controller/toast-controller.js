@@ -115,6 +115,7 @@ export class JhToastController extends LitElement {
     this.appendChild(toast);
   }
 
+  /** @protected */
   render() {
     return html`
       <slot @slotchange=${this.#handleSlotChange}></slot>

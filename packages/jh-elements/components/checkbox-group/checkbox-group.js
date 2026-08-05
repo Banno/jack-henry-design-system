@@ -194,15 +194,15 @@ export class JhCheckboxGroup extends JhElement {
     super();
     /** @type {boolean} */
     this.disabled = false;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.accessibleLabel = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.errorText = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.helperText = null;
     /** @type {boolean} */
     this.invalid = false;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.label = null;
     /** @type {boolean} */
     this.required = false;
@@ -212,11 +212,16 @@ export class JhCheckboxGroup extends JhElement {
     this.showIndicator = false;
   }
 
+  /** @protected */
   firstUpdated() {
     const slot = this.renderRoot?.querySelector('slot');
     this.#syncDisabledToChildren();
   }
 
+  /**
+   * @protected
+   * @param {import('lit').PropertyValues} changedProperties
+   */
   updated(changedProperties) {
     if (changedProperties.has('disabled')) {
       this.#syncDisabledToChildren();
@@ -245,6 +250,7 @@ export class JhCheckboxGroup extends JhElement {
     }
   }
 
+  /** @protected */
   render() {
     let indicator;
     let helperText;

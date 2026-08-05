@@ -6,7 +6,6 @@ import { css, html } from 'lit';
 import { JhElement } from '../element/element.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-let id = 0;
 /**
  * The list group component is a container used to group together list items within a list.
  * 
@@ -72,12 +71,13 @@ export class JhListGroup extends JhElement {
 
   constructor() {
     super();
-    /** @type {?string} */
+    /** @type {string | null} */
     this.label = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.accessibleLabel = null;
   }
 
+  /** @protected */
   render() {
     return html`
       ${this.label

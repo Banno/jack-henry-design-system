@@ -49,6 +49,7 @@ export class JhTagGroup extends JhElement {
     this.alignment = 'start';
   }
 
+  /** @protected */
   render() {
     return html` <slot></slot> `;
   }

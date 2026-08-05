@@ -320,17 +320,17 @@ export class JhRadio extends JhElement {
   constructor() {
     super();
     this.internals.role = 'radio';
-    /** @type {?string} */
+    /** @type {string | null} */
     this.accessibleLabel = null;
     /** @type {boolean} */
     this.checked = false;
     /** @type {boolean} */
     this.disabled = false;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.helperText = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.label = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.value = null;
 
     this.addEventListener('click', this.#handleClick);
@@ -383,6 +383,7 @@ export class JhRadio extends JhElement {
     }
   }
 
+  /** @protected */
   render() {
     let helperText;
     let label;

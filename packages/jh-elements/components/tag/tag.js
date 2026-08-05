@@ -327,19 +327,19 @@ export class JhTag extends JhElement {
 
   constructor() {
     super();
-    /** @type {?string} */
+    /** @type {string | null} */
     this.label = null;
     /** @type {boolean} */
     this.dismissible = false;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.dismissButtonAccessibleLabel = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.tooltipLabel = null;
     /** @type { 'small' | 'medium' } */
     this.size = 'small';
-    /** @type {?string} */
+    /** @type {string | null} */
     this.href = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.target = null;
     /** @type {boolean} */
     this.removeOnDismiss = false;
@@ -410,6 +410,7 @@ export class JhTag extends JhElement {
     return content;
   }
 
+  /** @protected */
   render() {
     return html` 
     <span class="container">

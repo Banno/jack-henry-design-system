@@ -32,9 +32,9 @@ export class JhRadioGroup extends JhElement {
   static get formAssociated() {
     return true;
   }
-  
+  /** @type {Element | null} */
   #checked;
-  /** @type {?string} */
+  /** @type {string | null} */
   #value;
 
   static get styles() {
@@ -209,19 +209,19 @@ export class JhRadioGroup extends JhElement {
   }
   constructor() {
     super();
-    /** @type {?string} */
+    /** @type {string | null} */
     this.accessibleLabel = null;
     /** @type {boolean} */
     this.disabled = false;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.errorText = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.helperText = null;
     /** @type {boolean} */
     this.invalid = false;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.label = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.name = null;
     /** @type {boolean} */
     this.required = false;
@@ -229,7 +229,7 @@ export class JhRadioGroup extends JhElement {
     this.orientation = 'vertical';
     /** @type {boolean} */
     this.showIndicator = false;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.value = null;
 
     this.addEventListener('jh-change', this.#handleChange);
@@ -237,19 +237,24 @@ export class JhRadioGroup extends JhElement {
     this.addEventListener('focusout', this.#handleFocusOut);
   }
 
+  /** @protected */
   firstUpdated() {
-    this._syncDisabledToChildren();
+    this.#syncDisabledToChildren();
   }
 
+  /**
+   * @protected
+   * @param {import('lit').PropertyValues} changedProperties
+   */
   updated(changedProperties) {
     if (changedProperties.has('disabled')) {
-      this._syncDisabledToChildren();
+      this.#syncDisabledToChildren();
     }
   }
 
   /**
    * Returns the radio group's parent form element.
-   * @type {?HTMLFormElement}
+   * @type {HTMLFormElement | null}
    */
   get form() {
     return this.internals.form;
@@ -260,11 +265,12 @@ export class JhRadioGroup extends JhElement {
     return this.internals.validity;
   }
 
-  /** @type {?string} */
+  /** @type {string | null} */
   get value() {
     return this.#value;
   }
 
+  /** @param {string | null} newValue */
   set value(newValue) {
     const oldValue = this.#value;
     if (newValue !== oldValue) {
@@ -274,7 +280,7 @@ export class JhRadioGroup extends JhElement {
     this.requestUpdate('value', oldValue);
   }
 
-  _syncDisabledToChildren() {
+  #syncDisabledToChildren() {
     const slot = this.renderRoot.querySelector('slot');
     if(!slot) return;
 
@@ -308,7 +314,7 @@ export class JhRadioGroup extends JhElement {
       radios[0].tabIndex = 0;
     }
 
-    this._syncDisabledToChildren();
+    this.#syncDisabledToChildren();
   }
 
   #handleChange(e) {
@@ -388,6 +394,7 @@ export class JhRadioGroup extends JhElement {
     }
   }
 
+  /** @protected */
   render() {
     let indicator;
     let helperText;

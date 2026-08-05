@@ -23,7 +23,7 @@ import { JhElement } from '../element/element.js';
  */
 export class JhProgress extends JhElement {
 
-  /** @type {?string} */
+  /** @type {string | null} */
   #label;
 
   static get styles() {
@@ -220,7 +220,7 @@ export class JhProgress extends JhElement {
     super();
     /** @type {boolean} */
     this.indeterminate = false;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.label = null;
     /** @type { 'x-small'| 'small' | 'medium' | 'large'|'x-large'|'xx-large' } */
     this.size = 'medium';
@@ -228,27 +228,27 @@ export class JhProgress extends JhElement {
     this.type = 'linear';
     /** @type {boolean} */
     this.hideValue = false;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.internals.ariaLabel;
     /** @type {number} */
     this.internals.ariaValueMax;
     /** @type {number} */
     this.internals.ariaValueMin;
-    /** @type {?number} */
+    /** @type {number | null} */
     this.internals.ariaValueNow;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.internals.ariaValueText;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.internals.role = 'progressbar';
-    /** @type {?string} */
+    /** @type {string | null} */
     this.accessibleLabel = null;
-    /** @type {?number} */
+    /** @type {number | null} */
     this.max = 100;
-    /** @type {?number} */
+    /** @type {number | null} */
     this.min = 0;
-    /** @type {?number} */
+    /** @type {number | null} */
     this.value = 0;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.accessibleValueText = null;
   }
 
@@ -274,10 +274,12 @@ export class JhProgress extends JhElement {
     this.requestUpdate(ariaAttribute, oldValue);
   }
 
+  /** @type {string | null} */
   get label() {
     return this.#label;
   }
 
+  /** @param {string | null} newValue */
   set label(newValue) {
     const oldValue = this.label;
     if (newValue !== oldValue) {
@@ -289,42 +291,52 @@ export class JhProgress extends JhElement {
     this.requestUpdate('label', oldValue);
   }
 
+  /** @type {string | null} */
   get accessibleLabel() {
     return this.internals.ariaLabel;
   }
 
+  /** @param {string | null} newValue */
   set accessibleLabel(newValue) {
     this.#setAttribute('ariaLabel', newValue);
   }
 
+  /** @type {number | null} */
   get min() {
     return this.internals.ariaValueMin;
   }
 
+  /** @param {number | null} newValue */
   set min(newValue) {
     this.#setAttribute('ariaValueMin', newValue);
   }
 
+  /** @type {number | null} */
   get max() {
     return this.internals.ariaValueMax;
   }
 
+  /** @param {number | null} newValue */
   set max(newValue) {
     this.#setAttribute('ariaValueMax', newValue);
   }
 
+  /** @type {string | null} */
   get accessibleValueText() {
     return this.internals.ariaValueText;
   }
 
+  /** @param {string | null} newValue */
   set accessibleValueText(newValue) {
     this.#setAttribute('ariaValueText', newValue);
   }
 
+  /** @type {number | null} */
   get value() {
     return this.internals.ariaValueNow; 
   }
 
+  /** @param {number | null} newValue */
   set value(newValue) {
     this.#setAttribute('ariaValueNow', newValue);
   }
@@ -382,6 +394,7 @@ export class JhProgress extends JhElement {
     `;
   }
 
+  /** @protected */
   render() {
     let indicator;
     let value;

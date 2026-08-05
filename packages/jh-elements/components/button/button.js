@@ -118,7 +118,7 @@ export class JhButton extends JhElement {
     return true;
   }
 
-  /** @type {string} */
+  /** @type {string | null} */
   #value;
 
   static get styles() {
@@ -806,11 +806,9 @@ export class JhButton extends JhElement {
 
   constructor() {
     super();
-    /** @type {ElementInternals} */
-    this.internals.form;
     /** @type { 'true' | 'false' | null} */
     this.accessibleDisabled = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.accessibleLabel = null;
     /** @type { 'primary' | 'secondary' | 'tertiary' | 'danger' } */
     this.appearance = 'secondary';
@@ -818,13 +816,13 @@ export class JhButton extends JhElement {
     this.block = false;
     /** @type {boolean} */
     this.disabled = false;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.href = null;
     /** @type {boolean} */
     this.pending = false;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.label = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.name = null;
     /** @type { 'x-small' | 'small' | 'medium' | 'large' } */
     this.size = 'medium';
@@ -832,22 +830,30 @@ export class JhButton extends JhElement {
     this.submit = false;
     /** @type { '_blank' | '_self' | '_parent' | '_top' | null } */
     this.target = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.value = null;
-    /** @type {boolean} */
+    /** 
+     * @internal
+     * @type {boolean} 
+     * */
     this._hasLeftSlotContent = false;
-    /** @type {boolean} */
+    /** 
+     * @internal
+     * @type {boolean} 
+     * */
     this._hasRightSlotContent = false;
 
     this.addEventListener('click', this.#onClick);
     this.addEventListener('keydown', this.#handleKeydown);
   }
 
-  /** @type {?string} */
+  /** @type {string | null} */
   get value() {
     return this.#value;
   }
-
+  /**
+  * @param {string | null} newValue
+  */
   set value(newValue) {
     const oldValue = this.#value;
     if (newValue !== oldValue) {
@@ -856,13 +862,17 @@ export class JhButton extends JhElement {
     }
     this.requestUpdate('value', oldValue);
   }
-
+  /** @protected */
   firstUpdated() {
     this.#cacheButtonDimensions();
     new ResizeObserver(this.#cacheButtonDimensions.bind(this)).observe(this);
   }
 
   //if button size changes, adjust the size of the icons accordingly.
+  /**
+  * @protected
+  * @param {import('lit').PropertyValues} changedProperties
+  */
   updated(changedProperties) {
   if (changedProperties.has('size')) {
     const iconSize = this.size === 'x-small' ? 'x-small' : 'medium';
@@ -881,6 +891,7 @@ export class JhButton extends JhElement {
     this.style.setProperty('--populated-button-width', `${width}px`);
   }
 
+  /** @param {boolean} disabled */
   formDisabledCallback(disabled) {
     this.disabled = disabled;
   }
@@ -967,7 +978,7 @@ export class JhButton extends JhElement {
 
     return html` <span class="content-wrapper">${buttonContent}</span> `;
   }
-
+  /** @protected */
   render() {
     const buttonContent = this.#renderButtonContent(this.pending, this.label);
     let ariaDisabled;

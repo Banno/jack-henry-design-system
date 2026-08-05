@@ -61,6 +61,7 @@ export class JhMenu extends JhElement {
     super();
     this.internals.role = 'menu';
   }
+  /** @protected */
   render() {
     return html`
       <div class="menu-content">

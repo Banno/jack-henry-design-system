@@ -63,13 +63,13 @@ import { JhFilter } from './filtering.js';
  * @event jh-change - Dispatched when the selected value changes. Event payload includes the `value` and can be accessed via `e.detail.state.value`.
  */
 export class JhSelect extends JhInput {
-  /** @type {?string} */
+  /** @type {string | null} */
   #displayValue = null;
   /** @type {string} */
   #buffer = '';
-  /** @type {?number} */
+  /** @type {number | null} */
   #timer = null;
-  /** @type {?number} */
+  /** @type {number | null} */
   #activeIndex = null;
   /** @type {boolean} */
   #open = false;
@@ -204,7 +204,7 @@ export class JhSelect extends JhInput {
 
   constructor() {
     super();
-    /** @type {string} */
+    /** @type {'bottom' | 'top'} */
     this.menuPosition = 'bottom';
     /** @type {Array} */
     this.options = [];
@@ -223,6 +223,10 @@ export class JhSelect extends JhInput {
     clearTimeout(this.#timer);
   }
 
+  /**
+   * @protected
+   * @param {import('lit').PropertyValues} changedProperties
+   */
   willUpdate(changedProperties) {
     if (changedProperties.has('options')) {
       if (!this.options) {
@@ -572,11 +576,13 @@ export class JhSelect extends JhInput {
     };
   }
 
+  /** @protected */
   renderLeftSlot() {
     return html` <slot name="jh-input-left" @slotchange=${this._handleSlotChange}>
       <slot name="jh-select-trigger-left"></slot>
     </slot>`;
   }
+  /** @protected */
   renderRightSlot() {
     return html` <slot name="jh-input-right" @slotchange=${this._handleSlotChange}>
       ${this.#open
@@ -585,6 +591,7 @@ export class JhSelect extends JhInput {
     </slot>`;
   }
 
+  /** @protected */
   renderInput() {
     const describedby =
       this.helperText || (this.errorText && this.invalid) ? this._getDescribedby() : undefined;
@@ -622,6 +629,10 @@ export class JhSelect extends JhInput {
     `;
   }
 
+  /**
+   * @protected
+   * @param {Array} options
+   */
   renderData(options) {
     if (!options) return null;
     let flatIndex = 0;
@@ -657,6 +668,7 @@ export class JhSelect extends JhInput {
     });
   }
 
+  /** @protected */
   render() {
     const label = this.renderLabel();
     const input = this.renderInput();

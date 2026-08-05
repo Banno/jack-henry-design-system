@@ -97,6 +97,7 @@ export class JhIcon extends JhElement {
     this.size = 'medium';
   }
 
+  /** @protected */
   render() {
     return html`
       <slot></slot>

@@ -43,6 +43,7 @@ export class JhTableRow extends JhElement {
     this.internals.role = 'row';
   }
 
+  /** @protected */
   render() {
     return html`<slot></slot>`;
   }

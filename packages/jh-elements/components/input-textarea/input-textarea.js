@@ -19,7 +19,7 @@ import { JhInput } from '../input/input.js';
  * @customElement jh-input-textarea
  */
 export class JhInputTextarea extends JhInput {
-  /** @type {?ResizeObserver} */
+  /** @type {ResizeObserver | null} */
   #resizeObserver;
 
   get #textareaEl() {
@@ -183,12 +183,12 @@ export class JhInputTextarea extends JhInput {
   constructor() {
     super();
     /** @type {boolean} */
-    this.autoGrow = null;
-    /** @type {?number} */
+    this.autoGrow = false;
+    /** @type {number | null} */
     this.cols = null;
     /** @type {boolean} */
     this.noResize = true;
-    /** @type {?number} */
+    /** @type {number | null} */
     this.rows = null;
     /** @type { 'small' | 'medium' | 'large' } */
     this.size = 'medium';
@@ -205,6 +205,7 @@ export class JhInputTextarea extends JhInput {
     }
   }
 
+  /** @protected */
   firstUpdated() {
     // add resize observer to update width of footer when textarea width changes
     if (this.#footerContent) {
@@ -221,6 +222,10 @@ export class JhInputTextarea extends JhInput {
     }
   }
 
+  /**
+   * @protected
+   * @param {InputEvent} e
+   */
   _handleInput(e) {
     super._handleInput(e);
     
@@ -237,6 +242,7 @@ export class JhInputTextarea extends JhInput {
     this.#textareaEl.style.height = `${this.#textareaEl.scrollHeight}px`;
   }
 
+  /** @protected */
   renderInput() {
     return html`
       <textarea

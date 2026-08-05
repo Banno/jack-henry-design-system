@@ -8,8 +8,6 @@ import { JhInput } from '../input/input.js';
 import '@jack-henry/jh-icons/icons-wc/icon-eye-slash.js';
 import '@jack-henry/jh-icons/icons-wc/icon-eye.js';
 
-let id = 0;
-
 /**
  * The input password component provides a single-line text field that includes a toggle password button, allowing users to mask and unmask the input value.
  * 
@@ -40,14 +38,15 @@ export class JhInputPassword extends JhInput {
 
   constructor() {
     super();
-    /** @type {?string} */
+    /** @type {string | null} */
     this.accessibleLabelHidePassword = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.accessibleLabelShowPassword = null;
     /** @type {boolean} */
     this.passwordVisible = false;
   }
 
+  /** @protected */
   renderInput() {
     let describedby;
 
@@ -97,6 +96,7 @@ export class JhInputPassword extends JhInput {
     `;
   }
 
+  /** @protected */
   renderRightSlot() {
     if (this.hideRightSlot) return;
     

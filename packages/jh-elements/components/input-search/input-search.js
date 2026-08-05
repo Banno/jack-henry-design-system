@@ -26,6 +26,7 @@ export class JhInputSearch extends JhInput {
     ];
   }
 
+  /** @protected */
   firstUpdated() {
     super.firstUpdated();
 
@@ -34,6 +35,7 @@ export class JhInputSearch extends JhInput {
     inputEl.setAttribute('type', 'search');
   }
 
+  /** @protected */
   renderLeftSlot() {
     if (this.hideLeftSlot) return null;
     

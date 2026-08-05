@@ -62,7 +62,7 @@ export class JhInput extends JhElement {
     return true;
   }
 
-  /** @type {?string} */
+  /** @type {string | null} */
   #value;
   /** @type {string} */
   #rawValue = '';
@@ -70,7 +70,7 @@ export class JhInput extends JhElement {
   #startLastFixedChar;
   /** @type {boolean} */
   #deletedChar = false;
-  /** @type {?number} */
+  /** @type {number | null} */
   #adjustCaretPositionStart = null;
   /** @type {Object} */
   #selectedText = {
@@ -434,39 +434,39 @@ export class JhInput extends JhElement {
 
   constructor() {
     super();
-    /** @type {?string} */
+    /** @type {string | null} */
     this.accessibleLabel = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.accessibleLabelClearButton = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.autocomplete = null;
     /** @type {boolean} */
     this.disabled = false;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.enterkeyhint = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.errorText = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.helperText = null;
     /** @type {boolean} */
     this.hideLeftSlot = false;
     /** @type {boolean} */
     this.hideRightSlot = false;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.inputMask = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.inputmode = null;
     /** @type {boolean} */
     this.invalid = false;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.label = null;
-    /** @type {?number} */
+    /** @type {number | null} */
     this.maxlength = null;
-    /** @type {?number} */
+    /** @type {number | null} */
     this.minlength = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.name = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.pattern = null;
     /** @type {boolean} */
     this.readonly = false;
@@ -480,7 +480,7 @@ export class JhInput extends JhElement {
     this.showIndicator = false;
     /** @type { 'small' | 'medium' | 'large' } */
     this.size = 'medium';
-    /** @type {?string} */
+    /** @type {string | null} */
     this.value = null;
   }
 
@@ -499,6 +499,7 @@ export class JhInput extends JhElement {
     }
   }
 
+  /** @protected */
   firstUpdated() {
     // attach event listeners to show/hide clear button
     if (this.showClearButton) {
@@ -613,15 +614,17 @@ export class JhInput extends JhElement {
     }
   }
 
-  /** @type {HTMLFormElement} */
+  /** @type {HTMLFormElement | null} */
   get form() {
     return this.internals.form;
   }
 
+  /** @type {string | null} */
   get value() {
     return this.#value;
   }
 
+  /** @param {string | null} newValue */
   set value(newValue) {
     const oldValue = this.#value;
     if (newValue !== oldValue) {
@@ -631,6 +634,10 @@ export class JhInput extends JhElement {
     this.requestUpdate('value', oldValue);
   }
 
+  /**
+   * @protected
+   * @param {InputEvent} e
+   */
   _handleInput(e) {
     this.value = e.target.value;
     let inputType = e.inputType;
@@ -652,6 +659,10 @@ export class JhInput extends JhElement {
     }
   }
 
+  /**
+   * @protected
+   * @param {KeyboardEvent} e
+   */
   _handleKeydown(e) {
     const value = e.target.value;
     let selectionStart = e.target.selectionStart;
@@ -1050,6 +1061,10 @@ export class JhInput extends JhElement {
   }
 
   // restore caret position after input mask is applied if change to the value is within the value length
+  /**
+   * @protected
+   * @param {import('lit').PropertyValues} changedProperties
+   */
   updated(changedProperties) {
     if (this.#adjustCaretPositionStart) {
       if (changedProperties.has('value')) {
@@ -1080,6 +1095,7 @@ export class JhInput extends JhElement {
     }
   }
 
+  /** @protected */
   _handleChange() {
     this.dispatchCustomEvent('jh-change', {
       state: {
@@ -1093,6 +1109,10 @@ export class JhInput extends JhElement {
     });
   }
 
+  /**
+   * @protected
+   * @param {Event} e
+   */
   _handleSelect(e) {
     const selectedString = e.target.value.substring(
       e.target.selectionStart,
@@ -1111,6 +1131,7 @@ export class JhInput extends JhElement {
     }
   }
 
+  /** @protected */
   _handleMaxlength() {
     this.dispatchCustomEvent('jh-maxlength', {
       reference: {
@@ -1119,6 +1140,10 @@ export class JhInput extends JhElement {
     });
   }
 
+  /**
+   * @protected
+   * @param {PointerEvent} e
+   */
   _handleClearButtonClick(e) {
     let previousValue = this.value;
     // clear input value
@@ -1135,6 +1160,10 @@ export class JhInput extends JhElement {
     });
   }
 
+  /**
+   * @protected
+   * @param {Event} e
+   */
   _handleSlotChange(e) {
     let newSlottedElement = e.target.assignedElements()[0];
     let slot = e.target;
@@ -1152,6 +1181,7 @@ export class JhInput extends JhElement {
     }
   }
 
+  /** @protected */
   renderLeftSlot() {
     if (this.hideLeftSlot) return null;
     return html`
@@ -1159,6 +1189,7 @@ export class JhInput extends JhElement {
     `;
   }
    
+  /** @protected */
   renderRightSlot() {
     if (this.hideRightSlot) return null;
     return html`
@@ -1166,6 +1197,7 @@ export class JhInput extends JhElement {
     `;
   }
 
+  /** @protected */
   renderClearButton() {
     if (!this.showClearButton || !this.value || this.disabled) return null;
     return html`
@@ -1180,6 +1212,10 @@ export class JhInput extends JhElement {
     `;
   }
 
+  /**
+   * @protected
+   * @returns {string}
+   */
   _getDescribedby() {
     let describedbyString = '';
 
@@ -1192,6 +1228,7 @@ export class JhInput extends JhElement {
     return describedbyString;
   }
 
+  /** @protected */
   renderLabel() {
     let label;
     let indicator;
@@ -1222,6 +1259,7 @@ export class JhInput extends JhElement {
     return label;
   }
 
+  /** @protected */
   renderFooter() {
     let footer;
     let errorText;
@@ -1262,6 +1300,7 @@ export class JhInput extends JhElement {
     return footer;
   }
 
+  /** @protected */
   renderInput() {
     let describedby;
 
@@ -1312,6 +1351,7 @@ export class JhInput extends JhElement {
     `;
   }
 
+  /** @protected */
   render() {
     const label = this.renderLabel();
     const input = this.renderInput();

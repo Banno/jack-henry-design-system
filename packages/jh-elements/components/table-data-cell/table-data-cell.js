@@ -97,6 +97,7 @@ export class JhTableDataCell extends JhElement {
     this.horizontalAlign = 'left';
   }
 
+  /** @protected */
   render() {
     return html`<slot></slot>`;
   }

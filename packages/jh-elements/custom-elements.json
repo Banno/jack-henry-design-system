@@ -1060,7 +1060,7 @@
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the state of the checkbox has changed. Event payload includes the `checked` state of the checkbox and can be accessed via `e.detail.state.checked`."
+          "description": "Dispatched when the state of the checkbox has changed. Event payload includes the value and checked state of the checkbox and can be accessed via `e.detail.state.value` and `e.detail.state.checked`."
         }
       ],
       "cssProperties": [

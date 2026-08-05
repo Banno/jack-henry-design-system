@@ -59,17 +59,17 @@ export class JhInputNumber extends JhInput {
         }
         :host([size="small"]) .input-wrapper {
           padding-right: calc(
-            var(--jh-input-size, var(--jh-dimension-800)) / 2 - var(--jh-dimension-300)
+            var(--jh-input-size, var(--jh-dimension-800)) / 2 - var(--jh-dimension-300) - 1px
           );
         }
         :host([size="medium"]) .input-wrapper {
           padding-right: calc(
-            var(--jh-input-size, var(--jh-dimension-1000)) / 2 - var(--jh-dimension-300)
+            var(--jh-input-size, var(--jh-dimension-1000)) / 2 - var(--jh-dimension-300) - 1px
           );
         }
         :host([size="large"]) .input-wrapper {
           padding-right: calc(
-            var(--jh-input-size, var(--jh-dimension-1200)) / 2 - var(--jh-dimension-300)
+            var(--jh-input-size, var(--jh-dimension-1200)) / 2 - var(--jh-dimension-300) - 1px
           );
         }
         jh-button {

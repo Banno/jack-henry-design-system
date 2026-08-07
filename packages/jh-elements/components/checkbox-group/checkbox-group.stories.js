@@ -100,16 +100,19 @@ export const Overview = {
           label="checkbox 1"
           helper-text="Helper text"
           name="checkbox-1"
+          value="checkbox 1"
         ></jh-checkbox>
         <jh-checkbox
           label="checkbox 2"
           helper-text="Helper text"
           name="checkbox-2"
+          value="checkbox 2"
         ></jh-checkbox>
         <jh-checkbox
           label="checkbox 3"
           helper-text="Helper text"
           name="checkbox-3"
+          value="checkbox 3"
           checked
         ></jh-checkbox>
       </jh-checkbox-group>
@@ -121,13 +124,14 @@ export const Overview = {
         orientation="horizontal"
         disabled
       >
-        <jh-checkbox label="checkbox 4" name="checkbox-4"></jh-checkbox>
+        <jh-checkbox label="checkbox 4" name="checkbox-4" value="checkbox 4"></jh-checkbox>
         <jh-checkbox
           label="checkbox 5"
           name="checkbox-5"
+          value="checkbox 5"
           disabled
         ></jh-checkbox>
-        <jh-checkbox label="checkbox 6" name="checkbox-6"></jh-checkbox>
+        <jh-checkbox label="checkbox 6" name="checkbox-6" value="checkbox 6"></jh-checkbox>
       </jh-checkbox-group>
     </div>
     <div class="container">
@@ -138,13 +142,14 @@ export const Overview = {
         error-text="Error text"
         invalid
       >
-        <jh-checkbox label="checkbox 4" name="checkbox-4"></jh-checkbox>
+        <jh-checkbox label="checkbox 4" name="checkbox-4" value="checkbox 4"></jh-checkbox>
         <jh-checkbox
           label="checkbox 5"
           name="checkbox-5"
+          value="checkbox 5"
           disabled
         ></jh-checkbox>
-        <jh-checkbox label="checkbox 6" name="checkbox-6"></jh-checkbox>
+        <jh-checkbox label="checkbox 6" name="checkbox-6" value="checkbox 6"></jh-checkbox>
       </jh-checkbox-group>
     </div>`,
 };
@@ -172,21 +177,25 @@ export const Playground = {
         label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus massa, mollis euismod lorem ut, tincidunt dignissim ex."
         name="checkbox-1"
         helper-text="Helper text"
+        value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus massa, mollis euismod lorem ut, tincidunt dignissim ex."
       ></jh-checkbox>
       <jh-checkbox
         label="Label"
         name="checkbox-2"
         helper-text="Helper text"
+        value="Label"
       ></jh-checkbox>
       <jh-checkbox
         label="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         name="checkbox-3"
         helper-text="Helper text"
+        value="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
       ></jh-checkbox>
       <jh-checkbox
         label="Slightly longer label"
         name="checkbox-3"
         helper-text="Helper text"
+        value="Slightly longer label"
       ></jh-checkbox>
     </jh-checkbox-group>
   </div>`,
@@ -231,6 +240,7 @@ export const FormAssociated = {
             label="checkbox 3"
             helper-text="Helper text"
             name="checkbox-3"
+            value="checkbox 3"
           ></jh-checkbox>
         </jh-checkbox-group>
         <jh-button label="Submit" submit @click=${onClick}></jh-button>

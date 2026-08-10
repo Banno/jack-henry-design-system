@@ -4,6 +4,8 @@
 
 import { filterPrivatePropertiesPlugin } from "./cem-plugins/filter-private-properties.js";
 import { filterEventsPlugin } from "./cem-plugins/filter-jh-events.js";
+import { applyDeprecationsPlugin } from "./cem-plugins/apply-deprecations.js";
+import { deprecations } from "./cem-plugins/deprecations.js";
 
 export default {
   /** Globs to analyze */
@@ -23,6 +25,7 @@ export default {
   plugins: [
     filterPrivatePropertiesPlugin(),
     //additional prefix can be passed if needed
-    filterEventsPlugin('jh-')
+    filterEventsPlugin('jh-'),
+    applyDeprecationsPlugin(deprecations)
   ]
 }

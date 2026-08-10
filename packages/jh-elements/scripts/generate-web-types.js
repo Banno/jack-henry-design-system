@@ -5,7 +5,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { getWebTypesData } from "custom-element-jet-brains-integration";
+import { getWebTypesData } from 'custom-element-jet-brains-integration';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const manifestPath = path.resolve(__dirname, '../custom-elements.json');
@@ -28,24 +28,23 @@ const webTypesString = getWebTypesData(manifest, options);
 
 const webTypes = JSON.parse(webTypesString);
 
-webTypes.contributions?.html?.elements?.forEach(element => {
-  element.attributes?.forEach(attr => {
+webTypes.contributions?.html?.elements?.forEach((element) => {
+  element.attributes?.forEach((attr) => {
     const typeText = attr.value?.type;
 
     // Check if the type contains numbers or is a numeric union
     // Matches "80", "1|2|3", or "0|8|16|null"
     if (typeof typeText === 'string' && /[\d]/.test(typeText)) {
-      
       // Convert the type string: 1|2|3 -> "1"|"2"|"3"
       attr.value.type = typeText
         .split('|')
-        .map(t => {
+        .map((t) => {
           const trimmed = t.trim();
-          // Wrap numbers in quotes, leave 'null' or existing strings alone. 
+          // Wrap numbers in quotes, leave 'null' or existing strings alone.
           // Use Regex to find numbers: Matches optional sign, digits, and optional decimal point
-        const isNumeric = /^-?\d*\.?\d+$/.test(trimmed);
-        
-        return isNumeric ? `"${trimmed}"` : trimmed;
+          const isNumeric = /^-?\d*\.?\d+$/.test(trimmed);
+
+          return isNumeric ? `"${trimmed}"` : trimmed;
         })
         .join('|');
 
@@ -53,13 +52,13 @@ webTypes.contributions?.html?.elements?.forEach(element => {
       if (attr.default !== undefined && attr.default !== null) {
         const cleanDefault = String(attr.default).replace(/['"]/g, '');
         const isNumericDefault = /^-?\d*\.?\d+$/.test(cleanDefault);
-      
-      if (isNumericDefault) {
-        attr.default = `"${cleanDefault}"`;
+
+        if (isNumericDefault) {
+          attr.default = `"${cleanDefault}"`;
+        }
       }
     }
-  }
-});
+  });
 });
 
 const formattedJson = JSON.stringify(webTypes, null, 2);

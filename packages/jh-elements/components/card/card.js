@@ -201,44 +201,36 @@ export class JhCard extends JhElement {
 
   static get properties() {
     return {
-      /** Sets the alignment of the left edge of the divider above the footer. */
       footerDividerInset: {
         type: Number,
         attribute: 'footer-divider-inset',
       },
-      /** Sets the alignment of the left edge of the divider below the header. */
       headerDividerInset: {
         type: Number,
         attribute: 'header-divider-inset',
       },
-      /** Adds a divider above the footer to create a clearer definition between the body and footer.  */
       showFooterDivider: {
         type: Boolean,
         attribute: 'show-footer-divider',
         reflect: true,
       },
-      /** Adds a divider below the header to create a clearer definition between the header and body.  */
       showHeaderDivider: {
         type: Boolean,
         attribute: 'show-header-divider',
         reflect: true,
       },
-      /** Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.*/
       padding: {
         type: String,
         reflect: true,
       },
-      /** Adds additional information about the card below the title.  */
       headerSubtitle: {
         type: String,
         attribute: 'header-subtitle',
       },
-      /** Provides context for the content of the card.  */
       headerTitle: {
         type: String,
         attribute: 'header-title',
       },
-      /** Informs assistive technologies what heading level the card title represents. Defaults to h2.  */
       titleHeadingLevel: {
         type: Number,
         attribute: 'title-heading-level',
@@ -248,21 +240,52 @@ export class JhCard extends JhElement {
 
   constructor() {
     super();
-    /** @type { 0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null} */
+    /**
+     * Sets the alignment of the left edge of the divider above the footer.
+     * @attr footer-divider-inset
+     * @type { 0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null}
+     */
     this.footerDividerInset = null;
-    /** @type { 0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null} */
+    /**
+     * Sets the alignment of the left edge of the divider below the header.
+     * @attr header-divider-inset
+     * @type { 0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null}
+     */
     this.headerDividerInset = null;
-    /** @type {1|2|3|4|5|6} */
+    /**
+     * Informs assistive technologies what heading level the card title represents. Defaults to h2.
+     * @attr title-heading-level
+     * @type {1|2|3|4|5|6}
+     */
     this.titleHeadingLevel = 2;
-    /** @type { 'small' | 'medium' | 'none' } */
+    /**
+     * Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.
+     * @type { 'small' | 'medium' | 'none' }
+     */
     this.padding = 'medium';
-    /** @type {boolean} */
+    /**
+     * Adds a divider above the footer to create a clearer definition between the body and footer.
+     * @attr show-footer-divider
+     * @type {boolean}
+     */
     this.showFooterDivider = false;
-    /** @type {boolean} */
+    /**
+     * Adds a divider below the header to create a clearer definition between the header and body.
+     * @attr show-header-divider
+     * @type {boolean}
+     */
     this.showHeaderDivider = false;
-    /** @type {string | null} */
+    /**
+     * Adds additional information about the card below the title.
+     * @attr header-subtitle
+     * @type {string | null}
+     */
     this.headerSubtitle = null;
-    /** @type {string | null} */
+    /**
+     * Provides context for the content of the card.
+     * @attr header-title
+     * @type {string | null}
+     */
     this.headerTitle = null;
   }
 

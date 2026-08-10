@@ -34,7 +34,6 @@ export class JhTagGroup extends JhElement {
 
   static get properties() {
     return {
-      /** Sets the alignment of the tags. */
       alignment: {
         type: String,
         reflect: true,
@@ -45,7 +44,10 @@ export class JhTagGroup extends JhElement {
   constructor() {
     super();
     this.internals.role = 'group';
-    /** @type { 'start' | 'end' } */
+    /**
+     * Sets the alignment of the tags.
+     * @type { 'start' | 'end' }
+     */
     this.alignment = 'start';
   }
 

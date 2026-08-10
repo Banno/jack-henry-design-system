@@ -81,9 +81,6 @@ export class JhIcon extends JhElement {
   }
   static get properties() {
     return {
-      /**
-       * Sets the size of the icon.
-      */
       size: {
         type: String, reflect: true
       }
@@ -93,7 +90,10 @@ export class JhIcon extends JhElement {
     super();
     this.internals.role = 'graphics-symbol';
     this.internals.ariaHidden = 'true';
-    /** @type { 'x-small' | 'small' | 'medium' | 'large' | 'x-large'|'xx-large' } */
+    /**
+     * Sets the size of the icon.
+     * @type { 'x-small' | 'small' | 'medium' | 'large' | 'x-large'|'xx-large' }
+     */
     this.size = 'medium';
   }
 

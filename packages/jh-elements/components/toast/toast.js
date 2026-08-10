@@ -84,29 +84,39 @@ export class JhToast extends JhElement {
 
   static get properties() {
     return {
-      /** Adds an aria-label to the dismiss button to assist screen readers. */
       dismissButtonAccessibleLabel: {
         type: String,
         attribute: 'dismiss-button-accessible-label',
       },
-      /** Removes dismiss button from toast. */
       hideDismissButton: { type: Boolean, attribute: 'hide-dismiss-button' },
-      /** Places action button(s) on new line, below default slot. */
       stacked: { type: Boolean, reflect: true },
-      /** Sets a timer, in milliseconds, to auto-dismiss the toast. To disable timeout, set to 0. */
       timeout: { type: Number },
     };
   }
 
   constructor() {
     super();
-    /** @type {number} */
+    /**
+     * Sets a timer, in milliseconds, to auto-dismiss the toast. To disable timeout, set to 0.
+     * @type {number}
+     */
     this.timeout = 5000;
-    /** @type {string | null} */
+    /**
+     * Adds an aria-label to the dismiss button to assist screen readers.
+     * @attr dismiss-button-accessible-label
+     * @type {string | null}
+     */
     this.dismissButtonAccessibleLabel = null;
-    /** @type {boolean} */
+    /**
+     * Removes dismiss button from toast.
+     * @attr hide-dismiss-button
+     * @type {boolean}
+     */
     this.hideDismissButton = false;
-    /** @type {boolean} */
+    /**
+     * Places action button(s) on new line, below default slot.
+     * @type {boolean}
+     */
     this.stacked = false;
     this.addEventListener('jh-dismiss', this.#handleDismiss);
   }

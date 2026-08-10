@@ -21,14 +21,11 @@ import '@jack-henry/jh-icons/icons-wc/icon-eye.js';
 export class JhInputPassword extends JhInput {
   static get properties() {
     return {
-      /** Unmasks the input field value when set. */
       passwordVisible: { type: Boolean, attribute: 'password-visible', reflect: true},
-      /** Sets an `aria-label` on the toggle password button, which encapsulates the `jh-input-password-visible` slot, to assist screen reader users. The label should indicate that activating the button will mask the password. */
       accessibleLabelHidePassword: {
         type: String,
         attribute: 'accessible-label-hide-password',
       },
-      /** Sets an `aria-label` on the toggle password button, which encapsulates the `jh-input-password-hidden` slot, to assist screen reader users. The label should indicate that activating the button will unmask the password. */
       accessibleLabelShowPassword: {
         type: String,
         attribute: 'accessible-label-show-password',
@@ -38,11 +35,23 @@ export class JhInputPassword extends JhInput {
 
   constructor() {
     super();
-    /** @type {string | null} */
+    /**
+     * Sets an `aria-label` on the toggle password button, which encapsulates the `jh-input-password-visible` slot, to assist screen reader users. The label should indicate that activating the button will mask the password.
+     * @attr accessible-label-hide-password
+     * @type {string | null}
+     */
     this.accessibleLabelHidePassword = null;
-    /** @type {string | null} */
+    /**
+     * Sets an `aria-label` on the toggle password button, which encapsulates the `jh-input-password-hidden` slot, to assist screen reader users. The label should indicate that activating the button will unmask the password.
+     * @attr accessible-label-show-password
+     * @type {string | null}
+     */
     this.accessibleLabelShowPassword = null;
-    /** @type {boolean} */
+    /**
+     * Unmasks the input field value when set.
+     * @attr password-visible
+     * @type {boolean}
+     */
     this.passwordVisible = false;
   }
 

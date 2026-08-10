@@ -60,20 +60,25 @@ export class JhListGroup extends JhElement {
 
   static get properties() {
     return {
-      /** Describes the type of data to be collected. */
       label: {
         type: String,
       },
-      /** Sets an `aria-label` to assist screen reader users when no visible label is present. */
       accessibleLabel: { type: String, attribute: 'accessible-label' },
     };
   }
 
   constructor() {
     super();
-    /** @type {string | null} */
+    /**
+     * Describes the type of data to be collected.
+     * @type {string | null}
+     */
     this.label = null;
-    /** @type {string | null} */
+    /**
+     * Sets an `aria-label` to assist screen reader users when no visible label is present.
+     * @attr accessible-label
+     * @type {string | null}
+     */
     this.accessibleLabel = null;
   }
 

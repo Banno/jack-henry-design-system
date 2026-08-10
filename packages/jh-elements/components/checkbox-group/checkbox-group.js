@@ -138,51 +138,37 @@ export class JhCheckboxGroup extends JhElement {
   }
   static get properties() {
     return {
-      /** Sets an `aria-label` to assist screen reader users when no visible label is present. */
       accessibleLabel: {
         type: String,
         attribute: 'accessible-label',
       },
-      /** Disables the checkbox group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT). */
       disabled: {
         type: Boolean,
         reflect: true,
       },
-      /** Text to be displayed when checkbox group has failed validation and `invalid` is true. */
       errorText: {
         type: String,
         attribute: 'error-text',
       },
-      /**
-       * Provides additional context or guidance for using the checkbox group. For `helper-text` to be displayed, the `label` property must also be set.
-       */
       helperText: {
         type: String,
         attribute: 'helper-text',
       },
-      /** Sets an `aria-invalid` on the checkbox group to indicate the value supplied was invalid and displays `error-text` when set. */
       invalid: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Describes the type of data to be collected.
-       */
       label: {
         type: String,
       },
-      /** Indicates a value is required. */
       required: {
         type: Boolean,
         reflect: true,
       },
-      /** Determines the orientation of the checkbox group. */
       orientation: {
         type: String,
         reflect: true,
       },
-      /** 
-       * Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required` property is also set. For the indicator to be displayed, the `label` property must also be set. */
       showIndicator: {
         type: Boolean,
         reflect: true,
@@ -192,23 +178,54 @@ export class JhCheckboxGroup extends JhElement {
   }
   constructor() {
     super();
-    /** @type {boolean} */
+    /**
+     * Disables the checkbox group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).
+     * @type {boolean}
+     */
     this.disabled = false;
-    /** @type {string | null} */
+    /**
+     * Sets an `aria-label` to assist screen reader users when no visible label is present.
+     * @attr accessible-label
+     * @type {string | null}
+     */
     this.accessibleLabel = null;
-    /** @type {string | null} */
+    /**
+     * Text to be displayed when checkbox group has failed validation and `invalid` is true.
+     * @attr error-text
+     * @type {string | null}
+     */
     this.errorText = null;
-    /** @type {string | null} */
+    /**
+     * Provides additional context or guidance for using the checkbox group. For `helper-text` to be displayed, the `label` property must also be set.
+     * @attr helper-text
+     * @type {string | null}
+     */
     this.helperText = null;
-    /** @type {boolean} */
+    /**
+     * Sets an `aria-invalid` on the checkbox group to indicate the value supplied was invalid and displays `error-text` when set.
+     * @type {boolean}
+     */
     this.invalid = false;
-    /** @type {string | null} */
+    /**
+     * Describes the type of data to be collected.
+     * @type {string | null}
+     */
     this.label = null;
-    /** @type {boolean} */
+    /**
+     * Indicates a value is required.
+     * @type {boolean}
+     */
     this.required = false;
-    /** @type { 'vertical' | 'horizontal' } */
+    /**
+     * Determines the orientation of the checkbox group.
+     * @type { 'vertical' | 'horizontal' }
+     */
     this.orientation = 'vertical';
-    /** @type {boolean} */
+    /**
+     * Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required` property is also set. For the indicator to be displayed, the `label` property must also be set.
+     * @attr show-indicator
+     * @type {boolean}
+     */
     this.showIndicator = false;
   }
 

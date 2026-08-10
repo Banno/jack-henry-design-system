@@ -201,37 +201,27 @@ export class JhSwitch extends JhElement {
 
   static get properties() {
     return {
-      /** Sets an `aria-disabled` to signify to screen readers that the disabled switch should remain perceivable while disabled. */
       accessibleDisabled: {
         type: String,
         attribute: 'accessible-disabled',
         reflect: true,
       },
-      /** Sets an `aria-label` to assist screen reader users when no visible label is present. */
       accessibleLabel: {
         type: String,
         attribute: 'accessible-label',
       },
-      /** Sets the selected or 'checked' state on the switch */
       checked: {
         type: Boolean,
         reflect: true,
       },
-      /** Disables the switch and prevents all user interactions. May cause switch to be ignored by assistive technologies(AT). See `accessible-disabled` if switch should remain perceivable to AT. */
       disabled: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Provides additional context or guidance for using the switch. For `helper-text` to be displayed, the `label` property must also be set.
-       */
       helperText: {
         type: String,
         attribute: 'helper-text',
       },
-      /**
-       * Describes the intent of the switch.
-       */
       label: {
         type: String,
       },
@@ -240,17 +230,38 @@ export class JhSwitch extends JhElement {
 
   constructor() {
     super();
-    /** @type { 'true' | 'false' | null } */
+    /**
+     * Sets an `aria-disabled` to signify to screen readers that the disabled switch should remain perceivable while disabled.
+     * @attr accessible-disabled
+     * @type { 'true' | 'false' | null }
+     */
     this.accessibleDisabled = null;
-    /** @type {string | null} */
+    /**
+     * Sets an `aria-label` to assist screen reader users when no visible label is present.
+     * @attr accessible-label
+     * @type {string | null}
+     */
     this.accessibleLabel = null;
-    /** @type {boolean} */
+    /**
+     * Sets the selected or 'checked' state on the switch
+     * @type {boolean}
+     */
     this.checked = false;
-    /** @type {boolean} */
+    /**
+     * Disables the switch and prevents all user interactions. May cause switch to be ignored by assistive technologies(AT). See `accessible-disabled` if switch should remain perceivable to AT.
+     * @type {boolean}
+     */
     this.disabled = false;
-    /** @type {string | null} */
+    /**
+     * Provides additional context or guidance for using the switch. For `helper-text` to be displayed, the `label` property must also be set.
+     * @attr helper-text
+     * @type {string | null}
+     */
     this.helperText = null;
-    /** @type {string | null} */
+    /**
+     * Describes the intent of the switch.
+     * @type {string | null}
+     */
     this.label = null;
   }
 

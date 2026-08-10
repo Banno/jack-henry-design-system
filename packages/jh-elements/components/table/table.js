@@ -209,54 +209,33 @@ export class JhTable extends JhElement {
 
   static get properties() {
     return {
-    /**
-     * Sets the vertical alignment for each table cell.
-     */
       verticalAlign: {
         type: String,
         reflect: true,
         attribute: 'vertical-align',
       },
-    /**
-     * Applies alternating background colors to rows.
-     */
       striped: {
         type: Boolean,
         reflect: true,
       },
-    /**
-     * Adjusts the padding between the rows.
-     */
       padding: {
         type: String,
         reflect: true,
       },
-    /**
-     * Sets an `aria-label` to assist screen reader users when no visible caption is present.
-     */
       accessibleLabel: {
         type: String,
         attribute: 'accessible-label',
       },
-    /**
-     * Allows the header row to remain visible while scrolling.
-     */
       stickyHeader: {
         type: Boolean,
         reflect: true,
         attribute: 'sticky-header',
       },
-    /**
-     * Allows the footer row to remain visible while scrolling.
-     */
       stickyFooter: {
         type: Boolean,
         reflect: true,
         attribute: 'sticky-footer',
       },
-    /**
-     * Makes the table horizontally scrollable on smaller screens.
-     */
       scrollable: {
         type: Boolean,
       },
@@ -265,19 +244,44 @@ export class JhTable extends JhElement {
 
   constructor() {
     super();
-    /** @type { 'top' | 'middle' | 'bottom' } */
+    /**
+     * Sets the vertical alignment for each table cell.
+     * @attr vertical-align
+     * @type { 'top' | 'middle' | 'bottom' }
+     */
     this.verticalAlign = 'top';
-    /** @type {boolean} */
+    /**
+     * Applies alternating background colors to rows.
+     * @type {boolean}
+     */
     this.striped = false;
-    /** @type { 'medium' | 'small' } */
+    /**
+     * Adjusts the padding between the rows.
+     * @type { 'medium' | 'small' }
+     */
     this.padding = 'medium';
-    /** @type {string | null} */
+    /**
+     * Sets an `aria-label` to assist screen reader users when no visible caption is present.
+     * @attr accessible-label
+     * @type {string | null}
+     */
     this.accessibleLabel = null;
-    /** @type {boolean} */
+    /**
+     * Allows the header row to remain visible while scrolling.
+     * @attr sticky-header
+     * @type {boolean}
+     */
     this.stickyHeader = false;
-    /** @type {boolean} */
+    /**
+     * Allows the footer row to remain visible while scrolling.
+     * @attr sticky-footer
+     * @type {boolean}
+     */
     this.stickyFooter = false;
-    /** @type {boolean} */
+    /**
+     * Makes the table horizontally scrollable on smaller screens.
+     * @type {boolean}
+     */
     this.scrollable = false;
 
     this.addEventListener('jh-sort', this.#handleSort);

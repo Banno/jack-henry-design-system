@@ -370,115 +370,166 @@ export class JhInput extends JhElement {
 
   static get properties() {
     return {
-      /** Sets an `aria-label` on the input field to assist screen reader users when no visible label is present. */
       accessibleLabel: { type: String, attribute: 'accessible-label' },
-      /** Sets an aria-label on the clear button to assist screen reader users. Indicates that activating the button will clear the input field. */
       accessibleLabelClearButton: { type: String, attribute: 'accessible-label-clear-button'},
-      /**
-       * Determines whether the browser can provide assistance in filling out the input value and what type of information is expected.
-       * This property will override any autocomplete attribute present on the input's parent form element.
-       *
-       * [Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)
-       */
       autocomplete: { type: String },
-      /** Disables the input and prevents all user interactions. May cause the input to be ignored by assistive technologies (AT). */
       disabled: { type: Boolean },
-      /** Specifies which action label or icon to present for the enter key on virtual keyboards.
-       *
-       * [Visit MDN for information on supported enterkeyhint values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint)
-       */
       enterkeyhint: { type: String },
-      /** Text to be displayed when input has failed validation and `invalid` is true. */
       errorText: { type: String, attribute: 'error-text' },
-      /** Provides additional context or guidance for using the input. For `helper-text` to be displayed, the `label` property must also be set. */
       helperText: { type: String, attribute: 'helper-text' },
-      /** Hides the left slot from input. */
       hideLeftSlot: { type: Boolean, attribute: 'hide-left-slot' },
-      /** Hides the right slot from input. */
       hideRightSlot: { type: Boolean, attribute: 'hide-right-slot' },
-      /** Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details. */
       inputMask: { type: String, attribute: 'input-mask' },
-      /** Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.
-       *
-       * [Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)
-       */
       inputmode: { type: String },
-      /** Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set. */
       invalid: { type: Boolean },
-      /** Identifies what data should be entered into the input field. */
       label: { type: String },
-      /** Sets the maximum number of characters a user can enter into the field. */
       maxlength: { type: Number },
-      /** Sets the minimum number of characters a user can enter into the field. */
       minlength: { type: Number },
-      /** Sets a name for the input control. */
       name: { type: String },
-      /** Sets the pattern attribute on the input field. */
       pattern: { type: String },
-      /** Prevents users from changing the input value. Removes all slotted content. */
       readonly: { type: Boolean },
-      /** Indicates a value is required. */
       required: { type: Boolean },
-      /** Displays a character counter at the bottom right corner below the input field. */
       showCharCount: { type: Boolean, attribute: 'show-char-count' },
-      /** Displays a clear button in the input field when it contains a value and is focused or hovered. Deletes input value when activated. */
       showClearButton: {type: Boolean, attribute: 'show-clear-button'}, 
-      /** Adds a visual indicator next to the label. Indicates that a value is optional(by default) or required if the `required` property is also set. */
       showIndicator: { type: Boolean, attribute: 'show-indicator' },
-      /** Sets the size of the input. */
       size: { type: String, reflect: true },
-      /** Sets the value of the input. */
       value: { type: String },
     };
   }
 
   constructor() {
     super();
-    /** @type {string | null} */
+    /**
+     * Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.
+     * @attr accessible-label
+     * @type {string | null}
+     */
     this.accessibleLabel = null;
-    /** @type {string | null} */
+    /**
+     * Sets an aria-label on the clear button to assist screen reader users. Indicates that activating the button will clear the input field.
+     * @attr accessible-label-clear-button
+     * @type {string | null}
+     */
     this.accessibleLabelClearButton = null;
-    /** @type {string | null} */
+    /**
+     * Determines whether the browser can provide assistance in filling out the input value and what type of information is expected.
+     * This property will override any autocomplete attribute present on the input's parent form element.
+     *
+     * [Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)
+     * @type {string | null}
+     */
     this.autocomplete = null;
-    /** @type {boolean} */
+    /**
+     * Disables the input and prevents all user interactions. May cause the input to be ignored by assistive technologies (AT).
+     * @type {boolean}
+     */
     this.disabled = false;
-    /** @type {string | null} */
+    /**
+     * Specifies which action label or icon to present for the enter key on virtual keyboards.
+     *
+     * [Visit MDN for information on supported enterkeyhint values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint)
+     * @type {string | null}
+     */
     this.enterkeyhint = null;
-    /** @type {string | null} */
+    /**
+     * Text to be displayed when input has failed validation and `invalid` is true.
+     * @attr error-text
+     * @type {string | null}
+     */
     this.errorText = null;
-    /** @type {string | null} */
+    /**
+     * Provides additional context or guidance for using the input. For `helper-text` to be displayed, the `label` property must also be set.
+     * @attr helper-text
+     * @type {string | null}
+     */
     this.helperText = null;
-    /** @type {boolean} */
+    /**
+     * Hides the left slot from input.
+     * @attr hide-left-slot
+     * @type {boolean}
+     */
     this.hideLeftSlot = false;
-    /** @type {boolean} */
+    /**
+     * Hides the right slot from input.
+     * @attr hide-right-slot
+     * @type {boolean}
+     */
     this.hideRightSlot = false;
-    /** @type {string | null} */
+    /**
+     * Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.
+     * @attr input-mask
+     * @type {string | null}
+     */
     this.inputMask = null;
-    /** @type {string | null} */
+    /**
+     * Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.
+     *
+     * [Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)
+     * @type {string | null}
+     */
     this.inputmode = null;
-    /** @type {boolean} */
+    /**
+     * Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.
+     * @type {boolean}
+     */
     this.invalid = false;
-    /** @type {string | null} */
+    /**
+     * Identifies what data should be entered into the input field.
+     * @type {string | null}
+     */
     this.label = null;
-    /** @type {number | null} */
+    /**
+     * Sets the maximum number of characters a user can enter into the field.
+     * @type {number | null}
+     */
     this.maxlength = null;
-    /** @type {number | null} */
+    /**
+     * Sets the minimum number of characters a user can enter into the field.
+     * @type {number | null}
+     */
     this.minlength = null;
-    /** @type {string | null} */
+    /**
+     * Sets a name for the input control.
+     * @type {string | null}
+     */
     this.name = null;
-    /** @type {string | null} */
+    /**
+     * Sets the pattern attribute on the input field.
+     * @type {string | null}
+     */
     this.pattern = null;
-    /** @type {boolean} */
+    /**
+     * Prevents users from changing the input value. Removes all slotted content.
+     * @type {boolean}
+     */
     this.readonly = false;
-    /** @type {boolean} */
+    /**
+     * Indicates a value is required.
+     * @type {boolean}
+     */
     this.required = false;
-    /** @type {boolean} */
+    /**
+     * Displays a character counter at the bottom right corner below the input field.
+     * @attr show-char-count
+     * @type {boolean}
+     */
     this.showCharCount = false;
-    /** @type {boolean} */
+    /**
+     * Displays a clear button in the input field when it contains a value and is focused or hovered. Deletes input value when activated.
+     * @attr show-clear-button
+     * @type {boolean}
+     */
     this.showClearButton = false;
-    /** @type {boolean} */
+    /**
+     * Adds a visual indicator next to the label. Indicates that a value is optional(by default) or required if the `required` property is also set.
+     * @attr show-indicator
+     * @type {boolean}
+     */
     this.showIndicator = false;
-    /** @type { 'small' | 'medium' | 'large' } */
+    /**
+     * Sets the size of the input.
+     * @type { 'small' | 'medium' | 'large' }
+     */
     this.size = 'medium';
     /** @type {string | null} */
     this.value = null;
@@ -619,7 +670,10 @@ export class JhInput extends JhElement {
     return this.internals.form;
   }
 
-  /** @type {string | null} */
+  /**
+   * Sets the value of the input.
+   * @type {string | null}
+   */
   get value() {
     return this.#value;
   }

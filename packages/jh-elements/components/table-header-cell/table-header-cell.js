@@ -188,24 +188,15 @@ export class JhTableHeaderCell extends JhElement {
 
   static get properties() {
     return {
-    /** 
-     * Sets the horizontal alignment of the content.
-     */
       horizontalAlign: { 
         type: String,
         reflect: true,
         attribute: 'horizontal-align'
       },
-    /** 
-     * Makes a column sortable.
-    */
       sortable: { 
         type: Boolean,
         reflect: true
       },
-    /** 
-     * Sets the order in which the items in the column are sorted.
-    */
       sorted: { 
         type: String,
         reflect: true
@@ -216,11 +207,21 @@ export class JhTableHeaderCell extends JhElement {
   constructor() {
     super();
     this.internals.role = 'columnheader';
-    /** @type { 'left' | 'center' | 'right' } */
+    /**
+     * Sets the horizontal alignment of the content.
+     * @attr horizontal-align
+     * @type { 'left' | 'center' | 'right' }
+     */
     this.horizontalAlign = 'left';
-    /** @type {boolean} */
+    /**
+     * Makes a column sortable.
+     * @type {boolean}
+     */
     this.sortable = false;
-    /** @type { 'none' | 'ascending' | 'descending' | null } */
+    /**
+     * Sets the order in which the items in the column are sorted.
+     * @type { 'none' | 'ascending' | 'descending' | null }
+     */
     this.sorted = 'none';
   }
 

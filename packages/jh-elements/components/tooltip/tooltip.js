@@ -204,23 +204,14 @@ export class JhTooltip extends JhElement {
 
   static get properties() {
     return {
-      /**
-       * Determines whether the tooltip flips to a different position when it reaches the edge of the viewport.
-       */
       flipDisabled: {
         type: Boolean,
         attribute: 'flip-disabled',
       },
-      /**
-       * Determines whether the tooltip is open or closed. Can be set on the tooltip to force it open.
-       */
       open: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * The position of the tooltip and its arrow.
-       */
       position: {
         type: String,
         reflect: true,
@@ -230,11 +221,21 @@ export class JhTooltip extends JhElement {
 
   constructor() {
     super();
-    /**@type {boolean} */
+    /**
+     * Determines whether the tooltip flips to a different position when it reaches the edge of the viewport.
+     * @attr flip-disabled
+     * @type {boolean}
+     */
     this.flipDisabled = false;
-    /**@type {boolean} */
+    /**
+     * Determines whether the tooltip is open or closed. Can be set on the tooltip to force it open.
+     * @type {boolean}
+     */
     this.open = false;
-    /** @type { 'left' | 'right' | 'top-start' | 'top-end' | 'top-center' | 'bottom-start' | 'bottom-end' | 'bottom-center' } */
+    /**
+     * The position of the tooltip and its arrow.
+     * @type { 'left' | 'right' | 'top-start' | 'top-end' | 'top-center' | 'bottom-start' | 'bottom-end' | 'bottom-center' }
+     */
     this.position = 'top-center';
   }
 

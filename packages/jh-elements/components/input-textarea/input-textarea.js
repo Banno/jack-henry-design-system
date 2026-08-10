@@ -159,41 +159,57 @@ export class JhInputTextarea extends JhInput {
 
   static get properties() {
     return {
-      /** Enables the input height to grow automatically to accommodate user input. `auto-grow` will also remove the input's native resize capability. */
       autoGrow: {
         type: Boolean,
         attribute: 'auto-grow',
       },
-      /** Sets the width of the input field. */
       cols: { type: Number },
-      /** Removes native resize capability of the input field. */
       noResize: {
         type: Boolean,
         attribute: 'no-resize',
       },
-      /** Sets the height of the input field. */
       rows: { type: Number },
-      /** Specifies how text should be wrapped when submitted in a form. The `cols` property must be set for `wrap='hard'` to take effect. */
       wrap: { type: String },
-      /** Prevents users from changing the input value. */
       readonly: { type: Boolean },
     };
   }
 
   constructor() {
     super();
-    /** @type {boolean} */
+    /**
+     * Enables the input height to grow automatically to accommodate user input. `auto-grow` will also remove the input's native resize capability.
+     * @attr auto-grow
+     * @type {boolean}
+     */
     this.autoGrow = false;
-    /** @type {number | null} */
+    /**
+     * Sets the width of the input field.
+     * @type {number | null}
+     */
     this.cols = null;
-    /** @type {boolean} */
+    /**
+     * Removes native resize capability of the input field.
+     * @attr no-resize
+     * @type {boolean}
+     */
     this.noResize = true;
-    /** @type {number | null} */
+    /**
+     * Sets the height of the input field.
+     * @type {number | null}
+     */
     this.rows = null;
     /** @type { 'small' | 'medium' | 'large' } */
     this.size = 'medium';
-    /** @type { 'hard' | 'soft' | 'off' | null } */
+    /**
+     * Specifies how text should be wrapped when submitted in a form. The `cols` property must be set for `wrap='hard'` to take effect.
+     * @type { 'hard' | 'soft' | 'off' | null }
+     */
     this.wrap = null;
+    /**
+     * Prevents users from changing the input value.
+     * @type {boolean}
+     */
+    this.readonly = false;
   }
 
   disconnectedCallback() {

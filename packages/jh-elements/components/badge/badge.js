@@ -46,18 +46,22 @@ export class JhBadge extends JhElement {
 
   static get properties() {
     return {
-      /** Number to show within the badge. If no `count` is supplied, Badge will render as a dot.*/
+
       count: { type: Number },
-      /** Sets the max count to show. Appends `+` to the `max-count` when value is exceeded. */
+
       maxCount: { type: Number, attribute: 'max-count' },
     };
   }
 
   constructor() {
     super();
-    /** @type {number | null} */
+    /** Number to show within the badge. If no `count` is supplied, Badge will render as a dot.
+    * @type {number | null} */
     this.count = null;
-    /** @type {number | null} */
+    /** 
+    * Sets the max count to show. Appends `+` to the `max-count` when value is exceeded.
+    * @attr max-count
+    * @type {number | null} */
     this.maxCount = 99;
   }
 

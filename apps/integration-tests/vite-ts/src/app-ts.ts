@@ -75,7 +75,7 @@ export class AppTs extends LitElement {
         <jh-notification type="alert">
           <span>Notification text</span>
         </jh-notification>
-        <jh-badge count="5"></jh-badge>
+        <jh-badge count="5" max-count="10"></jh-badge>
         <div class="groups-flex">
           <jh-checkbox-group label="Checkbox Group">
             <jh-checkbox label="Checkbox 1" value="1"></jh-checkbox>

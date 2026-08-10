@@ -219,43 +219,45 @@ export class JhNotification extends JhElement {
 
   static get properties() {
     return {
-      /**
-       * Sets background color of container to convey message connotation.
-       */
       appearance: { type: String, reflect: true },
-      /**
-       * Adds an aria-label to the dismiss button to assist screen readers.
-       */
       dismissButtonAccessibleLabel: {
         type: String,
         attribute: 'dismiss-button-accessible-label',
       },
-      /**
-       * Removes dismiss button from notification.
-       */
       hideDismissButton: { type: Boolean, attribute: 'hide-dismiss-button' },
-      /**
-       * Places action button(s) on new line, below default slot.
-       */
       stacked: { type: Boolean, reflect: true },
-      /**
-       * Determines where in viewport notification is displayed. Alerts will follow typical content flow, while banners will break out of standard flow and go edge-to-edge within a container. 
-       */
       type: { type: String, reflect: true },
     };
   }
 
   constructor() {
     super();
-    /** @type { 'positive' | 'neutral' | 'negative' } */
+    /**
+     * Sets background color of container to convey message connotation.
+     * @type { 'positive' | 'neutral' | 'negative' }
+     */
     this.appearance = 'neutral';
-    /** @type {string | null} */
+    /**
+     * Adds an aria-label to the dismiss button to assist screen readers.
+     * @attr dismiss-button-accessible-label
+     * @type {string | null}
+     */
     this.dismissButtonAccessibleLabel = null;
-    /** @type {boolean} */
+    /**
+     * Removes dismiss button from notification.
+     * @attr hide-dismiss-button
+     * @type {boolean}
+     */
     this.hideDismissButton = false;
-    /** @type {boolean} */
+    /**
+     * Places action button(s) on new line, below default slot.
+     * @type {boolean}
+     */
     this.stacked = false;
-    /** @type { 'alert' | 'banner' } */
+    /**
+     * Determines where in viewport notification is displayed. Alerts will follow typical content flow, while banners will break out of standard flow and go edge-to-edge within a container.
+     * @type { 'alert' | 'banner' }
+     */
     this.type = 'alert';
   }
 

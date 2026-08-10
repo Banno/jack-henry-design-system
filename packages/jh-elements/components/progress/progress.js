@@ -191,42 +191,43 @@ export class JhProgress extends JhElement {
 
   static get properties() {
     return {
-      /** Sets an `aria-label` to assist screen reader users when no visible label is present. */
       accessibleLabel: { type: String, attribute: 'accessible-label' },
-      /** Sets `aria-valuetext` on progress indicator to provide text alternative of `aria-valuenow`. To be used when progress cannot be represented as a number. */
       accessibleValueText: { type: String, attribute: 'accessible-valuetext' },
-      /** Hides the `value` text.  */
       hideValue: { type: Boolean, attribute: 'hide-value' },
-      /** Sets the indeterminate state on progress. To be used when progress cannot be calculated. */
       indeterminate: { type: Boolean, reflect: true },
-      /**
-       * Provides information about the item which triggered the progress component.
-       */
       label: { type: String, reflect: true },
-      /** Defines the maximum allowed value and sets `aria-valuemax` attribute. */
       max: { type: Number },
-      /** Defines the minimum allowed value and sets `aria-valuemin` attribute. */
       min: { type: Number },
-      /** Sets the size of the progress component. */
       size: { type: String, reflect: true },
-      /** Determines the style of progress to display. */
       type: { type: String, reflect: true },
-      /** Specifies how much of the task has been completed. This value is used to calculate the percentage complete based on the min and max values. */
       value: { type: Number },
     };
   }
 
   constructor() {
     super();
-    /** @type {boolean} */
+    /**
+     * Sets the indeterminate state on progress. To be used when progress cannot be calculated.
+     * @type {boolean}
+     */
     this.indeterminate = false;
     /** @type {string | null} */
     this.label = null;
-    /** @type { 'x-small'| 'small' | 'medium' | 'large'|'x-large'|'xx-large' } */
+    /**
+     * Sets the size of the progress component.
+     * @type { 'x-small'| 'small' | 'medium' | 'large'|'x-large'|'xx-large' }
+     */
     this.size = 'medium';
-    /** @type { 'linear' | 'circular' } */
+    /**
+     * Determines the style of progress to display.
+     * @type { 'linear' | 'circular' }
+     */
     this.type = 'linear';
-    /** @type {boolean} */
+    /**
+     * Hides the `value` text.
+     * @attr hide-value
+     * @type {boolean}
+     */
     this.hideValue = false;
     /** @type {string | null} */
     this.internals.ariaLabel;
@@ -274,7 +275,10 @@ export class JhProgress extends JhElement {
     this.requestUpdate(ariaAttribute, oldValue);
   }
 
-  /** @type {string | null} */
+  /**
+   * Provides information about the item which triggered the progress component.
+   * @type {string | null}
+   */
   get label() {
     return this.#label;
   }
@@ -291,7 +295,11 @@ export class JhProgress extends JhElement {
     this.requestUpdate('label', oldValue);
   }
 
-  /** @type {string | null} */
+  /**
+   * Sets an `aria-label` to assist screen reader users when no visible label is present.
+   * @attr accessible-label
+   * @type {string | null}
+   */
   get accessibleLabel() {
     return this.internals.ariaLabel;
   }
@@ -301,7 +309,10 @@ export class JhProgress extends JhElement {
     this.#setAttribute('ariaLabel', newValue);
   }
 
-  /** @type {number | null} */
+  /**
+   * Defines the minimum allowed value and sets `aria-valuemin` attribute.
+   * @type {number | null}
+   */
   get min() {
     return this.internals.ariaValueMin;
   }
@@ -311,7 +322,10 @@ export class JhProgress extends JhElement {
     this.#setAttribute('ariaValueMin', newValue);
   }
 
-  /** @type {number | null} */
+  /**
+   * Defines the maximum allowed value and sets `aria-valuemax` attribute.
+   * @type {number | null}
+   */
   get max() {
     return this.internals.ariaValueMax;
   }
@@ -321,7 +335,11 @@ export class JhProgress extends JhElement {
     this.#setAttribute('ariaValueMax', newValue);
   }
 
-  /** @type {string | null} */
+  /**
+   * Sets `aria-valuetext` on progress indicator to provide text alternative of `aria-valuenow`. To be used when progress cannot be represented as a number.
+   * @attr accessible-valuetext
+   * @type {string | null}
+   */
   get accessibleValueText() {
     return this.internals.ariaValueText;
   }
@@ -331,7 +349,10 @@ export class JhProgress extends JhElement {
     this.#setAttribute('ariaValueText', newValue);
   }
 
-  /** @type {number | null} */
+  /**
+   * Specifies how much of the task has been completed. This value is used to calculate the percentage complete based on the min and max values.
+   * @type {number | null}
+   */
   get value() {
     return this.internals.ariaValueNow; 
   }

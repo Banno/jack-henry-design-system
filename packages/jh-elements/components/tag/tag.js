@@ -286,38 +286,30 @@ export class JhTag extends JhElement {
 
   static get properties() {
     return {
-      /** Describes the intent of the tag. */
       label: {
         type: String,
       },
-      /** Adds an aria-label to the dismiss button to assist screen readers. */
       dismissButtonAccessibleLabel: {
         type: String,
         attribute: 'dismiss-button-accessible-label',
       },
-      /** Adds a dismiss button to tag. See `remove-on-dismiss` attribute for tag removal.*/
       dismissible: {
         type: Boolean,
       },
-      /** Adds a tooltip with this string on the dismiss button. */
       tooltipLabel: {
         type: String,
         attribute: 'tooltip-label',
       },
-      /** Sets the size of the tag. */
       size: {
         type: String,
         reflect: true,
       },
-      /** Sets the link's destination. */
       href: {
         type: String,
       },
-      /** Specifies where to display the linked URL set by the href property. */
       target: {
         type: String,
       },
-      /** Removes the tag after the dismiss button is activated. */ 
       removeOnDismiss: {
         type: Boolean,
         attribute: 'remove-on-dismiss'
@@ -327,21 +319,48 @@ export class JhTag extends JhElement {
 
   constructor() {
     super();
-    /** @type {string | null} */
+    /**
+     * Describes the intent of the tag.
+     * @type {string | null}
+     */
     this.label = null;
-    /** @type {boolean} */
+    /**
+     * Adds a dismiss button to tag. See `remove-on-dismiss` attribute for tag removal.
+     * @type {boolean}
+     */
     this.dismissible = false;
-    /** @type {string | null} */
+    /**
+     * Adds an aria-label to the dismiss button to assist screen readers.
+     * @attr dismiss-button-accessible-label
+     * @type {string | null}
+     */
     this.dismissButtonAccessibleLabel = null;
-    /** @type {string | null} */
+    /**
+     * Adds a tooltip with this string on the dismiss button.
+     * @attr tooltip-label
+     * @type {string | null}
+     */
     this.tooltipLabel = null;
-    /** @type { 'small' | 'medium' } */
+    /**
+     * Sets the size of the tag.
+     * @type { 'small' | 'medium' }
+     */
     this.size = 'small';
-    /** @type {string | null} */
+    /**
+     * Sets the link's destination.
+     * @type {string | null}
+     */
     this.href = null;
-    /** @type {string | null} */
+    /**
+     * Specifies where to display the linked URL set by the href property.
+     * @type {string | null}
+     */
     this.target = null;
-    /** @type {boolean} */
+    /**
+     * Removes the tag after the dismiss button is activated.
+     * @attr remove-on-dismiss
+     * @type {boolean}
+     */
     this.removeOnDismiss = false;
     this.addEventListener('keyup', this.#handleClick);
   }

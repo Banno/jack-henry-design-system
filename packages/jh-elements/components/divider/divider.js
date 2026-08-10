@@ -77,9 +77,6 @@ export class JhDivider extends JhElement {
 
   static get properties() {
     return {
-      /**
-       * The alignment of the left edge of the divider.
-       */
       inset: {
         type: Number,
         reflect: true,
@@ -89,7 +86,10 @@ export class JhDivider extends JhElement {
 
   constructor() {
     super();
-    /** @type { 0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null } */
+    /**
+     * The alignment of the left edge of the divider.
+     * @type { 0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null }
+     */
     this.inset = null;
   }
 }

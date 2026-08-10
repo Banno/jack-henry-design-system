@@ -33,18 +33,23 @@ export class JhToastController extends LitElement {
 
   static get properties() {
     return {
-      /** Sets the maximum number of toasts to be displayed at a time. */
       maxCount: { type: Number, attribute: 'max-count' },
-      /** Sets the role of the toast controller and establishes a live region to expose changes to assistive technologies. */
       role: { type: String },
     };
   }
 
   constructor() {
     super();
-    /** @type {number} */
+    /**
+     * Sets the maximum number of toasts to be displayed at a time.
+     * @attr max-count
+     * @type {number}
+     */
     this.maxCount = 3;
-    /** @type { 'status' | 'alert' } */
+    /**
+     * Sets the role of the toast controller and establishes a live region to expose changes to assistive technologies.
+     * @type { 'status' | 'alert' }
+     */
     this.role = 'status';
 
     window.addEventListener('jh-create-toast', this.#createToast.bind(this));

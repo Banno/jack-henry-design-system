@@ -79,9 +79,6 @@ export class JhTableDataCell extends JhElement {
 
   static get properties() {
     return {
-    /** 
-     * Sets the horizontal alignment of the content.
-    */
       horizontalAlign: { 
         type: String,
         reflect: true,
@@ -93,7 +90,11 @@ export class JhTableDataCell extends JhElement {
   constructor() {
     super();
     this.internals.role = 'cell';
-    /**  @type { 'left' | 'center' | 'right' } */
+    /**
+     * Sets the horizontal alignment of the content.
+     * @attr horizontal-align
+     * @type { 'left' | 'center' | 'right' }
+     */
     this.horizontalAlign = 'left';
   }
 

@@ -193,22 +193,30 @@ export class JhSelect extends JhInput {
 
   static get properties() {
     return {
-      /** Sets the position of the dropdown menu relative to the input field. The menu automatically flips when there is insufficient space unless `flip-disabled` is set. */
       menuPosition: { type: String, reflect: true, attribute: 'menu-position' },
-      /** Sets the list of options to display in the dropdown menu. Accepts an array of flat options or grouped options. See documentation for the expected data format. */
       options: { type: Array, attribute: false },
-      /** Prevents the dropdown menu from automatically flipping its position when there is insufficient viewport space. */
       flipDisabled: { type: Boolean, attribute: 'flip-disabled' },
     };
   }
 
   constructor() {
     super();
-    /** @type {'bottom' | 'top'} */
+    /**
+     * Sets the position of the dropdown menu relative to the input field. The menu automatically flips when there is insufficient space unless `flip-disabled` is set.
+     * @attr menu-position
+     * @type {'bottom' | 'top'}
+     */
     this.menuPosition = 'bottom';
-    /** @type {Array} */
+    /**
+     * Sets the list of options to display in the dropdown menu. Accepts an array of flat options or grouped options. See documentation for the expected data format.
+     * @type {Array}
+     */
     this.options = [];
-    /** @type {boolean} */
+    /**
+     * Prevents the dropdown menu from automatically flipping its position when there is insufficient viewport space.
+     * @attr flip-disabled
+     * @type {boolean}
+     */
     this.flipDisabled = false;
     this.addEventListener('keydown', this.#handleKeydown);
     this.#boundDocumentClick = this.#handleDocumentClick.bind(this);

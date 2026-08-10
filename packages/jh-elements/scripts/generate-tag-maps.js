@@ -5,7 +5,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const SPDX_HEADER = `// SPDX-FileCopyrightText: 2026 Jack Henry
+const SPDX_HEADER = `// SPDX-FileCopyrightText: 2025 Jack Henry
 //
 // SPDX-License-Identifier: Apache-2.0
 `;

@@ -5,4 +5,4 @@
 /**
  * Sets the JH theme.
  */
-export function setJhTheme(): void;
+export const setJhTheme: () => void;

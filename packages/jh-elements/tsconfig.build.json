@@ -16,6 +16,7 @@
   "exclude": [
     "node_modules",
     "components/**/*.stories.js",
-    "components/**/*.d.ts"
+    "components/**/*.d.ts",
+    "components/select/filtering.js"
   ]
 }

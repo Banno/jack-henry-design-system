@@ -8,7 +8,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "A Badge is a visual indicator that represents numbers, such as counters. It also supports a dot-only variant.\n\n[Badge Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-badge--docs)",
+          "description": "A Badge is a visual indicator that represents numbers, such as counters. It also supports a dot-only variant.\n\n[Badge Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-badge--docs)",
           "name": "JhBadge",
           "cssProperties": [
             {
@@ -126,320 +126,11 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/card/card.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Cards are content structures that provide an entry point for more complex and detailed information.\n\n[Card Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-card--docs)",
-          "name": "JhCard",
-          "cssProperties": [
-            {
-              "description": "The card background-color. Defaults to `--jh-color-container-primary-enabled`.",
-              "name": "--jh-card-color-background"
-            },
-            {
-              "description": "The card border-radius. Defaults to `--jh-border-radius-200`.",
-              "name": "--jh-card-border-radius"
-            },
-            {
-              "description": "The card border color. Defaults to `--jh-border-decorative-color`.",
-              "name": "--jh-card-color-border"
-            },
-            {
-              "description": "The media slot aspect-ratio. Defaults to `auto`.",
-              "name": "--jh-card-media-aspect-ratio"
-            },
-            {
-              "description": "The media slot padding. Defaults to `0`.",
-              "name": "--jh-card-media-space-padding"
-            },
-            {
-              "description": "The header text color. Defaults to `--jh-color-content-primary-enabled`.",
-              "name": "--jh-card-header-color-text"
-            },
-            {
-              "description": "The header slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600 0`. When `padding=\"small\"`, defaults to `--jh-dimension-400 --jh-dimension-400 0`. When `padding=\"small\"` and `show-header-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none'` and `show-header-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`.",
-              "name": "--jh-card-header-space-padding"
-            },
-            {
-              "description": "The default slot text color. Defaults to `--jh-color-content-primary-enabled`.",
-              "name": "--jh-card-default-color-text"
-            },
-            {
-              "description": "The default slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600`. When `padding=\"small\"`, defaults to `--jh-dimension-400`. When `padding=\"none\"`, defaults to `--jh-dimension-400 0`.",
-              "name": "--jh-card-default-space-padding"
-            },
-            {
-              "description": "The footer slot text color. Defaults to `--jh-color-content-secondary-enabled`.",
-              "name": "--jh-card-footer-color-text"
-            },
-            {
-              "description": "The footer slot padding. Defaults to `0 --jh-dimension-600 --jh-dimension-400`. When `padding=\"small\"`, defaults to `0 --jh-dimension-400 --jh-dimension-400`. When `padding=\"small\"` and `show-footer-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none\"` and `show-footer-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`.",
-              "name": "--jh-card-footer-space-padding"
-            },
-            {
-              "description": "The header title text color. Defaults to `--jh-color-content-primary-enabled`.",
-              "name": "--jh-card-header-title-color-text"
-            },
-            {
-              "description": "The header subtitle text color. Defaults to `--jh-color-content-secondary-enabled`.",
-              "name": "--jh-card-header-subtitle-color-text"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Use to insert card body content.",
-              "name": "default"
-            },
-            {
-              "description": "Use to insert media content in the top section of the card. User may need to add addtional styling to elements such as border, object-fit, etc.",
-              "name": "jh-card-media"
-            },
-            {
-              "description": "Use to insert custom card header layout. Default layout includes `headerTitle` and `headerSubtitle` properties.",
-              "name": "jh-card-header"
-            },
-            {
-              "description": "Use to insert card footer content.",
-              "name": "jh-card-footer"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "footerDividerInset",
-              "privacy": "public",
-              "type": {
-                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
-              },
-              "description": "Sets the alignment of the left edge of the divider above the footer.",
-              "default": "null",
-              "attribute": "footer-divider-inset"
-            },
-            {
-              "kind": "field",
-              "name": "headerDividerInset",
-              "privacy": "public",
-              "type": {
-                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
-              },
-              "description": "Sets the alignment of the left edge of the divider below the header.",
-              "default": "null",
-              "attribute": "header-divider-inset"
-            },
-            {
-              "kind": "field",
-              "name": "titleHeadingLevel",
-              "privacy": "public",
-              "type": {
-                "text": "1|2|3|4|5|6"
-              },
-              "description": "Informs assistive technologies what heading level the card title represents. Defaults to h2.",
-              "default": "2",
-              "attribute": "title-heading-level"
-            },
-            {
-              "kind": "field",
-              "name": "padding",
-              "privacy": "public",
-              "type": {
-                "text": "'small' | 'medium' | 'none'"
-              },
-              "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
-              "default": "'medium'",
-              "attribute": "padding",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "showFooterDivider",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
-              "default": "false",
-              "attribute": "show-footer-divider",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "showHeaderDivider",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a divider below the header to create a clearer definition between the header and body.",
-              "default": "false",
-              "attribute": "show-header-divider",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "headerSubtitle",
-              "privacy": "public",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Adds additional information about the card below the title.",
-              "default": "null",
-              "attribute": "header-subtitle"
-            },
-            {
-              "kind": "field",
-              "name": "headerTitle",
-              "privacy": "public",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Provides context for the content of the card.",
-              "default": "null",
-              "attribute": "header-title"
-            },
-            {
-              "kind": "field",
-              "name": "uniqueId",
-              "type": {
-                "text": "number"
-              },
-              "readonly": true,
-              "inheritedFrom": {
-                "name": "JhElement",
-                "module": "components/element/element.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "dispatchCustomEvent",
-              "parameters": [
-                {
-                  "name": "eventName",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "detail",
-                  "default": "{}",
-                  "optional": true,
-                  "type": {
-                    "text": "Object"
-                  }
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhElement",
-                "module": "components/element/element.js"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "footer-divider-inset",
-              "type": {
-                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
-              },
-              "description": "Sets the alignment of the left edge of the divider above the footer.",
-              "default": "null",
-              "fieldName": "footerDividerInset",
-              "attribute": "footer-divider-inset"
-            },
-            {
-              "name": "header-divider-inset",
-              "type": {
-                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
-              },
-              "description": "Sets the alignment of the left edge of the divider below the header.",
-              "default": "null",
-              "fieldName": "headerDividerInset",
-              "attribute": "header-divider-inset"
-            },
-            {
-              "name": "title-heading-level",
-              "type": {
-                "text": "1|2|3|4|5|6"
-              },
-              "description": "Informs assistive technologies what heading level the card title represents. Defaults to h2.",
-              "default": "2",
-              "fieldName": "titleHeadingLevel",
-              "attribute": "title-heading-level"
-            },
-            {
-              "name": "show-footer-divider",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
-              "default": "false",
-              "fieldName": "showFooterDivider",
-              "attribute": "show-footer-divider"
-            },
-            {
-              "name": "show-header-divider",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a divider below the header to create a clearer definition between the header and body.",
-              "default": "false",
-              "fieldName": "showHeaderDivider",
-              "attribute": "show-header-divider"
-            },
-            {
-              "name": "header-subtitle",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Adds additional information about the card below the title.",
-              "default": "null",
-              "fieldName": "headerSubtitle",
-              "attribute": "header-subtitle"
-            },
-            {
-              "name": "header-title",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Provides context for the content of the card.",
-              "default": "null",
-              "fieldName": "headerTitle",
-              "attribute": "header-title"
-            },
-            {
-              "name": "padding",
-              "type": {
-                "text": "'small' | 'medium' | 'none'"
-              },
-              "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
-              "default": "'medium'",
-              "fieldName": "padding"
-            }
-          ],
-          "superclass": {
-            "name": "JhElement",
-            "module": "/components/element/element.js"
-          },
-          "tagName": "jh-card",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JhCard",
-          "declaration": {
-            "name": "JhCard",
-            "module": "components/card/card.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/button/button.js",
       "declarations": [
         {
           "kind": "class",
-          "description": "Buttons enable a user to initiate a specific action.\n\n[Button Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-button--docs)",
+          "description": "Buttons enable a user to initiate a specific action.\n\n[Button Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-button--docs)",
           "name": "JhButton",
           "cssProperties": [
             {
@@ -1207,42 +898,175 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/divider/divider.js",
+      "path": "components/card/card.js",
       "declarations": [
         {
           "kind": "class",
-          "description": "Dividers are used to group content vertically at the page or component level and should be used when whitespace does not provide a clear enough separation.\n\n[Divider Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-divider--docs)",
-          "name": "JhDivider",
+          "description": "Cards are content structures that provide an entry point for more complex and detailed information.\n\n[Card Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-card--docs)",
+          "name": "JhCard",
           "cssProperties": [
             {
-              "description": "The divider width. Defaults to `--jh-border-decorative-width`.",
-              "name": "--jh-divider-border-width"
+              "description": "The card background-color. Defaults to `--jh-color-container-primary-enabled`.",
+              "name": "--jh-card-color-background"
             },
             {
-              "description": "The divider style. Defaults to `--jh-border-decorative-style`.",
-              "name": "--jh-divider-border-style"
+              "description": "The card border-radius. Defaults to `--jh-border-radius-200`.",
+              "name": "--jh-card-border-radius"
             },
             {
-              "description": "The divider color. Defaults to `--jh-border-decorative-color`.",
-              "name": "--jh-divider-color-border"
+              "description": "The card border color. Defaults to `--jh-border-decorative-color`.",
+              "name": "--jh-card-color-border"
             },
             {
-              "description": "The divider margin-left. Defaults to `0`.",
-              "name": "--jh-divider-space-inset"
+              "description": "The media slot aspect-ratio. Defaults to `auto`.",
+              "name": "--jh-card-media-aspect-ratio"
+            },
+            {
+              "description": "The media slot padding. Defaults to `0`.",
+              "name": "--jh-card-media-space-padding"
+            },
+            {
+              "description": "The header text color. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-card-header-color-text"
+            },
+            {
+              "description": "The header slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600 0`. When `padding=\"small\"`, defaults to `--jh-dimension-400 --jh-dimension-400 0`. When `padding=\"small\"` and `show-header-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none'` and `show-header-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`.",
+              "name": "--jh-card-header-space-padding"
+            },
+            {
+              "description": "The default slot text color. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-card-default-color-text"
+            },
+            {
+              "description": "The default slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600`. When `padding=\"small\"`, defaults to `--jh-dimension-400`. When `padding=\"none\"`, defaults to `--jh-dimension-400 0`.",
+              "name": "--jh-card-default-space-padding"
+            },
+            {
+              "description": "The footer slot text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-card-footer-color-text"
+            },
+            {
+              "description": "The footer slot padding. Defaults to `0 --jh-dimension-600 --jh-dimension-400`. When `padding=\"small\"`, defaults to `0 --jh-dimension-400 --jh-dimension-400`. When `padding=\"small\"` and `show-footer-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none\"` and `show-footer-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`.",
+              "name": "--jh-card-footer-space-padding"
+            },
+            {
+              "description": "The header title text color. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-card-header-title-color-text"
+            },
+            {
+              "description": "The header subtitle text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-card-header-subtitle-color-text"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Use to insert card body content.",
+              "name": "default"
+            },
+            {
+              "description": "Use to insert media content in the top section of the card. User may need to add addtional styling to elements such as border, object-fit, etc.",
+              "name": "jh-card-media"
+            },
+            {
+              "description": "Use to insert custom card header layout. Default layout includes `headerTitle` and `headerSubtitle` properties.",
+              "name": "jh-card-header"
+            },
+            {
+              "description": "Use to insert card footer content.",
+              "name": "jh-card-footer"
             }
           ],
           "members": [
             {
               "kind": "field",
-              "name": "inset",
+              "name": "footerDividerInset",
               "privacy": "public",
               "type": {
                 "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
               },
-              "description": "The alignment of the left edge of the divider.",
+              "description": "Sets the alignment of the left edge of the divider above the footer.",
               "default": "null",
-              "attribute": "inset",
+              "attribute": "footer-divider-inset"
+            },
+            {
+              "kind": "field",
+              "name": "headerDividerInset",
+              "privacy": "public",
+              "type": {
+                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
+              },
+              "description": "Sets the alignment of the left edge of the divider below the header.",
+              "default": "null",
+              "attribute": "header-divider-inset"
+            },
+            {
+              "kind": "field",
+              "name": "titleHeadingLevel",
+              "privacy": "public",
+              "type": {
+                "text": "1|2|3|4|5|6"
+              },
+              "description": "Informs assistive technologies what heading level the card title represents. Defaults to h2.",
+              "default": "2",
+              "attribute": "title-heading-level"
+            },
+            {
+              "kind": "field",
+              "name": "padding",
+              "privacy": "public",
+              "type": {
+                "text": "'small' | 'medium' | 'none'"
+              },
+              "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
+              "default": "'medium'",
+              "attribute": "padding",
               "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "showFooterDivider",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
+              "default": "false",
+              "attribute": "show-footer-divider",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "showHeaderDivider",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a divider below the header to create a clearer definition between the header and body.",
+              "default": "false",
+              "attribute": "show-header-divider",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "headerSubtitle",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Adds additional information about the card below the title.",
+              "default": "null",
+              "attribute": "header-subtitle"
+            },
+            {
+              "kind": "field",
+              "name": "headerTitle",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Provides context for the content of the card.",
+              "default": "null",
+              "attribute": "header-title"
             },
             {
               "kind": "field",
@@ -1283,30 +1107,164 @@
           ],
           "attributes": [
             {
-              "name": "inset",
+              "name": "footer-divider-inset",
               "type": {
                 "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
               },
-              "description": "The alignment of the left edge of the divider.",
+              "description": "Sets the alignment of the left edge of the divider above the footer.",
               "default": "null",
-              "fieldName": "inset"
+              "fieldName": "footerDividerInset",
+              "attribute": "footer-divider-inset"
+            },
+            {
+              "name": "header-divider-inset",
+              "type": {
+                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
+              },
+              "description": "Sets the alignment of the left edge of the divider below the header.",
+              "default": "null",
+              "fieldName": "headerDividerInset",
+              "attribute": "header-divider-inset"
+            },
+            {
+              "name": "title-heading-level",
+              "type": {
+                "text": "1|2|3|4|5|6"
+              },
+              "description": "Informs assistive technologies what heading level the card title represents. Defaults to h2.",
+              "default": "2",
+              "fieldName": "titleHeadingLevel",
+              "attribute": "title-heading-level"
+            },
+            {
+              "name": "show-footer-divider",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
+              "default": "false",
+              "fieldName": "showFooterDivider",
+              "attribute": "show-footer-divider"
+            },
+            {
+              "name": "show-header-divider",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a divider below the header to create a clearer definition between the header and body.",
+              "default": "false",
+              "fieldName": "showHeaderDivider",
+              "attribute": "show-header-divider"
+            },
+            {
+              "name": "header-subtitle",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Adds additional information about the card below the title.",
+              "default": "null",
+              "fieldName": "headerSubtitle",
+              "attribute": "header-subtitle"
+            },
+            {
+              "name": "header-title",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Provides context for the content of the card.",
+              "default": "null",
+              "fieldName": "headerTitle",
+              "attribute": "header-title"
+            },
+            {
+              "name": "padding",
+              "type": {
+                "text": "'small' | 'medium' | 'none'"
+              },
+              "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
+              "default": "'medium'",
+              "fieldName": "padding"
             }
           ],
           "superclass": {
             "name": "JhElement",
             "module": "/components/element/element.js"
           },
-          "tagName": "jh-divider",
+          "tagName": "jh-card",
           "customElement": true
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "JhDivider",
+          "name": "JhCard",
           "declaration": {
-            "name": "JhDivider",
-            "module": "components/divider/divider.js"
+            "name": "JhCard",
+            "module": "components/card/card.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/element/element.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "JhElement",
+          "members": [
+            {
+              "kind": "field",
+              "name": "uniqueId",
+              "type": {
+                "text": "number"
+              },
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "dispatchCustomEvent",
+              "parameters": [
+                {
+                  "name": "eventName",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "default": "{}",
+                  "optional": true,
+                  "type": {
+                    "text": "Object"
+                  }
+                }
+              ]
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JhElement",
+          "declaration": {
+            "name": "JhElement",
+            "module": "components/element/element.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "tagName",
+          "declaration": {
+            "name": "targetClass",
+            "module": "components/element/element.js"
           }
         }
       ]
@@ -1317,7 +1275,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Checkbox groups contain sets of checkboxes where several options can be selected.\n\n[Checkbox Group Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-checkbox-group--docs)",
+          "description": "Checkbox groups contain sets of checkboxes where several options can be selected.\n\n[Checkbox Group Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-checkbox-group--docs)",
           "name": "JhCheckboxGroup",
           "cssProperties": [
             {
@@ -1601,11 +1559,117 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/divider/divider.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Dividers are used to group content vertically at the page or component level and should be used when whitespace does not provide a clear enough separation.\n\n[Divider Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-divider--docs)",
+          "name": "JhDivider",
+          "cssProperties": [
+            {
+              "description": "The divider width. Defaults to `--jh-border-decorative-width`.",
+              "name": "--jh-divider-border-width"
+            },
+            {
+              "description": "The divider style. Defaults to `--jh-border-decorative-style`.",
+              "name": "--jh-divider-border-style"
+            },
+            {
+              "description": "The divider color. Defaults to `--jh-border-decorative-color`.",
+              "name": "--jh-divider-color-border"
+            },
+            {
+              "description": "The divider margin-left. Defaults to `0`.",
+              "name": "--jh-divider-space-inset"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "inset",
+              "privacy": "public",
+              "type": {
+                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
+              },
+              "description": "The alignment of the left edge of the divider.",
+              "default": "null",
+              "attribute": "inset",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "uniqueId",
+              "type": {
+                "text": "number"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "dispatchCustomEvent",
+              "parameters": [
+                {
+                  "name": "eventName",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "default": "{}",
+                  "optional": true,
+                  "type": {
+                    "text": "Object"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "inset",
+              "type": {
+                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
+              },
+              "description": "The alignment of the left edge of the divider.",
+              "default": "null",
+              "fieldName": "inset"
+            }
+          ],
+          "superclass": {
+            "name": "JhElement",
+            "module": "/components/element/element.js"
+          },
+          "tagName": "jh-divider",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JhDivider",
+          "declaration": {
+            "name": "JhDivider",
+            "module": "components/divider/divider.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/checkbox/checkbox.js",
       "declarations": [
         {
           "kind": "class",
-          "description": "Checkboxes allow users to select one or more options from a group of options.\n\n[Checkbox Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-checkbox--docs)",
+          "description": "Checkboxes allow users to select one or more options from a group of options.\n\n[Checkbox Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-checkbox--docs)",
           "name": "JhCheckbox",
           "cssProperties": [
             {
@@ -2069,207 +2133,11 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/element/element.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JhElement",
-          "members": [
-            {
-              "kind": "field",
-              "name": "uniqueId",
-              "type": {
-                "text": "number"
-              },
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "dispatchCustomEvent",
-              "parameters": [
-                {
-                  "name": "eventName",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "detail",
-                  "default": "{}",
-                  "optional": true,
-                  "type": {
-                    "text": "Object"
-                  }
-                }
-              ]
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JhElement",
-          "declaration": {
-            "name": "JhElement",
-            "module": "components/element/element.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "tagName",
-          "declaration": {
-            "name": "targetClass",
-            "module": "components/element/element.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/icon/icon.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The icon component provides authors with a means to use their own SVG icons while still enabling access\nto our design tokens, encouraging consistency across your product. In addition to the icon component, Jack Henry \nalso maintains a robust icon library available as raw SVGs and as discrete web components, with each component \nutilizing our design tokens.\n\n[Icon Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-icon--docs)",
-          "name": "JhIcon",
-          "cssProperties": [
-            {
-              "description": "The icon color. Defaults to `--jh-color-content-secondary-enabled`.",
-              "name": "--jh-icon-color-fill"
-            },
-            {
-              "description": "The icon size when `size=\"extra-small\"`. Defaults to `--jh-dimension-400`.",
-              "name": "--jh-icon-size-extra-small"
-            },
-            {
-              "description": "The icon size when `size=\"small\"`. Defaults to `--jh-dimension-500`.",
-              "name": "--jh-icon-size-small"
-            },
-            {
-              "description": "The icon size when `size=\"medium\"`. Defaults to `--jh-dimension-600`.",
-              "name": "--jh-icon-size-medium"
-            },
-            {
-              "description": "The icon size when `size=\"large\"`. Defaults to `--jh-dimension-900`.",
-              "name": "--jh-icon-size-large"
-            },
-            {
-              "description": "The icon size when `size=\"extra-large\"`. Defaults to `--jh-dimension-1400`.",
-              "name": "--jh-icon-size-extra-large"
-            },
-            {
-              "description": "The icon size when `size=\"extra-extra-large\"`. Defaults to `--jh-dimension-2100`.",
-              "name": "--jh-icon-size-extra-extra-large"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Use to insert the icon SVG content.",
-              "name": "default"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "ariaHidden",
-              "type": {
-                "text": "string"
-              },
-              "default": "'true'"
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "privacy": "public",
-              "type": {
-                "text": "'x-small' | 'small' | 'medium' | 'large' | 'x-large'|'xx-large'"
-              },
-              "description": "Sets the size of the icon.",
-              "default": "'medium'",
-              "attribute": "size",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "uniqueId",
-              "type": {
-                "text": "number"
-              },
-              "readonly": true,
-              "inheritedFrom": {
-                "name": "JhElement",
-                "module": "components/element/element.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "dispatchCustomEvent",
-              "parameters": [
-                {
-                  "name": "eventName",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "detail",
-                  "default": "{}",
-                  "optional": true,
-                  "type": {
-                    "text": "Object"
-                  }
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhElement",
-                "module": "components/element/element.js"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "size",
-              "type": {
-                "text": "'x-small' | 'small' | 'medium' | 'large' | 'x-large'|'xx-large'"
-              },
-              "description": "Sets the size of the icon.",
-              "default": "'medium'",
-              "fieldName": "size"
-            }
-          ],
-          "superclass": {
-            "name": "JhElement",
-            "module": "/components/element/element.js"
-          },
-          "tagName": "jh-icon",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JhIcon",
-          "declaration": {
-            "name": "JhIcon",
-            "module": "components/icon/icon.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/input/input.js",
       "declarations": [
         {
           "kind": "class",
-          "description": "The input component offers a single-line text field for collecting user data.\n\n[Input Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input--docs)",
+          "description": "The input component offers a single-line text field for collecting user data.\n\n[Input Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input--docs)",
           "name": "JhInput",
           "cssProperties": [
             {
@@ -3001,11 +2869,143 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/icon/icon.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The icon component provides authors with a means to use their own SVG icons while still enabling access\nto our design tokens, encouraging consistency across your product. In addition to the icon component, Jack Henry \nalso maintains a robust icon library available as raw SVGs and as discrete web components, with each component \nutilizing our design tokens.\n\n[Icon Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-icon--docs)",
+          "name": "JhIcon",
+          "cssProperties": [
+            {
+              "description": "The icon color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-icon-color-fill"
+            },
+            {
+              "description": "The icon size when `size=\"extra-small\"`. Defaults to `--jh-dimension-400`.",
+              "name": "--jh-icon-size-extra-small"
+            },
+            {
+              "description": "The icon size when `size=\"small\"`. Defaults to `--jh-dimension-500`.",
+              "name": "--jh-icon-size-small"
+            },
+            {
+              "description": "The icon size when `size=\"medium\"`. Defaults to `--jh-dimension-600`.",
+              "name": "--jh-icon-size-medium"
+            },
+            {
+              "description": "The icon size when `size=\"large\"`. Defaults to `--jh-dimension-900`.",
+              "name": "--jh-icon-size-large"
+            },
+            {
+              "description": "The icon size when `size=\"extra-large\"`. Defaults to `--jh-dimension-1400`.",
+              "name": "--jh-icon-size-extra-large"
+            },
+            {
+              "description": "The icon size when `size=\"extra-extra-large\"`. Defaults to `--jh-dimension-2100`.",
+              "name": "--jh-icon-size-extra-extra-large"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Use to insert the icon SVG content.",
+              "name": "default"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "ariaHidden",
+              "type": {
+                "text": "string"
+              },
+              "default": "'true'"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "privacy": "public",
+              "type": {
+                "text": "'x-small' | 'small' | 'medium' | 'large' | 'x-large'|'xx-large'"
+              },
+              "description": "Sets the size of the icon.",
+              "default": "'medium'",
+              "attribute": "size",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "uniqueId",
+              "type": {
+                "text": "number"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "dispatchCustomEvent",
+              "parameters": [
+                {
+                  "name": "eventName",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "default": "{}",
+                  "optional": true,
+                  "type": {
+                    "text": "Object"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "size",
+              "type": {
+                "text": "'x-small' | 'small' | 'medium' | 'large' | 'x-large'|'xx-large'"
+              },
+              "description": "Sets the size of the icon.",
+              "default": "'medium'",
+              "fieldName": "size"
+            }
+          ],
+          "superclass": {
+            "name": "JhElement",
+            "module": "/components/element/element.js"
+          },
+          "tagName": "jh-icon",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JhIcon",
+          "declaration": {
+            "name": "JhIcon",
+            "module": "components/icon/icon.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/input-email/input-email.js",
       "declarations": [
         {
           "kind": "class",
-          "description": "The input email component provides a single-line text field for email addresses.\n\n[Input Email Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-email--docs)",
+          "description": "The input email component provides a single-line text field for email addresses.\n\n[Input Email Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-email--docs)",
           "name": "JhInputEmail",
           "members": [
             {
@@ -4089,7 +4089,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The input password component provides a single-line text field that includes a toggle password button, allowing users to mask and unmask the input value.\n\n[Input Password Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-password--docs)",
+          "description": "The input password component provides a single-line text field that includes a toggle password button, allowing users to mask and unmask the input value.\n\n[Input Password Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-password--docs)",
           "name": "JhInputPassword",
           "slots": [
             {
@@ -5245,7 +5245,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The input search component provides a single-line text field for search queries.\n\n[Input Search Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-search--docs)",
+          "description": "The input search component provides a single-line text field for search queries.\n\n[Input Search Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-search--docs)",
           "name": "JhInputSearch",
           "members": [
             {
@@ -6329,7 +6329,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The input telephone component provides a single-line text field for capturing telephone numbers.\n\n[Input Telephone Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-telephone--docs)",
+          "description": "The input telephone component provides a single-line text field for capturing telephone numbers.\n\n[Input Telephone Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-telephone--docs)",
           "name": "JhInputTelephone",
           "members": [
             {
@@ -7413,7 +7413,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The input textarea component provides a multi-line text field that allows users to submit detailed, unstructured, free-form text. \n\n[Input Textarea Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-textarea--docs)",
+          "description": "The input textarea component provides a multi-line text field that allows users to submit detailed, unstructured, free-form text. \n\n[Input Textarea Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-textarea--docs)",
           "name": "JhInputTextarea",
           "cssProperties": [
             {
@@ -8603,7 +8603,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The input url component provides a single-line text field for capturing URLs.\n\n[Input URL Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-url--docs)",
+          "description": "The input url component provides a single-line text field for capturing URLs.\n\n[Input URL Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-url--docs)",
           "name": "JhInputUrl",
           "members": [
             {
@@ -9687,7 +9687,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The list group component is a container used to group together list items within a list.\n\n[List Group Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-list-group--docs)",
+          "description": "The list group component is a container used to group together list items within a list.\n\n[List Group Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-list-group--docs)",
           "name": "JhListGroup",
           "cssProperties": [
             {
@@ -9819,7 +9819,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "A list item represents one item in a list of connected objects. List items are used as building blocks in complex components such as lists, menus, and dropdowns.\n\n[List Item Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-list-item--docs)",
+          "description": "A list item represents one item in a list of connected objects. List items are used as building blocks in complex components such as lists, menus, and dropdowns.\n\n[List Item Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-list-item--docs)",
           "name": "JhListItem",
           "cssProperties": [
             {
@@ -10244,7 +10244,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Menus display lists of choices or actions. This is not a Navigation component.\n\n[Menu Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-menu--docs)",
+          "description": "Menus display lists of choices or actions. This is not a Navigation component.\n\n[Menu Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-menu--docs)",
           "name": "JhMenu",
           "cssProperties": [
             {
@@ -10341,7 +10341,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The notification component displays information to the user, and supports both alerts and banner type notifications.\n\n[Notification Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-notification--docs)",
+          "description": "The notification component displays information to the user, and supports both alerts and banner type notifications.\n\n[Notification Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-notification--docs)",
           "name": "JhNotification",
           "cssProperties": [
             {
@@ -10715,7 +10715,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "A progress indicator provides feedback to a user regarding loading and waiting states.\n\n[Progress Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-progress--docs)",
+          "description": "A progress indicator provides feedback to a user regarding loading and waiting states.\n\n[Progress Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-progress--docs)",
           "name": "JhProgress",
           "cssProperties": [
             {
@@ -11115,7 +11115,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Radio buttons, typically presented in radio groups, allow users to select only one option amongst a group of options.\n\n[Radio Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-radio--docs)",
+          "description": "Radio buttons, typically presented in radio groups, allow users to select only one option amongst a group of options.\n\n[Radio Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-radio--docs)",
           "name": "JhRadio",
           "cssProperties": [
             {
@@ -11434,7 +11434,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Radio groups contain sets of radios from which only one option can be selected. \n\n[Radio Group Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-radio-group--docs)",
+          "description": "Radio groups contain sets of radios from which only one option can be selected. \n\n[Radio Group Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-radio-group--docs)",
           "name": "JhRadioGroup",
           "cssProperties": [
             {
@@ -13107,7 +13107,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "A switch or toggle button is used to make an on/off selection that takes effect immediately on the page. It is not meant to be used in forms.\n\n[Switch Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-switch--docs)",
+          "description": "A switch or toggle button is used to make an on/off selection that takes effect immediately on the page. It is not meant to be used in forms.\n\n[Switch Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-switch--docs)",
           "name": "JhSwitch",
           "cssProperties": [
             {
@@ -13368,7 +13368,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The table is used to display tabular data. It is made up of several subcomponents and slots to produce an enhanced version of the native html table. It also provides hooks for sorting.\n\n[Table Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table--docs)",
+          "description": "The table is used to display tabular data. It is made up of several subcomponents and slots to produce an enhanced version of the native html table. It also provides hooks for sorting.\n\n[Table Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table--docs)",
           "name": "JhTable",
           "cssProperties": [
             {
@@ -13644,7 +13644,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The table header cell is used to display a column header. It should be placed inside a `<jh-table-row>` and contains text. Hooks for sorting and a sorting icon are also provided.\n\n[Table Header Cell Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table-header-cell--docs)",
+          "description": "The table header cell is used to display a column header. It should be placed inside a `<jh-table-row>` and contains text. Hooks for sorting and a sorting icon are also provided.\n\n[Table Header Cell Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table-header-cell--docs)",
           "name": "JhTableHeaderCell",
           "cssProperties": [
             {
@@ -13993,7 +13993,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The table data cell is used to display one cell of table data. Table data cells can contain text or other content and have to be placed inside `<jh-table-row>`s.\n\n[Table Data Cell Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table-data-cell--docs)",
+          "description": "The table data cell is used to display one cell of table data. Table data cells can contain text or other content and have to be placed inside `<jh-table-row>`s.\n\n[Table Data Cell Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table-data-cell--docs)",
           "name": "JhTableDataCell",
           "cssProperties": [
             {
@@ -14162,7 +14162,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The table row is used to display one row of table data. It contains `<jh-table-data-cell>` or `<jh-table-header-cell>` components.\n\n[Table Row Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table-row--docs)",
+          "description": "The table row is used to display one row of table data. It contains `<jh-table-data-cell>` or `<jh-table-header-cell>` components.\n\n[Table Row Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table-row--docs)",
           "name": "JhTableRow",
           "cssProperties": [
             {
@@ -14259,7 +14259,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "A tag contains a string of text on a colorful background and is used to categorize, describe or otherwise identify elements on the page.\n\n[Tag Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tag--docs)",
+          "description": "A tag contains a string of text on a colorful background and is used to categorize, describe or otherwise identify elements on the page.\n\n[Tag Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tag--docs)",
           "name": "JhTag",
           "cssProperties": [
             {
@@ -14616,7 +14616,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "A tag group is used to group `<jh-tag>` components to provide layout and alignment support. \n\n[Tag Group Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tag-group--docs)",
+          "description": "A tag group is used to group `<jh-tag>` components to provide layout and alignment support. \n\n[Tag Group Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tag-group--docs)",
           "name": "JhTagGroup",
           "slots": [
             {
@@ -14710,7 +14710,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The toast component displays a message that informs users on the outcome of an action. They are temporary by default, but can be modified to remain when needed.\n\n[Toast Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-toast--docs)",
+          "description": "The toast component displays a message that informs users on the outcome of an action. They are temporary by default, but can be modified to remain when needed.\n\n[Toast Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-toast--docs)",
           "name": "JhToast",
           "cssProperties": [
             {
@@ -14906,7 +14906,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The toast controller component manages multiple toasts. Toasts can be generated and appended to the controller either by a DOM based method or an event based method.\n\n[Toast Controller Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-toast-controller--docs)",
+          "description": "The toast controller component manages multiple toasts. Toasts can be generated and appended to the controller either by a DOM based method or an event based method.\n\n[Toast Controller Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-toast-controller--docs)",
           "name": "JhToastController",
           "cssProperties": [
             {
@@ -15004,7 +15004,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Tooltips are floating components that appears when a user hovers or focuses onto an originating element \nsuch as a button, icon or link. They display additional information about the originating element which is not \ncritical in nature.\n\n[Tooltip Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tooltip--docs)",
+          "description": "Tooltips are floating components that appears when a user hovers or focuses onto an originating element \nsuch as a button, icon or link. They display additional information about the originating element which is not \ncritical in nature.\n\n[Tooltip Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tooltip--docs)",
           "name": "JhTooltip",
           "cssProperties": [
             {

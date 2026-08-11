@@ -8,7 +8,7 @@
       "elements": [
         {
           "name": "jh-badge",
-          "description": "A Badge is a visual indicator that represents numbers, such as counters. It also supports a dot-only variant.\n\n[Badge Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-badge--docs)\n---\n",
+          "description": "A Badge is a visual indicator that represents numbers, such as counters. It also supports a dot-only variant.\n\n[Badge Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-badge--docs)\n---\n",
           "doc-url": "",
           "attributes": [
             {
@@ -50,147 +50,8 @@
           }
         },
         {
-          "name": "jh-card",
-          "description": "Cards are content structures that provide an entry point for more complex and detailed information.\n\n[Card Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-card--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert card body content.\n- **jh-card-media** - Use to insert media content in the top section of the card. User may need to add addtional styling to elements such as border, object-fit, etc.\n- **jh-card-header** - Use to insert custom card header layout. Default layout includes `headerTitle` and `headerSubtitle` properties.\n- **jh-card-footer** - Use to insert card footer content.",
-          "doc-url": "",
-          "attributes": [
-            {
-              "name": "footer-divider-inset",
-              "description": "Sets the alignment of the left edge of the divider above the footer.",
-              "value": {
-                "type": "\"0\"|\"8\"|\"16\"|\"24\"|\"32\"|\"40\"|\"48\"|\"56\"|\"64\"|\"72\"|\"80\"|\"88\"|\"96\"|null",
-                "default": "null"
-              }
-            },
-            {
-              "name": "header-divider-inset",
-              "description": "Sets the alignment of the left edge of the divider below the header.",
-              "value": {
-                "type": "\"0\"|\"8\"|\"16\"|\"24\"|\"32\"|\"40\"|\"48\"|\"56\"|\"64\"|\"72\"|\"80\"|\"88\"|\"96\"|null",
-                "default": "null"
-              }
-            },
-            {
-              "name": "title-heading-level",
-              "description": "Informs assistive technologies what heading level the card title represents. Defaults to h2.",
-              "value": {
-                "type": "\"1\"|\"2\"|\"3\"|\"4\"|\"5\"|\"6\"",
-                "default": "2"
-              }
-            },
-            {
-              "name": "show-footer-divider",
-              "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
-              "value": {
-                "type": "boolean",
-                "default": "false"
-              }
-            },
-            {
-              "name": "show-header-divider",
-              "description": "Adds a divider below the header to create a clearer definition between the header and body.",
-              "value": {
-                "type": "boolean",
-                "default": "false"
-              }
-            },
-            {
-              "name": "header-subtitle",
-              "description": "Adds additional information about the card below the title.",
-              "value": {
-                "type": "string | null",
-                "default": "null"
-              }
-            },
-            {
-              "name": "header-title",
-              "description": "Provides context for the content of the card.",
-              "value": {
-                "type": "string | null",
-                "default": "null"
-              }
-            },
-            {
-              "name": "padding",
-              "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
-              "value": {
-                "type": "'small' | 'medium' | 'none'",
-                "default": "'medium'"
-              }
-            }
-          ],
-          "slots": [
-            {
-              "name": "default",
-              "description": "Use to insert card body content."
-            },
-            {
-              "name": "jh-card-media",
-              "description": "Use to insert media content in the top section of the card. User may need to add addtional styling to elements such as border, object-fit, etc."
-            },
-            {
-              "name": "jh-card-header",
-              "description": "Use to insert custom card header layout. Default layout includes `headerTitle` and `headerSubtitle` properties."
-            },
-            {
-              "name": "jh-card-footer",
-              "description": "Use to insert card footer content."
-            }
-          ],
-          "events": [],
-          "js": {
-            "properties": [
-              {
-                "name": "footerDividerInset",
-                "description": "Sets the alignment of the left edge of the divider above the footer.",
-                "type": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
-              },
-              {
-                "name": "headerDividerInset",
-                "description": "Sets the alignment of the left edge of the divider below the header.",
-                "type": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
-              },
-              {
-                "name": "titleHeadingLevel",
-                "description": "Informs assistive technologies what heading level the card title represents. Defaults to h2.",
-                "type": "1|2|3|4|5|6"
-              },
-              {
-                "name": "padding",
-                "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
-                "type": "'small' | 'medium' | 'none'"
-              },
-              {
-                "name": "showFooterDivider",
-                "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
-                "type": "boolean"
-              },
-              {
-                "name": "showHeaderDivider",
-                "description": "Adds a divider below the header to create a clearer definition between the header and body.",
-                "type": "boolean"
-              },
-              {
-                "name": "headerSubtitle",
-                "description": "Adds additional information about the card below the title.",
-                "type": "string | null"
-              },
-              {
-                "name": "headerTitle",
-                "description": "Provides context for the content of the card.",
-                "type": "string | null"
-              },
-              {
-                "name": "uniqueId",
-                "type": "number"
-              }
-            ],
-            "events": []
-          }
-        },
-        {
           "name": "jh-button",
-          "description": "Buttons enable a user to initiate a specific action.\n\n[Button Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-button--docs)\n---\n\n\n### **Slots:**\n - **jh-button-icon-left** - Use to insert an icon on the left side of the button and for single icon buttons.\n- **jh-button-icon-right** - Use to insert an icon on the right side of the button and for single icon buttons.",
+          "description": "Buttons enable a user to initiate a specific action.\n\n[Button Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-button--docs)\n---\n\n\n### **Slots:**\n - **jh-button-icon-left** - Use to insert an icon on the left side of the button and for single icon buttons.\n- **jh-button-icon-right** - Use to insert an icon on the right side of the button and for single icon buttons.",
           "doc-url": "",
           "attributes": [
             {
@@ -397,26 +258,135 @@
           }
         },
         {
-          "name": "jh-divider",
-          "description": "Dividers are used to group content vertically at the page or component level and should be used when whitespace does not provide a clear enough separation.\n\n[Divider Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-divider--docs)\n---\n",
+          "name": "jh-card",
+          "description": "Cards are content structures that provide an entry point for more complex and detailed information.\n\n[Card Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-card--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert card body content.\n- **jh-card-media** - Use to insert media content in the top section of the card. User may need to add addtional styling to elements such as border, object-fit, etc.\n- **jh-card-header** - Use to insert custom card header layout. Default layout includes `headerTitle` and `headerSubtitle` properties.\n- **jh-card-footer** - Use to insert card footer content.",
           "doc-url": "",
           "attributes": [
             {
-              "name": "inset",
-              "description": "The alignment of the left edge of the divider.",
+              "name": "footer-divider-inset",
+              "description": "Sets the alignment of the left edge of the divider above the footer.",
               "value": {
                 "type": "\"0\"|\"8\"|\"16\"|\"24\"|\"32\"|\"40\"|\"48\"|\"56\"|\"64\"|\"72\"|\"80\"|\"88\"|\"96\"|null",
                 "default": "null"
               }
+            },
+            {
+              "name": "header-divider-inset",
+              "description": "Sets the alignment of the left edge of the divider below the header.",
+              "value": {
+                "type": "\"0\"|\"8\"|\"16\"|\"24\"|\"32\"|\"40\"|\"48\"|\"56\"|\"64\"|\"72\"|\"80\"|\"88\"|\"96\"|null",
+                "default": "null"
+              }
+            },
+            {
+              "name": "title-heading-level",
+              "description": "Informs assistive technologies what heading level the card title represents. Defaults to h2.",
+              "value": {
+                "type": "\"1\"|\"2\"|\"3\"|\"4\"|\"5\"|\"6\"",
+                "default": "2"
+              }
+            },
+            {
+              "name": "show-footer-divider",
+              "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
+              "name": "show-header-divider",
+              "description": "Adds a divider below the header to create a clearer definition between the header and body.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
+              "name": "header-subtitle",
+              "description": "Adds additional information about the card below the title.",
+              "value": {
+                "type": "string | null",
+                "default": "null"
+              }
+            },
+            {
+              "name": "header-title",
+              "description": "Provides context for the content of the card.",
+              "value": {
+                "type": "string | null",
+                "default": "null"
+              }
+            },
+            {
+              "name": "padding",
+              "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
+              "value": {
+                "type": "'small' | 'medium' | 'none'",
+                "default": "'medium'"
+              }
+            }
+          ],
+          "slots": [
+            {
+              "name": "default",
+              "description": "Use to insert card body content."
+            },
+            {
+              "name": "jh-card-media",
+              "description": "Use to insert media content in the top section of the card. User may need to add addtional styling to elements such as border, object-fit, etc."
+            },
+            {
+              "name": "jh-card-header",
+              "description": "Use to insert custom card header layout. Default layout includes `headerTitle` and `headerSubtitle` properties."
+            },
+            {
+              "name": "jh-card-footer",
+              "description": "Use to insert card footer content."
             }
           ],
           "events": [],
           "js": {
             "properties": [
               {
-                "name": "inset",
-                "description": "The alignment of the left edge of the divider.",
+                "name": "footerDividerInset",
+                "description": "Sets the alignment of the left edge of the divider above the footer.",
                 "type": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
+              },
+              {
+                "name": "headerDividerInset",
+                "description": "Sets the alignment of the left edge of the divider below the header.",
+                "type": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
+              },
+              {
+                "name": "titleHeadingLevel",
+                "description": "Informs assistive technologies what heading level the card title represents. Defaults to h2.",
+                "type": "1|2|3|4|5|6"
+              },
+              {
+                "name": "padding",
+                "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
+                "type": "'small' | 'medium' | 'none'"
+              },
+              {
+                "name": "showFooterDivider",
+                "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
+                "type": "boolean"
+              },
+              {
+                "name": "showHeaderDivider",
+                "description": "Adds a divider below the header to create a clearer definition between the header and body.",
+                "type": "boolean"
+              },
+              {
+                "name": "headerSubtitle",
+                "description": "Adds additional information about the card below the title.",
+                "type": "string | null"
+              },
+              {
+                "name": "headerTitle",
+                "description": "Provides context for the content of the card.",
+                "type": "string | null"
               },
               {
                 "name": "uniqueId",
@@ -428,7 +398,7 @@
         },
         {
           "name": "jh-checkbox-group",
-          "description": "Checkbox groups contain sets of checkboxes where several options can be selected.\n\n[Checkbox Group Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-checkbox-group--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert `<jh-checkbox>` component(s).",
+          "description": "Checkbox groups contain sets of checkboxes where several options can be selected.\n\n[Checkbox Group Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-checkbox-group--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert `<jh-checkbox>` component(s).",
           "doc-url": "",
           "attributes": [
             {
@@ -567,8 +537,38 @@
           }
         },
         {
+          "name": "jh-divider",
+          "description": "Dividers are used to group content vertically at the page or component level and should be used when whitespace does not provide a clear enough separation.\n\n[Divider Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-divider--docs)\n---\n",
+          "doc-url": "",
+          "attributes": [
+            {
+              "name": "inset",
+              "description": "The alignment of the left edge of the divider.",
+              "value": {
+                "type": "\"0\"|\"8\"|\"16\"|\"24\"|\"32\"|\"40\"|\"48\"|\"56\"|\"64\"|\"72\"|\"80\"|\"88\"|\"96\"|null",
+                "default": "null"
+              }
+            }
+          ],
+          "events": [],
+          "js": {
+            "properties": [
+              {
+                "name": "inset",
+                "description": "The alignment of the left edge of the divider.",
+                "type": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
+              },
+              {
+                "name": "uniqueId",
+                "type": "number"
+              }
+            ],
+            "events": []
+          }
+        },
+        {
           "name": "jh-checkbox",
-          "description": "Checkboxes allow users to select one or more options from a group of options.\n\n[Checkbox Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-checkbox--docs)\n---\n\n\n### **Events:**\n - **jh-change** - Dispatched when the state of the checkbox has changed. Event payload includes the `checked` state of the checkbox and can be accessed via `e.detail.state.checked`.",
+          "description": "Checkboxes allow users to select one or more options from a group of options.\n\n[Checkbox Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-checkbox--docs)\n---\n\n\n### **Events:**\n - **jh-change** - Dispatched when the state of the checkbox has changed. Event payload includes the `checked` state of the checkbox and can be accessed via `e.detail.state.checked`.",
           "doc-url": "",
           "attributes": [
             {
@@ -698,48 +698,8 @@
           }
         },
         {
-          "name": "jh-icon",
-          "description": "The icon component provides authors with a means to use their own SVG icons while still enabling access\nto our design tokens, encouraging consistency across your product. In addition to the icon component, Jack Henry \nalso maintains a robust icon library available as raw SVGs and as discrete web components, with each component \nutilizing our design tokens.\n\n[Icon Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-icon--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert the icon SVG content.",
-          "doc-url": "",
-          "attributes": [
-            {
-              "name": "size",
-              "description": "Sets the size of the icon.",
-              "value": {
-                "type": "'x-small' | 'small' | 'medium' | 'large' | 'x-large'|'xx-large'",
-                "default": "'medium'"
-              }
-            }
-          ],
-          "slots": [
-            {
-              "name": "default",
-              "description": "Use to insert the icon SVG content."
-            }
-          ],
-          "events": [],
-          "js": {
-            "properties": [
-              {
-                "name": "ariaHidden",
-                "type": "string"
-              },
-              {
-                "name": "size",
-                "description": "Sets the size of the icon.",
-                "type": "'x-small' | 'small' | 'medium' | 'large' | 'x-large'|'xx-large'"
-              },
-              {
-                "name": "uniqueId",
-                "type": "number"
-              }
-            ],
-            "events": []
-          }
-        },
-        {
           "name": "jh-input",
-          "description": "The input component offers a single-line text field for collecting user data.\n\n[Input Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input--docs)\n---\n\n\n### **Events:**\n - **jh-select** - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.\n- **jh-change** - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-input** - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-maxlength** - Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`.\n- **jh-input:clear-button-click** - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`.\n\n### **Slots:**\n - **jh-input-left** - Use to insert an element on the left side of the input field, such as an icon or button.\n- **jh-input-right** - Use to insert an element on the right side of the input field, such as an icon or button.\n- **jh-input-clear-button** - Use to insert an icon within the clear button.",
+          "description": "The input component offers a single-line text field for collecting user data.\n\n[Input Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input--docs)\n---\n\n\n### **Events:**\n - **jh-select** - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.\n- **jh-change** - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-input** - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-maxlength** - Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`.\n- **jh-input:clear-button-click** - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`.\n\n### **Slots:**\n - **jh-input-left** - Use to insert an element on the left side of the input field, such as an icon or button.\n- **jh-input-right** - Use to insert an element on the right side of the input field, such as an icon or button.\n- **jh-input-clear-button** - Use to insert an icon within the clear button.",
           "doc-url": "",
           "attributes": [
             {
@@ -1123,8 +1083,48 @@
           }
         },
         {
+          "name": "jh-icon",
+          "description": "The icon component provides authors with a means to use their own SVG icons while still enabling access\nto our design tokens, encouraging consistency across your product. In addition to the icon component, Jack Henry \nalso maintains a robust icon library available as raw SVGs and as discrete web components, with each component \nutilizing our design tokens.\n\n[Icon Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-icon--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert the icon SVG content.",
+          "doc-url": "",
+          "attributes": [
+            {
+              "name": "size",
+              "description": "Sets the size of the icon.",
+              "value": {
+                "type": "'x-small' | 'small' | 'medium' | 'large' | 'x-large'|'xx-large'",
+                "default": "'medium'"
+              }
+            }
+          ],
+          "slots": [
+            {
+              "name": "default",
+              "description": "Use to insert the icon SVG content."
+            }
+          ],
+          "events": [],
+          "js": {
+            "properties": [
+              {
+                "name": "ariaHidden",
+                "type": "string"
+              },
+              {
+                "name": "size",
+                "description": "Sets the size of the icon.",
+                "type": "'x-small' | 'small' | 'medium' | 'large' | 'x-large'|'xx-large'"
+              },
+              {
+                "name": "uniqueId",
+                "type": "number"
+              }
+            ],
+            "events": []
+          }
+        },
+        {
           "name": "jh-input-email",
-          "description": "The input email component provides a single-line text field for email addresses.\n\n[Input Email Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-email--docs)\n---\n\n\n### **Events:**\n - **jh-select** - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.\n- **jh-change** - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-input** - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-maxlength** - Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`.\n- **jh-input:clear-button-click** - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`.\n\n### **Slots:**\n - **jh-input-left** - Use to insert an element on the left side of the input field, such as an icon or button.\n- **jh-input-right** - Use to insert an element on the right side of the input field, such as an icon or button.\n- **jh-input-clear-button** - Use to insert an icon within the clear button.",
+          "description": "The input email component provides a single-line text field for email addresses.\n\n[Input Email Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-email--docs)\n---\n\n\n### **Events:**\n - **jh-select** - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.\n- **jh-change** - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-input** - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-maxlength** - Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`.\n- **jh-input:clear-button-click** - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`.\n\n### **Slots:**\n - **jh-input-left** - Use to insert an element on the left side of the input field, such as an icon or button.\n- **jh-input-right** - Use to insert an element on the right side of the input field, such as an icon or button.\n- **jh-input-clear-button** - Use to insert an icon within the clear button.",
           "doc-url": "",
           "attributes": [
             {
@@ -1509,7 +1509,7 @@
         },
         {
           "name": "jh-input-password",
-          "description": "The input password component provides a single-line text field that includes a toggle password button, allowing users to mask and unmask the input value.\n\n[Input Password Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-password--docs)\n---\n\n\n### **Events:**\n - **jh-select** - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.\n- **jh-change** - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-input** - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-maxlength** - Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`.\n- **jh-input:clear-button-click** - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`.\n\n### **Slots:**\n - **jh-input-password-hidden** - Use to insert a custom icon within the toggle password button when the input value is masked.\n- **jh-input-password-visible** - Use to insert a custom icon within the toggle password button when the input value is unmasked.\n- **jh-input-left** - Use to insert an element on the left side of the input field, such as an icon or button.\n- **jh-input-right** - Use to insert an element on the right side of the input field, such as an icon or button.\n- **jh-input-clear-button** - Use to insert an icon within the clear button.",
+          "description": "The input password component provides a single-line text field that includes a toggle password button, allowing users to mask and unmask the input value.\n\n[Input Password Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-password--docs)\n---\n\n\n### **Events:**\n - **jh-select** - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.\n- **jh-change** - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-input** - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-maxlength** - Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`.\n- **jh-input:clear-button-click** - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`.\n\n### **Slots:**\n - **jh-input-password-hidden** - Use to insert a custom icon within the toggle password button when the input value is masked.\n- **jh-input-password-visible** - Use to insert a custom icon within the toggle password button when the input value is unmasked.\n- **jh-input-left** - Use to insert an element on the left side of the input field, such as an icon or button.\n- **jh-input-right** - Use to insert an element on the right side of the input field, such as an icon or button.\n- **jh-input-clear-button** - Use to insert an icon within the clear button.",
           "doc-url": "",
           "attributes": [
             {
@@ -1941,7 +1941,7 @@
         },
         {
           "name": "jh-input-search",
-          "description": "The input search component provides a single-line text field for search queries.\n\n[Input Search Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-search--docs)\n---\n\n\n### **Events:**\n - **jh-select** - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.\n- **jh-change** - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-input** - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-maxlength** - Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`.\n- **jh-input:clear-button-click** - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`.\n\n### **Slots:**\n - **jh-input-left** - Use to insert an element on the left side of the input field, such as an icon or button.\n- **jh-input-right** - Use to insert an element on the right side of the input field, such as an icon or button.\n- **jh-input-clear-button** - Use to insert an icon within the clear button.",
+          "description": "The input search component provides a single-line text field for search queries.\n\n[Input Search Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-search--docs)\n---\n\n\n### **Events:**\n - **jh-select** - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.\n- **jh-change** - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-input** - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-maxlength** - Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`.\n- **jh-input:clear-button-click** - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`.\n\n### **Slots:**\n - **jh-input-left** - Use to insert an element on the left side of the input field, such as an icon or button.\n- **jh-input-right** - Use to insert an element on the right side of the input field, such as an icon or button.\n- **jh-input-clear-button** - Use to insert an icon within the clear button.",
           "doc-url": "",
           "attributes": [
             {
@@ -2326,7 +2326,7 @@
         },
         {
           "name": "jh-input-telephone",
-          "description": "The input telephone component provides a single-line text field for capturing telephone numbers.\n\n[Input Telephone Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-telephone--docs)\n---\n\n\n### **Events:**\n - **jh-select** - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.\n- **jh-change** - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-input** - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-maxlength** - Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`.\n- **jh-input:clear-button-click** - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`.\n\n### **Slots:**\n - **jh-input-left** - Use to insert an element on the left side of the input field, such as an icon or button.\n- **jh-input-right** - Use to insert an element on the right side of the input field, such as an icon or button.\n- **jh-input-clear-button** - Use to insert an icon within the clear button.",
+          "description": "The input telephone component provides a single-line text field for capturing telephone numbers.\n\n[Input Telephone Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-telephone--docs)\n---\n\n\n### **Events:**\n - **jh-select** - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.\n- **jh-change** - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-input** - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-maxlength** - Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`.\n- **jh-input:clear-button-click** - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`.\n\n### **Slots:**\n - **jh-input-left** - Use to insert an element on the left side of the input field, such as an icon or button.\n- **jh-input-right** - Use to insert an element on the right side of the input field, such as an icon or button.\n- **jh-input-clear-button** - Use to insert an icon within the clear button.",
           "doc-url": "",
           "attributes": [
             {
@@ -2711,7 +2711,7 @@
         },
         {
           "name": "jh-input-textarea",
-          "description": "The input textarea component provides a multi-line text field that allows users to submit detailed, unstructured, free-form text. \n\n[Input Textarea Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-textarea--docs)\n---\n\n\n### **Events:**\n - **jh-change** - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`.\n- **jh-input** - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`.\n- **jh-select** - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.\n- **jh-maxlength** - Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`.\n- **jh-input:clear-button-click** - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`.\n\n### **Slots:**\n - **jh-input-left** - Use to insert an element on the left side of the input field, such as an icon or button.\n- **jh-input-right** - Use to insert an element on the right side of the input field, such as an icon or button.\n- **jh-input-clear-button** - Use to insert an icon within the clear button.",
+          "description": "The input textarea component provides a multi-line text field that allows users to submit detailed, unstructured, free-form text. \n\n[Input Textarea Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-textarea--docs)\n---\n\n\n### **Events:**\n - **jh-change** - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`.\n- **jh-input** - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`.\n- **jh-select** - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.\n- **jh-maxlength** - Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`.\n- **jh-input:clear-button-click** - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`.\n\n### **Slots:**\n - **jh-input-left** - Use to insert an element on the left side of the input field, such as an icon or button.\n- **jh-input-right** - Use to insert an element on the right side of the input field, such as an icon or button.\n- **jh-input-clear-button** - Use to insert an icon within the clear button.",
           "doc-url": "",
           "attributes": [
             {
@@ -3161,7 +3161,7 @@
         },
         {
           "name": "jh-input-url",
-          "description": "The input url component provides a single-line text field for capturing URLs.\n\n[Input URL Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-url--docs)\n---\n\n\n### **Events:**\n - **jh-select** - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.\n- **jh-change** - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-input** - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-maxlength** - Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`.\n- **jh-input:clear-button-click** - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`.\n\n### **Slots:**\n - **jh-input-left** - Use to insert an element on the left side of the input field, such as an icon or button.\n- **jh-input-right** - Use to insert an element on the right side of the input field, such as an icon or button.\n- **jh-input-clear-button** - Use to insert an icon within the clear button.",
+          "description": "The input url component provides a single-line text field for capturing URLs.\n\n[Input URL Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-url--docs)\n---\n\n\n### **Events:**\n - **jh-select** - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.\n- **jh-change** - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-input** - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-maxlength** - Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`.\n- **jh-input:clear-button-click** - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`.\n\n### **Slots:**\n - **jh-input-left** - Use to insert an element on the left side of the input field, such as an icon or button.\n- **jh-input-right** - Use to insert an element on the right side of the input field, such as an icon or button.\n- **jh-input-clear-button** - Use to insert an icon within the clear button.",
           "doc-url": "",
           "attributes": [
             {
@@ -3546,7 +3546,7 @@
         },
         {
           "name": "jh-list-group",
-          "description": "The list group component is a container used to group together list items within a list.\n\n[List Group Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-list-group--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert `<jh-list-item>` component(s).",
+          "description": "The list group component is a container used to group together list items within a list.\n\n[List Group Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-list-group--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert `<jh-list-item>` component(s).",
           "doc-url": "",
           "attributes": [
             {
@@ -3595,7 +3595,7 @@
         },
         {
           "name": "jh-list-item",
-          "description": "A list item represents one item in a list of connected objects. List items are used as building blocks in complex components such as lists, menus, and dropdowns.\n\n[List Item Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-list-item--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert custom content into the list-item.\n- **jh-list-item-left** - Use to insert custom content on the left the list-item.\n- **jh-list-item-right** - Use to insert custom content on the right the list-item.",
+          "description": "A list item represents one item in a list of connected objects. List items are used as building blocks in complex components such as lists, menus, and dropdowns.\n\n[List Item Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-list-item--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert custom content into the list-item.\n- **jh-list-item-left** - Use to insert custom content on the left the list-item.\n- **jh-list-item-right** - Use to insert custom content on the right the list-item.",
           "doc-url": "",
           "attributes": [
             {
@@ -3748,7 +3748,7 @@
         },
         {
           "name": "jh-menu",
-          "description": "Menus display lists of choices or actions. This is not a Navigation component.\n\n[Menu Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-menu--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert menu items.",
+          "description": "Menus display lists of choices or actions. This is not a Navigation component.\n\n[Menu Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-menu--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert menu items.",
           "doc-url": "",
           "attributes": [],
           "slots": [
@@ -3770,7 +3770,7 @@
         },
         {
           "name": "jh-notification",
-          "description": "The notification component displays information to the user, and supports both alerts and banner type notifications.\n\n[Notification Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-notification--docs)\n---\n\n\n### **Events:**\n - **jh-dismiss** - Dispatched when the notification is dismissed.\n\n### **Slots:**\n - **default** - Use to insert contextual information.\n- **jh-notification-icon** - Use to insert a button or icon to the left of the default slot.\n- **jh-notification-dismiss-icon** - Use to insert icon within the dismiss button.\n- **jh-notification-action** - Use to insert action button(s). Placed to the right of the default slot. Set `stacked` property to place slot below default slot.",
+          "description": "The notification component displays information to the user, and supports both alerts and banner type notifications.\n\n[Notification Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-notification--docs)\n---\n\n\n### **Events:**\n - **jh-dismiss** - Dispatched when the notification is dismissed.\n\n### **Slots:**\n - **default** - Use to insert contextual information.\n- **jh-notification-icon** - Use to insert a button or icon to the left of the default slot.\n- **jh-notification-dismiss-icon** - Use to insert icon within the dismiss button.\n- **jh-notification-action** - Use to insert action button(s). Placed to the right of the default slot. Set `stacked` property to place slot below default slot.",
           "doc-url": "",
           "attributes": [
             {
@@ -3880,7 +3880,7 @@
         },
         {
           "name": "jh-progress",
-          "description": "A progress indicator provides feedback to a user regarding loading and waiting states.\n\n[Progress Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-progress--docs)\n---\n",
+          "description": "A progress indicator provides feedback to a user regarding loading and waiting states.\n\n[Progress Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-progress--docs)\n---\n",
           "doc-url": "",
           "attributes": [
             {
@@ -4027,7 +4027,7 @@
         },
         {
           "name": "jh-radio",
-          "description": "Radio buttons, typically presented in radio groups, allow users to select only one option amongst a group of options.\n\n[Radio Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-radio--docs)\n---\n\n\n### **Events:**\n - **jh-change** - Dispatched when the state of the radio has changed. Event payload includes the value of the radio and can be accessed via `e.detail.state.value`.",
+          "description": "Radio buttons, typically presented in radio groups, allow users to select only one option amongst a group of options.\n\n[Radio Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-radio--docs)\n---\n\n\n### **Events:**\n - **jh-change** - Dispatched when the state of the radio has changed. Event payload includes the value of the radio and can be accessed via `e.detail.state.value`.",
           "doc-url": "",
           "attributes": [
             {
@@ -4132,7 +4132,7 @@
         },
         {
           "name": "jh-radio-group",
-          "description": "Radio groups contain sets of radios from which only one option can be selected. \n\n[Radio Group Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-radio-group--docs)\n---\n\n\n### **Events:**\n - **jh-change** - Dispatched when the value of the radio group has changed. Event payload includes the `value` and can be accessed via `e.detail.state.value`.\n\n### **Slots:**\n - **default** - Use to insert `<jh-radio>` components(s).",
+          "description": "Radio groups contain sets of radios from which only one option can be selected. \n\n[Radio Group Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-radio-group--docs)\n---\n\n\n### **Events:**\n - **jh-change** - Dispatched when the value of the radio group has changed. Event payload includes the `value` and can be accessed via `e.detail.state.value`.\n\n### **Slots:**\n - **default** - Use to insert `<jh-radio>` components(s).",
           "doc-url": "",
           "attributes": [
             {
@@ -4736,7 +4736,7 @@
         },
         {
           "name": "jh-switch",
-          "description": "A switch or toggle button is used to make an on/off selection that takes effect immediately on the page. It is not meant to be used in forms.\n\n[Switch Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-switch--docs)\n---\n\n\n### **Events:**\n - **jh-change** - Dispatched when the state of the switch has changed.",
+          "description": "A switch or toggle button is used to make an on/off selection that takes effect immediately on the page. It is not meant to be used in forms.\n\n[Switch Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-switch--docs)\n---\n\n\n### **Events:**\n - **jh-change** - Dispatched when the state of the switch has changed.",
           "doc-url": "",
           "attributes": [
             {
@@ -4841,7 +4841,7 @@
         },
         {
           "name": "jh-table",
-          "description": "The table is used to display tabular data. It is made up of several subcomponents and slots to produce an enhanced version of the native html table. It also provides hooks for sorting.\n\n[Table Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert table body.\n- **jh-table-header** - Use to insert table header row.\n- **jh-table-footer** - Use to insert table footer row.\n- **jh-table-caption** - Use to insert table caption.\n- **jh-table-pagination** - Use to insert pagination.\n- **jh-table-toolbar** - Use to insert toolbar.",
+          "description": "The table is used to display tabular data. It is made up of several subcomponents and slots to produce an enhanced version of the native html table. It also provides hooks for sorting.\n\n[Table Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert table body.\n- **jh-table-header** - Use to insert table header row.\n- **jh-table-footer** - Use to insert table footer row.\n- **jh-table-caption** - Use to insert table caption.\n- **jh-table-pagination** - Use to insert pagination.\n- **jh-table-toolbar** - Use to insert toolbar.",
           "doc-url": "",
           "attributes": [
             {
@@ -4975,7 +4975,7 @@
         },
         {
           "name": "jh-table-header-cell",
-          "description": "The table header cell is used to display a column header. It should be placed inside a `<jh-table-row>` and contains text. Hooks for sorting and a sorting icon are also provided.\n\n[Table Header Cell Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table-header-cell--docs)\n---\n\n\n### **Events:**\n - **jh-sort** - Dispatched when a sortable header cell is activated. Event payload includes the column, sorted state, and id of the header cell and can be accessed via `e.detail.reference.column`, `e.detail.reference.sorted`, and `e.detail.reference.id`.\n\n### **Slots:**\n - **jh-table-sorted-ascending** - Use to insert a custom icon for ascending sort.\n- **jh-table-sorted-descending** - Use to insert a custom icon for descending sort.\n- **jh-table-sorted-none** - Use to insert a custom icon for no sort.\n- **default** - Use to insert table header text.",
+          "description": "The table header cell is used to display a column header. It should be placed inside a `<jh-table-row>` and contains text. Hooks for sorting and a sorting icon are also provided.\n\n[Table Header Cell Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table-header-cell--docs)\n---\n\n\n### **Events:**\n - **jh-sort** - Dispatched when a sortable header cell is activated. Event payload includes the column, sorted state, and id of the header cell and can be accessed via `e.detail.reference.column`, `e.detail.reference.sorted`, and `e.detail.reference.id`.\n\n### **Slots:**\n - **jh-table-sorted-ascending** - Use to insert a custom icon for ascending sort.\n- **jh-table-sorted-descending** - Use to insert a custom icon for descending sort.\n- **jh-table-sorted-none** - Use to insert a custom icon for no sort.\n- **default** - Use to insert table header text.",
           "doc-url": "",
           "attributes": [
             {
@@ -5059,7 +5059,7 @@
         },
         {
           "name": "jh-table-data-cell",
-          "description": "The table data cell is used to display one cell of table data. Table data cells can contain text or other content and have to be placed inside `<jh-table-row>`s.\n\n[Table Data Cell Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table-data-cell--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert content.",
+          "description": "The table data cell is used to display one cell of table data. Table data cells can contain text or other content and have to be placed inside `<jh-table-row>`s.\n\n[Table Data Cell Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table-data-cell--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert content.",
           "doc-url": "",
           "attributes": [
             {
@@ -5095,7 +5095,7 @@
         },
         {
           "name": "jh-table-row",
-          "description": "The table row is used to display one row of table data. It contains `<jh-table-data-cell>` or `<jh-table-header-cell>` components.\n\n[Table Row Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table-row--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert `<jh-table-data-cell>` or `<jh-table-header-cell>` components.",
+          "description": "The table row is used to display one row of table data. It contains `<jh-table-data-cell>` or `<jh-table-header-cell>` components.\n\n[Table Row Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table-row--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert `<jh-table-data-cell>` or `<jh-table-header-cell>` components.",
           "doc-url": "",
           "attributes": [],
           "slots": [
@@ -5117,7 +5117,7 @@
         },
         {
           "name": "jh-tag",
-          "description": "A tag contains a string of text on a colorful background and is used to categorize, describe or otherwise identify elements on the page.\n\n[Tag Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tag--docs)\n---\n\n\n### **Events:**\n - **jh-dismiss** - Dispatched when the tag is dismissed.\n\n### **Slots:**\n - **jh-tag-icon** - Use to insert an icon to the left of the tag.\n- **jh-tag-dismiss-icon** - Use to insert a custom icon within the dismiss button.",
+          "description": "A tag contains a string of text on a colorful background and is used to categorize, describe or otherwise identify elements on the page.\n\n[Tag Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tag--docs)\n---\n\n\n### **Events:**\n - **jh-dismiss** - Dispatched when the tag is dismissed.\n\n### **Slots:**\n - **jh-tag-icon** - Use to insert an icon to the left of the tag.\n- **jh-tag-dismiss-icon** - Use to insert a custom icon within the dismiss button.",
           "doc-url": "",
           "attributes": [
             {
@@ -5258,7 +5258,7 @@
         },
         {
           "name": "jh-tag-group",
-          "description": "A tag group is used to group `<jh-tag>` components to provide layout and alignment support. \n\n[Tag Group Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tag-group--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert `<jh-tag>` component(s).",
+          "description": "A tag group is used to group `<jh-tag>` components to provide layout and alignment support. \n\n[Tag Group Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tag-group--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert `<jh-tag>` component(s).",
           "doc-url": "",
           "attributes": [
             {
@@ -5294,7 +5294,7 @@
         },
         {
           "name": "jh-toast",
-          "description": "The toast component displays a message that informs users on the outcome of an action. They are temporary by default, but can be modified to remain when needed.\n\n[Toast Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-toast--docs)\n---\n\n\n### **Events:**\n - **jh-dismiss** - Dispatched when the toast is dismissed.\n\n### **Slots:**\n - **default** - Use to insert contextual information.\n- **jh-toast-icon** - Use to insert a button or icon to the left of the default slot.\n- **jh-toast-dismiss-icon** - Use to insert icon within the dismiss button.\n- **jh-toast-action** - Use to insert action button(s). Placed to the right of the default slot. Set `stacked` property to place slot below default slot.",
+          "description": "The toast component displays a message that informs users on the outcome of an action. They are temporary by default, but can be modified to remain when needed.\n\n[Toast Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-toast--docs)\n---\n\n\n### **Events:**\n - **jh-dismiss** - Dispatched when the toast is dismissed.\n\n### **Slots:**\n - **default** - Use to insert contextual information.\n- **jh-toast-icon** - Use to insert a button or icon to the left of the default slot.\n- **jh-toast-dismiss-icon** - Use to insert icon within the dismiss button.\n- **jh-toast-action** - Use to insert action button(s). Placed to the right of the default slot. Set `stacked` property to place slot below default slot.",
           "doc-url": "",
           "attributes": [
             {
@@ -5391,7 +5391,7 @@
         },
         {
           "name": "jh-toast-controller",
-          "description": "The toast controller component manages multiple toasts. Toasts can be generated and appended to the controller either by a DOM based method or an event based method.\n\n[Toast Controller Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-toast-controller--docs)\n---\n\n\n### **Events:**\n - **jh-dismiss** - Dispatched when the toast controller dismisses the oldest toast, and when toasts are dismissed manually by the user.\n\n### **Slots:**\n - **default** - Use to insert `<jh-toast>` components if appending toasts manually.",
+          "description": "The toast controller component manages multiple toasts. Toasts can be generated and appended to the controller either by a DOM based method or an event based method.\n\n[Toast Controller Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-toast-controller--docs)\n---\n\n\n### **Events:**\n - **jh-dismiss** - Dispatched when the toast controller dismisses the oldest toast, and when toasts are dismissed manually by the user.\n\n### **Slots:**\n - **default** - Use to insert `<jh-toast>` components if appending toasts manually.",
           "doc-url": "",
           "attributes": [
             {
@@ -5446,7 +5446,7 @@
         },
         {
           "name": "jh-tooltip",
-          "description": "Tooltips are floating components that appears when a user hovers or focuses onto an originating element \nsuch as a button, icon or link. They display additional information about the originating element which is not \ncritical in nature.\n\n[Tooltip Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tooltip--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert the element that triggers the tooltip.\n- **jh-tooltip-content** - Use to insert the content of the tooltip.",
+          "description": "Tooltips are floating components that appears when a user hovers or focuses onto an originating element \nsuch as a button, icon or link. They display additional information about the originating element which is not \ncritical in nature.\n\n[Tooltip Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tooltip--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert the element that triggers the tooltip.\n- **jh-tooltip-content** - Use to insert the content of the tooltip.",
           "doc-url": "",
           "attributes": [
             {
@@ -5525,58 +5525,6 @@
         {
           "name": "--jh-badge-color-text-enabled",
           "description": "The badge text color. Defaults to `--jh-color-content-on-negative-enabled`."
-        },
-        {
-          "name": "--jh-card-color-background",
-          "description": "The card background-color. Defaults to `--jh-color-container-primary-enabled`."
-        },
-        {
-          "name": "--jh-card-border-radius",
-          "description": "The card border-radius. Defaults to `--jh-border-radius-200`."
-        },
-        {
-          "name": "--jh-card-color-border",
-          "description": "The card border color. Defaults to `--jh-border-decorative-color`."
-        },
-        {
-          "name": "--jh-card-media-aspect-ratio",
-          "description": "The media slot aspect-ratio. Defaults to `auto`."
-        },
-        {
-          "name": "--jh-card-media-space-padding",
-          "description": "The media slot padding. Defaults to `0`."
-        },
-        {
-          "name": "--jh-card-header-color-text",
-          "description": "The header text color. Defaults to `--jh-color-content-primary-enabled`."
-        },
-        {
-          "name": "--jh-card-header-space-padding",
-          "description": "The header slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600 0`. When `padding=\"small\"`, defaults to `--jh-dimension-400 --jh-dimension-400 0`. When `padding=\"small\"` and `show-header-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none'` and `show-header-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`."
-        },
-        {
-          "name": "--jh-card-default-color-text",
-          "description": "The default slot text color. Defaults to `--jh-color-content-primary-enabled`."
-        },
-        {
-          "name": "--jh-card-default-space-padding",
-          "description": "The default slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600`. When `padding=\"small\"`, defaults to `--jh-dimension-400`. When `padding=\"none\"`, defaults to `--jh-dimension-400 0`."
-        },
-        {
-          "name": "--jh-card-footer-color-text",
-          "description": "The footer slot text color. Defaults to `--jh-color-content-secondary-enabled`."
-        },
-        {
-          "name": "--jh-card-footer-space-padding",
-          "description": "The footer slot padding. Defaults to `0 --jh-dimension-600 --jh-dimension-400`. When `padding=\"small\"`, defaults to `0 --jh-dimension-400 --jh-dimension-400`. When `padding=\"small\"` and `show-footer-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none\"` and `show-footer-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`."
-        },
-        {
-          "name": "--jh-card-header-title-color-text",
-          "description": "The header title text color. Defaults to `--jh-color-content-primary-enabled`."
-        },
-        {
-          "name": "--jh-card-header-subtitle-color-text",
-          "description": "The header subtitle text color. Defaults to `--jh-color-content-secondary-enabled`."
         },
         {
           "name": "--jh-button-color-background-primary-enabled",
@@ -5963,20 +5911,56 @@
           "description": "The button width of single icon buttons, and the button height. Button width and height defaults to `--jh-dimension-600` when `size=\"x-small\"`,`--jh-dimension-800` when `size=\"small\"`, `--jh-dimension-1000` when `size=\"medium\"`, and `--jh-dimension-1200` when `size=\"large\"`."
         },
         {
-          "name": "--jh-divider-border-width",
-          "description": "The divider width. Defaults to `--jh-border-decorative-width`."
+          "name": "--jh-card-color-background",
+          "description": "The card background-color. Defaults to `--jh-color-container-primary-enabled`."
         },
         {
-          "name": "--jh-divider-border-style",
-          "description": "The divider style. Defaults to `--jh-border-decorative-style`."
+          "name": "--jh-card-border-radius",
+          "description": "The card border-radius. Defaults to `--jh-border-radius-200`."
         },
         {
-          "name": "--jh-divider-color-border",
-          "description": "The divider color. Defaults to `--jh-border-decorative-color`."
+          "name": "--jh-card-color-border",
+          "description": "The card border color. Defaults to `--jh-border-decorative-color`."
         },
         {
-          "name": "--jh-divider-space-inset",
-          "description": "The divider margin-left. Defaults to `0`."
+          "name": "--jh-card-media-aspect-ratio",
+          "description": "The media slot aspect-ratio. Defaults to `auto`."
+        },
+        {
+          "name": "--jh-card-media-space-padding",
+          "description": "The media slot padding. Defaults to `0`."
+        },
+        {
+          "name": "--jh-card-header-color-text",
+          "description": "The header text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-card-header-space-padding",
+          "description": "The header slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600 0`. When `padding=\"small\"`, defaults to `--jh-dimension-400 --jh-dimension-400 0`. When `padding=\"small\"` and `show-header-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none'` and `show-header-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`."
+        },
+        {
+          "name": "--jh-card-default-color-text",
+          "description": "The default slot text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-card-default-space-padding",
+          "description": "The default slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600`. When `padding=\"small\"`, defaults to `--jh-dimension-400`. When `padding=\"none\"`, defaults to `--jh-dimension-400 0`."
+        },
+        {
+          "name": "--jh-card-footer-color-text",
+          "description": "The footer slot text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-card-footer-space-padding",
+          "description": "The footer slot padding. Defaults to `0 --jh-dimension-600 --jh-dimension-400`. When `padding=\"small\"`, defaults to `0 --jh-dimension-400 --jh-dimension-400`. When `padding=\"small\"` and `show-footer-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none\"` and `show-footer-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`."
+        },
+        {
+          "name": "--jh-card-header-title-color-text",
+          "description": "The header title text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-card-header-subtitle-color-text",
+          "description": "The header subtitle text color. Defaults to `--jh-color-content-secondary-enabled`."
         },
         {
           "name": "--jh-checkbox-group-label-color-text",
@@ -6001,6 +5985,22 @@
         {
           "name": "--jh-checkbox-group-error-color-text",
           "description": "The error-text text color. Defaults to `--jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-divider-border-width",
+          "description": "The divider width. Defaults to `--jh-border-decorative-width`."
+        },
+        {
+          "name": "--jh-divider-border-style",
+          "description": "The divider style. Defaults to `--jh-border-decorative-style`."
+        },
+        {
+          "name": "--jh-divider-color-border",
+          "description": "The divider color. Defaults to `--jh-border-decorative-color`."
+        },
+        {
+          "name": "--jh-divider-space-inset",
+          "description": "The divider margin-left. Defaults to `0`."
         },
         {
           "name": "--jh-checkbox-opacity-disabled",
@@ -6183,34 +6183,6 @@
           "description": "The checkbox color when indeterminate status mark when disabled. Defaults to `--jh-color-content-on-brand-enabled`."
         },
         {
-          "name": "--jh-icon-color-fill",
-          "description": "The icon color. Defaults to `--jh-color-content-secondary-enabled`."
-        },
-        {
-          "name": "--jh-icon-size-extra-small",
-          "description": "The icon size when `size=\"extra-small\"`. Defaults to `--jh-dimension-400`."
-        },
-        {
-          "name": "--jh-icon-size-small",
-          "description": "The icon size when `size=\"small\"`. Defaults to `--jh-dimension-500`."
-        },
-        {
-          "name": "--jh-icon-size-medium",
-          "description": "The icon size when `size=\"medium\"`. Defaults to `--jh-dimension-600`."
-        },
-        {
-          "name": "--jh-icon-size-large",
-          "description": "The icon size when `size=\"large\"`. Defaults to `--jh-dimension-900`."
-        },
-        {
-          "name": "--jh-icon-size-extra-large",
-          "description": "The icon size when `size=\"extra-large\"`. Defaults to `--jh-dimension-1400`."
-        },
-        {
-          "name": "--jh-icon-size-extra-extra-large",
-          "description": "The icon size when `size=\"extra-extra-large\"`. Defaults to `--jh-dimension-2100`."
-        },
-        {
           "name": "--jh-input-label-color-text",
           "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
         },
@@ -6333,6 +6305,34 @@
         {
           "name": "--jh-input-error-color-text",
           "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-icon-color-fill",
+          "description": "The icon color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-icon-size-extra-small",
+          "description": "The icon size when `size=\"extra-small\"`. Defaults to `--jh-dimension-400`."
+        },
+        {
+          "name": "--jh-icon-size-small",
+          "description": "The icon size when `size=\"small\"`. Defaults to `--jh-dimension-500`."
+        },
+        {
+          "name": "--jh-icon-size-medium",
+          "description": "The icon size when `size=\"medium\"`. Defaults to `--jh-dimension-600`."
+        },
+        {
+          "name": "--jh-icon-size-large",
+          "description": "The icon size when `size=\"large\"`. Defaults to `--jh-dimension-900`."
+        },
+        {
+          "name": "--jh-icon-size-extra-large",
+          "description": "The icon size when `size=\"extra-large\"`. Defaults to `--jh-dimension-1400`."
+        },
+        {
+          "name": "--jh-icon-size-extra-extra-large",
+          "description": "The icon size when `size=\"extra-extra-large\"`. Defaults to `--jh-dimension-2100`."
         },
         {
           "name": "--jh-input-label-color-text",

@@ -34,6 +34,9 @@ import '../table-row/table-row.js';
  */
 export class JhTable extends JhElement {
 
+  /** @type {ResizeObserver | null} */
+  #observer = null;
+
   static get styles() {
     return css`
       :host {
@@ -289,8 +292,8 @@ export class JhTable extends JhElement {
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    if (this.observer) {
-      this.observer.disconnect();
+    if (this.#observer) {
+      this.#observer.disconnect();
     }
   }
 
@@ -298,7 +301,7 @@ export class JhTable extends JhElement {
   async firstUpdated() {
     if (!this.scrollable) return;
 
-    this.observer = new ResizeObserver((entries) => {
+    this.#observer = new ResizeObserver((entries) => {
       entries.forEach((entry) => {
         let table = entry.target.shadowRoot.querySelector('.table');
         let tableContainer =
@@ -313,7 +316,7 @@ export class JhTable extends JhElement {
       });
     });
 
-    this.observer.observe(this);
+    this.#observer.observe(this);
   }
 
   #handleSlot(e) {

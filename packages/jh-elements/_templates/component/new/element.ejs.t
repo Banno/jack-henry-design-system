@@ -35,7 +35,7 @@ export class <%= h.changeCase.pascal(elementName) %> extends JhElement {
 
   constructor() {
     super();
-    /** @type {?string} 
+    /** @type {string | null} 
     * Property description 
     */
     this.someProperty = 'some initial value';
@@ -47,4 +47,4 @@ export class <%= h.changeCase.pascal(elementName) %> extends JhElement {
     `;
   }
 }
-<%= className %>.register('<%= elementName %>', <%= h.changeCase.pascal(elementName) %> );
+<%= h.changeCase.pascal(elementName) %>.register('<%= elementName %>', <%= h.changeCase.pascal(elementName) %> );

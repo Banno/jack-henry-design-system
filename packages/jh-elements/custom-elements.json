@@ -1354,12 +1354,6 @@
       "description": "Input Currency",
       "attributes": [
         {
-          "name": "horizontal-align",
-          "description": "Sets the horizontal alignment of the input text.",
-          "type": "'left' | 'right'",
-          "default": "\"left\""
-        },
-        {
           "name": "accessible-label",
           "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
           "type": "?string"
@@ -1449,6 +1443,11 @@
           "type": "?string"
         },
         {
+          "name": "prefix",
+          "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+          "type": "string | null"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
           "type": "boolean",
@@ -1485,19 +1484,17 @@
           "default": "\"medium\""
         },
         {
+          "name": "suffix",
+          "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+          "type": "string | null"
+        },
+        {
           "name": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
         }
       ],
       "properties": [
-        {
-          "name": "horizontalAlign",
-          "attribute": "horizontal-align",
-          "description": "Sets the horizontal alignment of the input text.",
-          "type": "'left' | 'right'",
-          "default": "\"left\""
-        },
         {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
@@ -1605,6 +1602,12 @@
           "type": "?string"
         },
         {
+          "name": "prefix",
+          "attribute": "prefix",
+          "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+          "type": "string | null"
+        },
+        {
           "name": "readonly",
           "attribute": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
@@ -1645,6 +1648,12 @@
           "description": "Sets the size of the input.",
           "type": "'small'|'medium'|'large'",
           "default": "\"medium\""
+        },
+        {
+          "name": "suffix",
+          "attribute": "suffix",
+          "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+          "type": "string | null"
         },
         {
           "name": "value",
@@ -1813,6 +1822,14 @@
         {
           "name": "--jh-input-value-color-text",
           "description": "The value text color. Defaults to `jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-input-prefix-color-text",
+          "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-input-suffix-color-text",
+          "description": "The suffix text color. Defaults to `--jh-color-content-secondary-enabled`."
         },
         {
           "name": "--jh-input-error-color-text",
@@ -1916,6 +1933,11 @@
           "type": "?string"
         },
         {
+          "name": "prefix",
+          "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+          "type": "string | null"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
           "type": "boolean",
@@ -1950,6 +1972,11 @@
           "description": "Sets the size of the input.",
           "type": "'small'|'medium'|'large'",
           "default": "\"medium\""
+        },
+        {
+          "name": "suffix",
+          "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+          "type": "string | null"
         },
         {
           "name": "value",
@@ -2066,6 +2093,12 @@
           "type": "?string"
         },
         {
+          "name": "prefix",
+          "attribute": "prefix",
+          "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+          "type": "string | null"
+        },
+        {
           "name": "readonly",
           "attribute": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
@@ -2106,6 +2139,12 @@
           "description": "Sets the size of the input.",
           "type": "'small'|'medium'|'large'",
           "default": "\"medium\""
+        },
+        {
+          "name": "suffix",
+          "attribute": "suffix",
+          "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+          "type": "string | null"
         },
         {
           "name": "value",
@@ -2274,6 +2313,14 @@
         {
           "name": "--jh-input-value-color-text",
           "description": "The value text color. Defaults to `jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-input-prefix-color-text",
+          "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-input-suffix-color-text",
+          "description": "The suffix text color. Defaults to `--jh-color-content-secondary-enabled`."
         },
         {
           "name": "--jh-input-error-color-text",
@@ -2391,6 +2438,11 @@
           "type": "?string"
         },
         {
+          "name": "prefix",
+          "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+          "type": "string | null"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
           "type": "boolean",
@@ -2425,6 +2477,11 @@
           "description": "Sets the size of the input.",
           "type": "'small'|'medium'|'large'",
           "default": "\"medium\""
+        },
+        {
+          "name": "suffix",
+          "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+          "type": "string | null"
         },
         {
           "name": "value",
@@ -2559,6 +2616,12 @@
           "type": "?string"
         },
         {
+          "name": "prefix",
+          "attribute": "prefix",
+          "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+          "type": "string | null"
+        },
+        {
           "name": "readonly",
           "attribute": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
@@ -2599,6 +2662,12 @@
           "description": "Sets the size of the input.",
           "type": "'small'|'medium'|'large'",
           "default": "\"medium\""
+        },
+        {
+          "name": "suffix",
+          "attribute": "suffix",
+          "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+          "type": "string | null"
         },
         {
           "name": "value",
@@ -2777,6 +2846,14 @@
           "description": "The value text color. Defaults to `jh-color-content-primary-enabled`."
         },
         {
+          "name": "--jh-input-prefix-color-text",
+          "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-input-suffix-color-text",
+          "description": "The suffix text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
           "name": "--jh-input-error-color-text",
           "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
         }
@@ -2877,6 +2954,11 @@
           "type": "?string"
         },
         {
+          "name": "prefix",
+          "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+          "type": "string | null"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
           "type": "boolean",
@@ -2911,6 +2993,11 @@
           "description": "Sets the size of the input.",
           "type": "'small'|'medium'|'large'",
           "default": "\"medium\""
+        },
+        {
+          "name": "suffix",
+          "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+          "type": "string | null"
         },
         {
           "name": "value",
@@ -3026,6 +3113,12 @@
           "type": "?string"
         },
         {
+          "name": "prefix",
+          "attribute": "prefix",
+          "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+          "type": "string | null"
+        },
+        {
           "name": "readonly",
           "attribute": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
@@ -3066,6 +3159,12 @@
           "description": "Sets the size of the input.",
           "type": "'small'|'medium'|'large'",
           "default": "\"medium\""
+        },
+        {
+          "name": "suffix",
+          "attribute": "suffix",
+          "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+          "type": "string | null"
         },
         {
           "name": "value",
@@ -3234,6 +3333,14 @@
         {
           "name": "--jh-input-value-color-text",
           "description": "The value text color. Defaults to `jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-input-prefix-color-text",
+          "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-input-suffix-color-text",
+          "description": "The suffix text color. Defaults to `--jh-color-content-secondary-enabled`."
         },
         {
           "name": "--jh-input-error-color-text",
@@ -3336,6 +3443,11 @@
           "type": "?string"
         },
         {
+          "name": "prefix",
+          "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+          "type": "string | null"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
           "type": "boolean",
@@ -3370,6 +3482,11 @@
           "description": "Sets the size of the input.",
           "type": "'small'|'medium'|'large'",
           "default": "\"medium\""
+        },
+        {
+          "name": "suffix",
+          "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+          "type": "string | null"
         },
         {
           "name": "value",
@@ -3485,6 +3602,12 @@
           "type": "?string"
         },
         {
+          "name": "prefix",
+          "attribute": "prefix",
+          "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+          "type": "string | null"
+        },
+        {
           "name": "readonly",
           "attribute": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
@@ -3525,6 +3648,12 @@
           "description": "Sets the size of the input.",
           "type": "'small'|'medium'|'large'",
           "default": "\"medium\""
+        },
+        {
+          "name": "suffix",
+          "attribute": "suffix",
+          "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+          "type": "string | null"
         },
         {
           "name": "value",
@@ -3693,6 +3822,14 @@
         {
           "name": "--jh-input-value-color-text",
           "description": "The value text color. Defaults to `jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-input-prefix-color-text",
+          "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-input-suffix-color-text",
+          "description": "The suffix text color. Defaults to `--jh-color-content-secondary-enabled`."
         },
         {
           "name": "--jh-input-error-color-text",
@@ -3821,6 +3958,11 @@
           "type": "?string"
         },
         {
+          "name": "prefix",
+          "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+          "type": "string | null"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value.",
           "type": "boolean",
@@ -3855,6 +3997,11 @@
           "description": "Sets the size of the input.",
           "type": "'small'|'medium'|'large'",
           "default": "\"medium\""
+        },
+        {
+          "name": "suffix",
+          "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+          "type": "string | null"
         },
         {
           "name": "value",
@@ -4002,6 +4149,12 @@
           "type": "?string"
         },
         {
+          "name": "prefix",
+          "attribute": "prefix",
+          "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+          "type": "string | null"
+        },
+        {
           "name": "readonly",
           "attribute": "readonly",
           "description": "Prevents users from changing the input value.",
@@ -4042,6 +4195,12 @@
           "description": "Sets the size of the input.",
           "type": "'small'|'medium'|'large'",
           "default": "\"medium\""
+        },
+        {
+          "name": "suffix",
+          "attribute": "suffix",
+          "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+          "type": "string | null"
         },
         {
           "name": "value",
@@ -4216,6 +4375,14 @@
           "description": "The value text color. Defaults to `jh-color-content-primary-enabled`."
         },
         {
+          "name": "--jh-input-prefix-color-text",
+          "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-input-suffix-color-text",
+          "description": "The suffix text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
           "name": "--jh-input-error-color-text",
           "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
         }
@@ -4316,6 +4483,11 @@
           "type": "?string"
         },
         {
+          "name": "prefix",
+          "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+          "type": "string | null"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
           "type": "boolean",
@@ -4350,6 +4522,11 @@
           "description": "Sets the size of the input.",
           "type": "'small'|'medium'|'large'",
           "default": "\"medium\""
+        },
+        {
+          "name": "suffix",
+          "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+          "type": "string | null"
         },
         {
           "name": "value",
@@ -4465,6 +4642,12 @@
           "type": "?string"
         },
         {
+          "name": "prefix",
+          "attribute": "prefix",
+          "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+          "type": "string | null"
+        },
+        {
           "name": "readonly",
           "attribute": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
@@ -4505,6 +4688,12 @@
           "description": "Sets the size of the input.",
           "type": "'small'|'medium'|'large'",
           "default": "\"medium\""
+        },
+        {
+          "name": "suffix",
+          "attribute": "suffix",
+          "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+          "type": "string | null"
         },
         {
           "name": "value",
@@ -4673,6 +4862,14 @@
         {
           "name": "--jh-input-value-color-text",
           "description": "The value text color. Defaults to `jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-input-prefix-color-text",
+          "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-input-suffix-color-text",
+          "description": "The suffix text color. Defaults to `--jh-color-content-secondary-enabled`."
         },
         {
           "name": "--jh-input-error-color-text",
@@ -4774,6 +4971,11 @@
           "type": "?string"
         },
         {
+          "name": "prefix",
+          "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+          "type": "string | null"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
           "type": "boolean",
@@ -4808,6 +5010,11 @@
           "description": "Sets the size of the input.",
           "type": "'small'|'medium'|'large'",
           "default": "\"medium\""
+        },
+        {
+          "name": "suffix",
+          "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+          "type": "string | null"
         },
         {
           "name": "value",
@@ -4923,6 +5130,12 @@
           "type": "?string"
         },
         {
+          "name": "prefix",
+          "attribute": "prefix",
+          "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+          "type": "string | null"
+        },
+        {
           "name": "readonly",
           "attribute": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
@@ -4963,6 +5176,12 @@
           "description": "Sets the size of the input.",
           "type": "'small'|'medium'|'large'",
           "default": "\"medium\""
+        },
+        {
+          "name": "suffix",
+          "attribute": "suffix",
+          "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+          "type": "string | null"
         },
         {
           "name": "value",
@@ -5131,6 +5350,14 @@
         {
           "name": "--jh-input-value-color-text",
           "description": "The value text color. Defaults to `jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-input-prefix-color-text",
+          "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-input-suffix-color-text",
+          "description": "The suffix text color. Defaults to `--jh-color-content-secondary-enabled`."
         },
         {
           "name": "--jh-input-error-color-text",
@@ -6458,6 +6685,11 @@
           "type": "?string"
         },
         {
+          "name": "prefix",
+          "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+          "type": "string | null"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
           "type": "boolean",
@@ -6492,6 +6724,11 @@
           "description": "Sets the size of the input.",
           "type": "'small'|'medium'|'large'",
           "default": "\"medium\""
+        },
+        {
+          "name": "suffix",
+          "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+          "type": "string | null"
         },
         {
           "name": "value",
@@ -6627,6 +6864,12 @@
           "type": "?string"
         },
         {
+          "name": "prefix",
+          "attribute": "prefix",
+          "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+          "type": "string | null"
+        },
+        {
           "name": "readonly",
           "attribute": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
@@ -6667,6 +6910,12 @@
           "description": "Sets the size of the input.",
           "type": "'small'|'medium'|'large'",
           "default": "\"medium\""
+        },
+        {
+          "name": "suffix",
+          "attribute": "suffix",
+          "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+          "type": "string | null"
         },
         {
           "name": "value",
@@ -6995,6 +7244,14 @@
         {
           "name": "--jh-input-value-color-text",
           "description": "The value text color. Defaults to `jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-input-prefix-color-text",
+          "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-input-suffix-color-text",
+          "description": "The suffix text color. Defaults to `--jh-color-content-secondary-enabled`."
         },
         {
           "name": "--jh-input-error-color-text",

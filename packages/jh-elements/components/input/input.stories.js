@@ -9,6 +9,8 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from 'storybook/actions';
 import '@jack-henry/jh-icons/icons-wc/icon-id-card.js';
 import '@jack-henry/jh-icons/icons-wc/icon-magnifying-glass.js';
+import '@jack-henry/jh-icons/icons-wc/icon-globe-dollar-sign.js';
+import '@jack-henry/jh-icons/icons-wc/icon-money-bill-fast.js';
 
 const storyStyles = css`
   .overview-story jh-input {
@@ -40,8 +42,10 @@ const disableControls = {
   maxlength: { control: { disable: true } },
   minlength: { control: { disable: true } },
   name: { control: { disable: true } },
+  prefix: { control: { disable: true } },
   readonly: { control: { disable: true } },
   required: { control: { disable: true } },
+  suffix: { control: { disable: true } },
   'show-char-count': { control: { disable: true } },
   'show-clear-button': { control: { disable: true } },
   'show-indicator': { control: { disable: true } },
@@ -133,6 +137,9 @@ export default {
     name: {
       control: 'text',
     },
+    prefix: {
+      control: 'text',
+    },
     readonly: {
       control: 'boolean',
     },
@@ -151,6 +158,9 @@ export default {
     size: {
       control: 'select',
       options: ['small', 'medium', 'large'],
+    },
+    suffix: {
+      control: 'text',
     },
     value: {
       control: 'text',
@@ -237,12 +247,14 @@ export const Playground = { render: (args) => html`
   maxlength=${ifDefined(args.maxlength ? args.maxlength :  null)}
   minlength=${ifDefined(args.minlength ? args.minlength : null)}
   name=${ifDefined(args.name || args.name === '' ? null : args.name)}
+  prefix=${ifDefined(args.prefix === '' ? null : args.prefix)}
   ?readonly=${args.readonly}
   ?required=${args.required}
   ?show-char-count=${args['show-char-count']}
   ?show-clear-button=${args['show-clear-button']}
   ?show-indicator=${args['show-indicator']}
   size=${args.size}
+  suffix=${ifDefined(args.suffix === '' ? null : args.suffix)}
   value=${ifDefined(args.value === '' ? null : args.value)}
   ></jh-input>
 `};
@@ -270,6 +282,8 @@ Playground.args = {
   autocomplete: null,
   inputmode: null,
   name: null,
+  prefix: null,
+  suffix: null,
   value: null,
 };
 
@@ -316,6 +330,42 @@ Slots.argTypes = {
   'show-clear-button': { table: { disable: false } },
   readonly: { table: { disable: false } }
 }
+
+export const PrefixSuffix = {
+  render: (args) => html`
+    <jh-input
+      size=${args.size}
+      label="Amount"
+      ?show-clear-button=${args['show-clear-button']}
+      helper-text="Enter the transaction amount"
+      prefix=${ifDefined(args.prefix === '' ? null : args.prefix)}
+      suffix=${ifDefined(args.suffix === '' ? null : args.suffix)}
+      ?readonly=${args.readonly}
+      ?disabled=${args.disabled}
+      value=${ifDefined(args.value === '' ? null : args.value)}
+    ><jh-icon-money-bill-fast slot="jh-input-left"></jh-icon-money-bill-fast><jh-icon-globe-dollar-sign slot="jh-input-right"></jh-icon-globe-dollar-sign></jh-input>
+`,
+};
+
+PrefixSuffix.args = {
+  prefix: '$',
+  suffix: 'USD',
+  size: 'medium',
+  readonly: false,
+  disabled: false,
+  value: '1,000.00',
+  'show-clear-button': true,
+};
+
+PrefixSuffix.argTypes = {
+  ...disableControls,
+  prefix: { table: { disable: false } },
+  suffix: { table: { disable: false } },
+  size: { table: { disable: false } },
+  readonly: { table: { disable: false } },
+  disabled: { table: { disable: false } },
+  value: { table: { disable: false } },
+};
 
 export const CharacterCount = { 
   render: (args) => html`

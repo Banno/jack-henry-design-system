@@ -1,5 +1,5 @@
 <!--
-SPDX-FileCopyrightText: 2025 Jack Henry
+SPDX-FileCopyrightText: 2026 Jack Henry
 
 SPDX-License-Identifier: Apache-2.0
 -->
@@ -8,22 +8,27 @@ SPDX-License-Identifier: Apache-2.0
 
 _What is the purpose of this pull request?_
 
+**Idea number or other reference :** _add relevant idea number_
+
 ## How To Test
 
-- Run `yarn storybook` and navigate to http://localhost:6006/ or
-  http://<local-ip>:6006/
-- _Next step_
+Select all that apply:
 
-## Notes/Caveats
+- [ ] Review component(s) on Storybook
+- [ ] Review documentation
+- [ ] Review tokens
+- [ ] Review icons
+- [ ] Run script(s): _add scripts here_
+- [ ] Other (add details below)
 
-_Are there remaining issues or things this PR hasn't solved yet? Are there
-long-term implications?_
+**Additional Details**
 
-## Resources
+_add any other details on how to test_ 
 
-_Links to specs, documents, etc._
+## Notes/Dependencies
 
-## Dependencies
+- _Are there remaining issues or things this PR hasn't solved yet?_ 
+- _Are there any long-term implications?_
+- _Are there any dependencies to other PRs_
 
-- [ ] _any other PRs or issues that should be resolved/merged before this is
-      merged_
+

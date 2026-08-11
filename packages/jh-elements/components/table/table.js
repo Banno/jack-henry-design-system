@@ -2,13 +2,12 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
+import { JhElement } from '../element/element.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import '../table-header-cell/table-header-cell.js';
 import '../table-data-cell/table-data-cell.js';
 import '../table-row/table-row.js';
-
-let id = 0;
 
 /**
  * Table
@@ -29,9 +28,7 @@ let id = 0;
  * @slot jh-table-toolbar - Use to insert toolbar.
  * @customElement jh-table
  */
-export class JhTable extends LitElement {
-  /** @type {?Number} */
-  #id;
+export class JhTable extends JhElement {
 
   static get styles() {
     return css`
@@ -132,6 +129,7 @@ export class JhTable extends LitElement {
       :host([sticky-header]) .header {
         position: sticky;
         top: 0;
+        z-index: 1000;
       }
       :host([sticky-footer]) .footer {
         --jh-table-data-cell-color-border-top: var(
@@ -139,6 +137,7 @@ export class JhTable extends LitElement {
         );
         position: sticky;
         bottom: 0;
+        z-index: 1000;
       }
       :host([sticky-footer]) .body::slotted(jh-table-row:nth-last-of-type(2)) {
         --jh-table-data-cell-color-border-bottom: transparent;
@@ -172,20 +171,23 @@ export class JhTable extends LitElement {
       :host([scrollable]) .table-wrapper {
         position: relative;
         overflow-x: hidden;
-        flex: 1 1 auto;
-        /* display grid makes sticky work and shadows go till bottom. */
+        flex: 1 1 auto;        
+        /* display grid makes sticky work and shows horizontal scrollbar on top. */
         display: grid;
       }
 
       :host([scrollable]) .table-container {
-        overflow: scroll;
+        overflow: auto;
         height: 100%;
+        /* keeps space reserved for vertical scrollbar */
+        scrollbar-gutter: stable;
         /* removes bouncy scroll behavior in Safari and FF */
         /* overscroll-behavior: none; */
       }
-      :host([scrollable]) .scrollable {
+      :host([scrollable]) .table {
         width: auto;
         position: relative;
+        min-width: 100%;
       }
       .table-wrapper:has(.table-container:focus-visible) {
         outline-color: var(
@@ -195,7 +197,7 @@ export class JhTable extends LitElement {
         outline-width: var(--jh-border-focus-width);
         outline-style: var(--jh-border-focus-style);
       }
-      .table-wrapper:focus-visible {
+      .table-container:focus-visible, :host([scrollable]) .table-wrapper:focus-visible {
         outline: none;
       }
     `;
@@ -285,35 +287,28 @@ export class JhTable extends LitElement {
     this.addEventListener('jh-sort', this.#handleSort);
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    this.#id = id++;
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    if (this.observer) {
+      this.observer.disconnect();
+    }
   }
 
   async firstUpdated() {
     if (!this.scrollable) return;
-
-    const container = this.shadowRoot.querySelector('.table-container');
-    let scrollTable = this.shadowRoot.querySelector('.table');
-    await scrollTable.updateComplete;
-    let originalTableWidth = scrollTable.getBoundingClientRect().width;
 
     this.observer = new ResizeObserver((entries) => {
       entries.forEach((entry) => {
         let table = entry.target.shadowRoot.querySelector('.table');
         let tableContainer =
           entry.target.shadowRoot.querySelector('.table-container');
+        if (!table || !tableContainer) return;
         if (table.scrollWidth > tableContainer.clientWidth) {
-          table.classList.add('scrollable');
-        } else {
-          if (table.scrollWidth >= originalTableWidth) {
-            table.classList.remove('scrollable');
+          tableContainer.setAttribute('tabindex', '0');
+         }
+        else {
             tableContainer.removeAttribute('tabindex');
-          } else {
-            table.classList.add('scrollable');
-            tableContainer.setAttribute('tabindex', '0');
           }
-        }
       });
     });
 
@@ -347,12 +342,12 @@ export class JhTable extends LitElement {
 
   render() {
     return html`
-      <slot name="jh-table-caption" id="table-caption-${this.#id}" @slotchange=${this.#handleSlot}></slot>
+      <slot name="jh-table-caption" id="table-caption-${this.uniqueId}" @slotchange=${this.#handleSlot}></slot>
       <slot name="jh-table-toolbar" @slotchange=${this.#handleSlot}></slot>
       <div class="table-wrapper">
         <div class="table-container" tabindex="${ifDefined(this.scrollable ? '0' : null)}">
-          <div class="table ${this.scrollable ? 'scrollable' : ''}" role="table" 
-          aria-labelledby="table-caption-${this.#id}" aria-label=${ifDefined(this.accessibleLabel === '' ? null : this.accessibleLabel)}>
+          <div class="table" role="table" 
+          aria-labelledby="table-caption-${this.uniqueId}" aria-label=${ifDefined(this.accessibleLabel === '' ? null : this.accessibleLabel)}>
             <slot name="jh-table-header" class="header" role="rowgroup"></slot>
             <slot class="body" role="rowgroup"></slot>
             <slot name="jh-table-footer" class="footer" role="rowgroup"></slot>
@@ -364,4 +359,4 @@ export class JhTable extends LitElement {
   }
 }
 
-customElements.define('jh-table', JhTable);
+JhTable.register('jh-table', JhTable);

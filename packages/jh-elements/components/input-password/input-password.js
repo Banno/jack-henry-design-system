@@ -2,10 +2,13 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { html, render, css } from 'lit';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { JhInput } from '../input/input.js';
 import '@jack-henry/jh-icons/icons-wc/icon-eye-slash.js';
 import '@jack-henry/jh-icons/icons-wc/icon-eye.js';
+
+let id = 0;
 
 /**
  * @slot jh-input-password-hidden - Use to insert a custom icon within the toggle password button when the input value is masked. 
@@ -13,38 +16,6 @@ import '@jack-henry/jh-icons/icons-wc/icon-eye.js';
  * @customElement jh-input-password
  */
 export class JhInputPassword extends JhInput {
-  #inputEl;
-
-  static get styles() {
-    return [
-      super.styles,
-      css`
-        .password-toggle-btn {
-          position: absolute;
-          right: var(--jh-dimension-400);
-        }
-        .clear-button {
-          right: var(--jh-dimension-1400);
-        }
-        .display-clear-button input {
-          padding-right: var(--jh-dimension-2400);
-        }
-        input {
-          padding-right: var(--jh-dimension-1400);
-        }
-        :host([size='small']) .password-toggle-btn {
-          top: 4px;
-        }
-        :host([size='medium']) .password-toggle-btn {
-          top: 8px;
-        }
-        :host([size='large']) .password-toggle-btn {
-          top: 12px;
-        }
-      `
-    ];
-  }
-
   static get properties() {
     return {
       /** Unmasks the input field value when set. */
@@ -69,39 +40,69 @@ export class JhInputPassword extends JhInput {
     /** @type {?string} */
     this.accessibleLabelShowPassword = null;
     /** @type {boolean} */
-    this.hideRightSlot = true;
-    /** @type {boolean} */
     this.passwordVisible = false;
   }
 
-  firstUpdated() {
-    super.firstUpdated();
-    this.#inputEl = this.shadowRoot.querySelector('input');
-  }
+  renderInput() {
+    let describedby;
 
-  updated(changedProperties) {
-    super.updated(changedProperties);
-
-    if (changedProperties.has('passwordVisible')) {
-      if (this.passwordVisible) {
-        this.#inputEl.setAttribute('type', 'text');
-      } else {
-        this.#inputEl.setAttribute('type', 'password');
-      }
+    if (this.helperText || (this.errorText && this.invalid)) {
+      describedby = this._getDescribedby();
     }
-    this.#insertTogglePasswordBtn();
+
+    const leftSlot = this.readonly ? null : this.renderLeftSlot();
+    const rightSlot = this.readonly ? null : this.renderRightSlot();
+    const clearButton = this.readonly ? null : this.renderClearButton();
+
+    return html`
+      <div class="input-container">
+        <div class="input-wrapper">
+          ${leftSlot}
+          <input
+            id="jh-input-${this.uniqueId}"
+            aria-describedby=${describedby}
+            aria-invalid=${ifDefined(this.invalid ? 'true' : null)}
+            aria-label=${ifDefined(
+              this.accessibleLabel === '' ? null : this.accessibleLabel
+            )}
+            autocomplete=${ifDefined(
+              this.autocomplete === '' ? null : this.autocomplete
+            )}
+            ?disabled=${this.disabled}
+            enterkeyhint=${ifDefined(
+              this.enterkeyhint === '' ? null : this.enterkeyhint
+            )}
+            inputmode=${ifDefined(this.inputmode === '' ? null : this.inputmode)}
+            maxlength=${ifDefined(this.maxlength === '' ? null : this.maxlength)}
+            minlength=${ifDefined(this.minlength === '' ? null : this.minlength)}
+            name=${ifDefined(this.name === '' ? null : this.name)}
+            ?readonly=${this.readonly}
+            ?required=${this.required}
+            type=${this.passwordVisible ? 'text' : 'password'}
+            .value=${this.value}
+            @keydown=${this.inputMask ? this._handleKeydown : null}
+            @change=${this._handleChange}
+            @input=${this._handleInput}
+            @select=${this._handleSelect}
+          />
+          ${clearButton}
+          ${rightSlot}
+        </div>
+      </div>
+    `;
   }
 
-  #insertTogglePasswordBtn() {
-    let inputContainerEl = this.shadowRoot.querySelector('.input-container');
-    let togglePasswordButton = this.#createTogglePasswordBtn();
-    render(togglePasswordButton, inputContainerEl);
+  renderRightSlot() {
+    if (this.hideRightSlot) return;
+    
+    return html`
+      <slot name="jh-input-right" @slotchange=${this._handleSlotChange}>${this.#renderTogglePasswordBtn()}</slot>
+      
+    `;
   }
 
-  #createTogglePasswordBtn() {
-    if (this.readonly) {
-      return;
-    }
+  #renderTogglePasswordBtn() {
+    if (this.readonly) return;
 
     let accessibleLabel = this.passwordVisible
       ? this.accessibleLabelHidePassword
@@ -110,7 +111,7 @@ export class JhInputPassword extends JhInput {
     let passwordBtn = html`
         <jh-button
           class="password-toggle-btn"
-          size="small"
+          size="x-small"
           appearance="tertiary"
           ?disabled=${this.disabled}
           accessible-label=${accessibleLabel}
@@ -120,24 +121,24 @@ export class JhInputPassword extends JhInput {
             ? html`
                 <slot
                   name="jh-input-password-visible"
-                  slot="jh-button-icon"
+                  slot="jh-button-icon-left"
                 >
                   <jh-icon-eye-slash
-                    slot="jh-button-icon"
+                    slot="jh-button-icon-left"
                     aria-hidden="true"
-                    size="medium"
+                    size="x-small"
                   ></jh-icon-eye-slash>
                 </slot>
               `
             : html`
                 <slot
                   name="jh-input-password-hidden"
-                  slot="jh-button-icon"
+                  slot="jh-button-icon-left"
                 >
                   <jh-icon-eye
-                    slot="jh-button-icon"
+                    slot="jh-button-icon-left"
                     aria-hidden="true"
-                    size="medium"
+                    size="x-small"
                   ></jh-icon-eye>
                 </slot>
               `}
@@ -150,4 +151,4 @@ export class JhInputPassword extends JhInput {
     this.passwordVisible = !this.passwordVisible;
   }
 }
-customElements.define('jh-input-password', JhInputPassword);
+JhInputPassword.register('jh-input-password', JhInputPassword);

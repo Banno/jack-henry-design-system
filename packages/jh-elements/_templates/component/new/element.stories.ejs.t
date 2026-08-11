@@ -12,6 +12,7 @@ to: components/<%= unprefixedName %>/<%= unprefixedName %>.stories.js
 */
 
 import { html, css } from 'lit';
+import { action } from 'storybook/actions';
 import './<%= unprefixedName %>.js';
 
 const storyStyles = css`
@@ -23,14 +24,34 @@ const disableControls = {
   'some-attribute': { control: { disable: true } },
 }
 
+function logCustomEvent(name, e) {
+  return action(name)({
+    detail: e.detail,
+    type: e.type,
+    bubbles: e.bubbles,
+    cancelable: e.cancelable,
+    composed: e.composed,
+    currentTarget: e.currentTarget,
+    defaultPrevented: e.defaultPrevented,
+    eventPhase: e.eventPhase,
+    isTrusted: e.isTrusted,
+    target: e.target,
+    timeStamp: e.timeStamp,
+  });
+}
+
 export default {
   component: '<%= elementName %>',
   title: 'Components/<%= titleName %>',
-  parameters: {
-    actions: {
-      handles: ['jh-event'],
-    },
-  },
+  decorators: [
+    (story) => html`
+      <div
+        @jh-event=${(e) => logCustomEvent('jh-event', e)}
+      >
+        ${story()}
+      </div>
+    `,
+  ],
   argTypes: {
     'some-attribute': {
       control: 'text',

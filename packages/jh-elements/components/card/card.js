@@ -2,14 +2,15 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { JhElement } from '../element/element.js';
 import '../divider/divider.js';
 
 /**
  * @cssprop --jh-card-color-background - The card background-color. Defaults to `--jh-color-container-primary-enabled`.
- * @cssprop --jh-card-border-radius - The card border-radius. Defaults to `--jh-border-radius-400`.
- * @cssprop --jh-card-shadow - The card box-shadow. Defaults to `--jh-shadow-low`.
+ * @cssprop --jh-card-border-radius - The card border-radius. Defaults to `--jh-border-radius-200`.
+ * @cssprop --jh-card-color-border - The card border color. Defaults to `--jh-border-decorative-color`.
  * @cssprop --jh-card-media-aspect-ratio - The media slot aspect-ratio. Defaults to `auto`.
  * @cssprop --jh-card-media-space-padding - The media slot padding. Defaults to `0`.
  * @cssprop --jh-card-header-color-text - The header text color. Defaults to `--jh-color-content-primary-enabled`.
@@ -31,11 +32,11 @@ import '../divider/divider.js';
  * @slot jh-card-footer - Use to insert card footer content.
  * @customElement jh-card
  */
-export class JhCard extends LitElement {
+export class JhCard extends JhElement {
   static get styles() {
     return css`
       :host {
-        --border-radius: var(--jh-border-radius-400);
+        --border-radius: var(--jh-border-radius-200);
         background-color: var(
           --jh-card-color-background,
           var(--jh-color-container-primary-enabled)
@@ -44,7 +45,9 @@ export class JhCard extends LitElement {
           --jh-card-border-radius,
           var(--border-radius)
         );
-        box-shadow: var(--jh-card-shadow, var(--jh-shadow-low));
+        border-color: var(--jh-card-color-border, var(--jh-border-decorative-color));
+        border-width: var(--jh-border-decorative-width);
+        border-style: var(--jh-border-decorative-style);
         word-break: break-word;
         display: block;
       }
@@ -221,15 +224,15 @@ export class JhCard extends LitElement {
         reflect: true,
       },
       /** Adds additional information about the card below the title.  */
-      headerSubtitle: { 
+      headerSubtitle: {
         type: String,
         attribute: 'header-subtitle',
-       },
+      },
       /** Provides context for the content of the card.  */
-      headerTitle: { 
+      headerTitle: {
         type: String,
         attribute: 'header-title',
-       },
+      },
       /** Informs assistive technologies what heading level the card title represents. Defaults to h2.  */
       titleHeadingLevel: {
         type: Number,
@@ -237,7 +240,7 @@ export class JhCard extends LitElement {
       },
     };
   }
-  
+
   constructor() {
     super();
     /** @type {0|8|16|24|32|40|48|56|64|72|80|88|96} */
@@ -258,6 +261,20 @@ export class JhCard extends LitElement {
     this.headerTitle = null;
   }
 
+  #checkSlotContent(slot) {
+    if (slot.assignedElements().length > 0) {
+      return true;
+    }
+
+    return slot.assignedNodes().some((node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '');
+  }
+
+  #handleSlotChange(e) {
+    let slot = e.target;
+    let hasContent = this.#checkSlotContent(slot);
+    slot.classList.toggle('display-slot', hasContent);
+  }
+
   #getTitle() {
     switch (this.titleHeadingLevel) {
       case 1:
@@ -275,10 +292,6 @@ export class JhCard extends LitElement {
       default:
         return html`<h2>${this.headerTitle}</h2>`;
     }
-  }
-
-  #handleSlotChange(e) {
-    e.target.classList.add("display-slot");
   }
 
   render() {
@@ -329,5 +342,4 @@ export class JhCard extends LitElement {
     `;
   }
 }
-
-customElements.define('jh-card', JhCard);
+JhCard.register('jh-card', JhCard);

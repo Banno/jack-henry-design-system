@@ -8,18 +8,29 @@ import './public/assets/fonts/fonts.css';
 import { html } from 'lit';
 import { lightTheme } from './sb-themes';
 import { darkTheme } from './sb-themes';
-import { setCustomElements } from '@storybook/web-components';
+import { setCustomElements } from '@storybook/web-components-vite';
 import customElements from '../custom-elements.json';
 import React from 'react';
-import { DocsContainer } from '@storybook/blocks';
+import { DocsContainer } from '@storybook/addon-docs/blocks';
 import { useDarkMode } from 'storybook-dark-mode';
-import { withActions } from '@storybook/addon-actions/decorator';
+import { withActions } from 'storybook/actions/decorator';
+
+customElements.tags.forEach(tag => {
+  ['attributes', 'properties', 'cssProperties', 'events', 'slots'].forEach(key => {
+    (tag[key] || []).forEach(item => {
+      const msg = item.deprecatedMessage || (item.deprecated && typeof item.deprecated === 'string' ? item.deprecated : null);
+      if (item.deprecated || item.deprecatedMessage) {
+        item.description = `⚠️ **Deprecated. ${msg || ''}**\n\n ${item.description}`.trim();
+      }
+    });
+  });
+});
 
 setCustomElements(customElements);
 
 const preview = {
   parameters: {
-    backgrounds: { disable: true },
+    backgrounds: { disabled: true },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -35,7 +46,7 @@ const preview = {
         order: [
           'Welcome',
           'What\'s New',
-          ['V2 Release', 'Migrating'],
+           ['V2 Release', ['Overview'],'Migrating'],
           'Getting Started',
           ['Installing', 'Usage', 'Typography'],
           'Iconography',

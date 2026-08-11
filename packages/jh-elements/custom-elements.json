@@ -13,7 +13,8 @@
         {
           "name": "max-count",
           "description": "Sets the max count to show. Appends `+` to the `max-count` when value is exceeded.",
-          "type": "?number"
+          "type": "?number",
+          "default": "99"
         }
       ],
       "properties": [
@@ -27,7 +28,12 @@
           "name": "maxCount",
           "attribute": "max-count",
           "description": "Sets the max count to show. Appends `+` to the `max-count` when value is exceeded.",
-          "type": "?number"
+          "type": "?number",
+          "default": "99"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "cssProperties": [
@@ -37,11 +43,11 @@
         },
         {
           "name": "--jh-badge-color-background-enabled",
-          "description": "The badge background color. Defaults to `--jh-color-content-brand-enabled`."
+          "description": "The badge background color. Defaults to `--jh-color-content-negative-enabled`."
         },
         {
           "name": "--jh-badge-color-text-enabled",
-          "description": "The badge text color. Defaults to `--jh-color-content-on-brand-enabled`."
+          "description": "The badge text color. Defaults to `--jh-color-content-on-negative-enabled`."
         }
       ]
     },
@@ -83,12 +89,6 @@
           "type": "?string"
         },
         {
-          "name": "icon-position",
-          "description": "Sets location of icon in relation to the label.",
-          "type": "'before'|'after'",
-          "default": "\"before\""
-        },
-        {
           "name": "pending",
           "description": "Displays a progress indicator.",
           "type": "?boolean",
@@ -107,7 +107,7 @@
         {
           "name": "size",
           "description": "Sets the size of the button.",
-          "type": "'small'|'medium'|'large'",
+          "type": "'x-small'|'small'|'medium'|'large'",
           "default": "\"medium\""
         },
         {
@@ -168,13 +168,6 @@
           "type": "?string"
         },
         {
-          "name": "iconPosition",
-          "attribute": "icon-position",
-          "description": "Sets location of icon in relation to the label.",
-          "type": "'before'|'after'",
-          "default": "\"before\""
-        },
-        {
           "name": "pending",
           "attribute": "pending",
           "description": "Displays a progress indicator.",
@@ -197,7 +190,7 @@
           "name": "size",
           "attribute": "size",
           "description": "Sets the size of the button.",
-          "type": "'small'|'medium'|'large'",
+          "type": "'x-small'|'small'|'medium'|'large'",
           "default": "\"medium\""
         },
         {
@@ -218,12 +211,20 @@
           "attribute": "value",
           "description": "Sets the value of the button.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
         {
-          "name": "jh-button-icon",
-          "description": "Use to insert an icon."
+          "name": "jh-button-icon-left",
+          "description": "Use to insert an icon on the left side of the button and for single icon buttons."
+        },
+        {
+          "name": "jh-button-icon-right",
+          "description": "Use to insert an icon on the right side of the button and for single icon buttons."
         }
       ],
       "cssProperties": [
@@ -609,7 +610,7 @@
         },
         {
           "name": "--jh-button-size",
-          "description": "The button width when no label is set, and the button height. Button width and height defaults to `--jh-dimension-1000` when `size=\"small\"`, `--jh-dimension-1200` when `size=\"medium\"`, and `--jh-dimension-1400` when `size=\"large\"`."
+          "description": "The button width of single icon buttons, and the button height. Button width and height defaults to `--jh-dimension-600` when `size=\"x-small\"`,`--jh-dimension-800` when `size=\"small\"`, `--jh-dimension-1000` when `size=\"medium\"`, and `--jh-dimension-1200` when `size=\"large\"`."
         }
       ]
     },
@@ -714,6 +715,10 @@
           "attribute": "header-title",
           "description": "Provides context for the content of the card.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -741,11 +746,11 @@
         },
         {
           "name": "--jh-card-border-radius",
-          "description": "The card border-radius. Defaults to `--jh-border-radius-400`."
+          "description": "The card border-radius. Defaults to `--jh-border-radius-200`."
         },
         {
-          "name": "--jh-card-shadow",
-          "description": "The card box-shadow. Defaults to `--jh-shadow-low`."
+          "name": "--jh-card-color-border",
+          "description": "The card border color. Defaults to `--jh-border-decorative-color`."
         },
         {
           "name": "--jh-card-media-aspect-ratio",
@@ -794,6 +799,12 @@
       "path": "./components/checkbox-group/checkbox-group.js",
       "attributes": [
         {
+          "name": "disabled",
+          "description": "Disables the checkbox group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
           "name": "accessible-label",
           "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
           "type": "?string"
@@ -811,7 +822,7 @@
         {
           "name": "invalid",
           "description": "Sets an `aria-invalid` on the checkbox group to indicate the value supplied was invalid and displays `error-text` when set.",
-          "type": "?Boolean",
+          "type": "?boolean",
           "default": "false"
         },
         {
@@ -822,7 +833,7 @@
         {
           "name": "required",
           "description": "Indicates a value is required.",
-          "type": "?Boolean",
+          "type": "?boolean",
           "default": "false"
         },
         {
@@ -839,6 +850,13 @@
         }
       ],
       "properties": [
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "Disables the checkbox group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
+          "type": "boolean",
+          "default": "false"
+        },
         {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
@@ -861,7 +879,7 @@
           "name": "invalid",
           "attribute": "invalid",
           "description": "Sets an `aria-invalid` on the checkbox group to indicate the value supplied was invalid and displays `error-text` when set.",
-          "type": "?Boolean",
+          "type": "?boolean",
           "default": "false"
         },
         {
@@ -874,7 +892,7 @@
           "name": "required",
           "attribute": "required",
           "description": "Indicates a value is required.",
-          "type": "?Boolean",
+          "type": "?boolean",
           "default": "false"
         },
         {
@@ -890,6 +908,10 @@
           "description": "Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required` property is also set. For the indicator to be displayed, the `label` property must also be set.",
           "type": "?boolean",
           "default": "false"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -902,6 +924,10 @@
         {
           "name": "--jh-checkbox-group-label-color-text",
           "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-group-opacity-disabled",
+          "description": "The opacity of the checkbox group when disabled. Defaults to `--jh-opacity-disabled`."
         },
         {
           "name": "--jh-checkbox-group-required-color-text",
@@ -1025,12 +1051,16 @@
           "attribute": "accessible-label",
           "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the state of the checkbox has changed."
+          "description": "Dispatched when the state of the checkbox has changed. Event payload includes the `checked` state of the checkbox and can be accessed via `e.detail.state.checked`."
         }
       ],
       "cssProperties": [
@@ -1232,6 +1262,10 @@
           "attribute": "inset",
           "description": "The alignment of the left edge of the divider.",
           "type": "0|8|16|24|32|40|48|56|64|72|80|88|96"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "cssProperties": [
@@ -1260,7 +1294,7 @@
         {
           "name": "size",
           "description": "Sets the size of the icon.",
-          "type": "'x-small'|'small'|'medium'|'large'|'x-large'",
+          "type": "'x-small'|'small'|'medium'|'large'|'x-large'|'xx-large'",
           "default": "\"medium\""
         }
       ],
@@ -1269,8 +1303,12 @@
           "name": "size",
           "attribute": "size",
           "description": "Sets the size of the icon.",
-          "type": "'x-small'|'small'|'medium'|'large'|'x-large'",
+          "type": "'x-small'|'small'|'medium'|'large'|'x-large'|'xx-large'",
           "default": "\"medium\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -1303,6 +1341,10 @@
         {
           "name": "--jh-icon-size-extra-large",
           "description": "The icon size when `size=\"extra-large\"`. Defaults to `--jh-dimension-1400`."
+        },
+        {
+          "name": "--jh-icon-size-extra-extra-large",
+          "description": "The icon size when `size=\"extra-extra-large\"`. Defaults to `--jh-dimension-2100`."
         }
       ]
     },
@@ -1361,13 +1403,14 @@
         },
         {
           "name": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
           "name": "inputmode",
           "description": "Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.\n\n[Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)",
-          "type": "?string"
+          "type": "?string",
+          "default": "\"email\""
         },
         {
           "name": "invalid",
@@ -1393,6 +1436,11 @@
         {
           "name": "name",
           "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
           "type": "?string"
         },
         {
@@ -1498,14 +1546,15 @@
         {
           "name": "inputMask",
           "attribute": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
           "name": "inputmode",
           "attribute": "inputmode",
           "description": "Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.\n\n[Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)",
-          "type": "?string"
+          "type": "?string",
+          "default": "\"email\""
         },
         {
           "name": "invalid",
@@ -1536,6 +1585,12 @@
           "name": "name",
           "attribute": "name",
           "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
           "type": "?string"
         },
         {
@@ -1585,28 +1640,32 @@
           "attribute": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-input",
-          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-maxlength",
-          "description": "Dispatched when the `maxlength` property is set and it's value is reached."
+          "description": "Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`."
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`."
         }
       ],
       "slots": [
@@ -1630,7 +1689,7 @@
         },
         {
           "name": "--jh-input-field-color-background",
-          "description": "The input field background-color. Defaults to `--jh-color-container-primary-enabled`."
+          "description": "The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`."
         },
         {
           "name": "--jh-input-field-color-border-enabled",
@@ -1669,56 +1728,60 @@
           "description": "The input field border-color when invalid. Defaults to `--jh-border-error-color`."
         },
         {
+          "name": "--jh-input-clear-border-radius",
+          "description": "The clear button border radius. Defaults to `--jh-border-radius-100`."
+        },
+        {
           "name": "--jh-input-clear-color-background-enabled",
-          "description": "The clear search button background-color. Defaults to `transparent`."
+          "description": "The clear button background-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-border-enabled",
-          "description": "The clear search button border-color. Defaults to `transparent`."
+          "description": "The clear button border-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-enabled",
-          "description": "The clear search button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
+          "description": "The clear button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
         },
         {
           "name": "--jh-input-clear-color-background-focus",
-          "description": "The clear search button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-focus",
-          "description": "The clear search button border-color when in focus. Defaults to `transparent`."
+          "description": "The clear button border-color when in focus. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-focus",
-          "description": "The clear search button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
+          "description": "The clear button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-focus",
-          "description": "The clear search button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-hover",
-          "description": "The clear search button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-hover",
-          "description": "The clear search button border-color when hovered. Defaults to `transparent`."
+          "description": "The clear button border-color when hovered. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-hover",
-          "description": "The clear search button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-active",
-          "description": "The clear search button background-color when active. Defaults to `--jh-color-content-brand-active`."
+          "description": "The clear button background-color when active. Defaults to `--jh-color-content-brand-active`."
         },
         {
           "name": "--jh-input-clear-color-border-active",
-          "description": "The clear search button border-color when active. Defaults to `transparent`."
+          "description": "The clear button border-color when active. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-active",
-          "description": "The clear search button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
+          "description": "The clear button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
         },
         {
           "name": "--jh-input-required-color-text",
@@ -1812,11 +1875,11 @@
           "name": "hide-right-slot",
           "description": "Hides the right slot from input.",
           "type": "boolean",
-          "default": "true"
+          "default": "false"
         },
         {
           "name": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -1848,6 +1911,11 @@
         {
           "name": "name",
           "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
           "type": "?string"
         },
         {
@@ -1967,12 +2035,12 @@
           "attribute": "hide-right-slot",
           "description": "Hides the right slot from input.",
           "type": "boolean",
-          "default": "true"
+          "default": "false"
         },
         {
           "name": "inputMask",
           "attribute": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -2010,6 +2078,12 @@
           "name": "name",
           "attribute": "name",
           "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
           "type": "?string"
         },
         {
@@ -2059,28 +2133,32 @@
           "attribute": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-input",
-          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-maxlength",
-          "description": "Dispatched when the `maxlength` property is set and it's value is reached."
+          "description": "Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`."
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`."
         }
       ],
       "slots": [
@@ -2112,7 +2190,7 @@
         },
         {
           "name": "--jh-input-field-color-background",
-          "description": "The input field background-color. Defaults to `--jh-color-container-primary-enabled`."
+          "description": "The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`."
         },
         {
           "name": "--jh-input-field-color-border-enabled",
@@ -2151,56 +2229,60 @@
           "description": "The input field border-color when invalid. Defaults to `--jh-border-error-color`."
         },
         {
+          "name": "--jh-input-clear-border-radius",
+          "description": "The clear button border radius. Defaults to `--jh-border-radius-100`."
+        },
+        {
           "name": "--jh-input-clear-color-background-enabled",
-          "description": "The clear search button background-color. Defaults to `transparent`."
+          "description": "The clear button background-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-border-enabled",
-          "description": "The clear search button border-color. Defaults to `transparent`."
+          "description": "The clear button border-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-enabled",
-          "description": "The clear search button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
+          "description": "The clear button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
         },
         {
           "name": "--jh-input-clear-color-background-focus",
-          "description": "The clear search button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-focus",
-          "description": "The clear search button border-color when in focus. Defaults to `transparent`."
+          "description": "The clear button border-color when in focus. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-focus",
-          "description": "The clear search button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
+          "description": "The clear button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-focus",
-          "description": "The clear search button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-hover",
-          "description": "The clear search button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-hover",
-          "description": "The clear search button border-color when hovered. Defaults to `transparent`."
+          "description": "The clear button border-color when hovered. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-hover",
-          "description": "The clear search button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-active",
-          "description": "The clear search button background-color when active. Defaults to `--jh-color-content-brand-active`."
+          "description": "The clear button background-color when active. Defaults to `--jh-color-content-brand-active`."
         },
         {
           "name": "--jh-input-clear-color-border-active",
-          "description": "The clear search button border-color when active. Defaults to `transparent`."
+          "description": "The clear button border-color when active. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-active",
-          "description": "The clear search button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
+          "description": "The clear button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
         },
         {
           "name": "--jh-input-required-color-text",
@@ -2283,7 +2365,7 @@
         },
         {
           "name": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -2315,6 +2397,11 @@
         {
           "name": "name",
           "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
           "type": "?string"
         },
         {
@@ -2420,7 +2507,7 @@
         {
           "name": "inputMask",
           "attribute": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -2458,6 +2545,12 @@
           "name": "name",
           "attribute": "name",
           "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
           "type": "?string"
         },
         {
@@ -2507,28 +2600,32 @@
           "attribute": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-input",
-          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-maxlength",
-          "description": "Dispatched when the `maxlength` property is set and it's value is reached."
+          "description": "Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`."
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`."
         }
       ],
       "slots": [
@@ -2552,7 +2649,7 @@
         },
         {
           "name": "--jh-input-field-color-background",
-          "description": "The input field background-color. Defaults to `--jh-color-container-primary-enabled`."
+          "description": "The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`."
         },
         {
           "name": "--jh-input-field-color-border-enabled",
@@ -2591,56 +2688,60 @@
           "description": "The input field border-color when invalid. Defaults to `--jh-border-error-color`."
         },
         {
+          "name": "--jh-input-clear-border-radius",
+          "description": "The clear button border radius. Defaults to `--jh-border-radius-100`."
+        },
+        {
           "name": "--jh-input-clear-color-background-enabled",
-          "description": "The clear search button background-color. Defaults to `transparent`."
+          "description": "The clear button background-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-border-enabled",
-          "description": "The clear search button border-color. Defaults to `transparent`."
+          "description": "The clear button border-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-enabled",
-          "description": "The clear search button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
+          "description": "The clear button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
         },
         {
           "name": "--jh-input-clear-color-background-focus",
-          "description": "The clear search button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-focus",
-          "description": "The clear search button border-color when in focus. Defaults to `transparent`."
+          "description": "The clear button border-color when in focus. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-focus",
-          "description": "The clear search button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
+          "description": "The clear button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-focus",
-          "description": "The clear search button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-hover",
-          "description": "The clear search button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-hover",
-          "description": "The clear search button border-color when hovered. Defaults to `transparent`."
+          "description": "The clear button border-color when hovered. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-hover",
-          "description": "The clear search button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-active",
-          "description": "The clear search button background-color when active. Defaults to `--jh-color-content-brand-active`."
+          "description": "The clear button background-color when active. Defaults to `--jh-color-content-brand-active`."
         },
         {
           "name": "--jh-input-clear-color-border-active",
-          "description": "The clear search button border-color when active. Defaults to `transparent`."
+          "description": "The clear button border-color when active. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-active",
-          "description": "The clear search button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
+          "description": "The clear button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
         },
         {
           "name": "--jh-input-required-color-text",
@@ -2723,7 +2824,7 @@
         },
         {
           "name": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -2755,6 +2856,11 @@
         {
           "name": "name",
           "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
           "type": "?string"
         },
         {
@@ -2860,7 +2966,7 @@
         {
           "name": "inputMask",
           "attribute": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -2898,6 +3004,12 @@
           "name": "name",
           "attribute": "name",
           "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
           "type": "?string"
         },
         {
@@ -2947,28 +3059,32 @@
           "attribute": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-input",
-          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-maxlength",
-          "description": "Dispatched when the `maxlength` property is set and it's value is reached."
+          "description": "Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`."
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`."
         }
       ],
       "slots": [
@@ -2992,7 +3108,7 @@
         },
         {
           "name": "--jh-input-field-color-background",
-          "description": "The input field background-color. Defaults to `--jh-color-container-primary-enabled`."
+          "description": "The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`."
         },
         {
           "name": "--jh-input-field-color-border-enabled",
@@ -3031,56 +3147,60 @@
           "description": "The input field border-color when invalid. Defaults to `--jh-border-error-color`."
         },
         {
+          "name": "--jh-input-clear-border-radius",
+          "description": "The clear button border radius. Defaults to `--jh-border-radius-100`."
+        },
+        {
           "name": "--jh-input-clear-color-background-enabled",
-          "description": "The clear search button background-color. Defaults to `transparent`."
+          "description": "The clear button background-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-border-enabled",
-          "description": "The clear search button border-color. Defaults to `transparent`."
+          "description": "The clear button border-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-enabled",
-          "description": "The clear search button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
+          "description": "The clear button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
         },
         {
           "name": "--jh-input-clear-color-background-focus",
-          "description": "The clear search button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-focus",
-          "description": "The clear search button border-color when in focus. Defaults to `transparent`."
+          "description": "The clear button border-color when in focus. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-focus",
-          "description": "The clear search button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
+          "description": "The clear button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-focus",
-          "description": "The clear search button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-hover",
-          "description": "The clear search button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-hover",
-          "description": "The clear search button border-color when hovered. Defaults to `transparent`."
+          "description": "The clear button border-color when hovered. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-hover",
-          "description": "The clear search button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-active",
-          "description": "The clear search button background-color when active. Defaults to `--jh-color-content-brand-active`."
+          "description": "The clear button background-color when active. Defaults to `--jh-color-content-brand-active`."
         },
         {
           "name": "--jh-input-clear-color-border-active",
-          "description": "The clear search button border-color when active. Defaults to `transparent`."
+          "description": "The clear button border-color when active. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-active",
-          "description": "The clear search button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
+          "description": "The clear button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
         },
         {
           "name": "--jh-input-required-color-text",
@@ -3115,12 +3235,13 @@
         {
           "name": "auto-grow",
           "description": "Enables the input height to grow automatically to accommodate user input. `auto-grow` will also remove the input's native resize capability.",
-          "type": "boolean"
+          "type": "boolean",
+          "default": "false"
         },
         {
           "name": "cols",
           "description": "Sets the width of the input field.",
-          "type": "?string"
+          "type": "?number"
         },
         {
           "name": "no-resize",
@@ -3131,7 +3252,7 @@
         {
           "name": "rows",
           "description": "Sets the height of the input field.",
-          "type": "?string"
+          "type": "?number"
         },
         {
           "name": "wrap",
@@ -3188,7 +3309,7 @@
         },
         {
           "name": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -3220,6 +3341,11 @@
         {
           "name": "name",
           "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
           "type": "?string"
         },
         {
@@ -3269,13 +3395,14 @@
           "name": "autoGrow",
           "attribute": "auto-grow",
           "description": "Enables the input height to grow automatically to accommodate user input. `auto-grow` will also remove the input's native resize capability.",
-          "type": "boolean"
+          "type": "boolean",
+          "default": "false"
         },
         {
           "name": "cols",
           "attribute": "cols",
           "description": "Sets the width of the input field.",
-          "type": "?string"
+          "type": "?number"
         },
         {
           "name": "noResize",
@@ -3288,7 +3415,7 @@
           "name": "rows",
           "attribute": "rows",
           "description": "Sets the height of the input field.",
-          "type": "?string"
+          "type": "?number"
         },
         {
           "name": "wrap",
@@ -3356,7 +3483,7 @@
         {
           "name": "inputMask",
           "attribute": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -3394,6 +3521,12 @@
           "name": "name",
           "attribute": "name",
           "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
           "type": "?string"
         },
         {
@@ -3443,28 +3576,32 @@
           "attribute": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`."
+          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`."
         },
         {
           "name": "jh-input",
-          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`."
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`."
         },
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-maxlength",
-          "description": "Dispatched when the `maxlength` property is set and it's value is reached."
+          "description": "Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`."
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`."
         }
       ],
       "slots": [
@@ -3492,7 +3629,7 @@
         },
         {
           "name": "--jh-input-field-color-background",
-          "description": "The input field background-color. Defaults to `--jh-color-container-primary-enabled`."
+          "description": "The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`."
         },
         {
           "name": "--jh-input-field-color-border-enabled",
@@ -3531,56 +3668,60 @@
           "description": "The input field border-color when invalid. Defaults to `--jh-border-error-color`."
         },
         {
+          "name": "--jh-input-clear-border-radius",
+          "description": "The clear button border radius. Defaults to `--jh-border-radius-100`."
+        },
+        {
           "name": "--jh-input-clear-color-background-enabled",
-          "description": "The clear search button background-color. Defaults to `transparent`."
+          "description": "The clear button background-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-border-enabled",
-          "description": "The clear search button border-color. Defaults to `transparent`."
+          "description": "The clear button border-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-enabled",
-          "description": "The clear search button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
+          "description": "The clear button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
         },
         {
           "name": "--jh-input-clear-color-background-focus",
-          "description": "The clear search button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-focus",
-          "description": "The clear search button border-color when in focus. Defaults to `transparent`."
+          "description": "The clear button border-color when in focus. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-focus",
-          "description": "The clear search button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
+          "description": "The clear button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-focus",
-          "description": "The clear search button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-hover",
-          "description": "The clear search button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-hover",
-          "description": "The clear search button border-color when hovered. Defaults to `transparent`."
+          "description": "The clear button border-color when hovered. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-hover",
-          "description": "The clear search button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-active",
-          "description": "The clear search button background-color when active. Defaults to `--jh-color-content-brand-active`."
+          "description": "The clear button background-color when active. Defaults to `--jh-color-content-brand-active`."
         },
         {
           "name": "--jh-input-clear-color-border-active",
-          "description": "The clear search button border-color when active. Defaults to `transparent`."
+          "description": "The clear button border-color when active. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-active",
-          "description": "The clear search button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
+          "description": "The clear button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
         },
         {
           "name": "--jh-input-required-color-text",
@@ -3663,7 +3804,7 @@
         },
         {
           "name": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -3695,6 +3836,11 @@
         {
           "name": "name",
           "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
           "type": "?string"
         },
         {
@@ -3800,7 +3946,7 @@
         {
           "name": "inputMask",
           "attribute": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -3838,6 +3984,12 @@
           "name": "name",
           "attribute": "name",
           "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
           "type": "?string"
         },
         {
@@ -3887,28 +4039,32 @@
           "attribute": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-input",
-          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-maxlength",
-          "description": "Dispatched when the `maxlength` property is set and it's value is reached."
+          "description": "Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`."
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`."
         }
       ],
       "slots": [
@@ -3932,7 +4088,7 @@
         },
         {
           "name": "--jh-input-field-color-background",
-          "description": "The input field background-color. Defaults to `--jh-color-container-primary-enabled`."
+          "description": "The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`."
         },
         {
           "name": "--jh-input-field-color-border-enabled",
@@ -3971,56 +4127,60 @@
           "description": "The input field border-color when invalid. Defaults to `--jh-border-error-color`."
         },
         {
+          "name": "--jh-input-clear-border-radius",
+          "description": "The clear button border radius. Defaults to `--jh-border-radius-100`."
+        },
+        {
           "name": "--jh-input-clear-color-background-enabled",
-          "description": "The clear search button background-color. Defaults to `transparent`."
+          "description": "The clear button background-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-border-enabled",
-          "description": "The clear search button border-color. Defaults to `transparent`."
+          "description": "The clear button border-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-enabled",
-          "description": "The clear search button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
+          "description": "The clear button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
         },
         {
           "name": "--jh-input-clear-color-background-focus",
-          "description": "The clear search button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-focus",
-          "description": "The clear search button border-color when in focus. Defaults to `transparent`."
+          "description": "The clear button border-color when in focus. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-focus",
-          "description": "The clear search button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
+          "description": "The clear button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-focus",
-          "description": "The clear search button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-hover",
-          "description": "The clear search button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-hover",
-          "description": "The clear search button border-color when hovered. Defaults to `transparent`."
+          "description": "The clear button border-color when hovered. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-hover",
-          "description": "The clear search button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-active",
-          "description": "The clear search button background-color when active. Defaults to `--jh-color-content-brand-active`."
+          "description": "The clear button background-color when active. Defaults to `--jh-color-content-brand-active`."
         },
         {
           "name": "--jh-input-clear-color-border-active",
-          "description": "The clear search button border-color when active. Defaults to `transparent`."
+          "description": "The clear button border-color when active. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-active",
-          "description": "The clear search button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
+          "description": "The clear button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
         },
         {
           "name": "--jh-input-required-color-text",
@@ -4102,7 +4262,7 @@
         },
         {
           "name": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -4134,6 +4294,11 @@
         {
           "name": "name",
           "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
           "type": "?string"
         },
         {
@@ -4239,7 +4404,7 @@
         {
           "name": "inputMask",
           "attribute": "input-mask",
-          "description": "Formats the user entered data on input. Does not apply to pasted values. See input mask documentation above for implementation details.",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
         },
         {
@@ -4277,6 +4442,12 @@
           "name": "name",
           "attribute": "name",
           "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
           "type": "?string"
         },
         {
@@ -4326,28 +4497,32 @@
           "attribute": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.selected`, `e.detail.selectionStart`, and `e.detail.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-input",
-          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.rawValue`."
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-maxlength",
-          "description": "Dispatched when the `maxlength` property is set and it's value is reached."
+          "description": "Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`."
         },
         {
           "name": "jh-input:clear-button-click",
-          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.previousValue`."
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`."
         }
       ],
       "slots": [
@@ -4371,7 +4546,7 @@
         },
         {
           "name": "--jh-input-field-color-background",
-          "description": "The input field background-color. Defaults to `--jh-color-container-primary-enabled`."
+          "description": "The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`."
         },
         {
           "name": "--jh-input-field-color-border-enabled",
@@ -4410,56 +4585,60 @@
           "description": "The input field border-color when invalid. Defaults to `--jh-border-error-color`."
         },
         {
+          "name": "--jh-input-clear-border-radius",
+          "description": "The clear button border radius. Defaults to `--jh-border-radius-100`."
+        },
+        {
           "name": "--jh-input-clear-color-background-enabled",
-          "description": "The clear search button background-color. Defaults to `transparent`."
+          "description": "The clear button background-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-border-enabled",
-          "description": "The clear search button border-color. Defaults to `transparent`."
+          "description": "The clear button border-color. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-enabled",
-          "description": "The clear search button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
+          "description": "The clear button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
         },
         {
           "name": "--jh-input-clear-color-background-focus",
-          "description": "The clear search button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-focus",
-          "description": "The clear search button border-color when in focus. Defaults to `transparent`."
+          "description": "The clear button border-color when in focus. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-color-focus",
-          "description": "The clear search button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
+          "description": "The clear button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-focus",
-          "description": "The clear search button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-hover",
-          "description": "The clear search button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The clear button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-border-hover",
-          "description": "The clear search button border-color when hovered. Defaults to `transparent`."
+          "description": "The clear button border-color when hovered. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-hover",
-          "description": "The clear search button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The clear button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
         },
         {
           "name": "--jh-input-clear-color-background-active",
-          "description": "The clear search button background-color when active. Defaults to `--jh-color-content-brand-active`."
+          "description": "The clear button background-color when active. Defaults to `--jh-color-content-brand-active`."
         },
         {
           "name": "--jh-input-clear-color-border-active",
-          "description": "The clear search button border-color when active. Defaults to `transparent`."
+          "description": "The clear button border-color when active. Defaults to `transparent`."
         },
         {
           "name": "--jh-input-clear-icon-color-fill-active",
-          "description": "The clear search button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
+          "description": "The clear button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
         },
         {
           "name": "--jh-input-required-color-text",
@@ -4514,6 +4693,10 @@
           "attribute": "accessible-label",
           "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -4557,23 +4740,23 @@
           "type": "null|0|8|16|24|32|40|48|56|64|72|80|88|96"
         },
         {
-          "name": "primary-metadata",
-          "description": "The text to show as primary metadata.",
-          "type": "?string"
-        },
-        {
           "name": "primary-text",
           "description": "The text to show as primary text.",
           "type": "?string"
         },
         {
-          "name": "secondary-metadata",
-          "description": "The text to show as secondary metadata.",
+          "name": "secondary-text",
+          "description": "The text to show as secondary text.",
           "type": "?string"
         },
         {
-          "name": "secondary-text",
-          "description": "The text to show as secondary text.",
+          "name": "primary-metadata",
+          "description": "The text to show as primary metadata.",
+          "type": "?string"
+        },
+        {
+          "name": "secondary-metadata",
+          "description": "The text to show as secondary metadata.",
           "type": "?string"
         },
         {
@@ -4604,27 +4787,27 @@
           "type": "null|0|8|16|24|32|40|48|56|64|72|80|88|96"
         },
         {
-          "name": "primaryMetadata",
-          "attribute": "primary-metadata",
-          "description": "The text to show as primary metadata.",
-          "type": "?string"
-        },
-        {
           "name": "primaryText",
           "attribute": "primary-text",
           "description": "The text to show as primary text.",
           "type": "?string"
         },
         {
-          "name": "secondaryMetadata",
-          "attribute": "secondary-metadata",
-          "description": "The text to show as secondary metadata.",
-          "type": "?string"
-        },
-        {
           "name": "secondaryText",
           "attribute": "secondary-text",
           "description": "The text to show as secondary text.",
+          "type": "?string"
+        },
+        {
+          "name": "primaryMetadata",
+          "attribute": "primary-metadata",
+          "description": "The text to show as primary metadata.",
+          "type": "?string"
+        },
+        {
+          "name": "secondaryMetadata",
+          "attribute": "secondary-metadata",
+          "description": "The text to show as secondary metadata.",
           "type": "?string"
         },
         {
@@ -4640,12 +4823,16 @@
           "description": "Determines whether the divider is displayed below the list-item.",
           "type": "?boolean",
           "default": "false"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
         {
           "name": "default",
-          "description": "Use to insert fully customized content into the list-item. Cannot be used with the other slots."
+          "description": "Use to insert custom content into the list-item."
         },
         {
           "name": "jh-list-item-left",
@@ -4654,24 +4841,60 @@
         {
           "name": "jh-list-item-right",
           "description": "Use to insert custom content on the right the list-item."
-        },
-        {
-          "name": "jh-list-item-content",
-          "description": "Use to insert custom content into the list-item."
-        },
-        {
-          "name": "jh-list-item-metadata",
-          "description": "Use to insert custom metadata into the list-item."
         }
       ],
       "cssProperties": [
         {
-          "name": "--jh-list-item-color-background",
+          "name": "--jh-list-item-color-background-enabled",
           "description": "The list-item container's background-color.\nDefaults to `transparent`."
         },
         {
-          "name": "--jh-list-item-color-text",
-          "description": "The default, left, text, metadata, right, primary, and secondary slot text color. Defaults to `--jh-color-content-primary-enabled`."
+          "name": "--jh-list-item-color-text-primary-enabled",
+          "description": "The list-item text color for the default, left, right slots and primary text.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-primary-focus",
+          "description": "The list-item text color for the default, left, right slots and primary text when interactive and focused.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-primary-hover",
+          "description": "The list-item text color for the default, left, right slots and primary text when interactive and hovered.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-primary-active",
+          "description": "The list-item text color for the default, left, right slots and primary text when interactive and active.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-primary-selected",
+          "description": "The list-item text color for the default, left, right slots and primary text when interactive and selected.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-primary-disabled",
+          "description": "The list-item text color for the default, left, right slots and primary text when interactive and disabled.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary-enabled",
+          "description": "The secondary text color.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary-focus",
+          "description": "The secondary text color when interactive and focused.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary-hover",
+          "description": "The secondary text color when interactive and hovered.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary-active",
+          "description": "The secondary text color when interactive and active.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary-selected",
+          "description": "The secondary text color when interactive and selected.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-color-text-secondary-disabled",
+          "description": "The secondary text color when interactive and disabled.\nDefaults to `--jh-color-content-secondary-enabled`."
         },
         {
           "name": "--jh-list-item-space-padding-right",
@@ -4682,24 +4905,16 @@
           "description": "The left padding on the list-item container. Defaults to `--jh-dimension-600`."
         },
         {
+          "name": "--jh-list-item-space-padding-top",
+          "description": "The top padding on the list-item container. Defaults to `--jh-dimension-400`."
+        },
+        {
+          "name": "--jh-list-item-space-padding-bottom",
+          "description": "The bottom padding on the list-item container. Defaults to `--jh-dimension-400`."
+        },
+        {
           "name": "--jh-list-item-size-height",
           "description": "The list-item's height. Defaults to `auto`."
-        },
-        {
-          "name": "--jh-list-item-color-text-primary",
-          "description": "The primary text color.\nDefaults to `--jh-color-content-primary-enabled`."
-        },
-        {
-          "name": "--jh-list-item-color-text-secondary",
-          "description": "The secondary text color.\nDefaults to `--jh-color-content-secondary-enabled`."
-        },
-        {
-          "name": "--jh-list-item-metadata-color-text-primary",
-          "description": "The primary metadata text color.\nDefaults to `--jh-color-content-primary-enabled`."
-        },
-        {
-          "name": "--jh-list-item-metadata-color-text-secondary",
-          "description": "The secondary metadata text color.\nDefaults to `--jh-color-content-secondary-enabled`."
         },
         {
           "name": "--jh-list-item-color-background-focus",
@@ -4718,18 +4933,80 @@
           "description": "The list-item background-color when interactive and active.\nDefaults to `--jh-color-container-primary-active`."
         },
         {
+          "name": "--jh-list-item-color-background-disabled",
+          "description": "The list-item background-color when interactive and disabled.\nDefaults to `transparent`."
+        },
+        {
+          "name": "--jh-list-item-opacity-disabled",
+          "description": "The list-item opacity when interactive and disabled.\nDefaults to `--jh-opacity-disabled`."
+        },
+        {
           "name": "--jh-list-item-color-background-selected",
           "description": "The list-item background-color when interactive and selected. Defaults to `--jh-color-container-primary-selected`."
         },
         {
           "name": "--jh-list-item-color-border-selected",
           "description": "The list-item border-left-color when interactive and selected.\nDefaults to `--jh-border-selected-color`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-primary-enabled",
+          "description": "The primary metadata text color.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-primary-focus",
+          "description": "The primary metadata text color when interactive and focused.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-primary-hover",
+          "description": "The primary metadata text color when interactive and hovered.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-primary-active",
+          "description": "The primary metadata text color when interactive and active.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-primary-selected",
+          "description": "The primary metadata text color when interactive and selected.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-primary-disabled",
+          "description": "The primary metadata text color when interactive and disabled.\nDefaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-secondary-enabled",
+          "description": "The secondary metadata text color.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-secondary-focus",
+          "description": "The secondary metadata text color when interactive and focused.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-secondary-hover",
+          "description": "The secondary metadata text color when interactive and hovered.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-secondary-active",
+          "description": "The secondary metadata text color when interactive and active.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-secondary-selected",
+          "description": "The secondary metadata text color when interactive and selected.\nDefaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-list-item-metadata-color-text-secondary-disabled",
+          "description": "The secondary metadata text color when interactive and disabled.\nDefaults to `--jh-color-content-secondary-enabled`."
         }
       ]
     },
     {
       "name": "jh-menu",
       "path": "./components/menu/menu.js",
+      "properties": [
+        {
+          "name": "uniqueId",
+          "type": "number"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -4831,6 +5108,10 @@
           "description": "Determines where in viewport notification is displayed. Alerts will follow typical content flow, while banners will break out of standard flow and go edge-to-edge within a container.",
           "type": "'alert'|'banner'",
           "default": "\"alert\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -5054,7 +5335,7 @@
         {
           "name": "size",
           "description": "Sets the size of the progress component.",
-          "type": "'small'|'medium'|'large'",
+          "type": " 'x-small'|'small'|'medium'|'large'|'x-large'|'xx-large'",
           "default": "\"medium\""
         },
         {
@@ -5116,7 +5397,7 @@
           "name": "size",
           "attribute": "size",
           "description": "Sets the size of the progress component.",
-          "type": "'small'|'medium'|'large'",
+          "type": " 'x-small'|'small'|'medium'|'large'|'x-large'|'xx-large'",
           "default": "\"medium\""
         },
         {
@@ -5165,6 +5446,10 @@
           "attribute": "accessible-valuetext",
           "description": "Sets `aria-valuetext` on progress indicator to provide text alternative of `aria-valuenow`. To be used when progress cannot be represented as a number.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "cssProperties": [
@@ -5187,6 +5472,14 @@
         {
           "name": "--jh-progress-indicator-color",
           "description": "The indicator color. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-progress-track-size-linear",
+          "description": "The height of the linear progress bar track. Defaults to the size-based height."
+        },
+        {
+          "name": "--jh-progress-track-size-circular",
+          "description": "The width and height of the circular progress indicator. Defaults to the size-based dimensions."
         }
       ]
     },
@@ -5198,6 +5491,12 @@
           "name": "accessible-label",
           "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
           "type": "?string"
+        },
+        {
+          "name": "disabled",
+          "description": "Disables the radio group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
+          "type": "boolean",
+          "default": "false"
         },
         {
           "name": "error-text",
@@ -5212,7 +5511,7 @@
         {
           "name": "invalid",
           "description": "Sets an `aria-invalid` on the radio group to indicate the value supplied was invalid and displays `error-text` when set.",
-          "type": "?Boolean",
+          "type": "?boolean",
           "default": "false"
         },
         {
@@ -5228,7 +5527,7 @@
         {
           "name": "required",
           "description": "Indicates a value is required.",
-          "type": "?Boolean",
+          "type": "?boolean",
           "default": "false"
         },
         {
@@ -5262,6 +5561,13 @@
           "type": "?string"
         },
         {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "Disables the radio group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
           "name": "errorText",
           "attribute": "error-text",
           "description": "Text to be displayed when radio group has failed validation and `invalid` is true.",
@@ -5277,7 +5583,7 @@
           "name": "invalid",
           "attribute": "invalid",
           "description": "Sets an `aria-invalid` on the radio group to indicate the value supplied was invalid and displays `error-text` when set.",
-          "type": "?Boolean",
+          "type": "?boolean",
           "default": "false"
         },
         {
@@ -5296,7 +5602,7 @@
           "name": "required",
           "attribute": "required",
           "description": "Indicates a value is required.",
-          "type": "?Boolean",
+          "type": "?boolean",
           "default": "false"
         },
         {
@@ -5318,12 +5624,16 @@
           "attribute": "value",
           "description": "Sets the value of the radio group.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the radio group has changed."
+          "description": "Dispatched when the value of the radio group has changed. Event payload includes the `value` and can be accessed via `e.detail.state.value`."
         }
       ],
       "slots": [
@@ -5352,6 +5662,10 @@
         {
           "name": "--jh-radio-group-error-color-text",
           "description": "The error-text text color. \nDefaults to `--jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-radio-group-opacity-disabled",
+          "description": "The opacity of the radio group when disabled. Defaults to `--jh-opacity-disabled`."
         }
       ]
     },
@@ -5430,12 +5744,16 @@
           "attribute": "value",
           "description": "Sets the value of the radio.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the state of the radio has changed."
+          "description": "Dispatched when the state of the radio has changed. Event payload includes the value of the radio and can be accessed via `e.detail.state.value`."
         }
       ],
       "cssProperties": [
@@ -5562,6 +5880,657 @@
       ]
     },
     {
+      "name": "jh-select",
+      "path": "./components/select/select.js",
+      "description": "Select",
+      "attributes": [
+        {
+          "name": "menu-position",
+          "description": "Sets the position of the dropdown menu relative to the input field. The menu automatically flips when there is insufficient space unless `flip-disabled` is set.",
+          "type": "string",
+          "default": "\"bottom\""
+        },
+        {
+          "name": "flip-disabled",
+          "description": "Prevents the dropdown menu from automatically flipping its position when there is insufficient viewport space.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "accessible-label",
+          "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
+          "type": "?string"
+        },
+        {
+          "name": "accessible-label-clear-button",
+          "description": "Sets an aria-label on the clear button to assist screen reader users. Indicates that activating the button will clear the input field.",
+          "type": "?string"
+        },
+        {
+          "name": "autocomplete",
+          "description": "Determines whether the browser can provide assistance in filling out the input value and what type of information is expected.\nThis property will override any autocomplete attribute present on the input's parent form element.\n\n[Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)",
+          "type": "?string"
+        },
+        {
+          "name": "disabled",
+          "description": "Disables the input and prevents all user interactions. May cause the input to be ignored by assistive technologies (AT).",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "enterkeyhint",
+          "description": "Specifies which action label or icon to present for the enter key on virtual keyboards.\n\n[Visit MDN for information on supported enterkeyhint values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint)",
+          "type": "?string"
+        },
+        {
+          "name": "error-text",
+          "description": "Text to be displayed when input has failed validation and `invalid` is true.",
+          "type": "?string"
+        },
+        {
+          "name": "helper-text",
+          "description": "Provides additional context or guidance for using the input. For `helper-text` to be displayed, the `label` property must also be set.",
+          "type": "?string"
+        },
+        {
+          "name": "hide-left-slot",
+          "description": "Hides the left slot from input.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "hide-right-slot",
+          "description": "Hides the right slot from input.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "input-mask",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
+          "type": "?string"
+        },
+        {
+          "name": "inputmode",
+          "description": "Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.\n\n[Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)",
+          "type": "?string"
+        },
+        {
+          "name": "invalid",
+          "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "label",
+          "description": "Identifies what data should be entered into the input field.",
+          "type": "?string"
+        },
+        {
+          "name": "maxlength",
+          "description": "Sets the maximum number of characters a user can enter into the field.",
+          "type": "?string"
+        },
+        {
+          "name": "minlength",
+          "description": "Sets the minimum number of characters a user can enter into the field.",
+          "type": "?string"
+        },
+        {
+          "name": "name",
+          "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
+          "name": "readonly",
+          "description": "Prevents users from changing the input value. Removes all slotted content.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "required",
+          "description": "Indicates a value is required.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "show-char-count",
+          "description": "Displays a character counter at the bottom right corner below the input field.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "show-clear-button",
+          "description": "Displays a clear button in the input field when it contains a value and is focused or hovered. Deletes input value when activated.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "show-indicator",
+          "description": "Adds a visual indicator next to the label. Indicates that a value is optional(by default) or required if the `required` property is also set.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "size",
+          "description": "Sets the size of the input.",
+          "type": "'small'|'medium'|'large'",
+          "default": "\"medium\""
+        },
+        {
+          "name": "value",
+          "description": "Sets the value of the input.",
+          "type": "?string"
+        }
+      ],
+      "properties": [
+        {
+          "name": "menuPosition",
+          "attribute": "menu-position",
+          "description": "Sets the position of the dropdown menu relative to the input field. The menu automatically flips when there is insufficient space unless `flip-disabled` is set.",
+          "type": "string",
+          "default": "\"bottom\""
+        },
+        {
+          "name": "options",
+          "description": "Sets the list of options to display in the dropdown menu. Accepts an array of flat options or grouped options. See documentation for the expected data format.",
+          "type": "Array",
+          "default": "[]"
+        },
+        {
+          "name": "flipDisabled",
+          "attribute": "flip-disabled",
+          "description": "Prevents the dropdown menu from automatically flipping its position when there is insufficient viewport space.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "accessibleLabel",
+          "attribute": "accessible-label",
+          "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
+          "type": "?string"
+        },
+        {
+          "name": "accessibleLabelClearButton",
+          "attribute": "accessible-label-clear-button",
+          "description": "Sets an aria-label on the clear button to assist screen reader users. Indicates that activating the button will clear the input field.",
+          "type": "?string"
+        },
+        {
+          "name": "autocomplete",
+          "attribute": "autocomplete",
+          "description": "Determines whether the browser can provide assistance in filling out the input value and what type of information is expected.\nThis property will override any autocomplete attribute present on the input's parent form element.\n\n[Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)",
+          "type": "?string"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "Disables the input and prevents all user interactions. May cause the input to be ignored by assistive technologies (AT).",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "enterkeyhint",
+          "attribute": "enterkeyhint",
+          "description": "Specifies which action label or icon to present for the enter key on virtual keyboards.\n\n[Visit MDN for information on supported enterkeyhint values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint)",
+          "type": "?string"
+        },
+        {
+          "name": "errorText",
+          "attribute": "error-text",
+          "description": "Text to be displayed when input has failed validation and `invalid` is true.",
+          "type": "?string"
+        },
+        {
+          "name": "helperText",
+          "attribute": "helper-text",
+          "description": "Provides additional context or guidance for using the input. For `helper-text` to be displayed, the `label` property must also be set.",
+          "type": "?string"
+        },
+        {
+          "name": "hideLeftSlot",
+          "attribute": "hide-left-slot",
+          "description": "Hides the left slot from input.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "hideRightSlot",
+          "attribute": "hide-right-slot",
+          "description": "Hides the right slot from input.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "inputMask",
+          "attribute": "input-mask",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
+          "type": "?string"
+        },
+        {
+          "name": "inputmode",
+          "attribute": "inputmode",
+          "description": "Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.\n\n[Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)",
+          "type": "?string"
+        },
+        {
+          "name": "invalid",
+          "attribute": "invalid",
+          "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "Identifies what data should be entered into the input field.",
+          "type": "?string"
+        },
+        {
+          "name": "maxlength",
+          "attribute": "maxlength",
+          "description": "Sets the maximum number of characters a user can enter into the field.",
+          "type": "?string"
+        },
+        {
+          "name": "minlength",
+          "attribute": "minlength",
+          "description": "Sets the minimum number of characters a user can enter into the field.",
+          "type": "?string"
+        },
+        {
+          "name": "name",
+          "attribute": "name",
+          "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
+          "name": "readonly",
+          "attribute": "readonly",
+          "description": "Prevents users from changing the input value. Removes all slotted content.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "required",
+          "attribute": "required",
+          "description": "Indicates a value is required.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "showCharCount",
+          "attribute": "show-char-count",
+          "description": "Displays a character counter at the bottom right corner below the input field.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "showClearButton",
+          "attribute": "show-clear-button",
+          "description": "Displays a clear button in the input field when it contains a value and is focused or hovered. Deletes input value when activated.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "showIndicator",
+          "attribute": "show-indicator",
+          "description": "Adds a visual indicator next to the label. Indicates that a value is optional(by default) or required if the `required` property is also set.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "size",
+          "attribute": "size",
+          "description": "Sets the size of the input.",
+          "type": "'small'|'medium'|'large'",
+          "default": "\"medium\""
+        },
+        {
+          "name": "value",
+          "attribute": "value",
+          "description": "Sets the value of the input.",
+          "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
+        }
+      ],
+      "events": [
+        {
+          "name": "jh-change",
+          "description": "Dispatched when the selected value changes. Event payload includes the `value` and can be accessed via `e.detail.state.value`."
+        },
+        {
+          "name": "jh-select",
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
+        },
+        {
+          "name": "jh-input",
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
+        },
+        {
+          "name": "jh-maxlength",
+          "description": "Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`."
+        },
+        {
+          "name": "jh-input:clear-button-click",
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`."
+        }
+      ],
+      "slots": [
+        {
+          "name": "jh-select-trigger-left",
+          "description": "Use to insert an element such as an icon on the left side of the select input field."
+        },
+        {
+          "name": "jh-select-trigger-open",
+          "description": "Use to replace the default chevron icon displayed when the select menu is open."
+        },
+        {
+          "name": "jh-select-trigger-closed",
+          "description": "Use to replace the default chevron icon displayed when the select menu is closed."
+        },
+        {
+          "name": "jh-input-left",
+          "description": "Use to insert an element on the left side of the input field, such as an icon or button."
+        },
+        {
+          "name": "jh-input-right",
+          "description": "Use to insert an element on the right side of the input field, such as an icon or button."
+        },
+        {
+          "name": "jh-input-clear-button",
+          "description": "Use to insert an icon within the clear button."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--jh-select-input-field-border-radius",
+          "description": "The input field border radius. Defaults to `--jh-border-radius-100`."
+        },
+        {
+          "name": "--jh-select-input-field-color-background",
+          "description": "The input field background-color. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-select-icon-color-fill",
+          "description": "The select icons color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-select-menu-z-index",
+          "description": "The menu z-index. Defaults to `--jh-z-index-positive-1000`."
+        },
+        {
+          "name": "--jh-select-menu-border-radius",
+          "description": "The menu border-radius. Defaults to `--jh-border-radius-200`."
+        },
+        {
+          "name": "--jh-select-menu-shadow",
+          "description": "The menu box-shadow. Defaults to `--jh-shadow-high`."
+        },
+        {
+          "name": "--jh-select-menu-color-background",
+          "description": "The menu container background-color. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-select-menu-space-padding",
+          "description": "The menu container padding. Defaults to `--jh-dimension-200 0`."
+        },
+        {
+          "name": "--jh-select-menu-size-max-width",
+          "description": "The menu maximum width. Defaults to `none`."
+        },
+        {
+          "name": "--jh-select-menu-size-min-width",
+          "description": "The menu minimum width. Defaults to `none`."
+        },
+        {
+          "name": "--jh-select-menu-size-max-height",
+          "description": "The menu maximum height. Defaults to `480px`."
+        },
+        {
+          "name": "--jh-select-input-field-color-border-error",
+          "description": "The input field border-color when invalid. Defaults to `--jh-border-error-color`."
+        },
+        {
+          "name": "--jh-select-label-color-text",
+          "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-select-helper-color-text",
+          "description": "The helper-text text color. Defaults to `jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-select-required-color-text",
+          "description": "The required indicator color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-select-optional-color-text",
+          "description": "The optional indicator text color. Defaults to `jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-select-value-color-text",
+          "description": "The value text color. Defaults to `jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-select-input-field-color-border-enabled",
+          "description": "The input field border-color. Defaults to `--jh-border-control-color`."
+        },
+        {
+          "name": "--jh-select-input-field-color-border-focus",
+          "description": "The input field border-color when in focus. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-select-input-color-focus",
+          "description": "The input field outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
+        },
+        {
+          "name": "--jh-select-input-field-color-border-hover",
+          "description": "The input field border-color when hovered. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-select-input-field-color-border-active",
+          "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-select-input-field-color-border-disabled",
+          "description": "The input field border-color when disabled. Defaults to `--jh-border-control-color`."
+        },
+        {
+          "name": "--jh-select-opacity-disabled",
+          "description": "The select opacity when disabled. Defaults to `--jh-opacity-disabled`."
+        },
+        {
+          "name": "--jh-select-error-color-text",
+          "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-select-item-size-height",
+          "description": "The list item height. Defaults to `auto`."
+        },
+        {
+          "name": "--jh-select-item-space-padding-right",
+          "description": "The list item right padding. Defaults to `--jh-dimension-600`."
+        },
+        {
+          "name": "--jh-select-item-space-padding-left",
+          "description": "The list item left padding. Defaults to `--jh-dimension-600`."
+        },
+        {
+          "name": "--jh-select-item-color-text",
+          "description": "The list item text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-select-item-color-background",
+          "description": "The list item background color. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-select-item-color-background-focus",
+          "description": "The list item background color when focused. Defaults to `--jh-color-container-primary-hover`."
+        },
+        {
+          "name": "--jh-select-item-color-focus",
+          "description": "The list item outline color when focused. Defaults to `--jh-border-focus-color`."
+        },
+        {
+          "name": "--jh-select-item-color-background-hover",
+          "description": "The list item background color when hovered. Defaults to `--jh-color-container-primary-hover`."
+        },
+        {
+          "name": "--jh-select-item-color-background-active",
+          "description": "The list item background color when active. Defaults to `--jh-color-container-primary-active`."
+        },
+        {
+          "name": "--jh-select-item-color-background-selected",
+          "description": "The list item background color when selected. Defaults to `--jh-color-container-primary-selected`."
+        },
+        {
+          "name": "--jh-select-item-color-border-selected",
+          "description": "The list item border color when selected. Defaults to `--jh-border-selected-color`."
+        },
+        {
+          "name": "--jh-select-item-space-padding-left-indent",
+          "description": "The additional left padding for grouped list items. Defaults to `--jh-dimension-200`."
+        },
+        {
+          "name": "--jh-input-label-color-text",
+          "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-input-field-color-background",
+          "description": "The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-input-field-color-border-enabled",
+          "description": "The input field border-color. Defaults to `--jh-border-control-color`."
+        },
+        {
+          "name": "--jh-input-field-border-radius",
+          "description": "The input field border radius. Defaults to `--jh-border-radius-100`."
+        },
+        {
+          "name": "--jh-input-color-focus",
+          "description": "The input field outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
+        },
+        {
+          "name": "--jh-input-field-color-border-focus",
+          "description": "The input field border-color when in focus. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-input-field-color-border-hover",
+          "description": "The input field border-color when hovered. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-input-field-color-border-active",
+          "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-input-field-color-border-disabled",
+          "description": "The input field border-color when disabled. Defaults to `--jh-border-control-color`."
+        },
+        {
+          "name": "--jh-input-opacity-disabled",
+          "description": "The input opacity when disabled. Defaults to `--jh-opacity-disabled`."
+        },
+        {
+          "name": "--jh-input-field-color-border-error",
+          "description": "The input field border-color when invalid. Defaults to `--jh-border-error-color`."
+        },
+        {
+          "name": "--jh-input-clear-border-radius",
+          "description": "The clear button border radius. Defaults to `--jh-border-radius-100`."
+        },
+        {
+          "name": "--jh-input-clear-color-background-enabled",
+          "description": "The clear button background-color. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-input-clear-color-border-enabled",
+          "description": "The clear button border-color. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-input-clear-icon-color-fill-enabled",
+          "description": "The clear button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-input-clear-color-background-focus",
+          "description": "The clear button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-input-clear-color-border-focus",
+          "description": "The clear button border-color when in focus. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-input-clear-color-focus",
+          "description": "The clear button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
+        },
+        {
+          "name": "--jh-input-clear-icon-color-fill-focus",
+          "description": "The clear button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-input-clear-color-background-hover",
+          "description": "The clear button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-input-clear-color-border-hover",
+          "description": "The clear button border-color when hovered. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-input-clear-icon-color-fill-hover",
+          "description": "The clear button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-input-clear-color-background-active",
+          "description": "The clear button background-color when active. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-input-clear-color-border-active",
+          "description": "The clear button border-color when active. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-input-clear-icon-color-fill-active",
+          "description": "The clear button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
+        },
+        {
+          "name": "--jh-input-required-color-text",
+          "description": "The required indicator color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-input-optional-color-text",
+          "description": "The optional indicator text color. Defaults to `jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-input-helper-color-text",
+          "description": "The helper-text text color. Defaults to `jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-input-counter-color-text",
+          "description": "The character counter text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-input-value-color-text",
+          "description": "The value text color. Defaults to `jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-input-error-color-text",
+          "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
+        }
+      ]
+    },
+    {
       "name": "jh-switch",
       "path": "./components/switch/switch.js",
       "attributes": [
@@ -5636,6 +6605,10 @@
           "attribute": "label",
           "description": "Describes the intent of the switch.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -5708,108 +6681,6 @@
       ]
     },
     {
-      "name": "jh-table-cell",
-      "path": "./components/table-data-cell/table-data-cell.js",
-      "description": "Table Cell",
-      "attributes": [
-        {
-          "name": "horizontal-align",
-          "description": "Sets the horizontal alignment of the content.",
-          "type": "'left' | 'center' | 'right'",
-          "default": "\"left\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "horizontalAlign",
-          "attribute": "horizontal-align",
-          "description": "Sets the horizontal alignment of the content.",
-          "type": "'left' | 'center' | 'right'",
-          "default": "\"left\""
-        }
-      ],
-      "slots": [
-        {
-          "name": "default",
-          "description": "Use to insert content."
-        }
-      ],
-      "cssProperties": [
-        {
-          "name": "--jh-table-data-cell-color-text",
-          "description": "The cell text color. Defaults to `--jh-color-content-primary-enabled`."
-        },
-        {
-          "name": "--jh-table-data-cell-color-background",
-          "description": "The cell background color. Defaults to `--jh-color-container-primary-enabled`."
-        },
-        {
-          "name": "--jh-table-data-cell-color-border-top",
-          "description": "The cell border top color. Defaults to `transparent`."
-        },
-        {
-          "name": "--jh-table-data-cell-color-border-right",
-          "description": "The cell border right color. Defaults to `transparent`."
-        },
-        {
-          "name": "--jh-table-data-cell-color-border-left",
-          "description": "The cell border left color. Defaults to `transparent`."
-        },
-        {
-          "name": "--jh-table-data-cell-color-border-bottom",
-          "description": "The cell border bottom color. Defaults to `--jh-border-decorative-color`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-top-width",
-          "description": "The cell border top width. Defaults to `--jh-border-decorative-width`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-right-width",
-          "description": "The cell border right width. Defaults to `--jh-border-decorative-width`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-left-width",
-          "description": "The cell border left width. Defaults to `--jh-border-decorative-width`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-bottom-width",
-          "description": "The cell border bottom width. Defaults to `--jh-border-decorative-width`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-top-style",
-          "description": "The cell border top style. Defaults to `--jh-border-decorative-style`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-right-style",
-          "description": "The cell border right style. Defaults to `--jh-border-decorative-style`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-left-style",
-          "description": "The cell border left style. Defaults to `--jh-border-decorative-style`."
-        },
-        {
-          "name": "--jh-table-data-cell-border-bottom-style",
-          "description": "The cell border bottom style. Defaults to `--jh-border-decorative-style`."
-        },
-        {
-          "name": "--jh-table-data-cell-space-padding-top",
-          "description": "The cell padding top. Defaults to `--jh-dimension-400`."
-        },
-        {
-          "name": "--jh-table-data-cell-space-padding-right",
-          "description": "The cell padding right. Defaults to `--jh-dimension-400`."
-        },
-        {
-          "name": "--jh-table-data-cell-space-padding-bottom",
-          "description": "The cell padding bottom. Defaults to `--jh-dimension-400`."
-        },
-        {
-          "name": "--jh-table-data-cell-space-padding-left",
-          "description": "The cell padding left. Defaults to `--jh-dimension-400`."
-        }
-      ]
-    },
-    {
       "name": "jh-table-data-cell",
       "path": "./components/table-data-cell/table-data-cell.js",
       "description": "Table Cell",
@@ -5828,6 +6699,10 @@
           "description": "Sets the horizontal alignment of the content.",
           "type": "'left' | 'center' | 'right'",
           "default": "\"left\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -5956,12 +6831,16 @@
           "description": "Sets the order in which the items in the column are sorted.",
           "type": "'none' | 'ascending' | 'descending'",
           "default": "\"none\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-sort",
-          "description": "Dispatched when a sortable header cell is activated. Event payload includes the column, sorted state, and id of the header cell and can be accessed via `e.detail.column`, `e.detail.sorted`, and ` e.detail.id`."
+          "description": "Dispatched when a sortable header cell is activated. Event payload includes the column, sorted state, and id of the header cell and can be accessed via `e.detail.reference.column`, `e.detail.reference.sorted`, and `e.detail.reference.id`."
         }
       ],
       "slots": [
@@ -6181,6 +7060,12 @@
       "name": "jh-table-row",
       "path": "./components/table-row/table-row.js",
       "description": "Table Row",
+      "properties": [
+        {
+          "name": "uniqueId",
+          "type": "number"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -6309,6 +7194,10 @@
           "description": "Makes the table horizontally scrollable on smaller screens.",
           "type": "Boolean",
           "default": "false"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -6391,6 +7280,10 @@
           "description": "Sets the alignment of the tags.",
           "type": "'start'| 'end'",
           "default": "\"start\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -6500,6 +7393,10 @@
           "description": "Removes the tag after the dismiss button is activated.",
           "type": "?Boolean",
           "default": "false"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -6692,12 +7589,6 @@
           "default": "5000"
         },
         {
-          "name": "appearance",
-          "description": "Sets the background color of the toast to convey message connotation.",
-          "type": "'positive'|'neutral'|'negative'",
-          "default": "\"neutral\""
-        },
-        {
           "name": "dismiss-button-accessible-label",
           "description": "Adds an aria-label to the dismiss button to assist screen readers.",
           "type": "string"
@@ -6724,13 +7615,6 @@
           "default": "5000"
         },
         {
-          "name": "appearance",
-          "attribute": "appearance",
-          "description": "Sets the background color of the toast to convey message connotation.",
-          "type": "'positive'|'neutral'|'negative'",
-          "default": "\"neutral\""
-        },
-        {
           "name": "dismissButtonAccessibleLabel",
           "attribute": "dismiss-button-accessible-label",
           "description": "Adds an aria-label to the dismiss button to assist screen readers.",
@@ -6749,6 +7633,10 @@
           "description": "Places action button(s) on new line, below default slot.",
           "type": "boolean",
           "default": "false"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -6797,11 +7685,6 @@
           "default": "false"
         },
         {
-          "name": "label",
-          "description": "Provides information about the item which triggered the tooltip.",
-          "type": "?string"
-        },
-        {
           "name": "open",
           "description": "Determines whether the tooltip is open or closed. Can be set on the tooltip to force it open.",
           "type": "?Boolean",
@@ -6823,12 +7706,6 @@
           "default": "false"
         },
         {
-          "name": "label",
-          "attribute": "label",
-          "description": "Provides information about the item which triggered the tooltip.",
-          "type": "?string"
-        },
-        {
           "name": "open",
           "attribute": "open",
           "description": "Determines whether the tooltip is open or closed. Can be set on the tooltip to force it open.",
@@ -6841,12 +7718,20 @@
           "description": "The position of the tooltip and its arrow.",
           "type": "?string",
           "default": "\"top-center\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
         {
           "name": "default",
           "description": "Use to insert the element that triggers the tooltip."
+        },
+        {
+          "name": "jh-tooltip-content",
+          "description": "Use to insert the content of the tooltip."
         }
       ],
       "cssProperties": [
@@ -6857,6 +7742,10 @@
         {
           "name": "--jh-tooltip-color-text",
           "description": "The tooltip text color. Defaults to `--jh-color-content-on-primary-enabled`."
+        },
+        {
+          "name": "--jh-tooltip-size-max-width",
+          "description": "The maximum width of the tooltip. Defaults to `160px`."
         }
       ]
     }

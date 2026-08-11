@@ -2,37 +2,71 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { addons } from '@storybook/manager-api';
-import { darkTheme } from './sb-themes';
+import { addons } from 'storybook/manager-api';
 import { lightTheme } from './sb-themes';
-import { defaultConfig } from 'storybook-addon-tag-badges'
-
+import { defaultConfig } from 'storybook-addon-tag-badges/manager-helpers';
 
 addons.setConfig({
   //sets the default theme to be used by the browser.
   //It switches to dark theme automatically if your browser is set to dark mode.
   theme: lightTheme,
-  //custom colors for the badges in the sidbar and toolbar
+  //custom colors for the badges in the sidebar and toolbar
   tagBadges: [
     {
       tags: 'new',
       badge: {
-          text: `New`,
-          bgColor: '#1f883d',
-          fgColor: '#ffffff',
+        text: 'New',
+        style: {
+          backgroundColor: '#1f883d',
+          color: '#ffffff',
           borderColor: '#1f883d',
-        }
-      },
-      {
-        tags: 'beta',
-        badge: {
-            text: `Beta`,
-            bgColor: '#747474',
-            fgColor: '#ffffff',
-            borderColor: '#747474',
-          }
         },
+      },
+    },
+    {
+      tags: 'deprecated',
+      badge: {
+        text: 'Deprecated',
+        style: {
+          backgroundColor: '#cf222e',
+          color: '#ffffff',
+          borderColor: '#cf222e',
+        },
+      },
+    },
+    {
+      tags: 'has-deprecations',
+      badge: {
+        text: '⚠️',
+        style: {
+          backgroundColor: 'transparent',
+          borderColor: 'transparent',
+        },
+      },
+    },
+    {
+      tags: 'experimental',
+      badge: {
+        text: 'Lab',
+        style: {
+          backgroundColor: '#8250df',
+          color: '#ffffff',
+          borderColor: '#8250df',
+        },
+      },
+    },
+    {
+      tags: 'beta',
+      badge: {
+        text: 'Beta',
+        style: {
+          backgroundColor: '#747474',
+          color: '#ffffff',
+          borderColor: '#747474',
+        },
+      },
+    },
     ...defaultConfig,
-  ]
+  ],
 });
 

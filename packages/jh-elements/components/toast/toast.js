@@ -2,7 +2,8 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
+import { JhElement } from '../element/element.js';
 import '../notification/notification.js';
 
 /**
@@ -15,7 +16,7 @@ import '../notification/notification.js';
  * @event jh-dismiss - Dispatched when the toast is dismissed.
  * @customElement jh-toast
  */
-export class JhToast extends LitElement {
+export class JhToast extends JhElement {
   static get styles() {
     return css`
       @keyframes fadeInUp  {
@@ -74,8 +75,6 @@ export class JhToast extends LitElement {
 
   static get properties() {
     return {
-      /** Sets the background color of the toast to convey message connotation. */
-      appearance: { type: String, reflect: true },
       /** Adds an aria-label to the dismiss button to assist screen readers. */
       dismissButtonAccessibleLabel: {
         type: String,
@@ -94,8 +93,6 @@ export class JhToast extends LitElement {
     super();
     /** @type {number} */
     this.timeout = 5000;
-    /** @type {'positive'|'neutral'|'negative'} */
-    this.appearance = 'neutral';
     /** @type {string} */
     this.dismissButtonAccessibleLabel = null;
     /** @type {boolean} */
@@ -118,17 +115,7 @@ export class JhToast extends LitElement {
   }
 
   #removeToast() {
-    this.#dispatch('jh-dismiss');
-  }
-
-  #dispatch(name) {
-    this.dispatchEvent(
-      new CustomEvent(name, {
-        bubbles: true,
-        cancelable: true,
-        composed: true,
-      })
-    );
+    this.dispatchCustomEvent('jh-dismiss');
   }
 
   #handleDismiss() {
@@ -151,7 +138,7 @@ export class JhToast extends LitElement {
   render() {
     return html`
       <jh-notification
-        appearance=${this.appearance}
+        appearance="neutral"
         dismiss-button-accessible-label=${this.dismissButtonAccessibleLabel}
         ?hide-dismiss-button=${this.hideDismissButton}
         ?stacked=${this.stacked}>
@@ -169,4 +156,4 @@ export class JhToast extends LitElement {
   }
 }
 
-customElements.define('jh-toast', JhToast);
+JhToast.register('jh-toast', JhToast);

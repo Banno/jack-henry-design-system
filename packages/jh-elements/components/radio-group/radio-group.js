@@ -2,10 +2,10 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { JhElement } from '../element/element.js';
 
-let id = 0;
 /**
  *
  * @cssprop --jh-radio-group-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
@@ -17,32 +17,33 @@ let id = 0;
  * Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-radio-group-error-color-text - The error-text text color. 
  * Defaults to `--jh-color-content-negative-enabled`.
+ * @cssprop --jh-radio-group-opacity-disabled - The opacity of the radio group when disabled. Defaults to `--jh-opacity-disabled`.
  *
  * @slot default - Use to insert `<jh-radio>` components(s).
  * 
- * @event jh-change - Dispatched when the value of the radio group has changed.
+ * @event jh-change - Dispatched when the value of the radio group has changed. Event payload includes the `value` and can be accessed via `e.detail.state.value`.
  *
  * @customElement jh-radio-group
  */
-export class JhRadioGroup extends LitElement {
+export class JhRadioGroup extends JhElement {
   static get formAssociated() {
     return true;
   }
   #checked;
-  /** @type {?Number} */
-  #id;
-  /** @type {ElementInternals} */
-  #internals;
   /** @type {?string} */
   #value;
 
   static get styles() {
     return css`
       :host {
-        font-family: var(--jh-font-helper-regular-font-family);
-        font-weight: var(--jh-font-helper-regular-font-weight);
-        font-size: var(--jh-font-helper-regular-font-size);
-        line-height: var(--jh-font-helper-regular-line-height);
+        --radio-group-helper-regular-font-family: var(--jh-font-helper-regular-font-family);
+        --radio-group-helper-regular-font-weight: var(--jh-font-helper-regular-font-weight);
+        --radio-group-helper-regular-font-size: var(--jh-font-helper-regular-font-size);
+        --radio-group-helper-regular-line-height: var(--jh-font-helper-regular-line-height);
+        font-family: var(--radio-group-helper-regular-font-family);
+        font-weight: var(--radio-group-helper-regular-font-weight);
+        font-size: var(--radio-group-helper-regular-font-size);
+        line-height: var(--radio-group-helper-regular-line-height);
         display: block;
       }
       /* reset styling on fieldset and legend */
@@ -50,6 +51,18 @@ export class JhRadioGroup extends LitElement {
         border: none;
         padding: 0;
         margin: 0;
+      }
+      :host([disabled]) {
+        --group-disabled-opacity: var(--jh-radio-group-opacity-disabled, var(--jh-opacity-disabled));
+      }
+      :host([disabled]) .label,
+      :host([disabled]) .helper-text,
+      :host([disabled]) .error-text {
+        opacity: var(--group-disabled-opacity);
+        pointer-events: none;
+      }
+      :host([disabled]) ::slotted(jh-radio) {
+        --jh-radio-opacity-disabled: var(--group-disabled-opacity);
       }
       :host legend {
         padding: 0;
@@ -85,6 +98,10 @@ export class JhRadioGroup extends LitElement {
           --jh-radio-group-label-color-text,
           var(--jh-color-content-primary-enabled)
         );
+        font-family: var(--jh-font-helper-medium-font-family);
+        font-weight: var(--jh-font-helper-medium-font-weight);
+        font-size: var(--jh-font-helper-medium-font-size);
+        line-height: var(--jh-font-helper-medium-line-height);
       }
       .helper-text {
         color: var(
@@ -110,6 +127,10 @@ export class JhRadioGroup extends LitElement {
           --jh-radio-group-required-color-text-optional,
           var(--jh-color-content-primary-enabled)
         );
+        font-family: var(--radio-group-helper-regular-font-family);
+        font-weight: var(--radio-group-helper-regular-font-weight);
+        font-size: var(--radio-group-helper-regular-font-size);
+        line-height: var(--radio-group-helper-regular-line-height);
       }
       :host([show-indicator][required]) .indicator {
         color: var(
@@ -125,6 +146,11 @@ export class JhRadioGroup extends LitElement {
       accessibleLabel: {
         type: String,
         attribute: 'accessible-label',
+      },
+      /** Disables the radio group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT). */      
+      disabled: {
+        type: Boolean,
+        reflect: true
       },
       /** Text to be displayed when radio group has failed validation and `invalid` is true. */
       errorText: {
@@ -178,20 +204,21 @@ export class JhRadioGroup extends LitElement {
   }
   constructor() {
     super();
-    this.#internals = this.attachInternals();
     /** @type {?string} */
     this.accessibleLabel = null;
+    /** @type {boolean} */
+    this.disabled = false;
     /** @type {?string} */
     this.errorText = null;
     /** @type {?string} */
     this.helperText = null;
-    /** @type {?Boolean} */
+    /** @type {?boolean} */
     this.invalid = false;
     /** @type {?string} */
     this.label = null;
     /** @type {?string} */
     this.name = null;
-    /** @type {?Boolean} */
+    /** @type {?boolean} */
     this.required = false;
     /** @type {'vertical'|'horizontal'} */
     this.orientation = 'vertical';
@@ -205,9 +232,14 @@ export class JhRadioGroup extends LitElement {
     this.addEventListener('focusout', this.#handleFocusOut);
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    this.#id = id++;
+  firstUpdated() {
+    this._syncDisabledToChildren();
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has('disabled')) {
+      this._syncDisabledToChildren();
+    }
   }
 
   /**
@@ -215,12 +247,12 @@ export class JhRadioGroup extends LitElement {
    * @type {?HTMLFormElement}
    */
   get form() {
-    return this.#internals.form;
+    return this.internals.form;
   }
 
   /** @ignore */
   get validity() {
-    return this.#internals.validity;
+    return this.internals.validity;
   }
 
   /** @type {?string} */
@@ -232,9 +264,19 @@ export class JhRadioGroup extends LitElement {
     const oldValue = this.#value;
     if (newValue !== oldValue) {
       this.#value = newValue;
-      this.#internals.setFormValue(newValue);
+      this.internals.setFormValue(newValue);
     }
     this.requestUpdate('value', oldValue);
+  }
+
+  _syncDisabledToChildren() {
+    const slot = this.renderRoot.querySelector('slot');
+    if(!slot) return;
+
+    const radios = slot.assignedElements().filter((el) => el.tagName === 'JH-RADIO');
+    radios.forEach((radio) => {
+      radio.disabled = this.disabled;
+    });
   }
 
   #getRadios() {
@@ -260,6 +302,8 @@ export class JhRadioGroup extends LitElement {
     if (!this.#checked) {
       radios[0].tabIndex = 0;
     }
+
+    this._syncDisabledToChildren();
   }
 
   #handleChange(e) {
@@ -268,12 +312,7 @@ export class JhRadioGroup extends LitElement {
       this.#checked = e.target;
       this.#updateChecked();
 
-      const options = {
-        bubbles: true,
-        composed: true,
-        cancelable: true,
-      };
-      this.dispatchEvent(new CustomEvent('jh-change', options));
+      this.dispatchCustomEvent('jh-change');
     }
   }
 
@@ -336,11 +375,11 @@ export class JhRadioGroup extends LitElement {
 
   #getAriaDescribedBy() {
     if (this.errorText && this.invalid && this.helperText && this.label) {
-      return `radio-group-error-${this.#id} radio-group-helper-${this.#id}`;
+      return `radio-group-error-${this.uniqueId} radio-group-helper-${this.uniqueId}`;
     } else if (this.errorText && this.invalid) {
-      return `radio-group-error-${this.#id}`;
+      return `radio-group-error-${this.uniqueId}`;
     } else if (this.helperText && this.label) {
-      return `radio-group-helper-${this.#id}`;
+      return `radio-group-helper-${this.uniqueId}`;
     }
   }
 
@@ -361,29 +400,30 @@ export class JhRadioGroup extends LitElement {
     if (this.helperText) {
       helperText = html`<p
         class="helper-text"
-        id="radio-group-helper-${this.#id}"
+        id="radio-group-helper-${this.uniqueId}"
       >
         ${this.helperText}
       </p>`;
     }
 
     if (this.label) {
-      label = html`<legend class="label" for="radio-group-label-${this.#id}">
+      label = html`<legend class="label" for="radio-group-label-${this.uniqueId}">
           ${this.label}${indicator}
         </legend>
         ${helperText}`;
     }
 
     if (this.invalid && this.errorText) {
-      errorText = html`<p class="error-text" id="radio-group-error-${this.#id}">
+      errorText = html`<p class="error-text" id="radio-group-error-${this.uniqueId}">
         ${this.errorText}
       </p>`;
     }
     return html`
       <fieldset
         role="radiogroup"
-        id=${ifDefined(this.label ? `radio-group-label-${this.#id}` : null)}
+        id=${ifDefined(this.label ? `radio-group-label-${this.uniqueId}` : null)}
         aria-describedby=${ifDefined(this.#getAriaDescribedBy())}
+        aria-disabled=${ifDefined(this.disabled ? 'true' : null)}
         aria-required=${ifDefined(this.required ? 'true' : 'false')}
         aria-invalid=${ifDefined(this.invalid ? 'true' : null)}
         aria-label=${ifDefined(this.accessibleLabel)}
@@ -397,4 +437,4 @@ export class JhRadioGroup extends LitElement {
     `;
   }
 }
-customElements.define('jh-radio-group', JhRadioGroup);
+JhRadioGroup.register('jh-radio-group', JhRadioGroup);

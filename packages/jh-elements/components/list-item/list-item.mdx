@@ -4,7 +4,7 @@ SPDX-FileCopyrightText: 2025 Jack Henry
 SPDX-License-Identifier: Apache-2.0
 */}
 
-import {Meta, ArgTypes} from '@storybook/blocks';
+import {Meta, ArgTypes} from '@storybook/addon-docs/blocks';
 import * as stories from './list-item.stories.js';
 
 <Meta title="Components/List Item" of={stories} />
@@ -32,8 +32,7 @@ To use `<jh-list-item>`, place content in the slots or use the available propert
 ```html
 <jh-list-item>
   <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
-  <div slot="jh-list-item-content">Lorem ipsum dolor sit amet</div>
-  <div slot="jh-list-item-metadata">Lorem ipsum</div>
+  <div>Lorem ipsum dolor sit amet</div>
   <jh-icon-view-more slot="jh-list-item-right"></jh-icon-view-more>
 </jh-list-item>
 ```
@@ -51,21 +50,25 @@ The list item component makes use of both required compositional and suggested c
 
 ## Layouts
 
-List items offer multiple ways to display content: 
-- Use the default slot to provide custom content. See [Default story](/story/components-list-item--default).
-- Use some or all layout slots such as left slot, content slot, metadata slot, right slot. See [Default Layout story](/story/components-list-item--default-layout).
-- Use properties, alone or in combination with layout slots, to display formatted strings of 
-primary and secondary text and metadata. 
-See [Layout with Properties story](/story/components-list-item--layout-with-properties).
-- The default slot is intended to be used independently from the layout slots and should not be combined with
- layout slots or properties. Doing so may result in adverse results.
+List items offer multiple ways to display content:
+- Use the default slot to provide custom content. The default slot can be used alone 
+or in combination with the left and right slots.
+- Use the left and right slots to insert supplementary content such as icons or actions 
+on either side of the list item.
+- Use the `primary-text` and `secondary-text` properties to display formatted text. 
+These properties can be used alone or in combination with the left and right slots. 
+- Use the `primary-metadata` and `secondary-metadata` properties to display 
+metadata aligned to the right of the text content. Metadata properties can be used in combination 
+with `primary-text` and `secondary-text` and in combination with the left and right slots.
+- The default slot and properties (`primary-text`, `secondary-text`, `primary-metadata`, `secondary-metadata`) 
+are mutually exclusive. If content is provided in the default slot, the properties will not be displayed. 
 
 ## Interactivity
 By default, list items are not interactive and cannot be reached via keyboard navigation, however list items 
 include built-in support should you need interactivity.
 
 - List items can be made interactive by setting `tabindex="0"`. 
-- Interactive list items have states such as hover, focus, active, selected and disabled. See [Interactive List story](/story/components-list-item--interactive-list). 
+- Interactive list items have states such as hover, focus, active, selected and disabled.
 - Disabled interactive list-items are not editable or operable but are announced by assistive technologies. 
 
 ## Divider inset

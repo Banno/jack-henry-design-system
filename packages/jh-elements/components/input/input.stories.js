@@ -35,6 +35,7 @@ const disableControls = {
   'helper-text': { control: { disable: true } },
   'hide-left-slot': { control: { disable: true } },
   'hide-right-slot': { control: { disable: true } },
+  'horizontal-align': { control: { disable: true } },
   'input-mask': { control: { disable: true } },
   inputmode: { control: { disable: true } },
   invalid: { control: { disable: true } },
@@ -115,6 +116,10 @@ export default {
     },
     'hide-right-slot': {
       control: 'boolean',
+    },
+    'horizontal-align': {
+      control: 'select',
+      options: ['left', 'right'],
     },
     'input-mask': {
       control: 'text'
@@ -240,6 +245,9 @@ export const Playground = { render: (args) => html`
   )}
   ?hide-left-slot=${args['hide-left-slot']}
   ?hide-right-slot=${args['hide-right-slot']}
+  horizontal-align=${ifDefined(
+    args['horizontal-align'] === '' ? null : args['horizontal-align']
+  )}
   input-mask=${ifDefined(args['input-mask'] === '' ? null : args['input-mask'])}
   inputmode=${ifDefined(args.inputmode === '' ? null : args.inputmode)}
   ?invalid=${args.invalid}
@@ -275,6 +283,7 @@ Playground.args = {
   'helper-text': 'Helper text',
   'hide-left-slot': false,
   'hide-right-slot': false,
+  'horizontal-align': 'left',
   'accessible-label': null,
   'accessible-label-clear-button': null,
   maxlength: null,

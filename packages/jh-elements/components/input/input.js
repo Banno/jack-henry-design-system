@@ -201,7 +201,12 @@ export class JhInput extends JhElement {
       :host([readonly]) input {
         height: auto;
       } 
-
+      :host([horizontal-align='right']) input {
+        text-align: right;
+      }
+      :host([horizontal-align='left']) input {
+        text-align: left;
+      }
       /* Slot wrappers */
       .slot-wrapper {
         display: none;
@@ -410,6 +415,8 @@ export class JhInput extends JhElement {
       hideLeftSlot: { type: Boolean, attribute: 'hide-left-slot' },
       /** Hides the right slot from input. */
       hideRightSlot: { type: Boolean, attribute: 'hide-right-slot' },
+      /** Determines whether the input value is aligned to the left or right side of the input field. */
+      horizontalAlign: { type: String, attribute: 'horizontal-align' },
       /** Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details. */
       inputMask: { type: String, attribute: 'input-mask' },
       /** Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.
@@ -470,6 +477,8 @@ export class JhInput extends JhElement {
     this.hideLeftSlot = false;
     /** @type {boolean} */
     this.hideRightSlot = false;
+    /** @type {'left' | 'right'} */
+    this.horizontalAlign = 'left';
     /** @type {?string} */
     this.inputMask = null;
     /** @type {?string} */

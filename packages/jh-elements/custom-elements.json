@@ -1402,6 +1402,12 @@
           "default": "false"
         },
         {
+          "name": "horizontal-align",
+          "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+          "type": "'left' | 'right'",
+          "default": "\"left\""
+        },
+        {
           "name": "input-mask",
           "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
@@ -1551,6 +1557,13 @@
           "description": "Hides the right slot from input.",
           "type": "boolean",
           "default": "false"
+        },
+        {
+          "name": "horizontalAlign",
+          "attribute": "horizontal-align",
+          "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+          "type": "'left' | 'right'",
+          "default": "\"left\""
         },
         {
           "name": "inputMask",
@@ -1891,6 +1904,12 @@
           "default": "false"
         },
         {
+          "name": "horizontal-align",
+          "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+          "type": "'left' | 'right'",
+          "default": "\"left\""
+        },
+        {
           "name": "input-mask",
           "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
@@ -2041,6 +2060,13 @@
           "description": "Hides the right slot from input.",
           "type": "boolean",
           "default": "false"
+        },
+        {
+          "name": "horizontalAlign",
+          "attribute": "horizontal-align",
+          "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+          "type": "'left' | 'right'",
+          "default": "\"left\""
         },
         {
           "name": "inputMask",
@@ -2397,6 +2423,12 @@
           "default": "false"
         },
         {
+          "name": "horizontal-align",
+          "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+          "type": "'left' | 'right'",
+          "default": "\"left\""
+        },
+        {
           "name": "input-mask",
           "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
@@ -2565,6 +2597,13 @@
           "description": "Hides the right slot from input.",
           "type": "boolean",
           "default": "false"
+        },
+        {
+          "name": "horizontalAlign",
+          "attribute": "horizontal-align",
+          "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+          "type": "'left' | 'right'",
+          "default": "\"left\""
         },
         {
           "name": "inputMask",
@@ -2913,6 +2952,12 @@
           "default": "false"
         },
         {
+          "name": "horizontal-align",
+          "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+          "type": "'left' | 'right'",
+          "default": "\"left\""
+        },
+        {
           "name": "input-mask",
           "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
@@ -3062,6 +3107,13 @@
           "description": "Hides the right slot from input.",
           "type": "boolean",
           "default": "false"
+        },
+        {
+          "name": "horizontalAlign",
+          "attribute": "horizontal-align",
+          "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+          "type": "'left' | 'right'",
+          "default": "\"left\""
         },
         {
           "name": "inputMask",
@@ -3402,6 +3454,12 @@
           "default": "false"
         },
         {
+          "name": "horizontal-align",
+          "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+          "type": "'left' | 'right'",
+          "default": "\"left\""
+        },
+        {
           "name": "input-mask",
           "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
@@ -3551,6 +3609,13 @@
           "description": "Hides the right slot from input.",
           "type": "boolean",
           "default": "false"
+        },
+        {
+          "name": "horizontalAlign",
+          "attribute": "horizontal-align",
+          "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+          "type": "'left' | 'right'",
+          "default": "\"left\""
         },
         {
           "name": "inputMask",
@@ -3917,6 +3982,12 @@
           "default": "false"
         },
         {
+          "name": "horizontal-align",
+          "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+          "type": "'left' | 'right'",
+          "default": "\"left\""
+        },
+        {
           "name": "input-mask",
           "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
@@ -4098,6 +4169,13 @@
           "description": "Hides the right slot from input.",
           "type": "boolean",
           "default": "false"
+        },
+        {
+          "name": "horizontalAlign",
+          "attribute": "horizontal-align",
+          "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+          "type": "'left' | 'right'",
+          "default": "\"left\""
         },
         {
           "name": "inputMask",
@@ -4442,6 +4520,12 @@
           "default": "false"
         },
         {
+          "name": "horizontal-align",
+          "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+          "type": "'left' | 'right'",
+          "default": "\"left\""
+        },
+        {
           "name": "input-mask",
           "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
@@ -4591,6 +4675,13 @@
           "description": "Hides the right slot from input.",
           "type": "boolean",
           "default": "false"
+        },
+        {
+          "name": "horizontalAlign",
+          "attribute": "horizontal-align",
+          "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+          "type": "'left' | 'right'",
+          "default": "\"left\""
         },
         {
           "name": "inputMask",
@@ -4930,6 +5021,12 @@
           "default": "false"
         },
         {
+          "name": "horizontal-align",
+          "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+          "type": "'left' | 'right'",
+          "default": "\"left\""
+        },
+        {
           "name": "input-mask",
           "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
@@ -5079,6 +5176,13 @@
           "description": "Hides the right slot from input.",
           "type": "boolean",
           "default": "false"
+        },
+        {
+          "name": "horizontalAlign",
+          "attribute": "horizontal-align",
+          "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+          "type": "'left' | 'right'",
+          "default": "\"left\""
         },
         {
           "name": "inputMask",
@@ -6644,6 +6748,12 @@
           "default": "false"
         },
         {
+          "name": "horizontal-align",
+          "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+          "type": "'left' | 'right'",
+          "default": "\"left\""
+        },
+        {
           "name": "input-mask",
           "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
@@ -6813,6 +6923,13 @@
           "description": "Hides the right slot from input.",
           "type": "boolean",
           "default": "false"
+        },
+        {
+          "name": "horizontalAlign",
+          "attribute": "horizontal-align",
+          "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+          "type": "'left' | 'right'",
+          "default": "\"left\""
         },
         {
           "name": "inputMask",

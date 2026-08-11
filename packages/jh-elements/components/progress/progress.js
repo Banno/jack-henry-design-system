@@ -9,7 +9,7 @@ import { JhElement } from '../element/element.js';
 /**
  * A progress indicator provides feedback to a user regarding loading and waiting states.
  * 
- * [Progress Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-progress--docs)
+ * [Progress Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-progress--docs)
  * 
  * @cssprop --jh-progress-label-color - The label text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-progress-value-color - The value text color. Defaults to `--jh-color-content-secondary-enabled`.

@@ -11,7 +11,7 @@ import { JhElement } from '../element/element.js';
 * also maintains a robust icon library available as raw SVGs and as discrete web components, with each component 
 * utilizing our design tokens.
 *
-* [Icon Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-icon--docs)
+* [Icon Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-icon--docs)
 *
 * @cssprop --jh-icon-color-fill - The icon color. Defaults to `--jh-color-content-secondary-enabled`.
 * @cssprop --jh-icon-size-extra-small - The icon size when `size="extra-small"`. Defaults to `--jh-dimension-400`.

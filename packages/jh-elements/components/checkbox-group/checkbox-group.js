@@ -9,7 +9,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 /**
  * Checkbox groups contain sets of checkboxes where several options can be selected.
  * 
- * [Checkbox Group Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-checkbox-group--docs)
+ * [Checkbox Group Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-checkbox-group--docs)
  * 
  * @cssprop --jh-checkbox-group-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-checkbox-group-opacity-disabled - The opacity of the checkbox group when disabled. Defaults to `--jh-opacity-disabled`.

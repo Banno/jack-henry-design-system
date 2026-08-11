@@ -9,7 +9,7 @@ import { JhInput } from '../input/input.js';
 /**
  * The input textarea component provides a multi-line text field that allows users to submit detailed, unstructured, free-form text. 
  * 
- * [Input Textarea Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-textarea--docs)
+ * [Input Textarea Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-textarea--docs)
  * 
  * @cssprop --jh-input-textarea-field-dimension-min-height - The input field minimum height. Defaults to `--jh-dimension-2000` when `size='small'`, `--jh-dimension-2200` when `size='medium'`, and `--jh-dimension-2400` when `size='large'`.
  *

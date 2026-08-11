@@ -10,7 +10,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 /**
  * A list item represents one item in a list of connected objects. List items are used as building blocks in complex components such as lists, menus, and dropdowns.
  * 
- * [List Item Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-list-item--docs)
+ * [List Item Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-list-item--docs)
  * 
  * @cssprop --jh-list-item-color-background-enabled - The list-item container's background-color.
  * Defaults to `transparent`.

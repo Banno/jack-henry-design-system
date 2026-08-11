@@ -11,7 +11,7 @@ import '../tooltip/tooltip.js';
 /**
  * A tag contains a string of text on a colorful background and is used to categorize, describe or otherwise identify elements on the page.
  * 
- * [Tag Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tag--docs)
+ * [Tag Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tag--docs)
  * 
  * @cssprop --jh-tag-color-focus - The tag outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.
  * @cssprop --jh-tag-border-radius - The tag border radius. Defaults to `--jh-border-radius-pill`.

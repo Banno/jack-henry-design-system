@@ -10,7 +10,7 @@ import '../divider/divider.js';
 /**
  * Cards are content structures that provide an entry point for more complex and detailed information.
  * 
- * [Card Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-card--docs)
+ * [Card Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-card--docs)
  * @cssprop --jh-card-color-background - The card background-color. Defaults to `--jh-color-container-primary-enabled`.
  * @cssprop --jh-card-border-radius - The card border-radius. Defaults to `--jh-border-radius-200`.
  * @cssprop --jh-card-color-border - The card border color. Defaults to `--jh-border-decorative-color`.

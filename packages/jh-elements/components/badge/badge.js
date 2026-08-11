@@ -9,7 +9,7 @@ import { JhElement } from '../element/element.js';
 /**
  * A Badge is a visual indicator that represents numbers, such as counters. It also supports a dot-only variant.
  * 
- * [Badge Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-badge--docs)
+ * [Badge Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-badge--docs)
  * 
  * @cssprop --jh-badge-border-radius - The badge border radius. Defaults to `--jh-border-radius-pill`.
  * @cssprop --jh-badge-color-background-enabled - The badge background color. Defaults to `--jh-color-content-negative-enabled`. 

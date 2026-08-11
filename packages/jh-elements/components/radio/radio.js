@@ -8,7 +8,7 @@ import { JhElement } from '../element/element.js';
 /**
  * Radio buttons, typically presented in radio groups, allow users to select only one option amongst a group of options.
  * 
- * [Radio Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-radio--docs)
+ * [Radio Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-radio--docs)
  * 
  * @cssprop --jh-radio-opacity-disabled - The radio opacity when disabled. Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-radio-input-border-radius - The radio and status mark border-radius.

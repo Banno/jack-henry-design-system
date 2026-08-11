@@ -11,7 +11,7 @@ import '@jack-henry/jh-icons/icons-wc/icon-circle-xmark.js';
 /**
  * The input component offers a single-line text field for collecting user data.
  * 
- * [Input Storybook Documentation](https://release-v2--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input--docs)
+ * [Input Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input--docs)
  * 
  * @cssprop --jh-input-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-input-field-color-background - The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`.

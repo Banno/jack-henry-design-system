@@ -9,7 +9,10 @@ import '../button/button.js';
 import '../tooltip/tooltip.js';
 
 /**
- * Tag
+ * A tag contains a string of text on a colorful background and is used to categorize, describe or otherwise identify elements on the page.
+ * 
+ * [Tag Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tag--docs)
+ * 
  * @cssprop --jh-tag-color-focus - The tag outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.
  * @cssprop --jh-tag-border-radius - The tag border radius. Defaults to `--jh-border-radius-pill`.
  * @cssprop --jh-tag-color-background-enabled- The tag background color. Defaults to `--jh-color-container-neutral-enabled`.
@@ -41,6 +44,7 @@ import '../tooltip/tooltip.js';
  * @slot jh-tag-icon - Use to insert an icon to the left of the tag.
  * @slot jh-tag-dismiss-icon - Use to insert a custom icon within the dismiss button.
  * @event jh-dismiss - Dispatched when the tag is dismissed.
+ * 
  * @customElement jh-tag
  */
 export class JhTag extends JhElement {
@@ -282,38 +286,30 @@ export class JhTag extends JhElement {
 
   static get properties() {
     return {
-      /** Describes the intent of the tag. */
       label: {
         type: String,
       },
-      /** Adds an aria-label to the dismiss button to assist screen readers. */
       dismissButtonAccessibleLabel: {
         type: String,
         attribute: 'dismiss-button-accessible-label',
       },
-      /** Adds a dismiss button to tag. See `remove-on-dismiss` attribute for tag removal.*/
       dismissible: {
         type: Boolean,
       },
-      /** Adds a tooltip with this string on the dismiss button. */
       tooltipLabel: {
         type: String,
         attribute: 'tooltip-label',
       },
-      /** Sets the size of the tag. */
       size: {
         type: String,
         reflect: true,
       },
-      /** Sets the link's destination. */
       href: {
         type: String,
       },
-      /** Specifies where to display the linked URL set by the href property. */
       target: {
         type: String,
       },
-      /** Removes the tag after the dismiss button is activated. */ 
       removeOnDismiss: {
         type: Boolean,
         attribute: 'remove-on-dismiss'
@@ -323,21 +319,48 @@ export class JhTag extends JhElement {
 
   constructor() {
     super();
-    /** @type {?string} */
+    /**
+     * Describes the intent of the tag.
+     * @type {string | null}
+     */
     this.label = null;
-    /** @type {?Boolean} */
+    /**
+     * Adds a dismiss button to tag. See `remove-on-dismiss` attribute for tag removal.
+     * @type {boolean}
+     */
     this.dismissible = false;
-    /** @type {?string} */
+    /**
+     * Adds an aria-label to the dismiss button to assist screen readers.
+     * @attr dismiss-button-accessible-label
+     * @type {string | null}
+     */
     this.dismissButtonAccessibleLabel = null;
-    /** @type {?string} */
+    /**
+     * Adds a tooltip with this string on the dismiss button.
+     * @attr tooltip-label
+     * @type {string | null}
+     */
     this.tooltipLabel = null;
-    /** @type {'small'| 'medium'} */
+    /**
+     * Sets the size of the tag.
+     * @type { 'small' | 'medium' }
+     */
     this.size = 'small';
-    /** @type {?string} */
+    /**
+     * Sets the link's destination.
+     * @type {string | null}
+     */
     this.href = null;
-    /** @type {?string} */
+    /**
+     * Specifies where to display the linked URL set by the href property.
+     * @type {string | null}
+     */
     this.target = null;
-    /** @type {?Boolean} */
+    /**
+     * Removes the tag after the dismiss button is activated.
+     * @attr remove-on-dismiss
+     * @type {boolean}
+     */
     this.removeOnDismiss = false;
     this.addEventListener('keyup', this.#handleClick);
   }
@@ -406,6 +429,7 @@ export class JhTag extends JhElement {
     return content;
   }
 
+  /** @protected */
   render() {
     return html` 
     <span class="container">

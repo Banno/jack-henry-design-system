@@ -8,6 +8,10 @@ import { JhElement } from '../element/element.js';
 import '../progress/progress.js';
 
 /**
+ * Buttons enable a user to initiate a specific action.
+ * 
+ * [Button Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-button--docs)
+ * 
  * @cssprop --jh-button-color-background-primary-enabled - The button container background-color when enabled and `appearance="primary"`. Defaults to `--jh-color-content-brand-enabled`.
  * @cssprop --jh-button-color-border-primary-enabled - The button container border-color when enabled and `appearance="primary"`. Defaults to `transparent`.
  * @cssprop --jh-button-color-background-primary-focus - The button container background-color when in focus and `appearance="primary"`. Defaults to `--jh-color-content-brand-hover`.
@@ -110,12 +114,11 @@ import '../progress/progress.js';
  * @customElement jh-button
  */
 export class JhButton extends JhElement {
-  /** @ignore */
   static get formAssociated() {
     return true;
   }
 
-  /** @type {?string} */
+  /** @type {string | null} */
   #value;
 
   static get styles() {
@@ -731,62 +734,49 @@ export class JhButton extends JhElement {
 
   static get properties() {
     return {
-      /** Sets an `aria-disabled` to signify to screen readers that the disabled button should remain perceivable while disabled. */
       accessibleDisabled: {
         type: String,
         attribute: 'accessible-disabled',
         reflect: true,
       },
-      /** Sets an `aria-label` to assist screen reader users when no visible label is present. */
       accessibleLabel: {
         type: String,
         attribute: 'accessible-label',
       },
-      /** Determines the button color. */
       appearance: {
         type: String,
         reflect: true,
       },
-      /** Sets the button width to its parent container. */
       block: {
         type: Boolean,
       },
-      /** Disables the button and prevents all user interactions. May cause button to be ignored by assistive technologies(AT). See `accessible-disabled` attribute if the button should remain perceivable to AT. */
       disabled: {
         type: Boolean,
         reflect: true,
       },
-      /** Sets the link's destination. */
       href: {
         type: String,
       },
-      /** Displays a progress indicator. */
       pending: {
         type: Boolean,
         reflect: true,
       },
-      /** Describes the intent of the button.*/
       label: {
         type: String,
       },
-      /** Sets the name of the button data when submitted in a form. */
       name: {
         type: String,
       },
-      /** Sets the size of the button. */
       size: {
         type: String,
         reflect: true,
       },
-      /** Sets button `type='submit'`. Button defaults to `type='button'`. */
       submit: {
         type: Boolean,
       },
-      /** Specifies where to display the linked URL set by the `href` property. */
       target: {
         type: String,
       },
-      /** Sets the value of the button. */
       value: {
         type: String,
       },
@@ -803,48 +793,95 @@ export class JhButton extends JhElement {
 
   constructor() {
     super();
-    /** @type {ElementInternals} */
-    this.internals.form;
-    /** @type {'true'|'false'} */
+    /**
+     * Sets an `aria-disabled` to signify to screen readers that the disabled button should remain perceivable while disabled.
+     * @attr accessible-disabled
+     * @type { 'true' | 'false' | null}
+     */
     this.accessibleDisabled = null;
-    /** @type {?string} */
+    /**
+     * Sets an `aria-label` to assist screen reader users when no visible label is present.
+     * @attr accessible-label
+     * @type {string | null}
+     */
     this.accessibleLabel = null;
-    /** @type {'primary'|'secondary'|'tertiary'|'danger'} */
+    /**
+     * Determines the button color.
+     * @type { 'primary' | 'secondary' | 'tertiary' | 'danger' }
+     */
     this.appearance = 'secondary';
-    /** @type {boolean} */
+    /**
+     * Sets the button width to its parent container.
+     * @type {boolean}
+     */
     this.block = false;
-    /** @type {boolean} */
+    /**
+     * Disables the button and prevents all user interactions. May cause button to be ignored by assistive technologies(AT). See `accessible-disabled` attribute if the button should remain perceivable to AT.
+     * @type {boolean}
+     */
     this.disabled = false;
-    /** @type {?string} */
+    /**
+     * Sets the link's destination.
+     * @type {string | null}
+     */
     this.href = null;
-    /** @type {?boolean} */
+    /**
+     * Displays a progress indicator.
+     * @type {boolean}
+     */
     this.pending = false;
-    /** @type {?string} */
+    /**
+     * Describes the intent of the button.
+     * @type {string | null}
+     */
     this.label = null;
-    /** @type {?string} */
+    /**
+     * Sets the name of the button data when submitted in a form.
+     * @type {string | null}
+     */
     this.name = null;
-    /** @type {'x-small'|'small'|'medium'|'large'} */
+    /**
+     * Sets the size of the button.
+     * @type { 'x-small' | 'small' | 'medium' | 'large' }
+     */
     this.size = 'medium';
-    /** @type {?boolean} */
+    /**
+     * Sets button `type='submit'`. Button defaults to `type='button'`.
+     * @type {boolean}
+     */
     this.submit = false;
-    /** @type {'_blank'|'_self'|'_parent'|'_top'} */
+    /**
+     * Specifies where to display the linked URL set by the `href` property.
+     * @type { '_blank' | '_self' | '_parent' | '_top' | null }
+     */
     this.target = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.value = null;
-    /** @type {boolean} */
+    /** 
+     * @internal
+     * @type {boolean} 
+     * */
     this._hasLeftSlotContent = false;
-    /** @type {boolean} */
+    /** 
+     * @internal
+     * @type {boolean} 
+     * */
     this._hasRightSlotContent = false;
 
     this.addEventListener('click', this.#onClick);
     this.addEventListener('keydown', this.#handleKeydown);
   }
 
-  /** @type {?string} */
+  /**
+   * Sets the value of the button.
+   * @type {string | null}
+   */
   get value() {
     return this.#value;
   }
-
+  /**
+  * @param {string | null} newValue
+  */
   set value(newValue) {
     const oldValue = this.#value;
     if (newValue !== oldValue) {
@@ -853,13 +890,17 @@ export class JhButton extends JhElement {
     }
     this.requestUpdate('value', oldValue);
   }
-
+  /** @protected */
   firstUpdated() {
     this.#cacheButtonDimensions();
     new ResizeObserver(this.#cacheButtonDimensions.bind(this)).observe(this);
   }
 
   //if button size changes, adjust the size of the icons accordingly.
+  /**
+  * @protected
+  * @param {import('lit').PropertyValues} changedProperties
+  */
   updated(changedProperties) {
   if (changedProperties.has('size')) {
     const iconSize = this.size === 'x-small' ? 'x-small' : 'medium';
@@ -878,6 +919,7 @@ export class JhButton extends JhElement {
     this.style.setProperty('--populated-button-width', `${width}px`);
   }
 
+  /** @param {boolean} disabled */
   formDisabledCallback(disabled) {
     this.disabled = disabled;
   }
@@ -964,7 +1006,7 @@ export class JhButton extends JhElement {
 
     return html` <span class="content-wrapper">${buttonContent}</span> `;
   }
-
+  /** @protected */
   render() {
     const buttonContent = this.#renderButtonContent(this.pending, this.label);
     let ariaDisabled;

@@ -6,7 +6,7 @@ to: components/<%= unprefixedName %>/<%= unprefixedName %>.stories.js
 # SPDX-License-Identifier: Apache-2.0
 ---
 /**
-* SPDX-FileCopyrightText: 2025 Jack Henry
+* SPDX-FileCopyrightText: 2026 Jack Henry
 *
 * SPDX-License-Identifier: Apache-2.0
 */
@@ -42,7 +42,7 @@ function logCustomEvent(name, e) {
 
 export default {
   component: '<%= elementName %>',
-  title: 'Components/<%= titleName %>',
+  title: 'Components/<%= h.changeCase.title(unprefixedName) %>',
   decorators: [
     (story) => html`
       <div

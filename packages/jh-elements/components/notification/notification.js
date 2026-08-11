@@ -8,6 +8,10 @@ import '../button/button.js';
 import '@jack-henry/jh-icons/icons-wc/icon-xmark.js';
 
 /**
+ * The notification component displays information to the user, and supports both alerts and banner type notifications.
+ * 
+ * [Notification Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-notification--docs)
+ * 
  * @cssprop --jh-notification-border-radius-alert - The notification border-radius when `type="alert"`. Defaults to `--jh-border-radius-100`.
  * @cssprop --jh-notification-border-radius-banner - The notification border-radius when `type="banner"`. Defaults to `--jh-border-radius-0`.
  * @cssprop --jh-notification-color-background-neutral - The notification background color when `appearance="neutral"`. Defaults to `--jh-color-content-primary-enabled`.
@@ -52,10 +56,12 @@ import '@jack-henry/jh-icons/icons-wc/icon-xmark.js';
  * @cssprop --jh-notification-action-icon-color-fill-hover - The action button(s) icon fill color when hovered. Defaults to `--jh-color-content-on-inverse-hover`.
  * @cssprop --jh-notification-action-icon-color-fill-active - The action button(s) icon fill color when active. Defaults to `--jh-color-content-on-inverse-active`.
  * @cssprop --jh-notification-action-progress-color-border-pending - The action button(s) progress indicator color when pending. Defaults to `--jh-color-content-inverse-enabled`.
+ * 
  * @slot default - Use to insert contextual information.
  * @slot jh-notification-icon - Use to insert a button or icon to the left of the default slot. 
  * @slot jh-notification-dismiss-icon - Use to insert icon within the dismiss button. 
  * @slot jh-notification-action - Use to insert action button(s). Placed to the right of the default slot. Set `stacked` property to place slot below default slot. 
+ * 
  * @event jh-dismiss - Dispatched when the notification is dismissed.
  *
  * @customElement jh-notification
@@ -213,43 +219,45 @@ export class JhNotification extends JhElement {
 
   static get properties() {
     return {
-      /**
-       * Sets background color of container to convey message connotation.
-       */
       appearance: { type: String, reflect: true },
-      /**
-       * Adds an aria-label to the dismiss button to assist screen readers.
-       */
       dismissButtonAccessibleLabel: {
         type: String,
         attribute: 'dismiss-button-accessible-label',
       },
-      /**
-       * Removes dismiss button from notification.
-       */
       hideDismissButton: { type: Boolean, attribute: 'hide-dismiss-button' },
-      /**
-       * Places action button(s) on new line, below default slot.
-       */
       stacked: { type: Boolean, reflect: true },
-      /**
-       * Determines where in viewport notification is displayed. Alerts will follow typical content flow, while banners will break out of standard flow and go edge-to-edge within a container. 
-       */
       type: { type: String, reflect: true },
     };
   }
 
   constructor() {
     super();
-    /** @type {'positive'|'neutral'|'negative'} */
+    /**
+     * Sets background color of container to convey message connotation.
+     * @type { 'positive' | 'neutral' | 'negative' }
+     */
     this.appearance = 'neutral';
-    /** @type {string} */
+    /**
+     * Adds an aria-label to the dismiss button to assist screen readers.
+     * @attr dismiss-button-accessible-label
+     * @type {string | null}
+     */
     this.dismissButtonAccessibleLabel = null;
-    /** @type {boolean} */
+    /**
+     * Removes dismiss button from notification.
+     * @attr hide-dismiss-button
+     * @type {boolean}
+     */
     this.hideDismissButton = false;
-    /** @type {boolean} */
+    /**
+     * Places action button(s) on new line, below default slot.
+     * @type {boolean}
+     */
     this.stacked = false;
-    /** @type {'alert'|'banner'} */
+    /**
+     * Determines where in viewport notification is displayed. Alerts will follow typical content flow, while banners will break out of standard flow and go edge-to-edge within a container.
+     * @type { 'alert' | 'banner' }
+     */
     this.type = 'alert';
   }
 
@@ -294,6 +302,7 @@ export class JhNotification extends JhElement {
     }
   }
 
+  /** @protected */
   render() {
     let dismissBtn;
     

@@ -7,13 +7,22 @@ import { JhElement } from '../element/element.js';
 import '../notification/notification.js';
 
 /**
+ * The toast component displays a message that informs users on the outcome of an action. They are temporary by default, but can be modified to remain when needed.
+ * 
+ * [Toast Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-toast--docs)
+ * 
+ * @cssprop --jh-toast-color-background-positive - The toast background color for positive connotations. Defaults to `--jh-color-container-positive-enabled`.
+ * @cssprop --jh-toast-color-background-neutral - The toast background color for neutral connotations. Defaults to `--jh-color-container-neutral-enabled`.
+ * @cssprop --jh-toast-color-background-negative - The toast background color for negative connotations. Defaults to `--jh-color-container-negative-enabled`.
  * @cssprop --jh-toast-shadow - The toast box-shadow. Defaults to `--jh-shadow-mid`.
  * @cssprop --jh-toast-z-index - The toast z-index. Defaults to `--jh-z-index-positive-1000`.
+ * 
  * @slot default - Use to insert contextual information.
  * @slot jh-toast-icon - Use to insert a button or icon to the left of the default slot.
  * @slot jh-toast-dismiss-icon - Use to insert icon within the dismiss button.
  * @slot jh-toast-action - Use to insert action button(s). Placed to the right of the default slot. Set `stacked` property to place slot below default slot.
  * @event jh-dismiss - Dispatched when the toast is dismissed.
+ * 
  * @customElement jh-toast
  */
 export class JhToast extends JhElement {
@@ -75,33 +84,44 @@ export class JhToast extends JhElement {
 
   static get properties() {
     return {
-      /** Adds an aria-label to the dismiss button to assist screen readers. */
       dismissButtonAccessibleLabel: {
         type: String,
         attribute: 'dismiss-button-accessible-label',
       },
-      /** Removes dismiss button from toast. */
       hideDismissButton: { type: Boolean, attribute: 'hide-dismiss-button' },
-      /** Places action button(s) on new line, below default slot. */
       stacked: { type: Boolean, reflect: true },
-      /** Sets a timer, in milliseconds, to auto-dismiss the toast. To disable timeout, set to 0. */
       timeout: { type: Number },
     };
   }
 
   constructor() {
     super();
-    /** @type {number} */
+    /**
+     * Sets a timer, in milliseconds, to auto-dismiss the toast. To disable timeout, set to 0.
+     * @type {number}
+     */
     this.timeout = 5000;
-    /** @type {string} */
+    /**
+     * Adds an aria-label to the dismiss button to assist screen readers.
+     * @attr dismiss-button-accessible-label
+     * @type {string | null}
+     */
     this.dismissButtonAccessibleLabel = null;
-    /** @type {boolean} */
+    /**
+     * Removes dismiss button from toast.
+     * @attr hide-dismiss-button
+     * @type {boolean}
+     */
     this.hideDismissButton = false;
-    /** @type {boolean} */
+    /**
+     * Places action button(s) on new line, below default slot.
+     * @type {boolean}
+     */
     this.stacked = false;
     this.addEventListener('jh-dismiss', this.#handleDismiss);
   }
 
+  /** @protected */
   firstUpdated() {
     this.#startTimeout();
   }
@@ -135,6 +155,7 @@ export class JhToast extends JhElement {
     }
   }
 
+  /** @protected */
   render() {
     return html`
       <jh-notification

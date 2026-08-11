@@ -63,13 +63,13 @@ import { JhFilter } from './filtering.js';
  * @event jh-change - Dispatched when the selected value changes. Event payload includes the `value` and can be accessed via `e.detail.state.value`.
  */
 export class JhSelect extends JhInput {
-  /** @type {?string} */
+  /** @type {string | null} */
   #displayValue = null;
   /** @type {string} */
   #buffer = '';
-  /** @type {?number} */
+  /** @type {number | null} */
   #timer = null;
-  /** @type {?number} */
+  /** @type {number | null} */
   #activeIndex = null;
   /** @type {boolean} */
   #open = false;
@@ -193,22 +193,30 @@ export class JhSelect extends JhInput {
 
   static get properties() {
     return {
-      /** Sets the position of the dropdown menu relative to the input field. The menu automatically flips when there is insufficient space unless `flip-disabled` is set. */
       menuPosition: { type: String, reflect: true, attribute: 'menu-position' },
-      /** Sets the list of options to display in the dropdown menu. Accepts an array of flat options or grouped options. See documentation for the expected data format. */
       options: { type: Array, attribute: false },
-      /** Prevents the dropdown menu from automatically flipping its position when there is insufficient viewport space. */
       flipDisabled: { type: Boolean, attribute: 'flip-disabled' },
     };
   }
 
   constructor() {
     super();
-    /** @type {string} */
+    /**
+     * Sets the position of the dropdown menu relative to the input field. The menu automatically flips when there is insufficient space unless `flip-disabled` is set.
+     * @attr menu-position
+     * @type {'bottom' | 'top'}
+     */
     this.menuPosition = 'bottom';
-    /** @type {Array} */
+    /**
+     * Sets the list of options to display in the dropdown menu. Accepts an array of flat options or grouped options. See documentation for the expected data format.
+     * @type {Array}
+     */
     this.options = [];
-    /** @type {boolean} */
+    /**
+     * Prevents the dropdown menu from automatically flipping its position when there is insufficient viewport space.
+     * @attr flip-disabled
+     * @type {boolean}
+     */
     this.flipDisabled = false;
     this.addEventListener('keydown', this.#handleKeydown);
     this.#boundDocumentClick = this.#handleDocumentClick.bind(this);
@@ -223,6 +231,10 @@ export class JhSelect extends JhInput {
     clearTimeout(this.#timer);
   }
 
+  /**
+   * @protected
+   * @param {import('lit').PropertyValues} changedProperties
+   */
   willUpdate(changedProperties) {
     if (changedProperties.has('options')) {
       if (!this.options) {
@@ -572,11 +584,13 @@ export class JhSelect extends JhInput {
     };
   }
 
+  /** @protected */
   renderLeftSlot() {
     return html` <slot name="jh-input-left" @slotchange=${this._handleSlotChange}>
       <slot name="jh-select-trigger-left"></slot>
     </slot>`;
   }
+  /** @protected */
   renderRightSlot() {
     return html` <slot name="jh-input-right" @slotchange=${this._handleSlotChange}>
       ${this.#open
@@ -585,6 +599,7 @@ export class JhSelect extends JhInput {
     </slot>`;
   }
 
+  /** @protected */
   renderInput() {
     const describedby =
       this.helperText || (this.errorText && this.invalid) ? this._getDescribedby() : undefined;
@@ -622,6 +637,10 @@ export class JhSelect extends JhInput {
     `;
   }
 
+  /**
+   * @protected
+   * @param {Array} options
+   */
   renderData(options) {
     if (!options) return null;
     let flatIndex = 0;
@@ -657,6 +676,7 @@ export class JhSelect extends JhInput {
     });
   }
 
+  /** @protected */
   render() {
     const label = this.renderLabel();
     const input = this.renderInput();

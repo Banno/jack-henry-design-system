@@ -1,0 +1,31 @@
+// SPDX-FileCopyrightText: 2026 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
+import { filterPrivatePropertiesPlugin } from "./cem-plugins/filter-private-properties.js";
+import { filterEventsPlugin } from "./cem-plugins/filter-jh-events.js";
+import { applyDeprecationsPlugin } from "./cem-plugins/apply-deprecations.js";
+import { deprecations } from "./cem-plugins/deprecations.js";
+
+export default {
+  /** Globs to analyze */
+  globs: ['components/**/*.js'],
+  /** Globs to exclude */
+  exclude: ['components/**/*.stories.js',
+    'components/**/*.d.ts'
+  ],
+  /** Run in dev mode, provides extra logging */
+  dev: false,
+  /** Run in watch mode, runs on file changes */
+  watch: false,
+  /** Output CEM path to `package.json`, defaults to true */
+  packagejson: false,
+  /** Enable special handling for litelement */
+  litelement: true,
+  plugins: [
+    filterPrivatePropertiesPlugin(),
+    //additional prefix can be passed if needed
+    filterEventsPlugin('jh-'),
+    applyDeprecationsPlugin(deprecations)
+  ]
+}

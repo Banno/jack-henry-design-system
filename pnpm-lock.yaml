@@ -19,28 +19,6 @@ importers:
         specifier: 2.26.2
         version: 2.26.2
 
-  apps/integration-tests/vite-ts:
-    dependencies:
-      '@jack-henry/jh-elements':
-        specifier: workspace:2.0.0
-        version: link:../../../packages/jh-elements
-      '@jack-henry/jh-icons':
-        specifier: workspace:2.0.0
-        version: link:../../../packages/jh-icons
-      lit:
-        specifier: 3.3.1
-        version: 3.3.1
-    devDependencies:
-      ts-lit-plugin:
-        specifier: 2.0.2
-        version: 2.0.2
-      typescript:
-        specifier: ~5.9.3
-        version: 5.9.3
-      vite:
-        specifier: ^7.2.4
-        version: 7.3.6(yaml@2.7.0)
-
   packages/jh-datasets: {}
 
   packages/jh-elements:
@@ -1190,9 +1168,6 @@ packages:
   '@vitest/utils@3.2.4':
     resolution: {integrity: sha512-fB2V0JFrQSMsCo9HiSq3Ezpdv4iYaXRG1Sx8edX3MwxfyNn83mKiGzOcH+Fkxt4MHxr3y42fQi1oeAInqgX2QA==}
 
-  '@vscode/web-custom-data@0.4.13':
-    resolution: {integrity: sha512-2ZUIRfhofZ/npLlf872EBnPmn27Kt4M2UssmQIfnJvgGgMYZJ5fvtHEDnttBBf2hnVtBgNCqZMVHJA+wsFVqTA==}
-
   '@web/config-loader@0.1.3':
     resolution: {integrity: sha512-XVKH79pk4d3EHRhofete8eAnqto1e8mCRAqPV00KLNFzCWSe8sWmLnqKCqkPNARC6nksMaGrATnA5sPDRllMpQ==}
     engines: {node: '>=10.0.0'}
@@ -1630,10 +1605,6 @@ packages:
     resolution: {integrity: sha512-reYkTUJAZb9gUuZ2RvVCNhVHdg62RHnJ7WJl8ftMi4diZ6NWlciOzQN88pUhSELEwflJht4oQDv0F0BMlwaYtA==}
     engines: {node: '>=8'}
 
-  didyoumean2@4.1.0:
-    resolution: {integrity: sha512-qTBmfQoXvhKO75D/05C8m+fteQmn4U46FWYiLhXtZQInzitXLWY0EQ/2oKnpAz9g2lQWW8jYcLcT+hPJGT+kig==}
-    engines: {node: '>=10.13'}
-
   dir-glob@3.0.1:
     resolution: {integrity: sha1-Vtv3PZkqSpO6FYT0U0Bj/S5BcX8=}
     engines: {node: '>=8'}
@@ -1750,15 +1721,6 @@ packages:
 
   fastq@1.15.0:
     resolution: {integrity: sha512-wBrocU2LCXXa+lWBt8RoIRD89Fi8OdABODa/kEnyeyjS5aZO5/GNvI5sEINADqP/h8M29UHTHUb53sUu5Ihqdw==}
-
-  fdir@6.5.0:
-    resolution: {integrity: sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==}
-    engines: {node: '>=12.0.0'}
-    peerDependencies:
-      picomatch: ^3 || ^4
-    peerDependenciesMeta:
-      picomatch:
-        optional: true
 
   filelist@1.0.4:
     resolution: {integrity: sha1-94l4oelEd1/55i50RCTyFeWDUrU=}
@@ -2175,16 +2137,8 @@ packages:
     resolution: {integrity: sha1-lRBhAXlfcFDGxlDzUMaD/r3bF4A=}
     engines: {node: '>=6'}
 
-  leven@3.1.0:
-    resolution: {integrity: sha512-qsda+H8jTaUaN/x5vzW2rzc+8Rw4TAQ/4KjB46IwK5VH+IlVeeeje/EoZRpiXvIqjFgK84QffqPztGI3VBLG1A==}
-    engines: {node: '>=6'}
-
   lines-and-columns@1.2.4:
     resolution: {integrity: sha1-7KKE910pZQeTCdwK2SVauy68FjI=}
-
-  lit-analyzer@2.0.3:
-    resolution: {integrity: sha512-XiAjnwVipNrKav7r3CSEZpWt+mwYxrhPRVC7h8knDmn/HWTzzWJvPe+mwBcL2brn4xhItAMzZhFC8tzzqHKmiQ==}
-    hasBin: true
 
   lit-element@4.2.1:
     resolution: {integrity: sha512-WGAWRGzirAgyphK2urmYOV72tlvnxw7YfyLDgQ+OZnM9vQQBQnumQ7jUJe6unEzwGU3ahFOjuz1iz1jjrpCPuw==}
@@ -2209,9 +2163,6 @@ packages:
 
   lodash.camelcase@4.3.0:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
-
-  lodash.deburr@4.1.0:
-    resolution: {integrity: sha512-m/M1U1f3ddMCs6Hq2tAsYThTBDaAKFDX3dwDo97GEYzamXi9SqUpjWi/Rrj/gf3X2n8ktwgZrlP1z6E3v/IExQ==}
 
   lodash.startcase@4.4.0:
     resolution: {integrity: sha1-lDbjTtJgk+1/+uGTYUQ1CRXZrdg=}
@@ -2329,11 +2280,6 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  nanoid@3.3.15:
-    resolution: {integrity: sha512-y7Wygv/7mEOvxTuEQDB8StXdMRBWf1kR/tlhAzBRUFkB2jfcLOAxO/SHmOO2zgz1pVgK29/kyupn059/bCHdjA==}
-    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
-    hasBin: true
-
   no-case@2.3.2:
     resolution: {integrity: sha1-YLgTOWvjmz8SiKTB7V0efSi0ZKw=}
 
@@ -2444,9 +2390,6 @@ packages:
     resolution: {integrity: sha1-x2/Gbe5UIxyWKyK8yKcs8vmXU80=}
     engines: {node: '>=8'}
 
-  parse5@5.1.0:
-    resolution: {integrity: sha512-fxNG2sQjHvlVAYmzBZS9YlDp6PTSSDwa98vkD4QgVDDCAo84z5X1t5XyJQ62ImdLXx5NdIIfihey6xpum9/gRQ==}
-
   pascal-case@2.0.1:
     resolution: {integrity: sha1-LVeNNFX2YNpl7KGO+VtODekSdh4=}
 
@@ -2509,10 +2452,6 @@ packages:
   pkg-dir@4.2.0:
     resolution: {integrity: sha1-8JkTPfft5CLoHR2ESCcO6z5CYfM=}
     engines: {node: '>=8'}
-
-  postcss@8.5.16:
-    resolution: {integrity: sha512-vuwillviilfKZsg0VGj5R/YwwcHx4SLsIOI/7K6mQkWx+l5cUHTjj5g0AasTBcyXsbfTgrwsUNmVUb5xVwyPwg==}
-    engines: {node: ^10 || ^12 || >=14}
 
   postcss@8.5.3:
     resolution: {integrity: sha512-dle9A3yYxlBSrt8Fu+IpjGT8SY8hN0mlaA6GY8t0P5PjIOZemULz/E2Bnm/2dcUOena75OTNkHI76uZBNUUq3A==}
@@ -2882,10 +2821,6 @@ packages:
   tinycolor2@1.6.0:
     resolution: {integrity: sha512-XPaBkWQJdsf3pLKJV9p4qN/S+fm2Oj8AIPo1BTUhg5oxkvm9+SVEGFdhyOz7tTdUTfvxMiAs4sp6/eZO2Ew+pw==}
 
-  tinyglobby@0.2.17:
-    resolution: {integrity: sha512-wXR/dYpcqKmfWpEdZjiKJOwCNFndD0DMnrW/cYjVGttEkBfVgcLFHoNrlj47mjOVic9yyNu65alsgF4NQyTa2g==}
-    engines: {node: '>=12.0.0'}
-
   tinyrainbow@2.0.0:
     resolution: {integrity: sha512-op4nsTR47R6p0vMUUoYl/a+ljLFVtlfaXkLQmqfLR1qHma1h/ysYk4hEXZ880bf2CYgTskvTa/e196Vd5dDQXw==}
     engines: {node: '>=14.0.0'}
@@ -2922,12 +2857,6 @@ packages:
     resolution: {integrity: sha512-q5W7tVM71e2xjHZTlgfTDoPF/SmqKG5hddq9SzR49CH2hayqRKJtQ4mtRlSxKaJlR/+9rEM+mnBHf7I2/BQcpQ==}
     engines: {node: '>=6.10'}
 
-  ts-lit-plugin@2.0.2:
-    resolution: {integrity: sha512-DPXlVxhjWHxg8AyBLcfSYt2JXgpANV1ssxxwjY98o26gD8MzeiM68HFW9c2VeDd1CjoR3w7B/6/uKxwBQe+ioA==}
-
-  ts-simple-type@2.0.0-next.0:
-    resolution: {integrity: sha512-A+hLX83gS+yH6DtzNAhzZbPfU+D9D8lHlTSd7GeoMRBjOt3GRylDqLTYbdmjA4biWvq2xSfpqfIDj2l0OA/BVg==}
-
   tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
 
@@ -2962,11 +2891,6 @@ packages:
 
   typed-array-length@1.0.4:
     resolution: {integrity: sha1-idg3heXECYvscuCLMZZR8OrJwbs=}
-
-  typescript@5.2.2:
-    resolution: {integrity: sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==}
-    engines: {node: '>=14.17'}
-    hasBin: true
 
   typescript@5.4.5:
     resolution: {integrity: sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==}
@@ -3055,70 +2979,8 @@ packages:
       terser:
         optional: true
 
-  vite@7.3.6:
-    resolution: {integrity: sha512-4XP60spRGjSZFf1qYH+dJIkK2znL3zQfl9KkOV9MkkRR/3Dls0dxaBsQPTloEc5BLXWPL9vsOxopxyKoMmDueg==}
-    engines: {node: ^20.19.0 || >=22.12.0}
-    hasBin: true
-    peerDependencies:
-      '@types/node': ^20.19.0 || >=22.12.0
-      jiti: '>=1.21.0'
-      less: ^4.0.0
-      lightningcss: ^1.21.0
-      sass: ^1.70.0
-      sass-embedded: ^1.70.0
-      stylus: '>=0.54.8'
-      sugarss: ^5.0.0
-      terser: ^5.16.0
-      tsx: ^4.8.1
-      yaml: ^2.4.2
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-      jiti:
-        optional: true
-      less:
-        optional: true
-      lightningcss:
-        optional: true
-      sass:
-        optional: true
-      sass-embedded:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      terser:
-        optional: true
-      tsx:
-        optional: true
-      yaml:
-        optional: true
-
-  vscode-css-languageservice@4.3.0:
-    resolution: {integrity: sha512-BkQAMz4oVHjr0oOAz5PdeE72txlLQK7NIwzmclfr+b6fj6I8POwB+VoXvrZLTbWt9hWRgfvgiQRkh5JwrjPJ5A==}
-
-  vscode-html-languageservice@3.1.0:
-    resolution: {integrity: sha512-QAyRHI98bbEIBCqTzZVA0VblGU40na0txggongw5ZgTj9UVsVk5XbLT16O9OTcbqBGSqn0oWmFDNjK/XGIDcqg==}
-
-  vscode-languageserver-textdocument@1.0.12:
-    resolution: {integrity: sha512-cxWNPesCnQCcMPeenjKKsOCKQZ/L6Tv19DTRIGuLWe32lyzWhihGVJ/rcckZXJxfdKCFvRLS3fpBIsV/ZGX4zA==}
-
-  vscode-languageserver-types@3.16.0-next.2:
-    resolution: {integrity: sha512-QjXB7CKIfFzKbiCJC4OWC8xUncLsxo19FzGVp/ADFvvi87PlmBSCAtZI5xwGjF5qE0xkLf0jjKUn3DzmpDP52Q==}
-
-  vscode-nls@4.1.2:
-    resolution: {integrity: sha512-7bOHxPsfyuCqmP+hZXscLhiHwe7CSuFE4hyhbs22xPIhQ4jv99FcR4eBzfYYVLP356HNFpdvz63FFb/xw6T4Iw==}
-
-  vscode-uri@2.1.2:
-    resolution: {integrity: sha512-8TEXQxlldWAuIODdukIb+TR5s+9Ds40eSJrw+1iDDA9IFORPjMELarNQE3myz5XIkWWpdprmJjm1/SxMlWOC8A==}
-
   wcwidth@1.0.1:
     resolution: {integrity: sha1-8LDc+RW8X/FSivrbLA4XtTLaL+g=}
-
-  web-component-analyzer@2.0.0:
-    resolution: {integrity: sha512-UEvwfpD+XQw99sLKiH5B1T4QwpwNyWJxp59cnlRwFfhUW6JsQpw5jMeMwi7580sNou8YL3kYoS7BWLm+yJ/jVQ==}
-    hasBin: true
 
   webidl-conversions@3.0.1:
     resolution: {integrity: sha1-JFNCdeKnvGvnvIZhHMFq4KVlSHE=}
@@ -4098,7 +3960,8 @@ snapshots:
 
   '@types/estree@1.0.6': {}
 
-  '@types/estree@1.0.9': {}
+  '@types/estree@1.0.9':
+    optional: true
 
   '@types/is-ci@3.0.4':
     dependencies:
@@ -4149,8 +4012,6 @@ snapshots:
       '@vitest/pretty-format': 3.2.4
       loupe: 3.2.1
       tinyrainbow: 2.0.0
-
-  '@vscode/web-custom-data@0.4.13': {}
 
   '@web/config-loader@0.1.3':
     dependencies:
@@ -4558,12 +4419,6 @@ snapshots:
 
   detect-indent@6.1.0: {}
 
-  didyoumean2@4.1.0:
-    dependencies:
-      '@babel/runtime': 7.23.2
-      leven: 3.1.0
-      lodash.deburr: 4.1.0
-
   dir-glob@3.0.1:
     dependencies:
       path-type: 4.0.0
@@ -4723,6 +4578,7 @@ snapshots:
       '@esbuild/win32-arm64': 0.28.1
       '@esbuild/win32-ia32': 0.28.1
       '@esbuild/win32-x64': 0.28.1
+    optional: true
 
   escalade@3.1.1: {}
 
@@ -4765,10 +4621,6 @@ snapshots:
   fastq@1.15.0:
     dependencies:
       reusify: 1.0.4
-
-  fdir@6.5.0(picomatch@4.0.4):
-    optionalDependencies:
-      picomatch: 4.0.4
 
   filelist@1.0.4:
     dependencies:
@@ -5205,21 +5057,7 @@ snapshots:
 
   kleur@4.1.5: {}
 
-  leven@3.1.0: {}
-
   lines-and-columns@1.2.4: {}
-
-  lit-analyzer@2.0.3:
-    dependencies:
-      '@vscode/web-custom-data': 0.4.13
-      chalk: 2.4.2
-      didyoumean2: 4.1.0
-      fast-glob: 3.3.2
-      parse5: 5.1.0
-      ts-simple-type: 2.0.0-next.0
-      vscode-css-languageservice: 4.3.0
-      vscode-html-languageservice: 3.1.0
-      web-component-analyzer: 2.0.0
 
   lit-element@4.2.1:
     dependencies:
@@ -5253,8 +5091,6 @@ snapshots:
       p-locate: 5.0.0
 
   lodash.camelcase@4.3.0: {}
-
-  lodash.deburr@4.1.0: {}
 
   lodash.startcase@4.4.0: {}
 
@@ -5363,8 +5199,6 @@ snapshots:
   ms@2.1.2: {}
 
   nanoid@3.3.10: {}
-
-  nanoid@3.3.15: {}
 
   no-case@2.3.2:
     dependencies:
@@ -5527,8 +5361,6 @@ snapshots:
       json-parse-even-better-errors: 2.3.1
       lines-and-columns: 1.2.4
 
-  parse5@5.1.0: {}
-
   pascal-case@2.0.1:
     dependencies:
       camel-case: 3.0.0
@@ -5591,12 +5423,6 @@ snapshots:
   pkg-dir@4.2.0:
     dependencies:
       find-up: 4.1.0
-
-  postcss@8.5.16:
-    dependencies:
-      nanoid: 3.3.15
-      picocolors: 1.1.1
-      source-map-js: 1.2.1
 
   postcss@8.5.3:
     dependencies:
@@ -5774,6 +5600,7 @@ snapshots:
       '@rollup/rollup-win32-x64-gnu': 4.62.2
       '@rollup/rollup-win32-x64-msvc': 4.62.2
       fsevents: 2.3.3
+    optional: true
 
   rs-module-lexer@2.8.0:
     optionalDependencies:
@@ -6072,11 +5899,6 @@ snapshots:
 
   tinycolor2@1.6.0: {}
 
-  tinyglobby@0.2.17:
-    dependencies:
-      fdir: 6.5.0(picomatch@4.0.4)
-      picomatch: 4.0.4
-
   tinyrainbow@2.0.0: {}
 
   tinyspy@4.0.4: {}
@@ -6103,13 +5925,6 @@ snapshots:
   trim-newlines@3.0.1: {}
 
   ts-dedent@2.2.0: {}
-
-  ts-lit-plugin@2.0.2:
-    dependencies:
-      lit-analyzer: 2.0.3
-      web-component-analyzer: 2.0.0
-
-  ts-simple-type@2.0.0-next.0: {}
 
   tslib@2.6.2: {}
 
@@ -6155,8 +5970,6 @@ snapshots:
       call-bind: 1.0.8
       for-each: 0.3.3
       is-typed-array: 1.1.12
-
-  typescript@5.2.2: {}
 
   typescript@5.4.5: {}
 
@@ -6224,50 +6037,9 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
-  vite@7.3.6(yaml@2.7.0):
-    dependencies:
-      esbuild: 0.28.1
-      fdir: 6.5.0(picomatch@4.0.4)
-      picomatch: 4.0.4
-      postcss: 8.5.16
-      rollup: 4.62.2
-      tinyglobby: 0.2.17
-    optionalDependencies:
-      fsevents: 2.3.3
-      yaml: 2.7.0
-
-  vscode-css-languageservice@4.3.0:
-    dependencies:
-      vscode-languageserver-textdocument: 1.0.12
-      vscode-languageserver-types: 3.16.0-next.2
-      vscode-nls: 4.1.2
-      vscode-uri: 2.1.2
-
-  vscode-html-languageservice@3.1.0:
-    dependencies:
-      vscode-languageserver-textdocument: 1.0.12
-      vscode-languageserver-types: 3.16.0-next.2
-      vscode-nls: 4.1.2
-      vscode-uri: 2.1.2
-
-  vscode-languageserver-textdocument@1.0.12: {}
-
-  vscode-languageserver-types@3.16.0-next.2: {}
-
-  vscode-nls@4.1.2: {}
-
-  vscode-uri@2.1.2: {}
-
   wcwidth@1.0.1:
     dependencies:
       defaults: 1.0.4
-
-  web-component-analyzer@2.0.0:
-    dependencies:
-      fast-glob: 3.3.2
-      ts-simple-type: 2.0.0-next.0
-      typescript: 5.2.2
-      yargs: 17.7.2
 
   webidl-conversions@3.0.1: {}
 

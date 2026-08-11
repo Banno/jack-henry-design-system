@@ -7,4 +7,3 @@ packages:
 - 'packages/jh-tokens'
 - 'packages/jh-icons'
 - 'packages/jh-datasets'
-- 'apps/integration-tests/**'

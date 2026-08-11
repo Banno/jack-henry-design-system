@@ -29,14 +29,15 @@ export class <%= h.changeCase.pascal(elementName) %> extends JhElement {
 
   static get properties() {
     return {
-      /** Property description */
       someProperty: { type: String }
     };
   }
 
   constructor() {
     super();
-    /** @type {?string} */
+    /** @type {?string} 
+    * Property description 
+    */
     this.someProperty = 'some initial value';
   }
 

@@ -100,16 +100,19 @@ export const Overview = {
           label="checkbox 1"
           helper-text="Helper text"
           name="checkbox-1"
+          value="value-1"
         ></jh-checkbox>
         <jh-checkbox
           label="checkbox 2"
           helper-text="Helper text"
           name="checkbox-2"
+          value="value-2"
         ></jh-checkbox>
         <jh-checkbox
           label="checkbox 3"
           helper-text="Helper text"
           name="checkbox-3"
+          value="value-3"
           checked
         ></jh-checkbox>
       </jh-checkbox-group>
@@ -121,13 +124,14 @@ export const Overview = {
         orientation="horizontal"
         disabled
       >
-        <jh-checkbox label="checkbox 4" name="checkbox-4"></jh-checkbox>
+        <jh-checkbox label="checkbox 4" name="checkbox-4" value="value-4"></jh-checkbox>
         <jh-checkbox
           label="checkbox 5"
           name="checkbox-5"
+          value="value-5"
           disabled
         ></jh-checkbox>
-        <jh-checkbox label="checkbox 6" name="checkbox-6"></jh-checkbox>
+        <jh-checkbox label="checkbox 6" name="checkbox-6" value="value-6"></jh-checkbox>
       </jh-checkbox-group>
     </div>
     <div class="container">
@@ -138,13 +142,13 @@ export const Overview = {
         error-text="Error text"
         invalid
       >
-        <jh-checkbox label="checkbox 4" name="checkbox-4"></jh-checkbox>
+        <jh-checkbox label="checkbox 4" name="checkbox-4" value="value-7"></jh-checkbox>
         <jh-checkbox
           label="checkbox 5"
           name="checkbox-5"
           disabled
-        ></jh-checkbox>
-        <jh-checkbox label="checkbox 6" name="checkbox-6"></jh-checkbox>
+        value="checkbox-5"></jh-checkbox>
+        <jh-checkbox label="checkbox 6" name="checkbox-6" value="value-8"></jh-checkbox>
       </jh-checkbox-group>
     </div>`,
 };
@@ -238,6 +242,7 @@ export const FormAssociated = {
             label="checkbox 3"
             helper-text="Helper text"
             name="checkbox-3"
+            value="value-3"
           ></jh-checkbox>
         </jh-checkbox-group>
         <jh-button label="Submit" submit @click=${onClick}></jh-button>

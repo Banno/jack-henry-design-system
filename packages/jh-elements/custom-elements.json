@@ -1351,8 +1351,29 @@
     {
       "name": "jh-input-currency",
       "path": "./components/input-currency/input-currency.js",
-      "description": "Input Currency",
       "attributes": [
+        {
+          "name": "max",
+          "description": "Sets the maximum value for validation (package or custom). Does not natively enforce limits.",
+          "type": "number | null"
+        },
+        {
+          "name": "min",
+          "description": "Sets the minimum value for validation (package or custom). Does not natively enforce limits.",
+          "type": "number | null"
+        },
+        {
+          "name": "show-commas",
+          "description": "Adds commas to the input value on input. No commas are permitted when set to false.",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "show-decimal",
+          "description": "Add decimals to the input value on blur. No decimals are permitted when set to false.",
+          "type": "boolean",
+          "default": "true"
+        },
         {
           "name": "accessible-label",
           "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
@@ -1501,6 +1522,32 @@
         }
       ],
       "properties": [
+        {
+          "name": "max",
+          "attribute": "max",
+          "description": "Sets the maximum value for validation (package or custom). Does not natively enforce limits.",
+          "type": "number | null"
+        },
+        {
+          "name": "min",
+          "attribute": "min",
+          "description": "Sets the minimum value for validation (package or custom). Does not natively enforce limits.",
+          "type": "number | null"
+        },
+        {
+          "name": "showCommas",
+          "attribute": "show-commas",
+          "description": "Adds commas to the input value on input. No commas are permitted when set to false.",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "showDecimal",
+          "attribute": "show-decimal",
+          "description": "Add decimals to the input value on blur. No decimals are permitted when set to false.",
+          "type": "boolean",
+          "default": "true"
+        },
         {
           "name": "accessibleLabel",
           "attribute": "accessible-label",
@@ -1681,16 +1728,16 @@
       ],
       "events": [
         {
-          "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
-        },
-        {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
+          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when `show-commas` is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `pattern` property and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-input",
-          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when `show-commas` is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `pattern` property and can be accessed via `e.detail.reference.pattern`.\n\nInput Currency"
+        },
+        {
+          "name": "jh-select",
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-maxlength",

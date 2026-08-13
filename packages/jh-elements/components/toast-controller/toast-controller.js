@@ -9,7 +9,7 @@ import '../toast/toast.js';
 /**
  * @cssprop --jh-toast-controller-z-index - The toast controller z-index. Defaults to `--jh-z-index-positive-1000`.
  * @slot default - Use to insert `<jh-toast>` components if appending toasts manually.
- * @event jh-dismiss - Dispatched when the toast controller dismisses the oldest toast, and when toasts are dismissed manually by the user.
+ * @event jh-dismiss - Dispatched when the toast controller dismisses the oldest toast once the maximum count is exceeded.
  * 
  * @customElement jh-toast-controller
  */

@@ -5,7 +5,7 @@
 */
 import {LitElement, css, html} from 'lit';
 
-export default class JhIconImage extends LitElement {
+export default class JhIconImages extends LitElement {
   /** @type {ElementInternals} */
   #internals;
 
@@ -91,4 +91,4 @@ export default class JhIconImage extends LitElement {
   }
 }
 
-customElements.define('jh-icon-images', JhIconImage);
+customElements.define('jh-icon-images', JhIconImages);

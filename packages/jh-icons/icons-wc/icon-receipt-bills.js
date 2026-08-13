@@ -5,7 +5,7 @@
 */
 import {LitElement, css, html} from 'lit';
 
-export default class JhIconReceiptBill extends LitElement {
+export default class JhIconReceiptBills extends LitElement {
   /** @type {ElementInternals} */
   #internals;
 
@@ -91,4 +91,4 @@ export default class JhIconReceiptBill extends LitElement {
   }
 }
 
-customElements.define('jh-icon-receipt-bills', JhIconReceiptBill);
+customElements.define('jh-icon-receipt-bills', JhIconReceiptBills);

@@ -39,13 +39,13 @@
     "@jack-henry/jh-datasets": "workspace:2.0.0",
     "@storybook/addon-a11y": "10.4.0",
     "@storybook/web-components-vite": "10.4.0",
-    "chromatic": "5.8.3",
+    "chromatic": "18.1.0",
     "hygen": "6.2.11",
     "storybook": "10.4.0",
     "storybook-addon-tag-badges": "3.1.0",
     "web-component-analyzer": "1.1.6",
     "vite": "5.4.12",
-    "@storybook/addon-docs": "10.4.0", 
+    "@storybook/addon-docs": "10.4.0",
     "storybook-dark-mode": "5.0.0"
   }
 }

@@ -7563,12 +7563,16 @@
           "description": "Sets the role of the toast controller and establishes a live region to expose changes to assistive technologies.",
           "type": "'status'|'alert'",
           "default": "\"status\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-dismiss",
-          "description": "Dispatched when the toast controller dismisses the oldest toast, and when toasts are dismissed manually by the user."
+          "description": "Dispatched when the toast controller dismisses the oldest toast once the maximum count is exceeded."
         }
       ],
       "slots": [

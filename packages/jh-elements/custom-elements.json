@@ -5123,7 +5123,7 @@
       "events": [
         {
           "name": "jh-dismiss",
-          "description": "Dispatched when the notification is dismissed."
+          "description": "Dispatched when the notification is dismissed. Event payload includes the dismissal method of the notification and can be accessed via `e.detail.reference.dismissMethod`"
         }
       ],
       "slots": [
@@ -5759,7 +5759,7 @@
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the state of the radio has changed. Event payload includes the value of the radio and can be accessed via `e.detail.state.value`."
+          "description": "Dispatched when the state of the radio has changed. Event payload includes the value and checked state of the radio and can be accessed via `e.detail.state.value` and `e.detail.state.checked`."
         }
       ],
       "cssProperties": [
@@ -6620,7 +6620,7 @@
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the state of the switch has changed."
+          "description": "Dispatched when the state of the switch has changed. Event payload includes the `checked` state of the switch and can be accessed via `e.detail.state.checked`."
         }
       ],
       "cssProperties": [
@@ -7408,7 +7408,7 @@
       "events": [
         {
           "name": "jh-dismiss",
-          "description": "Dispatched when the tag is dismissed."
+          "description": "Dispatched when the tag is dismissed. Event payload includes the dismissal method of the tag and can be accessed via `e.detail.reference.dismissMethod`"
         }
       ],
       "slots": [
@@ -7648,7 +7648,7 @@
       "events": [
         {
           "name": "jh-dismiss",
-          "description": "Dispatched when the toast is dismissed."
+          "description": "Dispatched when the toast is dismissed. Event payload includes the dismissal method of the toast and can be accessed via `e.detail.reference.dismissMethod`"
         }
       ],
       "slots": [

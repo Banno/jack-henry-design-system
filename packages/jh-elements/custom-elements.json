@@ -321,6 +321,10 @@
           "description": "The progress indicator border-color when `appearance=\"primary\"`. Defaults to `--jh-color-content-on-brand-enabled`."
         },
         {
+          "name": "--jh-button-progress-track-color-border-primary-pending",
+          "description": "The progress indicator track-color when `appearance=\"primary\"`. Defaults to `--jh-color-control-enabled`."
+        },
+        {
           "name": "--jh-button-color-background-secondary-enabled",
           "description": "The button container background-color when enabled and `appearance=\"secondary\"`. Defaults to `transparent`."
         },
@@ -411,6 +415,10 @@
         {
           "name": "--jh-button-progress-color-border-secondary-pending",
           "description": "The progress indicator border-color when `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-button-progress-track-color-border-secondary-pending",
+          "description": "The progress indicator track-color when `appearance=\"secondary\"`. Defaults to `--jh-color-control-enabled`."
         },
         {
           "name": "--jh-button-color-background-tertiary-enabled",
@@ -505,6 +513,10 @@
           "description": "The progress indicator border-color when `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-enabled`."
         },
         {
+          "name": "--jh-button-progress-track-color-border-tertiary-pending",
+          "description": "The progress indicator track-color when `appearance=\"tertiary\"`. Defaults to `--jh-color-control-enabled`."
+        },
+        {
           "name": "--jh-button-color-background-danger-enabled",
           "description": "The button container background-color when enabled and `appearance=\"danger\"`. Defaults to `--jh-color-content-negative-enabled`."
         },
@@ -595,6 +607,10 @@
         {
           "name": "--jh-button-progress-color-border-danger-pending",
           "description": "The progress indicator border-color when `appearance=\"danger\"`. Defaults to `--jh-color-content-on-negative-enabled`."
+        },
+        {
+          "name": "--jh-button-progress-track-color-border-danger-pending",
+          "description": "The progress indicator track-color when `appearance=\"danger\"`. Defaults to `--jh-color-control-enabled`."
         },
         {
           "name": "--jh-button-border-radius",

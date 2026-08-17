@@ -869,20 +869,20 @@ export class JhButton extends JhElement {
 
   //if button size changes, adjust the size of the icons accordingly.
   updated(changedProperties) {
-  if (changedProperties.has('size')) {
-    const iconSize = this.size === 'x-small' ? 'x-small' : 'medium';
-    const slots = this.shadowRoot.querySelectorAll('slot');
-    slots.forEach(slot => {
-    const icon = slot?.assignedElements({flatten: true})[0];
-    if (icon) {
-      icon.setAttribute('size', iconSize);
-      }
-    });
+    if (changedProperties.has('size')) {
+      const iconSize = this.size === 'x-small' ? 'x-small' : 'medium';
+      const slots = this.shadowRoot.querySelectorAll('slot');
+      slots.forEach(slot => {
+        const icon = slot?.assignedElements({flatten: true})[0];
+        if (icon) {
+          icon.setAttribute('size', iconSize);
+        }
+      });
+    }
   }
-}
-  #cacheButtonDimensions() {
-    const { width } = this.getBoundingClientRect();
 
+  #cacheButtonDimensions() {
+    const { width } = this.shadowRoot.querySelector('button, a').getBoundingClientRect();
     this.style.setProperty('--populated-button-width', `${width}px`);
   }
 

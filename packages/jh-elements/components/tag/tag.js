@@ -40,7 +40,7 @@ import '../tooltip/tooltip.js';
  *
  * @slot jh-tag-icon - Use to insert an icon to the left of the tag.
  * @slot jh-tag-dismiss-icon - Use to insert a custom icon within the dismiss button.
- * @event jh-dismiss - Dispatched when the tag is dismissed.
+ * @event jh-dismiss - Dispatched when the tag is dismissed. Event payload includes the dismissal method of the tag and can be accessed via `e.detail.reference.dismissMethod`
  * @customElement jh-tag
  */
 export class JhTag extends JhElement {
@@ -358,7 +358,16 @@ export class JhTag extends JhElement {
 
   #handleDismissal(e) {
     e.stopPropagation();
-    this.dispatchCustomEvent('jh-dismiss');
+    
+    let dismissMethod = 'unknown';
+
+    if (e.pointerType) {
+      dismissMethod = e.pointerType;
+    } else if (e.detail === 0) {
+      dismissMethod = 'keyboard';
+    }
+    
+    this.dispatchCustomEvent('jh-dismiss', { reference: { dismissMethod } });
 
     if (this.removeOnDismiss) {
       this.remove();

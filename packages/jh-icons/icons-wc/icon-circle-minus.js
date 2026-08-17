@@ -5,7 +5,7 @@
 */
 import {LitElement, css, html} from 'lit';
 
-export default class JhIconCircleMinu extends LitElement {
+export default class JhIconCircleMinus extends LitElement {
   /** @type {ElementInternals} */
   #internals;
 
@@ -91,4 +91,4 @@ export default class JhIconCircleMinu extends LitElement {
   }
 }
 
-customElements.define('jh-icon-circle-minus', JhIconCircleMinu);
+customElements.define('jh-icon-circle-minus', JhIconCircleMinus);

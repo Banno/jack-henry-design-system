@@ -13,7 +13,7 @@ force: true
 */
 import {LitElement, css, html} from 'lit';
 
-export default class <%= h.inflection.classify(prefix.replace(/-/gi,'_')) %>Icon<%= h.inflection.classify(name.replace(/-/gi,'_')) %> extends LitElement {
+export default class <%= h.inflection.camelize(prefix.replace(/-/gi,'_')) %>Icon<%= h.inflection.camelize(name.replace(/-/gi,'_')) %> extends LitElement {
   /** @type {ElementInternals} */
   #internals;
 
@@ -99,4 +99,4 @@ export default class <%= h.inflection.classify(prefix.replace(/-/gi,'_')) %>Icon
   }
 }
 
-customElements.define('<%= prefix %>-icon-<%= name %>', <%= h.inflection.classify(prefix.replace(/-/gi,'_')) %>Icon<%= h.inflection.classify(name.replace(/-/gi,'_')) %>);
+customElements.define('<%= prefix %>-icon-<%= name %>', <%= h.inflection.camelize(prefix.replace(/-/gi,'_')) %>Icon<%= h.inflection.camelize(name.replace(/-/gi,'_')) %>);

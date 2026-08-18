@@ -1,7 +1,7 @@
 {
   "name": "@jack-henry/jh-elements",
   "description": "Forge Design System web components.",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Banno/jack-henry-design-system.git"
@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@jack-henry/jh-tokens": "workspace:2.0.0",
-    "@jack-henry/jh-icons": "workspace:2.0.0",
+    "@jack-henry/jh-icons": "workspace:2.1.0",
     "lit": "3.3.1"
   },
   "devDependencies": {

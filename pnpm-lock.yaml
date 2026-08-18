@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Jack Henry
-#
-# SPDX-License-Identifier: Apache-2.0
-
 lockfileVersion: '9.0'
 
 settings:
@@ -46,7 +42,7 @@ importers:
   packages/jh-elements:
     dependencies:
       '@jack-henry/jh-icons':
-        specifier: workspace:2.0.0
+        specifier: workspace:2.1.0
         version: link:../jh-icons
       '@jack-henry/jh-tokens':
         specifier: workspace:2.0.0

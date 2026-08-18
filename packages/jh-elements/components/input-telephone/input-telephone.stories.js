@@ -36,7 +36,7 @@ const disableControls = {
   'show-char-count': { control: { disable: true } },
   'show-clear-button': { control: { disable: true } },
   'show-indicator': { control: { disable: true } },
-  sufix: { control: { disable: true } },
+  suffix: { control: { disable: true } },
   size: { control: { disable: true } },
   value: { control: { disable: true } },
   pattern: { control: { disable: true } },

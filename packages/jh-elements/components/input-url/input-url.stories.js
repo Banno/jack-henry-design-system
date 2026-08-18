@@ -105,6 +105,9 @@ export default {
     'hide-right-slot': {
       control: 'boolean',
     },
+    'horizontal-align': {
+      table: { disable: true },
+    },
     'input-mask': {
       control: 'text'
     },

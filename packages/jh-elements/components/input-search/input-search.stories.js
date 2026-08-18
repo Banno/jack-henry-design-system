@@ -32,11 +32,13 @@ const disableControls = {
   maxlength: { control: { disable: true } },
   minlength: { control: { disable: true } },
   name: { control: { disable: true } },
+  prefix: { control: { disable: true } },
   readonly: { control: { disable: true } },
   required: { control: { disable: true } },
   'show-char-count': { control: { disable: true } },
   'show-indicator': { control: { disable: true } },
   size: { control: { disable: true } },
+  suffix: { control: { disable: true } },
   value: { control: { disable: true } },
   pattern: { control: { disable: true } },
 }

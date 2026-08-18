@@ -1772,7 +1772,7 @@
         },
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-maxlength",
@@ -1929,6 +1929,10 @@
         {
           "name": "--jh-input-error-color-text",
           "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-input-size",
+          "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large."
         }
       ]
     },
@@ -2510,6 +2514,12 @@
           "default": "false"
         },
         {
+          "name": "horizontal-align",
+          "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+          "type": "'left' | 'right'",
+          "default": "\"left\""
+        },
+        {
           "name": "input-mask",
           "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
           "type": "?string"
@@ -2551,6 +2561,11 @@
           "type": "?string"
         },
         {
+          "name": "prefix",
+          "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+          "type": "string | null"
+        },
+        {
           "name": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
           "type": "boolean",
@@ -2585,6 +2600,11 @@
           "description": "Sets the size of the input.",
           "type": "'small'|'medium'|'large'",
           "default": "\"medium\""
+        },
+        {
+          "name": "suffix",
+          "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+          "type": "string | null"
         },
         {
           "name": "value",
@@ -2670,6 +2690,13 @@
           "default": "false"
         },
         {
+          "name": "horizontalAlign",
+          "attribute": "horizontal-align",
+          "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+          "type": "'left' | 'right'",
+          "default": "\"left\""
+        },
+        {
           "name": "inputMask",
           "attribute": "input-mask",
           "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
@@ -2719,6 +2746,12 @@
           "type": "?string"
         },
         {
+          "name": "prefix",
+          "attribute": "prefix",
+          "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+          "type": "string | null"
+        },
+        {
           "name": "readonly",
           "attribute": "readonly",
           "description": "Prevents users from changing the input value. Removes all slotted content.",
@@ -2759,6 +2792,12 @@
           "description": "Sets the size of the input.",
           "type": "'small'|'medium'|'large'",
           "default": "\"medium\""
+        },
+        {
+          "name": "suffix",
+          "attribute": "suffix",
+          "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+          "type": "string | null"
         },
         {
           "name": "value",
@@ -2991,6 +3030,14 @@
         {
           "name": "--jh-input-value-color-text",
           "description": "The value text color. Defaults to `jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-input-prefix-color-text",
+          "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-input-suffix-color-text",
+          "description": "The suffix text color. Defaults to `--jh-color-content-secondary-enabled`."
         },
         {
           "name": "--jh-input-error-color-text",

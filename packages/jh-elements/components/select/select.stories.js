@@ -14,7 +14,6 @@ import "@jack-henry/jh-icons/icons-wc/icon-arrow-down-small.js";
 import "../button/button.js";
 import { US_STATES_FLAT } from '@jack-henry/jh-datasets/datasets/us-states-flat.js';
 import { US_STATES_GROUPED } from '@jack-henry/jh-datasets/datasets/us-states-grouped.js';
-import { CURRENCY_CODES } from '@jack-henry/jh-datasets/datasets/currency-codes.js';
 import { manageSelectDataset } from '@jack-henry/jh-datasets/utils/manageDataset.js';
 
 const testOptions = [
@@ -284,9 +283,6 @@ export const Datasets = { render: (args) => {
     </div>
     <div class="select-container">
       <jh-select label="US States (grouped)" .options=${US_STATES_GROUPED}></jh-select>
-    </div>
-    <div class="select-container">
-      <jh-select label="Currency Codes" .options=${CURRENCY_CODES}></jh-select>
     </div>
     <div class="select-container">
       <jh-select label="US states customized" helper-text="Uses manageDataset to set initial value, disabled items, empty label" .options=${customizedData}></jh-select>

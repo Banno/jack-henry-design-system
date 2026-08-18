@@ -36,6 +36,7 @@ const disableControls = {
   size: { control: { disable: true } },
   suffix: { control: { disable: true } },
   value: { control: { disable: true } },
+  pattern: { control: { disable: true } },
 };
 
 function logCustomEvent(name, e) {
@@ -162,6 +163,9 @@ export default {
     value: {
       control: 'text',
     },
+    pattern: {
+      control: 'text',
+    },
   },
 };
 
@@ -222,7 +226,9 @@ export const Playground = {
     ?show-indicator=${args['show-indicator']}
     size=${args.size}
     suffix=${ifDefined(args.suffix === '' ? null : args.suffix)}
-    value=${ifDefined(args.value === '' ? null : args.value)}>
+    value=${ifDefined(args.value === '' ? null : args.value)}
+    pattern=${ifDefined(args.pattern === '' ? null : args.pattern)}
+    >
   </jh-input-password>
 `,
 };
@@ -230,6 +236,7 @@ export const Playground = {
 Playground.argTypes = {
   ...disableControls,
   'password-visible': { control: { disable: false } },
+  'accessible-label-clear-button': { control: { disable: false } },
   'accessible-label-show-password':  { control: { disable: false } },
   'accessible-label-hide-password': { control: { disable: false } },
   size: { control: { disable: false } },
@@ -256,10 +263,12 @@ Playground.argTypes = {
   prefix: { control: { disable: false } },
   suffix: { control: { disable: false } },
   value: { control: { disable: false } },
+  pattern: { control: { disable: false } },
 }
 
 Playground.args = {
   'password-visible': false,
+  'accessible-label-clear-button': 'clear password input',
   'accessible-label-show-password':  'show password',
   'accessible-label-hide-password': 'hide password',
   size: 'medium',
@@ -286,6 +295,7 @@ Playground.args = {
   prefix: null,
   suffix: null,
   value: null,
+  pattern: null,
 };
 
 Playground.parameters = {

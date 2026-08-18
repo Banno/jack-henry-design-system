@@ -38,6 +38,7 @@ const disableControls = {
   'show-indicator': { control: { disable: true } },
   size: { control: { disable: true } },
   value: { control: { disable: true } },
+  pattern: { control: { disable: true } },
 }
 
 function logCustomEvent(name, e) {
@@ -155,6 +156,9 @@ export default {
     value: {
       control: 'text',
     },
+    pattern: {
+      control: 'text',
+    },
   },
 };
 
@@ -200,7 +204,8 @@ export const Playground = {
       ?show-indicator=${args['show-indicator']}
       size=${args.size}
       suffix=${ifDefined(args.suffix === '' ? null : args.suffix)}
-      value=${ifDefined(args.value === '' ? null : args.value)}>
+      value=${ifDefined(args.value === '' ? null : args.value)}
+      pattern=${ifDefined(args.pattern === '' ? null : args.pattern)}>
         <jh-icon-credit-card slot="jh-input-right"></jh-icon-credit-card>
       </jh-input-search>
   `
@@ -232,6 +237,7 @@ Playground.args = {
   prefix: null,
   suffix: null,
   value: null,
+  pattern: null,
 };
 
 Playground.parameters = {

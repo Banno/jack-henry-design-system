@@ -1,7 +1,7 @@
 {
   "name": "@jack-henry/jh-elements",
   "description": "Forge Design System web components.",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Banno/jack-henry-design-system.git"
@@ -12,7 +12,6 @@
     "Brad McCormick",
     "Maya Buser De"
   ],
-  "type": "module",
   "license": "Apache-2.0",
   "files": [
     "components/**/!(*.stories).js",
@@ -32,7 +31,7 @@
   },
   "dependencies": {
     "@jack-henry/jh-tokens": "workspace:2.0.0",
-    "@jack-henry/jh-icons": "workspace:2.0.0",
+    "@jack-henry/jh-icons": "workspace:2.1.0",
     "lit": "3.3.1"
   },
   "devDependencies": {
@@ -44,7 +43,7 @@
     "storybook": "10.4.0",
     "storybook-addon-tag-badges": "3.1.0",
     "web-component-analyzer": "1.1.6",
-    "vite": "5.4.12",
+    "vite": "6.4.3",
     "@storybook/addon-docs": "10.4.0",
     "storybook-dark-mode": "5.0.0"
   }

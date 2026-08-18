@@ -151,6 +151,9 @@ export default {
     'hide-right-slot': {
       table: { disable: true },
     },
+    'pattern': {
+      table: { disable: true },
+    },
     'input-mask': {
       table: { disable: true },
     },

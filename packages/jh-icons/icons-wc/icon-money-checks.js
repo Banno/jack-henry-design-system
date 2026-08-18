@@ -5,7 +5,7 @@
 */
 import {LitElement, css, html} from 'lit';
 
-export default class JhIconMoneyCheck extends LitElement {
+export default class JhIconMoneyChecks extends LitElement {
   /** @type {ElementInternals} */
   #internals;
 
@@ -91,4 +91,4 @@ export default class JhIconMoneyCheck extends LitElement {
   }
 }
 
-customElements.define('jh-icon-money-checks', JhIconMoneyCheck);
+customElements.define('jh-icon-money-checks', JhIconMoneyChecks);

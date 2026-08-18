@@ -34,6 +34,7 @@ import { JhTableDataCell } from './components/table-data-cell/table-data-cell.js
 import { JhTableHeaderCell } from './components/table-header-cell/table-header-cell.js';
 import { JhSelect } from './components/select/select.js';
 import { JhInputCurrency } from './components/input-currency/input-currency.js';
+import { JhInputNumber } from './components/input-number/input-number.js';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -69,5 +70,6 @@ declare global {
     'jh-table-header-cell': JhTableHeaderCell;
     'jh-select': JhSelect;
     'jh-input-currency': JhInputCurrency;
+    'jh-input-number': JhInputNumber;
   }
 }

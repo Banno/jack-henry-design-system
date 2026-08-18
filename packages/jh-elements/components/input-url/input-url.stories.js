@@ -39,6 +39,7 @@ const disableControls = {
   size: { control: { disable: true } },
   suffix: { control: { disable: true } },
   value: { control: { disable: true } },
+  pattern: { control: { disable: true } },
 };
 
 function logCustomEvent(name, e) {
@@ -153,6 +154,9 @@ export default {
     value: {
       control: 'text',
     },
+    pattern: {
+      control: 'text',
+    },
   },
 };
 
@@ -215,6 +219,7 @@ export const Playground = { render: (args) => html`
     size=${args.size}
     suffix=${ifDefined(args.suffix === '' ? null : args.suffix)}
     value=${ifDefined(args.value === '' ? null : args.value)}
+    pattern=${ifDefined(args.pattern === '' ? null : args.pattern)}
     ></jh-input-url>
   `};
   
@@ -244,6 +249,7 @@ export const Playground = { render: (args) => html`
     prefix: null,
     suffix: null,
     value: null,
+    pattern: null,
   };
 
 Playground.parameters = {

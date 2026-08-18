@@ -5,7 +5,7 @@
 */
 import {LitElement, css, html} from 'lit';
 
-export default class JhIconWindow extends LitElement {
+export default class JhIconWindows extends LitElement {
   /** @type {ElementInternals} */
   #internals;
 
@@ -91,4 +91,4 @@ export default class JhIconWindow extends LitElement {
   }
 }
 
-customElements.define('jh-icon-windows', JhIconWindow);
+customElements.define('jh-icon-windows', JhIconWindows);

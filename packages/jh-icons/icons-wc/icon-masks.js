@@ -5,7 +5,7 @@
 */
 import {LitElement, css, html} from 'lit';
 
-export default class JhIconMask extends LitElement {
+export default class JhIconMasks extends LitElement {
   /** @type {ElementInternals} */
   #internals;
 
@@ -91,4 +91,4 @@ export default class JhIconMask extends LitElement {
   }
 }
 
-customElements.define('jh-icon-masks', JhIconMask);
+customElements.define('jh-icon-masks', JhIconMasks);

@@ -5,6 +5,7 @@
 import { css, html } from 'lit';
 import { JhElement } from '../element/element.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { validationMixin } from '../../../jh-validate/validate.js';
 
 /**
  *
@@ -25,9 +26,16 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  *
  * @customElement jh-checkbox-group
  */
+<<<<<<< HEAD
+export class JhCheckboxGroup extends validationMixin(JhElement) {
+
+  // added for validation library compatibility
+  static groupControl = true;
+=======
 export class JhCheckboxGroup extends JhElement {
   #previousSelectedValue = [];
 
+>>>>>>> 4f7f6a554251531b3b27a7e8c300c71b281a5d4e
 
   static get styles() {
     return css`
@@ -189,6 +197,9 @@ export class JhCheckboxGroup extends JhElement {
         reflect: true,
         attribute: 'show-indicator',
       },
+      // added for validation library compatibility
+      minRequired: { type: Number, attribute: 'min-required' },
+      maxRequired: { type: Number, attribute: 'max-required' },
     };
   }
   constructor() {
@@ -211,6 +222,9 @@ export class JhCheckboxGroup extends JhElement {
     this.orientation = 'vertical';
     /** @type {?boolean} */
     this.showIndicator = false;
+    // added for validation library compatibility
+    this.minRequired = null;
+    this.maxRequired = null;
     this.addEventListener('jh-change', this.#handleChange);
   }
 

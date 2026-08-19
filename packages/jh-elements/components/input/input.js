@@ -7,6 +7,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { JhElement } from '../element/element.js';
 import '../button/button.js';
 import '@jack-henry/jh-icons/icons-wc/icon-circle-xmark.js';
+import { validationMixin } from '../../../jh-validate/validate.js';
 
 /**
  * @cssprop --jh-input-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
@@ -116,6 +117,7 @@ export class JhInput extends JhElement {
           --jh-input-value-color-text,
           var(--jh-color-content-primary-enabled)
         );
+        border: 3px solid green;
       }
       label {
         color: var(
@@ -424,6 +426,9 @@ export class JhInput extends JhElement {
       size: { type: String, reflect: true },
       /** Sets the value of the input. */
       value: { type: String },
+
+      // added for validation library compatibility
+      pattern: { type: String },
     };
   }
 
@@ -477,6 +482,9 @@ export class JhInput extends JhElement {
     this.size = 'medium';
     /** @type {?string} */
     this.value = null;
+
+    // added for validation library compatibility
+    this.pattern = null;
   }
 
   connectedCallback() {

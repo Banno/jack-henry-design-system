@@ -28,6 +28,11 @@ export class JhInputCurrency extends JhInput {
       showDecimal: { type: Boolean, attribute: 'show-decimal', reflect: true },
       /** Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot. */
       prefix: { type: String },
+       /** Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.
+       *
+       * [Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)
+       */
+      inputmode: { type: String },
     };
   }
 
@@ -43,6 +48,8 @@ export class JhInputCurrency extends JhInput {
     this.showDecimal = true;
     /** @type {string | null} */
     this.prefix = '$';
+    /** @type {string | null} */
+    this.inputmode = 'decimal';
     this.addEventListener('jh-input', this.#addRawValueToInputEvent);
   }
 

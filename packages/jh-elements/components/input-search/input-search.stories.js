@@ -32,11 +32,13 @@ const disableControls = {
   maxlength: { control: { disable: true } },
   minlength: { control: { disable: true } },
   name: { control: { disable: true } },
+  prefix: { control: { disable: true } },
   readonly: { control: { disable: true } },
   required: { control: { disable: true } },
   'show-char-count': { control: { disable: true } },
   'show-indicator': { control: { disable: true } },
   size: { control: { disable: true } },
+  suffix: { control: { disable: true } },
   value: { control: { disable: true } },
   pattern: { control: { disable: true } },
 }
@@ -107,6 +109,9 @@ export default {
     'hide-right-slot': {
       control: 'boolean',
     },
+    'horizontal-align': {
+      table: { disable: true },
+    },
     'input-mask': {
       control: 'text'
     },
@@ -128,6 +133,9 @@ export default {
     name: {
       control: 'text',
     },
+    prefix: {
+      control: 'text',
+    },
     readonly: {
       control: 'boolean',
     },
@@ -143,6 +151,9 @@ export default {
     size: {
       control: 'select',
       options: ['small', 'medium', 'large'],
+    },
+    suffix: {
+      control: 'text',
     },
     value: {
       control: 'text',
@@ -188,11 +199,13 @@ export const Playground = {
       maxlength=${ifDefined(args.maxlength ? args.maxlength :  null)}
       minlength=${ifDefined(args.minlength ? args.minlength : null)}
       name=${ifDefined(args.name || args.name === '' ? null : args.name)}
+      prefix=${ifDefined(args.prefix === '' ? null : args.prefix)}
       ?readonly=${args.readonly}
       ?required=${args.required}
       ?show-char-count=${args['show-char-count']}
       ?show-indicator=${args['show-indicator']}
       size=${args.size}
+      suffix=${ifDefined(args.suffix === '' ? null : args.suffix)}
       value=${ifDefined(args.value === '' ? null : args.value)}
       pattern=${ifDefined(args.pattern === '' ? null : args.pattern)}>
         <jh-icon-credit-card slot="jh-input-right"></jh-icon-credit-card>
@@ -223,6 +236,8 @@ Playground.args = {
   autocomplete: null,
   inputmode: null,
   name: null,
+  prefix: null,
+  suffix: null,
   value: null,
   pattern: null,
 };

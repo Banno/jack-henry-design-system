@@ -3,14 +3,19 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { html, css } from 'lit';
-import './input-password.js';
-import { action } from 'storybook/actions';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { action } from 'storybook/actions';
+import './input-currency.js';
+import '@jack-henry/jh-icons/icons-wc/icon-globe-dollar-sign.js';
+import '@jack-henry/jh-icons/icons-wc/icon-money-bill-fast.js';
+
+const storyStyles = css`
+  .overview-story jh-input-currency {
+    margin-bottom: 8px;
+  }
+`;
 
 const disableControls = {
-  'password-visible': { control: { disable: true } },
-  'accessible-label-hide-password': { control: { disable: true } },
-  'accessible-label-show-password': { control: { disable: true } },
   'accessible-label': { control: { disable: true } },
   'accessible-label-clear-button': { control: { disable: true } },
   autocomplete: { control: { disable: true } },
@@ -20,23 +25,21 @@ const disableControls = {
   'helper-text': { control: { disable: true } },
   'hide-left-slot': { control: { disable: true } },
   'hide-right-slot': { control: { disable: true } },
-  'input-mask': { control: { disable: true } },
+  'horizontal-align': { control: { disable: true } },
   inputmode: { control: { disable: true } },
   invalid: { control: { disable: true } },
   label: { control: { disable: true } },
-  maxlength: { control: { disable: true } },
-  minlength: { control: { disable: true } },
   name: { control: { disable: true } },
   prefix: { control: { disable: true } },
   readonly: { control: { disable: true } },
   required: { control: { disable: true } },
-  'show-char-count': { control: { disable: true } },
+  suffix: { control: { disable: true } },
+  'show-commas': { control: { disable: true } },
+  'show-decimal': { control: { disable: true } },
   'show-clear-button': { control: { disable: true } },
   'show-indicator': { control: { disable: true } },
   size: { control: { disable: true } },
-  suffix: { control: { disable: true } },
   value: { control: { disable: true } },
-  pattern: { control: { disable: true } },
 };
 
 function logCustomEvent(name, e) {
@@ -56,31 +59,23 @@ function logCustomEvent(name, e) {
 }
 
 export default {
-  component: 'jh-input-password',
-  title: 'Components/Input Password',
+  component: 'jh-input-currency',
+  title: 'Components/Input Currency',
+  tags: ['new'],
   decorators: [
-      (story) => html`
-        <div class="story-decorator"
-          @jh-change=${(e) => logCustomEvent('jh-change', e)}
-          @jh-select=${(e) => logCustomEvent('jh-select', e)}
-          @jh-input=${(e) => logCustomEvent('jh-input', e)}
-          @jh-maxlength=${(e) => logCustomEvent('jh-maxlength', e)}
-          @jh-input:clear-button-click=${(e) => logCustomEvent('jh-input:clear-button-click', e)}
-        >
-          ${story()}
-        </div>
-      `,
+    (story) => html`
+      <div class="story-decorator"
+        @jh-change=${(e) => logCustomEvent('jh-change', e)}
+        @jh-select=${(e) => logCustomEvent('jh-select', e)}
+        @jh-input=${(e) => logCustomEvent('jh-input', e)}
+        @jh-maxlength=${(e) => logCustomEvent('jh-maxlength', e)}
+        @jh-input:clear-button-click=${(e) => logCustomEvent('jh-input:clear-button-click', e)}
+      >
+        ${story()}
+      </div>
+    `,
   ],
   argTypes: {
-    'password-visible': {
-      control: 'boolean',
-    },
-    'accessible-label-hide-password': {
-      control: 'text',
-    },
-    'accessible-label-show-password': {
-      control: 'text',
-    },
     'accessible-label': {
       control: 'text',
     },
@@ -88,9 +83,6 @@ export default {
       control: 'text',
     },
     autocomplete: {
-      control: 'text'
-    },
-    accessibleCounterText: {
       control: 'text'
     },
     disabled: {
@@ -112,10 +104,11 @@ export default {
       control: 'boolean',
     },
     'horizontal-align': {
-      table: { disable: true },
+      control: 'select',
+      options: ['left', 'right'],
     },
     'input-mask': {
-      control: 'text'
+      table: { disable: true },
     },
     inputmode: {
       control: 'text',
@@ -127,10 +120,10 @@ export default {
       control: 'text',
     },
     maxlength: {
-      control: 'text',
+      table: { disable: true },
     },
     minlength: {
-      control: 'text',
+      table: { disable: true },
     },
     name: {
       control: 'text',
@@ -145,10 +138,16 @@ export default {
       control: 'boolean',
     },
     'show-char-count': {
-      control: 'boolean'
+      table: { disable: true },
     },
     'show-clear-button': {
       control: 'boolean'
+    },
+    'show-commas': {
+      control: 'boolean',
+    },
+    'show-decimal': {
+      control: 'boolean',
     },
     'show-indicator': {
       control: 'boolean',
@@ -163,36 +162,35 @@ export default {
     value: {
       control: 'text',
     },
-    pattern: {
-      control: 'text',
-    },
   },
 };
 
 export const Overview = { render: (args) => html`
-  <jh-input-password label="Label" helper-text="Helper text" required show-indicator></jh-input-password>
+  <div class="overview-story">
+    <jh-input-currency label="Amount" helper-text="Enter the transaction amount" inputmode="decimal" value="1,000.00"></jh-input-currency>
+    <jh-input-currency label="Amount" error-text="Enter a valid amount" suffix="USD" inputmode="decimal" horizontal-align="right" invalid value="10.00"></jh-input-currency>
+  </div>
 `};
 
 Overview.argTypes = {
   ...disableControls,
 };
 
-export const Playground = {
-  render: (args) => html`
-  <jh-input-password 
-    ?password-visible=${args['password-visible']} 
-    accessible-label-show-password=${ifDefined(
-      args['accessible-label-show-password'] === ''
-        ? null
-        : args['accessible-label-show-password']
-    )}
-    accessible-label-hide-password=${
-      args['accessible-label-hide-password'] === ''
-        ? null
-        : args['accessible-label-hide-password']
-    }
+Overview.parameters = {
+  styles: storyStyles,
+};
+
+export const Playground = { render: (args) => html`
+  <jh-input-currency
     accessible-label=${ifDefined(
-      args['accessible-label'] === '' ? null : args['accessible-label']
+      args['accessible-label'] === ''
+        ? null
+        : args['accessible-label']
+    )}
+    accessible-label-clear-button=${ifDefined(
+      args['accessible-label-clear-button'] === ''
+        ? null
+        : args['accessible-label-clear-button']
     )}
     autocomplete=${ifDefined(
       args.autocomplete === '' ? null : args.autocomplete
@@ -209,93 +207,53 @@ export const Playground = {
     )}
     ?hide-left-slot=${args['hide-left-slot']}
     ?hide-right-slot=${args['hide-right-slot']}
-    input-mask=${ifDefined(
-      args['input-mask'] === '' ? null : args['input-mask']
+    horizontal-align=${ifDefined(
+      args['horizontal-align'] === '' ? null : args['horizontal-align']
     )}
     inputmode=${ifDefined(args.inputmode === '' ? null : args.inputmode)}
     ?invalid=${args.invalid}
     label=${ifDefined(args.label === '' ? null : args.label)}
-    maxlength=${ifDefined(args.maxlength ? args.maxlength : null)}
-    minlength=${ifDefined(args.minlength ? args.minlength : null)}
     name=${ifDefined(args.name === '' ? null : args.name)}
     prefix=${ifDefined(args.prefix === '' ? null : args.prefix)}
     ?readonly=${args.readonly}
     ?required=${args.required}
+    .showCommas=${args['show-commas']}
     ?show-char-count=${args['show-char-count']}
     ?show-clear-button=${args['show-clear-button']}
+    .showDecimal=${args['show-decimal']}
     ?show-indicator=${args['show-indicator']}
     size=${args.size}
     suffix=${ifDefined(args.suffix === '' ? null : args.suffix)}
     value=${ifDefined(args.value === '' ? null : args.value)}
-    pattern=${ifDefined(args.pattern === '' ? null : args.pattern)}
-    >
-  </jh-input-password>
-`,
-};
-
-Playground.argTypes = {
-  ...disableControls,
-  'password-visible': { control: { disable: false } },
-  'accessible-label-clear-button': { control: { disable: false } },
-  'accessible-label-show-password':  { control: { disable: false } },
-  'accessible-label-hide-password': { control: { disable: false } },
-  size: { control: { disable: false } },
-  disabled: { control: { disable: false } },
-  readonly: { control: { disable: false } },
-  invalid: { control: { disable: false } },
-  'input-mask': { control: { disable: false } },
-  'show-indicator': { control: { disable: false } },
-  'show-char-count': { control: { disable: false } },
-  'show-clear-button': { control: { disable: false } },
-  required: { control: { disable: false } },
-  label: { control: { disable: false } },
-  enterkeyhint: { control: { disable: false } },
-  'error-text': { control: { disable: false } },
-  'helper-text': { control: { disable: false } },
-  'hide-left-slot': { control: { disable: false } },
-  'hide-right-slot': { control: { disable: false } },
-  'accessible-label': { control: { disable: false } },
-  maxlength: { control: { disable: false } },
-  minlength: { control: { disable: false } },
-  autocomplete: { control: { disable: false } },
-  inputmode: { control: { disable: false } },
-  name: { control: { disable: false } },
-  prefix: { control: { disable: false } },
-  suffix: { control: { disable: false } },
-  value: { control: { disable: false } },
-  pattern: { control: { disable: false } },
-}
+  ></jh-input-currency>
+`};
 
 Playground.args = {
-  'password-visible': false,
-  'accessible-label-clear-button': 'clear password input',
-  'accessible-label-show-password':  'show password',
-  'accessible-label-hide-password': 'hide password',
   size: 'medium',
+  'show-commas': false,
+  'show-decimal': false,
+  prefix: null,
+  suffix: 'USD',
   disabled: false,
   readonly: false,
   invalid: false,
-  'input-mask': null,
   'show-indicator': false,
-  'show-char-count': false,
   'show-clear-button': true,
+  'show-char-count': false,
   required: false,
-  label: 'Label',
+  label: 'Amount',
   enterkeyhint: null,
-  'error-text': 'Error text',
-  'helper-text': 'Helper text',
+  'error-text': 'Enter a valid amount',
+  'helper-text': 'Enter the transaction amount',
   'hide-left-slot': false,
   'hide-right-slot': false,
   'accessible-label': null,
-  maxlength: null,
-  minlength: null,
-  autocomplete: 'off',
+  'accessible-label-clear-button': 'clear amount input',
+  autocomplete: null,
+  'horizontal-align': 'left',
   inputmode: null,
   name: null,
-  prefix: null,
-  suffix: null,
   value: null,
-  pattern: null,
 };
 
 Playground.parameters = {
@@ -303,9 +261,45 @@ Playground.parameters = {
 };
 
 export const Default = { render: (args) => html`
-  <jh-input-password></jh-input-password>
+  <jh-input-currency></jh-input-currency>
 `};
 
 Default.argTypes = {
   ...disableControls,
+};
+
+export const PrefixSuffix = {
+  render: (args) => html`
+    <jh-input
+      size=${args.size}
+      label="Amount"
+      ?show-clear-button=${args['show-clear-button']}
+      helper-text="Enter the transaction amount"
+      prefix=${ifDefined(args.prefix === '' ? null : args.prefix)}
+      suffix=${ifDefined(args.suffix === '' ? null : args.suffix)}
+      ?readonly=${args.readonly}
+      ?disabled=${args.disabled}
+      value=${ifDefined(args.value === '' ? null : args.value)}
+    ><jh-icon-money-bill-fast slot="jh-input-left"></jh-icon-money-bill-fast><jh-icon-globe-dollar-sign slot="jh-input-right"></jh-icon-globe-dollar-sign></jh-input>
+`,
+};
+
+PrefixSuffix.args = {
+  prefix: null,
+  suffix: 'USD',
+  size: 'medium',
+  readonly: false,
+  disabled: false,
+  value: '1,000.00',
+  'show-clear-button': true,
+};
+
+PrefixSuffix.argTypes = {
+  ...disableControls,
+  prefix: { table: { disable: false } },
+  suffix: { table: { disable: false } },
+  size: { table: { disable: false } },
+  readonly: { table: { disable: false } },
+  disabled: { table: { disable: false } },
+  value: { table: { disable: false } },
 };

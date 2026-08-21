@@ -105,6 +105,9 @@ export default {
     'helper-text': {
       control: 'text',
     },
+    'horizontal-align': {
+      table: { disable: true },
+    },
     inputmode: {
       control: 'text',
     },
@@ -172,6 +175,21 @@ export default {
     'jh-input:clear-button-click': {
       table: { disable: true },
     },
+    'prefix': {
+      table: { disable: true },
+    },
+    'suffix': {
+      table: { disable: true },
+    },
+    '--jh-input-prefix-color-text': {
+      table: { disable: true },
+    },
+    '--jh-input-suffix-color-text': {
+      table: { disable: true },
+    },
+  },
+  parameters: {
+    styles: storyStyles,
   },
 };
 

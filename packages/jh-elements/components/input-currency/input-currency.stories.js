@@ -6,6 +6,8 @@ import { html, css } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from 'storybook/actions';
 import './input-currency.js';
+import '@jack-henry/jh-icons/icons-wc/icon-globe-dollar-sign.js';
+import '@jack-henry/jh-icons/icons-wc/icon-money-bill-fast.js';
 
 const storyStyles = css`
   .overview-story jh-input-currency {
@@ -264,4 +266,40 @@ export const Default = { render: (args) => html`
 
 Default.argTypes = {
   ...disableControls,
+};
+
+export const PrefixSuffix = {
+  render: (args) => html`
+    <jh-input
+      size=${args.size}
+      label="Amount"
+      ?show-clear-button=${args['show-clear-button']}
+      helper-text="Enter the transaction amount"
+      prefix=${ifDefined(args.prefix === '' ? null : args.prefix)}
+      suffix=${ifDefined(args.suffix === '' ? null : args.suffix)}
+      ?readonly=${args.readonly}
+      ?disabled=${args.disabled}
+      value=${ifDefined(args.value === '' ? null : args.value)}
+    ><jh-icon-money-bill-fast slot="jh-input-left"></jh-icon-money-bill-fast><jh-icon-globe-dollar-sign slot="jh-input-right"></jh-icon-globe-dollar-sign></jh-input>
+`,
+};
+
+PrefixSuffix.args = {
+  prefix: null,
+  suffix: 'USD',
+  size: 'medium',
+  readonly: false,
+  disabled: false,
+  value: '1,000.00',
+  'show-clear-button': true,
+};
+
+PrefixSuffix.argTypes = {
+  ...disableControls,
+  prefix: { table: { disable: false } },
+  suffix: { table: { disable: false } },
+  size: { table: { disable: false } },
+  readonly: { table: { disable: false } },
+  disabled: { table: { disable: false } },
+  value: { table: { disable: false } },
 };

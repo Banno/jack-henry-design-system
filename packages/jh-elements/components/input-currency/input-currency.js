@@ -26,6 +26,8 @@ export class JhInputCurrency extends JhInput {
       showCommas: { type: Boolean, attribute: 'show-commas', reflect: true },
       /** Add decimals to the input value on blur. No decimals are permitted when set to false. */
       showDecimal: { type: Boolean, attribute: 'show-decimal', reflect: true },
+      /** Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot. */
+      prefix: { type: String },
     };
   }
 
@@ -39,6 +41,8 @@ export class JhInputCurrency extends JhInput {
     this.showCommas = true;
     /** @type {boolean} */
     this.showDecimal = true;
+    /** @type {string | null} */
+    this.prefix = '$';
     this.addEventListener('jh-input', this.#addRawValueToInputEvent);
   }
 

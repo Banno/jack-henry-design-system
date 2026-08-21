@@ -164,7 +164,7 @@ export default {
 
 export const Overview = { render: (args) => html`
   <div class="overview-story">
-    <jh-input-currency label="Amount" helper-text="Enter the transaction amount" prefix="$" inputmode="decimal" value="1,000.00"></jh-input-currency>
+    <jh-input-currency label="Amount" helper-text="Enter the transaction amount" inputmode="decimal" value="1,000.00"></jh-input-currency>
     <jh-input-currency label="Amount" error-text="Enter a valid amount" suffix="USD" inputmode="decimal" horizontal-align="right" invalid value="10.00"></jh-input-currency>
   </div>
 `};
@@ -229,7 +229,7 @@ Playground.args = {
   size: 'medium',
   'show-commas': false,
   'show-decimal': false,
-  prefix: '$',
+  prefix: null,
   suffix: 'USD',
   disabled: false,
   readonly: false,

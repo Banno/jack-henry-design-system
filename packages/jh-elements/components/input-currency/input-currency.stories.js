@@ -238,7 +238,7 @@ Playground.args = {
   readonly: false,
   invalid: false,
   'show-indicator': false,
-  'show-clear-button': false,
+  'show-clear-button': true,
   'show-char-count': false,
   required: false,
   label: 'Amount',

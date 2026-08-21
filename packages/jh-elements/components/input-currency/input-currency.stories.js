@@ -59,6 +59,7 @@ function logCustomEvent(name, e) {
 export default {
   component: 'jh-input-currency',
   title: 'Components/Input Currency',
+  tags: ['new'],
   decorators: [
     (story) => html`
       <div class="story-decorator"

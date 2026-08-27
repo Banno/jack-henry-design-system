@@ -86,14 +86,14 @@ The following success criteria are of concern:
 ### What we provide
 
 - To satisfy [WCAG 4.1.3 Status Messages](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html),
-the `role='status'` property is set by default in order to allow changes to be announced via screen readers without receiving focus or interupting the user flow. If the toast(s) added to the toast controller contain important, time-sensitive information, see the author guidance section below. 
+the `role='status'` property is set by default in order to allow changes to be announced via screen readers without receiving focus or interrupting the user flow. If the toast(s) added to the toast controller contain important, time-sensitive information, see the author guidance section below. 
 
 ### Author Guidance
 
 - To satisfy [WCAG 2.4.11 Focus Not Obscured (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html), ensure that when toasts are opened, they do not completely obscure the component that has keyboard focus.
 - To satisfy [WCAG 4.1.3 Status Messages](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html) when a status message conveys a warning, rather than the success or result of an action, set `role='alert'` in order to allow changes to be announced via screen readers immediately. 
-- Both the `role='status'` and `role='alert'` have an implicit `aria-atomic` value of true. This means a screen reader will present the entire changed region when new toasts are added. Consider setting `aria-atomic='false'` on the toast controller for instances in which the entire region does not need to be announced with each incoming toast. [Visit MDN for more information on the aria-atomic attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-atomic).
-- Authors can utilize an `aria-relevant` attribute to further specify which types of changes to the live region should be announced. [Visit MDN for information on supported aria-relevant values](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-relevant).
+- Both the `role='status'` and `role='alert'` have an implicit `aria-atomic` value of true. This means a screen reader will present the entire changed region when new toasts are added. Consider setting `aria-atomic='false'` on the toast controller for instances in which the entire region does not need to be announced with each incoming toast. [Visit MDN for more information on the aria-atomic attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-atomic).
+- Authors can utilize an `aria-relevant` attribute to further specify which types of changes to the live region should be announced. [Visit MDN for information on supported aria-relevant values](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-relevant).
 - Authors should consider placing the `<jh-toast-controller>` either at the beginning or end of the page as to not disturb user flow for those dependent on keyboard navigation. 
 
 ## Component API

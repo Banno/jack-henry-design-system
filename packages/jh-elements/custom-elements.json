@@ -6522,6 +6522,18 @@
           "default": "false"
         },
         {
+          "name": "searchable",
+          "description": "Allows users to type in the input field to filter the list of options.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "no-results-text",
+          "description": "Sets the message shown in the menu when a search returns no matching options. Only applies when `searchable` is set.",
+          "type": "string",
+          "default": "\"No results found\""
+        },
+        {
           "name": "accessible-label",
           "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
           "type": "?string"
@@ -6672,6 +6684,20 @@
           "description": "Prevents the dropdown menu from automatically flipping its position when there is insufficient viewport space.",
           "type": "boolean",
           "default": "false"
+        },
+        {
+          "name": "searchable",
+          "attribute": "searchable",
+          "description": "Allows users to type in the input field to filter the list of options.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "noResultsText",
+          "attribute": "no-results-text",
+          "description": "Sets the message shown in the menu when a search returns no matching options. Only applies when `searchable` is set.",
+          "type": "string",
+          "default": "\"No results found\""
         },
         {
           "name": "accessibleLabel",

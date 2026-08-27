@@ -70,6 +70,8 @@ const disableControls = {
   size: { control: { disable: true } },
   value: { control: { disable: true } },
   'flip-disabled': { control: { disable: true } },
+  searchable: { control: { disable: true } },
+  'no-results-text': { control: { disable: true } },
 }
 
 function logCustomEvent(name, e) {
@@ -149,6 +151,14 @@ export default {
       description: 'Sets the value of the select programmatically.',
     },
     'flip-disabled': { control: 'boolean' },
+    searchable: {
+      control: 'boolean',
+      description: 'Allows users to type in the input field to filter the list of options.',
+    },
+    'no-results-text': {
+      control: 'text',
+      description: 'Sets the message shown in the menu when a search returns no matching options. Only applies when `searchable` is set.',
+    },
     // Hide inherited jh-input slots
     'jh-input-right': { table: { disable: true } },
     'jh-input-left': { table: { disable: true } },
@@ -213,6 +223,23 @@ Overview.argTypes = {
   ...disableControls,
 };
 
+export const Searchable = { render: (args) => html`
+  <div class="select-container">
+    <jh-select searchable label="Select a state" helper-text="Type to filter the options" .options=${US_STATES_FLAT}></jh-select>
+  </div>
+  <div class="select-container">
+    <jh-select searchable label="Select an account" helper-text="Search works across groups" .options=${testOptions} value="cc-travel"></jh-select>
+  </div>
+`};
+
+Searchable.argTypes = {
+  ...disableControls,
+};
+
+Searchable.parameters = {
+  styles: storyStyles,
+};
+
 export const Playground = { render: (args) => html`
   <div class="select-container">
   <jh-select
@@ -231,6 +258,8 @@ export const Playground = { render: (args) => html`
     ?show-indicator=${args['show-indicator']}
     size=${args.size}
     ?flip-disabled=${args['flip-disabled']}
+    ?searchable=${args.searchable}
+    no-results-text=${ifDefined(args['no-results-text'] === '' ? null : args['no-results-text'])}
     .options=${testOptions}
     value=${args.value}
   ></jh-select>
@@ -256,6 +285,8 @@ Playground.args = {
   'show-indicator': false,
   size: 'medium',
   'flip-disabled': false,
+  searchable: false,
+  'no-results-text': 'No results found',
   value: "",
 };
 

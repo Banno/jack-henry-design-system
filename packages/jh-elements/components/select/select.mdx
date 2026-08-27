@@ -15,7 +15,8 @@ import * as stories from './select.stories.js';
 <hr />
 
 The select component is a form component that allows users to choose a single option from a predefined list. 
-It combines a specialized non-editable input field with a popover menu and supports flat options and grouped options.
+It combines a specialized input field with a popover menu and supports flat options and grouped options. 
+The select is non-editable by default and can be made searchable with the `searchable` attribute.
 
 ## Usage
 
@@ -84,6 +85,24 @@ const groupedOptions = [
 ];
 ```
 
+## Type-Ahead and Searchable behaviors
+
+### Type-Ahead
+
+In the non-editable select (default), typing character keys jumps to the first matching option. Pressing the same character repeatedly cycles through options that start with that character.
+The type-ahead buffer resets after 500 milliseconds, so if the user pauses while typing, the next character key will start a new search rather than continuing to cycle through the current character matches.
+
+### Searchable
+
+Set the `searchable` attribute to let users type in the input field to filter the list of options. 
+Filtering matches the option `label` (case-insensitive) and works across both flat and grouped options — groups with no matching options are hidden.
+
+- Opening the menu keeps the currently selected label in the field and selects the text, so the first keystroke replaces it.
+- Typing filters the list. The first match is highlighted so pressing `Enter` selects it, but no value is committed until an option is chosen.
+- Use the Arrow keys to move through the filtered options and `Enter` to make a selection. `Space` types a space character rather than selecting.
+- When no options match, a non-selectable "No results found" message is displayed. Customize this text with the `no-results-text` attribute.
+- Closing the menu without choosing an option reverts the field to the previously selected value.
+
 ## Setting the Value
 
 ### Initial value
@@ -134,13 +153,13 @@ This allows you to easily populate the menu with commonly used lists without hav
 
 - Additional datasets may be added in the future and can be requested by submitting a Github Issue.
 
-For more control over the datasets, authors may use the `manageDataset` util to customize initial selected values, disabled items, and empty labels:
+For more control over the datasets, authors may use the `manageSelectDataset` method to customize initial selected values, disabled items, and empty labels:
 
 ```javascript
 import { US_STATES_FLAT } from '@jack-henry/jh-datasets/datasets/us-states-flat.js';
-import { manageDataset } from '@jack-henry/jh-datasets/utils/manage-dataset.js';
+import { manageSelectDataset } from '@jack-henry/jh-datasets/utils/manageDataset.js';
 
-const customizedData = manageDataset({
+const customizedData = manageSelectDataset({
   dataset: US_STATES_FLAT,
   initialValue: null,
   disabledItems: ['AK', 'HI'],
@@ -149,11 +168,6 @@ const customizedData = manageDataset({
 
 <jh-select label="State" .options=${customizedData}></jh-select>
 ```
-
-## Type-Ahead functionality
-
-Typing character keys jumps to the first matching option. Pressing the same character repeatedly cycles through options that start with that character.
-The type-ahead buffer resets after 500 milliseconds, so if the user pauses while typing, the next character key will start a new search rather than continuing to cycle through the current character matches.
 
 ## Dependencies
 
@@ -192,7 +206,7 @@ The following success criteria are of concern:
 
 ### What we provide
 
-- To satisfy [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) and [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value), the select uses the `combobox` role with `aria-expanded`, `aria-haspopup`, `aria-controls`, and `aria-activedescendant` to communicate the relationship between the input and the listbox. Any `label`, `helper-text`, and `error-text` are associated with the input control by default.
+- To satisfy [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) and [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value), the select uses the `combobox` role with `aria-expanded`, `aria-haspopup`, `aria-controls`, and `aria-activedescendant` to communicate the relationship between the input and the listbox. When `searchable` is set, the input also exposes `aria-autocomplete="list"` to indicate that typing filters the options without automatically selecting one. Any `label`, `helper-text`, and `error-text` are associated with the input control by default.
 - To satisfy [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html), Select can be resized without assistive technology up to 200 percent without loss of content or functionality.
 - To satisfy [WCAG 1.4.11 Non-text Contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html) and [WCAG 2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html), interactive elements include focus styles and the active option receives a visible highlight.
 - To satisfy [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html), the select supports full keyboard navigation including arrow keys, Enter, Space, Escape, Tab, and type-ahead character matching.
@@ -209,7 +223,7 @@ The following success criteria are of concern:
 ### Keyboard Interaction
 
 - **Arrow Down / Arrow Up**: Opens the menu (when closed) or navigates through options (when open).
-- **Enter / Space**: Opens the menu (when closed) or selects the active option (when open).
+- **Enter / Space**: Opens the menu (when closed) or selects the active option (when open). In searchable mode, `Space` inserts a space character instead of selecting.
 - **Escape**: Closes the menu without selecting.
 - **Tab**: Closes the menu and moves focus to the next focusable element.
 

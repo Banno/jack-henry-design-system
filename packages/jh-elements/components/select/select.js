@@ -75,8 +75,10 @@ export class JhSelect extends JhInput {
   #open = false;
   /** @type {Array} All options flattened — source of truth, rebuilt only when options change */
   #allOptions = [];
-  /** @type {Array} Currently visible/navigable options — same as #allOptions until search is added */
+  /** @type {Array} Currently visible/navigable options — filtered subset of #allOptions when searching */
   #flatOptions = [];
+  /** @type {?string} Current search query when searchable; null when not actively searching */
+  #searchTerm = null;
   /** @type {(e: Event) => void} */
   #boundDocumentClick;
   /** @type {(e: Event) => void} */
@@ -149,7 +151,7 @@ export class JhSelect extends JhInput {
           visibility: visible;
           opacity: 1;
         }
-        input::selection {
+        :host(:not([searchable])) input::selection {
           background-color: transparent;
         }
         jh-menu {
@@ -199,6 +201,10 @@ export class JhSelect extends JhInput {
       options: { type: Array, attribute: false },
       /** Prevents the dropdown menu from automatically flipping its position when there is insufficient viewport space. */
       flipDisabled: { type: Boolean, attribute: 'flip-disabled' },
+      /** Allows users to type in the input field to filter the list of options. */
+      searchable: { type: Boolean, reflect: true },
+      /** Sets the message shown in the menu when a search returns no matching options. Only applies when `searchable` is set. */
+      noResultsText: { type: String, attribute: 'no-results-text' }
     };
   }
 
@@ -210,6 +216,12 @@ export class JhSelect extends JhInput {
     this.options = [];
     /** @type {boolean} */
     this.flipDisabled = false;
+    /** Whether the options are searchable 
+     * @type {boolean}
+    */
+    this.searchable = false;
+    /** @type {string} */
+    this.noResultsText = 'No results found';
     this.addEventListener('keydown', this.#handleKeydown);
     this.#boundDocumentClick = this.#handleDocumentClick.bind(this);
     this.#boundDocumentScroll = this.#handleDocumentScroll.bind(this);
@@ -245,6 +257,7 @@ export class JhSelect extends JhInput {
       });
       this.#flatOptions = this.#allOptions;
       this.#activeIndex = null;
+      this.#searchTerm = null;
 
       // If no value is set yet, use the selected flag as the initial default
       if (this.value == null) {
@@ -320,7 +333,8 @@ export class JhSelect extends JhInput {
   }
 
   #handleOpenSelect({ keyboard = false } = {}) {
-    if (this.disabled || this.readonly || !this.#flatOptions.length) return;
+    const hasOptions = this.searchable ? this.#allOptions.length : this.#flatOptions.length;
+    if (this.disabled || this.readonly || !hasOptions) return;
     if (!this.#inputWrapper || !this.#menuContainer) return;
 
     this.#flipMenu();
@@ -341,6 +355,9 @@ export class JhSelect extends JhInput {
   #handleCloseSelect() {
     this.#open = false;
     this.#buffer = '';
+    // Revert the field to the selected value and restore the full option list
+    this.#searchTerm = null;
+    this.#applyFilter('');
     clearTimeout(this.#timer);
     if (this.#menuContainer) {
       this.#menuContainer.style.top = '';
@@ -404,16 +421,29 @@ export class JhSelect extends JhInput {
         return;
 
       case 'Enter':
-      case ' ':
         e.preventDefault();
         if (!this.#open) {
-          this.#handleOpenSelect({ keyboard: true }); 
-      } else if (this.#activeIndex !== null) {
+          this.#handleOpenSelect({ keyboard: true });
+        } else if (this.#activeIndex !== null) {
           this.#handleSelection(this.#activeIndex);
           this.#handleCloseSelect();
-      } else {
-        this.#handleCloseSelect();
-      }
+        } else {
+          this.#handleCloseSelect();
+        }
+        return;
+
+      case ' ':
+        // In searchable mode Space is a search character, not a selection key
+        if (this.searchable) return;
+        e.preventDefault();
+        if (!this.#open) {
+          this.#handleOpenSelect({ keyboard: true });
+        } else if (this.#activeIndex !== null) {
+          this.#handleSelection(this.#activeIndex);
+          this.#handleCloseSelect();
+        } else {
+          this.#handleCloseSelect();
+        }
         return;
 
       case 'Escape':
@@ -425,7 +455,7 @@ export class JhSelect extends JhInput {
         return;
 
       default:
-        this.#handleTypeAhead(e);
+        if (!this.searchable) this.#handleTypeAhead(e);
     }
   }
 
@@ -466,6 +496,40 @@ export class JhSelect extends JhInput {
     } else {
       this.#handleOpenSelect();
     }
+  }
+
+  #handleInputFocus(e) {
+    if (!this.searchable) return;
+    // Select all so the first keystroke replaces the current value
+    e.target.select();
+  }
+
+  #handleInputClick(e) {
+    if (!this.searchable) return;
+    // Prevent the wrapper click handler from toggling the menu closed
+    e.stopPropagation();
+    if (!this.#open) this.#handleOpenSelect();
+  }
+
+  #handleSearchInput(e) {
+    if (!this.searchable) return;
+    this.#searchTerm = e.target.value;
+    this.#applyFilter(this.#searchTerm);
+    // Highlight the first match so Enter can select it — surfaced, not committed
+    this.#activeIndex = null;
+    if (!this.#open) {
+      this.#handleOpenSelect();
+    }
+    if (this.#flatOptions.length) {
+      this.#setActiveItem(0);
+    }
+    this.requestUpdate();
+  }
+
+  #applyFilter(searchTerm) {
+    this.#flatOptions = searchTerm
+      ? JhFilter.filterList(this.#allOptions, searchTerm, 'label')
+      : this.#allOptions;
   }
 
   #handleSelection(index) {
@@ -599,9 +663,10 @@ export class JhSelect extends JhInput {
           <input
             role="combobox"
             type="text"
-            readonly
+            ?readonly=${this.readonly || !this.searchable}
             autocomplete="off"
             aria-haspopup="listbox"
+            aria-autocomplete=${ifDefined(this.searchable ? 'list' : undefined)}
             aria-controls="jh-select-listbox-${this.uniqueId}"
             id="jh-input-${this.uniqueId}"
             aria-expanded=${this.#open ? 'true' : 'false'}
@@ -615,46 +680,58 @@ export class JhSelect extends JhInput {
             aria-label=${ifDefined(this.accessibleLabel)}
             ?disabled=${this.disabled}
             ?required=${this.required}
-            .value=${this.#displayValue ?? ''} />
+            @focus=${this.#handleInputFocus}
+            @click=${this.#handleInputClick}
+            @input=${this.#handleSearchInput}
+            .value=${this.searchable && this.#searchTerm !== null
+              ? this.#searchTerm
+              : this.#displayValue ?? ''} />
           ${clearButton} ${rightSlot}
         </div>
       </div>
     `;
   }
 
-  renderData(options) {
-    if (!options) return null;
-    let flatIndex = 0;
+  #renderOption(option, idx) {
+    return html`<jh-list-item
+      role="option"
+      tabindex="-1"
+      ?disabled=${option.disabled}
+      ?selected=${String(this.value) === String(option.value)}
+      aria-selected=${String(this.value) === String(option.value)}
+      id="jh-select-option-${this.uniqueId}-${idx}"
+      class="${this.#activeIndex === idx ? 'is-active' : ''}"
+      primary-text=${option.label != null ? option.label : String(option.value)}></jh-list-item>`;
+  }
 
-    return options.map((option) => {
-      if (option.groupValues) {
-        const groupItems = option.groupValues.map((groupOption) => {
-          const idx = flatIndex++;
-          return html`<jh-list-item
-            role="option"
-            tabindex="-1"
-            ?disabled=${groupOption.disabled}
-            ?selected=${String(this.value) === String(groupOption.value)}
-            aria-selected=${String(this.value) === String(groupOption.value)}
-            id="jh-select-option-${this.uniqueId}-${idx}"
-            class="${this.#activeIndex === idx ? 'is-active' : ''}"
-            primary-text=${groupOption.label != null
-              ? groupOption.label
-              : String(groupOption.value)}></jh-list-item>`;
-        });
-        return html`<jh-list-group label=${option.groupLabel}>${groupItems}</jh-list-group>`;
+  #renderNoResults() {
+    // No tabindex keeps it inert (no hover/focus styles); role="status" announces the change
+    return html`<jh-list-item role="status">${this.noResultsText}</jh-list-item>`;
+  }
+
+  renderData(options) {
+    if (!options || !options.length) {
+      return this.searchable ? this.#renderNoResults() : null;
+    }
+
+    const content = [];
+    let index = 0;
+    while (index < options.length) {
+      const option = options[index];
+      if (option.groupLabel) {
+        const { groupLabel } = option;
+        const groupItems = [];
+        while (index < options.length && options[index].groupLabel === groupLabel) {
+          groupItems.push(this.#renderOption(options[index], index));
+          index += 1;
+        }
+        content.push(html`<jh-list-group label=${groupLabel}>${groupItems}</jh-list-group>`);
+      } else {
+        content.push(this.#renderOption(option, index));
+        index += 1;
       }
-      const idx = flatIndex++;
-      return html`<jh-list-item
-        role="option"
-        tabindex="-1"
-        ?disabled=${option.disabled}
-        ?selected=${String(this.value) === String(option.value)}
-        aria-selected=${String(this.value) === String(option.value)}
-        id="jh-select-option-${this.uniqueId}-${idx}"
-        class="${this.#activeIndex === idx ? 'is-active' : ''}"
-        primary-text=${option.label != null ? option.label : String(option.value)}></jh-list-item>`;
-    });
+    }
+    return content;
   }
 
   render() {
@@ -670,7 +747,7 @@ export class JhSelect extends JhInput {
               role="listbox"
               id="jh-select-listbox-${this.uniqueId}"
               @click=${this.#handleMenuClick}>
-              ${this.renderData(this.options)}
+              ${this.renderData(this.#flatOptions)}
             </jh-menu>
           </div>`
         : null}

@@ -173,6 +173,7 @@ export default {
     'inputmode': { table: { disable: true } },
     'maxlength': { table: { disable: true } },
     'minlength': { table: { disable: true } },
+    'pattern': { table: { disable: true } },
     'show-char-count': { table: { disable: true } },
     'show-clear-button': { table: { disable: true } },
     // Hide inherited jh-input events not relevant to select

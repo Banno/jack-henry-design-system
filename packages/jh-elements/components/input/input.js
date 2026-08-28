@@ -484,15 +484,7 @@ export class JhInput extends JhElement {
     this.#captureMaskIndexes();
     let observer = new MutationObserver(this.#captureMaskIndexes.bind(this));
     observer.observe(this, { attributeFilter: ['input-mask'] });
-    this.addEventListener('jh-select', this.#setSelection);
 }
-
-  disconnectedCallback() {
-    super.disconnectedCallback();
-    if (this.inputMask) {
-      this.removeEventListener('jh-select', this.#setSelection);
-    }
-  }
 
   firstUpdated() {
     // attach event listeners to show/hide clear button
@@ -600,14 +592,6 @@ export class JhInput extends JhElement {
     }
   }
 
-  #setSelection(e) {
-    this.#selectedText = {
-      selected: true,
-      selectionStart: e.detail.selectionStart,
-      selectionEnd: e.detail.selectionEnd,
-    }
-  }
-
   /** @ignore */
   get form() {
     return this.internals.form;
@@ -652,6 +636,13 @@ export class JhInput extends JhElement {
     let selectionStart = e.target.selectionStart;
     let selectionEnd = e.target.selectionEnd;
 
+    // capture the live selection so mask edits act on the current range, not a stale one
+    const hasSelection = selectionEnd > selectionStart;
+    this.#selectedText = {
+      selected: hasSelection,
+      selectionStart: hasSelection ? selectionStart : null,
+      selectionEnd: hasSelection ? selectionEnd : null,
+    };
 
     const testKey = (metaChar, key) => {
       if (!this.#regexSubset[metaChar].test(key)) {
@@ -816,8 +807,11 @@ export class JhInput extends JhElement {
     
   #removeMask(e, value) {
     let insertedChar =  e.target.selectionStart < value.length;
-    this.#adjustCaretPositionStart = insertedChar ? e.target.selectionStart : null;
     let replacedChar = this.#selectedText?.selected;
+    // after a range delete, keep the caret at the deletion point instead of the reformatted end
+    this.#adjustCaretPositionStart = replacedChar && this.#deletedChar
+      ? this.#selectedText.selectionStart
+      : insertedChar ? e.target.selectionStart : null;
     let valueArray = value.split('');
 
     if (replacedChar) {
@@ -1046,13 +1040,14 @@ export class JhInput extends JhElement {
 
   // restore caret position after input mask is applied if change to the value is within the value length
   updated(changedProperties) {
-    if (this.#adjustCaretPositionStart) {
+    if (this.#adjustCaretPositionStart != null) {
       if (changedProperties.has('value')) {
         let input = this.shadowRoot.querySelector('input');
-        let selectionStart = this.#selectedText.selectionStart ? this.#selectedText.selectionStart : this.#adjustCaretPositionStart;
+        let selectionStart = this.#selectedText.selectionStart != null ? this.#selectedText.selectionStart : this.#adjustCaretPositionStart;
 
         input.setSelectionRange(selectionStart, selectionStart);
         this.#selectedText.selectionStart = null;
+        this.#adjustCaretPositionStart = null;
       }
     }
 

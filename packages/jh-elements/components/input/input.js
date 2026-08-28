@@ -657,6 +657,9 @@ export class JhInput extends JhElement {
 
     // only validate single char keys 
     if (e.key.length === 1) {
+      if (this.#advanceOverLiterals(e, selectionStart, value)) {
+        return;
+      }
       if (selectionStart < value.length) {
         this.#validateInsertion(e, selectionStart, testKey);
       } else {
@@ -785,6 +788,46 @@ export class JhInput extends JhElement {
     if (metaCharIndex !== undefined) {
       testKey(this.inputMask[metaCharIndex], e.key);
     }
+  }
+
+  // let users type a fixed character to move past it instead of rejecting the key
+  #advanceOverLiterals(e, selectionStart, value) {
+    if (this.#selectedText?.selected || !this.#maskFixedCharIndexes?.length) {
+      return false;
+    }
+
+    // caret at the end: reveal the pending literal(s) up to the next data slot
+    if (selectionStart >= value.length) {
+      let nextMeta = this.#maskMetaCharIndexes[this.#rawValue.length];
+      let pending = this.#maskFixedCharIndexes.filter((fixedChar) =>
+        fixedChar.formattedValIndex >= value.length &&
+        (nextMeta ? fixedChar.formattedValIndex < nextMeta.formattedValIndex : true)
+      );
+
+      if (!pending.length || this.inputMask[pending[0].maskIndex] !== e.key) {
+        return false;
+      }
+
+      e.preventDefault();
+      let revealed = value + pending.map((fixedChar) => this.inputMask[fixedChar.maskIndex]).join('');
+      this.value = revealed;
+      this.updateComplete.then(() => this.#inputEl?.setSelectionRange(revealed.length, revealed.length));
+      return true;
+    }
+
+    // caret before a rendered literal: skip past the consecutive literal run
+    let fixedAtCaret = this.#maskFixedCharIndexes.find((fixedChar) => fixedChar.formattedValIndex === selectionStart);
+    if (!fixedAtCaret || this.inputMask[fixedAtCaret.maskIndex] !== e.key) {
+      return false;
+    }
+
+    e.preventDefault();
+    let caret = selectionStart;
+    while (caret < value.length && this.#maskFixedCharIndexes.some((fixedChar) => fixedChar.formattedValIndex === caret)) {
+      caret++;
+    }
+    e.target.setSelectionRange(caret, caret);
+    return true;
   }
 
   #captureLastFixedCharIndex() {

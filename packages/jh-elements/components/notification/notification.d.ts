@@ -57,7 +57,7 @@
  * @slot jh-notification-dismiss-icon - Use to insert icon within the dismiss button.
  * @slot jh-notification-action - Use to insert action button(s). Placed to the right of the default slot. Set `stacked` property to place slot below default slot.
  *
- * @event jh-dismiss - Dispatched when the notification is dismissed.
+ * @event jh-dismiss - Dispatched when the notification is dismissed. Event payload includes the dismissal method of the notification and can be accessed via `e.detail.reference.dismissMethod`
  *
  * @customElement jh-notification
  */

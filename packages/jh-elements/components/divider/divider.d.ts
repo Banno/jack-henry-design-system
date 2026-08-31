@@ -10,7 +10,7 @@
  * @cssprop --jh-divider-border-width - The divider width. Defaults to `--jh-border-decorative-width`.
  * @cssprop --jh-divider-border-style - The divider style. Defaults to `--jh-border-decorative-style`.
  * @cssprop --jh-divider-color-border - The divider color. Defaults to `--jh-border-decorative-color`.
- * @cssprop --jh-divider-space-inset - The divider margin-left. Defaults to `0`.
+ * @cssprop --jh-divider-space-inset - The horizontal divider margin-left. Defaults to `0`.
  *
  * @customElement jh-divider
  */
@@ -21,12 +21,21 @@ export class JhDivider extends JhElement {
             type: NumberConstructor;
             reflect: boolean;
         };
+        orientation: {
+            type: StringConstructor;
+            reflect: boolean;
+        };
     };
+    updated(changedProperties: any): void;
     /**
-     * The alignment of the left edge of the divider.
+     * The alignment of the left edge of the horizontal divider.
      * @type { 0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null }
      */
     inset: 0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null;
+    /**
+     * The orientation of the divider.
+     * @type {'horizontal'|'vertical'} */
+    orientation: "horizontal" | "vertical";
 }
 import { JhElement } from '../element/element.js';
 

@@ -60,7 +60,7 @@
  * Defaults to `--jh-border-control-color`.
  * @cssprop --jh-radio-status-color-background-selected-disabled - The status mark color when selected and disabled. Defaults to `--jh-color-content-brand-enabled`.
  *
- * @event jh-change - Dispatched when the state of the radio has changed. Event payload includes the value of the radio and can be accessed via `e.detail.state.value`.
+ * @event jh-change - Dispatched when the state of the radio has changed. Event payload includes the value and checked state of the radio and can be accessed via `e.detail.state.value` and `e.detail.state.checked`.
  *
  * @customElement jh-radio */
 export class JhRadio extends JhElement {

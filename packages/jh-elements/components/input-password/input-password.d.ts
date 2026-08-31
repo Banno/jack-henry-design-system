@@ -13,6 +13,7 @@
  * @customElement jh-input-password
  */
 export class JhInputPassword extends JhInput {
+    static get styles(): import("lit").CSSResult[];
     static get properties(): {
         passwordVisible: {
             type: BooleanConstructor;

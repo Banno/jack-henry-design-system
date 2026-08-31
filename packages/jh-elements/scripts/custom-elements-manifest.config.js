@@ -3,9 +3,9 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { filterPrivatePropertiesPlugin } from "./cem-plugins/filter-private-properties.js";
-import { filterEventsPlugin } from "./cem-plugins/filter-jh-events.js";
 import { applyDeprecationsPlugin } from "./cem-plugins/apply-deprecations.js";
 import { deprecations } from "./cem-plugins/deprecations.js";
+import { sortManifestPlugin } from "./cem-plugins/sort-manifest.js";
 
 export default {
   /** Globs to analyze */
@@ -24,8 +24,7 @@ export default {
   litelement: true,
   plugins: [
     filterPrivatePropertiesPlugin(),
-    //additional prefix can be passed if needed
-    filterEventsPlugin('jh-'),
-    applyDeprecationsPlugin(deprecations)
+    applyDeprecationsPlugin(deprecations),
+    sortManifestPlugin()
   ]
 }

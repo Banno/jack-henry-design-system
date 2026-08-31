@@ -9,11 +9,11 @@
  *
  * @cssprop --jh-toast-controller-z-index - The toast controller z-index. Defaults to `--jh-z-index-positive-1000`.
  * @slot default - Use to insert `<jh-toast>` components if appending toasts manually.
- * @event jh-dismiss - Dispatched when the toast controller dismisses the oldest toast, and when toasts are dismissed manually by the user.
+ * @event jh-dismiss - Dispatched when the toast controller dismisses the oldest toast once the maximum count is exceeded.
  *
  * @customElement jh-toast-controller
  */
-export class JhToastController extends LitElement {
+export class JhToastController extends JhElement {
     static get styles(): import("lit").CSSResult;
     static get properties(): {
         maxCount: {
@@ -34,7 +34,7 @@ export class JhToastController extends LitElement {
     protected render(): import("lit").TemplateResult<1>;
     #private;
 }
-import { LitElement } from 'lit';
+import { JhElement } from '../element/element.js';
 
 declare global {
   interface HTMLElementTagNameMap {

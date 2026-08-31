@@ -37,7 +37,7 @@
  *
  * @slot jh-tag-icon - Use to insert an icon to the left of the tag.
  * @slot jh-tag-dismiss-icon - Use to insert a custom icon within the dismiss button.
- * @event jh-dismiss - Dispatched when the tag is dismissed.
+ * @event jh-dismiss - Dispatched when the tag is dismissed. Event payload includes the dismissal method of the tag and can be accessed via `e.detail.reference.dismissMethod`
  *
  * @customElement jh-tag
  */

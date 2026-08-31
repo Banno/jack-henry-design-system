@@ -62,7 +62,7 @@ import '@jack-henry/jh-icons/icons-wc/icon-xmark.js';
  * @slot jh-notification-dismiss-icon - Use to insert icon within the dismiss button. 
  * @slot jh-notification-action - Use to insert action button(s). Placed to the right of the default slot. Set `stacked` property to place slot below default slot. 
  * 
- * @event jh-dismiss - Dispatched when the notification is dismissed.
+ * @event jh-dismiss - Dispatched when the notification is dismissed. Event payload includes the dismissal method of the notification and can be accessed via `e.detail.reference.dismissMethod`
  *
  * @customElement jh-notification
  */
@@ -261,12 +261,21 @@ export class JhNotification extends JhElement {
     this.type = 'alert';
   }
 
-  #handleDismissal() {
-    this.dispatchCustomEvent('jh-dismiss');
+  #handleDismissal(e) {
+    let dismissMethod = 'unknown';
+
+    if (e.pointerType) {
+      dismissMethod = 'mouse';
+    } else if (e.detail === 0) {
+      dismissMethod = 'keyboard';
+    }
+
     // if notification is wrapped by jh-toast component, do not remove notification from DOM
     if (this.parentNode.host?.nodeName === 'JH-TOAST') {
+      this.dispatchCustomEvent('jh-dismiss', { reference: { dismissMethod: dismissMethod, originHost: 'jh-toast' } });
       return;
     } else {
+      this.dispatchCustomEvent('jh-dismiss', { reference: { dismissMethod } });
       this.remove();
     }   
   }

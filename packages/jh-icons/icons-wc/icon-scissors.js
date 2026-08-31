@@ -5,7 +5,7 @@
 */
 import {LitElement, css, html} from 'lit';
 
-export default class JhIconScissor extends LitElement {
+export default class JhIconScissors extends LitElement {
   /** @type {ElementInternals} */
   #internals;
 
@@ -91,4 +91,4 @@ export default class JhIconScissor extends LitElement {
   }
 }
 
-customElements.define('jh-icon-scissors', JhIconScissor);
+customElements.define('jh-icon-scissors', JhIconScissors);

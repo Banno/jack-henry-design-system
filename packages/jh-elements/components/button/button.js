@@ -35,6 +35,7 @@ import '../progress/progress.js';
  * @cssprop --jh-button-icon-color-fill-primary-active - The icon color when active and `appearance="primary"`. Defaults to `--jh-color-content-on-brand-active`.
  * @cssprop --jh-button-icon-color-fill-primary-disabled - The icon color when disabled and `appearance="primary"`. Defaults to `--jh-color-content-on-brand-enabled`.
  * @cssprop --jh-button-progress-color-border-primary-pending - The progress indicator border-color when `appearance="primary"`. Defaults to `--jh-color-content-on-brand-enabled`.
+ * @cssprop --jh-button-progress-track-color-border-primary-pending - The progress indicator track-color when `appearance="primary"`. Defaults to `--jh-color-control-enabled`.
  * @cssprop --jh-button-color-background-secondary-enabled - The button container background-color when enabled and `appearance="secondary"`. Defaults to `transparent`.
  * @cssprop --jh-button-color-border-secondary-enabled - The button container border-color when enabled and `appearance="secondary"`. Defaults to `--jh-border-action-color`.
  * @cssprop --jh-button-color-background-secondary-focus - The button container background-color when in focus and `appearance="secondary"`. Defaults to `--jh-color-content-brand-hover`.
@@ -58,6 +59,7 @@ import '../progress/progress.js';
  * @cssprop --jh-button-icon-color-fill-secondary-active - The icon color when active and `appearance="secondary"`. Defaults to `--jh-color-content-on-brand-active`.
  * @cssprop --jh-button-icon-color-fill-secondary-disabled - The icon color when disabled and `appearance="secondary"`. Defaults to `--jh-color-content-brand-enabled`.
  * @cssprop --jh-button-progress-color-border-secondary-pending - The progress indicator border-color when `appearance="secondary"`. Defaults to `--jh-color-content-brand-enabled`.
+ * @cssprop --jh-button-progress-track-color-border-secondary-pending - The progress indicator track-color when `appearance="secondary"`. Defaults to `--jh-color-control-enabled`.
  * @cssprop --jh-button-color-background-tertiary-enabled - The button container background-color when enabled and `appearance="tertiary"`. Defaults to `transparent`.
  * @cssprop --jh-button-color-border-tertiary-enabled - The button container border-color when enabled and `appearance="tertiary"`. Defaults to `transparent`.
  * @cssprop --jh-button-color-background-tertiary-focus - The button container background-color when in focus and `appearance="tertiary"`. Defaults to `--jh-color-content-brand-hover`.
@@ -81,6 +83,7 @@ import '../progress/progress.js';
  * @cssprop --jh-button-icon-color-fill-tertiary-active - The icon color when active and `appearance="tertiary"`. Defaults to `--jh-color-content-on-brand-active`.
  * @cssprop --jh-button-icon-color-fill-tertiary-disabled - The icon color when disabled and `appearance="tertiary"`. Defaults to `--jh-color-content-brand-enabled`.
  * @cssprop --jh-button-progress-color-border-tertiary-pending - The progress indicator border-color when `appearance="tertiary"`. Defaults to `--jh-color-content-brand-enabled`.
+ * @cssprop --jh-button-progress-track-color-border-tertiary-pending - The progress indicator track-color when `appearance="tertiary"`. Defaults to `--jh-color-control-enabled`.
  * @cssprop --jh-button-color-background-danger-enabled - The button container background-color when enabled and `appearance="danger"`. Defaults to `--jh-color-content-negative-enabled`.
  * @cssprop --jh-button-color-border-danger-enabled - The button container border-color when enabled and `appearance="danger"`. Defaults to `transparent`.
  * @cssprop --jh-button-color-background-danger-focus - The button container background-color when in focus and `appearance="danger"`. Defaults to `--jh-color-content-negative-hover`.
@@ -104,6 +107,7 @@ import '../progress/progress.js';
  * @cssprop --jh-button-icon-color-fill-danger-active - The icon color when active and `appearance="danger"`. Defaults to `--jh-color-content-on-negative-active`.
  * @cssprop --jh-button-icon-color-fill-danger-disabled - The icon color when disabled and `appearance="danger"`. Defaults to `--jh-color-content-on-negative-enabled`.
  * @cssprop --jh-button-progress-color-border-danger-pending - The progress indicator border-color when `appearance="danger"`. Defaults to `--jh-color-content-on-negative-enabled`.
+ * @cssprop --jh-button-progress-track-color-border-danger-pending - The progress indicator track-color when `appearance="danger"`. Defaults to `--jh-color-control-enabled`.
  * @cssprop --jh-button-border-radius - The button container border-radius. Defaults to `--jh-border-radius-100`.
  * @cssprop --jh-button-opacity-disabled - The button container opacity when disabled. Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-button-color-focus - The button container outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.
@@ -642,6 +646,7 @@ export class JhButton extends JhElement {
           --jh-button-progress-color-border-primary-pending,
           var(--jh-color-content-on-brand-enabled)
         );
+        --jh-progress-track-color: var(--jh-button-progress-track-color-border-primary-pending);
       }
       :host([pending][appearance='secondary']) button,
       :host([pending][appearance='secondary']) a {
@@ -659,6 +664,7 @@ export class JhButton extends JhElement {
           --jh-button-progress-color-border-secondary-pending,
           var(--jh-color-content-brand-enabled)
         );
+        --jh-progress-track-color: var(--jh-button-progress-track-color-border-secondary-pending);
       }
       :host([pending][appearance='tertiary']) button,
       :host([pending][appearance='tertiary']) a {
@@ -676,6 +682,7 @@ export class JhButton extends JhElement {
           --jh-button-progress-color-border-tertiary-pending,
           var(--jh-color-content-brand-enabled)
         );
+        --jh-progress-track-color: var(--jh-button-progress-track-color-border-tertiary-pending);
       }
       :host([pending][appearance='danger']) button,
       :host([pending][appearance='danger']) a {
@@ -693,6 +700,7 @@ export class JhButton extends JhElement {
           --jh-button-progress-color-border-danger-pending,
           var(--jh-color-content-on-negative-enabled)
         );
+        --jh-progress-track-color: var(--jh-button-progress-track-color-border-danger-pending);
       }
 
       /* Single icon styling */
@@ -902,20 +910,20 @@ export class JhButton extends JhElement {
   * @param {import('lit').PropertyValues} changedProperties
   */
   updated(changedProperties) {
-  if (changedProperties.has('size')) {
-    const iconSize = this.size === 'x-small' ? 'x-small' : 'medium';
-    const slots = this.shadowRoot.querySelectorAll('slot');
-    slots.forEach(slot => {
-    const icon = slot?.assignedElements({flatten: true})[0];
-    if (icon) {
-      icon.setAttribute('size', iconSize);
-      }
-    });
+    if (changedProperties.has('size')) {
+      const iconSize = this.size === 'x-small' ? 'x-small' : 'medium';
+      const slots = this.shadowRoot.querySelectorAll('slot');
+      slots.forEach(slot => {
+        const icon = slot?.assignedElements({flatten: true})[0];
+        if (icon) {
+          icon.setAttribute('size', iconSize);
+        }
+      });
+    }
   }
-}
-  #cacheButtonDimensions() {
-    const { width } = this.getBoundingClientRect();
 
+  #cacheButtonDimensions() {
+    const { width } = this.shadowRoot.querySelector('button, a').getBoundingClientRect();
     this.style.setProperty('--populated-button-width', `${width}px`);
   }
 

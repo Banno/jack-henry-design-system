@@ -5,7 +5,7 @@
 */
 import {LitElement, css, html} from 'lit';
 
-export default class JhIconMoonStar extends LitElement {
+export default class JhIconMoonStars extends LitElement {
   /** @type {ElementInternals} */
   #internals;
 
@@ -91,4 +91,4 @@ export default class JhIconMoonStar extends LitElement {
   }
 }
 
-customElements.define('jh-icon-moon-stars', JhIconMoonStar);
+customElements.define('jh-icon-moon-stars', JhIconMoonStars);

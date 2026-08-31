@@ -1,4 +1,3 @@
-  
 {
   "name": "@jack-henry/jh-datasets",
   "description": "Forge Design System's datasets utility",
@@ -22,5 +21,5 @@
   "scripts": {
     "prepack": "cp ../../NOTICE .",
     "postpack": "rm -f NOTICE"
-}
+  }
 }

@@ -5,7 +5,7 @@
 */
 import {LitElement, css, html} from 'lit';
 
-export default class JhIconMessageLine extends LitElement {
+export default class JhIconMessageLines extends LitElement {
   /** @type {ElementInternals} */
   #internals;
 
@@ -91,4 +91,4 @@ export default class JhIconMessageLine extends LitElement {
   }
 }
 
-customElements.define('jh-icon-message-lines', JhIconMessageLine);
+customElements.define('jh-icon-message-lines', JhIconMessageLines);

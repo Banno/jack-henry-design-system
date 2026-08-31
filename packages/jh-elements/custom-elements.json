@@ -126,6 +126,315 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/card/card.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Cards are content structures that provide an entry point for more complex and detailed information.\n\n[Card Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-card--docs)",
+          "name": "JhCard",
+          "cssProperties": [
+            {
+              "description": "The card background-color. Defaults to `--jh-color-container-primary-enabled`.",
+              "name": "--jh-card-color-background"
+            },
+            {
+              "description": "The card border-radius. Defaults to `--jh-border-radius-200`.",
+              "name": "--jh-card-border-radius"
+            },
+            {
+              "description": "The card border color. Defaults to `--jh-border-decorative-color`.",
+              "name": "--jh-card-color-border"
+            },
+            {
+              "description": "The media slot aspect-ratio. Defaults to `auto`.",
+              "name": "--jh-card-media-aspect-ratio"
+            },
+            {
+              "description": "The media slot padding. Defaults to `0`.",
+              "name": "--jh-card-media-space-padding"
+            },
+            {
+              "description": "The header text color. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-card-header-color-text"
+            },
+            {
+              "description": "The header slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600 0`. When `padding=\"small\"`, defaults to `--jh-dimension-400 --jh-dimension-400 0`. When `padding=\"small\"` and `show-header-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none'` and `show-header-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`.",
+              "name": "--jh-card-header-space-padding"
+            },
+            {
+              "description": "The default slot text color. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-card-default-color-text"
+            },
+            {
+              "description": "The default slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600`. When `padding=\"small\"`, defaults to `--jh-dimension-400`. When `padding=\"none\"`, defaults to `--jh-dimension-400 0`.",
+              "name": "--jh-card-default-space-padding"
+            },
+            {
+              "description": "The footer slot text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-card-footer-color-text"
+            },
+            {
+              "description": "The footer slot padding. Defaults to `0 --jh-dimension-600 --jh-dimension-400`. When `padding=\"small\"`, defaults to `0 --jh-dimension-400 --jh-dimension-400`. When `padding=\"small\"` and `show-footer-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none\"` and `show-footer-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`.",
+              "name": "--jh-card-footer-space-padding"
+            },
+            {
+              "description": "The header title text color. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-card-header-title-color-text"
+            },
+            {
+              "description": "The header subtitle text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-card-header-subtitle-color-text"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Use to insert card body content.",
+              "name": "default"
+            },
+            {
+              "description": "Use to insert media content in the top section of the card. User may need to add addtional styling to elements such as border, object-fit, etc.",
+              "name": "jh-card-media"
+            },
+            {
+              "description": "Use to insert custom card header layout. Default layout includes `headerTitle` and `headerSubtitle` properties.",
+              "name": "jh-card-header"
+            },
+            {
+              "description": "Use to insert card footer content.",
+              "name": "jh-card-footer"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "footerDividerInset",
+              "privacy": "public",
+              "type": {
+                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
+              },
+              "description": "Sets the alignment of the left edge of the divider above the footer.",
+              "default": "null",
+              "attribute": "footer-divider-inset"
+            },
+            {
+              "kind": "field",
+              "name": "headerDividerInset",
+              "privacy": "public",
+              "type": {
+                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
+              },
+              "description": "Sets the alignment of the left edge of the divider below the header.",
+              "default": "null",
+              "attribute": "header-divider-inset"
+            },
+            {
+              "kind": "field",
+              "name": "titleHeadingLevel",
+              "privacy": "public",
+              "type": {
+                "text": "1|2|3|4|5|6"
+              },
+              "description": "Informs assistive technologies what heading level the card title represents. Defaults to h2.",
+              "default": "2",
+              "attribute": "title-heading-level"
+            },
+            {
+              "kind": "field",
+              "name": "padding",
+              "privacy": "public",
+              "type": {
+                "text": "'small' | 'medium' | 'none'"
+              },
+              "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
+              "default": "'medium'",
+              "attribute": "padding",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "showFooterDivider",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
+              "default": "false",
+              "attribute": "show-footer-divider",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "showHeaderDivider",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a divider below the header to create a clearer definition between the header and body.",
+              "default": "false",
+              "attribute": "show-header-divider",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "headerSubtitle",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Adds additional information about the card below the title.",
+              "default": "null",
+              "attribute": "header-subtitle"
+            },
+            {
+              "kind": "field",
+              "name": "headerTitle",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Provides context for the content of the card.",
+              "default": "null",
+              "attribute": "header-title"
+            },
+            {
+              "kind": "field",
+              "name": "uniqueId",
+              "type": {
+                "text": "number"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "dispatchCustomEvent",
+              "parameters": [
+                {
+                  "name": "eventName",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "default": "{}",
+                  "optional": true,
+                  "type": {
+                    "text": "Object"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "footer-divider-inset",
+              "type": {
+                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
+              },
+              "description": "Sets the alignment of the left edge of the divider above the footer.",
+              "default": "null",
+              "fieldName": "footerDividerInset",
+              "attribute": "footer-divider-inset"
+            },
+            {
+              "name": "header-divider-inset",
+              "type": {
+                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
+              },
+              "description": "Sets the alignment of the left edge of the divider below the header.",
+              "default": "null",
+              "fieldName": "headerDividerInset",
+              "attribute": "header-divider-inset"
+            },
+            {
+              "name": "title-heading-level",
+              "type": {
+                "text": "1|2|3|4|5|6"
+              },
+              "description": "Informs assistive technologies what heading level the card title represents. Defaults to h2.",
+              "default": "2",
+              "fieldName": "titleHeadingLevel",
+              "attribute": "title-heading-level"
+            },
+            {
+              "name": "show-footer-divider",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
+              "default": "false",
+              "fieldName": "showFooterDivider",
+              "attribute": "show-footer-divider"
+            },
+            {
+              "name": "show-header-divider",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a divider below the header to create a clearer definition between the header and body.",
+              "default": "false",
+              "fieldName": "showHeaderDivider",
+              "attribute": "show-header-divider"
+            },
+            {
+              "name": "header-subtitle",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Adds additional information about the card below the title.",
+              "default": "null",
+              "fieldName": "headerSubtitle",
+              "attribute": "header-subtitle"
+            },
+            {
+              "name": "header-title",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Provides context for the content of the card.",
+              "default": "null",
+              "fieldName": "headerTitle",
+              "attribute": "header-title"
+            },
+            {
+              "name": "padding",
+              "type": {
+                "text": "'small' | 'medium' | 'none'"
+              },
+              "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
+              "default": "'medium'",
+              "fieldName": "padding"
+            }
+          ],
+          "superclass": {
+            "name": "JhElement",
+            "module": "/components/element/element.js"
+          },
+          "tagName": "jh-card",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JhCard",
+          "declaration": {
+            "name": "JhCard",
+            "module": "components/card/card.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/button/button.js",
       "declarations": [
         {
@@ -226,6 +535,10 @@
               "name": "--jh-button-progress-color-border-primary-pending"
             },
             {
+              "description": "The progress indicator track-color when `appearance=\"primary\"`. Defaults to `--jh-color-control-enabled`.",
+              "name": "--jh-button-progress-track-color-border-primary-pending"
+            },
+            {
               "description": "The button container background-color when enabled and `appearance=\"secondary\"`. Defaults to `transparent`.",
               "name": "--jh-button-color-background-secondary-enabled"
             },
@@ -316,6 +629,10 @@
             {
               "description": "The progress indicator border-color when `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-enabled`.",
               "name": "--jh-button-progress-color-border-secondary-pending"
+            },
+            {
+              "description": "The progress indicator track-color when `appearance=\"secondary\"`. Defaults to `--jh-color-control-enabled`.",
+              "name": "--jh-button-progress-track-color-border-secondary-pending"
             },
             {
               "description": "The button container background-color when enabled and `appearance=\"tertiary\"`. Defaults to `transparent`.",
@@ -410,6 +727,10 @@
               "name": "--jh-button-progress-color-border-tertiary-pending"
             },
             {
+              "description": "The progress indicator track-color when `appearance=\"tertiary\"`. Defaults to `--jh-color-control-enabled`.",
+              "name": "--jh-button-progress-track-color-border-tertiary-pending"
+            },
+            {
               "description": "The button container background-color when enabled and `appearance=\"danger\"`. Defaults to `--jh-color-content-negative-enabled`.",
               "name": "--jh-button-color-background-danger-enabled"
             },
@@ -500,6 +821,10 @@
             {
               "description": "The progress indicator border-color when `appearance=\"danger\"`. Defaults to `--jh-color-content-on-negative-enabled`.",
               "name": "--jh-button-progress-color-border-danger-pending"
+            },
+            {
+              "description": "The progress indicator track-color when `appearance=\"danger\"`. Defaults to `--jh-color-control-enabled`.",
+              "name": "--jh-button-progress-track-color-border-danger-pending"
             },
             {
               "description": "The button container border-radius. Defaults to `--jh-border-radius-100`.",
@@ -898,667 +1223,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/card/card.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Cards are content structures that provide an entry point for more complex and detailed information.\n\n[Card Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-card--docs)",
-          "name": "JhCard",
-          "cssProperties": [
-            {
-              "description": "The card background-color. Defaults to `--jh-color-container-primary-enabled`.",
-              "name": "--jh-card-color-background"
-            },
-            {
-              "description": "The card border-radius. Defaults to `--jh-border-radius-200`.",
-              "name": "--jh-card-border-radius"
-            },
-            {
-              "description": "The card border color. Defaults to `--jh-border-decorative-color`.",
-              "name": "--jh-card-color-border"
-            },
-            {
-              "description": "The media slot aspect-ratio. Defaults to `auto`.",
-              "name": "--jh-card-media-aspect-ratio"
-            },
-            {
-              "description": "The media slot padding. Defaults to `0`.",
-              "name": "--jh-card-media-space-padding"
-            },
-            {
-              "description": "The header text color. Defaults to `--jh-color-content-primary-enabled`.",
-              "name": "--jh-card-header-color-text"
-            },
-            {
-              "description": "The header slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600 0`. When `padding=\"small\"`, defaults to `--jh-dimension-400 --jh-dimension-400 0`. When `padding=\"small\"` and `show-header-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none'` and `show-header-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`.",
-              "name": "--jh-card-header-space-padding"
-            },
-            {
-              "description": "The default slot text color. Defaults to `--jh-color-content-primary-enabled`.",
-              "name": "--jh-card-default-color-text"
-            },
-            {
-              "description": "The default slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600`. When `padding=\"small\"`, defaults to `--jh-dimension-400`. When `padding=\"none\"`, defaults to `--jh-dimension-400 0`.",
-              "name": "--jh-card-default-space-padding"
-            },
-            {
-              "description": "The footer slot text color. Defaults to `--jh-color-content-secondary-enabled`.",
-              "name": "--jh-card-footer-color-text"
-            },
-            {
-              "description": "The footer slot padding. Defaults to `0 --jh-dimension-600 --jh-dimension-400`. When `padding=\"small\"`, defaults to `0 --jh-dimension-400 --jh-dimension-400`. When `padding=\"small\"` and `show-footer-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none\"` and `show-footer-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`.",
-              "name": "--jh-card-footer-space-padding"
-            },
-            {
-              "description": "The header title text color. Defaults to `--jh-color-content-primary-enabled`.",
-              "name": "--jh-card-header-title-color-text"
-            },
-            {
-              "description": "The header subtitle text color. Defaults to `--jh-color-content-secondary-enabled`.",
-              "name": "--jh-card-header-subtitle-color-text"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Use to insert card body content.",
-              "name": "default"
-            },
-            {
-              "description": "Use to insert media content in the top section of the card. User may need to add addtional styling to elements such as border, object-fit, etc.",
-              "name": "jh-card-media"
-            },
-            {
-              "description": "Use to insert custom card header layout. Default layout includes `headerTitle` and `headerSubtitle` properties.",
-              "name": "jh-card-header"
-            },
-            {
-              "description": "Use to insert card footer content.",
-              "name": "jh-card-footer"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "footerDividerInset",
-              "privacy": "public",
-              "type": {
-                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
-              },
-              "description": "Sets the alignment of the left edge of the divider above the footer.",
-              "default": "null",
-              "attribute": "footer-divider-inset"
-            },
-            {
-              "kind": "field",
-              "name": "headerDividerInset",
-              "privacy": "public",
-              "type": {
-                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
-              },
-              "description": "Sets the alignment of the left edge of the divider below the header.",
-              "default": "null",
-              "attribute": "header-divider-inset"
-            },
-            {
-              "kind": "field",
-              "name": "titleHeadingLevel",
-              "privacy": "public",
-              "type": {
-                "text": "1|2|3|4|5|6"
-              },
-              "description": "Informs assistive technologies what heading level the card title represents. Defaults to h2.",
-              "default": "2",
-              "attribute": "title-heading-level"
-            },
-            {
-              "kind": "field",
-              "name": "padding",
-              "privacy": "public",
-              "type": {
-                "text": "'small' | 'medium' | 'none'"
-              },
-              "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
-              "default": "'medium'",
-              "attribute": "padding",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "showFooterDivider",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
-              "default": "false",
-              "attribute": "show-footer-divider",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "showHeaderDivider",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a divider below the header to create a clearer definition between the header and body.",
-              "default": "false",
-              "attribute": "show-header-divider",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "headerSubtitle",
-              "privacy": "public",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Adds additional information about the card below the title.",
-              "default": "null",
-              "attribute": "header-subtitle"
-            },
-            {
-              "kind": "field",
-              "name": "headerTitle",
-              "privacy": "public",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Provides context for the content of the card.",
-              "default": "null",
-              "attribute": "header-title"
-            },
-            {
-              "kind": "field",
-              "name": "uniqueId",
-              "type": {
-                "text": "number"
-              },
-              "readonly": true,
-              "inheritedFrom": {
-                "name": "JhElement",
-                "module": "components/element/element.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "dispatchCustomEvent",
-              "parameters": [
-                {
-                  "name": "eventName",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "detail",
-                  "default": "{}",
-                  "optional": true,
-                  "type": {
-                    "text": "Object"
-                  }
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhElement",
-                "module": "components/element/element.js"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "footer-divider-inset",
-              "type": {
-                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
-              },
-              "description": "Sets the alignment of the left edge of the divider above the footer.",
-              "default": "null",
-              "fieldName": "footerDividerInset",
-              "attribute": "footer-divider-inset"
-            },
-            {
-              "name": "header-divider-inset",
-              "type": {
-                "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
-              },
-              "description": "Sets the alignment of the left edge of the divider below the header.",
-              "default": "null",
-              "fieldName": "headerDividerInset",
-              "attribute": "header-divider-inset"
-            },
-            {
-              "name": "title-heading-level",
-              "type": {
-                "text": "1|2|3|4|5|6"
-              },
-              "description": "Informs assistive technologies what heading level the card title represents. Defaults to h2.",
-              "default": "2",
-              "fieldName": "titleHeadingLevel",
-              "attribute": "title-heading-level"
-            },
-            {
-              "name": "show-footer-divider",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
-              "default": "false",
-              "fieldName": "showFooterDivider",
-              "attribute": "show-footer-divider"
-            },
-            {
-              "name": "show-header-divider",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a divider below the header to create a clearer definition between the header and body.",
-              "default": "false",
-              "fieldName": "showHeaderDivider",
-              "attribute": "show-header-divider"
-            },
-            {
-              "name": "header-subtitle",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Adds additional information about the card below the title.",
-              "default": "null",
-              "fieldName": "headerSubtitle",
-              "attribute": "header-subtitle"
-            },
-            {
-              "name": "header-title",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Provides context for the content of the card.",
-              "default": "null",
-              "fieldName": "headerTitle",
-              "attribute": "header-title"
-            },
-            {
-              "name": "padding",
-              "type": {
-                "text": "'small' | 'medium' | 'none'"
-              },
-              "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
-              "default": "'medium'",
-              "fieldName": "padding"
-            }
-          ],
-          "superclass": {
-            "name": "JhElement",
-            "module": "/components/element/element.js"
-          },
-          "tagName": "jh-card",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JhCard",
-          "declaration": {
-            "name": "JhCard",
-            "module": "components/card/card.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/element/element.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JhElement",
-          "members": [
-            {
-              "kind": "field",
-              "name": "uniqueId",
-              "type": {
-                "text": "number"
-              },
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "dispatchCustomEvent",
-              "parameters": [
-                {
-                  "name": "eventName",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "detail",
-                  "default": "{}",
-                  "optional": true,
-                  "type": {
-                    "text": "Object"
-                  }
-                }
-              ]
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JhElement",
-          "declaration": {
-            "name": "JhElement",
-            "module": "components/element/element.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "tagName",
-          "declaration": {
-            "name": "targetClass",
-            "module": "components/element/element.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/checkbox-group/checkbox-group.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Checkbox groups contain sets of checkboxes where several options can be selected.\n\n[Checkbox Group Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-checkbox-group--docs)",
-          "name": "JhCheckboxGroup",
-          "cssProperties": [
-            {
-              "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`.",
-              "name": "--jh-checkbox-group-label-color-text"
-            },
-            {
-              "description": "The opacity of the checkbox group when disabled. Defaults to `--jh-opacity-disabled`.",
-              "name": "--jh-checkbox-group-opacity-disabled"
-            },
-            {
-              "description": "The required indicator color. Defaults to `--jh-color-content-negative-enabled`.",
-              "name": "--jh-checkbox-group-required-color-text"
-            },
-            {
-              "description": "The optional indicator text color. Defaults to `--jh-color-content-primary-enabled`.",
-              "name": "--jh-checkbox-group-required-color-text-optional"
-            },
-            {
-              "description": "The helper-text text color. Defaults to `--jh-color-content-secondary-enabled`.",
-              "name": "--jh-checkbox-group-helper-color-text"
-            },
-            {
-              "description": "The error-text text color. Defaults to `--jh-color-content-negative-enabled`.",
-              "name": "--jh-checkbox-group-error-color-text"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Use to insert `<jh-checkbox>` component(s).",
-              "name": "default"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "disabled",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Disables the checkbox group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
-              "default": "false",
-              "attribute": "disabled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "accessibleLabel",
-              "privacy": "public",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-              "default": "null",
-              "attribute": "accessible-label"
-            },
-            {
-              "kind": "field",
-              "name": "errorText",
-              "privacy": "public",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Text to be displayed when checkbox group has failed validation and `invalid` is true.",
-              "default": "null",
-              "attribute": "error-text"
-            },
-            {
-              "kind": "field",
-              "name": "helperText",
-              "privacy": "public",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Provides additional context or guidance for using the checkbox group. For `helper-text` to be displayed, the `label` property must also be set.",
-              "default": "null",
-              "attribute": "helper-text"
-            },
-            {
-              "kind": "field",
-              "name": "invalid",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Sets an `aria-invalid` on the checkbox group to indicate the value supplied was invalid and displays `error-text` when set.",
-              "default": "false",
-              "attribute": "invalid",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "privacy": "public",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Describes the type of data to be collected.",
-              "default": "null",
-              "attribute": "label"
-            },
-            {
-              "kind": "field",
-              "name": "required",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Indicates a value is required.",
-              "default": "false",
-              "attribute": "required",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "orientation",
-              "privacy": "public",
-              "type": {
-                "text": "'vertical' | 'horizontal'"
-              },
-              "description": "Determines the orientation of the checkbox group.",
-              "default": "'vertical'",
-              "attribute": "orientation",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "showIndicator",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required` property is also set. For the indicator to be displayed, the `label` property must also be set.",
-              "default": "false",
-              "attribute": "show-indicator",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "uniqueId",
-              "type": {
-                "text": "number"
-              },
-              "readonly": true,
-              "inheritedFrom": {
-                "name": "JhElement",
-                "module": "components/element/element.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "dispatchCustomEvent",
-              "parameters": [
-                {
-                  "name": "eventName",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "detail",
-                  "default": "{}",
-                  "optional": true,
-                  "type": {
-                    "text": "Object"
-                  }
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhElement",
-                "module": "components/element/element.js"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "accessible-label",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-              "default": "null",
-              "fieldName": "accessibleLabel",
-              "attribute": "accessible-label"
-            },
-            {
-              "name": "error-text",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Text to be displayed when checkbox group has failed validation and `invalid` is true.",
-              "default": "null",
-              "fieldName": "errorText",
-              "attribute": "error-text"
-            },
-            {
-              "name": "helper-text",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Provides additional context or guidance for using the checkbox group. For `helper-text` to be displayed, the `label` property must also be set.",
-              "default": "null",
-              "fieldName": "helperText",
-              "attribute": "helper-text"
-            },
-            {
-              "name": "show-indicator",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required` property is also set. For the indicator to be displayed, the `label` property must also be set.",
-              "default": "false",
-              "fieldName": "showIndicator",
-              "attribute": "show-indicator"
-            },
-            {
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Disables the checkbox group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
-              "default": "false",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "invalid",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Sets an `aria-invalid` on the checkbox group to indicate the value supplied was invalid and displays `error-text` when set.",
-              "default": "false",
-              "fieldName": "invalid"
-            },
-            {
-              "name": "label",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Describes the type of data to be collected.",
-              "default": "null",
-              "fieldName": "label"
-            },
-            {
-              "name": "required",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Indicates a value is required.",
-              "default": "false",
-              "fieldName": "required"
-            },
-            {
-              "name": "orientation",
-              "type": {
-                "text": "'vertical' | 'horizontal'"
-              },
-              "description": "Determines the orientation of the checkbox group.",
-              "default": "'vertical'",
-              "fieldName": "orientation"
-            }
-          ],
-          "superclass": {
-            "name": "JhElement",
-            "module": "/components/element/element.js"
-          },
-          "tagName": "jh-checkbox-group",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JhCheckboxGroup",
-          "declaration": {
-            "name": "JhCheckboxGroup",
-            "module": "components/checkbox-group/checkbox-group.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/divider/divider.js",
       "declarations": [
         {
@@ -1579,7 +1243,7 @@
               "name": "--jh-divider-color-border"
             },
             {
-              "description": "The divider margin-left. Defaults to `0`.",
+              "description": "The horizontal divider margin-left. Defaults to `0`.",
               "name": "--jh-divider-space-inset"
             }
           ],
@@ -1591,9 +1255,21 @@
               "type": {
                 "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
               },
-              "description": "The alignment of the left edge of the divider.",
+              "description": "The alignment of the left edge of the horizontal divider.",
               "default": "null",
               "attribute": "inset",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "orientation",
+              "privacy": "public",
+              "type": {
+                "text": "'horizontal'|'vertical'"
+              },
+              "description": "The orientation of the divider.",
+              "default": "'horizontal'",
+              "attribute": "orientation",
               "reflects": true
             },
             {
@@ -1639,9 +1315,18 @@
               "type": {
                 "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
               },
-              "description": "The alignment of the left edge of the divider.",
+              "description": "The alignment of the left edge of the horizontal divider.",
               "default": "null",
               "fieldName": "inset"
+            },
+            {
+              "name": "orientation",
+              "type": {
+                "text": "'horizontal'|'vertical'"
+              },
+              "description": "The orientation of the divider.",
+              "default": "'horizontal'",
+              "fieldName": "orientation"
             }
           ],
           "superclass": {
@@ -2008,7 +1693,7 @@
           ],
           "events": [
             {
-              "description": "Dispatched when the state of the checkbox has changed. Event payload includes the `checked` state of the checkbox and can be accessed via `e.detail.state.checked`.",
+              "description": "Dispatched when the state of the checkbox has changed. Event payload includes the value and checked state of the checkbox and can be accessed via `e.detail.state.value` and `e.detail.state.checked`.",
               "name": "jh-change"
             }
           ],
@@ -2127,6 +1812,496 @@
           "declaration": {
             "name": "JhCheckbox",
             "module": "components/checkbox/checkbox.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/checkbox-group/checkbox-group.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Checkbox groups contain sets of checkboxes where several options can be selected.\n\n[Checkbox Group Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-checkbox-group--docs)",
+          "name": "JhCheckboxGroup",
+          "cssProperties": [
+            {
+              "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-checkbox-group-label-color-text"
+            },
+            {
+              "description": "The opacity of the checkbox group when disabled. Defaults to `--jh-opacity-disabled`.",
+              "name": "--jh-checkbox-group-opacity-disabled"
+            },
+            {
+              "description": "The required indicator color. Defaults to `--jh-color-content-negative-enabled`.",
+              "name": "--jh-checkbox-group-required-color-text"
+            },
+            {
+              "description": "The optional indicator text color. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-checkbox-group-required-color-text-optional"
+            },
+            {
+              "description": "The helper-text text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-checkbox-group-helper-color-text"
+            },
+            {
+              "description": "The error-text text color. Defaults to `--jh-color-content-negative-enabled`.",
+              "name": "--jh-checkbox-group-error-color-text"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Use to insert `<jh-checkbox>` component(s).",
+              "name": "default"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Disables the checkbox group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "accessibleLabel",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+              "default": "null",
+              "attribute": "accessible-label"
+            },
+            {
+              "kind": "field",
+              "name": "errorText",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to be displayed when checkbox group has failed validation and `invalid` is true.",
+              "default": "null",
+              "attribute": "error-text"
+            },
+            {
+              "kind": "field",
+              "name": "helperText",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Provides additional context or guidance for using the checkbox group. For `helper-text` to be displayed, the `label` property must also be set.",
+              "default": "null",
+              "attribute": "helper-text"
+            },
+            {
+              "kind": "field",
+              "name": "invalid",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Sets an `aria-invalid` on the checkbox group to indicate the value supplied was invalid and displays `error-text` when set.",
+              "default": "false",
+              "attribute": "invalid",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Describes the type of data to be collected.",
+              "default": "null",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Indicates a value is required.",
+              "default": "false",
+              "attribute": "required",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "orientation",
+              "privacy": "public",
+              "type": {
+                "text": "'vertical' | 'horizontal'"
+              },
+              "description": "Determines the orientation of the checkbox group.",
+              "default": "'vertical'",
+              "attribute": "orientation",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "showIndicator",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required` property is also set. For the indicator to be displayed, the `label` property must also be set.",
+              "default": "false",
+              "attribute": "show-indicator",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "uniqueId",
+              "type": {
+                "text": "number"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "dispatchCustomEvent",
+              "parameters": [
+                {
+                  "name": "eventName",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "default": "{}",
+                  "optional": true,
+                  "type": {
+                    "text": "Object"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            }
+          ],
+          "events": [
+            {
+              "description": "Fired when the selection of checkboxes is changed by the user. Event payload includes both current and previous selections, accessible via `e.detail.state.selectedValue` and `e.detail.state.previousSelectedValue`.",
+              "name": "jh-change"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "accessible-label",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+              "default": "null",
+              "fieldName": "accessibleLabel",
+              "attribute": "accessible-label"
+            },
+            {
+              "name": "error-text",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to be displayed when checkbox group has failed validation and `invalid` is true.",
+              "default": "null",
+              "fieldName": "errorText",
+              "attribute": "error-text"
+            },
+            {
+              "name": "helper-text",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Provides additional context or guidance for using the checkbox group. For `helper-text` to be displayed, the `label` property must also be set.",
+              "default": "null",
+              "fieldName": "helperText",
+              "attribute": "helper-text"
+            },
+            {
+              "name": "show-indicator",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required` property is also set. For the indicator to be displayed, the `label` property must also be set.",
+              "default": "false",
+              "fieldName": "showIndicator",
+              "attribute": "show-indicator"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Disables the checkbox group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).",
+              "default": "false",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "invalid",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Sets an `aria-invalid` on the checkbox group to indicate the value supplied was invalid and displays `error-text` when set.",
+              "default": "false",
+              "fieldName": "invalid"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Describes the type of data to be collected.",
+              "default": "null",
+              "fieldName": "label"
+            },
+            {
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Indicates a value is required.",
+              "default": "false",
+              "fieldName": "required"
+            },
+            {
+              "name": "orientation",
+              "type": {
+                "text": "'vertical' | 'horizontal'"
+              },
+              "description": "Determines the orientation of the checkbox group.",
+              "default": "'vertical'",
+              "fieldName": "orientation"
+            }
+          ],
+          "superclass": {
+            "name": "JhElement",
+            "module": "/components/element/element.js"
+          },
+          "tagName": "jh-checkbox-group",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JhCheckboxGroup",
+          "declaration": {
+            "name": "JhCheckboxGroup",
+            "module": "components/checkbox-group/checkbox-group.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/element/element.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "JhElement",
+          "members": [
+            {
+              "kind": "field",
+              "name": "uniqueId",
+              "type": {
+                "text": "number"
+              },
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "dispatchCustomEvent",
+              "parameters": [
+                {
+                  "name": "eventName",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "default": "{}",
+                  "optional": true,
+                  "type": {
+                    "text": "Object"
+                  }
+                }
+              ]
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JhElement",
+          "declaration": {
+            "name": "JhElement",
+            "module": "components/element/element.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "tagName",
+          "declaration": {
+            "name": "targetClass",
+            "module": "components/element/element.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/icon/icon.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The icon component provides authors with a means to use their own SVG icons while still enabling access\nto our design tokens, encouraging consistency across your product. In addition to the icon component, Jack Henry \nalso maintains a robust icon library available as raw SVGs and as discrete web components, with each component \nutilizing our design tokens.\n\n[Icon Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-icon--docs)",
+          "name": "JhIcon",
+          "cssProperties": [
+            {
+              "description": "The icon color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-icon-color-fill"
+            },
+            {
+              "description": "The icon size when `size=\"extra-small\"`. Defaults to `--jh-dimension-400`.",
+              "name": "--jh-icon-size-extra-small"
+            },
+            {
+              "description": "The icon size when `size=\"small\"`. Defaults to `--jh-dimension-500`.",
+              "name": "--jh-icon-size-small"
+            },
+            {
+              "description": "The icon size when `size=\"medium\"`. Defaults to `--jh-dimension-600`.",
+              "name": "--jh-icon-size-medium"
+            },
+            {
+              "description": "The icon size when `size=\"large\"`. Defaults to `--jh-dimension-900`.",
+              "name": "--jh-icon-size-large"
+            },
+            {
+              "description": "The icon size when `size=\"extra-large\"`. Defaults to `--jh-dimension-1400`.",
+              "name": "--jh-icon-size-extra-large"
+            },
+            {
+              "description": "The icon size when `size=\"extra-extra-large\"`. Defaults to `--jh-dimension-2100`.",
+              "name": "--jh-icon-size-extra-extra-large"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Use to insert the icon SVG content.",
+              "name": "default"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "ariaHidden",
+              "type": {
+                "text": "string"
+              },
+              "default": "'true'"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "privacy": "public",
+              "type": {
+                "text": "'x-small' | 'small' | 'medium' | 'large' | 'x-large'|'xx-large'"
+              },
+              "description": "Sets the size of the icon.",
+              "default": "'medium'",
+              "attribute": "size",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "uniqueId",
+              "type": {
+                "text": "number"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "dispatchCustomEvent",
+              "parameters": [
+                {
+                  "name": "eventName",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "default": "{}",
+                  "optional": true,
+                  "type": {
+                    "text": "Object"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "size",
+              "type": {
+                "text": "'x-small' | 'small' | 'medium' | 'large' | 'x-large'|'xx-large'"
+              },
+              "description": "Sets the size of the icon.",
+              "default": "'medium'",
+              "fieldName": "size"
+            }
+          ],
+          "superclass": {
+            "name": "JhElement",
+            "module": "/components/element/element.js"
+          },
+          "tagName": "jh-icon",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JhIcon",
+          "declaration": {
+            "name": "JhIcon",
+            "module": "components/icon/icon.js"
           }
         }
       ]
@@ -2263,6 +2438,10 @@
             {
               "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`.",
               "name": "--jh-input-error-color-text"
+            },
+            {
+              "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large.",
+              "name": "--jh-input-size"
             }
           ],
           "slots": [
@@ -2592,7 +2771,7 @@
           ],
           "events": [
             {
-              "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.",
+              "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.",
               "name": "jh-select"
             },
             {
@@ -2863,138 +3042,6 @@
           "declaration": {
             "name": "JhInput",
             "module": "components/input/input.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/icon/icon.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The icon component provides authors with a means to use their own SVG icons while still enabling access\nto our design tokens, encouraging consistency across your product. In addition to the icon component, Jack Henry \nalso maintains a robust icon library available as raw SVGs and as discrete web components, with each component \nutilizing our design tokens.\n\n[Icon Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-icon--docs)",
-          "name": "JhIcon",
-          "cssProperties": [
-            {
-              "description": "The icon color. Defaults to `--jh-color-content-secondary-enabled`.",
-              "name": "--jh-icon-color-fill"
-            },
-            {
-              "description": "The icon size when `size=\"extra-small\"`. Defaults to `--jh-dimension-400`.",
-              "name": "--jh-icon-size-extra-small"
-            },
-            {
-              "description": "The icon size when `size=\"small\"`. Defaults to `--jh-dimension-500`.",
-              "name": "--jh-icon-size-small"
-            },
-            {
-              "description": "The icon size when `size=\"medium\"`. Defaults to `--jh-dimension-600`.",
-              "name": "--jh-icon-size-medium"
-            },
-            {
-              "description": "The icon size when `size=\"large\"`. Defaults to `--jh-dimension-900`.",
-              "name": "--jh-icon-size-large"
-            },
-            {
-              "description": "The icon size when `size=\"extra-large\"`. Defaults to `--jh-dimension-1400`.",
-              "name": "--jh-icon-size-extra-large"
-            },
-            {
-              "description": "The icon size when `size=\"extra-extra-large\"`. Defaults to `--jh-dimension-2100`.",
-              "name": "--jh-icon-size-extra-extra-large"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Use to insert the icon SVG content.",
-              "name": "default"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "ariaHidden",
-              "type": {
-                "text": "string"
-              },
-              "default": "'true'"
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "privacy": "public",
-              "type": {
-                "text": "'x-small' | 'small' | 'medium' | 'large' | 'x-large'|'xx-large'"
-              },
-              "description": "Sets the size of the icon.",
-              "default": "'medium'",
-              "attribute": "size",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "uniqueId",
-              "type": {
-                "text": "number"
-              },
-              "readonly": true,
-              "inheritedFrom": {
-                "name": "JhElement",
-                "module": "components/element/element.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "dispatchCustomEvent",
-              "parameters": [
-                {
-                  "name": "eventName",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "detail",
-                  "default": "{}",
-                  "optional": true,
-                  "type": {
-                    "text": "Object"
-                  }
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhElement",
-                "module": "components/element/element.js"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "size",
-              "type": {
-                "text": "'x-small' | 'small' | 'medium' | 'large' | 'x-large'|'xx-large'"
-              },
-              "description": "Sets the size of the icon.",
-              "default": "'medium'",
-              "fieldName": "size"
-            }
-          ],
-          "superclass": {
-            "name": "JhElement",
-            "module": "/components/element/element.js"
-          },
-          "tagName": "jh-icon",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JhIcon",
-          "declaration": {
-            "name": "JhIcon",
-            "module": "components/icon/icon.js"
           }
         }
       ]
@@ -3694,6 +3741,14 @@
                 "name": "JhInput",
                 "module": "components/input/input.js"
               }
+            },
+            {
+              "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large.",
+              "name": "--jh-input-size",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
             }
           ],
           "attributes": [
@@ -4030,7 +4085,7 @@
           ],
           "events": [
             {
-              "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.",
+              "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.",
               "name": "jh-select",
               "inheritedFrom": {
                 "name": "JhInput",
@@ -4079,6 +4134,1222 @@
           "declaration": {
             "name": "JhInputEmail",
             "module": "components/input-email/input-email.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/input-number/input-number.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Input Number",
+          "name": "JhInputNumber",
+          "cssProperties": [
+            {
+              "description": "The button container border-radius. Defaults to `--jh-border-radius-100`.",
+              "name": "--jh-input-number-stepper-border-radius"
+            },
+            {
+              "description": "The stepper button background-color when enabled. Defaults to `transparent`.",
+              "name": "--jh-input-number-stepper-color-background-enabled"
+            },
+            {
+              "description": "The stepper button border-color when enabled. Defaults to `transparent`.",
+              "name": "--jh-input-number-stepper-color-border-enabled"
+            },
+            {
+              "description": "The stepper button icon color when enabled. Defaults to `--jh-color-content-brand-enabled`.",
+              "name": "--jh-input-number-stepper-icon-color-fill-enabled"
+            },
+            {
+              "description": "The stepper button background-color when hovered. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-input-number-stepper-color-background-hover"
+            },
+            {
+              "description": "The stepper button border-color when hovered. Defaults to `transparent`.",
+              "name": "--jh-input-number-stepper-color-border-hover"
+            },
+            {
+              "description": "The stepper button icon color when hovered. Defaults to `--jh-color-content-on-brand-hover`.",
+              "name": "--jh-input-number-stepper-icon-color-fill-hover"
+            },
+            {
+              "description": "The stepper button background-color when active. Defaults to `--jh-color-content-brand-active`.",
+              "name": "--jh-input-number-stepper-color-background-active"
+            },
+            {
+              "description": "The stepper button border-color when active. Defaults to `transparent`.",
+              "name": "--jh-input-number-stepper-color-border-active"
+            },
+            {
+              "description": "The stepper button icon color when active. Defaults to `--jh-color-content-on-brand-active`.",
+              "name": "--jh-input-number-stepper-icon-color-fill-active"
+            },
+            {
+              "description": "The stepper button icon color when disabled. Defaults to `--jh-color-content-brand-enabled`.",
+              "name": "--jh-input-number-stepper-icon-color-fill-disabled"
+            },
+            {
+              "description": "The stepper button border-color when disabled. Defaults to `transparent`.",
+              "name": "--jh-input-number-stepper-color-border-disabled"
+            },
+            {
+              "description": "The stepper button background-color when disabled. Defaults to `transparent`.",
+              "name": "--jh-input-number-stepper-color-background-disabled"
+            },
+            {
+              "description": "The stepper button opacity when disabled. Defaults to `--jh-opacity-disabled`.",
+              "name": "--jh-input-number-stepper-opacity-disabled"
+            },
+            {
+              "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-input-label-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`.",
+              "name": "--jh-input-field-color-background",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The input field border-color. Defaults to `--jh-border-control-color`.",
+              "name": "--jh-input-field-color-border-enabled",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The input field border radius. Defaults to `--jh-border-radius-100`.",
+              "name": "--jh-input-field-border-radius",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The input field outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.",
+              "name": "--jh-input-color-focus",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The input field border-color when in focus. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-input-field-color-border-focus",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The input field border-color when hovered. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-input-field-color-border-hover",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
+              "name": "--jh-input-field-color-border-active",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The input field border-color when disabled. Defaults to `--jh-border-control-color`.",
+              "name": "--jh-input-field-color-border-disabled",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The input opacity when disabled. Defaults to `--jh-opacity-disabled`.",
+              "name": "--jh-input-opacity-disabled",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The input field border-color when invalid. Defaults to `--jh-border-error-color`.",
+              "name": "--jh-input-field-color-border-error",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button border radius. Defaults to `--jh-border-radius-100`.",
+              "name": "--jh-input-clear-border-radius",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button background-color. Defaults to `transparent`.",
+              "name": "--jh-input-clear-color-background-enabled",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button border-color. Defaults to `transparent`.",
+              "name": "--jh-input-clear-color-border-enabled",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button icon fill color. Defaults to `--jh-color-content-brand-enabled`.",
+              "name": "--jh-input-clear-icon-color-fill-enabled",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button background-color when in focus. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-input-clear-color-background-focus",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button border-color when in focus. Defaults to `transparent`.",
+              "name": "--jh-input-clear-color-border-focus",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.",
+              "name": "--jh-input-clear-color-focus",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`.",
+              "name": "--jh-input-clear-icon-color-fill-focus",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button background-color when hovered. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-input-clear-color-background-hover",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button border-color when hovered. Defaults to `transparent`.",
+              "name": "--jh-input-clear-color-border-hover",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`.",
+              "name": "--jh-input-clear-icon-color-fill-hover",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button background-color when active. Defaults to `--jh-color-content-brand-active`.",
+              "name": "--jh-input-clear-color-background-active",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button border-color when active. Defaults to `transparent`.",
+              "name": "--jh-input-clear-color-border-active",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`.",
+              "name": "--jh-input-clear-icon-color-fill-active",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The required indicator color. Defaults to `jh-color-content-negative-enabled`.",
+              "name": "--jh-input-required-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The optional indicator text color. Defaults to `jh-color-content-primary-enabled`.",
+              "name": "--jh-input-optional-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The helper-text text color. Defaults to `jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-helper-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The character counter text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-counter-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The value text color. Defaults to `jh-color-content-primary-enabled`.",
+              "name": "--jh-input-value-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`.",
+              "name": "--jh-input-error-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large.",
+              "name": "--jh-input-size",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            }
+          ],
+          "slots": [
+            {
+              "description": "Use to insert an icon in the increment stepper button.",
+              "name": "jh-input-number-stepper-increment"
+            },
+            {
+              "description": "Use to insert an icon in the decrement stepper button.",
+              "name": "jh-input-number-stepper-decrement"
+            },
+            {
+              "description": "Use to insert an element on the left side of the input field, such as an icon or button.",
+              "name": "jh-input-left",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "Use to insert an element on the right side of the input field, such as an icon or button.",
+              "name": "jh-input-right",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "Use to insert an icon within the clear button.",
+              "name": "jh-input-clear-button",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "max",
+              "privacy": "public",
+              "type": {
+                "text": "?number"
+              },
+              "description": "Sets the maximum value for the input number.",
+              "default": "null",
+              "attribute": "max"
+            },
+            {
+              "kind": "field",
+              "name": "min",
+              "privacy": "public",
+              "type": {
+                "text": "?number"
+              },
+              "description": "Sets the minimum value for the input number.",
+              "default": "null",
+              "attribute": "min"
+            },
+            {
+              "kind": "field",
+              "name": "step",
+              "privacy": "public",
+              "type": {
+                "text": "number"
+              },
+              "description": "Sets the stepper buttons increment and decrement the value.",
+              "default": "1",
+              "attribute": "step"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets the value of the input.",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "string | null"
+                  }
+                }
+              ],
+              "default": "null",
+              "attribute": "value",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "accessibleLabel",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
+              "default": "null",
+              "attribute": "accessible-label",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "accessibleLabelClearButton",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets an aria-label on the clear button to assist screen reader users. Indicates that activating the button will clear the input field.",
+              "default": "null",
+              "attribute": "accessible-label-clear-button",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "autocomplete",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Determines whether the browser can provide assistance in filling out the input value and what type of information is expected.\nThis property will override any autocomplete attribute present on the input's parent form element.\n\n[Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)",
+              "default": "null",
+              "attribute": "autocomplete",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Disables the input and prevents all user interactions. May cause the input to be ignored by assistive technologies (AT).",
+              "default": "false",
+              "attribute": "disabled",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "enterkeyhint",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Specifies which action label or icon to present for the enter key on virtual keyboards.\n\n[Visit MDN for information on supported enterkeyhint values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint)",
+              "default": "null",
+              "attribute": "enterkeyhint",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "errorText",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to be displayed when input has failed validation and `invalid` is true.",
+              "default": "null",
+              "attribute": "error-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "helperText",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Provides additional context or guidance for using the input. For `helper-text` to be displayed, the `label` property must also be set.",
+              "default": "null",
+              "attribute": "helper-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "hideLeftSlot",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the left slot from input.",
+              "default": "false",
+              "attribute": "hide-left-slot",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "hideRightSlot",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the right slot from input.",
+              "default": "false",
+              "attribute": "hide-right-slot",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "inputMask",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
+              "default": "null",
+              "attribute": "input-mask",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "inputmode",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.\n\n[Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)",
+              "default": "null",
+              "attribute": "inputmode",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "invalid",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
+              "default": "false",
+              "attribute": "invalid",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Identifies what data should be entered into the input field.",
+              "default": "null",
+              "attribute": "label",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "maxlength",
+              "privacy": "public",
+              "type": {
+                "text": "number | null"
+              },
+              "description": "Sets the maximum number of characters a user can enter into the field.",
+              "default": "null",
+              "attribute": "maxlength",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "minlength",
+              "privacy": "public",
+              "type": {
+                "text": "number | null"
+              },
+              "description": "Sets the minimum number of characters a user can enter into the field.",
+              "default": "null",
+              "attribute": "minlength",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets a name for the input control.",
+              "default": "null",
+              "attribute": "name",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "pattern",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets the pattern attribute on the input field.",
+              "default": "null",
+              "attribute": "pattern",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "readonly",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Prevents users from changing the input value. Removes all slotted content.",
+              "default": "false",
+              "attribute": "readonly",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Indicates a value is required.",
+              "default": "false",
+              "attribute": "required",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "showCharCount",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays a character counter at the bottom right corner below the input field.",
+              "default": "false",
+              "attribute": "show-char-count",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "showClearButton",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays a clear button in the input field when it contains a value and is focused or hovered. Deletes input value when activated.",
+              "default": "false",
+              "attribute": "show-clear-button",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "showIndicator",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a visual indicator next to the label. Indicates that a value is optional(by default) or required if the `required` property is also set.",
+              "default": "false",
+              "attribute": "show-indicator",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "privacy": "public",
+              "type": {
+                "text": "'small' | 'medium' | 'large'"
+              },
+              "description": "Sets the size of the input.",
+              "default": "'medium'",
+              "attribute": "size",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "uniqueId",
+              "type": {
+                "text": "number"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "dispatchCustomEvent",
+              "parameters": [
+                {
+                  "name": "eventName",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "default": "{}",
+                  "optional": true,
+                  "type": {
+                    "text": "Object"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "max",
+              "type": {
+                "text": "?number"
+              },
+              "description": "Sets the maximum value for the input number.",
+              "default": "null",
+              "fieldName": "max"
+            },
+            {
+              "name": "min",
+              "type": {
+                "text": "?number"
+              },
+              "description": "Sets the minimum value for the input number.",
+              "default": "null",
+              "fieldName": "min"
+            },
+            {
+              "name": "step",
+              "type": {
+                "text": "number"
+              },
+              "description": "Sets the stepper buttons increment and decrement the value.",
+              "default": "1",
+              "fieldName": "step"
+            },
+            {
+              "name": "accessible-label",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
+              "default": "null",
+              "fieldName": "accessibleLabel",
+              "attribute": "accessible-label",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "accessible-label-clear-button",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets an aria-label on the clear button to assist screen reader users. Indicates that activating the button will clear the input field.",
+              "default": "null",
+              "fieldName": "accessibleLabelClearButton",
+              "attribute": "accessible-label-clear-button",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "error-text",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to be displayed when input has failed validation and `invalid` is true.",
+              "default": "null",
+              "fieldName": "errorText",
+              "attribute": "error-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "helper-text",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Provides additional context or guidance for using the input. For `helper-text` to be displayed, the `label` property must also be set.",
+              "default": "null",
+              "fieldName": "helperText",
+              "attribute": "helper-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "hide-left-slot",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the left slot from input.",
+              "default": "false",
+              "fieldName": "hideLeftSlot",
+              "attribute": "hide-left-slot",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "hide-right-slot",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the right slot from input.",
+              "default": "false",
+              "fieldName": "hideRightSlot",
+              "attribute": "hide-right-slot",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "input-mask",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
+              "default": "null",
+              "fieldName": "inputMask",
+              "attribute": "input-mask",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "show-char-count",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays a character counter at the bottom right corner below the input field.",
+              "default": "false",
+              "fieldName": "showCharCount",
+              "attribute": "show-char-count",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "show-clear-button",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays a clear button in the input field when it contains a value and is focused or hovered. Deletes input value when activated.",
+              "default": "false",
+              "fieldName": "showClearButton",
+              "attribute": "show-clear-button",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "show-indicator",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a visual indicator next to the label. Indicates that a value is optional(by default) or required if the `required` property is also set.",
+              "default": "false",
+              "fieldName": "showIndicator",
+              "attribute": "show-indicator",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "autocomplete",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Determines whether the browser can provide assistance in filling out the input value and what type of information is expected.\nThis property will override any autocomplete attribute present on the input's parent form element.\n\n[Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)",
+              "default": "null",
+              "fieldName": "autocomplete",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Disables the input and prevents all user interactions. May cause the input to be ignored by assistive technologies (AT).",
+              "default": "false",
+              "fieldName": "disabled",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "enterkeyhint",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Specifies which action label or icon to present for the enter key on virtual keyboards.\n\n[Visit MDN for information on supported enterkeyhint values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint)",
+              "default": "null",
+              "fieldName": "enterkeyhint",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "inputmode",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.\n\n[Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)",
+              "default": "null",
+              "fieldName": "inputmode",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "invalid",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
+              "default": "false",
+              "fieldName": "invalid",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Identifies what data should be entered into the input field.",
+              "default": "null",
+              "fieldName": "label",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "maxlength",
+              "type": {
+                "text": "number | null"
+              },
+              "description": "Sets the maximum number of characters a user can enter into the field.",
+              "default": "null",
+              "fieldName": "maxlength",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "minlength",
+              "type": {
+                "text": "number | null"
+              },
+              "description": "Sets the minimum number of characters a user can enter into the field.",
+              "default": "null",
+              "fieldName": "minlength",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets a name for the input control.",
+              "default": "null",
+              "fieldName": "name",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "pattern",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets the pattern attribute on the input field.",
+              "default": "null",
+              "fieldName": "pattern",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "readonly",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Prevents users from changing the input value. Removes all slotted content.",
+              "default": "false",
+              "fieldName": "readonly",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Indicates a value is required.",
+              "default": "false",
+              "fieldName": "required",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "'small' | 'medium' | 'large'"
+              },
+              "description": "Sets the size of the input.",
+              "default": "'medium'",
+              "fieldName": "size",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets the value of the input.",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "string | null"
+                  }
+                }
+              ],
+              "default": "null",
+              "fieldName": "value",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "JhInput",
+            "module": "/components/input/input.js"
+          },
+          "tagName": "jh-input-number",
+          "customElement": true,
+          "events": [
+            {
+              "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.",
+              "name": "jh-select",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.",
+              "name": "jh-change",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.",
+              "name": "jh-input",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`.",
+              "name": "jh-maxlength",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`.",
+              "name": "jh-input:clear-button-click",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JhInputNumber",
+          "declaration": {
+            "name": "JhInputNumber",
+            "module": "components/input-number/input-number.js"
           }
         }
       ]
@@ -5182,11 +6453,19 @@
                 "name": "JhInput",
                 "module": "components/input/input.js"
               }
+            },
+            {
+              "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large.",
+              "name": "--jh-input-size",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
             }
           ],
           "events": [
             {
-              "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.",
+              "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.",
               "name": "jh-select",
               "inheritedFrom": {
                 "name": "JhInput",
@@ -5934,6 +7213,14 @@
                 "name": "JhInput",
                 "module": "components/input/input.js"
               }
+            },
+            {
+              "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large.",
+              "name": "--jh-input-size",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
             }
           ],
           "attributes": [
@@ -6270,7 +7557,7 @@
           ],
           "events": [
             {
-              "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.",
+              "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.",
               "name": "jh-select",
               "inheritedFrom": {
                 "name": "JhInput",
@@ -7018,6 +8305,14 @@
                 "name": "JhInput",
                 "module": "components/input/input.js"
               }
+            },
+            {
+              "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large.",
+              "name": "--jh-input-size",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
             }
           ],
           "attributes": [
@@ -7354,7 +8649,7 @@
           ],
           "events": [
             {
-              "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.",
+              "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.",
               "name": "jh-select",
               "inheritedFrom": {
                 "name": "JhInput",
@@ -7663,6 +8958,14 @@
             {
               "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`.",
               "name": "--jh-input-error-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large.",
+              "name": "--jh-input-size",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -8149,7 +9452,7 @@
               }
             },
             {
-              "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.",
+              "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.",
               "name": "jh-select",
               "inheritedFrom": {
                 "name": "JhInput",
@@ -8593,6 +9896,138 @@
           "declaration": {
             "name": "JhInputTextarea",
             "module": "components/input-textarea/input-textarea.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/list-group/list-group.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The list group component is a container used to group together list items within a list.\n\n[List Group Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-list-group--docs)",
+          "name": "JhListGroup",
+          "cssProperties": [
+            {
+              "description": "The subheader background-color. Defaults to `transparent`.",
+              "name": "--jh-list-group-subheader-color-background"
+            },
+            {
+              "description": "The subheader text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-list-group-subheader-color-text"
+            },
+            {
+              "description": "The subheader padding-right. Defaults to `--jh-dimension-600`",
+              "name": "--jh-list-group-subheader-space-padding-right"
+            },
+            {
+              "description": "The subheader padding-left. Defaults to `--jh-dimension-600`",
+              "name": "--jh-list-group-subheader-space-padding-left"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Use to insert `<jh-list-item>` component(s).",
+              "name": "default"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Describes the type of data to be collected.",
+              "default": "null",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "accessibleLabel",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+              "default": "null",
+              "attribute": "accessible-label"
+            },
+            {
+              "kind": "field",
+              "name": "uniqueId",
+              "type": {
+                "text": "number"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "dispatchCustomEvent",
+              "parameters": [
+                {
+                  "name": "eventName",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "default": "{}",
+                  "optional": true,
+                  "type": {
+                    "text": "Object"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "accessible-label",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+              "default": "null",
+              "fieldName": "accessibleLabel",
+              "attribute": "accessible-label"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Describes the type of data to be collected.",
+              "default": "null",
+              "fieldName": "label"
+            }
+          ],
+          "superclass": {
+            "name": "JhElement",
+            "module": "/components/element/element.js"
+          },
+          "tagName": "jh-list-group",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JhListGroup",
+          "declaration": {
+            "name": "JhListGroup",
+            "module": "components/list-group/list-group.js"
           }
         }
       ]
@@ -9292,6 +10727,14 @@
                 "name": "JhInput",
                 "module": "components/input/input.js"
               }
+            },
+            {
+              "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large.",
+              "name": "--jh-input-size",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
             }
           ],
           "attributes": [
@@ -9628,7 +11071,7 @@
           ],
           "events": [
             {
-              "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.",
+              "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.",
               "name": "jh-select",
               "inheritedFrom": {
                 "name": "JhInput",
@@ -9677,138 +11120,6 @@
           "declaration": {
             "name": "JhInputUrl",
             "module": "components/input-url/input-url.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/list-group/list-group.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The list group component is a container used to group together list items within a list.\n\n[List Group Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-list-group--docs)",
-          "name": "JhListGroup",
-          "cssProperties": [
-            {
-              "description": "The subheader background-color. Defaults to `transparent`.",
-              "name": "--jh-list-group-subheader-color-background"
-            },
-            {
-              "description": "The subheader text color. Defaults to `--jh-color-content-secondary-enabled`.",
-              "name": "--jh-list-group-subheader-color-text"
-            },
-            {
-              "description": "The subheader padding-right. Defaults to `--jh-dimension-600`",
-              "name": "--jh-list-group-subheader-space-padding-right"
-            },
-            {
-              "description": "The subheader padding-left. Defaults to `--jh-dimension-600`",
-              "name": "--jh-list-group-subheader-space-padding-left"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Use to insert `<jh-list-item>` component(s).",
-              "name": "default"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "label",
-              "privacy": "public",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Describes the type of data to be collected.",
-              "default": "null",
-              "attribute": "label"
-            },
-            {
-              "kind": "field",
-              "name": "accessibleLabel",
-              "privacy": "public",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-              "default": "null",
-              "attribute": "accessible-label"
-            },
-            {
-              "kind": "field",
-              "name": "uniqueId",
-              "type": {
-                "text": "number"
-              },
-              "readonly": true,
-              "inheritedFrom": {
-                "name": "JhElement",
-                "module": "components/element/element.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "dispatchCustomEvent",
-              "parameters": [
-                {
-                  "name": "eventName",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "detail",
-                  "default": "{}",
-                  "optional": true,
-                  "type": {
-                    "text": "Object"
-                  }
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhElement",
-                "module": "components/element/element.js"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "accessible-label",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-              "default": "null",
-              "fieldName": "accessibleLabel",
-              "attribute": "accessible-label"
-            },
-            {
-              "name": "label",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Describes the type of data to be collected.",
-              "default": "null",
-              "fieldName": "label"
-            }
-          ],
-          "superclass": {
-            "name": "JhElement",
-            "module": "/components/element/element.js"
-          },
-          "tagName": "jh-list-group",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JhListGroup",
-          "declaration": {
-            "name": "JhListGroup",
-            "module": "components/list-group/list-group.js"
           }
         }
       ]
@@ -10637,7 +11948,7 @@
           ],
           "events": [
             {
-              "description": "Dispatched when the notification is dismissed.",
+              "description": "Dispatched when the notification is dismissed. Event payload includes the dismissal method of the notification and can be accessed via `e.detail.reference.dismissMethod`",
               "name": "jh-dismiss"
             }
           ],
@@ -11105,325 +12416,6 @@
           "declaration": {
             "name": "JhProgress",
             "module": "components/progress/progress.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/radio/radio.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Radio buttons, typically presented in radio groups, allow users to select only one option amongst a group of options.\n\n[Radio Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-radio--docs)",
-          "name": "JhRadio",
-          "cssProperties": [
-            {
-              "description": "The radio opacity when disabled. Defaults to `--jh-opacity-disabled`.",
-              "name": "--jh-radio-opacity-disabled"
-            },
-            {
-              "description": "The radio and status mark border-radius. Defaults to `--jh-border-radius-circle`.",
-              "name": "--jh-radio-input-border-radius"
-            },
-            {
-              "description": "The radio outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.",
-              "name": "--jh-radio-color-focus"
-            },
-            {
-              "description": "The helper-text text color. Defaults to `--jh-color-content-secondary-enabled`.",
-              "name": "--jh-radio-helper-color-text"
-            },
-            {
-              "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`.",
-              "name": "--jh-radio-label-color-text"
-            },
-            {
-              "description": "The radio background-color when unselected. Defaults to `--jh-color-container-primary-enabled`.",
-              "name": "--jh-radio-input-color-background-unselected-enabled"
-            },
-            {
-              "description": "The radio border-color when unselected. Defaults to `--jh-border-control-color`.",
-              "name": "--jh-radio-input-color-border-unselected-enabled"
-            },
-            {
-              "description": "The radio background-color when unselected and focused. Defaults to `--jh-color-container-primary-enabled`.",
-              "name": "--jh-radio-input-color-background-unselected-focus"
-            },
-            {
-              "description": "The radio border-color when unselected and focused. Defaults to `--jh-color-content-brand-hover`.",
-              "name": "--jh-radio-input-color-border-unselected-focus"
-            },
-            {
-              "description": "The radio background-color when unselected and hovered. Defaults to `--jh-color-container-primary-enabled`.",
-              "name": "--jh-radio-input-color-background-unselected-hover"
-            },
-            {
-              "description": "The radio border-color when unselected and hovered. Defaults to `--jh-color-content-brand-hover`.",
-              "name": "--jh-radio-input-color-border-unselected-hover"
-            },
-            {
-              "description": "The radio background-color when unselected and active. Defaults to `--jh-color-container-primary-enabled`.",
-              "name": "--jh-radio-input-color-background-unselected-active"
-            },
-            {
-              "description": "The radio border-color when unselected and active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-radio-input-color-border-unselected-active"
-            },
-            {
-              "description": "The radio background-color when unselected and disabled. Defaults to `--jh-color-container-primary-enabled`.",
-              "name": "--jh-radio-input-color-background-unselected-disabled"
-            },
-            {
-              "description": "The radio border-color when unselected and disabled. Defaults to `--jh-border-control-color`.",
-              "name": "--jh-radio-input-color-border-unselected-disabled"
-            },
-            {
-              "description": "The radio background-color when selected. Defaults to `--jh-color-container-primary-enabled`.",
-              "name": "--jh-radio-input-color-background-selected-enabled"
-            },
-            {
-              "description": "The radio border-color when selected. Defaults to `--jh-border-control-color`.",
-              "name": "--jh-radio-input-color-border-selected-enabled"
-            },
-            {
-              "description": "The status mark color when selected. Defaults to `--jh-color-content-brand-enabled`.",
-              "name": "--jh-radio-status-color-background-selected-enabled-"
-            },
-            {
-              "description": "The radio background-color when selected and focused. Defaults to `--jh-color-container-primary-enabled`.",
-              "name": "--jh-radio-input-color-background-selected-focus"
-            },
-            {
-              "description": "The radio border-color when selected and focused. Defaults to `--jh-color-content-brand-hover`.",
-              "name": "--jh-radio-input-color-border-selected-focus"
-            },
-            {
-              "description": "The status mark color when selected and focused. Defaults to `--jh-color-content-brand-hover`.",
-              "name": "--jh-radio-status-color-background-selected-focus"
-            },
-            {
-              "description": "The radio background-color when selected and hovered. Defaults to `--jh-color-container-primary-enabled`.",
-              "name": "--jh-radio-input-color-background-selected-hover"
-            },
-            {
-              "description": "The radio border-color when selected and hovered. Defaults to `--jh-color-content-brand-hover`.",
-              "name": "--jh-radio-input-color-border-selected-hover"
-            },
-            {
-              "description": "The status mark color when selected and hovered. Defaults to `--jh-color-content-brand-hover`.",
-              "name": "--jh-radio-status-color-background-selected-hover"
-            },
-            {
-              "description": "The background-color when selected and active. Defaults to `--jh-color-container-primary-enabled`.",
-              "name": "--jh-radio-input-color-background-selected-active"
-            },
-            {
-              "description": "The border-color when selected and active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-radio-input-color-border-selected-active"
-            },
-            {
-              "description": "The status mark color when selected and active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-radio-status-color-background-selected-active"
-            },
-            {
-              "description": "The background-color when selected and disabled. Defaults to `--jh-color-container-primary-enabled`.",
-              "name": "--jh-radio-input-color-background-selected-disabled"
-            },
-            {
-              "description": "The border-color when selected and disabled. Defaults to `--jh-border-control-color`.",
-              "name": "--jh-radio-input-color-border-selected-disabled"
-            },
-            {
-              "description": "The status mark color when selected and disabled. Defaults to `--jh-color-content-brand-enabled`.",
-              "name": "--jh-radio-status-color-background-selected-disabled"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "accessibleLabel",
-              "privacy": "public",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-              "default": "null",
-              "attribute": "accessible-label"
-            },
-            {
-              "kind": "field",
-              "name": "checked",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Sets the selected or 'checked' state on the radio.",
-              "default": "false",
-              "attribute": "checked",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Disables the radio and prevents all user interactions. May cause radio to be ignored by assistive technologies(AT).",
-              "default": "false",
-              "attribute": "disabled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "helperText",
-              "privacy": "public",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Provides additional context or guidance for using the radio. For `helper-text` to be displayed, the `label` property must also be set.",
-              "default": "null",
-              "attribute": "helper-text"
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "privacy": "public",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Sets the value of the data to be collected when selected.",
-              "default": "null",
-              "attribute": "label"
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "privacy": "public",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Sets the value of the radio.",
-              "default": "null",
-              "attribute": "value"
-            },
-            {
-              "kind": "field",
-              "name": "uniqueId",
-              "type": {
-                "text": "number"
-              },
-              "readonly": true,
-              "inheritedFrom": {
-                "name": "JhElement",
-                "module": "components/element/element.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "dispatchCustomEvent",
-              "parameters": [
-                {
-                  "name": "eventName",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "detail",
-                  "default": "{}",
-                  "optional": true,
-                  "type": {
-                    "text": "Object"
-                  }
-                }
-              ],
-              "inheritedFrom": {
-                "name": "JhElement",
-                "module": "components/element/element.js"
-              }
-            }
-          ],
-          "events": [
-            {
-              "description": "Dispatched when the state of the radio has changed. Event payload includes the value of the radio and can be accessed via `e.detail.state.value`.",
-              "name": "jh-change"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "accessible-label",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
-              "default": "null",
-              "fieldName": "accessibleLabel",
-              "attribute": "accessible-label"
-            },
-            {
-              "name": "helper-text",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Provides additional context or guidance for using the radio. For `helper-text` to be displayed, the `label` property must also be set.",
-              "default": "null",
-              "fieldName": "helperText",
-              "attribute": "helper-text"
-            },
-            {
-              "name": "checked",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Sets the selected or 'checked' state on the radio.",
-              "default": "false",
-              "fieldName": "checked"
-            },
-            {
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Disables the radio and prevents all user interactions. May cause radio to be ignored by assistive technologies(AT).",
-              "default": "false",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "label",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Sets the value of the data to be collected when selected.",
-              "default": "null",
-              "fieldName": "label"
-            },
-            {
-              "name": "value",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Sets the value of the radio.",
-              "default": "null",
-              "fieldName": "value"
-            }
-          ],
-          "superclass": {
-            "name": "JhElement",
-            "module": "/components/element/element.js"
-          },
-          "tagName": "jh-radio",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JhRadio",
-          "declaration": {
-            "name": "JhRadio",
-            "module": "components/radio/radio.js"
           }
         }
       ]
@@ -12208,6 +13200,14 @@
                 "name": "JhInput",
                 "module": "components/input/input.js"
               }
+            },
+            {
+              "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large.",
+              "name": "--jh-input-size",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
             }
           ],
           "slots": [
@@ -12698,7 +13698,7 @@
               }
             },
             {
-              "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.",
+              "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.",
               "name": "jh-select",
               "inheritedFrom": {
                 "name": "JhInput",
@@ -13103,6 +14103,325 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/radio/radio.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Radio buttons, typically presented in radio groups, allow users to select only one option amongst a group of options.\n\n[Radio Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-radio--docs)",
+          "name": "JhRadio",
+          "cssProperties": [
+            {
+              "description": "The radio opacity when disabled. Defaults to `--jh-opacity-disabled`.",
+              "name": "--jh-radio-opacity-disabled"
+            },
+            {
+              "description": "The radio and status mark border-radius. Defaults to `--jh-border-radius-circle`.",
+              "name": "--jh-radio-input-border-radius"
+            },
+            {
+              "description": "The radio outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.",
+              "name": "--jh-radio-color-focus"
+            },
+            {
+              "description": "The helper-text text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-radio-helper-color-text"
+            },
+            {
+              "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-radio-label-color-text"
+            },
+            {
+              "description": "The radio background-color when unselected. Defaults to `--jh-color-container-primary-enabled`.",
+              "name": "--jh-radio-input-color-background-unselected-enabled"
+            },
+            {
+              "description": "The radio border-color when unselected. Defaults to `--jh-border-control-color`.",
+              "name": "--jh-radio-input-color-border-unselected-enabled"
+            },
+            {
+              "description": "The radio background-color when unselected and focused. Defaults to `--jh-color-container-primary-enabled`.",
+              "name": "--jh-radio-input-color-background-unselected-focus"
+            },
+            {
+              "description": "The radio border-color when unselected and focused. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-radio-input-color-border-unselected-focus"
+            },
+            {
+              "description": "The radio background-color when unselected and hovered. Defaults to `--jh-color-container-primary-enabled`.",
+              "name": "--jh-radio-input-color-background-unselected-hover"
+            },
+            {
+              "description": "The radio border-color when unselected and hovered. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-radio-input-color-border-unselected-hover"
+            },
+            {
+              "description": "The radio background-color when unselected and active. Defaults to `--jh-color-container-primary-enabled`.",
+              "name": "--jh-radio-input-color-background-unselected-active"
+            },
+            {
+              "description": "The radio border-color when unselected and active. Defaults to `--jh-color-content-brand-active`.",
+              "name": "--jh-radio-input-color-border-unselected-active"
+            },
+            {
+              "description": "The radio background-color when unselected and disabled. Defaults to `--jh-color-container-primary-enabled`.",
+              "name": "--jh-radio-input-color-background-unselected-disabled"
+            },
+            {
+              "description": "The radio border-color when unselected and disabled. Defaults to `--jh-border-control-color`.",
+              "name": "--jh-radio-input-color-border-unselected-disabled"
+            },
+            {
+              "description": "The radio background-color when selected. Defaults to `--jh-color-container-primary-enabled`.",
+              "name": "--jh-radio-input-color-background-selected-enabled"
+            },
+            {
+              "description": "The radio border-color when selected. Defaults to `--jh-border-control-color`.",
+              "name": "--jh-radio-input-color-border-selected-enabled"
+            },
+            {
+              "description": "The status mark color when selected. Defaults to `--jh-color-content-brand-enabled`.",
+              "name": "--jh-radio-status-color-background-selected-enabled-"
+            },
+            {
+              "description": "The radio background-color when selected and focused. Defaults to `--jh-color-container-primary-enabled`.",
+              "name": "--jh-radio-input-color-background-selected-focus"
+            },
+            {
+              "description": "The radio border-color when selected and focused. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-radio-input-color-border-selected-focus"
+            },
+            {
+              "description": "The status mark color when selected and focused. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-radio-status-color-background-selected-focus"
+            },
+            {
+              "description": "The radio background-color when selected and hovered. Defaults to `--jh-color-container-primary-enabled`.",
+              "name": "--jh-radio-input-color-background-selected-hover"
+            },
+            {
+              "description": "The radio border-color when selected and hovered. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-radio-input-color-border-selected-hover"
+            },
+            {
+              "description": "The status mark color when selected and hovered. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-radio-status-color-background-selected-hover"
+            },
+            {
+              "description": "The background-color when selected and active. Defaults to `--jh-color-container-primary-enabled`.",
+              "name": "--jh-radio-input-color-background-selected-active"
+            },
+            {
+              "description": "The border-color when selected and active. Defaults to `--jh-color-content-brand-active`.",
+              "name": "--jh-radio-input-color-border-selected-active"
+            },
+            {
+              "description": "The status mark color when selected and active. Defaults to `--jh-color-content-brand-active`.",
+              "name": "--jh-radio-status-color-background-selected-active"
+            },
+            {
+              "description": "The background-color when selected and disabled. Defaults to `--jh-color-container-primary-enabled`.",
+              "name": "--jh-radio-input-color-background-selected-disabled"
+            },
+            {
+              "description": "The border-color when selected and disabled. Defaults to `--jh-border-control-color`.",
+              "name": "--jh-radio-input-color-border-selected-disabled"
+            },
+            {
+              "description": "The status mark color when selected and disabled. Defaults to `--jh-color-content-brand-enabled`.",
+              "name": "--jh-radio-status-color-background-selected-disabled"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "accessibleLabel",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+              "default": "null",
+              "attribute": "accessible-label"
+            },
+            {
+              "kind": "field",
+              "name": "checked",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Sets the selected or 'checked' state on the radio.",
+              "default": "false",
+              "attribute": "checked",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Disables the radio and prevents all user interactions. May cause radio to be ignored by assistive technologies(AT).",
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "helperText",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Provides additional context or guidance for using the radio. For `helper-text` to be displayed, the `label` property must also be set.",
+              "default": "null",
+              "attribute": "helper-text"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets the value of the data to be collected when selected.",
+              "default": "null",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets the value of the radio.",
+              "default": "null",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "uniqueId",
+              "type": {
+                "text": "number"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "dispatchCustomEvent",
+              "parameters": [
+                {
+                  "name": "eventName",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "default": "{}",
+                  "optional": true,
+                  "type": {
+                    "text": "Object"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            }
+          ],
+          "events": [
+            {
+              "description": "Dispatched when the state of the radio has changed. Event payload includes the value and checked state of the radio and can be accessed via `e.detail.state.value` and `e.detail.state.checked`.",
+              "name": "jh-change"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "accessible-label",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
+              "default": "null",
+              "fieldName": "accessibleLabel",
+              "attribute": "accessible-label"
+            },
+            {
+              "name": "helper-text",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Provides additional context or guidance for using the radio. For `helper-text` to be displayed, the `label` property must also be set.",
+              "default": "null",
+              "fieldName": "helperText",
+              "attribute": "helper-text"
+            },
+            {
+              "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Sets the selected or 'checked' state on the radio.",
+              "default": "false",
+              "fieldName": "checked"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Disables the radio and prevents all user interactions. May cause radio to be ignored by assistive technologies(AT).",
+              "default": "false",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets the value of the data to be collected when selected.",
+              "default": "null",
+              "fieldName": "label"
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets the value of the radio.",
+              "default": "null",
+              "fieldName": "value"
+            }
+          ],
+          "superclass": {
+            "name": "JhElement",
+            "module": "/components/element/element.js"
+          },
+          "tagName": "jh-radio",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JhRadio",
+          "declaration": {
+            "name": "JhRadio",
+            "module": "components/radio/radio.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/switch/switch.js",
       "declarations": [
         {
@@ -13280,7 +14599,7 @@
           ],
           "events": [
             {
-              "description": "Dispatched when the state of the switch has changed.",
+              "description": "Dispatched when the state of the switch has changed. Event payload includes the `checked` state of the switch and can be accessed via `e.detail.state.checked`.",
               "name": "jh-change"
             }
           ],
@@ -14510,7 +15829,7 @@
           ],
           "events": [
             {
-              "description": "Dispatched when the tag is dismissed.",
+              "description": "Dispatched when the tag is dismissed. Event payload includes the dismissal method of the tag and can be accessed via `e.detail.reference.dismissMethod`",
               "name": "jh-dismiss"
             }
           ],
@@ -14837,7 +16156,7 @@
           ],
           "events": [
             {
-              "description": "Dispatched when the toast is dismissed.",
+              "description": "Dispatched when the toast is dismissed. Event payload includes the dismissal method of the toast and can be accessed via `e.detail.reference.dismissMethod`",
               "name": "jh-dismiss"
             }
           ],
@@ -14896,104 +16215,6 @@
           "declaration": {
             "name": "JhToast",
             "module": "components/toast/toast.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/toast-controller/toast-controller.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The toast controller component manages multiple toasts. Toasts can be generated and appended to the controller either by a DOM based method or an event based method.\n\n[Toast Controller Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-toast-controller--docs)",
-          "name": "JhToastController",
-          "cssProperties": [
-            {
-              "description": "The toast controller z-index. Defaults to `--jh-z-index-positive-1000`.",
-              "name": "--jh-toast-controller-z-index"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Use to insert `<jh-toast>` components if appending toasts manually.",
-              "name": "default"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "maxCount",
-              "privacy": "public",
-              "type": {
-                "text": "number"
-              },
-              "description": "Sets the maximum number of toasts to be displayed at a time.",
-              "default": "3",
-              "attribute": "max-count"
-            },
-            {
-              "kind": "field",
-              "name": "role",
-              "privacy": "public",
-              "type": {
-                "text": "'status' | 'alert'"
-              },
-              "description": "Sets the role of the toast controller and establishes a live region to expose changes to assistive technologies.",
-              "default": "'status'",
-              "attribute": "role"
-            }
-          ],
-          "events": [
-            {
-              "description": "Dispatched when the toast controller dismisses the oldest toast, and when toasts are dismissed manually by the user.",
-              "name": "jh-dismiss"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "max-count",
-              "type": {
-                "text": "number"
-              },
-              "description": "Sets the maximum number of toasts to be displayed at a time.",
-              "default": "3",
-              "fieldName": "maxCount",
-              "attribute": "max-count"
-            },
-            {
-              "name": "role",
-              "type": {
-                "text": "'status' | 'alert'"
-              },
-              "description": "Sets the role of the toast controller and establishes a live region to expose changes to assistive technologies.",
-              "default": "'status'",
-              "fieldName": "role"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "jh-toast-controller",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JhToastController",
-          "declaration": {
-            "name": "JhToastController",
-            "module": "components/toast-controller/toast-controller.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "jh-toast-controller",
-          "declaration": {
-            "name": "JhToastController",
-            "module": "components/toast-controller/toast-controller.js"
           }
         }
       ]
@@ -15148,6 +16369,132 @@
           "declaration": {
             "name": "JhTooltip",
             "module": "components/tooltip/tooltip.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/toast-controller/toast-controller.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The toast controller component manages multiple toasts. Toasts can be generated and appended to the controller either by a DOM based method or an event based method.\n\n[Toast Controller Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-toast-controller--docs)",
+          "name": "JhToastController",
+          "cssProperties": [
+            {
+              "description": "The toast controller z-index. Defaults to `--jh-z-index-positive-1000`.",
+              "name": "--jh-toast-controller-z-index"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Use to insert `<jh-toast>` components if appending toasts manually.",
+              "name": "default"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "maxCount",
+              "privacy": "public",
+              "type": {
+                "text": "number"
+              },
+              "description": "Sets the maximum number of toasts to be displayed at a time.",
+              "default": "3",
+              "attribute": "max-count"
+            },
+            {
+              "kind": "field",
+              "name": "role",
+              "privacy": "public",
+              "type": {
+                "text": "'status' | 'alert'"
+              },
+              "description": "Sets the role of the toast controller and establishes a live region to expose changes to assistive technologies.",
+              "default": "'status'",
+              "attribute": "role"
+            },
+            {
+              "kind": "field",
+              "name": "uniqueId",
+              "type": {
+                "text": "number"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "dispatchCustomEvent",
+              "parameters": [
+                {
+                  "name": "eventName",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "default": "{}",
+                  "optional": true,
+                  "type": {
+                    "text": "Object"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            }
+          ],
+          "events": [
+            {
+              "description": "Dispatched when the toast controller dismisses the oldest toast once the maximum count is exceeded.",
+              "name": "jh-dismiss"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "max-count",
+              "type": {
+                "text": "number"
+              },
+              "description": "Sets the maximum number of toasts to be displayed at a time.",
+              "default": "3",
+              "fieldName": "maxCount",
+              "attribute": "max-count"
+            },
+            {
+              "name": "role",
+              "type": {
+                "text": "'status' | 'alert'"
+              },
+              "description": "Sets the role of the toast controller and establishes a live region to expose changes to assistive technologies.",
+              "default": "'status'",
+              "fieldName": "role"
+            }
+          ],
+          "superclass": {
+            "name": "JhElement",
+            "module": "/components/element/element.js"
+          },
+          "tagName": "jh-toast-controller",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JhToastController",
+          "declaration": {
+            "name": "JhToastController",
+            "module": "components/toast-controller/toast-controller.js"
           }
         }
       ]

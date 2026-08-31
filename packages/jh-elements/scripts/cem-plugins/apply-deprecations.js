@@ -26,7 +26,7 @@ export function applyDeprecationsPlugin(deprecations = {}) {
             declaration.events?.forEach(event => {
               const ec = config.events[event.name];
               if (ec?.prependToDescription) {
-                event.description = `${ec.prependToDescription}${event.description ?? ''}`;
+                event.description = `**${ec.prependToDescription}** ${event.description ?? ''}`;
               }
             });
           }

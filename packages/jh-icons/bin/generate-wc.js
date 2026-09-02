@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-const { exec } = require('child_process');
+const { execFile } = require('child_process');
 
 const args = process.argv.slice(2); // args[0] = sourcePath, args[1] = outputPath, args[2] = prefix
 
@@ -37,12 +37,29 @@ const icons = iconFiles
     };
   });
  
-  // For each icon, call exec create the component using hygen generator
-  icons.forEach(async icon => {
-  try {
-    await exec(`hygen icon new ${icon.name} --svg '${icon.contents}' --outputPath ${args[1]} --prefix ${args[2]}`);
-    console.log(`${icon.name} created`)
-  } catch (e) {
-    console.error('error generating icon:', e);
-  }
+  // For each icon, call the hygen generator to create the component.
+  // Use execFile with an argument array (no shell) so SVG content cannot
+  // break out of the command and inject shell syntax.
+  icons.forEach(icon => {
+  execFile(
+    'hygen',
+    [
+      'icon',
+      'new',
+      icon.name,
+      '--svg',
+      icon.contents,
+      '--outputPath',
+      args[1],
+      '--prefix',
+      args[2],
+    ],
+    error => {
+      if (error) {
+        console.error('error generating icon:', error);
+        return;
+      }
+      console.log(`${icon.name} created`);
+    }
+  );
 });

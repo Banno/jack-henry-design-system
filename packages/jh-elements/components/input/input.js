@@ -484,15 +484,7 @@ export class JhInput extends JhElement {
     this.#captureMaskIndexes();
     let observer = new MutationObserver(this.#captureMaskIndexes.bind(this));
     observer.observe(this, { attributeFilter: ['input-mask'] });
-    this.addEventListener('jh-select', this.#setSelection);
 }
-
-  disconnectedCallback() {
-    super.disconnectedCallback();
-    if (this.inputMask) {
-      this.removeEventListener('jh-select', this.#setSelection);
-    }
-  }
 
   firstUpdated() {
     // attach event listeners to show/hide clear button
@@ -600,14 +592,6 @@ export class JhInput extends JhElement {
     }
   }
 
-  #setSelection(e) {
-    this.#selectedText = {
-      selected: true,
-      selectionStart: e.detail.selectionStart,
-      selectionEnd: e.detail.selectionEnd,
-    }
-  }
-
   /** @ignore */
   get form() {
     return this.internals.form;
@@ -652,6 +636,13 @@ export class JhInput extends JhElement {
     let selectionStart = e.target.selectionStart;
     let selectionEnd = e.target.selectionEnd;
 
+    // capture the live selection so mask edits act on the current range, not a stale one
+    const hasSelection = selectionEnd > selectionStart;
+    this.#selectedText = {
+      selected: hasSelection,
+      selectionStart: hasSelection ? selectionStart : null,
+      selectionEnd: hasSelection ? selectionEnd : null,
+    };
 
     const testKey = (metaChar, key) => {
       if (!this.#regexSubset[metaChar].test(key)) {
@@ -666,6 +657,9 @@ export class JhInput extends JhElement {
 
     // only validate single char keys 
     if (e.key.length === 1) {
+      if (this.#advanceOverLiterals(e, selectionStart, value)) {
+        return;
+      }
       if (selectionStart < value.length) {
         this.#validateInsertion(e, selectionStart, testKey);
       } else {
@@ -796,6 +790,46 @@ export class JhInput extends JhElement {
     }
   }
 
+  // let users type a fixed character to move past it instead of rejecting the key
+  #advanceOverLiterals(e, selectionStart, value) {
+    if (this.#selectedText?.selected || !this.#maskFixedCharIndexes?.length) {
+      return false;
+    }
+
+    // caret at the end: reveal the pending literal(s) up to the next data slot
+    if (selectionStart >= value.length) {
+      let nextMeta = this.#maskMetaCharIndexes[this.#rawValue.length];
+      let pending = this.#maskFixedCharIndexes.filter((fixedChar) =>
+        fixedChar.formattedValIndex >= value.length &&
+        (nextMeta ? fixedChar.formattedValIndex < nextMeta.formattedValIndex : true)
+      );
+
+      if (!pending.length || this.inputMask[pending[0].maskIndex] !== e.key) {
+        return false;
+      }
+
+      e.preventDefault();
+      let revealed = value + pending.map((fixedChar) => this.inputMask[fixedChar.maskIndex]).join('');
+      this.value = revealed;
+      this.updateComplete.then(() => this.#inputEl?.setSelectionRange(revealed.length, revealed.length));
+      return true;
+    }
+
+    // caret before a rendered literal: skip past the consecutive literal run
+    let fixedAtCaret = this.#maskFixedCharIndexes.find((fixedChar) => fixedChar.formattedValIndex === selectionStart);
+    if (!fixedAtCaret || this.inputMask[fixedAtCaret.maskIndex] !== e.key) {
+      return false;
+    }
+
+    e.preventDefault();
+    let caret = selectionStart;
+    while (caret < value.length && this.#maskFixedCharIndexes.some((fixedChar) => fixedChar.formattedValIndex === caret)) {
+      caret++;
+    }
+    e.target.setSelectionRange(caret, caret);
+    return true;
+  }
+
   #captureLastFixedCharIndex() {
     // initialize index to the last element in the mask fixed character indexes array
     let index = this.#maskFixedCharIndexes.length - 1;
@@ -816,8 +850,11 @@ export class JhInput extends JhElement {
     
   #removeMask(e, value) {
     let insertedChar =  e.target.selectionStart < value.length;
-    this.#adjustCaretPositionStart = insertedChar ? e.target.selectionStart : null;
     let replacedChar = this.#selectedText?.selected;
+    // after a range delete, keep the caret at the deletion point instead of the reformatted end
+    this.#adjustCaretPositionStart = replacedChar && this.#deletedChar
+      ? this.#selectedText.selectionStart
+      : insertedChar ? e.target.selectionStart : null;
     let valueArray = value.split('');
 
     if (replacedChar) {
@@ -1046,13 +1083,14 @@ export class JhInput extends JhElement {
 
   // restore caret position after input mask is applied if change to the value is within the value length
   updated(changedProperties) {
-    if (this.#adjustCaretPositionStart) {
+    if (this.#adjustCaretPositionStart != null) {
       if (changedProperties.has('value')) {
         let input = this.shadowRoot.querySelector('input');
-        let selectionStart = this.#selectedText.selectionStart ? this.#selectedText.selectionStart : this.#adjustCaretPositionStart;
+        let selectionStart = this.#selectedText.selectionStart != null ? this.#selectedText.selectionStart : this.#adjustCaretPositionStart;
 
         input.setSelectionRange(selectionStart, selectionStart);
         this.#selectedText.selectionStart = null;
+        this.#adjustCaretPositionStart = null;
       }
     }
 

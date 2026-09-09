@@ -9,7 +9,9 @@ import '@jack-henry/jh-icons/icons-wc/icon-arrow-up-small.js';
 import '@jack-henry/jh-icons/icons-wc/icon-arrow-down-small.js';
 
 /**
- * Table Header Cell
+ * The table header cell is used to display a column header. It should be placed inside a `<jh-table-row>` and contains text. Hooks for sorting and a sorting icon are also provided.
+ * 
+ * [Table Header Cell Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table-header-cell--docs)
  * 
  * @cssprop --jh-table-header-cell-color-text-enabled - The header cell text color when enabled. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-table-header-cell-color-text-hover - The sortable header cell text color when hovered. Defaults to `--jh-color-content-primary-hover`.
@@ -205,23 +207,21 @@ export class JhTableHeaderCell extends JhElement {
   constructor() {
     super();
     this.internals.role = 'columnheader';
-    /** 
+    /**
      * Sets the horizontal alignment of the content.
      * @attr horizontal-align
-     * @type {'left' | 'center' | 'right'} 
+     * @type { 'left' | 'center' | 'right' }
      */
     this.horizontalAlign = 'left';
-    /** 
+    /**
      * Makes a column sortable.
-     * @attr sortable
-    * @type {boolean} 
-    */
+     * @type {boolean}
+     */
     this.sortable = false;
-    /** 
+    /**
      * Sets the order in which the items in the column are sorted.
-     * @attr sorted
-    * @type {'none' | 'ascending' | 'descending'} 
-    */
+     * @type { 'none' | 'ascending' | 'descending' | null }
+     */
     this.sorted = 'none';
   }
 
@@ -294,6 +294,7 @@ export class JhTableHeaderCell extends JhElement {
     }
   } 
 
+  /** @protected */
   render() {
     return this.sortable ? 
     html`

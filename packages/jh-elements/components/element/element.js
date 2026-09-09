@@ -16,7 +16,6 @@ export class JhElement extends LitElement {
 
   constructor() {
     super();
-    /** @type {ElementInternals} */
     this.#internals = this.attachInternals();
   }
 
@@ -26,16 +25,24 @@ export class JhElement extends LitElement {
   }
 
   // getter for unique id
+  /** @type {number} */
   get uniqueId() {
     return this.#id;
   }
 
   // getter for element internals
-  /** @ignore */
+  /**
+   * @protected
+   * @type {ElementInternals}
+   */
   get internals() {
     return this.#internals;
   }
 
+  /**
+   * @param {string} eventName
+   * @param {Object} [detail]
+   */
   dispatchCustomEvent(eventName, detail = {}) {
     // gather base detail info
     let baseDetail = {
@@ -82,6 +89,10 @@ export class JhElement extends LitElement {
   }
 
   // register method to avoid custom element registry conflicts
+  /**
+   * @param {string} tagName
+   * @param {CustomElementConstructor} targetClass
+   */
   static register(tagName, targetClass) {
     if (customElements.get(tagName)) {
       console.warn(

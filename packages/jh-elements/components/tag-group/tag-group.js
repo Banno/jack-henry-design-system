@@ -6,7 +6,9 @@ import { css, html } from 'lit';
 import { JhElement } from '../element/element.js';
 
 /**
- * Tag Group
+ * A tag group is used to group `<jh-tag>` components to provide layout and alignment support. 
+ * 
+ * [Tag Group Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tag-group--docs)
  *
  * @slot default - Use to insert `<jh-tag>` component(s).
  * @customElement jh-tag-group
@@ -32,7 +34,6 @@ export class JhTagGroup extends JhElement {
 
   static get properties() {
     return {
-      /** Sets the alignment of the tags. */
       alignment: {
         type: String,
         reflect: true,
@@ -43,10 +44,14 @@ export class JhTagGroup extends JhElement {
   constructor() {
     super();
     this.internals.role = 'group';
-    /** @type {'start'| 'end'} */
+    /**
+     * Sets the alignment of the tags.
+     * @type { 'start' | 'end' }
+     */
     this.alignment = 'start';
   }
 
+  /** @protected */
   render() {
     return html` <slot></slot> `;
   }

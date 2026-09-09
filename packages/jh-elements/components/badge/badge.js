@@ -7,6 +7,10 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { JhElement } from '../element/element.js';
 
 /**
+ * A Badge is a visual indicator that represents numbers, such as counters. It also supports a dot-only variant.
+ * 
+ * [Badge Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-badge--docs)
+ * 
  * @cssprop --jh-badge-border-radius - The badge border radius. Defaults to `--jh-border-radius-pill`.
  * @cssprop --jh-badge-color-background-enabled - The badge background color. Defaults to `--jh-color-content-negative-enabled`. 
  * @cssprop --jh-badge-color-text-enabled - The badge text color. Defaults to `--jh-color-content-on-negative-enabled`.
@@ -42,32 +46,37 @@ export class JhBadge extends JhElement {
 
   static get properties() {
     return {
-      /** Number to show within the badge. If no `count` is supplied, Badge will render as a dot.*/
-      count: { type: String },
-      /** Sets the max count to show. Appends `+` to the `max-count` when value is exceeded. */
+
+      count: { type: Number },
+
       maxCount: { type: Number, attribute: 'max-count' },
     };
   }
 
   constructor() {
     super();
-    /** @type {?string} */
+    /** Number to show within the badge. If no `count` is supplied, Badge will render as a dot.
+    * @type {number | null} */
     this.count = null;
-    /** @type {?number} */
+    /** 
+    * Sets the max count to show. Appends `+` to the `max-count` when value is exceeded.
+    * @attr max-count
+    * @type {number | null} */
     this.maxCount = 99;
   }
 
+  /** @protected */
   render() {
     let count;
 
-    if (this.maxCount && Number(this.count) > this.maxCount) {
+    if (this.maxCount && this.count > this.maxCount) {
       count = `${this.maxCount}+`;
-    } else if (/^[0-9]+$/.test(this.count)) {
+    } else if (typeof this.count === 'number' && !isNaN(this.count) && this.count >= 0) {
       count = this.count;
     }
 
     return html`
-      <span class=${ifDefined(count ? 'count-present' : null)}>${count}</span>
+      <span class=${ifDefined(count !== undefined ? 'count-present' : null)}>${count}</span>
     `;
   }
 }

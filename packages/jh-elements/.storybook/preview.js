@@ -15,13 +15,27 @@ import { DocsContainer } from '@storybook/addon-docs/blocks';
 import { useDarkMode } from 'storybook-dark-mode';
 import { withActions } from 'storybook/actions/decorator';
 
-customElements.tags.forEach(tag => {
-  ['attributes', 'properties', 'cssProperties', 'events', 'slots'].forEach(key => {
-    (tag[key] || []).forEach(item => {
-      const msg = item.deprecatedMessage || (item.deprecated && typeof item.deprecated === 'string' ? item.deprecated : null);
-      if (item.deprecated || item.deprecatedMessage) {
-        item.description = `⚠️ **Deprecated. ${msg || ''}**\n\n ${item.description}`.trim();
-      }
+customElements.modules?.forEach(module => {
+  module.declarations?.forEach(declaration => {
+    if (declaration.kind !== 'class') return;
+
+    const groups = [
+      declaration.attributes,
+      declaration.members?.filter(member => member.kind === 'field'),
+      declaration.cssProperties,
+      declaration.events,
+      declaration.slots,
+    ];
+
+    groups.forEach(list => {
+      (list || []).forEach(item => {
+        const msg =
+          item.deprecatedMessage ||
+          (typeof item.deprecated === 'string' ? item.deprecated : null);
+        if (item.deprecated || item.deprecatedMessage) {
+          item.description = `⚠️ **Deprecated. ${msg || ''}**\n\n ${item.description ?? ''}`.trim();
+        }
+      });
     });
   });
 });

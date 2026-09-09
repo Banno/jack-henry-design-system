@@ -6,8 +6,11 @@ import { css, html } from 'lit';
 import { JhElement } from '../element/element.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-let id = 0;
 /**
+ * The list group component is a container used to group together list items within a list.
+ * 
+ * [List Group Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-list-group--docs)
+ * 
  * @cssprop --jh-list-group-subheader-color-background - The subheader background-color.
  * Defaults to `transparent`.
  * @cssprop --jh-list-group-subheader-color-text - The subheader text color.
@@ -57,23 +60,29 @@ export class JhListGroup extends JhElement {
 
   static get properties() {
     return {
-      /** Describes the type of data to be collected. */
       label: {
         type: String,
       },
-      /** Sets an `aria-label` to assist screen reader users when no visible label is present. */
       accessibleLabel: { type: String, attribute: 'accessible-label' },
     };
   }
 
   constructor() {
     super();
-    /** @type {?string} */
+    /**
+     * Describes the type of data to be collected.
+     * @type {string | null}
+     */
     this.label = null;
-    /** @type {?string} */
+    /**
+     * Sets an `aria-label` to assist screen reader users when no visible label is present.
+     * @attr accessible-label
+     * @type {string | null}
+     */
     this.accessibleLabel = null;
   }
 
+  /** @protected */
   render() {
     return html`
       ${this.label

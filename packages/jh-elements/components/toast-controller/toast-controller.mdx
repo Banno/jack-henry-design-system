@@ -73,6 +73,10 @@ Both the `bubbles` and `composed` properties should be set to `true` in order to
     e.target.dispatchEvent(createToast);
 ```
 
+## Security
+
+The `jh-create-toast` event detail values (such as `text`, `toastIcon`, `toastAction`, and `toastDismissIcon`) are rendered as HTML. When any of these values originate from an untrusted source, sanitize them before dispatching the event to avoid injecting unsafe HTML. See [Security](/docs/getting-started-usage--docs#security) for system-wide guidance.
+
 ## Accessibility
 
 This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria.

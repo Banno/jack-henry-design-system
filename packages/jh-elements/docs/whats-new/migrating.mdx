@@ -387,7 +387,7 @@ import '@jack-henry/jh-elements/components/divider/divider.js';
       <td>Input Components</td>
       <td>`jh-select`</td>
       <td>`e.detail.selected`, `e.detail.selectionStart`, `e.detail.selectionEnd`</td>
-      <td>`e.detail.state.selected`, `e.detail.state.selectionStart`, `e.detail.state.selectionEnd`</td>
+      <td>`e.detail.state.selection`, `e.detail.state.selectionStart`, `e.detail.state.selectionEnd`</td>
     </tr>
     <tr>
       <td>Select</td>
@@ -397,7 +397,7 @@ import '@jack-henry/jh-elements/components/divider/divider.js';
     </tr>
     <tr>
       <td>Table Header Cell</td>
-      <td>`jh-change`</td>
+      <td>`jh-sort`</td>
       <td>`e.detail.column`, `e.detail.sorted`, `e.detail.id`</td>
       <td>`e.detail.reference.column`, `e.detail.reference.sorted`, `e.detail.reference.id`</td>
     </tr>
@@ -410,7 +410,7 @@ The `max-count` property is now set to `99` by default.
 
 ### Migrating jh-button
 #### jh-button slots
-The button component now supports left and right icon positioning via the new `jh-button-icon-left` and `jh-button-icon-right` slots. Because of this, the `jh-button-icon` slot has been deprecated. To update your code, replace all instances of `jh-button-icon` with `jh-button-left-icon` and remove any `icon-position="before"|"after"` properties.
+The button component now supports left and right icon positioning via the new `jh-button-icon-left` and `jh-button-icon-right` slots. Because of this, the `jh-button-icon` slot has been deprecated. To update your code, replace all instances of `jh-button-icon` with `jh-button-icon-left` and remove any `icon-position="before"|"after"` properties.
 
 #### jh-button sizes
 The button component now supports a new `size="x-small"` option. The existing sizes (small, medium, and large) have been downsized by 8px each. This layout change may reduce the overall height of any components that import `jh-button`, including `jh-notification`. Icons within the button are now automatically sized to `x-small` when the button is `x-small`, and `medium` for all other button sizes.

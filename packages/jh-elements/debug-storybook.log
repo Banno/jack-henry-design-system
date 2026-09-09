@@ -1,0 +1,36 @@
+[16:32:57.004] [INFO] storybook v10.4.0
+[16:32:58.289] [DEBUG] Getting package.json info for /Users/maya.buserde/Desktop/jack-henry-design-system/packages/jh-elements/package.json...
+[16:32:58.520] [DEBUG] Serving static files from [36mpackages/jh-elements/.storybook/public[39m at [36m/[39m
+[16:32:58.521] [INFO] Starting...
+[16:32:59.050] [DEBUG] Starting preview..
+[16:32:59.087] [WARN] 🚨 Unable to index files:
+- ./components/layout-spacer/layout-spacer.stories.js,./components/primitives/layout-spacer/layout-spacer.stories.js: Duplicate stories with id: primitives-layout-spacer--overview
+- ./components/layout-spacer/layout-spacer.stories.js,./components/primitives/layout-spacer/layout-spacer.stories.js: Duplicate stories with id: primitives-layout-spacer--playground
+- ./components/layout-spacer/layout-spacer.stories.js,./components/primitives/layout-spacer/layout-spacer.stories.js: Duplicate stories with id: primitives-layout-spacer--default
+- ./components/primitives/layout-composition.stories.js,./docs/primitives/layout-composition.stories.js: Duplicate stories with id: primitives-layout-composition--toolbar
+- ./components/primitives/layout-composition.stories.js,./docs/primitives/layout-composition.stories.js: Duplicate stories with id: primitives-layout-composition--card-layout
+- ./components/primitives/layout-composition.stories.js,./docs/primitives/layout-composition.stories.js: Duplicate stories with id: primitives-layout-composition--form-row
+- ./components/primitives/layout-composition.stories.js,./docs/primitives/layout-composition.stories.js: Duplicate stories with id: primitives-layout-composition--wrapping
+- ./components/primitives/layout-composition.stories.js,./docs/primitives/layout-composition.stories.js: Duplicate stories with id: primitives-layout-composition--form
+[16:32:59.092] [ERROR] Failed to build the preview
+[16:32:59.095] [ERROR] Error: [38;2;241;97;97mUnable to index files:
+- ./components/layout-spacer/layout-spacer.stories.js,./components/primitives/layout-spacer/layout-spacer.stories.js: Duplicate stories with id: primitives-layout-spacer--overview
+- ./components/layout-spacer/layout-spacer.stories.js,./components/primitives/layout-spacer/layout-spacer.stories.js: Duplicate stories with id: primitives-layout-spacer--playground
+- ./components/layout-spacer/layout-spacer.stories.js,./components/primitives/layout-spacer/layout-spacer.stories.js: Duplicate stories with id: primitives-layout-spacer--default
+- ./components/primitives/layout-composition.stories.js,./docs/primitives/layout-composition.stories.js: Duplicate stories with id: primitives-layout-composition--toolbar
+- ./components/primitives/layout-composition.stories.js,./docs/primitives/layout-composition.stories.js: Duplicate stories with id: primitives-layout-composition--card-layout
+- ./components/primitives/layout-composition.stories.js,./docs/primitives/layout-composition.stories.js: Duplicate stories with id: primitives-layout-composition--form-row
+- ./components/primitives/layout-composition.stories.js,./docs/primitives/layout-composition.stories.js: Duplicate stories with id: primitives-layout-composition--wrapping
+- ./components/primitives/layout-composition.stories.js,./docs/primitives/layout-composition.stories.js: Duplicate stories with id: primitives-layout-composition--form[39m
+    at _StoryIndexGenerator.getIndexAndStats (file:///Users/maya.buserde/Desktop/jack-henry-design-system/node_modules/.pnpm/storybook@10.4.0_@emnapi+core@1.9.2_@emnapi+runtime@1.9.2_@testing-library+dom@10.4.0_@types+_27vxjvqehf4xt4lcmvymamnsre/node_modules/storybook/dist/core-server/index.js:16845:15)
+    at async _StoryIndexGenerator.getIndex (file:///Users/maya.buserde/Desktop/jack-henry-design-system/node_modules/.pnpm/storybook@10.4.0_@emnapi+core@1.9.2_@emnapi+runtime@1.9.2_@testing-library+dom@10.4.0_@types+_27vxjvqehf4xt4lcmvymamnsre/node_modules/storybook/dist/core-server/index.js:16824:13)
+    at async config (file:///Users/maya.buserde/Desktop/jack-henry-design-system/node_modules/.pnpm/@storybook+builder-vite@10.4.0_esbuild@0.21.5_rollup@4.36.0_storybook@10.4.0_@emnapi+core@1.9_v2wdqeq2fnzku5vb6yvp26e42u/node_modules/@storybook/builder-vite/dist/_node-chunks/chunk-RPKZLEOZ.js:184:19)
+    at async runConfigHook (file:///Users/maya.buserde/Desktop/jack-henry-design-system/node_modules/.pnpm/vite@5.4.12/node_modules/vite/dist/node/chunks/dep-CjorC8P2.js:66880:19)
+    at async resolveConfig (file:///Users/maya.buserde/Desktop/jack-henry-design-system/node_modules/.pnpm/vite@5.4.12/node_modules/vite/dist/node/chunks/dep-CjorC8P2.js:66321:12)
+    at async _createServer (file:///Users/maya.buserde/Desktop/jack-henry-design-system/node_modules/.pnpm/vite@5.4.12/node_modules/vite/dist/node/chunks/dep-CjorC8P2.js:62901:18)
+    at async Module.start (file:///Users/maya.buserde/Desktop/jack-henry-design-system/node_modules/.pnpm/@storybook+builder-vite@10.4.0_esbuild@0.21.5_rollup@4.36.0_storybook@10.4.0_@emnapi+core@1.9_v2wdqeq2fnzku5vb6yvp26e42u/node_modules/@storybook/builder-vite/dist/index.js:1606:17)
+    at async storybookDevServer (file:///Users/maya.buserde/Desktop/jack-henry-design-system/node_modules/.pnpm/storybook@10.4.0_@emnapi+core@1.9.2_@emnapi+runtime@1.9.2_@testing-library+dom@10.4.0_@types+_27vxjvqehf4xt4lcmvymamnsre/node_modules/storybook/dist/core-server/index.js:18917:158)
+    at async buildOrThrow (file:///Users/maya.buserde/Desktop/jack-henry-design-system/node_modules/.pnpm/storybook@10.4.0_@emnapi+core@1.9.2_@emnapi+runtime@1.9.2_@testing-library+dom@10.4.0_@types+_27vxjvqehf4xt4lcmvymamnsre/node_modules/storybook/dist/core-server/index.js:8205:12)
+    at async buildDevStandalone (file:///Users/maya.buserde/Desktop/jack-henry-design-system/node_modules/.pnpm/storybook@10.4.0_@emnapi+core@1.9.2_@emnapi+runtime@1.9.2_@testing-library+dom@10.4.0_@types+_27vxjvqehf4xt4lcmvymamnsre/node_modules/storybook/dist/core-server/index.js:19478:41)
+[16:32:59.101] [WARN] Broken build, fix the error above.
+You may need to refresh the browser.

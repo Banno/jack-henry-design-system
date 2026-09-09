@@ -1,0 +1,62 @@
+{/*
+SPDX-FileCopyrightText: 2026 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+*/}
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import * as stories from './layout-composition.stories.js';
+
+<Meta title="Primitives/Layout Composition" of={stories} />
+
+# Layout Composition
+
+On their own, the layout primitives don't say much. Their value comes from
+composition: `<jh-layout-hstack>` and `<jh-layout-vstack>` are flex containers,
+`<jh-layout-spacer>` fills the space between their children, and because each
+stack is itself a valid flex child, they nest freely.
+
+The recipes below are named after the UI pattern they produce rather than the
+components they use — that's how you'll reach for them.
+
+## Toolbar / split header
+
+The canonical spacer pattern: a title on the left with actions pushed to the
+right by a single flexible `<jh-layout-spacer>`.
+
+<Canvas of={stories.Toolbar} />
+
+## Card layout (nested stacks)
+
+A `<jh-layout-vstack>` whose rows are `<jh-layout-hstack>`s. Each header/footer
+row can use its own `justify`, `align`, and `spacer` — nesting works because a
+stack is just another flex child.
+
+<Canvas of={stories.CardLayout} />
+
+## Form row
+
+A `<jh-layout-vstack>` of labeled `<jh-layout-hstack>`s. `align="baseline"`
+keeps labels and values sitting on a shared text baseline.
+
+<Canvas of={stories.FormRow} />
+
+## Wrapping
+
+An `<jh-layout-hstack>` with `wrap` so its children reflow onto new lines when
+the container runs out of room. Resize the canvas to see the reflow.
+
+<Canvas of={stories.Wrapping} />
+
+## Larger form
+
+A `<jh-layout-vstack>` of stacked `<jh-input>`s, followed by an
+`<jh-layout-hstack>` placing two distinct `<jh-checkbox-group>`s side by side,
+and a spacer-aligned action row. Shows the primitives scaling up to a full form.
+
+<Canvas of={stories.Form} />
+
+## Feedback
+
+Have an idea that will improve these primitives or an issue to report? Let us
+know by submitting an issue on
+[GitHub](https://github.com/Banno/jack-henry-design-system/issues).

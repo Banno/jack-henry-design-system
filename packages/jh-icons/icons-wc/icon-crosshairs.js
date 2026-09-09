@@ -5,7 +5,7 @@
 */
 import {LitElement, css, html} from 'lit';
 
-export default class JhIconCrosshair extends LitElement {
+export default class JhIconCrosshairs extends LitElement {
   /** @type {ElementInternals} */
   #internals;
 
@@ -91,4 +91,4 @@ export default class JhIconCrosshair extends LitElement {
   }
 }
 
-customElements.define('jh-icon-crosshairs', JhIconCrosshair);
+customElements.define('jh-icon-crosshairs', JhIconCrosshairs);

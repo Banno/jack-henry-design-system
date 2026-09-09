@@ -321,6 +321,10 @@
           "description": "The progress indicator border-color when `appearance=\"primary\"`. Defaults to `--jh-color-content-on-brand-enabled`."
         },
         {
+          "name": "--jh-button-progress-track-color-border-primary-pending",
+          "description": "The progress indicator track-color when `appearance=\"primary\"`. Defaults to `--jh-color-control-enabled`."
+        },
+        {
           "name": "--jh-button-color-background-secondary-enabled",
           "description": "The button container background-color when enabled and `appearance=\"secondary\"`. Defaults to `transparent`."
         },
@@ -411,6 +415,10 @@
         {
           "name": "--jh-button-progress-color-border-secondary-pending",
           "description": "The progress indicator border-color when `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-button-progress-track-color-border-secondary-pending",
+          "description": "The progress indicator track-color when `appearance=\"secondary\"`. Defaults to `--jh-color-control-enabled`."
         },
         {
           "name": "--jh-button-color-background-tertiary-enabled",
@@ -505,6 +513,10 @@
           "description": "The progress indicator border-color when `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-enabled`."
         },
         {
+          "name": "--jh-button-progress-track-color-border-tertiary-pending",
+          "description": "The progress indicator track-color when `appearance=\"tertiary\"`. Defaults to `--jh-color-control-enabled`."
+        },
+        {
           "name": "--jh-button-color-background-danger-enabled",
           "description": "The button container background-color when enabled and `appearance=\"danger\"`. Defaults to `--jh-color-content-negative-enabled`."
         },
@@ -595,6 +607,10 @@
         {
           "name": "--jh-button-progress-color-border-danger-pending",
           "description": "The progress indicator border-color when `appearance=\"danger\"`. Defaults to `--jh-color-content-on-negative-enabled`."
+        },
+        {
+          "name": "--jh-button-progress-track-color-border-danger-pending",
+          "description": "The progress indicator track-color when `appearance=\"danger\"`. Defaults to `--jh-color-control-enabled`."
         },
         {
           "name": "--jh-button-border-radius",
@@ -914,6 +930,12 @@
           "type": "number"
         }
       ],
+      "events": [
+        {
+          "name": "jh-change",
+          "description": "Fired when the selection of checkboxes is changed by the user. Event payload includes both current and previous selections, accessible via `e.detail.state.selectedValue` and `e.detail.state.previousSelectedValue`."
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -1060,7 +1082,7 @@
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the state of the checkbox has changed. Event payload includes the `checked` state of the checkbox and can be accessed via `e.detail.state.checked`."
+          "description": "Dispatched when the state of the checkbox has changed. Event payload includes the value and checked state of the checkbox and can be accessed via `e.detail.state.value` and `e.detail.state.checked`."
         }
       ],
       "cssProperties": [
@@ -1252,16 +1274,29 @@
       "attributes": [
         {
           "name": "inset",
-          "description": "The alignment of the left edge of the divider.",
+          "description": "The alignment of the left edge of the horizontal divider.",
           "type": "0|8|16|24|32|40|48|56|64|72|80|88|96"
+        },
+        {
+          "name": "orientation",
+          "description": "The orientation of the divider.",
+          "type": "'horizontal'|'vertical'",
+          "default": "\"horizontal\""
         }
       ],
       "properties": [
         {
           "name": "inset",
           "attribute": "inset",
-          "description": "The alignment of the left edge of the divider.",
+          "description": "The alignment of the left edge of the horizontal divider.",
           "type": "0|8|16|24|32|40|48|56|64|72|80|88|96"
+        },
+        {
+          "name": "orientation",
+          "attribute": "orientation",
+          "description": "The orientation of the divider.",
+          "type": "'horizontal'|'vertical'",
+          "default": "\"horizontal\""
         },
         {
           "name": "uniqueId",
@@ -1283,7 +1318,7 @@
         },
         {
           "name": "--jh-divider-space-inset",
-          "description": "The divider margin-left. Defaults to `0`."
+          "description": "The horizontal divider margin-left. Defaults to `0`."
         }
       ]
     },
@@ -1649,7 +1684,7 @@
       "events": [
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-change",
@@ -1806,6 +1841,572 @@
         {
           "name": "--jh-input-error-color-text",
           "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-input-size",
+          "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large."
+        }
+      ]
+    },
+    {
+      "name": "jh-input-number",
+      "path": "./components/input-number/input-number.js",
+      "description": "Input Number",
+      "attributes": [
+        {
+          "name": "max",
+          "description": "Sets the maximum value for the input number.",
+          "type": "?number"
+        },
+        {
+          "name": "min",
+          "description": "Sets the minimum value for the input number.",
+          "type": "?number"
+        },
+        {
+          "name": "step",
+          "description": "Sets the stepper buttons increment and decrement the value.",
+          "type": "number",
+          "default": "1"
+        },
+        {
+          "name": "accessible-label",
+          "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
+          "type": "?string"
+        },
+        {
+          "name": "accessible-label-clear-button",
+          "description": "Sets an aria-label on the clear button to assist screen reader users. Indicates that activating the button will clear the input field.",
+          "type": "?string"
+        },
+        {
+          "name": "autocomplete",
+          "description": "Determines whether the browser can provide assistance in filling out the input value and what type of information is expected.\nThis property will override any autocomplete attribute present on the input's parent form element.\n\n[Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)",
+          "type": "?string"
+        },
+        {
+          "name": "disabled",
+          "description": "Disables the input and prevents all user interactions. May cause the input to be ignored by assistive technologies (AT).",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "enterkeyhint",
+          "description": "Specifies which action label or icon to present for the enter key on virtual keyboards.\n\n[Visit MDN for information on supported enterkeyhint values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint)",
+          "type": "?string"
+        },
+        {
+          "name": "error-text",
+          "description": "Text to be displayed when input has failed validation and `invalid` is true.",
+          "type": "?string"
+        },
+        {
+          "name": "helper-text",
+          "description": "Provides additional context or guidance for using the input. For `helper-text` to be displayed, the `label` property must also be set.",
+          "type": "?string"
+        },
+        {
+          "name": "hide-left-slot",
+          "description": "Hides the left slot from input.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "hide-right-slot",
+          "description": "Hides the right slot from input.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "input-mask",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
+          "type": "?string"
+        },
+        {
+          "name": "inputmode",
+          "description": "Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.\n\n[Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)",
+          "type": "?string"
+        },
+        {
+          "name": "invalid",
+          "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "label",
+          "description": "Identifies what data should be entered into the input field.",
+          "type": "?string"
+        },
+        {
+          "name": "maxlength",
+          "description": "Sets the maximum number of characters a user can enter into the field.",
+          "type": "?string"
+        },
+        {
+          "name": "minlength",
+          "description": "Sets the minimum number of characters a user can enter into the field.",
+          "type": "?string"
+        },
+        {
+          "name": "name",
+          "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
+          "name": "readonly",
+          "description": "Prevents users from changing the input value. Removes all slotted content.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "required",
+          "description": "Indicates a value is required.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "show-char-count",
+          "description": "Displays a character counter at the bottom right corner below the input field.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "show-clear-button",
+          "description": "Displays a clear button in the input field when it contains a value and is focused or hovered. Deletes input value when activated.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "show-indicator",
+          "description": "Adds a visual indicator next to the label. Indicates that a value is optional(by default) or required if the `required` property is also set.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "size",
+          "description": "Sets the size of the input.",
+          "type": "'small'|'medium'|'large'",
+          "default": "\"medium\""
+        },
+        {
+          "name": "value",
+          "description": "Sets the value of the input.",
+          "type": "?string"
+        }
+      ],
+      "properties": [
+        {
+          "name": "max",
+          "attribute": "max",
+          "description": "Sets the maximum value for the input number.",
+          "type": "?number"
+        },
+        {
+          "name": "min",
+          "attribute": "min",
+          "description": "Sets the minimum value for the input number.",
+          "type": "?number"
+        },
+        {
+          "name": "step",
+          "attribute": "step",
+          "description": "Sets the stepper buttons increment and decrement the value.",
+          "type": "number",
+          "default": "1"
+        },
+        {
+          "name": "accessibleLabel",
+          "attribute": "accessible-label",
+          "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
+          "type": "?string"
+        },
+        {
+          "name": "accessibleLabelClearButton",
+          "attribute": "accessible-label-clear-button",
+          "description": "Sets an aria-label on the clear button to assist screen reader users. Indicates that activating the button will clear the input field.",
+          "type": "?string"
+        },
+        {
+          "name": "autocomplete",
+          "attribute": "autocomplete",
+          "description": "Determines whether the browser can provide assistance in filling out the input value and what type of information is expected.\nThis property will override any autocomplete attribute present on the input's parent form element.\n\n[Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)",
+          "type": "?string"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "Disables the input and prevents all user interactions. May cause the input to be ignored by assistive technologies (AT).",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "enterkeyhint",
+          "attribute": "enterkeyhint",
+          "description": "Specifies which action label or icon to present for the enter key on virtual keyboards.\n\n[Visit MDN for information on supported enterkeyhint values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint)",
+          "type": "?string"
+        },
+        {
+          "name": "errorText",
+          "attribute": "error-text",
+          "description": "Text to be displayed when input has failed validation and `invalid` is true.",
+          "type": "?string"
+        },
+        {
+          "name": "helperText",
+          "attribute": "helper-text",
+          "description": "Provides additional context or guidance for using the input. For `helper-text` to be displayed, the `label` property must also be set.",
+          "type": "?string"
+        },
+        {
+          "name": "hideLeftSlot",
+          "attribute": "hide-left-slot",
+          "description": "Hides the left slot from input.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "hideRightSlot",
+          "attribute": "hide-right-slot",
+          "description": "Hides the right slot from input.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "inputMask",
+          "attribute": "input-mask",
+          "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
+          "type": "?string"
+        },
+        {
+          "name": "inputmode",
+          "attribute": "inputmode",
+          "description": "Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.\n\n[Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)",
+          "type": "?string"
+        },
+        {
+          "name": "invalid",
+          "attribute": "invalid",
+          "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "Identifies what data should be entered into the input field.",
+          "type": "?string"
+        },
+        {
+          "name": "maxlength",
+          "attribute": "maxlength",
+          "description": "Sets the maximum number of characters a user can enter into the field.",
+          "type": "?string"
+        },
+        {
+          "name": "minlength",
+          "attribute": "minlength",
+          "description": "Sets the minimum number of characters a user can enter into the field.",
+          "type": "?string"
+        },
+        {
+          "name": "name",
+          "attribute": "name",
+          "description": "Sets a name for the input control.",
+          "type": "?string"
+        },
+        {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "Sets the pattern attribute on the input field.",
+          "type": "?string"
+        },
+        {
+          "name": "readonly",
+          "attribute": "readonly",
+          "description": "Prevents users from changing the input value. Removes all slotted content.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "required",
+          "attribute": "required",
+          "description": "Indicates a value is required.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "showCharCount",
+          "attribute": "show-char-count",
+          "description": "Displays a character counter at the bottom right corner below the input field.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "showClearButton",
+          "attribute": "show-clear-button",
+          "description": "Displays a clear button in the input field when it contains a value and is focused or hovered. Deletes input value when activated.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "showIndicator",
+          "attribute": "show-indicator",
+          "description": "Adds a visual indicator next to the label. Indicates that a value is optional(by default) or required if the `required` property is also set.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "size",
+          "attribute": "size",
+          "description": "Sets the size of the input.",
+          "type": "'small'|'medium'|'large'",
+          "default": "\"medium\""
+        },
+        {
+          "name": "value",
+          "attribute": "value",
+          "description": "Sets the value of the input.",
+          "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
+        }
+      ],
+      "events": [
+        {
+          "name": "jh-select",
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
+        },
+        {
+          "name": "jh-change",
+          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
+        },
+        {
+          "name": "jh-input",
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`."
+        },
+        {
+          "name": "jh-maxlength",
+          "description": "Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`."
+        },
+        {
+          "name": "jh-input:clear-button-click",
+          "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`."
+        }
+      ],
+      "slots": [
+        {
+          "name": "jh-input-number-stepper-increment",
+          "description": "Use to insert an icon in the increment stepper button."
+        },
+        {
+          "name": "jh-input-number-stepper-decrement",
+          "description": "Use to insert an icon in the decrement stepper button."
+        },
+        {
+          "name": "jh-input-left",
+          "description": "Use to insert an element on the left side of the input field, such as an icon or button."
+        },
+        {
+          "name": "jh-input-right",
+          "description": "Use to insert an element on the right side of the input field, such as an icon or button."
+        },
+        {
+          "name": "jh-input-clear-button",
+          "description": "Use to insert an icon within the clear button."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--jh-input-number-stepper-border-radius",
+          "description": "The button container border-radius. Defaults to `--jh-border-radius-100`."
+        },
+        {
+          "name": "--jh-input-number-stepper-color-background-enabled",
+          "description": "The stepper button background-color when enabled. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-input-number-stepper-color-border-enabled",
+          "description": "The stepper button border-color when enabled. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-input-number-stepper-icon-color-fill-enabled",
+          "description": "The stepper button icon color when enabled. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-input-number-stepper-color-background-hover",
+          "description": "The stepper button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-input-number-stepper-color-border-hover",
+          "description": "The stepper button border-color when hovered. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-input-number-stepper-icon-color-fill-hover",
+          "description": "The stepper button icon color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-input-number-stepper-color-background-active",
+          "description": "The stepper button background-color when active. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-input-number-stepper-color-border-active",
+          "description": "The stepper button border-color when active. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-input-number-stepper-icon-color-fill-active",
+          "description": "The stepper button icon color when active. Defaults to `--jh-color-content-on-brand-active`."
+        },
+        {
+          "name": "--jh-input-number-stepper-icon-color-fill-disabled",
+          "description": "The stepper button icon color when disabled. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-input-number-stepper-color-border-disabled",
+          "description": "The stepper button border-color when disabled. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-input-number-stepper-color-background-disabled",
+          "description": "The stepper button background-color when disabled. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-input-number-stepper-opacity-disabled",
+          "description": "The stepper button opacity when disabled. Defaults to `--jh-opacity-disabled`."
+        },
+        {
+          "name": "--jh-input-label-color-text",
+          "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-input-field-color-background",
+          "description": "The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-input-field-color-border-enabled",
+          "description": "The input field border-color. Defaults to `--jh-border-control-color`."
+        },
+        {
+          "name": "--jh-input-field-border-radius",
+          "description": "The input field border radius. Defaults to `--jh-border-radius-100`."
+        },
+        {
+          "name": "--jh-input-color-focus",
+          "description": "The input field outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
+        },
+        {
+          "name": "--jh-input-field-color-border-focus",
+          "description": "The input field border-color when in focus. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-input-field-color-border-hover",
+          "description": "The input field border-color when hovered. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-input-field-color-border-active",
+          "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-input-field-color-border-disabled",
+          "description": "The input field border-color when disabled. Defaults to `--jh-border-control-color`."
+        },
+        {
+          "name": "--jh-input-opacity-disabled",
+          "description": "The input opacity when disabled. Defaults to `--jh-opacity-disabled`."
+        },
+        {
+          "name": "--jh-input-field-color-border-error",
+          "description": "The input field border-color when invalid. Defaults to `--jh-border-error-color`."
+        },
+        {
+          "name": "--jh-input-clear-border-radius",
+          "description": "The clear button border radius. Defaults to `--jh-border-radius-100`."
+        },
+        {
+          "name": "--jh-input-clear-color-background-enabled",
+          "description": "The clear button background-color. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-input-clear-color-border-enabled",
+          "description": "The clear button border-color. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-input-clear-icon-color-fill-enabled",
+          "description": "The clear button icon fill color. Defaults to `--jh-color-content-brand-enabled`."
+        },
+        {
+          "name": "--jh-input-clear-color-background-focus",
+          "description": "The clear button background-color when in focus. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-input-clear-color-border-focus",
+          "description": "The clear button border-color when in focus. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-input-clear-color-focus",
+          "description": "The clear button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`."
+        },
+        {
+          "name": "--jh-input-clear-icon-color-fill-focus",
+          "description": "The clear button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-input-clear-color-background-hover",
+          "description": "The clear button background-color when hovered. Defaults to `--jh-color-content-brand-hover`."
+        },
+        {
+          "name": "--jh-input-clear-color-border-hover",
+          "description": "The clear button border-color when hovered. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-input-clear-icon-color-fill-hover",
+          "description": "The clear button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`."
+        },
+        {
+          "name": "--jh-input-clear-color-background-active",
+          "description": "The clear button background-color when active. Defaults to `--jh-color-content-brand-active`."
+        },
+        {
+          "name": "--jh-input-clear-color-border-active",
+          "description": "The clear button border-color when active. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-input-clear-icon-color-fill-active",
+          "description": "The clear button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`."
+        },
+        {
+          "name": "--jh-input-required-color-text",
+          "description": "The required indicator color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-input-optional-color-text",
+          "description": "The optional indicator text color. Defaults to `jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-input-helper-color-text",
+          "description": "The helper-text text color. Defaults to `jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-input-counter-color-text",
+          "description": "The character counter text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-input-value-color-text",
+          "description": "The value text color. Defaults to `jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-input-error-color-text",
+          "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-input-size",
+          "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large."
         }
       ]
     },
@@ -2142,7 +2743,7 @@
       "events": [
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-change",
@@ -2307,6 +2908,10 @@
         {
           "name": "--jh-input-error-color-text",
           "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-input-size",
+          "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large."
         }
       ]
     },
@@ -2609,7 +3214,7 @@
       "events": [
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-change",
@@ -2766,6 +3371,10 @@
         {
           "name": "--jh-input-error-color-text",
           "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-input-size",
+          "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large."
         }
       ]
     },
@@ -3068,7 +3677,7 @@
       "events": [
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-change",
@@ -3225,6 +3834,10 @@
         {
           "name": "--jh-input-error-color-text",
           "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-input-size",
+          "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large."
         }
       ]
     },
@@ -3593,7 +4206,7 @@
         },
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-maxlength",
@@ -3746,6 +4359,10 @@
         {
           "name": "--jh-input-error-color-text",
           "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-input-size",
+          "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large."
         }
       ]
     },
@@ -4048,7 +4665,7 @@
       "events": [
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-change",
@@ -4205,6 +4822,10 @@
         {
           "name": "--jh-input-error-color-text",
           "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-input-size",
+          "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large."
         }
       ]
     },
@@ -4506,7 +5127,7 @@
       "events": [
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-change",
@@ -4663,6 +5284,10 @@
         {
           "name": "--jh-input-error-color-text",
           "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-input-size",
+          "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large."
         }
       ]
     },
@@ -5117,7 +5742,7 @@
       "events": [
         {
           "name": "jh-dismiss",
-          "description": "Dispatched when the notification is dismissed."
+          "description": "Dispatched when the notification is dismissed. Event payload includes the dismissal method of the notification and can be accessed via `e.detail.reference.dismissMethod`"
         }
       ],
       "slots": [
@@ -5753,7 +6378,7 @@
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the state of the radio has changed. Event payload includes the value of the radio and can be accessed via `e.detail.state.value`."
+          "description": "Dispatched when the state of the radio has changed. Event payload includes the value and checked state of the radio and can be accessed via `e.detail.state.value` and `e.detail.state.checked`."
         }
       ],
       "cssProperties": [
@@ -6214,7 +6839,7 @@
         },
         {
           "name": "jh-select",
-          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
+          "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
         },
         {
           "name": "jh-input",
@@ -6527,6 +7152,10 @@
         {
           "name": "--jh-input-error-color-text",
           "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-input-size",
+          "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large."
         }
       ]
     },
@@ -6614,7 +7243,7 @@
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the state of the switch has changed."
+          "description": "Dispatched when the state of the switch has changed. Event payload includes the `checked` state of the switch and can be accessed via `e.detail.state.checked`."
         }
       ],
       "cssProperties": [
@@ -7402,7 +8031,7 @@
       "events": [
         {
           "name": "jh-dismiss",
-          "description": "Dispatched when the tag is dismissed."
+          "description": "Dispatched when the tag is dismissed. Event payload includes the dismissal method of the tag and can be accessed via `e.detail.reference.dismissMethod`"
         }
       ],
       "slots": [
@@ -7557,12 +8186,16 @@
           "description": "Sets the role of the toast controller and establishes a live region to expose changes to assistive technologies.",
           "type": "'status'|'alert'",
           "default": "\"status\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
         {
           "name": "jh-dismiss",
-          "description": "Dispatched when the toast controller dismisses the oldest toast, and when toasts are dismissed manually by the user."
+          "description": "Dispatched when the toast controller dismisses the oldest toast once the maximum count is exceeded."
         }
       ],
       "slots": [
@@ -7642,7 +8275,7 @@
       "events": [
         {
           "name": "jh-dismiss",
-          "description": "Dispatched when the toast is dismissed."
+          "description": "Dispatched when the toast is dismissed. Event payload includes the dismissal method of the toast and can be accessed via `e.detail.reference.dismissMethod`"
         }
       ],
       "slots": [

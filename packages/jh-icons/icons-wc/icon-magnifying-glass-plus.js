@@ -5,7 +5,7 @@
 */
 import {LitElement, css, html} from 'lit';
 
-export default class JhIconMagnifyingGlassPlu extends LitElement {
+export default class JhIconMagnifyingGlassPlus extends LitElement {
   /** @type {ElementInternals} */
   #internals;
 
@@ -91,4 +91,4 @@ export default class JhIconMagnifyingGlassPlu extends LitElement {
   }
 }
 
-customElements.define('jh-icon-magnifying-glass-plus', JhIconMagnifyingGlassPlu);
+customElements.define('jh-icon-magnifying-glass-plus', JhIconMagnifyingGlassPlus);

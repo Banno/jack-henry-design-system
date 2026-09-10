@@ -33,7 +33,13 @@ Declaring a `jh-divider`:
 
 ## Inset Override for Horizontal Dividers
 
-There are thirteen left-inset options available to help align the horizontal divider with its associated content. If an inset outside of the thirteen provided options is desired, use the `--jh-divider-inset-space` component token. Note that if both the `inset` property and `--jh-divider-inset-space` component token are present, the `inset` property will take priority for that instance of the component. 
+There are thirteen left-inset options available to help align the horizontal divider with its associated content. If an inset outside of the thirteen provided options is desired, use the `--jh-divider-space-inset` component token. Note that if both the `inset` property and `--jh-divider-space-inset` component token are present, the `inset` property will take priority for that instance of the component. 
+
+## Appearance
+
+The divider renders as a solid line by default. To render a dashed divider, set the `--jh-divider-border-style` component token to `dashed`. The token accepts any CSS `border-style` value.
+
+There is no `appearance` property — the style hook is the intended way to set this in code.
 
 ## Accessibility
 

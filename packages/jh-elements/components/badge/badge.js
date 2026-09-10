@@ -23,17 +23,21 @@ export class JhBadge extends JhElement {
       background: var(--jh-badge-color-background-enabled, var(--jh-color-content-negative-enabled));
       color: var(--jh-badge-color-text-enabled, var(--jh-color-content-on-negative-enabled));
       border-radius: var(--jh-badge-border-radius, var(--jh-border-radius-pill));
+      box-sizing: border-box;
       min-width: var(--jh-dimension-200);
       height: var(--jh-dimension-200);
       display: flex;
       justify-content: center;
+      align-items: center;
     }
     .count-present {
       font-family: var(--jh-font-helper-bold-font-family);
       font-weight: var(--jh-font-helper-bold-font-weight);
       font-size: var(--jh-font-helper-bold-font-size);
       line-height: var(--jh-font-helper-bold-line-height);
+      font-variant-numeric: tabular-nums;
       height: var(--jh-dimension-400);
+      min-width: var(--jh-dimension-400);
       padding: var(--jh-dimension-0) var(--jh-dimension-100);
       width: auto;
     }

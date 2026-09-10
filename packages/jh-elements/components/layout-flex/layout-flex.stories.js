@@ -1,17 +1,19 @@
 /**
-* SPDX-FileCopyrightText: 2025 Jack Henry
+* SPDX-FileCopyrightText: 2026 Jack Henry
 *
 * SPDX-License-Identifier: Apache-2.0
 */
 
 import { html, css } from 'lit';
 import { action } from 'storybook/actions';
-import './layout-hstack.js';
+import './layout-flex.js';
 import '../button/button.js';
 
 const storyStyles = css`
 
 `;
+
+const orientationOptions = ['horizontal', 'vertical'];
 
 const dimensionOptions = ['0', '25', '50', '100', '200', '300', '400', '500', '600', '700', '800', '900', '1000'];
 
@@ -20,40 +22,23 @@ const alignOptions = ['start', 'end', 'center', 'stretch', 'baseline'];
 const justifyOptions = ['start', 'end', 'center', 'between', 'around', 'evenly'];
 
 const disableControls = {
-  attribute: { control: { disable: true } },
-  'some-attribute': { control: { disable: true } },
-}
-
-function logCustomEvent(name, e) {
-  return action(name)({
-    detail: e.detail,
-    type: e.type,
-    bubbles: e.bubbles,
-    cancelable: e.cancelable,
-    composed: e.composed,
-    currentTarget: e.currentTarget,
-    defaultPrevented: e.defaultPrevented,
-    eventPhase: e.eventPhase,
-    isTrusted: e.isTrusted,
-    target: e.target,
-    timeStamp: e.timeStamp,
-  });
-}
+  orientation: { control: { disable: true } },
+  gap: { control: { disable: true } },
+  padding: { control: { disable: true } },
+  align: { control: { disable: true } },
+  justify: { control: { disable: true } },
+  wrap: { control: { disable: true } },
+};
 
 export default {
-  component: 'jh-layout-hstack',
-  title: 'Primitives/Layout Hstack',
-  tag: 'beta',
-  decorators: [
-    (story) => html`
-      <div
-        @jh-event=${(e) => logCustomEvent('jh-event', e)}
-      >
-        ${story()}
-      </div>
-    `,
-  ],
+  component: 'jh-layout-flex',
+  title: 'Primitives/Layout Flex',
+  tags: ['beta'],
   argTypes: {
+    orientation: {
+      control: 'select',
+      options: orientationOptions,
+    },
     gap: {
       control: 'select',
       options: dimensionOptions,
@@ -73,21 +58,15 @@ export default {
     wrap: {
       control: 'boolean',
     },
-    'some-attribute': {
-      control: 'text',
-    },
-    attribute: {
-      control: 'boolean',
-    }
   },
 };
 
 export const Overview = { render: (args) => html`
-  <jh-layout-hstack>
+  <jh-layout-flex>
     <jh-button label="Button 1"></jh-button>
     <jh-button label="Button 2"></jh-button>
     <jh-button label="Button 3"></jh-button>
-  </jh-layout-hstack>
+  </jh-layout-flex>
 `};
 
 Overview.argTypes = {
@@ -95,7 +74,8 @@ Overview.argTypes = {
 };
 
 export const Playground = { render: (args) => html`
-  <jh-layout-hstack
+  <jh-layout-flex
+    orientation=${args.orientation}
     gap=${args.gap}
     padding=${args.padding}
     align=${args.align}
@@ -105,10 +85,11 @@ export const Playground = { render: (args) => html`
     <jh-button label="Button 1"></jh-button>
     <jh-button label="Button 2"></jh-button>
     <jh-button label="Button 3"></jh-button>
-  </jh-layout-hstack>
+  </jh-layout-flex>
 `};
 
 Playground.args = {
+  orientation: 'horizontal',
   gap: '100',
   padding: '100',
   align: 'stretch',
@@ -119,14 +100,3 @@ Playground.args = {
 Playground.parameters = {
   theme: 'both-themes',
 };
-
-export const Default = { render: (args) => html`
-  <jh-layout-hstack></jh-layout-hstack>
-`};
-
-Default.argTypes = {
-  ...disableControls,
-};
-
-
-

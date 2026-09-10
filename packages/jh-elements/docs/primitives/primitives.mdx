@@ -15,20 +15,19 @@ styling of their own — their job is to arrange other components.
 
 ## Layout primitives
 
-- **[Layout Hstack](?path=/docs/primitives-layout-hstack--docs)** — arranges
-  its children in a horizontal row (`display: flex; flex-direction: row`).
-- **[Layout Vstack](?path=/docs/primitives-layout-vstack--docs)** — arranges
-  its children in a vertical column (`display: flex; flex-direction: column`).
+- **[Layout Flex](?path=/docs/primitives-layout-flex--docs)** — arranges its
+  children in a row or column (`display: flex`), controlled by the
+  `orientation` attribute.
 - **[Layout Spacer](?path=/docs/primitives-layout-spacer--docs)** — a flexible
-  filler that expands to push a stack's children apart. Only has effect inside
-  a stack (or any flex parent).
+  filler that expands to push a container's children apart. Only has effect
+  inside a flex parent.
 
-Each stack exposes `gap` and `padding` (mapped to dimension tokens) plus
-`align`, `justify`, and `wrap` (mapped to flexbox).
+Layout Flex exposes `orientation` plus `gap` and `padding` (mapped to dimension
+tokens) and `align`, `justify`, and `wrap` (mapped to flexbox).
 
 ## Seeing them in action
 
 Individually these primitives don't mean much — they're designed to compose,
-and each stack is itself a valid flex child, so they nest freely. See
+and a flex container is itself a valid flex child, so they nest freely. See
 **[Layout Composition](?path=/docs/primitives-layout-composition--docs)** for
 real-world patterns: toolbars, nested-stack cards, form rows, and wrapping.

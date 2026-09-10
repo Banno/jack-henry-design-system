@@ -11,9 +11,9 @@ import * as stories from './layout-composition.stories.js';
 # Layout Composition
 
 On their own, the layout primitives don't say much. Their value comes from
-composition: `<jh-layout-hstack>` and `<jh-layout-vstack>` are flex containers,
-`<jh-layout-spacer>` fills the space between their children, and because each
-stack is itself a valid flex child, they nest freely.
+composition: `<jh-layout-flex>` is a flex container whose `orientation` sets its
+direction, `<jh-layout-spacer>` fills the space between its children, and because
+a flex container is itself a valid flex child, they nest freely.
 
 The recipes below are named after the UI pattern they produce rather than the
 components they use — that's how you'll reach for them.
@@ -27,30 +27,30 @@ right by a single flexible `<jh-layout-spacer>`.
 
 ## Card layout (nested stacks)
 
-A `<jh-layout-vstack>` whose rows are `<jh-layout-hstack>`s. Each header/footer
-row can use its own `justify`, `align`, and `spacer` — nesting works because a
-stack is just another flex child.
+A vertical `<jh-layout-flex>` whose rows are horizontal `<jh-layout-flex>`s. Each
+header/footer row can use its own `justify`, `align`, and `spacer` — nesting
+works because a flex container is just another flex child.
 
 <Canvas of={stories.CardLayout} />
 
 ## Form row
 
-A `<jh-layout-vstack>` of labeled `<jh-layout-hstack>`s. `align="baseline"`
-keeps labels and values sitting on a shared text baseline.
+A vertical `<jh-layout-flex>` of labeled horizontal `<jh-layout-flex>`s.
+`align="baseline"` keeps labels and values sitting on a shared text baseline.
 
 <Canvas of={stories.FormRow} />
 
 ## Wrapping
 
-An `<jh-layout-hstack>` with `wrap` so its children reflow onto new lines when
-the container runs out of room. Resize the canvas to see the reflow.
+A horizontal `<jh-layout-flex>` with `wrap` so its children reflow onto new lines
+when the container runs out of room. Resize the canvas to see the reflow.
 
 <Canvas of={stories.Wrapping} />
 
 ## Larger form
 
-A `<jh-layout-vstack>` of stacked `<jh-input>`s, followed by an
-`<jh-layout-hstack>` placing two distinct `<jh-checkbox-group>`s side by side,
+A vertical `<jh-layout-flex>` of stacked `<jh-input>`s, followed by a horizontal
+`<jh-layout-flex>` placing two distinct `<jh-checkbox-group>`s side by side,
 and a spacer-aligned action row. Shows the primitives scaling up to a full form.
 
 <Canvas of={stories.Form} />

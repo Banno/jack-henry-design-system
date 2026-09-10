@@ -4667,6 +4667,124 @@
       ]
     },
     {
+      "name": "jh-layout-flex",
+      "path": "./components/layout-flex/layout-flex.js",
+      "description": "Layout Flex",
+      "attributes": [
+        {
+          "name": "orientation",
+          "description": "Sets the orientation of the layout container.",
+          "type": "'horizontal' | 'vertical'",
+          "default": "\"horizontal\""
+        },
+        {
+          "name": "gap",
+          "description": "Sets the gap between elements slotted in the container.",
+          "type": "'0' | '25' | '50' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900' | '1000'",
+          "default": "\"0\""
+        },
+        {
+          "name": "padding",
+          "description": "Sets the inner padding of the layout container.",
+          "type": "'0' | '25' | '50' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900' | '1000'",
+          "default": "\"0\""
+        },
+        {
+          "name": "align",
+          "description": "Sets the alignment of slotted elements along the cross axis.",
+          "type": "'start' | 'end' | 'center' | 'stretch' | 'baseline'",
+          "default": "\"stretch\""
+        },
+        {
+          "name": "justify",
+          "description": "Sets the alignment of the slotted elements along the main axis.",
+          "type": "'start' | 'end' | 'center' | 'between' | 'around' | 'evenly'",
+          "default": "\"start\""
+        },
+        {
+          "name": "wrap",
+          "description": "Determines whether the slotted elements should wrap onto multiple lines or columns.",
+          "type": "boolean",
+          "default": "false"
+        }
+      ],
+      "properties": [
+        {
+          "name": "orientation",
+          "attribute": "orientation",
+          "description": "Sets the orientation of the layout container.",
+          "type": "'horizontal' | 'vertical'",
+          "default": "\"horizontal\""
+        },
+        {
+          "name": "gap",
+          "attribute": "gap",
+          "description": "Sets the gap between elements slotted in the container.",
+          "type": "'0' | '25' | '50' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900' | '1000'",
+          "default": "\"0\""
+        },
+        {
+          "name": "padding",
+          "attribute": "padding",
+          "description": "Sets the inner padding of the layout container.",
+          "type": "'0' | '25' | '50' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900' | '1000'",
+          "default": "\"0\""
+        },
+        {
+          "name": "align",
+          "attribute": "align",
+          "description": "Sets the alignment of slotted elements along the cross axis.",
+          "type": "'start' | 'end' | 'center' | 'stretch' | 'baseline'",
+          "default": "\"stretch\""
+        },
+        {
+          "name": "justify",
+          "attribute": "justify",
+          "description": "Sets the alignment of the slotted elements along the main axis.",
+          "type": "'start' | 'end' | 'center' | 'between' | 'around' | 'evenly'",
+          "default": "\"start\""
+        },
+        {
+          "name": "wrap",
+          "attribute": "wrap",
+          "description": "Determines whether the slotted elements should wrap onto multiple lines or columns.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "Use to insert slotted elements inside the layout flex container."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--jh-layout-flex-gap",
+          "description": "The space between slotted elements. Defaults to the `--jh-dimension-{gap}` token."
+        },
+        {
+          "name": "--jh-layout-flex-padding",
+          "description": "The padding inside the layout flex container. Defaults to the `--jh-dimension-{padding}` token."
+        }
+      ]
+    },
+    {
+      "name": "jh-layout-spacer",
+      "path": "./components/layout-spacer/layout-spacer.js",
+      "description": "Layout Spacer",
+      "properties": [
+        {
+          "name": "uniqueId",
+          "type": "number"
+        }
+      ]
+    },
+    {
       "name": "jh-list-group",
       "path": "./components/list-group/list-group.js",
       "attributes": [

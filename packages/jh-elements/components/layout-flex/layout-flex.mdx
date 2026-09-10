@@ -1,0 +1,106 @@
+{/*
+SPDX-FileCopyrightText: 2026 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+ */}
+import { Meta, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as stories from './layout-flex.stories.js';
+
+<Meta title="Primitives/Layout Flex" of={stories} />
+
+# Layout Flex
+
+[Guidelines](https://jackhenry.design/pages/components/layout-flex/)
+
+<hr />
+
+Layout Flex is a layout primitive that arranges elements slotted into it in a single row or column.
+It uses Flexbox under the hood, and the `orientation` attribute controls whether the slotted elements flow horizontally or vertically.
+
+## Usage
+
+Import the `<jh-layout-flex>` component:
+
+```javascript
+import '@jack-henry/jh-elements/primitives/layout-flex/layout-flex.js';
+```
+
+Place elements in the default slot. Each slotted element becomes a flex item:
+
+```html
+<jh-layout-flex orientation="horizontal" gap="100" align="center">
+  <jh-button label="Save"></jh-button>
+  <jh-button label="Cancel"></jh-button>
+</jh-layout-flex>
+```
+
+## Orientation
+
+`orientation` sets the direction slotted elements flow via `flex-direction`.
+
+- `horizontal` lays elements out in a row, left to right.
+- `vertical` lays elements out in a column, top to bottom.
+
+When `orientation` is omitted, the layout defaults to `horizontal`.
+
+```html
+<jh-layout-flex orientation="vertical" gap="100">
+  <jh-button label="Save"></jh-button>
+  <jh-button label="Cancel"></jh-button>
+</jh-layout-flex>
+```
+
+## Spacing
+
+`gap` and `padding` both map to the `--jh-dimension-*` token scale, so spacing stays consistent with the rest of the design system.
+
+- `gap` sets the space between slotted elements.
+- `padding` sets the inner padding between the container edges and its slotted elements.
+
+Both accept the same values: `0`, `25`, `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, and `1000`.
+
+```html
+<jh-layout-flex gap="200" padding="100">
+  <!-- slotted elements -->
+</jh-layout-flex>
+```
+
+## Alignment
+
+`align` and `justify` control how slotted elements are positioned. Their visual effect follows the `orientation`:
+
+- `align` sets the cross-axis alignment via `align-items`: `start`, `end`, `center`, `stretch`, or `baseline`. This is the vertical axis when `horizontal` and the horizontal axis when `vertical`.
+- `justify` sets the main-axis distribution via `justify-content`: `start`, `end`, `center`, `between`, `around`, or `evenly`. This is the horizontal axis when `horizontal` and the vertical axis when `vertical`.
+
+```html
+<jh-layout-flex align="center" justify="between">
+  <!-- slotted elements -->
+</jh-layout-flex>
+```
+
+## Wrapping
+
+By default slotted elements stay on a single line and may overflow the container. Add the boolean `wrap` attribute to let slotted elements reflow onto new lines when they run out of space along the main axis.
+
+```html
+<jh-layout-flex wrap gap="100">
+  <!-- slotted elements -->
+</jh-layout-flex>
+```
+
+## Composition
+
+Layout primitives are designed to compose. Because `<jh-layout-flex>` is itself a valid flex child, it nests freely inside other `<jh-layout-flex>` containers and works alongside `<jh-layout-spacer>` to push slotted elements apart. See [Layout Composition](?path=/docs/primitives-layout-composition--docs) for common patterns such as toolbars, card layouts, and form rows.
+
+## Component API
+
+For boolean attributes, true indicates that the attribute has been set without a value: `<jh-layout-flex wrap></jh-layout-flex>`. While false indicates the attribute does not exist in the DOM: `<jh-layout-flex></jh-layout-flex>`.
+
+<ArgTypes />
+
+## Feedback
+
+Have an idea that will improve this component or have an issue to report? Let us know by submitting 
+an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
+
+Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

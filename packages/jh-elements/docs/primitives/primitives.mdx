@@ -1,0 +1,33 @@
+{/*
+SPDX-FileCopyrightText: 2026 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+*/}
+
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Primitives/Primitives" tags={['beta']} />
+
+# Primitives
+
+Primitives are low-level, unopinionated building blocks. They carry no visual
+styling of their own — their job is to arrange other components.
+
+## Layout primitives
+
+- **[Layout Flex](?path=/docs/primitives-layout-flex--docs)** — arranges its
+  children in a row or column (`display: flex`), controlled by the
+  `orientation` attribute.
+- **[Layout Spacer](?path=/docs/primitives-layout-spacer--docs)** — a flexible
+  filler that expands to push a container's children apart. Only has effect
+  inside a flex parent.
+
+Layout Flex exposes `orientation` plus `gap` and `padding` (mapped to dimension
+tokens) and `align`, `justify`, and `wrap` (mapped to flexbox).
+
+## Seeing them in action
+
+Individually these primitives don't mean much — they're designed to compose,
+and a flex container is itself a valid flex child, so they nest freely. See
+**[Layout Composition](?path=/docs/primitives-layout-composition--docs)** for
+real-world patterns: toolbars, nested-stack cards, form rows, and wrapping.

@@ -1,0 +1,71 @@
+{/*
+SPDX-FileCopyrightText: 2026 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+*/}
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import * as stories from './layout-composition.stories.js';
+
+<Meta title="Primitives/Layout Composition" of={stories} />
+
+# Layout Composition
+
+On their own, the layout primitives don't say much. Their value comes from
+composition: `<jh-layout-flex>` is a flex container whose `orientation` sets its
+direction, `<jh-layout-spacer>` fills the space between its children, and because
+a flex container is itself a valid flex child, they nest freely.
+
+The recipes below are named after the UI pattern they produce rather than the
+components they use — that's how you'll reach for them.
+
+## Toolbar / split header
+
+The canonical spacer pattern: a title on the left with actions pushed to the
+right by a single flexible `<jh-layout-spacer>`.
+
+<Canvas of={stories.Toolbar} />
+
+## Split groups
+
+A single `<jh-layout-spacer>` placed *between* two groups pushes them to opposite
+ends of the row while each group keeps its own `gap`. Use it to separate, say, a
+set of navigation buttons from a set of actions without wrapping either in its own
+container.
+
+<Canvas of={stories.SplitGroups} />
+
+## Card layout (nested stacks)
+
+A vertical `<jh-layout-flex>` whose rows are horizontal `<jh-layout-flex>`s. Each
+header/footer row can use its own `justify`, `align`, and `spacer` — nesting
+works because a flex container is just another flex child.
+
+<Canvas of={stories.CardLayout} />
+
+## Form row
+
+A vertical `<jh-layout-flex>` of labeled horizontal `<jh-layout-flex>`s.
+`align="baseline"` keeps labels and values sitting on a shared text baseline.
+
+<Canvas of={stories.FormRow} />
+
+## Wrapping
+
+A horizontal `<jh-layout-flex>` with `wrap` so its children reflow onto new lines
+when the container runs out of room. Resize the canvas to see the reflow.
+
+<Canvas of={stories.Wrapping} />
+
+## Larger form
+
+A vertical `<jh-layout-flex>` of stacked `<jh-input>`s, followed by a horizontal
+`<jh-layout-flex>` placing two distinct `<jh-checkbox-group>`s side by side,
+and a spacer-aligned action row. Shows the primitives scaling up to a full form.
+
+<Canvas of={stories.Form} />
+
+## Feedback
+
+Have an idea that will improve these primitives or an issue to report? Let us
+know by submitting an issue on
+[GitHub](https://github.com/Banno/jack-henry-design-system/issues).

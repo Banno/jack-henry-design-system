@@ -25,6 +25,15 @@ right by a single flexible `<jh-layout-spacer>`.
 
 <Canvas of={stories.Toolbar} />
 
+## Split groups
+
+A single `<jh-layout-spacer>` placed *between* two groups pushes them to opposite
+ends of the row while each group keeps its own `gap`. Use it to separate, say, a
+set of navigation buttons from a set of actions without wrapping either in its own
+container.
+
+<Canvas of={stories.SplitGroups} />
+
 ## Card layout (nested stacks)
 
 A vertical `<jh-layout-flex>` whose rows are horizontal `<jh-layout-flex>`s. Each

@@ -1,0 +1,143 @@
+{/*
+SPDX-FileCopyrightText: 2025 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+ */}
+import { Meta, ArgTypes, Canvas } from '@storybook/addon-docs/blocks';
+import * as stories from './layout-z-stack.stories.js';
+
+<Meta title="Primitives/Layout Z Stack" of={stories} />
+
+# Layout Z Stack
+
+[Guidelines](https://jackhenry.design/pages/components/layout-z-stack/)
+
+<hr />
+
+Layout Z Stack is a layout primitive that layers the elements slotted into it on top of one another along the z-axis.
+It uses CSS Grid under the hood: every slotted element occupies the same grid cell, so they overlap instead of flowing in a row or column. Use it for overlays, badges anchored to a corner, or any UI where elements need to share the same space.
+
+## When to use it
+
+Reach for a z-stack when you need to overlap **independent, meaningful, non-blocking** elements and their source order already matches the order they should be read in. Good fits include:
+
+- Caption or heading text over an image or media
+- A value label centered on a chart or sparkline
+- A duration or "LIVE" tag on a media thumbnail
+- A skeleton placeholder over content while it loads
+
+## When not to use it
+
+Layering is purely visual — it carries no semantics — so some patterns are better solved another way:
+
+- **A status or label that belongs to a component** — put it in that component's own flow (for example, a tag in a card's header slot). Reading order and association come for free, with no overlap risk.
+- **Blocking interaction while loading or disabled** — this is a *state*, not a layout. Use `inert` (with `aria-busy`), a `disabled` control, or a native `<dialog>`; these also block keyboard and assistive tech, which `pointer-events` cannot.
+- **Purely decorative layering** (gradients, watermarks) — a CSS `background`, pseudo-element, or single SVG never enters the accessibility tree.
+
+Switching to `position: absolute` instead of a z-stack does not reduce any of these risks — it is the same visual layering with the same hazards. The safety comes from the semantics, not the positioning method.
+
+## Usage
+
+Import the `<jh-layout-z-stack>` component:
+
+```javascript
+import '@jack-henry/jh-elements/components/layout-z-stack/layout-z-stack.js';
+```
+
+Place elements in the default slot. Each slotted element becomes its own layer, stacked in source order with the last element on top:
+
+```html
+<jh-layout-z-stack>
+  <img src="cover.jpg" alt="" />
+  <span>Overlaid caption</span>
+</jh-layout-z-stack>
+```
+
+## Layering
+
+Slotted elements stack in source order — the first element is the bottom layer and each following element sits above the previous one, so the **last** element renders on top. The stack sizes itself to its largest layer.
+
+To control which layer is on top, reorder the elements in your markup.
+
+## Alignment
+
+`align` and `justify` position every layer within the shared cell:
+
+- `align` sets the block (vertical) axis via `align-items`: `start`, `end`, `center`, or `stretch`.
+- `justify` sets the inline (horizontal) axis via `justify-items`: `start`, `end`, `center`, or `stretch`.
+
+Combine the two to anchor a layer to an edge or corner — for example `align="start"` with `justify="end"` pins a badge to the top-right. Alignment applies to all layers at once; to position a single layer differently, set `align-self` / `justify-self` on that element.
+
+```html
+<jh-layout-z-stack align="start" justify="end">
+  <div class="avatar"></div>
+  <jh-badge count="8" class="inset"></jh-badge>
+</jh-layout-z-stack>
+```
+
+### Anchoring inside or outside the corner
+
+Alignment pins an element to an edge; to fine-tune where it sits relative to that edge, offset the element itself:
+
+- Tuck it **inside** the corner with a `margin`.
+- Make it **overhang** the corner with a `transform`.
+
+```css
+/* tucked inside the corner */
+.inset { margin: var(--jh-dimension-200); }
+
+/* hanging off the corner — the classic notification badge */
+.overhang { transform: translate(50%, -50%); }
+```
+
+An overhanging element is clipped by any ancestor with `overflow: hidden`.
+
+<Canvas of={stories.AnchoredBadge} />
+
+## Pointer events
+
+Because layers overlap, a top layer sits over the ones beneath it and **intercepts pointer events across its whole area** — even where it looks transparent or empty. This means interactive elements on a lower layer (buttons, links, inputs) may not be clickable when a layer covers them.
+
+When an upper layer is purely decorative, set `pointer-events: none` on it so clicks pass through to the layer below:
+
+```css
+.decorative-overlay {
+  pointer-events: none;
+}
+```
+
+Toggle between the blocked and pass-through examples below and watch the Actions panel to see the difference.
+
+<Canvas of={stories.PointerEvents} />
+
+## Overlays and loading states
+
+A full-cover layer can dim content and block the mouse while something loads. But covering a layer does **not** remove it from the focus order or accessibility tree — users can still tab to and operate the controls beneath it. Because blocking is a state rather than a layout, pair the visual overlay with `inert` on the covered content (or disable its controls) and set `aria-busy="true"` on the region so assistive tech knows it is loading.
+
+<Canvas of={stories.LoadingOverlay} />
+
+## Composition
+
+Layout primitives are designed to compose. A `<jh-layout-z-stack>` can hold `<jh-layout-flex>` containers as layers (and vice versa), letting you arrange content within a layer while still stacking layers on the z-axis.
+
+## Accessibility
+
+The stack adds no semantics of its own, so a few responsibilities stay with you:
+
+- **Reading order follows source order.** Because the top layer must be *last* in the DOM to render on top, it is also read *last*. A visually prominent corner element — such as a status tag — is announced after the content it sits on. If it needs to be perceived earlier, associate it with ARIA rather than reordering the DOM; moving it earlier would drop it behind.
+- **Visually covered is not hidden from assistive tech.** Covered content stays in the focus order and accessibility tree. Use `inert` / `aria-hidden` (and `aria-busy` while loading) when a layer should truly block interaction — `pointer-events` only affects the mouse.
+- **Anchor meaning to the right element.** For a badge on a control, fold the value into the control's accessible name (for example a button's `accessible-label`) and mark the visual badge `aria-hidden="true"` so it is not announced as a stray value.
+- **ARIA references do not cross shadow boundaries.** `aria-describedby` and `aria-labelledby` only resolve within a single tree, so you can reference a sibling element but not something rendered inside another component's shadow root. Prefer putting meaningful status into a component's own content or accessible name.
+
+## Component API
+
+For boolean attributes, true indicates that the attribute has been set without a value: `<jh-layout-z-stack add-relevant-boolean></jh-layout-z-stack>`. While false indicates the attribute does not exist in the DOM: `<jh-layout-z-stack></jh-layout-z-stack>`.
+
+<ArgTypes />
+
+## Feedback
+
+Have an idea that will improve this component or have an issue to report? Let us know by submitting 
+an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
+
+Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

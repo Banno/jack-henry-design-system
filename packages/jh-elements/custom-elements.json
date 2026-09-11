@@ -4667,6 +4667,51 @@
       ]
     },
     {
+      "name": "jh-layout-z-stack",
+      "path": "./components/layout-z-stack/layout-z-stack.js",
+      "description": "Layout Z Stack",
+      "attributes": [
+        {
+          "name": "align",
+          "description": "Sets the alignment of layered elements along the block (vertical) axis.",
+          "type": "'start' | 'end' | 'center' | 'stretch'",
+          "default": "\"stretch\""
+        },
+        {
+          "name": "justify",
+          "description": "Sets the alignment of layered elements along the inline (horizontal) axis.",
+          "type": "'start' | 'end' | 'center' | 'stretch'",
+          "default": "\"stretch\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "align",
+          "attribute": "align",
+          "description": "Sets the alignment of layered elements along the block (vertical) axis.",
+          "type": "'start' | 'end' | 'center' | 'stretch'",
+          "default": "\"stretch\""
+        },
+        {
+          "name": "justify",
+          "attribute": "justify",
+          "description": "Sets the alignment of layered elements along the inline (horizontal) axis.",
+          "type": "'start' | 'end' | 'center' | 'stretch'",
+          "default": "\"stretch\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "Use to insert layered elements. Each slotted element occupies the same cell and stacks in source order, with the last element on top."
+        }
+      ]
+    },
+    {
       "name": "jh-list-group",
       "path": "./components/list-group/list-group.js",
       "attributes": [

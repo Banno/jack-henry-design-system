@@ -50,7 +50,7 @@ a text alternative that serves the equivalent purpose.
 
 ### What we provide
 
-The icon component has the following implicit accessibility features, both of which can be overriden by the author. 
+The icon component has the following implicit accessibility features, both of which can be overridden by the author. 
 
 - `role="graphics-symbol"`
 - `aria-hidden="true"`
@@ -64,7 +64,7 @@ assistive technology. There are number of issues an author should consider when 
 - If an icon must be interactive, consider using the icon only variant of our [button](/docs/components-button--docs) component or an `<a>` 
 tag wrapper instead. If icon level interactivity is necessary, set `tabindex="0"` on the `<jh-icon>` element.
 - Decorative icons, those that are paired with text or are purely for decoration, should be ignore by assistive technology. 
-By default the icon component is hidden from assisitive technology. Should interactivity be necessary, set `aria-hidden="false"` 
+By default the icon component is hidden from assistive technology. Should interactivity be necessary, set `aria-hidden="false"` 
 to avoid anomalous behavior.
 - Note that setting a tabindex on the jh-icon while `aria-hidden="true"`, will result in assistive technology honoring browser 
 focus and announcing the icon.

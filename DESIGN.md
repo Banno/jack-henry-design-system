@@ -272,13 +272,131 @@ Token name: `font.micro.bold`
 
 ## Layout
 
+### Dimensions
+
+Forge utilizes defined dimensions to create consistent layouts regardless of platform or screen size.
+
+- The dimension scale is based on a multiple of four from 4 to 96 to correspond with the grid.
+- Smaller dimensions of 1 and 2 are also available to accommodate minor adjustments within a layout.
+- There are currently no semantic dimension tokens available within Forge.
+- Use the global `jh-dimension-*` tokens to define any length-based value. This MAY include (but isn't limited to): `height`, `width`, `margin`, and `padding`.
+
 ## Elevation & Depth
 
+Elevation defines how elements interact with other spatially and creates opportunities for rich layering of content and intuitive interactions.
+
+### Shadow
+
+Shadows can be used to visually define a component from its surrounding and establish its spatial relationship within the overall layout.
+
+There are four levels of shadow available to allow for a variety of spatial relationships within a given layout.
+
+### Z-index
+
+Z-index is used to set the layer order of elements. This is critical for elements and components that visually “sit on top” of others within a view such as a dialog and its overlay or a slide-out drawer. While properly setting the z-index ensures certain components are not obscured, it does not necessarily establish the perceived visual depth between surfaces that shadow does.
+
+Values are available from 0 to 1000 in increments of 100. A value of -100 is available when elements need to be positioned below the base level of 0.
+
 ## Shapes
+
+### Radius
+
+Radius is used to set the rounded-ness of a container or shape. Consistent use of a container’s border radius can be used to clarify intent such as whether or not a component is interactive.
+
+### Borders
+
+Borders provide distinction to individual components as well as establishes a sense of overall visual identity throughout the application.
+
+Forge includes a set of border concepts that predefine the border’s style, width, and color.
+
+- **Decorative:** Decorative borders are typically used for elements such as dividers and edges of layout elements.
+- **Control:** Control borders should be used to style elements such as form controls.
+- **Action:** Action borders are used to style elements that promote an interactive action such as buttons.
+- **Focus:** Focus borders are used to style bordered implementations of the focus ring. In CSS, this could either be as a border or outline. Note, there is also a focus variant of a shadow token which should only be used when focus rings must be styled using shadow properties.
+- **Selected:** Selected borders can be used to style elements that convey when something is selected. Common examples are list-items and tabs.
+- **Error:** Error borders are specifically used to style error or invalid states on elements. These are commonly used on inputs.
+
+These concept properties are provided as discrete tokens for greater flexibility when styling borders. They MAY either be defined as individual declarations or using shorthand where appropriate.
+
+As individual declarations:
+
+```css
+border-style: var(--jh-border-action-style);
+border-width: var(--jh-border-action-width);
+border-color: var(--jh-border-action-color);
+```
+
+As CSS shorthand:
+
+```css
+border: var(--jh-border-action-style) var(--jh-border-action-width) var(--jh-border-action-color);
+```
+
+Avoid mixing-and-matching border concept properties.
+
+````css
+border-style: var(--jh-border-decorative-style);
+border-width: var(--jh-border-focus-width);
+border-color: var(--jh-border-error-color);
+
+Use one of the global or alias tokens when customizations or overrides are needed.
+
+```css
+border-style: var(--jh-border-action-style);
+border-width: var(--jh-border-action-width);
+border-color: var(--jh-color-content-positive-enabled);
+````
+
+Border tokens—especially the border-colors—should only be used to style borders. Don’t use a border-color token to define other non-border colors such as that of an icon or text. An exception to this is when an element’s color needs to be intrinsically linked to that of the border color.
+
+Border width is used to define the thickness of the border. Use the widths defined as part of the border concepts to help promote a consistent user interface.
+
+Border style defines the line style of the border. All of the border concepts within Forge currently use the same border style.
+
+### Focus ring
+
+A focus indicator is an important part of the user interface that helps users know which element on the page currently has keyboard focus.
+
+When correctly implemented, a focus indicator can help users navigate a page’s interactive elements more effectively. Because of this, the focus indicator is built in to all of the components that are interactive by default. It incorporates our design tokens to ensure appropriate color contrast and that the indicator styling complements the rest of the visual language used throughout the Forge system.
+
+Examples of a button, input, switch, and dismissible tag demonstrate the implementation of the focus indicator.
+The tokens also allow the indicator to be themed or customized to meet color contrast guidelines when used in situations outside the norm.
+
+A dismiss button is customized with a white background and focus indicator to better contrast with the red notification background.
+Because focus indicators play such an important role in the overall usability of a web application, they should always remain visible when an applicable element has focus. If you are creating a new component that will receive keyboard focus, be sure to include the focus indicator styling as part of your design and code.
+
+The ring is the main element of the indicator and should always be present on interactive elements when they receive focus. By default, it conforms to the border radius of its related element and is slightly offset.
+
+Annotations denote the focus ring which is slightly offset from its related elements.
+There are some situations—such as when elements don’t have a visible container—where an offset may not be needed. In those cases, you may use a negative offset to align the ring to the inside of the element or omit the offset altogether.
+
+A focus ring without an offset hugs the invisible boundaries of an example piece of interactive text.
+The following code example details how we typically implement the indicator in CSS:
+
+```css
+element:focus-visible {
+  outline-color: var(--jh-border-focus-color);
+  outline-style: var(--jh-border-focus-style);
+  outline-width: var(--jh-border-focus-width);
+  outline-offset: 1px;
+}
+```
+
+When creating custom components, the various outline properties can also be written in CSS shorthand if preferred.
 
 ## Components
 
 ## Do's and Don'ts
+
+## Icons
+
+- **Name:** Use the [naming conventions](https://blog.fontawesome.com/icon-naming-conventions/) outlined by Font Awesome.
+- **Glyph style:** 1.5px stroke, rounded outside corners, prefer outlined over filled icons
+- **Size:** The source icon artwork MUST be sized within a 24px by 24px invisible container. Use `size` property or `jh-icon-size-*` style hooks on `jh-icon` component to define an icon size within a design.
+- **Color:** The source icon artwork is ALWAYS pure black (`#000000`). NEVER use a design token on the original icon artwork. The `jh-icon` component sets the default icon color to `color.content.secondary.enabled`. Use `--jh-icon-color-fill` to customize an icon's color.
+- **Accessibility:** Meaningful icons MUST be associated with an accessible name. Decorative icons that sit beside a label are hidden from assistive technology.
+
+The full SVG catalog lives in `/packages/jh-icons/`. Use those as the source — never substitute Unicode arrows, emoji, or HTML-entity glyphs for real icons.
 
 ## Voice and tone
 
@@ -299,3 +417,83 @@ Our tone flexes depending on context. The tone always aligns with our voice.
 - **Professional, not stiff.** Use financial and technical terms only when necessary, and explain them clearly.
 - **Confident but humble.** Focus on clarity and transparency. Don’t overpromise.
 - **Inclusive.** Use language that respects all audiences. Avoid assumptions about gender, background, or ability.
+
+## Accessibility
+
+Understanding Web Accessibility
+Web accessibility means building websites and tools usable by everyone, including people with visual, auditory, motor, or cognitive disabilities. Many rely on Assistive Technologies (AT) like screen readers, magnifiers, and keyboard-only navigation.
+
+The goal is to make digital content perceivable, operable, understandable, and robust. This isn't just about fairness; it's a legal and business imperative. Millions in the U.S. live with disabilities, representing a significant market.
+
+Forge acknowledges and is motivated by the following key laws:
+
+- Americans with Disabilities Act (ADA)
+- Section 508 of the Rehabilitation Act
+- European Accessibility Act (EAA)
+
+These laws use the Web Content Accessibility Guidelines (WCAG)—a global W3C standard—for compliance. WCAG sets out testable criteria at levels A, AA, and AAA. To comply with these laws, our design system aims to satisfy WCAG 2.2 levels A and AA success criteria.
+
+Design Principles
+Accessibility begins with thoughtful design decisions:
+
+- **WCAG-Compliant Design:** Create components following WCAG standards.
+- **Design Tokens:** Use the Forge design tokens to ensure consistent adherence to WCAG contrast requirements and optimal font readability (sizing, spacing) across all components.
+- **Interactive element standards:** Ensure pointer targets (like buttons) meet minimum sizing and all interactive elements have visible focus indicators and logical keyboard navigation flows.
+
+### Engineering for web components
+
+Web Components introduces distinct accessibility considerations compared to native HTML elements:
+
+- Lacks built-in AT support (ARIA roles, keyboard interaction, focus).
+- Shadow DOM can complicate AT understanding of component structure.
+
+To address these, we leverage:
+
+- ElementInternals: Bridging the Accessibility Gap
+  The ElementInternals API is crucial for making our custom elements robust and accessible.
+
+- Allows custom elements to directly participate in the browser's Accessibility Object Model (AOM). The AOM is how browsers expose semantic information (roles, states, properties) about UI elements to assistive technologies. By using ElementInternals, our custom components can declare their accessibility properties to ATs just like native HTML elements. This establishes default accessibility properties on our components, and allows us to override or extend these properties as needed for specific component behaviors.
+- Will be integrated directly into our base jh-element. Any component extending jh-element will automatically inherit the ElementInternals object. This simplifies development, as engineers won't need to manually implement ElementInternals for every component.
+
+Learn more about ElementInternals on MDN
+
+Custom ARIA Attribute Propagation (accessible-_)
+The Shadow DOM can block standard ARIA attributes from reaching elements inside. To ensure ARIA attributes are correctly applied within Shadow DOM, we provide the accessible-_ namespace. Authors use attributes like accessible-label on our components, and our code then maps these to the appropriate standard aria-\* attributes for AT.
+
+Example: For an icon-only button, an aria-label is crucial for screen readers to announce it correctly. Using jh-button:
+<jh-button accessible-label="Print"><jh-icon-printer></jh-icon-printer></jh-button>
+Copy
+Robust Keyboard Navigation & Focus
+We implement keyboard interaction flows and focus behavior that matches native HTML for simple components.
+
+Achieving Component Accessibility
+Our design system components are rigorously tested against WCAG 2.2 levels A and AA criteria.
+
+We use Axe-core, a powerful, open-source accessibility testing engine developed by Deque Systems, as our primary automated benchmark. Axe-core runs automated checks directly within web applications and is known for its speed, accuracy, and ability to detect a significant portion of WCAG violations early in the development cycle.
+
+All our components undergo testing using:
+
+- **Automated Testing:** Utilize Axe-core to identify common accessibility issues.
+- **Manual Testing with AT:** Use screen readers and magnifiers in all supported browsers.
+- **Manual Keyboard Testing:** Ensure all interactive elements are reachable, show focus indicators, and are fully usable via keyboard.
+
+### Component accessibility documentation
+
+Component documentation SHOULD provide extensive accessibility information for each component, including:
+
+- A list of relevant WCAG 2.2 success criteria the component needs to meet.
+- A "What we provide" section with detailed information on built-in accessibility features and how to use them.
+- An "Author guidance" section, with instructions on any additional steps authors must take to ensure the component is accessible in their context.
+
+### Accessibility beyond Forge
+
+While our components are accessible, integrating them into a fully accessible webpage requires attention to overall structure, content, and user experience. Here are key tips for page authors:
+
+- **Semantic HTML:** Use HTML5 semantic elements (<header>, <nav>, <main>, <article>, etc.) to structure content meaningfully.
+- **Logical focus order:** Ensure interactive elements (links, buttons, form fields) follow a logical flow matching the visual layout.
+- **Keyboard usability:** All interactive elements must be reachable with the keyboard, show a clear focus indicator, and avoid keyboard traps.
+- **Alt text for images:** Provide appropriate alt text for all images to convey their content or purpose.
+- **Descriptive links:** Ensure link text is descriptive and provides context about its destination or action.
+- **Form labels and feedback:** Associate all form fields with clear labels, and provide actionable error messages.
+
+Important Note on Testing: Automated tools like Axe-core are vital, but on average only catch around 57% of accessibility issues. Manual testing with screen readers and keyboard navigation is essential to ensure a truly accessible experience for all users.

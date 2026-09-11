@@ -39,6 +39,8 @@ Use this order. A section is included **only if the spec (plus DESIGN.md) actual
 
 ## Step 3 — Write and verify
 
+- Do not rewrite or otherwise change the content if the guidelines are still accurate.
+- Adjust the style to use a simple present tense.
 - Write the file to `docs/components/<slug>.md` (match existing filename/casing conventions; multi-part components use their full hyphenated slug, e.g. `input-email.md`).
 - Do the token-conversion pass explicitly: scan the draft for any remaining dot-notation tokens in style-hook tables and convert every one to `--jh-kebab-case` form.
 - Re-read DESIGN.md's relevant rule sections once more against the finished draft, specifically checking for contradictions (Step 2.8) — this is the check most easily skipped, so do it as a deliberate last pass, not just while drafting.

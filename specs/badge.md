@@ -24,7 +24,7 @@ description: A badge is a visual indicator that represents numeric values such a
 
 Count sets the visible text of the badge.
 
-- The property accepts a numeric value.
+- The property SHOULD be a `number`.
 - Text expands inline to fit the available space.
 - The badge's width can never shrink below that of a perfect circle. This behavior is typical for single-character counts.
 
@@ -52,6 +52,7 @@ Count sets the visible text of the badge.
 
 The maximum count that is allowed to display within the badge.
 
+- The property SHOULD be a `number`.
 - If the max-count property is not set, the badge displays the full count as entered.
 - A max-count of 0 behaves just like any other number, rendering “0” and a “+”.
 - When the badge’s count goes above the max-count, the max-count is displayed appended with a “+” character. There is no space between the count and the “+” character.

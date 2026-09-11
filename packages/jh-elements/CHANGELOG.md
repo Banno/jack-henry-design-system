@@ -1,5 +1,12 @@
 # @jack-henry/jh-elements
 
+## 2.1.1
+
+### Patch Changes
+
+- Updated dependencies [[`1c3374a`](https://github.com/Banno/jack-henry-design-system/commit/1c3374a30735e945844b4f3cab403da5c3eb5343)]:
+  - @jack-henry/jh-icons@2.1.1
+
 ## 2.1.0
 
 ### Minor Changes

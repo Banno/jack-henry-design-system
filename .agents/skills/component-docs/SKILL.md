@@ -17,6 +17,7 @@ If the user names a component, use it. If not, ask which component (list `/specs
    - The _Component accessibility documentation_ rule (under Accessibility): every component page SHOULD include relevant WCAG 2.2 success criteria, a "What we provide" subsection, and an "Author guidance" subsection. Only state a WCAG success criterion number if the spec or DESIGN.md actually gives you grounds for it (e.g. an explicit contrast ratio, resize behavior, or color-alone warning) — don't cite SC numbers from memory.
    - Relevant foundation rules that bear on this component's tokens (color contrast/pairing rules, border concepts, focus ring behavior, dimension scale) so the page's language about defaults stays consistent with how DESIGN.md describes those systems.
    - Voice and tone section — match its "clear, confident, human" register.
+3. **`/packages/jh-elements/components/`** - the component code. Use the JSDoc tags to generate component API and CSS custom property tables.
 
 ## Step 2 — Section template
 
@@ -33,7 +34,8 @@ Use this order. A section is included **only if the spec (plus DESIGN.md) actual
    - **What we provide** (H3) — built-in accessibility behavior the spec describes (e.g. contrast-safe default colors, resize tolerance).
    - **Author guidance** (H3) — steps the _page author_ must still take (e.g. "pair the badge with visible text conveying the same info," "add a live region for live updates").
 8. **Contradictions with system guidance** (H2) — **only when a genuine, unresolved conflict exists** between the spec and DESIGN.md (for example: a spec default token pairing that appears to fail DESIGN.md's stated contrast-difference rule; a spec behavior that runs counter to an established DESIGN.md principle; a naming or structural convention the spec uses that DESIGN.md's rules would otherwise forbid). Do not use this section for things you can simply fix by following DESIGN.md (e.g. dot-notation tokens — just convert those, silently, per the rule). For each contradiction: name the DESIGN.md rule, name the spec's conflicting statement, and state plainly that the spec's behavior is being documented as-is because it's a deliberate/necessary exception. If there are no genuine contradictions, omit this section entirely — never include it empty or as a formality.
-9. **Feedback** (H2) — standard closing boilerplate matching the existing pages: links to open a GitHub issue and join the GitHub discussion board.
+9. **Properties** (H2) - a series of component API and CSS custom property tables based on JSDoc tags from the component codebase.
+10. **Feedback** (H2) — standard closing boilerplate matching the existing pages: links to open a GitHub issue and join the GitHub discussion board.
 
 ## Step 3 — Write and verify
 

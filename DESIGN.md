@@ -19,11 +19,63 @@ components:
 
 ## Overview
 
+### Terminology
+
+Forge uses the following terminology throughout the system:
+
+- **Global token:** The same as a primitive design token.
+- **Alias token:** The same as a semantic design token.
+- **Grade:** A particular level of value; similar terms MAY be level or step.
+
+Prefer Forge's terminology over other conventions unless otherwise noted.
+
 ### Design tokens
 
-- Design tokens are written in dot-notation throughout this file.
-- Convert dot-notation design tokens to kebab case and prefix with `--jh` when creating documentation for the web.
-- Use existing token information found in `/packages/jh-tokens/` wherever possible.
+- Design tokens are written in dot-notation throughout the specs.
+- Style hooks (ie, component tokens) are written in dot-notation throughout the specs for the sake of consistency. The one exception is when referenced in the code example of a specific syntax. The correct syntax MUST be used in that circumstance to promote clarity and accuracy. Practically, style hooks are only available to users in platform-specific syntax such as CSS custom properties for the web.
+- Convert all dot-notation design tokens to kebab case and prefix with `--jh` when creating documentation for the web.
+- Use existing token information found in `/packages/jh-tokens/` wherever possible. Tokens MUST NOT be invented within the base Forge code or documentation.
+
+#### Global tokens
+
+Global tokens are the most basic values within the visual language. They represent all of the visual choices available within Forge. Global tokens MAY be used when an appropriate alias token doesn’t exist.
+
+#### Alias tokens
+
+Alias tokens communicate the specific function or purpose of a global token. They SHOULD be used wherever possible.
+
+#### Style hooks
+
+Style hooks are essentially component-level alias tokens. They allow you to override or theme very specific aspects of a given component such as the color of a label or the radius of a particular container.
+
+Each component spec provides a complete list of available style hooks.
+
+A comprehensive set of component variables that align with our CSS style hooks is available in Figma. These MAY be redefined as needed for theming. They SHOULD NOT not be applied to user-created custom components.
+
+#### Naming structure
+
+Each design token follows a naming convention to provide an appropriate level of specificity and context so a user can have a better understanding of its intended use.
+
+- **System:** A short designation of which library the tokens belong to. Forge prefixes this as part of the build process.
+- **Component:** Contextualizes the token to a specific component such as card or button.
+- **Element:** Targets a specific element within a component such as a label or icon.
+- **Category:** Describes a specific visual style concern such as color, font, and size.
+- **Concept:** Breaks down a given category into semantic subdivisions.
+- **Property:** Contextualizes a token to a standard CSS property such as `background`, `border`, or `text`.
+- **Mode:** Denotes specific color pairings with an “on” designation.
+- **Variant:** Describes alternative use cases for a base token such as primary, secondary, or success.
+- **State:** Describes interactive states for a token such as hover, active, or disabled.
+- **Scale:** Denotes graduated steps of a token variant, typically specified as ordered levels.
+
+Levels MAY be skipped if not needed to clarify a token’s usage. However, levels MUST always be placed in the aforementioned order.
+
+The following are a few examples of tokens and their underlying structure:
+
+- **shadow.100:** [category].[scale]
+- **color.content.on.brand.enabled:** [category].[concept].[mode].[variant].[state]
+- **button.icon.color.fill.primary.hover:** [component].[element].[category].[property].[variant].[state]
+
+Product-specific tokens SHOULD follow the same naming conventions to ensure consistency and compatibility—albeit with an appropriate system name that prevents collisions with Forge’s `jh` tokens.
 
 ## Colors
 
@@ -31,7 +83,7 @@ Color plays a functional role throughout the Forge system to create consistent, 
 
 ### Global color palette
 
-The global color palette consists of eleven color families, each with nineteen graduated steps. The color families are derived from a source color represented with both hex and LCH values and fall within a specific hue range on the color wheel.
+The global color palette consists of eleven color families, each with nineteen grades. The color families are derived from a source color represented with both hex and LCH values and fall within a specific hue range on the color wheel.
 
 | Color family | Hue range | Hex value | LCH value            |
 | ------------ | --------- | --------- | -------------------- |
@@ -47,7 +99,7 @@ The global color palette consists of eleven color families, each with nineteen g
 | Magenta      | 295-324   | `#E508CC` | `53.1, 97, 333.2`    |
 | Gray         | —         |           |                      |
 
-Each color family is scaled 50 to 950 in grades of 50. The grades represent a specific lightness and luminance that guarantees what kind of contrast a color will have with other colors from the palette. The lightness and luminance values are targets.
+Each color family is scale of grades that range from `50` to `950` in steps of 50. The grades represent a specific lightness and luminance that guarantees what kind of contrast a color will have with other colors from the palette. The lightness and luminance values are targets.
 
 | **Grade** | **Lightness** | **Contrast ratio (white)** | **Luminance** |
 | --------- | ------------- | -------------------------- | ------------- |
@@ -78,18 +130,18 @@ To guarantee a specific contrast between two color grades, ensure they have a mi
 
 For example, pairing `color.gray.200` with `color.blue.700` (a difference of 500) would guarantee a contrast of at least 4.5:1. However, `color.gray.200` with `color.gray.500` (a difference of 300) would fail both WCAG guidelines for color contrast.
 
-Colors that use a 100-level designation (100, 200, 300, etc.) should be prioritized for most aspects of the user interface. However, colors that have a 50-level designation (50, 150, 250, etc.) can be used in situations where a change in color is necessary but contrast with any paired content needs to be maintained such as changes in state.
+Colors that use a 100-level designation (100, 200, 300, etc.) SHOULD be prioritized for most aspects of the user interface. However, colors that have a 50-level designation (50, 150, 250, etc.) can be used in situations where a change in color is necessary but contrast with any paired content needs to be maintained such as changes in state.
 
-Colors from the global color palette are context-agnostic. As such, they should never be directly used within a design. Instead, use global colors to define alias tokens when there is no other appropriate alias token already exists.
+Colors from the global color palette are context-agnostic. As such, they MUST NOT be directly used within a design. Instead, use global colors to define alias tokens when there is no other appropriate alias token already exists.
 
 Additional color family scales may be created as needed. They MUST:
 
-- Be a complete 19-grade scale that conforms to the same luminance values as the other color families
+- Be a complete 19-grade scale that conforms to the same contrast ratios as the other color families
 - Be generated using the LCH color space
 - Work within the sRGB color gamut
-- Include a grade 500 that has 4.5:1 contrast with both pure white (grade 0) and pure black (grade 1000)
+- Include a grade 500 that has 4.5:1 contrast with both pure white (grade `0`) and pure black (grade `1000`)
 
-New scales should:
+New scales SHOULD:
 
 - Be perceptually distinguishable from existing color scales
 
@@ -97,7 +149,7 @@ New scales should:
 
 A set of white and black alpha tokens are provided. These are graded by opacity from 10 to 100 with 10 being nearly transparent and 100 being completely opaque. The 100 grades should be used when pure white and black are needed. The other grades may be used when varying degrees of opacity are needed such as overlays and shadows.
 
-Aside from the fully-opaque white and black colors, the opacity grades do not predictably contrast with the rest of the global color palette. Tests should be performed when an alpha token is paired with any other color to ensure the appropriate color contrast is honored.
+Aside from the fully-opaque white and black colors, the opacity grades do not predictably contrast with the rest of the global color palette. Tests SHOULD be performed when an alpha token is paired with any other color to ensure the appropriate color contrast is honored.
 
 When pairing with non-alpha colors in the global color palette, pure white (`color.white.alpha.100`) can be interpreted as the `0` grade of any hue's color ramp and pure black (`color.black.alpha.100`) can be interpreted as the `1000` grade. Use this interpretation along with the minimum grade differences mentioned in the global color palette section to ensure appropriate color contrast is maintained. For example, text that is `color.white.alpha.100` (pure white) can be used on a background that has a color grade of 500 or higher and meet 4.5:1 contrast.
 
@@ -111,13 +163,13 @@ Each color alias falls within one of the seven predefined semantic concepts. The
 - **Overlay:** Use the overlay color when modals such as dialogs need to sit on top of the main user interface.
 - **Control:** Use control colors on the containers of interactive control elements such as slider and switch tracks.
 - **Divider:** Use divider colors on bordered elements throughout the user interface such as dividers, table borders, and component outlines.
-- **Brand:** Use brand colors on elements where . Note that these colors do not have the same interactive capabilities as the content colors and should be used accordingly. Brand colors should typically correlate to a customer's predominant color palette
+- **Brand:** Use brand colors to incorporate a specific branded color that might otherwise fall outside the global palette or other Forge-defined color. Brand colors MAY NOT have guaranteed color contrast with other color concepts. Accessibility tests SHOULD be performed to ensure there is sufficient contrast where brand colors are applied. Brand colors MAY NOT have a different values defined for both light and dark themes.
 - **Content:** Use content colors to style text, iconography, and other content-based elements. They may be used in both static and interactive contexts. Content colors meet 4.5:1 contrast against any container color.
 - **Interactive:** Use interactive colors for general interactions such as focus and content highlighting.
 
 #### Pairings
 
-Color tokens have been designed with specific pairings to ensure appropriate color contrast. These pairings are represented by a set of `on` colors. The `on` colors denote which color tokens they may be paired with. The `on` colors should only be used with their referenced “surface” token. For example, `color.content.on.primary.enabled` may only be used on `color.content.primary.enabled`. This ensures proper color contrast ratios and predictable theming results.
+Color tokens have been designed with specific pairings to ensure appropriate color contrast. These pairings are represented by a set of `on` colors. The `on` colors denote which color tokens they may be paired with. The `on` colors SHOULD only be used with their referenced “surface” token. For example, `color.content.on.primary.enabled` may only be used on `color.content.primary.enabled`. This ensures proper color contrast ratios and predictable theming results.
 
 #### States
 
@@ -136,8 +188,8 @@ Thoughtful typography is important to establish visual hierarchy and clearly and
 
 ### Font family
 
-- **Roboto Flex.** This variable font includes a full range of weights and renders well across multiple devices and resolutions.
-- **Roboto Mono.** Use in situations where a monospace typeface is needed.
+- **Roboto Flex:** This variable font includes a full range of weights and renders well across multiple devices and resolutions.
+- **Roboto Mono:** Use in situations where a monospace typeface is needed.
 
 All global font families MUST use the following structure: `font.family.*`.
 
@@ -217,7 +269,7 @@ All global font weight tokens MUST use the following structure: `font.weight.*`.
 
 Italics are not currently part of the global font token set. Use overrides to manually italicize text.
 
-**Code.** Use `font-style: italic;` to add a CSS style rule alongside the font tokens. For example, to define paragraph text with italics, use the following CSS:
+**Code:** Use `font-style: italic;` to add a CSS style rule alongside the font tokens. For example, to define paragraph text with italics, use the following CSS:
 
 ```css
 p {
@@ -229,7 +281,7 @@ p {
 }
 ```
 
-**Figma.** Use **Command + I** to apply an italic override on a text layer or selected text within a layer. In dev mode, this will accurately show the font tokens to apply as well as the additional italic override.
+**Figma:** Use **Command + I** to apply an italic override on a text layer or selected text within a layer. In dev mode, this will accurately show the font tokens to apply as well as the additional italic override.
 
 ### Concepts
 
@@ -274,12 +326,15 @@ Token name: `font.micro.bold`
 
 ### Dimensions
 
-Forge utilizes defined dimensions to create consistent layouts regardless of platform or screen size.
+Global dimension tokens are a scale of grades that range from `0` to `2400` in steps of 100. There are two additional grades—`25` and `50`—for more fine-grained control at smaller scales. The scale establishes the `100` grade as the base with a value of `4px`. The values have the same proportional relationship as the scale grades. For example, grade `400` is four times that of grade `100`. Therefore, the value of grade `400` is four times more than that of grade `100`.
 
-- The dimension scale is based on a multiple of four from 4 to 96 to correspond with the grid.
-- Smaller dimensions of 1 and 2 are also available to accommodate minor adjustments within a layout.
-- There are currently no semantic dimension tokens available within Forge.
-- Use the global `jh-dimension-*` tokens to define any length-based value. This MAY include (but isn't limited to): `height`, `width`, `margin`, and `padding`.
+There are currently no alias tokens for `dimension`. Use the global tokens to define dimension-based properties on elements.
+
+Dimension tokens MUST:
+
+- Use the naming structure: `dimension.*`.
+- Use the DTCG type `dimension`.
+- Use the unit `px`.
 
 ## Elevation & Depth
 
@@ -287,21 +342,71 @@ Elevation defines how elements interact with other spatially and creates opportu
 
 ### Shadow
 
-Shadows can be used to visually define a component from its surrounding and establish its spatial relationship within the overall layout.
+Shadows visually define a component from its surrounding and establish its spatial relationship within the overall layout.
 
-There are four levels of shadow available to allow for a variety of spatial relationships within a given layout.
+There currently are no global shadow tokens since shadows MAY be composed of other token types such as `color` and `dimension`.
+
+There are four alias shadow tokens available to allow for a variety of spatial relationships within a given layout.
+
+- **Low:** Use on surface-level content and components such as cards and control thumbs.
+- **Mid:** Use on elevated components such as floating action buttons (FABs) and toasts.
+- **High:** Use on menus and dropdowns.
+- **Overlay:** Use on components that should overlay the entire UI such as modals and dialogs.
+
+Shadow tokens MUST:
+
+- Use the naming structure: `shadow.*`.
+- Use the DTCG type `shadow`.
+
+Shadow tokens SHOULD:
+
+- Reference other Forge `color` tokens for the shadow `color` property.
+- Limit to a max of two shadow objects.
+
+Shadow tokens MAY:
+
+- Reference other Forge `dimension` tokens for the `offsetX`, `offsetY`, `blur`, `spread`, and `inset` properties.
 
 ### Z-index
 
-Z-index is used to set the layer order of elements. This is critical for elements and components that visually “sit on top” of others within a view such as a dialog and its overlay or a slide-out drawer. While properly setting the z-index ensures certain components are not obscured, it does not necessarily establish the perceived visual depth between surfaces that shadow does.
+Global z-index tokens are a scale of grades that range from 0 to 1000 in steps of 100. A value of -100 is available when elements need to be positioned below the base level of 0.
 
-Values are available from 0 to 1000 in increments of 100. A value of -100 is available when elements need to be positioned below the base level of 0.
+There are currently no alias z-index tokens. Use the global tokens to define the z-index of elements.
+
+Use z-index in conjunction with shadow to create a comprehensive sense of depth:
+
+- **Z-index:** Set the layer order of elements such as dialogs, drawers, and panels.
+- **Shadow:** Use to suggest an element's perceived visual depth.
+
+There are currently no alias tokens for `z-index`. Use the global tokens to define z-index properties on elements.
+
+Z-index tokens MUST:
+
+- Use the naming structure: `z-index.*`.
+- Use the DTCG type `number`.
 
 ## Shapes
 
 ### Radius
 
-Radius is used to set the rounded-ness of a container or shape. Consistent use of a container’s border radius can be used to clarify intent such as whether or not a component is interactive.
+Use radius to set the rounded-ness of a container or shape. Consistent use of a container’s radius can be used to clarify intent such as whether or not a component is interactive.
+
+Global radius tokens are a scale of grades that range from 0 to 400 in steps of 100. There are two additional global tokens:
+
+- **Circle:** Sets the value to 50% create an elliptical radius.
+- **Pill:** Sets the value to an arbitrarily high number (in this case, `9999px`) so as to create semi-circular ends regardless of the size of the container.
+
+There are currently no alias radius tokens. Use the global tokens to define radius on elements.
+
+Radius tokens MUST:
+
+- Use the naming structure `border.radius.*`.
+- Use the DTCG type `dimension`.
+- Use the unit `px`.
+
+Radius tokens MAY:
+
+- Reference other Forge `dimension.*` tokens.
 
 ### Borders
 
@@ -386,14 +491,16 @@ When creating custom components, the various outline properties can also be writ
 
 ## Components
 
+Use the specs defined in the `/specs/` folder for specific component guidance.
+
 ## Do's and Don'ts
 
 ## Icons
 
 - **Name:** Use the [naming conventions](https://blog.fontawesome.com/icon-naming-conventions/) outlined by Font Awesome.
 - **Glyph style:** 1.5px stroke, rounded outside corners, prefer outlined over filled icons
-- **Size:** The source icon artwork MUST be sized within a 24px by 24px invisible container. Use `size` property or `jh-icon-size-*` style hooks on `jh-icon` component to define an icon size within a design.
-- **Color:** The source icon artwork is ALWAYS pure black (`#000000`). NEVER use a design token on the original icon artwork. The `jh-icon` component sets the default icon color to `color.content.secondary.enabled`. Use `--jh-icon-color-fill` to customize an icon's color.
+- **Size:** The source icon artwork MUST be sized within a 24px by 24px invisible container. Use `size` property or `icon.size-*` style hooks on `jh-icon` component to define an icon size within a design.
+- **Color:** The source icon artwork MUST be pure black (`#000000`). A design token MUST NOT be used on the original icon artwork. The `jh-icon` component sets the default icon color to `color.content.secondary.enabled`. Use `icon.color.fill` to customize an icon's color.
 - **Accessibility:** Meaningful icons MUST be associated with an accessible name. Decorative icons that sit beside a label are hidden from assistive technology.
 
 The full SVG catalog lives in `/packages/jh-icons/`. Use those as the source — never substitute Unicode arrows, emoji, or HTML-entity glyphs for real icons.

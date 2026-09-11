@@ -87,6 +87,98 @@ Button is designed to meet [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success 
 - If you customize the button's border radius or override its border styling, double-check that contrast still holds against the surrounding container.
 - When you nest an extra small button inside another component, make sure the parent component's layout doesn't shrink the button's overall tappable area below the 24px minimum.
 
+## Properties
+
+### Component API
+
+| Attribute | Type | Default | Description |
+| --- | --- | --- | --- |
+| `accessible-disabled` | `string` | — | Sets an `aria-disabled` attribute so screen readers can still perceive a disabled button. |
+| `accessible-label` | `string` | — | Sets an `aria-label` to assist screen reader users when no visible label is present. |
+| `appearance` | `"primary" \| "secondary" \| "tertiary" \| "danger"` | `secondary` | Determines the button's color. |
+| `block` | `boolean` | `false` | Sets the button's width to match its parent container. |
+| `disabled` | `boolean` | `false` | Disables the button and prevents all user interaction. May cause the button to be ignored by assistive technologies (AT) — use `accessible-disabled` instead when the button should remain perceivable to AT. |
+| `href` | `string` | — | Sets the link's destination and renders the button as an anchor element. |
+| `label` | `string` | — | Describes the intent of the button. |
+| `name` | `string` | — | Sets the name of the button's data when submitted in a form. |
+| `pending` | `boolean` | `false` | Displays a progress indicator in place of the button's content. |
+| `size` | `"x-small" \| "small" \| "medium" \| "large"` | `medium` | Sets the size of the button. |
+| `submit` | `boolean` | `false` | Sets the button's type to `submit`. Defaults to `type="button"`. |
+| `target` | `"_blank" \| "_self" \| "_parent" \| "_top"` | — | Specifies where to open the linked URL set by `href`. |
+| `value` | `string` | — | Sets the value of the button. |
+
+### Slots
+
+| Slot | Description |
+| --- | --- |
+| `jh-button-icon-left` | Inserts an icon on the left side of the button, and for single-icon buttons. |
+| `jh-button-icon-right` | Inserts an icon on the right side of the button, and for single-icon buttons. |
+
+### CSS custom properties
+
+Button's color tokens follow a consistent naming pattern across its four appearances: `--jh-button-color-background-<appearance>-<state>`, `--jh-button-color-border-<appearance>-<state>`, `--jh-button-label-color-text-<appearance>-<state>`, and `--jh-button-icon-color-fill-<appearance>-<state>`, where `<state>` is `enabled`, `focus`, `hover`, `active`, or `disabled` (label and icon color don't have a pending-specific token, since the button's content is replaced by a progress indicator while pending). The tables below give each state's default value; substitute the appearance and state into the pattern above to get the exact token name.
+
+#### Primary
+
+| State | Background color | Border color | Label text color | Icon color |
+| --- | --- | --- | --- | --- |
+| Enabled | `--jh-color-content-brand-enabled` | `transparent` | `--jh-color-content-on-brand-enabled` | `--jh-color-content-on-brand-enabled` |
+| Focus | `--jh-color-content-brand-hover` | `transparent` | `--jh-color-content-on-brand-hover` | `--jh-color-content-on-brand-hover` |
+| Hover | `--jh-color-content-brand-hover` | `transparent` | `--jh-color-content-on-brand-hover` | `--jh-color-content-on-brand-hover` |
+| Active | `--jh-color-content-brand-active` | `transparent` | `--jh-color-content-on-brand-active` | `--jh-color-content-on-brand-active` |
+| Disabled | `--jh-color-content-brand-enabled` | `transparent` | `--jh-color-content-on-brand-enabled` | `--jh-color-content-on-brand-enabled` |
+| Pending | `--jh-color-content-brand-enabled` | `transparent` | — | — |
+
+Progress indicator color while pending: `--jh-button-progress-color-border-primary-pending`, which defaults to `--jh-color-content-on-brand-enabled`.
+
+#### Secondary
+
+| State | Background color | Border color | Label text color | Icon color |
+| --- | --- | --- | --- | --- |
+| Enabled | `transparent` | `--jh-border-action-color` | `--jh-color-content-brand-enabled` | `--jh-color-content-brand-enabled` |
+| Focus | `--jh-color-content-brand-hover` | `--jh-color-content-brand-hover` | `--jh-color-content-on-brand-hover` | `--jh-color-content-on-brand-hover` |
+| Hover | `--jh-color-content-brand-hover` | `--jh-color-content-brand-hover` | `--jh-color-content-on-brand-hover` | `--jh-color-content-on-brand-hover` |
+| Active | `--jh-color-content-brand-active` | `--jh-color-content-brand-active` | `--jh-color-content-on-brand-active` | `--jh-color-content-on-brand-active` |
+| Disabled | `transparent` | `--jh-border-action-color` | `--jh-color-content-brand-enabled` | `--jh-color-content-brand-enabled` |
+| Pending | `transparent` | `--jh-border-action-color` | — | — |
+
+Progress indicator color while pending: `--jh-button-progress-color-border-secondary-pending`, which defaults to `--jh-color-content-brand-enabled`.
+
+#### Tertiary
+
+| State | Background color | Border color | Label text color | Icon color |
+| --- | --- | --- | --- | --- |
+| Enabled | `transparent` | `transparent` | `--jh-color-content-brand-enabled` | `--jh-color-content-brand-enabled` |
+| Focus | `--jh-color-content-brand-hover` | `transparent` | `--jh-color-content-on-brand-hover` | `--jh-color-content-on-brand-hover` |
+| Hover | `--jh-color-content-brand-hover` | `transparent` | `--jh-color-content-on-brand-hover` | `--jh-color-content-on-brand-hover` |
+| Active | `--jh-color-content-brand-active` | `transparent` | `--jh-color-content-on-brand-active` | `--jh-color-content-on-brand-active` |
+| Disabled | `transparent` | `transparent` | `--jh-color-content-brand-enabled` | `--jh-color-content-brand-enabled` |
+| Pending | `transparent` | `transparent` | — | — |
+
+Progress indicator color while pending: `--jh-button-progress-color-border-tertiary-pending`, which defaults to `--jh-color-content-brand-enabled`.
+
+#### Danger
+
+| State | Background color | Border color | Label text color | Icon color |
+| --- | --- | --- | --- | --- |
+| Enabled | `--jh-color-content-negative-enabled` | `transparent` | `--jh-color-content-on-negative-enabled` | `--jh-color-content-on-negative-enabled` |
+| Focus | `--jh-color-content-negative-hover` | `transparent` | `--jh-color-content-on-negative-hover` | `--jh-color-content-on-negative-hover` |
+| Hover | `--jh-color-content-negative-hover` | `transparent` | `--jh-color-content-on-negative-hover` | `--jh-color-content-on-negative-hover` |
+| Active | `--jh-color-content-negative-active` | `transparent` | `--jh-color-content-on-negative-active` | `--jh-color-content-on-negative-active` |
+| Disabled | `--jh-color-content-negative-enabled` | `transparent` | `--jh-color-content-on-negative-enabled` | `--jh-color-content-on-negative-enabled` |
+| Pending | `--jh-color-content-negative-enabled` | `transparent` | — | — |
+
+Progress indicator color while pending: `--jh-button-progress-color-border-danger-pending`, which defaults to `--jh-color-content-on-negative-enabled`.
+
+#### General
+
+| CSS custom property | What it controls | Default value |
+| --- | --- | --- |
+| `--jh-button-border-radius` | The button container's border radius. | `--jh-border-radius-100` |
+| `--jh-button-size` | The button's height, and the width of single-icon buttons. | `--jh-dimension-600` at `size="x-small"`, `--jh-dimension-800` at `size="small"`, `--jh-dimension-1000` at `size="medium"`, `--jh-dimension-1200` at `size="large"` |
+| `--jh-button-opacity-disabled` | The button container's opacity when disabled. | `--jh-opacity-disabled` |
+| `--jh-button-color-focus` | The button container's outline color when it receives keyboard focus. | `--jh-border-focus-color` |
+
 ## Feedback
 
 Have an idea that would make Button better, or found something that isn't working as expected? Let us know by opening an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues), or join the conversation on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

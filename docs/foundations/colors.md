@@ -5,7 +5,7 @@ description: The global color palette, alpha tokens, and alias system that keep 
 
 # Colors
 
-Color is one of the fastest ways to build trust or break it, so we've built ours to do the heavy lifting for you. Every color in Forge is designed to hit predictable, accessible contrast targets from the start — follow the guidance below, and you shouldn't need to reach for a contrast checker after the fact.
+Color is one of the fastest ways to build trust or break it, so we build ours to do the heavy lifting for you. Every color in Forge is designed to hit predictable, accessible contrast targets from the start — follow the guidance below, and you shouldn't need to reach for a contrast checker after the fact.
 
 ## Global color palette
 
@@ -25,7 +25,7 @@ Our global palette is made up of eleven color families, each with nineteen gradu
 | Magenta | 295–324 | `#E508CC` | `53.1, 97, 333.2` |
 | Gray | — | — | — |
 
-Each family is scaled from 50 to 950 in steps of 50. Every grade targets a specific lightness and luminance, which is what lets you predict, ahead of time, how much contrast one grade will have against another.
+Each family is scaled from 50 to 950 in steps of 50. Every grade targets a specific lightness and luminance, which is what lets you predict, ahead of time, how much contrast one grade has against another.
 
 | Grade | Lightness | Contrast ratio (white) | Luminance |
 | --- | --- | --- | --- |
@@ -77,9 +77,9 @@ New scales should also be perceptually distinguishable from the families that al
 
 Alongside the color families, we provide a set of white and black alpha tokens, graded by opacity from 10 (nearly transparent) to 100 (completely opaque). Reach for the 100 grades whenever you need pure white or pure black, and the other grades for anything that calls for partial transparency, like overlays or shadows.
 
-Outside of the fully opaque white and black, alpha tokens don't contrast predictably with the rest of the palette — so any time you pair an alpha token with another color, test it rather than assume it'll meet contrast requirements.
+Outside of the fully opaque white and black, alpha tokens don't contrast predictably with the rest of the palette — so any time you pair an alpha token with another color, test it rather than assume it meets contrast requirements.
 
-That said, there's one reliable shortcut: when pairing with a non-alpha color, you can treat pure white (`color.white.alpha.100`) as the `0` grade of any hue's ramp, and pure black (`color.black.alpha.100`) as the `1000` grade. Combine that with the minimum grade-difference guidance above, and you can figure out safe pairings the same way you would for any two colors. For example, text in `color.white.alpha.100` (pure white) can sit on a background of grade 500 or higher and still meet 4.5:1 contrast.
+That said, there's one reliable shortcut: when pairing with a non-alpha color, you can treat pure white (`color.white.alpha.100`) as the `0` grade of any hue's ramp, and pure black (`color.black.alpha.100`) as the `1000` grade. Combine that with the minimum grade-difference guidance above, and you can figure out safe pairings the same way you do for any two colors. For example, text in `color.white.alpha.100` (pure white) can sit on a background of grade 500 or higher and still meet 4.5:1 contrast.
 
 ## Color aliases
 
@@ -89,7 +89,7 @@ Aliases are how the global palette actually gets used — they carry meaning, so
 
 Every color alias falls into one of seven semantic concepts. Sticking to these keeps color usage consistent and predictable across the whole system.
 
-- **Container** — the main surfaces you'll find throughout the interface. In general, all content should sit on a container color.
+- **Container** — the main surfaces you find throughout the interface. In general, all content should sit on a container color.
 - **Overlay** — for elements that need to sit above the rest of the interface, like modals and dialogs.
 - **Control** — for the containers of interactive controls, like slider and switch tracks.
 - **Divider** — for bordered elements such as dividers, table borders, and component outlines.

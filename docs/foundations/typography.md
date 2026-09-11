@@ -5,7 +5,7 @@ description: The type styles, families, and scale that give Forge content its vo
 
 # Typography
 
-Type carries most of the meaning in any interface, so we've built ours around a small, deliberate set of styles rather than leaving it open-ended. Every text style in Forge pairs a font size, weight, and line height that have already been tuned to work together — pick the style that matches what the text is for, and the rest takes care of itself.
+Type carries most of the meaning in any interface, so we build ours around a small, deliberate set of styles rather than leaving it open-ended. Every text style in Forge pairs a font size, weight, and line height that are already tuned to work together — pick the style that matches what the text is for, and the rest takes care of itself.
 
 ## Font families
 
@@ -18,7 +18,7 @@ We use variable fonts because a single font file can flex across weights and wid
 
 ## Type scale
 
-Each style below is available as a token that bundles font family, size, weight, and line height together, so you never have to reason about those four properties separately. Most styles come in **regular**, **medium**, and **bold** weights; where a style only comes in one weight, we've called that out.
+Each style below is available as a token that bundles font family, size, weight, and line height together, so you never have to reason about those four properties separately. Most styles come in **regular**, **medium**, and **bold** weights; where a style only comes in one weight, we call that out.
 
 ### Micro
 

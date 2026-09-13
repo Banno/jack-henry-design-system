@@ -151,6 +151,16 @@ JavaScript properties differ from content attributes which are always strings. A
 into a desired data type and store the transformed value. For example, an attribute may have a value of "24", while the associated
 property has an integer value of 24. Review each component doc to better understand the data type each attribute will be transformed to.
 
+### Security
+
+Our components render the content and values you provide as-is and do not sanitize author-supplied input. Any data that originates from an untrusted source (end users, external APIs, URL parameters, etc.) must be sanitized by you before it is passed to a component. This applies to:
+
+- **URLs**, such as values bound to `href`. Validate against an allowlist of expected schemes (e.g. `https:`) to avoid `javascript:` and other unsafe URLs.
+- **Slotted content**, which is injected into the light DOM unchanged. Treat any HTML you place in a slot as you would `innerHTML` and sanitize it if it contains untrusted data.
+- **Content passed through events**, such as the `jh-create-toast` event consumed by `jh-toast-controller`, which renders the provided strings as HTML.
+
+Prefer text bindings over raw HTML where possible, and use a vetted sanitizer (for example, DOMPurify) when untrusted HTML must be rendered.
+
 ### Slots
 
 Slots are a core feature of the web component technology suite, and allows authors to inject their own content into a component. Slotted content remains in the Light DOM, which means it is not encapsulated by the component's Shadow DOM. This behavior provides two key benefits:

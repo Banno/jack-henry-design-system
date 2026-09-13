@@ -57,44 +57,18 @@ Each value is paired below with the style hook that overrides it and the token t
 Note that the attribute values are abbreviated (`x-small`) while the style hook names are spelled out
 (`extra-small`).
 
-## Style hooks
-
-Any or all of the icon sizes can be redefined within a given context by overriding the relevant style hook:
-
-```css
-jh-icon {
-  --jh-icon-size-medium: var(--jh-dimension-400);
-}
-```
-
-Icon color is set with `--jh-icon-color-fill`, which defaults to `--jh-color-content-secondary-enabled`:
-
-```css
-jh-icon {
-  --jh-icon-color-fill: var(--jh-color-content-brand-enabled);
-}
-```
-
-The fill is inherited by the slotted SVG, so slotted markup should not set its own `fill`. The component does
-not set `stroke`, so icons drawn with strokes rather than fills will not pick up the icon color.
+Icon color is inherited by the slotted SVG via `--jh-icon-color-fill`, so slotted markup should not set its own
+`fill`. The component does not set `stroke`, so icons drawn with strokes rather than fills will not pick up the
+icon color.
 
 ## Accessibility
+
+### Related WCAG criterion
 
 This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria. The following success criteria are of concern:
 
 - [WCAG 1.1.1 Non-text Content](https://www.w3.org/TR/WCAG22/#non-text-content): All non-text content that is presented to the user has 
 a text alternative that serves the equivalent purpose.
-
-### Decorative or meaningful
-
-Every icon is one of two things, and the required outcome differs:
-
-- **Decorative** — the icon repeats adjacent text or is purely ornamental. It must be ignored by assistive
-technology so that the same information is not announced twice.
-- **Meaningful** — the icon is the only thing conveying a piece of information. It must be exposed to assistive
-technology and carry an accessible name that describes what it conveys, not what it depicts.
-
-The component defaults to decorative.
 
 ### What we provide
 
@@ -106,11 +80,17 @@ The icon component sets the following defaults, both of which can be overridden 
 These are applied through `ElementInternals` rather than as markup, so they are present in the accessibility
 tree but will not appear as attributes in the DOM. DOM-based auditing tools may not report them.
 
-### Decorative icons
+### Author Guidance
 
-No action is needed. The component is hidden from assistive technology by default.
+Every icon is one of two things, and the required outcome differs:
 
-### Meaningful icons
+- **Decorative** — the icon repeats adjacent text or is purely ornamental. It must be ignored by assistive
+technology so that the same information is not announced twice.
+- **Meaningful** — the icon is the only thing conveying a piece of information. It must be exposed to assistive
+technology and carry an accessible name that describes what it conveys, not what it depicts.
+
+The component defaults to decorative. For decorative icons, no action is needed: the component is hidden from
+assistive technology by default.
 
 A meaningful icon needs both an accessible name and exposure to assistive technology. Setting `aria-label`
 on its own is not enough — while the element is still `aria-hidden="true"`, the label is never announced.
@@ -123,8 +103,6 @@ Set both to satisfy [WCAG 1.1.1 Non-text Content](https://www.w3.org/TR/WCAG22/#
   </svg>
 </jh-icon>
 ```
-
-### Author guidance
 
 All accessibility considerations should be addressed on the jh-icon element itself and not within the slotted
 SVG markup. Slotted SVGs should not include the `<title>` or `<desc>` elements, to ensure consistency in both

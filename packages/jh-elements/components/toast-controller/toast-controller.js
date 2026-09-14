@@ -2,17 +2,18 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { LitElement, css, html } from 'lit';
+import { css, html } from 'lit';
+import { JhElement } from '../element/element.js';
 import '../toast/toast.js';
 
 /**
  * @cssprop --jh-toast-controller-z-index - The toast controller z-index. Defaults to `--jh-z-index-positive-1000`.
  * @slot default - Use to insert `<jh-toast>` components if appending toasts manually.
- * @event jh-dismiss - Dispatched when the toast controller dismisses the oldest toast, and when toasts are dismissed manually by the user.
+ * @event jh-dismiss - Dispatched when the toast controller dismisses the oldest toast once the maximum count is exceeded.
  * 
  * @customElement jh-toast-controller
  */
-export class JhToastController extends LitElement {
+export class JhToastController extends JhElement {
   static get styles() {
     return css`
       :host {
@@ -66,13 +67,7 @@ export class JhToastController extends LitElement {
 
   // controller dispatches jh-dismiss event and calls handleDismiss method
   #dispatch(name, toast) {
-    this.dispatchEvent(
-      new CustomEvent(name, {
-        bubbles: true,
-        cancelable: true,
-        composed: true,
-      }) 
-    );
+    this.dispatchCustomEvent(name);
     this.#handleDismiss(toast);
   }
 
@@ -92,7 +87,6 @@ export class JhToastController extends LitElement {
       text,
       toastIcon,
       dismissButtonAccessibleLabel,
-      appearance,
       hideDismissButton,
       timeout,
       stacked,
@@ -103,7 +97,6 @@ export class JhToastController extends LitElement {
     text ? toast.innerHTML += text : null;
     toastIcon ? toast.innerHTML += toastIcon : null;
     dismissButtonAccessibleLabel ? toast.setAttribute('dismiss-button-accessible-label', dismissButtonAccessibleLabel) : null;
-    appearance ? toast.setAttribute('appearance', appearance) : null;
     hideDismissButton ? toast.setAttribute('hide-dismiss-button', '') : null;
     timeout >= 0 ? toast.setAttribute('timeout', timeout) : null;
     stacked ? toast.setAttribute('stacked', '') : null;
@@ -117,6 +110,4 @@ export class JhToastController extends LitElement {
     `;
   }
 }
-customElements.define('jh-toast-controller', JhToastController);
-
-
+JhToastController.register('jh-toast-controller', JhToastController);

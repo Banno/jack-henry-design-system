@@ -5,7 +5,7 @@
 */
 import {LitElement, css, html} from 'lit';
 
-export default class JhIconShareNode extends LitElement {
+export default class JhIconShareNodes extends LitElement {
   /** @type {ElementInternals} */
   #internals;
 
@@ -91,4 +91,4 @@ export default class JhIconShareNode extends LitElement {
   }
 }
 
-customElements.define('jh-icon-share-nodes', JhIconShareNode);
+customElements.define('jh-icon-share-nodes', JhIconShareNodes);

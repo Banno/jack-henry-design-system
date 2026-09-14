@@ -141,13 +141,11 @@ export class JhSelect extends JhInput {
           box-sizing: border-box;
           overflow: visible;
           position: absolute;
-          visibility: hidden;
-          opacity: 0;
+          display: none;
           width: 100%;
         }
         .menu-container.show {
-          visibility: visible;
-          opacity: 1;
+          display: block;
         }
         input::selection {
           background-color: transparent;
@@ -319,12 +317,19 @@ export class JhSelect extends JhInput {
     }
   }
 
-  #handleOpenSelect({ keyboard = false } = {}) {
+  async #handleOpenSelect({ keyboard = false } = {}) {
     if (this.disabled || this.readonly || !this.#flatOptions.length) return;
     if (!this.#inputWrapper || !this.#menuContainer) return;
 
-    this.#flipMenu();
+    // Render the menu first so it's laid out (display: none can't be measured),
+    // then measure/position it before the browser paints to avoid a flash.
     this.#open = true;
+    this.requestUpdate();
+    await this.updateComplete;
+    // Return if a user triggers a "close" while awaiting the render.
+    if (!this.#open) return;
+    this.#flipMenu();
+
     document.addEventListener('click', this.#boundDocumentClick, true);
     // Delay adding scroll listener so the menu's own layout change doesn't trigger it
     requestAnimationFrame(() => {
@@ -336,7 +341,6 @@ export class JhSelect extends JhInput {
         (opt) => String(opt.value) === String(this.value));
       this.#setActiveItem(selectedIdx !== -1 ? selectedIdx : 0);
     }
-    this.requestUpdate();
   }
   #handleCloseSelect() {
     this.#open = false;

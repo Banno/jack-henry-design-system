@@ -1,14 +1,14 @@
-# SPDX-FileCopyrightText: 2025 Jack Henry
+# SPDX-FileCopyrightText: 2026 Jack Henry
 #
 # SPDX-License-Identifier: Apache-2.0
 
 name: Version
 on:
   push:
-    branches: next
+    branches: [next]
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref }}
+  group: ${{ github.workflow }}-${{ github.ref_name }}
   cancel-in-progress: true
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
     name: Version
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           # Fetch all history for all branches and tags - Needed for Changsets to generate changelogs with commits
           fetch-depth: 0

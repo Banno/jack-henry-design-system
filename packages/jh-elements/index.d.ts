@@ -33,6 +33,7 @@ import { JhTableRow } from './components/table-row/table-row.js';
 import { JhTableDataCell } from './components/table-data-cell/table-data-cell.js';
 import { JhTableHeaderCell } from './components/table-header-cell/table-header-cell.js';
 import { JhSelect } from './components/select/select.js';
+import { JhInputNumber } from './components/input-number/input-number.js';
 import { JhLayoutFlex } from './components/layout-flex/layout-flex.js';
 import { JhLayoutSpacer } from './components/layout-spacer/layout-spacer.js';
 
@@ -69,6 +70,7 @@ declare global {
     'jh-table-data-cell': JhTableDataCell;
     'jh-table-header-cell': JhTableHeaderCell;
     'jh-select': JhSelect;
+    'jh-input-number': JhInputNumber;
     'jh-layout-flex': JhLayoutFlex;
     'jh-layout-spacer': JhLayoutSpacer;
   }

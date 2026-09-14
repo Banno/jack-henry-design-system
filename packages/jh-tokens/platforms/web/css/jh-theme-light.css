@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  * 
  * Do not edit directly, this file was auto-generated.
- * Generated on Tue, 07 Apr 2026 18:56:06 GMT
+ * Generated on Mon, 14 Sep 2026 18:46:15 GMT
  */
 
 :root {
@@ -103,6 +103,70 @@
   --jh-font-line-height-500: 20px;
   --jh-font-line-height-400: 16px;
   --jh-font-line-height-300: 12px;
+  --jh-font-utility-mono-sm-line-height: var(--jh-font-line-height-400);
+  --jh-font-utility-mono-sm-font-weight: var(--jh-font-weight-400);
+  --jh-font-utility-mono-sm-font-size: var(--jh-font-size-300);
+  --jh-font-utility-mono-sm-font-family: var(--jh-font-family-mono);
+  --jh-font-utility-mono-md-line-height: var(--jh-font-line-height-500);
+  --jh-font-utility-mono-md-font-weight: var(--jh-font-weight-400);
+  --jh-font-utility-mono-md-font-size: var(--jh-font-size-350);
+  --jh-font-utility-mono-md-font-family: var(--jh-font-family-mono);
+  --jh-font-utility-mono-lg-line-height: var(--jh-font-line-height-600);
+  --jh-font-utility-mono-lg-font-weight: var(--jh-font-weight-400);
+  --jh-font-utility-mono-lg-font-size: var(--jh-font-size-400);
+  --jh-font-utility-mono-lg-font-family: var(--jh-font-family-mono);
+  --jh-font-utility-helper-bold-line-height: var(--jh-font-line-height-400);
+  --jh-font-utility-helper-bold-font-weight: var(--jh-font-weight-700);
+  --jh-font-utility-helper-bold-font-size: var(--jh-font-size-300);
+  --jh-font-utility-helper-bold-font-family: var(--jh-font-family-primary);
+  --jh-font-utility-helper-medium-line-height: var(--jh-font-line-height-400);
+  --jh-font-utility-helper-medium-font-weight: var(--jh-font-weight-500);
+  --jh-font-utility-helper-medium-font-size: var(--jh-font-size-300);
+  --jh-font-utility-helper-medium-font-family: var(--jh-font-family-primary);
+  --jh-font-utility-helper-regular-line-height: var(--jh-font-line-height-400);
+  --jh-font-utility-helper-regular-font-weight: var(--jh-font-weight-400);
+  --jh-font-utility-helper-regular-font-size: var(--jh-font-size-300);
+  --jh-font-utility-helper-regular-font-family: var(--jh-font-family-primary);
+  --jh-font-utility-body-md-bold-line-height: var(--jh-font-line-height-500);
+  --jh-font-utility-body-md-bold-font-weight: var(--jh-font-weight-700);
+  --jh-font-utility-body-md-bold-font-size: var(--jh-font-size-350);
+  --jh-font-utility-body-md-bold-font-family: var(--jh-font-family-primary);
+  --jh-font-utility-body-md-medium-line-height: var(--jh-font-line-height-500);
+  --jh-font-utility-body-md-medium-font-weight: var(--jh-font-weight-500);
+  --jh-font-utility-body-md-medium-font-size: var(--jh-font-size-350);
+  --jh-font-utility-body-md-medium-font-family: var(--jh-font-family-primary);
+  --jh-font-utility-body-md-regular-line-height: var(--jh-font-line-height-500);
+  --jh-font-utility-body-md-regular-font-weight: var(--jh-font-weight-400);
+  --jh-font-utility-body-md-regular-font-size: var(--jh-font-size-350);
+  --jh-font-utility-body-md-regular-font-family: var(--jh-font-family-primary);
+  --jh-font-utility-body-lg-bold-line-height: var(--jh-font-line-height-600);
+  --jh-font-utility-body-lg-bold-font-weight: var(--jh-font-weight-700);
+  --jh-font-utility-body-lg-bold-font-size: var(--jh-font-size-400);
+  --jh-font-utility-body-lg-bold-font-family: var(--jh-font-family-primary);
+  --jh-font-utility-body-lg-medium-line-height: var(--jh-font-line-height-600);
+  --jh-font-utility-body-lg-medium-font-weight: var(--jh-font-weight-500);
+  --jh-font-utility-body-lg-medium-font-size: var(--jh-font-size-400);
+  --jh-font-utility-body-lg-medium-font-family: var(--jh-font-family-primary);
+  --jh-font-utility-body-lg-regular-line-height: var(--jh-font-line-height-600);
+  --jh-font-utility-body-lg-regular-font-weight: var(--jh-font-weight-400);
+  --jh-font-utility-body-lg-regular-font-size: var(--jh-font-size-400);
+  --jh-font-utility-body-lg-regular-font-family: var(--jh-font-family-primary);
+  --jh-font-utility-heading-sm-line-height: var(--jh-font-line-height-600);
+  --jh-font-utility-heading-sm-font-weight: var(--jh-font-weight-700);
+  --jh-font-utility-heading-sm-font-size: var(--jh-font-size-400);
+  --jh-font-utility-heading-sm-font-family: var(--jh-font-family-primary);
+  --jh-font-utility-heading-md-line-height: var(--jh-font-line-height-700);
+  --jh-font-utility-heading-md-font-weight: var(--jh-font-weight-700);
+  --jh-font-utility-heading-md-font-size: var(--jh-font-size-500);
+  --jh-font-utility-heading-md-font-family: var(--jh-font-family-primary);
+  --jh-font-utility-heading-lg-line-height: var(--jh-font-line-height-900);
+  --jh-font-utility-heading-lg-font-weight: var(--jh-font-weight-700);
+  --jh-font-utility-heading-lg-font-size: var(--jh-font-size-700);
+  --jh-font-utility-heading-lg-font-family: var(--jh-font-family-primary);
+  --jh-font-utility-heading-xl-line-height: var(--jh-font-line-height-1100);
+  --jh-font-utility-heading-xl-font-weight: var(--jh-font-weight-700);
+  --jh-font-utility-heading-xl-font-size: var(--jh-font-size-900);
+  --jh-font-utility-heading-xl-font-family: var(--jh-font-family-primary);
   --jh-font-heading-bold-6-line-height: var(--jh-font-line-height-1100);
   --jh-font-heading-bold-6-font-weight: var(--jh-font-weight-700);
   --jh-font-heading-bold-6-font-size: var(--jh-font-size-900);
@@ -562,6 +626,22 @@
   --jh-color-container-primary-hover: var(--jh-color-gray-50);
   --jh-color-container-primary-enabled: var(--jh-color-white-alpha-100);
   --jh-color-container-page: var(--jh-color-gray-100);
+  --jh-font-utility-mono-sm: var(--jh-font-weight-400) var(--jh-font-size-300)/var(--jh-font-line-height-400) var(--jh-font-family-mono);
+  --jh-font-utility-mono-md: var(--jh-font-weight-400) var(--jh-font-size-350)/var(--jh-font-line-height-500) var(--jh-font-family-mono);
+  --jh-font-utility-mono-lg: var(--jh-font-weight-400) var(--jh-font-size-400)/var(--jh-font-line-height-600) var(--jh-font-family-mono);
+  --jh-font-utility-helper-bold: var(--jh-font-weight-700) var(--jh-font-size-300)/var(--jh-font-line-height-400) var(--jh-font-family-primary);
+  --jh-font-utility-helper-medium: var(--jh-font-weight-500) var(--jh-font-size-300)/var(--jh-font-line-height-400) var(--jh-font-family-primary);
+  --jh-font-utility-helper-regular: var(--jh-font-weight-400) var(--jh-font-size-300)/var(--jh-font-line-height-400) var(--jh-font-family-primary);
+  --jh-font-utility-body-md-bold: var(--jh-font-weight-700) var(--jh-font-size-350)/var(--jh-font-line-height-500) var(--jh-font-family-primary);
+  --jh-font-utility-body-md-medium: var(--jh-font-weight-500) var(--jh-font-size-350)/var(--jh-font-line-height-500) var(--jh-font-family-primary);
+  --jh-font-utility-body-md-regular: var(--jh-font-weight-400) var(--jh-font-size-350)/var(--jh-font-line-height-500) var(--jh-font-family-primary);
+  --jh-font-utility-body-lg-bold: var(--jh-font-weight-700) var(--jh-font-size-400)/var(--jh-font-line-height-600) var(--jh-font-family-primary);
+  --jh-font-utility-body-lg-medium: var(--jh-font-weight-500) var(--jh-font-size-400)/var(--jh-font-line-height-600) var(--jh-font-family-primary);
+  --jh-font-utility-body-lg-regular: var(--jh-font-weight-400) var(--jh-font-size-400)/var(--jh-font-line-height-600) var(--jh-font-family-primary);
+  --jh-font-utility-heading-sm: var(--jh-font-weight-700) var(--jh-font-size-400)/var(--jh-font-line-height-600) var(--jh-font-family-primary);
+  --jh-font-utility-heading-md: var(--jh-font-weight-700) var(--jh-font-size-500)/var(--jh-font-line-height-700) var(--jh-font-family-primary);
+  --jh-font-utility-heading-lg: var(--jh-font-weight-700) var(--jh-font-size-700)/var(--jh-font-line-height-900) var(--jh-font-family-primary);
+  --jh-font-utility-heading-xl: var(--jh-font-weight-700) var(--jh-font-size-900)/var(--jh-font-line-height-1100) var(--jh-font-family-primary);
   --jh-font-heading-bold-6: var(--jh-font-weight-700) var(--jh-font-size-900)/var(--jh-font-line-height-1100) var(--jh-font-family-primary);
   --jh-font-heading-bold-5: var(--jh-font-weight-700) var(--jh-font-size-800)/var(--jh-font-line-height-1000) var(--jh-font-family-primary);
   --jh-font-heading-bold-4: var(--jh-font-weight-700) var(--jh-font-size-700)/var(--jh-font-line-height-900) var(--jh-font-family-primary);

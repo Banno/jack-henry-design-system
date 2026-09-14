@@ -6,6 +6,8 @@ import StyleDictionary from 'style-dictionary';
 import formatJs from './formats/esm-format.js';
 import formatCss from './formats/css-format.js';
 import formatDocs from './formats/json-flat.js';
+import formatUtilityCss from './formats/utility-css-format.js';
+import formatUtilityEsm from './formats/utility-esm-format.js';
 
 function getStyleDictionary(theme, platform) {
   return new StyleDictionary({
@@ -33,6 +35,8 @@ function getStyleDictionary(theme, platform) {
         'custom/format/esm': formatJs,
         'custom/format/css': formatCss,
         'custom/format/json': formatDocs,
+        'custom/format/utility-css': formatUtilityCss,
+        'custom/format/utility-esm': formatUtilityEsm,
       },
     },
     platforms: {
@@ -138,6 +142,31 @@ function getStyleDictionary(theme, platform) {
           },
         ],
       },
+      utility: {
+        transformGroup: 'web',
+        transforms: ['fontFamily/css', 'typography/css/shorthand'],
+        preprocessors: ['strip-descriptions'],
+        buildPath: `platforms/web/`,
+        files: [
+          {
+            destination: `css/typography-utility.css`,
+            format: 'custom/format/utility-css',
+            // only the typography tokens under font.utility back the .forge-type-* class layer
+            filter: (token) => token.$type === 'typography' && token.path[1] === 'utility',
+            options: {
+              fileHeader: 'licensedFileHeader',
+            },
+          },
+          {
+            destination: `esm/typography-utility.js`,
+            format: 'custom/format/utility-esm',
+            filter: (token) => token.$type === 'typography' && token.path[1] === 'utility',
+            options: {
+              fileHeader: 'licensedFileHeader',
+            },
+          },
+        ],
+      },
     },
   });
 }
@@ -168,3 +197,6 @@ THEME_NAMES.forEach((theme) =>
     getStyleDictionary(theme, platform).buildPlatform(platform)
   )
 );
+
+// typography utility classes don't vary by theme, so build them once
+getStyleDictionary('light', 'utility').buildPlatform('utility');

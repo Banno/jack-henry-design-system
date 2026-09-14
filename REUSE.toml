@@ -44,6 +44,22 @@ SPDX-License-Identifier = "OFL-1.1"
 SPDX-FileCopyrightText = "Copyright 2015 Christian Robertson" 
 
 [[annotations]]
+path = [ "**/assets/fonts/Figtree-VariableFont.woff2",
+ "**/assets/fonts/Figtree-Italic-VariableFont.woff2",
+]
+precedence = "override"
+SPDX-License-Identifier = "OFL-1.1"
+SPDX-FileCopyrightText = "Copyright 2022 The Figtree Project Authors"
+
+[[annotations]]
+path = [ "**/assets/fonts/JetBrainsMono-VariableFont.woff2",
+ "**/assets/fonts/JetBrainsMono-Italic-VariableFont.woff2",
+]
+precedence = "override"
+SPDX-License-Identifier = "OFL-1.1"
+SPDX-FileCopyrightText = "Copyright 2020 The JetBrains Mono Project Authors"
+
+[[annotations]]
 path = [
     "packages/jh-elements/.storybook/public/images/markus-winkler-DJoG5GsXfMw-unsplash.jpg",
 ]

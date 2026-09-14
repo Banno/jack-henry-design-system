@@ -65,6 +65,10 @@ Set a pending state to indicate a process is underway, such as saving a record o
 - When in a pending state, a button cannot be navigated to nor activated by a mouse or keyboard.
 - If the pending state of a button reflects the changing of a live-region, and the announcement of those changes should wait until completed, set `aria-busy=“true”` to the region until the process is complete. Once completed, set `aria-busy="false"`.
 
+## Security
+
+The value bound to `href` is rendered as-is and is not sanitized. When the URL originates from an untrusted source, validate it against an allowlist of expected schemes (e.g. `https:`) to avoid `javascript:` and other unsafe URLs. See [Security](/docs/getting-started-usage--docs#security) for system-wide guidance.
+
 ## Accessibility
 
 This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria. The following success criteria are of concern:

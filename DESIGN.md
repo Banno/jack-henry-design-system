@@ -153,6 +153,8 @@ Aside from the fully-opaque white and black colors, the opacity grades do not pr
 
 When pairing with non-alpha colors in the global color palette, pure white (`color.white.alpha.100`) can be interpreted as the `0` grade of any hue's color ramp and pure black (`color.black.alpha.100`) can be interpreted as the `1000` grade. Use this interpretation along with the minimum grade differences mentioned in the global color palette section to ensure appropriate color contrast is maintained. For example, text that is `color.white.alpha.100` (pure white) can be used on a background that has a color grade of 500 or higher and meet 4.5:1 contrast.
 
+There is no token for complete transparency. Use `#00000000` to style a color property as completely transparent. Users SHOULD NOT use the CSS keyword `transparent` to define complete transparency in tokens since it is not a platform-agnostic value.
+
 ### Color aliases
 
 #### Concepts

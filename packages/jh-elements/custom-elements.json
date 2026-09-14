@@ -5662,6 +5662,14 @@
         {
           "name": "--jh-menu-color-text",
           "description": "The text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-menu-overflow",
+          "description": "The menu host overflow, which controls clipping of the menu (including its rounded corners). Defaults to `hidden`."
+        },
+        {
+          "name": "--jh-menu-content-overflow",
+          "description": "The menu content overflow, which controls scrolling of the menu items. Defaults to `hidden auto`."
         }
       ]
     },

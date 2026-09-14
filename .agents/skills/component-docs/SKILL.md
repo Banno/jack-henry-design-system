@@ -14,33 +14,71 @@ If the user names a component, use it. If not, ask which component (list `/specs
 1. **`/specs/<component>.md`** — the sole source of truth for facts: description, style hooks, defaults, variants, variant-specific rules (SHOULD/MUST/NEVER language), states, and any other behavior. If this file doesn't exist, stop and tell the user — do not draft a page from guesswork or from the live site's content.
 2. **`DESIGN.md`** (repo root) — the system's rulebook. Pull out, every time:
    - The token rule under _Overview_: dot-notation tokens (`badge.border.radius`) must be converted to kebab-case prefixed with `--jh` (`--jh-badge-border-radius`) for web documentation. Apply this to every style-hook token in the page you write — this is a compliance step, not optional style.
-   - The _Component accessibility documentation_ rule (under Accessibility): every component page SHOULD include relevant WCAG 2.2 success criteria, a "What we provide" subsection, and an "Author guidance" subsection. Only state a WCAG success criterion number if the spec or DESIGN.md actually gives you grounds for it (e.g. an explicit contrast ratio, resize behavior, or color-alone warning) — don't cite SC numbers from memory.
    - Relevant foundation rules that bear on this component's tokens (color contrast/pairing rules, border concepts, focus ring behavior, dimension scale) so the page's language about defaults stays consistent with how DESIGN.md describes those systems.
    - Voice and tone section — match its "clear, confident, human" register.
 3. **`/packages/jh-elements/components/`** - the component code. Use the JSDoc tags to generate component API and CSS custom property tables.
 
 ## Step 2 — Section template
 
-Use this order. A section is included **only if the spec (plus DESIGN.md) actually supplies content for it** — never include a section just because the live site has it if you'd have to invent the content. Never fabricate anatomy diagrams, Figma instructions, exact WCAG numbers, or visual state swatches that aren't backed by the spec.
+Use this order. A section is included **only if the spec actually supplies content for it** — never include a section if you'd have to invent the content. Never fabricate anatomy diagrams, Figma instructions, exact WCAG numbers, or visual state swatches that aren't backed by the spec.
 
-1. **Frontmatter + H1 + intro** — `title` and `description` from the spec's frontmatter `name`/`description`. Intro paragraph: a short, warm expansion of the one-line description (voice/tone from DESIGN.md), grounded only in what the spec says the component does.
-2. **Code documentation** (H2) — one line linking to the Storybook docs page: `https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-<slug>--docs` (derive `<slug>` from the spec's `componentName`, stripping the `jh-` prefix, e.g. `jh-badge` → `badge`). Multi-part components keep their full slug.
-3. **Anatomy** (H2) — a plain-language, numbered list of the component's structural parts, drawn from the distinct Figma layer names in the spec's style tables (e.g. badge-wrapper, badge-value). No image — this repo has no anatomy diagram assets, so don't claim one exists; a bare list of labeled parts is correct here.
-4. **Variants** (H2) — one H3 (or H4 if the spec nests further, e.g. Button's Size > Extra small) per `## Variants` subsection in the spec, same order as the spec. Prose explains what the variant does and when to use it, pulled directly from the spec's bullets; style-hook tables carry over with tokens converted to `--jh-*` form per the DESIGN.md rule.
-5. **Behavior → States** (H2 → H3) — include only if the spec defines interactive states (enabled/hover/focus/active/disabled/selected/pending, etc.) for this component. Most current specs (badge, button) don't yet define these — omit the section rather than inventing state colors.
-6. **Usage** (H2) — a bullet list of guidance synthesized from the spec's MUST/SHOULD/NEVER/ALWAYS language (e.g. "never use outside another component," "pair with a live region when the badge updates live"). Every bullet must trace back to a spec statement or a DESIGN.md rule — don't add generic best-practice advice that isn't grounded in either.
-7. **Accessibility** (H2) — required by DESIGN.md. Include only what's evidenced:
-   - A short list of relevant WCAG 2.2 AA criteria, stated only where the spec/DESIGN.md gives concrete grounds (contrast ratios, resize behavior, color-alone warnings, live-region needs).
-   - **What we provide** (H3) — built-in accessibility behavior the spec describes (e.g. contrast-safe default colors, resize tolerance).
-   - **Author guidance** (H3) — steps the _page author_ must still take (e.g. "pair the badge with visible text conveying the same info," "add a live region for live updates").
-8. **Contradictions with system guidance** (H2) — **only when a genuine, unresolved conflict exists** between the spec and DESIGN.md (for example: a spec default token pairing that appears to fail DESIGN.md's stated contrast-difference rule; a spec behavior that runs counter to an established DESIGN.md principle; a naming or structural convention the spec uses that DESIGN.md's rules would otherwise forbid). Do not use this section for things you can simply fix by following DESIGN.md (e.g. dot-notation tokens — just convert those, silently, per the rule). For each contradiction: name the DESIGN.md rule, name the spec's conflicting statement, and state plainly that the spec's behavior is being documented as-is because it's a deliberate/necessary exception. If there are no genuine contradictions, omit this section entirely — never include it empty or as a formality.
-9. **Properties** (H2) - a series of component API and CSS custom property tables based on JSDoc tags from the component codebase.
-10. **Feedback** (H2) — standard closing boilerplate matching the existing pages: links to open a GitHub issue and join the GitHub discussion board.
+1. **Frontmatter + H1 + intro**
+
+- `title` and `description` from the spec's frontmatter `name`/`description`.
+- Intro paragraph: a short, warm expansion of the one-line description (voice/tone from DESIGN.md), grounded only in what the spec says the component does.
+
+2. **Anatomy** (H2)
+
+- A plain-language, numbered list of the component's structural parts, drawn from the distinct Figma layer names in the spec's style tables (e.g. badge-wrapper, badge-value).
+- No image — this repo has no anatomy diagram assets, so don't claim one exists; a bare list of labeled parts is correct here.
+
+3. **Variants** (H2)
+
+- One H3 (or H4 if the spec nests further, e.g. Button's Size > Extra small) per `## Variants` subsection in the spec, same order as the spec.
+- Prose explains what the variant does and when to use it, pulled directly from the spec's bullets.
+- Remove style-hook tables noted in the spec.
+
+4. **Behavior → States** (H2 → H3)
+
+- Include only if the spec defines interactive states (enabled/hover/focus/active/disabled/selected/pending, etc.) for this component.
+- Omit the section rather than inventing state colors.
+
+6. **Accessibility** (H2)
+
+- Include only what's evidenced.
+- Expand the numbers to include the title of the criteria if not already included. For example, "1.3.1" SHOULD be reformatted to "1.3.1: Info and relationships". Do not include the level if noted in parentheses.
+- Link WCAG criteria numbers to their respective pages on `https://www.w3.org/WAI/WCAG22/`.
+
+7. **Contradictions with system guidance** (H2)
+
+— **Only when a genuine, unresolved conflict exists** between the spec and DESIGN.md
+
+- Examples:
+  - A spec default token pairing that appears to fail DESIGN.md's stated contrast-difference rule;
+  - A spec behavior that runs counter to an established DESIGN.md principle;
+  - A naming or structural convention the spec uses that DESIGN.md's rules would otherwise forbid.
+- Do not use this section for things you can simply fix by following DESIGN.md (e.g. dot-notation tokens — just convert those, silently, per the rule).
+- For each contradiction: name the DESIGN.md rule, name the spec's conflicting statement, and state plainly that the spec's behavior is being documented as-is because it's a deliberate/necessary exception.
+- If there are no genuine contradictions, omit this section entirely — never include it empty or as a formality.
+
+8. **API reference** (H2)
+
+- General component usage in code plus a series of component API and CSS custom property tables based on JSDoc tags from the component codebase.
+  — One line linking to the Storybook docs page: `https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-<slug>--docs` (derive `<slug>` from the spec's `componentName`, stripping the `jh-` prefix, e.g. `jh-badge` → `badge`). Multi-part components keep their full slug.
+- **Attributes** (H3) — attribute names, descriptions, types, and default values.
+- **Events** (H3) — event names and descriptions.
+- **Slots** (H3) — slot names and descriptions.
+- **Style hooks** (H3) - CSS custom property names, descriptions, and default values.
+
+9. **Feedback** (H2)
+
+- Standard closing boilerplate matching the existing pages: links to open a GitHub issue and join the GitHub discussion board.
 
 ## Step 3 — Write and verify
 
 - Do not rewrite or otherwise change the content if the guidelines are still accurate.
 - Adjust the style to use a simple present tense.
+- Keep documentation concis
 - Write the file to `docs/components/<slug>.md` (match existing filename/casing conventions; multi-part components use their full hyphenated slug, e.g. `input-email.md`).
 - Do the token-conversion pass explicitly: scan the draft for any remaining dot-notation tokens in style-hook tables and convert every one to `--jh-kebab-case` form.
 - Re-read DESIGN.md's relevant rule sections once more against the finished draft, specifically checking for contradictions (Step 2.8) — this is the check most easily skipped, so do it as a deliberate last pass, not just while drafting.

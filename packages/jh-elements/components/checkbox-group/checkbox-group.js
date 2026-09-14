@@ -18,12 +18,17 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-checkbox-group-error-color-text - The error-text text color.
  * Defaults to `--jh-color-content-negative-enabled`.
+ * 
+ * @event jh-change - Fired when the selection of checkboxes is changed by the user. Event payload includes both current and previous selections, accessible via `e.detail.state.selectedValue` and `e.detail.state.previousSelectedValue`.
  *
  * @slot default - Use to insert `<jh-checkbox>` component(s).
  *
  * @customElement jh-checkbox-group
  */
 export class JhCheckboxGroup extends JhElement {
+  #previousSelectedValue = [];
+
+
   static get styles() {
     return css`
       :host {
@@ -206,17 +211,24 @@ export class JhCheckboxGroup extends JhElement {
     this.orientation = 'vertical';
     /** @type {?boolean} */
     this.showIndicator = false;
+    this.addEventListener('jh-change', this.#handleChange);
   }
 
   firstUpdated() {
     const slot = this.renderRoot?.querySelector('slot');
     this.#syncDisabledToChildren();
+    this.#getPreviousValues();
   }
 
   updated(changedProperties) {
     if (changedProperties.has('disabled')) {
       this.#syncDisabledToChildren();
     }
+  }
+
+  #handleSlotChange() {
+    this.#syncDisabledToChildren();
+    this.#getPreviousValues();
   }
 
   #syncDisabledToChildren() {
@@ -239,6 +251,30 @@ export class JhCheckboxGroup extends JhElement {
     } else if (this.helperText && this.label) {
       return `checkbox-group-helper-${this.uniqueId}`;
     }
+  }
+
+  #handleChange(e) {
+    if (e.detail.reference.originHost === 'jh-checkbox') {
+      const { previousSelectedValue, selectedValues } = this.#getPreviousValues();
+
+      this.dispatchCustomEvent('jh-change', {
+        state: {
+          previousSelectedValue,
+          selectedValue: selectedValues,
+        },
+      });
+    }
+  }
+
+  #getPreviousValues() {
+    const previousSelectedValue = [...this.#previousSelectedValue];
+    const selectedValues = Array.from(this.querySelectorAll('jh-checkbox'))
+        .filter(checkbox => checkbox.checked && !checkbox.indeterminate)
+        .map(checkbox => checkbox.value);
+
+    this.#previousSelectedValue = [...selectedValues];
+
+    return { previousSelectedValue, selectedValues };
   }
 
   render() {
@@ -280,7 +316,7 @@ export class JhCheckboxGroup extends JhElement {
         aria-disabled=${ifDefined(this.disabled ? 'true' : null)}
         aria-label=${ifDefined(this.accessibleLabel)}>
         ${label}
-        <div class="controls"><slot @slotchange=${() => this.#syncDisabledToChildren()} ></slot></div>
+        <div class="controls"><slot @slotchange=${this.#handleSlotChange}></slot></div>
         ${errorText}
       </fieldset>
     `;

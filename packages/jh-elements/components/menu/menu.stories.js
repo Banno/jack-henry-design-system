@@ -6,6 +6,7 @@ import { html, css } from 'lit';
 import './menu.js';
 import '../list-item/list-item.js';
 import '../list-group/list-group.js';
+import '../select/select.js';
 import '@jack-henry/jh-icons/icons-wc/icon-printer';
 import '@jack-henry/jh-icons/icons-wc/icon-arrow-down-to-bracket';
 import '@jack-henry/jh-icons/icons-wc/icon-pencil';

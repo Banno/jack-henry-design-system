@@ -5,7 +5,7 @@
 */
 import {LitElement, css, html} from 'lit';
 
-export default class JhIconPizzaSlouse extends LitElement {
+export default class JhIconPizzaSlice extends LitElement {
   /** @type {ElementInternals} */
   #internals;
 
@@ -91,4 +91,4 @@ export default class JhIconPizzaSlouse extends LitElement {
   }
 }
 
-customElements.define('jh-icon-pizza-slice', JhIconPizzaSlouse);
+customElements.define('jh-icon-pizza-slice', JhIconPizzaSlice);

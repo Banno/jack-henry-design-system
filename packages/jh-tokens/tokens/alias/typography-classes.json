@@ -1,0 +1,169 @@
+{
+  "font": {
+    "utility": {
+      "$type": "typography",
+      "$description": "Composable tokens that back the .forge-type-* CSS utility class layer. Values alias our existing typography tokens.",
+      "heading": {
+        "xl": {
+          "$value": "{font.heading.bold.6}",
+          "$description": "Used by the .forge-type-heading-xl utility class",
+          "$extensions": {
+            "alias": true,
+            "deprecated": false,
+            "deprecatedMessage": ""
+          }
+        },
+        "lg": {
+          "$value": "{font.heading.bold.4}",
+          "$description": "Used by the .forge-type-heading-lg utility class",
+          "$extensions": {
+            "alias": true,
+            "deprecated": false,
+            "deprecatedMessage": ""
+          }
+        },
+        "md": {
+          "$value": "{font.heading.bold.3}",
+          "$description": "Used by the .forge-type-heading-md utility class",
+          "$extensions": {
+            "alias": true,
+            "deprecated": false,
+            "deprecatedMessage": ""
+          }
+        },
+        "sm": {
+          "$value": "{font.heading.bold.2}",
+          "$description": "Used by the .forge-type-heading-sm utility class",
+          "$extensions": {
+            "alias": true,
+            "deprecated": false,
+            "deprecatedMessage": ""
+          }
+        }
+      },
+      "body": {
+        "lg": {
+          "regular": {
+            "$value": "{font.body.regular.2}",
+            "$description": "Used by the .forge-type-body-lg-regular utility class",
+            "$extensions": {
+              "alias": true,
+              "deprecated": false,
+              "deprecatedMessage": ""
+            }
+          },
+          "medium": {
+            "$value": "{font.body.medium.2}",
+            "$description": "Used by the .forge-type-body-lg-medium utility class",
+            "$extensions": {
+              "alias": true,
+              "deprecated": false,
+              "deprecatedMessage": ""
+            }
+          },
+          "bold": {
+            "$value": "{font.body.bold.2}",
+            "$description": "Used by the .forge-type-body-lg-bold utility class",
+            "$extensions": {
+              "alias": true,
+              "deprecated": false,
+              "deprecatedMessage": ""
+            }
+          }
+        },
+        "md": {
+          "regular": {
+            "$value": "{font.body.regular.1}",
+            "$description": "Used by the .forge-type-body-md-regular utility class",
+            "$extensions": {
+              "alias": true,
+              "deprecated": false,
+              "deprecatedMessage": ""
+            }
+          },
+          "medium": {
+            "$value": "{font.body.medium.1}",
+            "$description": "Used by the .forge-type-body-md-medium utility class",
+            "$extensions": {
+              "alias": true,
+              "deprecated": false,
+              "deprecatedMessage": ""
+            }
+          },
+          "bold": {
+            "$value": "{font.body.bold.1}",
+            "$description": "Used by the .forge-type-body-md-bold utility class",
+            "$extensions": {
+              "alias": true,
+              "deprecated": false,
+              "deprecatedMessage": ""
+            }
+          }
+        }
+      },
+      "helper": {
+        "regular": {
+          "$value": "{font.helper.regular}",
+          "$description": "Used by the .forge-type-helper-regular utility class",
+          "$extensions": {
+            "alias": true,
+            "deprecated": false,
+            "deprecatedMessage": ""
+          }
+        },
+        "medium": {
+          "$value": "{font.helper.medium}",
+          "$description": "Used by the .forge-type-helper-medium utility class",
+          "$extensions": {
+            "alias": true,
+            "deprecated": false,
+            "deprecatedMessage": ""
+          }
+        },
+        "bold": {
+          "$value": "{font.helper.bold}",
+          "$description": "Used by the .forge-type-helper-bold utility class",
+          "$extensions": {
+            "alias": true,
+            "deprecated": false,
+            "deprecatedMessage": ""
+          }
+        }
+      },
+      "mono": {
+        "lg": {
+          "$value": "{font.code.regular.2}",
+          "$description": "Used by the .forge-type-mono-lg utility class",
+          "$extensions": {
+            "alias": true,
+            "deprecated": false,
+            "deprecatedMessage": ""
+          }
+        },
+        "md": {
+          "$value": "{font.code.regular.1}",
+          "$description": "Used by the .forge-type-mono-md utility class",
+          "$extensions": {
+            "alias": true,
+            "deprecated": false,
+            "deprecatedMessage": ""
+          }
+        },
+        "sm": {
+          "$value": {
+            "fontFamily": "{font.family.mono}",
+            "fontSize": "{font.size.300}",
+            "fontWeight": "{font.weight.400}",
+            "lineHeight": "{font.line-height.400}"
+          },
+          "$description": "Used by the .forge-type-mono-sm utility class. No existing 12/16 mono composite token exists, so this composes the underlying primitives directly.",
+          "$extensions": {
+            "alias": true,
+            "deprecated": false,
+            "deprecatedMessage": ""
+          }
+        }
+      }
+    }
+  }
+}

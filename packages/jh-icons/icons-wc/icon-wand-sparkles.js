@@ -5,7 +5,7 @@
 */
 import {LitElement, css, html} from 'lit';
 
-export default class JhIconWandSparkle extends LitElement {
+export default class JhIconWandSparkles extends LitElement {
   /** @type {ElementInternals} */
   #internals;
 
@@ -91,4 +91,4 @@ export default class JhIconWandSparkle extends LitElement {
   }
 }
 
-customElements.define('jh-icon-wand-sparkles', JhIconWandSparkle);
+customElements.define('jh-icon-wand-sparkles', JhIconWandSparkles);

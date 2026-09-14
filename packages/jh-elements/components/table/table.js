@@ -43,7 +43,7 @@ export class JhTable extends JhElement {
         display: table;
         table-layout: fixed;
         width: 100%;
-        height: 100%;
+        height: auto;
       }
 
       /* vertical scroll styles for non-scrollable */
@@ -179,10 +179,6 @@ export class JhTable extends JhElement {
       :host([scrollable]) .table-container {
         overflow: auto;
         height: 100%;
-        /* keeps space reserved for vertical scrollbar */
-        scrollbar-gutter: stable;
-        /* removes bouncy scroll behavior in Safari and FF */
-        /* overscroll-behavior: none; */
       }
       :host([scrollable]) .table {
         width: auto;

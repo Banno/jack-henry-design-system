@@ -17,6 +17,18 @@ SPDX-FileCopyrightText = "2025 Jack Henry"
 SPDX-License-Identifier = "Apache-2.0"
 
 [[annotations]]
+path = ["**/CHANGELOG.md", ".changeset/*.md"]
+precedence = "override"
+SPDX-FileCopyrightText = "2026 Jack Henry"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = ["pnpm-lock.yaml"]
+precedence = "override"
+SPDX-FileCopyrightText = "2026 Jack Henry"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
 path = [ "**/assets/fonts/RobotoFlex-VariableFont.woff2"
 ]
 precedence = "override"

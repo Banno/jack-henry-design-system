@@ -104,31 +104,3 @@ Playground.parameters = {
   styles: storyStyles,
   theme: 'both-themes',
 };
-
-// TEMP: showcases a jh-select inside a jh-menu escaping the menu bounds via the overflow hooks.
-const selectOptions = [
-  { label: 'Checking', value: 'checking' },
-  { label: 'Savings', value: 'savings' },
-  { label: 'Money Market', value: 'money-market' },
-  { label: 'Certificate of Deposit', value: 'cd' },
-];
-
-export const SelectPopout = {
-  render: (args) => html`
-  <div class="menu-wrapper">
-    <jh-menu
-      style="--jh-menu-overflow: visible; --jh-menu-content-overflow: visible;"
-    >
-      <jh-list-item tabindex="0" role="menuitem">Item number 1</jh-list-item>
-      <jh-list-item>
-      <jh-select label="Select an account" .options=${selectOptions}></jh-select>
-    </jh-list-item>
-    </jh-menu>
-  </div>
-  `,
-};
-
-SelectPopout.parameters = {
-  controls: { hideNoControlsWarning: true },
-  styles: storyStyles,
-};

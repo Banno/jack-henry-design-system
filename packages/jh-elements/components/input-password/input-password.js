@@ -11,6 +11,7 @@ import '@jack-henry/jh-icons/icons-wc/icon-eye.js';
 /**
  * @slot jh-input-password-hidden - Use to insert a custom icon within the toggle password button when the input value is masked. 
  * @slot jh-input-password-visible - Use to insert a custom icon within the toggle password button when the input value is unmasked.
+ * @event jh-select - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`. Unlike other inputs, this event does not bubble or cross the shadow boundary, so it is only observable on the element itself.
  * @customElement jh-input-password
  */
 export class JhInputPassword extends JhInput {
@@ -159,6 +160,12 @@ export class JhInputPassword extends JhInput {
 
   #togglePassword() {
     this.passwordVisible = !this.passwordVisible;
+  }
+
+  // Keep jh-select (carries selected text) from leaving the component, matching native select which doesn't bubble.
+  dispatchCustomEvent(eventName, detail = {}, options = {}) {
+    const confined = eventName === 'jh-select' ? { bubbles: false, composed: false } : {};
+    super.dispatchCustomEvent(eventName, detail, { ...confined, ...options });
   }
 }
 JhInputPassword.register('jh-input-password', JhInputPassword);

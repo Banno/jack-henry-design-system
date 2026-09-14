@@ -15,7 +15,7 @@ import * as stories from './menu.stories.js';
 
 <hr />
 
-Menus display lists of choices or actions. This is not a Navigation component.
+Menus provides a styled, elevated surface for menus and dropdown-style content. It works as a list of choices or actions, or as a general container for related content. This is not a Navigation component.
 
 ## Usage
 
@@ -25,7 +25,7 @@ Import the `<jh-menu>` component:
 import '@jack-henry/jh-elements/components/menu/menu.js';
 ```
 
-To use `<jh-menu>`, add menu items, such as `<jh-list-item>`s to the default slot.
+To use `<jh-menu>`, add items, such as `<jh-list-item>` components to the default slot.
 
 ```html
 <jh-menu>
@@ -60,19 +60,20 @@ is available to user agents, including assistive technologies.
 
 - To satisfy [WCAG 1.3.1 Information and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) 
 and [WCAG 4.1.2 Name, role, value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html),
-the `<jh-menu>` component has a `role` of `menu`. Authors may override this role if required.
+the `<jh-menu>` component has a default role of `menu`, which is appropriate when it contains a set of menu items. 
+When using `<jh-menu>` as a general container for other content (for example, form controls), authors should override the role to one that matches the content, or remove it, so the exposed semantics are accurate.
 - To satisfy [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html), Menu can be resized without assistive technology up to 200 percent without loss of content or functionality.
 
 
 ### Author Guidance
 
-- To satisfy [WCAG 1.3.1 Information and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) 
-and [WCAG 4.1.2 Name, role, value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html),
- authors should assign appropriate roles to the items in the default slot. Possible roles include:
+- When using `<jh-menu>` as a menu, authors should assign appropriate roles to the items in the default slot to satisfy [WCAG 1.3.1 Information and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) 
+and [WCAG 4.1.2 Name, role, value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html). Possible roles include:
   - `menuitem`: used to indicate the element is an option in a set of choices contained by a menu.
   - `menuitemcheckbox`: used to indicate a menuitem with a checkable state whose possible values are true, false, or mixed.
   - `menuitemradio`: used to indicate a menuitem with a checkable state in a set of elements with the same role, only one of which can be checked at a time. 
-- Where required, authors are responsible for assigning tabindex, and handling different scenarios of keyboard navigation.
+- When using `<jh-menu>` as a general container rather than a menu, override or remove the default `role="menu"` so it does not expose menu semantics to assistive technologies, and apply roles/labels appropriate to the content you place inside.
+- Authors are responsible for assigning `tabindex` and handling keyboard navigation appropriate to their content and use case.
 
 ## Component API
 

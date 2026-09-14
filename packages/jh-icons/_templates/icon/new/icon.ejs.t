@@ -94,7 +94,7 @@ export default class <%= h.inflection.camelize(prefix.replace(/-/gi,'_')) %>Icon
 
   render() {
     return html`
-      <%- svg %>
+      <%- svg.replace(/\\/g, '\\\\').replace(/`/g, '\\`').replace(/\$\{/g, '\\${') %>
     `;
   }
 }

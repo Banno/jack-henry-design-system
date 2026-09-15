@@ -44,6 +44,9 @@ export default {
     actions: {
       disable: true
     },
+    interactions: {
+      disable: true
+    },
   }
 };
 

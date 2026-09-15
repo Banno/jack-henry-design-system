@@ -23,49 +23,50 @@ export class JhLayoutVStack extends JhElement {
           display: flex;
           flex-direction: column;
       }
+        /* gap */
+        :host([gap="0"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-0)); }
+        :host([gap="25"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-25)); }
+        :host([gap="50"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-50)); }
+        :host([gap="100"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-100)); }
+        :host([gap="200"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-200)); }
+        :host([gap="300"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-300)); }
+        :host([gap="400"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-400)); }
+        :host([gap="500"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-500)); }
+        :host([gap="600"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-600)); }
+        :host([gap="700"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-700)); }
+        :host([gap="800"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-800)); }
+        :host([gap="900"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-900)); }
+        :host([gap="1000"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-1000)); }
 
-      :host([gap="0"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-0)); }
-      :host([gap="25"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-25)); }
-      :host([gap="50"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-50)); }
-      :host([gap="100"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-100)); }
-      :host([gap="200"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-200)); }
-      :host([gap="300"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-300)); }
-      :host([gap="400"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-400)); }
-      :host([gap="500"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-500)); }
-      :host([gap="600"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-600)); }
-      :host([gap="700"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-700)); }
-      :host([gap="800"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-800)); }
-      :host([gap="900"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-900)); }
-      :host([gap="1000"]) { gap: var(--jh-layout-v-stack-gap, var(--jh-dimension-1000)); }
+        /* padding */
+        :host([padding="0"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-0)); }
+        :host([padding="25"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-25)); }
+        :host([padding="50"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-50)); }
+        :host([padding="100"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-100)); }
+        :host([padding="200"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-200)); }
+        :host([padding="300"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-300)); }
+        :host([padding="400"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-400)); }
+        :host([padding="500"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-500)); }
+        :host([padding="600"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-600)); }
+        :host([padding="700"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-700)); }
+        :host([padding="800"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-800)); }
+        :host([padding="900"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-900)); }
+        :host([padding="1000"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-1000)); }
 
-      :host([padding="0"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-0)); }
-      :host([padding="25"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-25)); }
-      :host([padding="50"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-50)); }
-      :host([padding="100"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-100)); }
-      :host([padding="200"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-200)); }
-      :host([padding="300"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-300)); }
-      :host([padding="400"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-400)); }
-      :host([padding="500"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-500)); }
-      :host([padding="600"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-600)); }
-      :host([padding="700"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-700)); }
-      :host([padding="800"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-800)); }
-      :host([padding="900"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-900)); }
-      :host([padding="1000"]) { padding: var(--jh-layout-v-stack-padding, var(--jh-dimension-1000)); }
+        :host([align="start"]) { align-items: flex-start; }
+        :host([align="end"]) { align-items: flex-end; }
+        :host([align="center"]) { align-items: center; }
+        :host([align="stretch"]) { align-items: stretch; }
+        :host([align="baseline"]) { align-items: baseline; }
 
-      :host([align="start"]) { align-items: flex-start; }
-      :host([align="end"]) { align-items: flex-end; }
-      :host([align="center"]) { align-items: center; }
-      :host([align="stretch"]) { align-items: stretch; }
-      :host([align="baseline"]) { align-items: baseline; }
+        :host([justify="start"]) { justify-content: flex-start; }
+        :host([justify="end"]) { justify-content: flex-end; }
+        :host([justify="center"]) { justify-content: center; }
+        :host([justify="between"]) { justify-content: space-between; }
+        :host([justify="around"]) { justify-content: space-around; }
+        :host([justify="evenly"]) { justify-content: space-evenly; }
 
-      :host([justify="start"]) { justify-content: flex-start; }
-      :host([justify="end"]) { justify-content: flex-end; }
-      :host([justify="center"]) { justify-content: center; }
-      :host([justify="between"]) { justify-content: space-between; }
-      :host([justify="around"]) { justify-content: space-around; }
-      :host([justify="evenly"]) { justify-content: space-evenly; }
-
-      :host([wrap]) { flex-wrap: wrap; }
+        :host([wrap]) { flex-wrap: wrap; }
     `;
   }
 

@@ -22,7 +22,7 @@ function getStyleDictionary(theme, platform) {
       fileHeaders: { 
         licensedFileHeader: (defaultMessages = []) => [ //license info gets added to css and js files
           //REUSE-IgnoreStart
-          'SPDX-FileCopyrightText: 2025 Jack Henry',
+          'SPDX-FileCopyrightText: 2026 Jack Henry',
           '',
           'SPDX-License-Identifier: Apache-2.0',
           //REUSE-IgnoreEnd

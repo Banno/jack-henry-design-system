@@ -86,7 +86,10 @@ export default {
       source: {
         excludeDecorators: true
       }
-    }
+    },
+    actions: {
+      disable: true
+    },
   }
 };
 

@@ -5,8 +5,9 @@
 name: Version
 on:
   push:
-    branches: [next]
-
+    branches: 
+      - next
+      - 'release/v*' # Matches release/v3, release/v4, etc.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref_name }}
   cancel-in-progress: true
@@ -33,6 +34,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          title: "Version Packages"
-          commit: "Version Packages"
+          title: "Version Packages (${{ github.ref_name }})"
+          commit: "chore(release): version packages (${{ github.ref_name }})"
           version: "pnpm run changeset:version"

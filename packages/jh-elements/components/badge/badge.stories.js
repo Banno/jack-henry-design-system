@@ -34,9 +34,26 @@ export default {
       control: 'text',
     },
   },
+  parameters: {
+    docs: {
+      codePanel: true,
+      source: {
+        excludeDecorators: true
+      }
+    },
+    actions: {
+      disable: true
+    },
+    interactions: {
+      disable: true
+    },
+    controls: {
+      disableSaveFromUI: true
+    }
+  }
 };
 
-export const Overview = { 
+export const Overview = {
   render: (args) => html`
     <div class="overview-row">
       <jh-badge></jh-badge>

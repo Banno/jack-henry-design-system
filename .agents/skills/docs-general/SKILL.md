@@ -1,13 +1,12 @@
 ---
-name: component-docs
-description: "Generate or refresh a Forge component documentation page (docs/components) from its spec file, matching jackhenry.design/Storybook structure and DESIGN.md rules."
+name: docs-general
+description: "Generate or refresh a Forge foundations documentation page from its spec file."
 ---
 
-# Component documentation page
+# General documentation
 
-Builds a `docs/components/<slug>.md` page for one Forge component. Content always comes from the component's spec file — never from the live site, Storybook, training knowledge, or invention. The live site and Storybook are consulted only to decide _which sections_ a component page should have and in _what order_; DESIGN.md is consulted to decide _how_ facts must be phrased (token formatting, required accessibility subsections, voice) and to catch any place the spec conflicts with system-wide rules.
-
-If the user names a component, use it. If not, ask which component (list `/specs/*.md` to offer choices).
+- Consult with DESIGN.md to decide _how_ facts MUST be phrased (token formatting, required accessibility subsections, voice) and to catch any place the spec conflicts with system-wide rules.
+- Voice and tone MUST conform to the guidelines in `DESIGN.md`.
 
 ## Step 1 — Read the sources, in this order
 
@@ -18,9 +17,17 @@ If the user names a component, use it. If not, ask which component (list `/specs
    - Voice and tone section — match its "clear, confident, human" register.
 3. **`/packages/jh-elements/components/`** - the component code. Use the JSDoc tags to generate component API and CSS custom property tables.
 
-## Step 2 — Section template
+## Step 2 - Folder structure
 
-Use this order. A section is included **only if the spec actually supplies content for it** — never include a section if you'd have to invent the content. Never fabricate anatomy diagrams, Figma instructions, exact WCAG numbers, or visual state swatches that aren't backed by the spec.
+- Documentation MUST always be created in the `/docs/` folder.
+- The following folders MUST always be reserved for their respective content:
+  - `/foundations/`: All high-level guidelines. These are predominately derived from the content in DESIGN.md.
+  - `/components/`: All component docs. These are derived from the files in `/specs/`.
+
+## Step 3 - Templates
+
+- Use the specified orders.
+- A section MUST NOT be included if you'd have to invent the content.
 
 1. **Frontmatter + H1 + intro**
 
@@ -78,13 +85,10 @@ Use this order. A section is included **only if the spec actually supplies conte
 
 - Do not rewrite or otherwise change the content if the guidelines are still accurate.
 - Adjust the style to use a simple present tense.
-- Keep documentation concis
+- Favor conversational tone and verbiage over the explicit **MUST/SHOULD/MAY/etc.** terms when writing RFC 2119 rules. Do not capitalize terminology.
+- Keep documentation concise
 - Write the file to `docs/components/<slug>.md` (match existing filename/casing conventions; multi-part components use their full hyphenated slug, e.g. `input-email.md`).
 - Do the token-conversion pass explicitly: scan the draft for any remaining dot-notation tokens in style-hook tables and convert every one to `--jh-kebab-case` form.
 - Re-read DESIGN.md's relevant rule sections once more against the finished draft, specifically checking for contradictions (Step 2.8) — this is the check most easily skipped, so do it as a deliberate last pass, not just while drafting.
 - Confirm every factual claim in the draft traces back to the spec or DESIGN.md. If you found a genuinely useful fact only on jackhenry.design/Storybook (not in the spec), don't add it to the page — instead flag it to the user as a possible gap in the spec worth adding upstream.
 - In your final message to the user, briefly note: which sections were included vs. omitted and why, any contradictions flagged, and any spec gaps (e.g. missing states, missing accessibility detail) that a human should fill in.
-
-## Working across the device bridge
-
-When this repo is reached via a linked computer (device_bash tools), read specs/DESIGN.md/existing docs and write the new page directly on the user's machine with device_bash (cat to read, a heredoc or python script to write) rather than staging files into the container — these are small text files and the edit is a straightforward write, not a transform that needs container-only tooling. Only stage a file into the container if you need to view an image/PDF asset or need a container-only tool.

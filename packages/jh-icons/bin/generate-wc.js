@@ -2,13 +2,23 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-const { execFile } = require('child_process');
+const fs = require('fs');
+const path = require('path');
+const { promisify } = require('util');
+const execFile = promisify(require('child_process').execFile);
 
 const args = process.argv.slice(2); // args[0] = sourcePath, args[1] = outputPath, args[2] = prefix
+const [sourcePath, outputPath, prefix] = args;
+
+if (!sourcePath || !outputPath || !prefix) {
+  console.error('Usage: node generate-wc.js <sourcePath> <outputPath> <prefix>');
+  process.exit(1);
+}
+
+// number of hygen processes to run at once
+const CONCURRENCY = 8;
 
 // Get all files
-const fs = require('fs');
-const sourcePath = args[0];
 const iconFiles = fs.readdirSync(sourcePath); // Array of file names
 
 // Build object that pairs the icon name and the svg code
@@ -16,7 +26,7 @@ const icons = iconFiles
   .filter(fileName => fileName.includes('.svg')) // ignore non .svg files
   .map(fileName => {
     return {
-      path: `${sourcePath}${fileName}`,
+      path: path.join(sourcePath, fileName),
       name: fileName.replace('.svg', ''),
     };
   })
@@ -36,30 +46,67 @@ const icons = iconFiles
       contents: clean.replace(/\r?\n|\r/g, ' '),
     };
   });
- 
-  // For each icon, call the hygen generator to create the component.
-  // Use execFile with an argument array (no shell) so SVG content cannot
-  // break out of the command and inject shell syntax.
-  icons.forEach(icon => {
-  execFile(
-    'hygen',
-    [
-      'icon',
-      'new',
-      icon.name,
-      '--svg',
-      icon.contents,
-      '--outputPath',
-      args[1],
-      '--prefix',
-      args[2],
-    ],
-    error => {
-      if (error) {
-        console.error('error generating icon:', error);
-        return;
-      }
+
+// Create the component using the hygen generator. execFile runs without a shell
+// and takes an argument array, so the svg markup is passed through as a single
+// argv entry with no quoting and cannot break out of the command to inject
+// shell syntax.
+function generate(icon) {
+  return execFile('hygen', [
+    'icon',
+    'new',
+    icon.name,
+    '--svg',
+    icon.contents,
+    '--outputPath',
+    outputPath,
+    '--prefix',
+    prefix,
+  ]);
+}
+
+// Summarize why hygen failed without echoing the full command back, which would
+// repeat the entire svg payload for every failure.
+function reason(e) {
+  const output = [e.stderr, e.stdout]
+    .map(stream => (stream || '').trim())
+    .filter(Boolean)
+    .join(' ');
+  if (output) {
+    return output.split('\n').slice(0, 3).join(' ').slice(0, 300);
+  }
+  return e.code ? `hygen exited with ${e.code}` : e.message.split('\n')[0];
+}
+
+// Pull from a shared queue so at most CONCURRENCY generators run at a time
+async function worker(queue, failures) {
+  for (let icon = queue.shift(); icon; icon = queue.shift()) {
+    try {
+      await generate(icon);
       console.log(`${icon.name} created`);
+    } catch (e) {
+      failures.push(icon.name);
+      console.error(`error generating ${icon.name}: ${reason(e)}`);
     }
+  }
+}
+
+async function main() {
+  const queue = [...icons];
+  const failures = [];
+  const workers = Array.from(
+    { length: Math.min(CONCURRENCY, queue.length) },
+    () => worker(queue, failures)
   );
-});
+
+  await Promise.all(workers);
+
+  console.log(`\n${icons.length - failures.length}/${icons.length} icons created`);
+
+  if (failures.length) {
+    console.error(`failed (${failures.length}): ${failures.join(', ')}`);
+    process.exitCode = 1;
+  }
+}
+
+main();

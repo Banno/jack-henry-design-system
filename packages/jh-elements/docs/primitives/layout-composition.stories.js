@@ -5,8 +5,8 @@
 */
 
 import { html, css } from 'lit';
-import '../../components/layout-flex/layout-flex.js';
-import '../../components/layout-spacer/layout-spacer.js';
+import '../../components/layout-v-stack/layout-v-stack.js';
+import '../../components/layout-h-stack/layout-h-stack.js';
 import '../../components/button/button.js';
 import '../../components/card/card.js';
 import '../../components/input/input.js';
@@ -61,120 +61,122 @@ export default {
 };
 
 /**
- * Toolbar / split header — the canonical spacer pattern.
- * A title on the left, actions pushed to the right by a flexible spacer.
+ * Toolbar / split header — a title on the left with the actions grouped on the
+ * right. `justify="between"` pushes the two groups to opposite ends of the row.
  */
 export const Toolbar = {
   render: () => html`
-    <jh-layout-flex orientation="horizontal" class="demo-surface" padding="200" gap="100" align="center">
+    <jh-layout-h-stack class="demo-surface" padding="200" gap="100" align="center" justify="between">
       <strong class="text-heading">Account settings</strong>
-      <jh-layout-spacer></jh-layout-spacer>
-      <jh-button appearance="secondary" label="Cancel"></jh-button>
-      <jh-button appearance="primary" label="Save"></jh-button>
-    </jh-layout-flex>
+      <jh-layout-h-stack gap="100" align="center">
+        <jh-button appearance="secondary" label="Cancel"></jh-button>
+        <jh-button appearance="primary" label="Save"></jh-button>
+      </jh-layout-h-stack>
+    </jh-layout-h-stack>
   `,
 };
 
 
 /**
- * Split groups — a single spacer placed *between* two button groups pushes them
- * to opposite ends of the row, keeping each group's own spacing intact. Shows the
- * spacer separating groups rather than sitting at one edge.
+ * Split groups — two button groups pushed to opposite ends of the row with
+ * `justify="between"`, each nested group keeping its own `gap`. Shows the groups
+ * separated rather than bunched at one edge.
  */
 export const SplitGroups = {
   render: () => html`
-    <jh-layout-flex orientation="horizontal" class="demo-surface" padding="200" gap="100" align="center">
-      <jh-button appearance="secondary" label="Previous"></jh-button>
-      <jh-button appearance="secondary" label="Next"></jh-button>
-      <jh-layout-spacer></jh-layout-spacer>
-      <jh-button appearance="secondary" label="Cancel"></jh-button>
-      <jh-button appearance="primary" label="Save"></jh-button>
-    </jh-layout-flex>
+    <jh-layout-h-stack class="demo-surface" padding="200" gap="100" align="center" justify="between">
+      <jh-layout-h-stack gap="100">
+        <jh-button appearance="secondary" label="Previous"></jh-button>
+        <jh-button appearance="secondary" label="Next"></jh-button>
+      </jh-layout-h-stack>
+      <jh-layout-h-stack gap="100">
+        <jh-button appearance="secondary" label="Cancel"></jh-button>
+        <jh-button appearance="primary" label="Save"></jh-button>
+      </jh-layout-h-stack>
+    </jh-layout-h-stack>
   `,
 };
 
 
 /**
  * Card composition — a `jh-card` provides the surface, header, and footer, while
- * `jh-layout-flex` arranges the custom header row and footer actions. Shows the
+ * `jh-layout-h-stack` arranges the custom header row and footer actions. Shows the
  * primitives slotting cleanly into a higher-level component.
  */
 export const CardLayout = {
   render: () => html`
     <jh-card show-footer-divider>
-      <jh-layout-flex slot="jh-card-header" orientation="horizontal" gap="100" align="center">
+      <jh-layout-h-stack slot="jh-card-header" gap="100" align="center" justify="between">
         <strong>Payment method</strong>
-        <jh-layout-spacer></jh-layout-spacer>
         <jh-button appearance="secondary" size="small" label="Edit"></jh-button>
-      </jh-layout-flex>
+      </jh-layout-h-stack>
 
       <span class="demo-block">Visa ending in 4242 — expires 08/28</span>
 
-      <jh-layout-flex slot="jh-card-footer" orientation="horizontal" gap="100" justify="end">
+      <jh-layout-h-stack slot="jh-card-footer" gap="100" justify="end">
         <jh-button appearance="danger" label="Remove"></jh-button>
         <jh-button appearance="primary" label="Set as default"></jh-button>
-      </jh-layout-flex>
+      </jh-layout-h-stack>
     </jh-card>
   `,
 };
 
 
 /**
- * Form row — a vertical flex of labeled horizontal flex rows, using align to
- * keep labels and controls on a shared baseline.
+ * Form row — a vertical stack of labeled horizontal rows, using `align="baseline"`
+ * to keep labels and controls on a shared baseline and `justify="between"` to push
+ * each value to the opposite end of its label.
  */
 export const FormRow = {
   render: () => html`
-    <jh-layout-flex orientation="vertical" class="demo-surface" padding="300" gap="200">
-      <jh-layout-flex orientation="horizontal" gap="200" align="baseline">
+    <jh-layout-v-stack class="demo-surface" padding="300" gap="200">
+      <jh-layout-h-stack gap="200" align="baseline" justify="between">
         <span class="text-label" style="min-width: 6rem;">First name</span>
-        <jh-layout-spacer></jh-layout-spacer>
         <span class="demo-block text-body">Ada</span>
-      </jh-layout-flex>
-      <jh-layout-flex orientation="horizontal" gap="200" align="baseline">
+      </jh-layout-h-stack>
+      <jh-layout-h-stack gap="200" align="baseline" justify="between">
         <span class="text-label" style="min-width: 6rem;">Last name</span>
-        <jh-layout-spacer></jh-layout-spacer>
         <span class="demo-block text-body">Lovelace</span>
-      </jh-layout-flex>
-    </jh-layout-flex>
+      </jh-layout-h-stack>
+    </jh-layout-v-stack>
   `,
 };
 
 
 /**
- * Wrapping — a horizontal flex with wrap so children reflow onto new lines when
+ * Wrapping — a horizontal stack with `wrap` so children reflow onto new lines when
  * the container runs out of room. Resize the canvas to see the reflow.
  */
 export const Wrapping = {
   render: () => html`
-    <jh-layout-flex orientation="horizontal" class="demo-surface" padding="200" gap="100" wrap>
+    <jh-layout-h-stack class="demo-surface" padding="200" gap="100" wrap>
       <jh-button appearance="secondary" label="Overview"></jh-button>
       <jh-button appearance="secondary" label="Transactions"></jh-button>
       <jh-button appearance="secondary" label="Statements"></jh-button>
       <jh-button appearance="secondary" label="Settings"></jh-button>
       <jh-button appearance="secondary" label="Notifications"></jh-button>
       <jh-button appearance="secondary" label="Security"></jh-button>
-    </jh-layout-flex>
+    </jh-layout-h-stack>
   `,
 };
 
 /**
  * Larger form — a `jh-card` frames the form with a title and a divided footer,
- * while `jh-layout-flex` stacks the inputs, places the two checkbox-groups side
- * by side, and aligns the footer actions. Shows the primitives scaling up inside
- * a full component.
+ * while a `jh-layout-v-stack` stacks the inputs, a `jh-layout-h-stack` places the
+ * two checkbox-groups side by side, and the footer actions are pushed to the end.
+ * Shows the primitives scaling up inside a full component.
  */
 export const Form = {
   render: () => html`
     <jh-card header-title="Create account" show-footer-divider class="form-card">
-      <jh-layout-flex orientation="vertical" gap="300">
-        <jh-layout-flex orientation="vertical" gap="200">
+      <jh-layout-v-stack gap="300">
+        <jh-layout-v-stack gap="200">
           <jh-input label="First name" helper-text="Legal first name"></jh-input>
           <jh-input label="Last name" helper-text="Legal last name"></jh-input>
           <jh-input label="Email" helper-text="We'll send a confirmation here"></jh-input>
-        </jh-layout-flex>
+        </jh-layout-v-stack>
 
-        <jh-layout-flex orientation="horizontal" gap="400" justify="around">
+        <jh-layout-h-stack gap="400" justify="around">
           <jh-checkbox-group label="Account types" helper-text="Select all that apply">
             <jh-checkbox label="Checking" name="acct-checking"></jh-checkbox>
             <jh-checkbox label="Savings" name="acct-savings"></jh-checkbox>
@@ -185,14 +187,13 @@ export const Form = {
             <jh-checkbox label="SMS" name="notify-sms"></jh-checkbox>
             <jh-checkbox label="Push" name="notify-push"></jh-checkbox>
           </jh-checkbox-group>
-        </jh-layout-flex>
-      </jh-layout-flex>
+        </jh-layout-h-stack>
+      </jh-layout-v-stack>
 
-      <jh-layout-flex slot="jh-card-footer" orientation="horizontal" gap="100" align="center">
-        <jh-layout-spacer></jh-layout-spacer>
+      <jh-layout-h-stack slot="jh-card-footer" gap="100" align="center" justify="end">
         <jh-button appearance="secondary" label="Cancel"></jh-button>
         <jh-button appearance="primary" label="Create account"></jh-button>
-      </jh-layout-flex>
+      </jh-layout-h-stack>
     </jh-card>
   `,
 };

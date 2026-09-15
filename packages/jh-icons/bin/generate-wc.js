@@ -47,8 +47,10 @@ const icons = iconFiles
     };
   });
 
-// Create the component using the hygen generator. execFile runs without a shell,
-// so the svg markup is passed through as a single argument with no quoting.
+// Create the component using the hygen generator. execFile runs without a shell
+// and takes an argument array, so the svg markup is passed through as a single
+// argv entry with no quoting and cannot break out of the command to inject
+// shell syntax.
 function generate(icon) {
   return execFile('hygen', [
     'icon',

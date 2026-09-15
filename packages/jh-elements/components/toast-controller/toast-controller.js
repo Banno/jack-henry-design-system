@@ -87,7 +87,6 @@ export class JhToastController extends JhElement {
       text,
       toastIcon,
       dismissButtonAccessibleLabel,
-      appearance,
       hideDismissButton,
       timeout,
       stacked,
@@ -98,7 +97,6 @@ export class JhToastController extends JhElement {
     text ? toast.innerHTML += text : null;
     toastIcon ? toast.innerHTML += toastIcon : null;
     dismissButtonAccessibleLabel ? toast.setAttribute('dismiss-button-accessible-label', dismissButtonAccessibleLabel) : null;
-    appearance ? toast.setAttribute('appearance', appearance) : null;
     hideDismissButton ? toast.setAttribute('hide-dismiss-button', '') : null;
     timeout >= 0 ? toast.setAttribute('timeout', timeout) : null;
     stacked ? toast.setAttribute('stacked', '') : null;

@@ -36,7 +36,9 @@ export class JhElement extends LitElement {
     return this.#internals;
   }
 
-  dispatchCustomEvent(eventName, detail = {}) {
+  dispatchCustomEvent(eventName, detail = {}, options = {}) {
+    const { bubbles = true, composed = true, cancelable = true } = options;
+
     // gather base detail info
     let baseDetail = {
       form: {
@@ -74,9 +76,9 @@ export class JhElement extends LitElement {
     // create and dispatch event
     const event = new CustomEvent(eventName, {
       detail: finalDetail,
-      bubbles: true,
-      composed: true,
-      cancelable: true,
+      bubbles,
+      composed,
+      cancelable,
     });
     this.dispatchEvent(event);
   }

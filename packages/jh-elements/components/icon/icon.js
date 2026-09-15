@@ -20,6 +20,10 @@ export class JhIcon extends JhElement {
   static get styles() {
     return css`
       :host {
+        --icon-size: var(
+          --jh-icon-size-medium,
+          var(--jh-dimension-600)
+        );
         fill: var(
           --jh-icon-color-fill,
           var(--jh-color-content-secondary-enabled)
@@ -64,7 +68,6 @@ export class JhIcon extends JhElement {
           var(--jh-dimension-2100)
         );
       }
-      svg,
       ::slotted(*) {
         width: 100%;
         height: 100%;

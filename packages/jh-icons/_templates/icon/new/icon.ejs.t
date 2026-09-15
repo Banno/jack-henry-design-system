@@ -20,6 +20,10 @@ export default class <%= h.inflection.camelize(prefix.replace(/-/gi,'_')) %>Icon
   static get styles() {
     return css`
       :host {
+        --icon-size: var(
+          --jh-icon-size-medium,
+          var(--jh-dimension-600)
+        );
         fill: var(
           --jh-icon-color-fill,
           var(--jh-color-content-secondary-enabled)

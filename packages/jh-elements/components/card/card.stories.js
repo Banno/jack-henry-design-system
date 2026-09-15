@@ -72,6 +72,14 @@ export default {
       options: [1, 2, 3, 4, 5, 6],
     },
   },
+  parameters: {
+    docs: {
+      codePanel: true,
+      source: {
+        excludeDecorators: true
+      }
+    }
+  }
 };
 
 export const Overview = {

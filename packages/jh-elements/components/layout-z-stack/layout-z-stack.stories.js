@@ -115,6 +115,7 @@ const alignOptions = ['start', 'end', 'center', 'stretch'];
 export default {
   component: 'jh-layout-z-stack',
   title: 'Primitives/Layout Z Stack',
+  tags: ['beta'],
   argTypes: {
     align: {
       control: 'select',

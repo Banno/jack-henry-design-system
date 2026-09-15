@@ -122,7 +122,9 @@ Layout primitives are designed to compose. A `<jh-layout-z-stack>` can hold `<jh
 
 ## Accessibility
 
-The stack adds no semantics of its own, so a few responsibilities stay with you:
+The z-stack component contains no implicit accessibility features. 
+
+### Author Guidance
 
 - **Reading order follows source order.** Because the top layer must be *last* in the DOM to render on top, it is also read *last*. A visually prominent corner element — such as a status tag — is announced after the content it sits on. If it needs to be perceived earlier, associate it with ARIA rather than reordering the DOM; moving it earlier would drop it behind.
 - **Visually covered is not hidden from assistive tech.** Covered content stays in the focus order and accessibility tree. Use `inert` / `aria-hidden` (and `aria-busy` while loading) when a layer should truly block interaction — `pointer-events` only affects the mouse.
@@ -130,8 +132,6 @@ The stack adds no semantics of its own, so a few responsibilities stay with you:
 - **ARIA references do not cross shadow boundaries.** `aria-describedby` and `aria-labelledby` only resolve within a single tree, so you can reference a sibling element but not something rendered inside another component's shadow root. Prefer putting meaningful status into a component's own content or accessible name.
 
 ## Component API
-
-For boolean attributes, true indicates that the attribute has been set without a value: `<jh-layout-z-stack add-relevant-boolean></jh-layout-z-stack>`. While false indicates the attribute does not exist in the DOM: `<jh-layout-z-stack></jh-layout-z-stack>`.
 
 <ArgTypes />
 

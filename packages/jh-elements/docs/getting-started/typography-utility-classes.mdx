@@ -1,0 +1,85 @@
+{/*
+SPDX-FileCopyrightText: 2026 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+*/}
+
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Getting Started/Typography Utility Classes" tags={['beta']} />
+
+# Typography Utility Classes
+
+The `jh-tokens` package provides a `.forge-type-*` layer of typography utility classes generated directly from our typography design tokens. Each class sets the CSS `font` shorthand (family, size, line-height, weight) for a given text style, letting you apply consistent typography to any element without composing individual CSS custom properties.
+
+These values are the same for both the light and dark themes, since they only affect font family, size, line-height, and weight, so the same file works regardless of which theme is active.
+
+## Available classes
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Size / Line-height</th>
+      <th>Weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><code>.forge-type-heading-xl</code></td><td>36 / 44</td><td>700</td></tr>
+    <tr><td><code>.forge-type-heading-lg</code></td><td>28 / 36</td><td>700</td></tr>
+    <tr><td><code>.forge-type-heading-md</code></td><td>20 / 28</td><td>700</td></tr>
+    <tr><td><code>.forge-type-heading-sm</code></td><td>16 / 24</td><td>700</td></tr>
+    <tr><td><code>.forge-type-body-lg-regular</code></td><td>16 / 24</td><td>400</td></tr>
+    <tr><td><code>.forge-type-body-lg-medium</code></td><td>16 / 24</td><td>500</td></tr>
+    <tr><td><code>.forge-type-body-lg-bold</code></td><td>16 / 24</td><td>700</td></tr>
+    <tr><td><code>.forge-type-body-md-regular</code></td><td>14 / 20</td><td>400</td></tr>
+    <tr><td><code>.forge-type-body-md-medium</code></td><td>14 / 20</td><td>500</td></tr>
+    <tr><td><code>.forge-type-body-md-bold</code></td><td>14 / 20</td><td>700</td></tr>
+    <tr><td><code>.forge-type-helper-regular</code></td><td>12 / 16</td><td>400</td></tr>
+    <tr><td><code>.forge-type-helper-medium</code></td><td>12 / 16</td><td>500</td></tr>
+    <tr><td><code>.forge-type-helper-bold</code></td><td>12 / 16</td><td>700</td></tr>
+    <tr><td><code>.forge-type-mono-lg</code></td><td>16 / 24</td><td>400</td></tr>
+    <tr><td><code>.forge-type-mono-md</code></td><td>14 / 20</td><td>400</td></tr>
+    <tr><td><code>.forge-type-mono-sm</code></td><td>12 / 16</td><td>400</td></tr>
+  </tbody>
+</table>
+
+## Installing
+
+The utility classes are published as part of the `@jack-henry/jh-tokens` package. If you're already using `@jack-henry/jh-elements`, `jh-tokens` is included as a dependency and no additional install is needed.
+
+Otherwise, add `jh-tokens` to your project directly:
+
+```bash
+npm install @jack-henry/jh-tokens
+```
+
+## Using the CSS file
+
+For projects without a JS build step, link the CSS file directly in your HTML:
+
+```html
+<link rel="stylesheet" href="node_modules/@jack-henry/jh-tokens/platforms/web/css/typography-utility.css">
+```
+
+Then apply a class to any element:
+
+```html
+<h1 class="forge-type-heading-xl">Heading</h1>
+<p class="forge-type-body-md-regular">Body copy</p>
+<code class="forge-type-mono-sm">code sample</code>
+```
+
+## Using the ESM file
+
+If you need the CSS as a string inside your JavaScript, for example to inject into a component's Shadow DOM, import the ESM file instead:
+
+```javascript
+import typographyUtility from '@jack-henry/jh-tokens/platforms/web/esm/typography-utility.js';
+```
+
+`typographyUtility` is a string containing the same `.forge-type-*` rules as the CSS file, ready to be inserted into a `<style>` tag or a `CSSStyleSheet`.
+
+## Combining with our fonts
+
+The utility classes reference the same `Roboto Flex` and `Roboto Mono` font families used throughout the Forge Design System. Be sure to also load our fonts as described on the [Typography page](/docs/getting-started-typography--docs) so the correct font files are available.

@@ -1,0 +1,72 @@
+{/*
+SPDX-FileCopyrightText: 2026 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+*/}
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import * as stories from './layout-composition.stories.js';
+
+<Meta title="Primitives/Layout Composition" of={stories} />
+
+# Layout Composition
+
+On their own, the layout primitives don't say much. Their value comes from
+composition: `<jh-layout-h-stack>` arranges its children in a row,
+`<jh-layout-v-stack>` arranges them in a column, and because a stack is itself a
+valid flex child, they nest freely.
+
+The recipes below are named after the UI pattern they produce rather than the
+components they use — that's how you'll reach for them.
+
+## Toolbar / split header
+
+A title on the left with actions grouped on the right. `justify="between"` pushes
+the two groups to opposite ends of a `<jh-layout-h-stack>`.
+
+<Canvas of={stories.Toolbar} />
+
+## Split groups
+
+Two groups pushed to opposite ends of the row with `justify="between"`, while each
+nested `<jh-layout-h-stack>` keeps its own `gap`. Use it to separate, say, a set
+of navigation buttons from a set of actions.
+
+<Canvas of={stories.SplitGroups} />
+
+## Card layout (nested stacks)
+
+A `<jh-layout-v-stack>` whose rows are `<jh-layout-h-stack>`s. Each header/footer
+row can use its own `justify` and `align` — nesting works because a stack is just
+another flex child.
+
+<Canvas of={stories.CardLayout} />
+
+## Form row
+
+A `<jh-layout-v-stack>` of labeled `<jh-layout-h-stack>`s. `align="baseline"`
+keeps labels and values sitting on a shared text baseline, and `justify="between"`
+pushes each value to the opposite end of its label.
+
+<Canvas of={stories.FormRow} />
+
+## Wrapping
+
+A `<jh-layout-h-stack>` with `wrap` so its children reflow onto new lines when the
+container runs out of room. Resize the canvas to see the reflow.
+
+<Canvas of={stories.Wrapping} />
+
+## Larger form
+
+A `<jh-layout-v-stack>` of stacked `<jh-input>`s, followed by a
+`<jh-layout-h-stack>` placing two distinct `<jh-checkbox-group>`s side by side,
+and an action row aligned to the end. Shows the primitives scaling up to a full
+form.
+
+<Canvas of={stories.Form} />
+
+## Feedback
+
+Have an idea that will improve these primitives or an issue to report? Let us
+know by submitting an issue on
+[GitHub](https://github.com/Banno/jack-henry-design-system/issues).

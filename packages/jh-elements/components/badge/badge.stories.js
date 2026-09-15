@@ -44,12 +44,6 @@ export default {
     actions: {
       disable: true
     },
-    interactions: {
-      disable: true
-    },
-    controls: {
-      disableSaveFromUI: true
-    }
   }
 };
 
@@ -86,7 +80,3 @@ count: '1',
 Playground.parameters = {
   theme: 'both-themes',
 };
-
-
-
-

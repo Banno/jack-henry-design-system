@@ -4,6 +4,7 @@
 
 import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { validationMixin } from '../../../jh-validate/validate.js';
 import { JhElement } from '../element/element.js';
 
 /**
@@ -25,13 +26,16 @@ import { JhElement } from '../element/element.js';
  *
  * @customElement jh-radio-group
  */
-export class JhRadioGroup extends JhElement {
+export class JhRadioGroup extends validationMixin(JhElement) {
   static get formAssociated() {
     return true;
   }
   #checked;
   /** @type {?string} */
   #value;
+
+  // added for validation library compatibility
+  static groupControl = true;
 
   static get styles() {
     return css`

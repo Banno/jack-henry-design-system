@@ -47,6 +47,9 @@ export default {
     interactions: {
       disable: true
     },
+    controls: {
+      disableSaveFromUI: true
+    }
   }
 };
 

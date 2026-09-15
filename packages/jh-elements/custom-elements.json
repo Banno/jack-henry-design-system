@@ -1359,7 +1359,7 @@
         },
         {
           "name": "--jh-icon-size-extra-small",
-          "description": "The icon size when `size=\"extra-small\"`. Defaults to `--jh-dimension-400`."
+          "description": "The icon size when `size=\"x-small\"`. Defaults to `--jh-dimension-400`."
         },
         {
           "name": "--jh-icon-size-small",
@@ -1375,11 +1375,11 @@
         },
         {
           "name": "--jh-icon-size-extra-large",
-          "description": "The icon size when `size=\"extra-large\"`. Defaults to `--jh-dimension-1400`."
+          "description": "The icon size when `size=\"x-large\"`. Defaults to `--jh-dimension-1400`."
         },
         {
           "name": "--jh-icon-size-extra-extra-large",
-          "description": "The icon size when `size=\"extra-extra-large\"`. Defaults to `--jh-dimension-2100`."
+          "description": "The icon size when `size=\"xx-large\"`. Defaults to `--jh-dimension-2100`."
         }
       ]
     },

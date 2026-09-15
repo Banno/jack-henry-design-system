@@ -1,5 +1,11 @@
 # @jack-henry/jh-elements
 
+## 2.2.1
+
+### Patch Changes
+
+- [#233](https://github.com/Banno/jack-henry-design-system/pull/233) [`ef01a9b`](https://github.com/Banno/jack-henry-design-system/commit/ef01a9ba43eb05c4b146b59c1a68a7ca7240fd7a) Thanks [@stephhubka](https://github.com/stephhubka)! - [badge] fixes single-digit badges rendering oval and stabilizes multi-digit width. Rendered badge width changes: a single-digit count is now a 16x16 circle rather than ~15x16, and multi-digit counts no longer shift width depending on which digits are shown. Vertical centering of the count is now explicit rather than incidental.
+
 ## 2.2.0
 
 ### Minor Changes

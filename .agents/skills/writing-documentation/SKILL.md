@@ -30,6 +30,9 @@ MAY structure specs outside of either those contexts in a way that's appropriate
 
 - MUST conform to the guidelines in [voice-and-tone.md](/specs/foundation/voice-and-tone.md).
 - MUST do the token-conversion pass explicitly: scan the draft for any remaining dot-notation tokens in style-hook tables and convert every one to `--jh-kebab-case` form.
+- SHOULD prefer prose for descriptions and general guidance.
+- SHOULD prefer bulleted lists for usage.
+- SHOULD use complete sentences where possible.
 - SHOULD be simple present tense. Adjust to this if the source content deviates.
 - SHOULD be concise.
 - MUST NOT use RFC 2119 terms. Use informal and conversational tone and verbiage.

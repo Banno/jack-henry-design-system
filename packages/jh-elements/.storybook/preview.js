@@ -88,6 +88,11 @@ const preview = {
 
         return React.createElement(DocsContainer, props);
       },
+
+      codePanel: true,
+      source: {
+        excludeDecorators: true
+      }
     },
   },
 

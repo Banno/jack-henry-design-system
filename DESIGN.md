@@ -2,21 +2,33 @@
 version: 2.0.0
 name: Forge
 description: Forge powers the products banks and credit unions rely on every day, creating a shared foundation for teams to design, build, and scale consistently across platforms.
+omitted:
+  - section: Overview
+  - section: Do's and don'ts
 ---
 
-## Overview
+## Colors
 
-- Use RFC 2119 keywords.
+- Use specs from `/specs/foundation/color.md`.
+
+## Typography
+
+- Use specs from `/specs/foundation/typography.md`.
 
 ## Layout
 
+- Use specs from `/specs/foundation/dimensions.md`.
+
 ## Elevation & Depth
+
+- Use specs from `/specs/foundation/elevation.md`.
 
 ## Shapes
 
+- Use specs from:
+  - `/specs/foundation/radius.md`
+  - `/specs/foundation/border.md`
+
 ## Components
 
-- Component specifications are defined as external Markdown files.
-- Use the specs defined in the `/specs/` folder for specific component guidance.
-
-## Do's and Don'ts
+- Use specs from `/specs/components/`.

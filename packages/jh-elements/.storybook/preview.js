@@ -89,6 +89,9 @@ const preview = {
         return React.createElement(DocsContainer, props);
       },
     },
+    controls: {
+      disableSaveFromUI: true
+    }
   },
 
   decorators: [

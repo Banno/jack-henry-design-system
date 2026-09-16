@@ -17,7 +17,7 @@ SPDX-FileCopyrightText = "2025 Jack Henry"
 SPDX-License-Identifier = "Apache-2.0"
 
 [[annotations]]
-path = ["**/CHANGELOG.md", ".changeset/*.md", ".github/*.md]
+path = ["**/CHANGELOG.md", ".changeset/*.md", ".github/*.md"]
 precedence = "override"
 SPDX-FileCopyrightText = "2026 Jack Henry"
 SPDX-License-Identifier = "Apache-2.0"

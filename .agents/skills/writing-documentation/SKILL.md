@@ -5,6 +5,7 @@ description: Write or edit Forge documentation pages from all spec files.
 
 ## Overview
 
+- **Under no circumstances:** MUST NOT edit or otherwise alter **any** of the source files. These are source-of-truth.
 - MUST write documentation to [/docs/](/docs/).
 - MUST derive content only from specified sources in step 1.
 - SHOULD use [RFC 2119](https://www.rfc-editor.org/rfc/rfc2119.txt) for requirement levels.

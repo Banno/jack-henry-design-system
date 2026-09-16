@@ -66,15 +66,15 @@ Examples:
 
 ### Usage
 
+- SHOULD use global colors to define color alias tokens.
 - SHOULD prioritize `100`-level colors (`100`, `200`, `300`, etc.) for most of the UI.
 - MAY use `50`-level colors (`50`, `150`, `250`, etc.) where more subtle variation is necessary while maintaining sufficient contrast (ex. state changes).
-- MUST NOT use global colors directly within a design; they have no context.
+- SHOULD NOT use global colors directly within a design; they have no context.
   ```css
   custom-button {
     background-color: var(--jh-color-blue-600);
   }
   ```
-- MUST use global colors only to define color alias tokens.
 - MUST NOT use raw values or CSS color keywords instead of tokens.
   ```css
   custom-button {
@@ -109,26 +109,12 @@ Users MAY create additional color scales:
 
 - MUST use only on color properties.
 - MUST use `100` grades when pure white and black are needed.
-- MAY use other grades for varying degrees of opacity, such as overlays and shadows.
 - SHOULD test for appropriate color contrast when an alpha token is layered with other colors.
 - SHOULD interpret pure white (`color.white.alpha.100`) as grade `0` of a color family's scale. Works with the color contrast grade differences (ex. can be used with grade `500` or higher of a global color and meet 4.5:1 contrast.)
 - SHOULD interpret pure black (`color.black.alpha.100`) as grade `1000` of a color family's scale. Works with the color contrast grade differences (ex. can be used with grade `500` or lower of a global color and meet 4.5:1 contrast.)
-- There is no color token for complete transparency. MUST use the raw value `#00000000` to style a color property as completely transparent.
-  ```css
-  custom-text {
-    color: #00000000;
-  }
-  ```
-- SHOULD NOT use the CSS keyword `transparent` to define complete transparency; it isn't a platform-agnostic value.
-- MUST NOT use raw values (ex. `#ffffffff`) or CSS color keywords (ex. `white`, `black`) instead of tokens, other than the `#00000000` transparency exception above.
-  ```css
-  custom-text {
-    color: #ffffffff;
-  }
-  custom-text {
-    color: black;
-  }
-  ```
+- MAY use other grades for varying degrees of opacity, such as overlays and shadows.
+- MAY use `#00000000` to define complete color transparency. This is the only time a raw color value is allowed.
+- MUST NOT use the CSS keyword `transparent` to define color transparency in a token; it isn't platform-agnostic.
 - SHOULD NOT confuse with `opacity` tokens (see [Alpha tokens versus opacity tokens](#alpha-tokens-versus-opacity-tokens)).
 
 ### Alpha tokens versus opacity tokens
@@ -159,19 +145,10 @@ Opacity tokens:
   - **Content:** Text, iconography, and other content-based elements; meets 4.5:1 contrast against any container color.
   - **Interactive:** General interactions (ex. focus, content highlighting).
 
-#### Usage
-
-- MUST test contrast of `brand` when layered with other colors.
-- MAY be used on any color property (ex. `color`, `background`, `border`, `fill`, etc.).
-
 ### Pairings
 
 - Ensures appropriate color contrast when used with their respective "surface" colors.
 - Represented by the `on` segment in a token name.
-
-#### Usage
-
-- MUST only be used with their referenced "surface" token (ex. `color.content.on.primary.enabled` and `color.content.primary.enabled`). This ensures proper color contrast ratios and predictable theming results.
 
 ### States
 
@@ -188,11 +165,14 @@ Common states:
 - **Disabled:** An element that can't be activated or receive focus.
 - **Selected:** An element that is chosen or toggled on among a set of options.
 
-#### Usage
+### Usage
 
-- MUST be placed in the correct position of a token name, as defined by the [naming structure](/specs/foundation/design-tokens.md#naming-structure)
-- MAY apply `enabled` tokens to non-interactive elements.
+- MUST test contrast of `brand` concept when layered with other colors.
+- MUST only use `on` tokens with their referenced "surface" token (ex. `color.content.on.primary.enabled` and `color.content.primary.enabled`). This ensures proper color contrast ratios and predictable theming results.
+- MUST place state name in the correct position of a token name, as defined by the [naming structure](/specs/foundation/design-tokens.md#naming-structure)
+- MAY use concepts on any color property (ex. `color`, `background`, `border`, `fill`, etc.).
+- MAY apply `enabled` state tokens to non-interactive elements.
 - MAY use `enabled` as part of a token name to help future-proof a token set even if it currently has no other interactions.
 - MAY use other states (ex. `pending`, `required`) when defining new aliases.
-- SHOULD NOT apply `enabled` tokens to other states.
 - MUST NOT use alternative state names (ex. `default` instead of `enabled`).
+- SHOULD NOT apply `enabled` tokens to other states.

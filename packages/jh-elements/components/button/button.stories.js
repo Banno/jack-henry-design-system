@@ -80,6 +80,23 @@ export default {
     },
     form: { table: { disable: true } },
   },
+  parameters: {
+    docs: {
+      codePanel: true,
+      source: {
+        excludeDecorators: true
+      }
+    },
+    actions: {
+      disable: true
+    },
+    interactions: {
+      disable: true
+    },
+    controls: {
+      disableSaveFromUI: true
+    }
+  }
 };
 
 export const Overview = {
@@ -284,5 +301,3 @@ FormAssociated.argTypes = {
   size: { table: { disable: true } },
   target: { table: { disable: true } },
 };
-
-

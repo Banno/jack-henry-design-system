@@ -1,9 +1,7 @@
 ---
 name: Voice and tone
-description:
+description: Our voice is clear, human, and confident. We should always feel like a trusted partner.
 ---
-
-Our voice is clear, human, and confident. We should always feel like a trusted partner.
 
 ## Our voice
 

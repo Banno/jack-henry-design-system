@@ -1,9 +1,7 @@
 ---
 name: Border
-description:
+description: Borders provide distinction to individual components as well as establishes a sense of overall visual identity throughout the application.
 ---
-
-Borders provide distinction to individual components as well as establishes a sense of overall visual identity throughout the application.
 
 Forge includes a set of border concepts that predefine the border’s style, width, and color.
 

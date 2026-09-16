@@ -1,9 +1,7 @@
 ---
 name: Elevation
-description:
+description: Elevation defines how elements interact with other spatially and creates opportunities for rich layering of content and intuitive interactions.
 ---
-
-Elevation defines how elements interact with other spatially and creates opportunities for rich layering of content and intuitive interactions.
 
 ## Shadow
 

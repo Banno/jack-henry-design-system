@@ -1,6 +1,6 @@
 ---
 name: Design tokens
-description:
+description: Our design tokens are built with specific structures in mind that allow them to be incorporated and extended in a consistent and predictable manner.
 ---
 
 - Design tokens and style hooks (ie, component tokens) are written in dot-notation throughout the specs for the sake of consistency.The one exception is when referenced in the code example of a specific syntax. The correct syntax MUST be used in that circumstance to promote clarity and accuracy. Practically, style hooks are only available to users in platform-specific syntax such as CSS custom properties for the web.

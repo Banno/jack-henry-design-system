@@ -1,9 +1,7 @@
 ---
 name: Focus
-description:
+description: A focus indicator is an important part of the user interface that helps users know which element on the page currently has keyboard focus.
 ---
-
-A focus indicator is an important part of the user interface that helps users know which element on the page currently has keyboard focus.
 
 When correctly implemented, a focus indicator can help users navigate a page’s interactive elements more effectively. Because of this, the focus indicator is built in to all of the components that are interactive by default. It incorporates our design tokens to ensure appropriate color contrast and that the indicator styling complements the rest of the visual language used throughout the Forge system.
 

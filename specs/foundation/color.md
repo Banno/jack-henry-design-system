@@ -1,13 +1,9 @@
 ---
 name: Color
-description:
+description: Color plays a functional role throughout the Forge system to create consistent, meaningful, and accessible user experiences.
 ---
 
-## Colors
-
-Color plays a functional role throughout the Forge system to create consistent, meaningful, and accessible user experiences.
-
-### Global color palette
+## Global color palette
 
 - The global color palette consists of ten color families.
 - The color families are represented by a source color that falls within a specific hue range on the color wheel.
@@ -76,7 +72,7 @@ New scales SHOULD:
 - Be perceptually distinguishable from existing color scales
 - Use color family names that accurately describe the referenced hue, compliment existing names, and are readily understandable to an average user.
 
-### Global alpha tokens
+## Global alpha tokens
 
 - A set of white and black alpha tokens are provided.
 - These are graded by opacity from `10` to `100` with `10` being nearly transparent and `100` being completely opaque.
@@ -93,9 +89,9 @@ When pairing with non-alpha colors in the global color palette, pure white (`col
 
 There is no color token for complete transparency. Use `#00000000` to style a color property as completely transparent. Users SHOULD NOT use the CSS keyword `transparent` to define complete transparency in tokens since it is not a platform-agnostic value.
 
-### Color aliases
+## Color aliases
 
-#### Concepts
+### Concepts
 
 Each color alias falls within one of the seven predefined semantic concepts. These concepts allow color to be used in a consistent and predictable manner throughout the user interface.
 
@@ -107,11 +103,11 @@ Each color alias falls within one of the seven predefined semantic concepts. The
 - **Content:** Use content colors to style text, iconography, and other content-based elements. They may be used in both static and interactive contexts. Content colors meet 4.5:1 contrast against any container color.
 - **Interactive:** Use interactive colors for general interactions such as focus and content highlighting.
 
-#### Pairings
+### Pairings
 
 Color tokens are designed with specific pairings to ensure appropriate color contrast. These pairings are represented by a set of `on` colors. The `on` colors MUST only be used with their referenced “surface” token. For example, `color.content.on.primary.enabled` MUST only be used on `color.content.primary.enabled`. This ensures proper color contrast ratios and predictable theming results.
 
-#### States
+### States
 
 - `color.container.*`, `color.control.*`, and `color.content.*` aliases have a series of states that are defined. This allows these color concepts to be used in both static and interactive situations.
 - State names MUST always be placed in the correct position of a token name as defined by the **Naming structure** section of this document.
@@ -122,4 +118,3 @@ Color tokens are designed with specific pairings to ensure appropriate color con
   - **Active:**
   - **Disabled:**
   - **Selected:**
-d

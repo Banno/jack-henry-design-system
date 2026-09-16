@@ -1,9 +1,7 @@
 ---
 name: Typography
-description:
+description: Thoughtful typography is important to establish visual hierarchy and clearly and efficiently communicate content.
 ---
-
-Thoughtful typography is important to establish visual hierarchy and clearly and efficiently communicate content.
 
 ## Font family
 

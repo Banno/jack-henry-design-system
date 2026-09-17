@@ -492,15 +492,19 @@ Set the properties and slot icon(s) within the corresponding slot.
 
 The following WCAG success criteria are of concern:
 
-- **1.3.1:** The `type="button"` property is set by default to prevent browser from attempting to submit form information when activated.
-- **1.4.4:** Button can be resized without assistive technology up to 200 percent without loss of content or functionality.
-- **2.4.7:** Focus visible styles are provided to help users determine which element has keyboard focus.
+- **1.3.1:**
+  - The `type="button"` property is set by default to prevent browser from attempting to submit form information when activated.
+- **1.4.4:**
+  - Button can be resized without assistive technology up to 200 percent without loss of content or functionality.
+- **2.4.7:**
+  - Focus visible styles are provided to help users determine which element has keyboard focus.
 - **2.5.8:**
   - The target size for pointer inputs is at least 24 by 24 pixels for users to easily activate them.
-  - Set a minimum target size of 24 by 24 pixels when custom size tokens are used.
-- **4.1.2:** Use the `accessible-label` attribute to set an `aria-label` where a visible label cannot be used.
+- **4.1.2:**
 
-Additional accessibility guidelines:
+### Author guidance
 
+- Use the `accessible-label` attribute to set an `aria-label` where a visible label cannot be used.
+- Set a minimum target size of 24 by 24 pixels when custom size tokens are used.
 - The button cannot be reached via keyboard navigation and cannot be interacted with via mouse when the `disabled` property is used.
 - The button may be undiscoverable to users using screen readers. Set `accessible-disabled="true"`—which sets an `aria-disabled="true"` attribute on the button—when a `disabled` button should remain discoverable by assistive technology. This allows the button to remain perceivable to screen reader users while also inoperable.

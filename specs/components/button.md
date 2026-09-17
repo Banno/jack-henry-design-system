@@ -15,8 +15,16 @@ dependencies:
 ---
 
 # Button
+## Anatomy
 
-## Style
+- jh-button: The parent container
+  - button-wrapper: Main styling container
+    - button-icon-left: Instance of jh-icon; represents left slot
+    - button-label: Button text
+    - button-icon-right: Instance of jh-icon; represents right slot
+    - button-progress: Instance of jh-progress
+
+## Default
 
 | Figma layer name | Property name   | Style hook             | Default value           |
 | ---------------- | --------------- | ---------------------- | ----------------------- |

@@ -44,15 +44,14 @@ type: [x-small, small, medium, large]
 default: medium
 ```
 
-- Buttons SHOULD always be paired with comparably-sized form controls such as `jh-input` and `jh-select`.
-- The exception is the extra small size.
+- SHOULD be paired with comparably-sized form controls such as `jh-input` and `jh-select`.
 
 #### Extra small
 
-- Use when a button is nested within another component and the other button sizes are too big such as `jh-input`.
-- Never use outside of another component.
-- Use the `xsmall` icon.
-- Use the `small` progress.
+- MUST use `xsmall` for nested icons.
+- MUST use `small` for nested progress.
+- SHOULD use when a button is nested within another component and the other button sizes are too big such as `jh-input`.
+- MUST NOT use outside of another component.
 
 | Figma layer name | Property name | Style hook    | Default value     |
 | ---------------- | ------------- | ------------- | ----------------- |
@@ -60,7 +59,7 @@ default: medium
 
 #### Small
 
-- Use where vertical space is limited.
+- SHOULD use where vertical space is limited.
 
 | Figma layer name | Property name | Style hook    | Default value     |
 | ---------------- | ------------- | ------------- | ----------------- |
@@ -68,8 +67,7 @@ default: medium
 
 #### Medium
 
-- Medium is the default size.
-- Use as the standard button instance.
+- SHOULD use as the standard button instance.
 
 | Figma layer name | Property name | Style hook    | Default value      |
 | ---------------- | ------------- | ------------- | ------------------ |
@@ -77,8 +75,8 @@ default: medium
 
 #### Large
 
-- Use when a button needs to have prominence.
-- Limit usage to one per screen.
+- SHOULD use when a button needs to have prominence.
+- SHOULD limit to one per screen.
 
 | Figma layer name | Property name | Style hook    | Default value      |
 | ---------------- | ------------- | ------------- | ------------------ |
@@ -95,14 +93,14 @@ default: false
 
 #### True
 
-- A block button expands to fit the width of its surrounding container.
-- Buttons can be set as a block variant at any size.
-- Use when vertically stacking multiple calls to action in a container such as a card or dialog.
-- The block property is independent of the other properties and can be applied in conjunction with any of them.
-- The icon and label SHOULD be grouped together and MUST be horizontally centered as the button width expands.
-- The height and padding MUST follow that of whichever size is applied to the block button.
+- Expands to fit the width of its surrounding container.
 - The content area is variable in width based on the overall width of the button.
-- The button MUST never shrink below the total width of the left and right padding along with the button’s content area.
+- The icon and label are grouped together.
+- MUST horizontally center the icon and label group as the button width expands.
+- MUST set height and padding to match `size`.
+- MAY apply in conjunction with other properties, including `size`.
+- MAY use to vertically stack multiple calls-to-action in a container (ex. action buttons in a card or dialog).
+- MUST NOT shrink below the total width of the left and right padding along with the button’s content area.
 
 #### False
 
@@ -120,7 +118,7 @@ default: secondary
 #### Primary
 
 - Primary buttons call attention to the strongest call to action within a particular context or view.
-- These SHOULD appear only once per container.
+- SHOULD limit to one per context (ex. card, section).
 
 Enabled state
 
@@ -183,8 +181,8 @@ Pending
 
 #### Secondary
 
-- Use for most non-critical actions.
-- Use secondary buttons alongside a primary button to indicate a secondary action such as “Cancel.”
+- SHOULD use for most non-critical actions.
+- MAY use alongside a primary button to indicate a secondary action (ex. “Cancel” next to "Submit")
 
 Enabled state
 
@@ -247,8 +245,8 @@ Pending
 
 #### Tertiary
 
-- Use tertiary buttons for less prominent or independent actions.
-- Pair with a primary button when there are multiple calls to action.
+- SHOULD use for less prominent or independent actions.
+- MAY pair with a primary button when there are multiple calls to action.
 
 Enabled state
 
@@ -311,8 +309,8 @@ Pending
 
 #### Danger
 
-- Use to convey destructive actions such as “Delete” or “Remove.”
-- Do not use danger buttons for any type of action other than a destructive one to avoid confusion.
+- SHOULD use to convey destructive actions such as “Delete” or “Remove.”
+- MUST NOT use for any type of action other than a destructive one.
 
 Enabled state
 
@@ -381,10 +379,8 @@ description: Text that conveys the button's actions.
 type: string
 ```
 
-- The property SHOULD be a `string`.
-- The label conveys the button’s action.
-- Keep button labels concise and action-driven.
-- Users SHOULD start the label with an imperative verb to provide a clear sense of what to do. For example, use “Submit” instead of “Submitting”.
+- SHOULD be concise (ex. "Cancel" instead of "Cancel the action").
+- SHOULD start with an imperative verb to provide a clear sense of what to do (ex. “Submit” instead of “Submitting”).
 
 | Figma layer name | Property name | Style hook | Default value                     |
 | ---------------- | ------------- | ---------- | --------------------------------- |
@@ -403,9 +399,9 @@ type: boolean
 
 #### True
 
-- The left and right padding MUST be set to match the top and bottom padding of that particular size when a button only displays an icon so that the button is a perfect square.
-- Display the left icon slot.
-- Hide the right icon slot.
+- MUST set left and right padding to match top and bottom padding of a given size so the button is a perfect square.
+- SHOULD display the left icon slot.
+- SHOULD hide the right icon slot.
 
 | Figma layer name | Property name   | Style hook | Default value |
 | ---------------- | --------------- | ---------- | ------------- |
@@ -439,9 +435,9 @@ Large size
 #### False
 
 - When a label is not present and iconOnly is false, the button hugs to the slotted icons and maintains its standard padding.
-- Users SHOULD NOT remove the label to make an icon-only button. This creates a non-square button.
-- Users MAY remove the label and have icons in both the left and right slots. This creates a “dual icon” button.
-- Users SHOULD NOT use dual-icon buttons unless absolutely necessary such as when space is at an absolute premium.
+- MAY remove the label and have icons in both the left and right slots. This creates a “dual icon” button.
+- SHOULD NOT remove the label to make an icon-only button. This creates a non-square button.
+- SHOULD NOT use dual-icon buttons unless absolutely necessary (ex. when space is at an absolute premium).
 
 | Figma layer name | Property name   | Style hook | Default value     |
 | ---------------- | --------------- | ---------- | ----------------- |
@@ -450,11 +446,10 @@ Large size
 
 ### Link
 
-Buttons act as a link if a hyperlink is set via the `href` property.
-
+- Buttons act as a link if a hyperlink is set via the `href` property.
 - Assistive technologies recognize the button as a link and announce it as such when the `href` property is set.
-- Set the `target` property to specify where to display the linked URL.
-- Use the 'Enter' key to activate a link button via a keyboard.
+- SHOULD use the 'Enter' key to activate a link button via a keyboard.
+- MAY set `target` to specify where to display the linked URL.
 
 ### State
 
@@ -493,8 +488,8 @@ layer: button-icon-left
 description: Use to place an icon on the left side of the button.
 ```
 
-- Use left icons to emphasis a button’s meaning.
-- Place only icons in this slot.
+- MUST only place icons in this slot.
+- SHOULD use left icons to emphasize a button’s meaning.
 
 ### Right
 
@@ -504,8 +499,8 @@ layer: button-icon-right
 description: Used to place an icon on the right side of the button.
 ```
 
-- Use right icons to imply a progression or directionality.
-- Place only icons in this slot.
+- MUST only place icons in this slot.
+- SHOULD use right icons to imply a progression or directionality.
 
 ## Code
 

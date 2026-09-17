@@ -9,6 +9,9 @@ category: Action
 status: Active
 version:
   added: 1.0.0
+dependencies:
+  - jh-progress
+  - jh-icon
 ---
 
 # Button
@@ -513,11 +516,6 @@ Set the properties and slot icon(s) within the corresponding slot.
   <jh-icon-ellipsis slot="jh-button-icon-left"></jh-icon-ellipsis>
 </jh-button>
 ```
-
-## Dependencies
-
-- `jh-progress`
-- `jh-icon`
 
 ## Accessibility
 

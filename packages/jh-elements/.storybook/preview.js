@@ -40,6 +40,9 @@ const preview = {
       //RegEx to hide all tokens, properties, events, and slots from Controls
       exclude: /([A-Z])\w+|(jh)|(default)/g,
     },
+    interactions: {
+      disable: true
+    },
     options: {
       storySort: {
         method: '',

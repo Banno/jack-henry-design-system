@@ -81,12 +81,6 @@ export default {
     form: { table: { disable: true } },
   },
   parameters: {
-    docs: {
-      codePanel: true,
-      source: {
-        excludeDecorators: true
-      }
-    },
     actions: {
       disable: true
     },

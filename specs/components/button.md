@@ -1,9 +1,14 @@
 ---
-name: Button
-componentName: jh-button
+name:
+  common: Button
+  slug: button
+  web: jh-button
+  figma: jh-button
 description: Buttons enable a user to initiate a specific action.
+category: Action
 status: Active
-added: 1.0.0
+version:
+  added: 1.0.0
 ---
 
 # Button

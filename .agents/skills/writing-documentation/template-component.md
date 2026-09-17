@@ -45,14 +45,15 @@ Bulleted list of metadata:
 
 ## Accessibility
 
-- Bulleted list of criteria. Group by subheadings.
+- Include the bulleted list of criteria.
+  - Include an indented list of what Forge provides to support the criteria.
 - Include only what's evidenced.
 - Include criteria number and title. For example, "1.3.1" SHOULD be reformatted to "1.3.1: Info and relationships". Do not include the level (ex., AA).
 - Link WCAG criteria numbers to [their respective pages](https://www.w3.org/WAI/WCAG22/).
 
-### What we provide
-
 ### Author guidance
+
+- Include the bulleted list of guidelines.
 
 ## API reference
 

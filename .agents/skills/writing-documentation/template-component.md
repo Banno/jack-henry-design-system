@@ -22,9 +22,10 @@ Bulleted list of metadata:
 ## Options
 
 - One H3 (or H4 if the spec nests further, e.g. Button's Size > Extra small) per `## Options` subsection in the spec, same order as the spec.
-- Prose explains what the variant does pulled directly from the spec's bullets.
+- Prose explains what the option does.
+- List specific variants (ex. small, medium, large) within an option (ex. size) as bulleted list with brief description as to what it is and does.
 - Do not include usage guidelines. Reserve those for the `## Usage` section in the template.
-- Remove style-hook tables noted in the spec.
+- Do not include style-hook tables noted in the spec. Reserve those for the `## API reference` section
 
 ## Behavior
 
@@ -55,24 +56,29 @@ Bulleted list of metadata:
 
 ## API reference
 
-- General component usage in code plus a series of component API and CSS custom property tables based on JSDoc tags from the component codebase.
-  — One line linking to the Storybook docs page: `https˝://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-<slug>--docs` (derive `<slug>` from the spec's `componentName`, stripping the `jh-` prefix, e.g. `jh-badge` → `badge`). Multi-part components keep their full slug.
+- Use JSDoc tags for documenting the API
 
 ### Attributes
 
-Attribute names, descriptions, types, and default values.
+- A table of each attribute defined in `properties()`
+- Use table format: `|Attribute name|Description|Type|Default value|`
 
 ### Events
 
-Event names and descriptions.
+- A table of each event tagged with `@event`
+- Use table format: `|Event name|Description|`
 
 ### Slots
 
-Slot names and descriptions.
+- A table of each slot tagged with `@slot`
+- Use table format: `|Slot name|Description|`
 
 ### Style hooks
 
-CSS custom property names, descriptions, and default values.
+- A table of each component style hook tagged with `@cssprop`
+- Use "style hook" instead of "CSS custom property"
+- Default value is marked with "Defaults to"; do not include this text in the table
+- Use table format: `|Style hook|Description|Default value|`
 
 ## Dependencies
 

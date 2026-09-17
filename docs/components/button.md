@@ -5,119 +5,119 @@ description: Buttons enable a user to initiate a specific action.
 
 # Button
 
-Buttons enable a user to initiate a specific action — submitting a form, confirming a choice, or moving to the next step. Forge buttons come in a range of sizes, appearances, and content combinations (label, icon, or both) so you can match a button's prominence to the action it performs.
+Buttons enable a user to initiate a specific action — submitting a form, confirming a choice, or moving to the next step. Forge buttons come in a range of sizes and appearances, with support for labels, icons, or both, so you can match a button's prominence to the action it performs.
 
-## Code documentation
-
-See the [Button docs on Storybook](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-button--docs) for a full interactive reference.
+- **Status**: Active
+- **Added**: 1.0.0
+- **Package**: `@jack-henry/jh-elements`
 
 ## Anatomy
 
-1. **Container** (`button-wrapper`) – holds the button's background, border, sizing, and padding.
-2. **Icon** (`button-icon`) – the icon rendered in the left and/or right slot.
-3. **Label** (`button-label`) – the button's text.
-4. **Progress indicator** (`button-progress`) – replaces the label and icon while the button is pending.
-5. **Focus outline** (`button-focus/outline`) – the focus ring shown when the button has keyboard focus.
+1. **Left icon** (`button-icon-left`) – an instance of `jh-icon` rendered in the button's left slot.
+2. **Label** (`button-label`) – the button's text.
+3. **Right icon** (`button-icon-right`) – an instance of `jh-icon` rendered in the button's right slot.
+4. **Progress indicator** (`button-progress`) – an instance of `jh-progress`, shown in place of the label and icons while the button is pending.
+5. **Focus outline** (`button-focus/outline`) – the ring shown when the button has keyboard focus.
 
 ## Options
 
 ### Size
 
-Sets the size of the button.
+Sets the size of the button. Should be paired with comparably-sized form controls, such as `jh-input` and `jh-select`.
 
-- **Extra small** – The smallest size. Meant for nesting within another component, such as `jh-input`, rather than standing on its own.
-- **Small** – A reduced-height size.
+- **Extra small** – Nests inside another component, such as `jh-input`, when the other sizes are too large. Pair it with an `xsmall` icon and a `small` progress indicator, and don't use it outside of another component.
+- **Small** – Use where vertical space is limited.
 - **Medium** – The default, standard button size.
-- **Large** – The largest size, for buttons that need extra prominence.
+- **Large** – The largest size, for a button that needs prominence. Limit it to one per screen.
 
 ### Block
 
-Sets the button's width to that of its parent container. Should be a boolean, defaulting to `false`.
+Sets the button's width to that of its parent container. Defaults to `false`, and can be applied alongside any other option.
 
-- **True** – The button expands to fill the width of its parent container. The icon and label stay grouped and centered as the button expands, and height and padding follow the applied size.
-- **False** – The button's width is based on its label and/or icons.
+- **True** – Expands to fill the width of its parent container. The icon and label stay grouped and horizontally centered as the button grows, and height and padding follow the applied size. Useful for stacking multiple calls to action vertically in a container, such as a card or dialog. The button never shrinks below the combined width of its padding and content.
+- **False** – The button's width depends on its label and/or icons.
 
 ### Appearance
 
-Determines the button's color. Each appearance includes enabled, focus, hover, active, disabled, and pending states.
+Determines the button's color. Defaults to `secondary`.
 
-- **Primary** – The highest-emphasis appearance.
-- **Secondary** – A lower-emphasis appearance.
-- **Tertiary** – The lowest-emphasis appearance.
-- **Danger** – Conveys a destructive action.
+- **Primary** – The highest-emphasis appearance, for the strongest call to action in a given context. Limit it to one per context, such as a card or section.
+- **Secondary** – A lower-emphasis appearance for most non-critical actions. Can pair with a primary button to represent a secondary action, such as "Cancel" next to "Submit."
+- **Tertiary** – The lowest-emphasis appearance, for less prominent or independent actions. Can pair with a primary button when there are multiple calls to action.
+- **Danger** – Conveys a destructive action, such as "Delete" or "Remove." Don't use it for anything other than a destructive action.
 
 ### Label
 
-The button's text. Should be a string.
+The button's text, describing its action. Keep it concise — for example, "Cancel" instead of "Cancel the action" — and lead with an imperative verb, such as "Submit" instead of "Submitting."
 
 ### Icon only
 
-Sets the button to display just one icon. Should be a boolean.
+Sets the button to display just one icon.
 
-- **True** – The button becomes a perfect square: left and right padding match the top and bottom padding for that size, the left icon slot shows, and the right icon slot hides.
-- **False** – The button hugs its slotted icon(s) and label, if present, and keeps its standard padding.
+- **True** – The button becomes a perfect square: left and right padding match the top and bottom padding for its size, the left icon slot shows, and the right icon slot hides.
+- **False** – When there's no label, the button hugs its slotted icon(s) and keeps its standard padding. This can result in a "dual icon" button — icons in both slots with no label — which should be reserved for when space is at an absolute premium. Don't remove the label to force an icon-only button this way; use `iconOnly` instead, since dropping the label alone creates a non-square button.
 
 ### Link
 
-Buttons act as a link when a hyperlink is set via the `href` property. Assistive technologies recognize the button as a link and announce it accordingly. The `target` property specifies where the linked URL opens.
+Buttons act as a link when a hyperlink is set via the `href` property. Assistive technologies recognize the button as a link and announce it accordingly. Set `target` to specify where the linked URL opens, and use the Enter key to activate a link button from the keyboard.
 
 ## Behavior
 
 ### States
 
 - **Enabled** – the button's default appearance.
-- **Focus** – shows the shared focus ring (`button-focus/outline`) so people can tell the button has keyboard focus.
-- **Hover / Active** – shift the button's background, border, icon, and label colors per its appearance.
-- **Disabled** – dims the button and removes it from keyboard and mouse interaction. A disabled button can be undiscoverable to screen readers unless `accessible-disabled` is used (see Accessibility).
-- **Pending** – indicates a process is underway, such as saving. The label and icon are replaced with a progress indicator, and the button's width stays the same as before the process started, with the indicator centered. A pending button can't be navigated to or activated by mouse or keyboard. When the pending state reflects a live-region update, set `aria-busy="true"` while it runs and `aria-busy="false"` once it completes, so the update is announced at the right time.
+- **Focus** – shows the focus outline.
+- **Hover / Active** – shifts the background, border, icon, and label colors based on the button's appearance.
+- **Disabled** – dims the button and removes it from keyboard and mouse interaction.
+- **Pending** – replaces the label and icon with a progress indicator, horizontally centered in the button, to show that a process (such as saving) is underway. The button's width stays the same as before the process started, and it can't be navigated to or activated by mouse or keyboard while pending.
 
 ## Usage
 
-- Always pair buttons with comparably-sized form controls such as `jh-input` and `jh-select` (except extra small, which is designed for use inside other components).
-- Never use the extra small size outside of another component; pair it with the x-small icon and small progress indicator.
-- Limit large buttons to one per screen.
-- Primary buttons should appear only once per container.
-- Pair a secondary button alongside a primary button to indicate a secondary action, such as "Cancel."
+### Do
+
+- Pair a button with comparably-sized form controls, such as `jh-input` and `jh-select` — except the extra small size, which is meant to nest inside another component.
+- Use the extra small size only within another component, such as `jh-input`, paired with an `xsmall` icon and a `small` progress indicator.
+- Use the small size where vertical space is limited.
+- Use the medium size as the standard button instance.
+- Use the large size when a button needs prominence, and limit it to one per screen.
+- Apply a block button to vertically stack multiple calls to action in a container, such as a card or dialog.
+- Limit primary buttons to one per context, such as a card or section.
+- Pair a secondary button with a primary button to represent a secondary action, such as "Cancel" next to "Submit."
 - Pair a tertiary button with a primary button when there are multiple calls to action.
-- Use danger buttons only for destructive actions, such as "Delete" or "Remove," to avoid confusion.
-- When a button needs to be a perfect square, use the `iconOnly` property instead of removing the label.
-- You may remove the label and place icons in both slots to create a "dual icon" button, but avoid this unless space is at an absolute premium.
-- A block button can be applied at any size and is useful for vertically stacking multiple calls to action.
-- Use the Enter key to activate a link button from the keyboard.
-- When pending state reflects a live-region update, use `aria-busy="true"` while processing and `aria-busy="false"` once complete.
-- Set `aria-disabled="true"` (via `accessible-disabled`) on disabled buttons that should remain discoverable to screen readers.
-- Keep button labels concise, action-driven, and starting with an imperative verb.
+- Keep labels concise and lead with an imperative verb, such as "Submit" instead of "Submitting."
+- Use `iconOnly` instead of removing the label when a button needs to be a perfect square.
+
+### Don't
+
+- Don't use the extra small size outside of another component.
+- Don't pair the extra small size with anything other than an `xsmall` icon or a `small` progress indicator.
+- Don't use a danger button for anything other than a destructive action.
+- Don't remove the label to force an icon-only button — it creates a non-square button. Use `iconOnly` instead.
+- Don't use dual-icon buttons (no label, icons in both slots) unless space is at an absolute premium.
 
 ## Accessibility
 
 The following WCAG 2.2 success criteria are relevant:
 
-- **1.3.1: Info and Relationships** – the button includes semantic type information.
-- **1.4.4: Resize Text** – content remains accessible when text is resized up to 200%.
-- **2.4.7: Focus Visible** – a visible focus indicator is provided via the shared focus ring.
-- **2.5.8: Target Size (Minimum)** – a minimum pointer target of 24×24 pixels is maintained across documented sizes.
-- **4.1.2: Name, Role, Value** – the button communicates its purpose, role, and state to assistive technologies.
-
-### What we provide
-
-- `type="button"` by default, so activating a button never accidentally submits a form.
-- Support for resizing up to 200% without loss of content or functionality.
-- A built-in, visible focus indicator (`button-focus/outline`), styled from the shared focus tokens.
-- A minimum pointer target of 24×24 pixels across the documented sizes.
-- An `accessible-label` attribute that maps to `aria-label`, for cases where a visible label can't be used (such as icon-only buttons).
-- An `accessible-disabled` attribute that maps to `aria-disabled`, so a disabled button can still be discoverable to screen reader users when needed.
+- [1.3.1: Info and relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html)
+  - Sets `type="button"` by default, so the browser doesn't try to submit form data when the button is activated.
+- [1.4.4: Resize text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html)
+  - Can be resized without assistive technology up to 200 percent without losing content or functionality.
+- [2.4.7: Focus visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html)
+  - Provides focus-visible styles so people can tell which element currently has keyboard focus.
+- [2.5.8: Target size (minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html)
+  - Meets a minimum pointer target size of 24 by 24 pixels.
 
 ### Author guidance
 
-- Keep any custom size tokens at or above the 24×24 pixel minimum target size.
-- Set `accessible-label` where a visible label can't be used, such as icon-only buttons.
-- A `disabled` button can't be reached by keyboard, can't be interacted with by mouse, and may be undiscoverable to screen reader users. If it should remain discoverable while staying inoperable, set `accessible-disabled="true"` instead of relying on `disabled` alone.
-
-## Contradictions with system guidance
-
-The button's default primary and danger appearance backgrounds resolve to content-concept colors (`--jh-color-content-brand-enabled`, `--jh-color-content-negative-enabled`) rather than container-concept colors. This is documented as-is because the same pattern also appears in the Badge spec, suggesting it's an established convention for solid, high-emphasis surfaces.
+- Use the `accessible-label` attribute to set an `aria-label` where a visible label can't be used.
+- Keep a minimum target size of 24 by 24 pixels if you apply custom size tokens.
+- A `disabled` button can't be reached by keyboard or interacted with by mouse, and may be undiscoverable to screen reader users.
+- Use `accessible-disabled="true"` instead when a disabled button should stay discoverable to assistive technology. It sets `aria-disabled="true"` on the button, so it remains perceivable to screen reader users while staying inoperable.
 
 ## API reference
+
+See the [Button docs on Storybook](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-button--docs) for a full interactive reference.
 
 Import the component and slot an icon into the corresponding slot:
 
@@ -131,155 +131,136 @@ import '@jack-henry/jh-elements/components/button/button.js';
 </jh-button>
 ```
 
-Buttons depend on `jh-progress` (for the pending indicator) and are commonly used with `jh-icon`.
-
 ### Attributes
 
-| Attribute | Description | Type | Default |
+| Attribute name | Description | Type | Default value |
 | --- | --- | --- | --- |
-| `accessible-disabled` | Sets an `aria-disabled` to signify to screen readers that the disabled button should remain perceivable while disabled. | string | — |
+| `accessible-disabled` | Sets an `aria-disabled` to signify to screen readers that the disabled button should remain perceivable while disabled. | `'true' \| 'false'` | — |
 | `accessible-label` | Sets an `aria-label` to assist screen reader users when no visible label is present. | string | — |
-| `appearance` | Determines the button color: `primary`, `secondary`, `tertiary`, or `danger`. | string | `secondary` |
+| `appearance` | Determines the button color. | `'primary' \| 'secondary' \| 'tertiary' \| 'danger'` | `secondary` |
 | `block` | Sets the button width to its parent container. | boolean | `false` |
-| `disabled` | Disables the button and prevents all user interactions. May cause the button to be ignored by assistive technologies — see `accessible-disabled`. | boolean | `false` |
+| `disabled` | Disables the button and prevents all user interactions. May cause the button to be ignored by assistive technologies (AT). See `accessible-disabled` if the button should remain perceivable to AT. | boolean | `false` |
 | `href` | Sets the link's destination. | string | — |
 | `pending` | Displays a progress indicator. | boolean | `false` |
 | `label` | Describes the intent of the button. | string | — |
 | `name` | Sets the name of the button data when submitted in a form. | string | — |
-| `size` | Sets the size of the button: `x-small`, `small`, `medium`, or `large`. | string | `medium` |
-| `submit` | Sets button `type="submit"`. | boolean | `false` |
-| `target` | Specifies where to display the linked URL set by the `href` property. | string | — |
+| `size` | Sets the size of the button. | `'x-small' \| 'small' \| 'medium' \| 'large'` | `medium` |
+| `submit` | Sets the button `type="submit"`. Defaults to `type="button"`. | boolean | `false` |
+| `target` | Specifies where to display the linked URL set by the `href` property. | `'_blank' \| '_self' \| '_parent' \| '_top'` | — |
 | `value` | Sets the value of the button. | string | — |
 
 ### Slots
 
-| Slot | Description |
+| Slot name | Description |
 | --- | --- |
-| `jh-button-icon-left` | Insert an icon on the left side of the button, or for single-icon buttons. |
-| `jh-button-icon-right` | Insert an icon on the right side of the button. |
+| `jh-button-icon-left` | Use to insert an icon on the left side of the button and for single icon buttons. |
+| `jh-button-icon-right` | Use to insert an icon on the right side of the button and for single icon buttons. |
 
 ### Style hooks
 
-**Sizing, radius, and focus**
-
-| Custom property | Description | Default |
+| Style hook | Description | Default value |
 | --- | --- | --- |
+| `--jh-button-color-background-primary-enabled` | The button container background-color when enabled and `appearance="primary"`. | `--jh-color-content-brand-enabled` |
+| `--jh-button-color-border-primary-enabled` | The button container border-color when enabled and `appearance="primary"`. | `transparent` |
+| `--jh-button-color-background-primary-focus` | The button container background-color when in focus and `appearance="primary"`. | `--jh-color-content-brand-hover` |
+| `--jh-button-color-border-primary-focus` | The button container border-color when in focus and `appearance="primary"`. | `transparent` |
+| `--jh-button-color-background-primary-hover` | The button container background-color when hovered and `appearance="primary"`. | `--jh-color-content-brand-hover` |
+| `--jh-button-color-border-primary-hover` | The button container border-color when hovered and `appearance="primary"`. | `transparent` |
+| `--jh-button-color-background-primary-active` | The button container background-color when active and `appearance="primary"`. | `--jh-color-content-brand-active` |
+| `--jh-button-color-border-primary-active` | The button container border-color when active and `appearance="primary"`. | `transparent` |
+| `--jh-button-color-background-primary-disabled` | The button container background-color when disabled and `appearance="primary"`. | `--jh-color-content-brand-enabled` |
+| `--jh-button-color-border-primary-disabled` | The button container border-color when disabled and `appearance="primary"`. | `transparent` |
+| `--jh-button-color-background-primary-pending` | The button container background-color when pending and `appearance="primary"`. | `--jh-color-content-brand-enabled` |
+| `--jh-button-color-border-primary-pending` | The button container border-color when pending and `appearance="primary"`. | `transparent` |
+| `--jh-button-label-color-text-primary-enabled` | The label text color when enabled and `appearance="primary"`. | `--jh-color-content-on-brand-enabled` |
+| `--jh-button-label-color-text-primary-focus` | The label text color when in focus and `appearance="primary"`. | `--jh-color-content-on-brand-hover` |
+| `--jh-button-label-color-text-primary-hover` | The label text color when hovered and `appearance="primary"`. | `--jh-color-content-on-brand-hover` |
+| `--jh-button-label-color-text-primary-active` | The label text color when active and `appearance="primary"`. | `--jh-color-content-on-brand-active` |
+| `--jh-button-label-color-text-primary-disabled` | The label text color when disabled and `appearance="primary"`. | `--jh-color-content-on-brand-enabled` |
+| `--jh-button-icon-color-fill-primary-enabled` | The icon color when enabled and `appearance="primary"`. | `--jh-color-content-on-brand-enabled` |
+| `--jh-button-icon-color-fill-primary-focus` | The icon color when in focus and `appearance="primary"`. | `--jh-color-content-on-brand-hover` |
+| `--jh-button-icon-color-fill-primary-hover` | The icon color when hovered and `appearance="primary"`. | `--jh-color-content-on-brand-hover` |
+| `--jh-button-icon-color-fill-primary-active` | The icon color when active and `appearance="primary"`. | `--jh-color-content-on-brand-active` |
+| `--jh-button-icon-color-fill-primary-disabled` | The icon color when disabled and `appearance="primary"`. | `--jh-color-content-on-brand-enabled` |
+| `--jh-button-progress-color-border-primary-pending` | The progress indicator border-color when `appearance="primary"`. | `--jh-color-content-on-brand-enabled` |
+| `--jh-button-color-background-secondary-enabled` | The button container background-color when enabled and `appearance="secondary"`. | `transparent` |
+| `--jh-button-color-border-secondary-enabled` | The button container border-color when enabled and `appearance="secondary"`. | `--jh-border-action-color` |
+| `--jh-button-color-background-secondary-focus` | The button container background-color when in focus and `appearance="secondary"`. | `--jh-color-content-brand-hover` |
+| `--jh-button-color-border-secondary-focus` | The button container border-color when in focus and `appearance="secondary"`. | `--jh-color-content-brand-hover` |
+| `--jh-button-color-background-secondary-hover` | The button container background-color when hovered and `appearance="secondary"`. | `--jh-color-content-brand-hover` |
+| `--jh-button-color-border-secondary-hover` | The button container border-color when hovered and `appearance="secondary"`. | `--jh-color-content-brand-hover` |
+| `--jh-button-color-background-secondary-active` | The button container background-color when active and `appearance="secondary"`. | `--jh-color-content-brand-active` |
+| `--jh-button-color-border-secondary-active` | The button container border-color when active and `appearance="secondary"`. | `--jh-color-content-brand-active` |
+| `--jh-button-color-background-secondary-disabled` | The button container background-color when disabled and `appearance="secondary"`. | `transparent` |
+| `--jh-button-color-border-secondary-disabled` | The button container border-color when disabled and `appearance="secondary"`. | `--jh-border-action-color` |
+| `--jh-button-color-background-secondary-pending` | The button container background-color when pending and `appearance="secondary"`. | `transparent` |
+| `--jh-button-color-border-secondary-pending` | The button container border-color when pending and `appearance="secondary"`. | `--jh-border-action-color` |
+| `--jh-button-label-color-text-secondary-enabled` | The label text color when enabled and `appearance="secondary"`. | `--jh-color-content-brand-enabled` |
+| `--jh-button-label-color-text-secondary-focus` | The label text color when in focus and `appearance="secondary"`. | `--jh-color-content-on-brand-hover` |
+| `--jh-button-label-color-text-secondary-hover` | The label text color when hovered and `appearance="secondary"`. | `--jh-color-content-on-brand-hover` |
+| `--jh-button-label-color-text-secondary-active` | The label text color when active and `appearance="secondary"`. | `--jh-color-content-on-brand-active` |
+| `--jh-button-label-color-text-secondary-disabled` | The label text color when disabled and `appearance="secondary"`. | `--jh-color-content-brand-enabled` |
+| `--jh-button-icon-color-fill-secondary-enabled` | The icon color when enabled and `appearance="secondary"`. | `--jh-color-content-brand-enabled` |
+| `--jh-button-icon-color-fill-secondary-focus` | The icon color when in focus and `appearance="secondary"`. | `--jh-color-content-on-brand-hover` |
+| `--jh-button-icon-color-fill-secondary-hover` | The icon color when hovered and `appearance="secondary"`. | `--jh-color-content-on-brand-hover` |
+| `--jh-button-icon-color-fill-secondary-active` | The icon color when active and `appearance="secondary"`. | `--jh-color-content-on-brand-active` |
+| `--jh-button-icon-color-fill-secondary-disabled` | The icon color when disabled and `appearance="secondary"`. | `--jh-color-content-brand-enabled` |
+| `--jh-button-progress-color-border-secondary-pending` | The progress indicator border-color when `appearance="secondary"`. | `--jh-color-content-brand-enabled` |
+| `--jh-button-color-background-tertiary-enabled` | The button container background-color when enabled and `appearance="tertiary"`. | `transparent` |
+| `--jh-button-color-border-tertiary-enabled` | The button container border-color when enabled and `appearance="tertiary"`. | `transparent` |
+| `--jh-button-color-background-tertiary-focus` | The button container background-color when in focus and `appearance="tertiary"`. | `--jh-color-content-brand-hover` |
+| `--jh-button-color-border-tertiary-focus` | The button container border-color when in focus and `appearance="tertiary"`. | `transparent` |
+| `--jh-button-color-background-tertiary-hover` | The button container background-color when hovered and `appearance="tertiary"`. | `--jh-color-content-brand-hover` |
+| `--jh-button-color-border-tertiary-hover` | The button container border-color when hovered and `appearance="tertiary"`. | `transparent` |
+| `--jh-button-color-background-tertiary-active` | The button container background-color when active and `appearance="tertiary"`. | `--jh-color-content-brand-active` |
+| `--jh-button-color-border-tertiary-active` | The button container border-color when active and `appearance="tertiary"`. | `transparent` |
+| `--jh-button-color-background-tertiary-disabled` | The button container background-color when disabled and `appearance="tertiary"`. | `transparent` |
+| `--jh-button-color-border-tertiary-disabled` | The button container border-color when disabled and `appearance="tertiary"`. | `transparent` |
+| `--jh-button-color-background-tertiary-pending` | The button container background-color when pending and `appearance="tertiary"`. | `transparent` |
+| `--jh-button-color-border-tertiary-pending` | The button container border-color when pending and `appearance="tertiary"`. | `transparent` |
+| `--jh-button-label-color-text-tertiary-enabled` | The label text color when enabled and `appearance="tertiary"`. | `--jh-color-content-brand-enabled` |
+| `--jh-button-label-color-text-tertiary-focus` | The label text color when in focus and `appearance="tertiary"`. | `--jh-color-content-on-brand-hover` |
+| `--jh-button-label-color-text-tertiary-hover` | The label text color when hovered and `appearance="tertiary"`. | `--jh-color-content-on-brand-hover` |
+| `--jh-button-label-color-text-tertiary-active` | The label text color when active and `appearance="tertiary"`. | `--jh-color-content-on-brand-active` |
+| `--jh-button-label-color-text-tertiary-disabled` | The label text color when disabled and `appearance="tertiary"`. | `--jh-color-content-brand-enabled` |
+| `--jh-button-icon-color-fill-tertiary-enabled` | The icon color when enabled and `appearance="tertiary"`. | `--jh-color-content-brand-enabled` |
+| `--jh-button-icon-color-fill-tertiary-focus` | The icon color when in focus and `appearance="tertiary"`. | `--jh-color-content-on-brand-hover` |
+| `--jh-button-icon-color-fill-tertiary-hover` | The icon color when hovered and `appearance="tertiary"`. | `--jh-color-content-on-brand-hover` |
+| `--jh-button-icon-color-fill-tertiary-active` | The icon color when active and `appearance="tertiary"`. | `--jh-color-content-on-brand-active` |
+| `--jh-button-icon-color-fill-tertiary-disabled` | The icon color when disabled and `appearance="tertiary"`. | `--jh-color-content-brand-enabled` |
+| `--jh-button-progress-color-border-tertiary-pending` | The progress indicator border-color when `appearance="tertiary"`. | `--jh-color-content-brand-enabled` |
+| `--jh-button-color-background-danger-enabled` | The button container background-color when enabled and `appearance="danger"`. | `--jh-color-content-negative-enabled` |
+| `--jh-button-color-border-danger-enabled` | The button container border-color when enabled and `appearance="danger"`. | `transparent` |
+| `--jh-button-color-background-danger-focus` | The button container background-color when in focus and `appearance="danger"`. | `--jh-color-content-negative-hover` |
+| `--jh-button-color-border-danger-focus` | The button container border-color when in focus and `appearance="danger"`. | `transparent` |
+| `--jh-button-color-background-danger-hover` | The button container background-color when hovered and `appearance="danger"`. | `--jh-color-content-negative-hover` |
+| `--jh-button-color-border-danger-hover` | The button container border-color when hovered and `appearance="danger"`. | `transparent` |
+| `--jh-button-color-background-danger-active` | The button container background-color when active and `appearance="danger"`. | `--jh-color-content-negative-active` |
+| `--jh-button-color-border-danger-active` | The button container border-color when active and `appearance="danger"`. | `transparent` |
+| `--jh-button-color-background-danger-disabled` | The button container background-color when disabled and `appearance="danger"`. | `--jh-color-content-negative-enabled` |
+| `--jh-button-color-border-danger-disabled` | The button container border-color when disabled and `appearance="danger"`. | `transparent` |
+| `--jh-button-color-background-danger-pending` | The button container background-color when pending and `appearance="danger"`. | `--jh-color-content-negative-enabled` |
+| `--jh-button-color-border-danger-pending` | The button container border-color when pending and `appearance="danger"`. | `transparent` |
+| `--jh-button-label-color-text-danger-enabled` | The label text color when enabled and `appearance="danger"`. | `--jh-color-content-on-negative-enabled` |
+| `--jh-button-label-color-text-danger-focus` | The label text color when in focus and `appearance="danger"`. | `--jh-color-content-on-negative-hover` |
+| `--jh-button-label-color-text-danger-hover` | The label text color when hovered and `appearance="danger"`. | `--jh-color-content-on-negative-hover` |
+| `--jh-button-label-color-text-danger-active` | The label text color when active and `appearance="danger"`. | `--jh-color-content-on-negative-active` |
+| `--jh-button-label-color-text-danger-disabled` | The label text color when disabled and `appearance="danger"`. | `--jh-color-content-on-negative-enabled` |
+| `--jh-button-icon-color-fill-danger-enabled` | The icon color when enabled and `appearance="danger"`. | `--jh-color-content-on-negative-enabled` |
+| `--jh-button-icon-color-fill-danger-focus` | The icon color when in focus and `appearance="danger"`. | `--jh-color-content-on-negative-hover` |
+| `--jh-button-icon-color-fill-danger-hover` | The icon color when hovered and `appearance="danger"`. | `--jh-color-content-on-negative-hover` |
+| `--jh-button-icon-color-fill-danger-active` | The icon color when active and `appearance="danger"`. | `--jh-color-content-on-negative-active` |
+| `--jh-button-icon-color-fill-danger-disabled` | The icon color when disabled and `appearance="danger"`. | `--jh-color-content-on-negative-enabled` |
+| `--jh-button-progress-color-border-danger-pending` | The progress indicator border-color when `appearance="danger"`. | `--jh-color-content-on-negative-enabled` |
 | `--jh-button-border-radius` | The button container border-radius. | `--jh-border-radius-100` |
 | `--jh-button-opacity-disabled` | The button container opacity when disabled. | `--jh-opacity-disabled` |
 | `--jh-button-color-focus` | The button container outline when it receives keyboard focus. | `--jh-border-focus-color` |
-| `--jh-button-size` | The button width of single-icon buttons, and the button height. | `--jh-dimension-600` (x-small), `--jh-dimension-800` (small), `--jh-dimension-1000` (medium), `--jh-dimension-1200` (large) |
+| `--jh-button-size` | The button width for single icon buttons, and the button height. | `--jh-dimension-600` (x-small), `--jh-dimension-800` (small), `--jh-dimension-1000` (medium), `--jh-dimension-1200` (large) |
 
-**Primary appearance**
+## Dependencies
 
-| Custom property | Description | Default |
-| --- | --- | --- |
-| `--jh-button-color-background-primary-enabled` | Container background color when enabled. | `--jh-color-content-brand-enabled` |
-| `--jh-button-color-border-primary-enabled` | Container border color when enabled. | `transparent` |
-| `--jh-button-icon-color-fill-primary-enabled` | Icon color when enabled. | `--jh-color-content-on-brand-enabled` |
-| `--jh-button-label-color-text-primary-enabled` | Label text color when enabled. | `--jh-color-content-on-brand-enabled` |
-| `--jh-button-color-background-primary-focus` | Container background color when in focus. | `--jh-color-content-brand-hover` |
-| `--jh-button-color-border-primary-focus` | Container border color when in focus. | `transparent` |
-| `--jh-button-icon-color-fill-primary-focus` | Icon color when in focus. | `--jh-color-content-on-brand-hover` |
-| `--jh-button-label-color-text-primary-focus` | Label text color when in focus. | `--jh-color-content-on-brand-hover` |
-| `--jh-button-color-background-primary-hover` | Container background color when hovered. | `--jh-color-content-brand-hover` |
-| `--jh-button-color-border-primary-hover` | Container border color when hovered. | `transparent` |
-| `--jh-button-icon-color-fill-primary-hover` | Icon color when hovered. | `--jh-color-content-on-brand-hover` |
-| `--jh-button-label-color-text-primary-hover` | Label text color when hovered. | `--jh-color-content-on-brand-hover` |
-| `--jh-button-color-background-primary-active` | Container background color when active. | `--jh-color-content-brand-active` |
-| `--jh-button-color-border-primary-active` | Container border color when active. | `transparent` |
-| `--jh-button-icon-color-fill-primary-active` | Icon color when active. | `--jh-color-content-on-brand-active` |
-| `--jh-button-label-color-text-primary-active` | Label text color when active. | `--jh-color-content-on-brand-active` |
-| `--jh-button-color-background-primary-disabled` | Container background color when disabled. | `--jh-color-content-brand-enabled` |
-| `--jh-button-color-border-primary-disabled` | Container border color when disabled. | `transparent` |
-| `--jh-button-icon-color-fill-primary-disabled` | Icon color when disabled. | `--jh-color-content-on-brand-enabled` |
-| `--jh-button-label-color-text-primary-disabled` | Label text color when disabled. | `--jh-color-content-on-brand-enabled` |
-| `--jh-button-color-background-primary-pending` | Container background color when pending. | `--jh-color-content-brand-enabled` |
-| `--jh-button-color-border-primary-pending` | Container border color when pending. | `transparent` |
-| `--jh-button-progress-color-border-primary-pending` | Progress indicator border color. | `--jh-color-content-on-brand-enabled` |
-
-**Secondary appearance**
-
-| Custom property | Description | Default |
-| --- | --- | --- |
-| `--jh-button-color-background-secondary-enabled` | Container background color when enabled. | `transparent` |
-| `--jh-button-color-border-secondary-enabled` | Container border color when enabled. | `--jh-border-action-color` |
-| `--jh-button-icon-color-fill-secondary-enabled` | Icon color when enabled. | `--jh-color-content-brand-enabled` |
-| `--jh-button-label-color-text-secondary-enabled` | Label text color when enabled. | `--jh-color-content-brand-enabled` |
-| `--jh-button-color-background-secondary-focus` | Container background color when in focus. | `--jh-color-content-brand-hover` |
-| `--jh-button-color-border-secondary-focus` | Container border color when in focus. | `--jh-color-content-brand-hover` |
-| `--jh-button-icon-color-fill-secondary-focus` | Icon color when in focus. | `--jh-color-content-on-brand-hover` |
-| `--jh-button-label-color-text-secondary-focus` | Label text color when in focus. | `--jh-color-content-on-brand-hover` |
-| `--jh-button-color-background-secondary-hover` | Container background color when hovered. | `--jh-color-content-brand-hover` |
-| `--jh-button-color-border-secondary-hover` | Container border color when hovered. | `--jh-color-content-brand-hover` |
-| `--jh-button-icon-color-fill-secondary-hover` | Icon color when hovered. | `--jh-color-content-on-brand-hover` |
-| `--jh-button-label-color-text-secondary-hover` | Label text color when hovered. | `--jh-color-content-on-brand-hover` |
-| `--jh-button-color-background-secondary-active` | Container background color when active. | `--jh-color-content-brand-active` |
-| `--jh-button-color-border-secondary-active` | Container border color when active. | `--jh-color-content-brand-active` |
-| `--jh-button-icon-color-fill-secondary-active` | Icon color when active. | `--jh-color-content-on-brand-active` |
-| `--jh-button-label-color-text-secondary-active` | Label text color when active. | `--jh-color-content-on-brand-active` |
-| `--jh-button-color-background-secondary-disabled` | Container background color when disabled. | `transparent` |
-| `--jh-button-color-border-secondary-disabled` | Container border color when disabled. | `--jh-border-action-color` |
-| `--jh-button-icon-color-fill-secondary-disabled` | Icon color when disabled. | `--jh-color-content-brand-enabled` |
-| `--jh-button-label-color-text-secondary-disabled` | Label text color when disabled. | `--jh-color-content-brand-enabled` |
-| `--jh-button-color-background-secondary-pending` | Container background color when pending. | `transparent` |
-| `--jh-button-color-border-secondary-pending` | Container border color when pending. | `--jh-border-action-color` |
-| `--jh-button-progress-color-border-secondary-pending` | Progress indicator border color. | `--jh-color-content-brand-enabled` |
-
-**Tertiary appearance**
-
-| Custom property | Description | Default |
-| --- | --- | --- |
-| `--jh-button-color-background-tertiary-enabled` | Container background color when enabled. | `transparent` |
-| `--jh-button-color-border-tertiary-enabled` | Container border color when enabled. | `transparent` |
-| `--jh-button-icon-color-fill-tertiary-enabled` | Icon color when enabled. | `--jh-color-content-brand-enabled` |
-| `--jh-button-label-color-text-tertiary-enabled` | Label text color when enabled. | `--jh-color-content-brand-enabled` |
-| `--jh-button-color-background-tertiary-focus` | Container background color when in focus. | `--jh-color-content-brand-hover` |
-| `--jh-button-color-border-tertiary-focus` | Container border color when in focus. | `transparent` |
-| `--jh-button-icon-color-fill-tertiary-focus` | Icon color when in focus. | `--jh-color-content-on-brand-hover` |
-| `--jh-button-label-color-text-tertiary-focus` | Label text color when in focus. | `--jh-color-content-on-brand-hover` |
-| `--jh-button-color-background-tertiary-hover` | Container background color when hovered. | `--jh-color-content-brand-hover` |
-| `--jh-button-color-border-tertiary-hover` | Container border color when hovered. | `transparent` |
-| `--jh-button-icon-color-fill-tertiary-hover` | Icon color when hovered. | `--jh-color-content-on-brand-hover` |
-| `--jh-button-label-color-text-tertiary-hover` | Label text color when hovered. | `--jh-color-content-on-brand-hover` |
-| `--jh-button-color-background-tertiary-active` | Container background color when active. | `--jh-color-content-brand-active` |
-| `--jh-button-color-border-tertiary-active` | Container border color when active. | `transparent` |
-| `--jh-button-icon-color-fill-tertiary-active` | Icon color when active. | `--jh-color-content-on-brand-active` |
-| `--jh-button-label-color-text-tertiary-active` | Label text color when active. | `--jh-color-content-on-brand-active` |
-| `--jh-button-color-background-tertiary-disabled` | Container background color when disabled. | `transparent` |
-| `--jh-button-color-border-tertiary-disabled` | Container border color when disabled. | `transparent` |
-| `--jh-button-icon-color-fill-tertiary-disabled` | Icon color when disabled. | `--jh-color-content-brand-enabled` |
-| `--jh-button-label-color-text-tertiary-disabled` | Label text color when disabled. | `--jh-color-content-brand-enabled` |
-| `--jh-button-color-background-tertiary-pending` | Container background color when pending. | `transparent` |
-| `--jh-button-color-border-tertiary-pending` | Container border color when pending. | `transparent` |
-| `--jh-button-progress-color-border-tertiary-pending` | Progress indicator border color. | `--jh-color-content-brand-enabled` |
-
-**Danger appearance**
-
-| Custom property | Description | Default |
-| --- | --- | --- |
-| `--jh-button-color-background-danger-enabled` | Container background color when enabled. | `--jh-color-content-negative-enabled` |
-| `--jh-button-color-border-danger-enabled` | Container border color when enabled. | `transparent` |
-| `--jh-button-icon-color-fill-danger-enabled` | Icon color when enabled. | `--jh-color-content-on-negative-enabled` |
-| `--jh-button-label-color-text-danger-enabled` | Label text color when enabled. | `--jh-color-content-on-negative-enabled` |
-| `--jh-button-color-background-danger-focus` | Container background color when in focus. | `--jh-color-content-negative-hover` |
-| `--jh-button-color-border-danger-focus` | Container border color when in focus. | `transparent` |
-| `--jh-button-icon-color-fill-danger-focus` | Icon color when in focus. | `--jh-color-content-on-negative-hover` |
-| `--jh-button-label-color-text-danger-focus` | Label text color when in focus. | `--jh-color-content-on-negative-hover` |
-| `--jh-button-color-background-danger-hover` | Container background color when hovered. | `--jh-color-content-negative-hover` |
-| `--jh-button-color-border-danger-hover` | Container border color when hovered. | `transparent` |
-| `--jh-button-icon-color-fill-danger-hover` | Icon color when hovered. | `--jh-color-content-on-negative-hover` |
-| `--jh-button-label-color-text-danger-hover` | Label text color when hovered. | `--jh-color-content-on-negative-hover` |
-| `--jh-button-color-background-danger-active` | Container background color when active. | `--jh-color-content-negative-active` |
-| `--jh-button-color-border-danger-active` | Container border color when active. | `transparent` |
-| `--jh-button-icon-color-fill-danger-active` | Icon color when active. | `--jh-color-content-on-negative-active` |
-| `--jh-button-label-color-text-danger-active` | Label text color when active. | `--jh-color-content-on-negative-active` |
-| `--jh-button-color-background-danger-disabled` | Container background color when disabled. | `--jh-color-content-negative-enabled` |
-| `--jh-button-color-border-danger-disabled` | Container border color when disabled. | `transparent` |
-| `--jh-button-icon-color-fill-danger-disabled` | Icon color when disabled. | `--jh-color-content-on-negative-enabled` |
-| `--jh-button-label-color-text-danger-disabled` | Label text color when disabled. | `--jh-color-content-on-negative-enabled` |
-| `--jh-button-color-background-danger-pending` | Container background color when pending. | `--jh-color-content-negative-enabled` |
-| `--jh-button-color-border-danger-pending` | Container border color when pending. | `transparent` |
-| `--jh-button-progress-color-border-danger-pending` | Progress indicator border color. | `--jh-color-content-on-negative-enabled` |
+- **`jh-progress`** – Renders the progress indicator shown in place of the label and icons while the button is pending.
+- **`jh-icon`** – Renders the icons slotted into the button's left and right icon slots.
 
 ## Feedback
 

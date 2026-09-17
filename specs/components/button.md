@@ -21,7 +21,12 @@ added: 1.0.0
 
 ### Size
 
-Sets the size of the button.
+```yml
+name: size
+description: Sets the size of the button.
+type: [x-small, small, medium, large]
+default: medium
+```
 
 - Buttons SHOULD always be paired with comparably-sized form controls such as `jh-input` and `jh-select`.
 - The exception is the extra small size.
@@ -65,10 +70,12 @@ Sets the size of the button.
 
 ### Block
 
-Sets the button width to its parent container.
-
-- The property SHOULD be a `boolean`.
-- The default value SHOULD be `false`.
+```yml
+name: block
+description: Sets the button width to its parent container.
+type: boolean
+default: false
+```
 
 #### True
 
@@ -87,7 +94,12 @@ Sets the button width to its parent container.
 
 ### Appearance
 
-Determines the button color.
+```yml
+name: appearance
+description: Determines the button color.
+type: [primary, secondary, tertiary, danger]
+default: secondary
+```
 
 #### Primary
 
@@ -347,7 +359,11 @@ Pending
 
 ### Label
 
-The button text.
+```yml
+name: label
+description: Text that conveys the button's actions.
+type: string
+```
 
 - The property SHOULD be a `string`.
 - The label conveys the button’s action.
@@ -363,9 +379,11 @@ The button text.
 
 ### Icon only
 
-Sets the button to display only one icon.
-
-- The property SHOULD be a `boolean`.
+```yml
+name: iconOnly
+description: Sets the button to display only one icon.
+type: boolean
+```
 
 #### True
 
@@ -453,14 +471,22 @@ Set a pending state to indicate a process is underway.
 
 ### Left
 
-Use to place an icon on the left side of the button.
+```yml
+name: left
+layer: button-icon-left
+description: Use to place an icon on the left side of the button.
+```
 
 - Use left icons to emphasis a button’s meaning.
 - Place only icons in this slot.
 
 ### Right
 
-Used to place an icon on the right side of the button.
+```yml
+name: right
+layer: button-icon-right
+description: Used to place an icon on the right side of the button.
+```
 
 - Use right icons to imply a progression or directionality.
 - Place only icons in this slot.

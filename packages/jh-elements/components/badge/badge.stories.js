@@ -38,8 +38,8 @@ export default {
     actions: {
       disable: true
     },
-    controls: {
-      disableSaveFromUI: true
+    interactions: {
+      disable: true
     }
   }
 };

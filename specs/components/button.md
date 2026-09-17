@@ -14,7 +14,6 @@ dependencies:
   - jh-icon
 ---
 
-# Button
 ## Anatomy
 
 - jh-button: The parent container

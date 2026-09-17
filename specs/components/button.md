@@ -155,29 +155,6 @@ Active state
 | `button-icon`    | `fill`             | `button.icon.color.fill.primary.active`  | `{color.content.on.brand.active}` |
 | `button-label`   | `color`            | `button.label.color.text.primary.active` | `{color.content.on.brand.active}` |
 
-Disabled
-
-- Disabled SHOULD be a discrete option in code, but is combined with the other states in Figma.
-
-| Figma layer name | Property name      | Style hook                                 | Default value                      |
-| ---------------- | ------------------ | ------------------------------------------ | ---------------------------------- |
-| `jh-button`      | `opacity`          | `button.opacity.disabled`                  | `{opacity.disabled}`               |
-| `button-wrapper` | `background-color` | `button.color.background.primary.disabled` | `{color.content.brand.enabled}`    |
-| `button-wrapper` | `border-color`     | `button.color.border.primary.disabled`     | `#00000000`                        |
-| `button-icon`    | `fill`             | `button.icon.color.fill.primary.disabled`  | `{color.content.on.brand.enabled}` |
-| `button-label`   | `color`            | `button.label.color.text.primary.disabled` | `{color.content.on.brand.enabled}` |
-
-Pending
-
-- Pending SHOULD be a discrete option in code, but is combined with the other states in Figma.
-
-| Figma layer name                     | Property name              | Style hook                                           | Default value                      |
-| ------------------------------------ | -------------------------- | ---------------------------------------------------- | ---------------------------------- |
-| `button-wrapper`                     | `background-color`         | `button.color.background.primary.pending`            | `{color.content.brand.enabled}`    |
-| `button-wrapper`                     | `border-color`             | `button.color.border.primary.pending`                | `#00000000`                        |
-| `button-progress/progress-indicator` | `progress.indicator.color` | `button.progress.color.border.primary.pending`       | `{color.content.on.brand.enabled}` |
-| `button-progress/progress-track`     | `progress.track.color`     | `button.progress.track.color.border.primary.pending` | `{progress.track.color}`           |
-
 #### Secondary
 
 - SHOULD use for most non-critical actions.
@@ -218,29 +195,6 @@ Active state
 | `button-wrapper` | `border-color`     | `button.color.border.secondary.active`     | `{color.content.brand.active}`    |
 | `button-icon`    | `fill`             | `button.icon.color.fill.secondary.active`  | `{color.content.on.brand.active}` |
 | `button-label`   | `color`            | `button.label.color.text.secondary.active` | `{color.content.on.brand.active}` |
-
-Disabled
-
-- Disabled SHOULD be a discrete option in code, but is combined with the other states in Figma.
-
-| Figma layer name | Property name      | Style hook                                   | Default value                   |
-| ---------------- | ------------------ | -------------------------------------------- | ------------------------------- |
-| `jh-button`      | `opacity`          | `button.opacity.disabled`                    | `{opacity.disabled}`            |
-| `button-wrapper` | `background-color` | `button.color.background.secondary.disabled` | `{color.content.brand.enabled}` |
-| `button-wrapper` | `border-color`     | `button.color.border.secondary.disabled`     | `{border.action.color}`         |
-| `button-icon`    | `fill`             | `button.icon.color.fill.secondary.disabled`  | `{color.content.brand.enabled}` |
-| `button-label`   | `color`            | `button.label.color.text.secondary.disabled` | `{color.content.brand.enabled}` |
-
-Pending
-
-- Pending SHOULD be a discrete option in code, but is combined with the other states in Figma.
-
-| Figma layer name                     | Property name              | Style hook                                             | Default value                   |
-| ------------------------------------ | -------------------------- | ------------------------------------------------------ | ------------------------------- |
-| `button-wrapper`                     | `background-color`         | `button.color.background.secondary.pending`            | `#00000000`                     |
-| `button-wrapper`                     | `border-color`             | `button.color.border.secondary.pending`                | `{border.action.color}`         |
-| `button-progress/progress-indicator` | `progress.indicator.color` | `button.progress.color.border.secondary.pending`       | `{color.content.brand.enabled}` |
-| `button-progress/progress-track`     | `progress.track.color`     | `button.progress.track.color.border.secondary.pending` | `{progress.track.color}`        |
 
 #### Tertiary
 
@@ -283,29 +237,6 @@ Active state
 | `button-icon`    | `fill`             | `button.icon.color.fill.tertiary.active`  | `{color.content.on.brand.active}` |
 | `button-label`   | `color`            | `button.label.color.text.tertiary.active` | `{color.content.on.brand.active}` |
 
-Disabled
-
-- Disabled SHOULD be a discrete option in code, but is combined with the other states in Figma.
-
-| Figma layer name | Property name      | Style hook                                  | Default value                   |
-| ---------------- | ------------------ | ------------------------------------------- | ------------------------------- |
-| `jh-button`      | `opacity`          | `button.opacity.disabled`                   | `{opacity.disabled}`            |
-| `button-wrapper` | `background-color` | `button.color.background.tertiary.disabled` | `#00000000`                     |
-| `button-wrapper` | `border-color`     | `button.color.border.tertiary.disabled`     | `#00000000`                     |
-| `button-icon`    | `fill`             | `button.icon.color.fill.tertiary.disabled`  | `{color.content.brand.enabled}` |
-| `button-label`   | `color`            | `button.label.color.text.tertiary.disabled` | `{color.content.brand.enabled}` |
-
-Pending
-
-- Pending SHOULD be a discrete option in code, but is combined with the other states in Figma.
-
-| Figma layer name                     | Property name              | Style hook                                            | Default value                   |
-| ------------------------------------ | -------------------------- | ----------------------------------------------------- | ------------------------------- |
-| `button-wrapper`                     | `background-color`         | `button.color.background.tertiary.pending`            | `#00000000`                     |
-| `button-wrapper`                     | `border-color`             | `button.color.border.tertiary.pending`                | `#00000000`                     |
-| `button-progress/progress-indicator` | `progress.indicator.color` | `button.progress.color.border.tertiary.pending`       | `{color.content.brand.enabled}` |
-| `button-progress/progress-track`     | `progress.track.color`     | `button.progress.track.color.border.tertiary.pending` | `{progress.track.color}`        |
-
 #### Danger
 
 - SHOULD use to convey destructive actions such as “Delete” or “Remove.”
@@ -346,29 +277,6 @@ Active state
 | `button-wrapper` | `border-color`     | `button.color.border.danger.active`     | `#00000000`                          |
 | `button-icon`    | `fill`             | `button.icon.color.fill.danger.active`  | `{color.content.on.negative.active}` |
 | `button-label`   | `color`            | `button.label.color.text.danger.active` | `{color.content.on.negative.active}` |
-
-Disabled
-
-- Disabled SHOULD be a discrete option in code, but is combined with the other states in Figma.
-
-| Figma layer name | Property name      | Style hook                                | Default value                         |
-| ---------------- | ------------------ | ----------------------------------------- | ------------------------------------- |
-| `jh-button`      | `opacity`          | `button.opacity.disabled`                 | `{opacity.disabled}`                  |
-| `button-wrapper` | `background-color` | `button.color.background.danger.disabled` | `{color.content.negative.enabled}`    |
-| `button-wrapper` | `border-color`     | `button.color.border.danger.disabled`     | `#00000000`                           |
-| `button-icon`    | `fill`             | `button.icon.color.fill.danger.disabled`  | `{color.content.on.negative.enabled}` |
-| `button-label`   | `color`            | `button.label.color.text.danger.disabled` | `{color.content.on.negative.enabled}` |
-
-Pending
-
-- Pending SHOULD be a discrete option in code, but is combined with the other states in Figma.
-
-| Figma layer name                     | Property name              | Style hook                                          | Default value                         |
-| ------------------------------------ | -------------------------- | --------------------------------------------------- | ------------------------------------- |
-| `button-wrapper`                     | `background-color`         | `button.color.background.danger.pending`            | `{color.content.negative.enabled}`    |
-| `button-wrapper`                     | `border-color`             | `button.color.border.danger.pending`                | `#00000000`                           |
-| `button-progress/progress-indicator` | `progress.indicator.color` | `button.progress.color.border.danger.pending`       | `{color.content.on.negative.enabled}` |
-| `button-progress/progress-track`     | `progress.track.color`     | `button.progress.track.color.border.danger.pending` | `{progress.track.color}`              |
 
 ### Label
 
@@ -463,19 +371,114 @@ Large size
 | `button-focus/outline` | `outline-width`  |                      | `{border.focus.width}` |
 | `button-focus/outline` | `outline-offset` |                      | `1px`                  |
 
-### Pending
+### Disabled
+
+```yml
+name: disabled
+description:
+type: boolean
+default: false
+```
+
+- One of the `state` values in Figma.
 
 #### True
 
-Set a pending state to indicate a process is underway.
+Primary appearance:
 
-- The property in code SHOULD be a `boolean`. It is part of the state options in Figma.
-- The pending state replaces the label and icon with a progress indicator to show that a process such as saving is taking place.
-- The button width of the pending state SHOULD remain the same as the width of the button before the pending process was triggered.
-- The progress indicator MUST be horizontally centered within the button container.
-- A button cannot be navigated to nor activated by a mouse or keyboard when in a pending state.
-- Set `aria-busy="true"` to the region if `pending` reflects the changing of a live-region and the announcement of those changes should wait until completed.
-- Set `aria-busy="false"` once the process is complete.
+| Figma layer name | Property name      | Style hook                                 | Default value                      |
+| ---------------- | ------------------ | ------------------------------------------ | ---------------------------------- |
+| `jh-button`      | `opacity`          | `button.opacity.disabled`                  | `{opacity.disabled}`               |
+| `button-wrapper` | `background-color` | `button.color.background.primary.disabled` | `{color.content.brand.enabled}`    |
+| `button-wrapper` | `border-color`     | `button.color.border.primary.disabled`     | `#00000000`                        |
+| `button-icon`    | `fill`             | `button.icon.color.fill.primary.disabled`  | `{color.content.on.brand.enabled}` |
+| `button-label`   | `color`            | `button.label.color.text.primary.disabled` | `{color.content.on.brand.enabled}` |
+
+Secondary appearance:
+
+| Figma layer name | Property name      | Style hook                                   | Default value                   |
+| ---------------- | ------------------ | -------------------------------------------- | ------------------------------- |
+| `jh-button`      | `opacity`          | `button.opacity.disabled`                    | `{opacity.disabled}`            |
+| `button-wrapper` | `background-color` | `button.color.background.secondary.disabled` | `{color.content.brand.enabled}` |
+| `button-wrapper` | `border-color`     | `button.color.border.secondary.disabled`     | `{border.action.color}`         |
+| `button-icon`    | `fill`             | `button.icon.color.fill.secondary.disabled`  | `{color.content.brand.enabled}` |
+| `button-label`   | `color`            | `button.label.color.text.secondary.disabled` | `{color.content.brand.enabled}` |
+
+Tertiary appearance:
+
+| Figma layer name | Property name      | Style hook                                  | Default value                   |
+| ---------------- | ------------------ | ------------------------------------------- | ------------------------------- |
+| `jh-button`      | `opacity`          | `button.opacity.disabled`                   | `{opacity.disabled}`            |
+| `button-wrapper` | `background-color` | `button.color.background.tertiary.disabled` | `#00000000`                     |
+| `button-wrapper` | `border-color`     | `button.color.border.tertiary.disabled`     | `#00000000`                     |
+| `button-icon`    | `fill`             | `button.icon.color.fill.tertiary.disabled`  | `{color.content.brand.enabled}` |
+| `button-label`   | `color`            | `button.label.color.text.tertiary.disabled` | `{color.content.brand.enabled}` |
+
+Danger appearance:
+
+| Figma layer name | Property name      | Style hook                                | Default value                         |
+| ---------------- | ------------------ | ----------------------------------------- | ------------------------------------- |
+| `jh-button`      | `opacity`          | `button.opacity.disabled`                 | `{opacity.disabled}`                  |
+| `button-wrapper` | `background-color` | `button.color.background.danger.disabled` | `{color.content.negative.enabled}`    |
+| `button-wrapper` | `border-color`     | `button.color.border.danger.disabled`     | `#00000000`                           |
+| `button-icon`    | `fill`             | `button.icon.color.fill.danger.disabled`  | `{color.content.on.negative.enabled}` |
+| `button-label`   | `color`            | `button.label.color.text.danger.disabled` | `{color.content.on.negative.enabled}` |
+
+### Pending
+
+```yml
+name: pending
+description: Set a pending state to indicate a process is underway.
+type: boolean
+default: false
+```
+
+- One of the `state` values in Figma.
+
+#### True
+
+- Replace the label and icon with a progress indicator to show that a process is taking place (ex. saving).
+- SHOULD keep the button width the same as before the pending process was triggered.
+- SHOULD set `aria-busy="true"` to the region if `pending` reflects the changing of a live-region and the announcement of those changes should wait until completed.
+- SHOULD set `aria-busy="false"` once the process is complete.
+- MUST horizontally center the progress within the button container.
+- MUST NOT be navigated to nor activated by a mouse or keyboard when in a pending state.
+
+Primary appearance:
+
+| Figma layer name                     | Property name              | Style hook                                           | Default value                      |
+| ------------------------------------ | -------------------------- | ---------------------------------------------------- | ---------------------------------- |
+| `button-wrapper`                     | `background-color`         | `button.color.background.primary.pending`            | `{color.content.brand.enabled}`    |
+| `button-wrapper`                     | `border-color`             | `button.color.border.primary.pending`                | `#00000000`                        |
+| `button-progress/progress-indicator` | `progress.indicator.color` | `button.progress.color.border.primary.pending`       | `{color.content.on.brand.enabled}` |
+| `button-progress/progress-track`     | `progress.track.color`     | `button.progress.track.color.border.primary.pending` | `{progress.track.color}`           |
+
+Secondary appearance:
+
+| Figma layer name                     | Property name              | Style hook                                             | Default value                   |
+| ------------------------------------ | -------------------------- | ------------------------------------------------------ | ------------------------------- |
+| `button-wrapper`                     | `background-color`         | `button.color.background.secondary.pending`            | `#00000000`                     |
+| `button-wrapper`                     | `border-color`             | `button.color.border.secondary.pending`                | `{border.action.color}`         |
+| `button-progress/progress-indicator` | `progress.indicator.color` | `button.progress.color.border.secondary.pending`       | `{color.content.brand.enabled}` |
+| `button-progress/progress-track`     | `progress.track.color`     | `button.progress.track.color.border.secondary.pending` | `{progress.track.color}`        |
+
+Tertiary appearance:
+
+| Figma layer name                     | Property name              | Style hook                                            | Default value                   |
+| ------------------------------------ | -------------------------- | ----------------------------------------------------- | ------------------------------- |
+| `button-wrapper`                     | `background-color`         | `button.color.background.tertiary.pending`            | `#00000000`                     |
+| `button-wrapper`                     | `border-color`             | `button.color.border.tertiary.pending`                | `#00000000`                     |
+| `button-progress/progress-indicator` | `progress.indicator.color` | `button.progress.color.border.tertiary.pending`       | `{color.content.brand.enabled}` |
+| `button-progress/progress-track`     | `progress.track.color`     | `button.progress.track.color.border.tertiary.pending` | `{progress.track.color}`        |
+
+Danger appearance:
+
+| Figma layer name                     | Property name              | Style hook                                          | Default value                         |
+| ------------------------------------ | -------------------------- | --------------------------------------------------- | ------------------------------------- |
+| `button-wrapper`                     | `background-color`         | `button.color.background.danger.pending`            | `{color.content.negative.enabled}`    |
+| `button-wrapper`                     | `border-color`             | `button.color.border.danger.pending`                | `#00000000`                           |
+| `button-progress/progress-indicator` | `progress.indicator.color` | `button.progress.color.border.danger.pending`       | `{color.content.on.negative.enabled}` |
+| `button-progress/progress-track`     | `progress.track.color`     | `button.progress.track.color.border.danger.pending` | `{progress.track.color}`              |
 
 ## Slots
 

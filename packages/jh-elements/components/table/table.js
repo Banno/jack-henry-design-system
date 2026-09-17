@@ -329,7 +329,7 @@ export class JhTable extends JhElement {
       .querySelector('slot.header')
       .assignedElements({ flatten: true })[0].children;
     for (const cell of headerCells) {
-      if (cell.hasAttribute('sortable') && cell.id !== e.detail.id) {
+      if (cell.hasAttribute('sortable') && cell.id !== e.detail.reference.id) {
         cell.sorted = 'none';
         cell.setAttribute('aria-sort', cell.sorted);
       }

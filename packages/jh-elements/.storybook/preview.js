@@ -39,6 +39,7 @@ const preview = {
       expanded: true,
       //RegEx to hide all tokens, properties, events, and slots from Controls
       exclude: /([A-Z])\w+|(jh)|(default)/g,
+      disableSaveFromUI: true,
     },
     options: {
       storySort: {
@@ -89,9 +90,6 @@ const preview = {
         return React.createElement(DocsContainer, props);
       },
     },
-    controls: {
-      disableSaveFromUI: true
-    }
   },
 
   decorators: [

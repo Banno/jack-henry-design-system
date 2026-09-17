@@ -23,8 +23,8 @@ export class JhDivider extends JhElement {
           border-bottom-width: var(--jh-divider-border-width, var(--jh-border-decorative-width));
           border-bottom-style: var(--jh-divider-border-style, var(--jh-border-decorative-style));
           border-bottom-color: var(--jh-divider-color-border, var(--jh-border-decorative-color));
-          margin-top: 16px;
-          margin-bottom: 16px;
+          margin-top: var(--jh-dimension-400);
+          margin-bottom: var(--jh-dimension-400);
         }
         :host([orientation='vertical']) {
           border-bottom: none;
@@ -33,8 +33,8 @@ export class JhDivider extends JhElement {
           border-left-color: var(--jh-divider-color-border, var(--jh-border-decorative-color));
           margin-top: 0;
           margin-bottom: 0;
-          margin-left: 16px;
-          margin-right: 16px;
+          margin-left: var(--jh-dimension-400);
+          margin-right: var(--jh-dimension-400);
           height: 100%;
           width: 0px;
           align-self: stretch;

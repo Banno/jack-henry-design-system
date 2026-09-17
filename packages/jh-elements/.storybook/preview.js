@@ -41,6 +41,9 @@ const preview = {
       exclude: /([A-Z])\w+|(jh)|(default)/g,
       disableSaveFromUI: true,
     },
+    interactions: {
+      disable: true
+    },
     options: {
       storySort: {
         method: '',
@@ -89,6 +92,11 @@ const preview = {
 
         return React.createElement(DocsContainer, props);
       },
+
+      codePanel: true,
+      source: {
+        excludeDecorators: true
+      }
     },
   },
 

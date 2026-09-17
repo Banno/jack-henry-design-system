@@ -35,12 +35,6 @@ export default {
     },
   },
   parameters: {
-    docs: {
-      codePanel: true,
-      source: {
-        excludeDecorators: true
-      }
-    },
     actions: {
       disable: true
     },

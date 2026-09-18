@@ -62,7 +62,6 @@ export default {
       (story) => html`
         <div class="story-decorator"
           @jh-change=${(e) => logCustomEvent('jh-change', e)}
-          @jh-select=${(e) => logCustomEvent('jh-select', e)}
           @jh-input=${(e) => logCustomEvent('jh-input', e)}
           @jh-maxlength=${(e) => logCustomEvent('jh-maxlength', e)}
           @jh-input:clear-button-click=${(e) => logCustomEvent('jh-input:clear-button-click', e)}
@@ -170,7 +169,7 @@ export default {
 };
 
 export const Overview = { render: (args) => html`
-  <jh-input-password label="Label" helper-text="Helper text" required show-indicator></jh-input-password>
+  <jh-input-password label="Label" helper-text="Helper text" required show-indicator @jh-select=${(e) => logCustomEvent('jh-select', e)}></jh-input-password>
 `};
 
 Overview.argTypes = {
@@ -179,7 +178,7 @@ Overview.argTypes = {
 
 export const Playground = {
   render: (args) => html`
-  <jh-input-password 
+  <jh-input-password @jh-select=${(e) => logCustomEvent('jh-select', e)}
     ?password-visible=${args['password-visible']} 
     accessible-label-show-password=${ifDefined(
       args['accessible-label-show-password'] === ''
@@ -303,7 +302,7 @@ Playground.parameters = {
 };
 
 export const Default = { render: (args) => html`
-  <jh-input-password></jh-input-password>
+  <jh-input-password @jh-select=${(e) => logCustomEvent('jh-select', e)}></jh-input-password>
 `};
 
 Default.argTypes = {

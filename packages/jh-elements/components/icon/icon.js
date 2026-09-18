@@ -7,12 +7,12 @@ import { JhElement } from '../element/element.js';
 
 /**
  * @cssprop --jh-icon-color-fill - The icon color. Defaults to `--jh-color-content-secondary-enabled`.
- * @cssprop --jh-icon-size-extra-small - The icon size when `size="extra-small"`. Defaults to `--jh-dimension-400`.
+ * @cssprop --jh-icon-size-extra-small - The icon size when `size="x-small"`. Defaults to `--jh-dimension-400`.
  * @cssprop --jh-icon-size-small - The icon size when `size="small"`. Defaults to `--jh-dimension-500`.
  * @cssprop --jh-icon-size-medium - The icon size when `size="medium"`. Defaults to `--jh-dimension-600`.
  * @cssprop --jh-icon-size-large - The icon size when `size="large"`. Defaults to `--jh-dimension-900`.
- * @cssprop --jh-icon-size-extra-large - The icon size when `size="extra-large"`. Defaults to `--jh-dimension-1400`.
- * @cssprop --jh-icon-size-extra-extra-large - The icon size when `size="extra-extra-large"`. Defaults to `--jh-dimension-2100`.
+ * @cssprop --jh-icon-size-extra-large - The icon size when `size="x-large"`. Defaults to `--jh-dimension-1400`.
+ * @cssprop --jh-icon-size-extra-extra-large - The icon size when `size="xx-large"`. Defaults to `--jh-dimension-2100`.
  * @slot default - Use to insert the icon SVG content.
  * @customElement jh-icon
  */
@@ -20,6 +20,10 @@ export class JhIcon extends JhElement {
   static get styles() {
     return css`
       :host {
+        --icon-size: var(
+          --jh-icon-size-medium,
+          var(--jh-dimension-600)
+        );
         fill: var(
           --jh-icon-color-fill,
           var(--jh-color-content-secondary-enabled)
@@ -64,7 +68,6 @@ export class JhIcon extends JhElement {
           var(--jh-dimension-2100)
         );
       }
-      svg,
       ::slotted(*) {
         width: 100%;
         height: 100%;

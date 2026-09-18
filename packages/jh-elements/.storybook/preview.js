@@ -48,7 +48,7 @@ const preview = {
           'What\'s New',
            ['V2 Release', ['Overview'],'Migrating'],
           'Getting Started',
-          ['Installing', 'Usage', 'Typography'],
+          ['Installing', 'Usage', 'Typography', 'Typography Utility Classes', 'Design Tokens'],
           'Iconography',
           ['Overview', 'Gallery'],
           'Design Tokens',

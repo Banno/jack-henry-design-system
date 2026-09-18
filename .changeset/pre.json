@@ -7,5 +7,10 @@
     "@jack-henry/jh-icons": "2.1.1",
     "@jack-henry/jh-tokens": "2.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "cool-adults-love",
+    "soft-dingos-buy",
+    "strict-wombats-dress",
+    "twelve-chicken-destroy"
+  ]
 }

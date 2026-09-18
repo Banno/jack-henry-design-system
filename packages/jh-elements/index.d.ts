@@ -36,6 +36,7 @@ import { JhSelect } from './components/select/select.js';
 import { JhInputNumber } from './components/input-number/input-number.js';
 import { JhLayoutVStack } from './components/layout-v-stack/layout-v-stack.js';
 import { JhLayoutHStack } from './components/layout-h-stack/layout-h-stack.js';
+import { JhLayoutZStack } from './components/layout-z-stack/layout-z-stack.js';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -73,5 +74,6 @@ declare global {
     'jh-input-number': JhInputNumber;
     'jh-layout-v-stack': JhLayoutVStack;
     'jh-layout-h-stack': JhLayoutHStack;
+    'jh-layout-z-stack': JhLayoutZStack;
   }
 }

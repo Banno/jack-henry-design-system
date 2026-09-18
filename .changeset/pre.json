@@ -1,0 +1,11 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "@jack-henry/jh-datasets": "2.0.0",
+    "@jack-henry/jh-elements": "2.2.0",
+    "@jack-henry/jh-icons": "2.1.1",
+    "@jack-henry/jh-tokens": "2.0.0"
+  },
+  "changesets": []
+}

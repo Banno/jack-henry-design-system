@@ -329,6 +329,46 @@ InteractiveList.argTypes = {
   'divider-inset': { control: { disable: true } },
 };
 
+export const SelectedHover = {
+  render: (args) =>
+    html` <div role="list" class="list">
+      <jh-list-item
+        tabindex="0"
+        show-divider
+        selected
+        primary-text=${args['primary-text']}
+        secondary-text=${args['secondary-text']}
+        primary-metadata=${args['primary-metadata']}
+        secondary-metadata=${args['secondary-metadata']}>
+        <jh-icon-user slot="jh-list-item-left"></jh-icon-user>
+        <jh-icon-ellipsis slot="jh-list-item-right"></jh-icon-ellipsis>
+      </jh-list-item>
+    </div>`,
+  // hover stacks on the selected fill: the state layer paints on top of the tinted selected background
+};
+
+SelectedHover.args = {
+  selected: true,
+  disabled: false,
+  'primary-text': 'Primary text',
+  'secondary-text': 'Secondary text',
+  'primary-metadata': 'Primary metadata',
+  'secondary-metadata': 'Secondary metadata',
+};
+SelectedHover.parameters = {
+  styles: storyStyles,
+};
+SelectedHover.argTypes = {
+  'primary-text': { control: { disable: true } },
+  'secondary-text': { control: { disable: true } },
+  'primary-metadata': { control: { disable: true } },
+  'secondary-metadata': { control: { disable: true } },
+  'show-divider': { control: { disable: true } },
+  'divider-inset': { control: { disable: true } },
+  selected: { control: { disable: true } },
+  disabled: { control: { disable: true } },
+};
+
 export const TextWrapping = {
   render: (args) =>
     html`

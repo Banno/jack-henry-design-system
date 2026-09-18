@@ -5292,51 +5292,6 @@
       ]
     },
     {
-      "name": "jh-layout-z-stack",
-      "path": "./components/layout-z-stack/layout-z-stack.js",
-      "description": "Layout Z Stack",
-      "attributes": [
-        {
-          "name": "align",
-          "description": "Sets the alignment of layered elements along the block (vertical) axis.",
-          "type": "'start' | 'end' | 'center' | 'stretch'",
-          "default": "\"stretch\""
-        },
-        {
-          "name": "justify",
-          "description": "Sets the alignment of layered elements along the inline (horizontal) axis.",
-          "type": "'start' | 'end' | 'center' | 'stretch'",
-          "default": "\"stretch\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "align",
-          "attribute": "align",
-          "description": "Sets the alignment of layered elements along the block (vertical) axis.",
-          "type": "'start' | 'end' | 'center' | 'stretch'",
-          "default": "\"stretch\""
-        },
-        {
-          "name": "justify",
-          "attribute": "justify",
-          "description": "Sets the alignment of layered elements along the inline (horizontal) axis.",
-          "type": "'start' | 'end' | 'center' | 'stretch'",
-          "default": "\"stretch\""
-        },
-        {
-          "name": "uniqueId",
-          "type": "number"
-        }
-      ],
-      "slots": [
-        {
-          "name": "default",
-          "description": "Use to insert layered elements. Each slotted element occupies the same cell and stacks in source order, with the last element on top."
-        }
-      ]
-    },
-    {
       "name": "jh-layout-h-stack",
       "path": "./components/layout-h-stack/layout-h-stack.js",
       "description": "Layout H Stack",
@@ -5521,6 +5476,51 @@
         {
           "name": "--jh-layout-v-stack-padding",
           "description": "The padding inside the layout container. Defaults to the `--jh-dimension-{padding}` token."
+        }
+      ]
+    },
+    {
+      "name": "jh-layout-z-stack",
+      "path": "./components/layout-z-stack/layout-z-stack.js",
+      "description": "Layout Z Stack",
+      "attributes": [
+        {
+          "name": "align",
+          "description": "Sets the alignment of layered elements along the block (vertical) axis.",
+          "type": "'start' | 'end' | 'center' | 'stretch'",
+          "default": "\"stretch\""
+        },
+        {
+          "name": "justify",
+          "description": "Sets the alignment of layered elements along the inline (horizontal) axis.",
+          "type": "'start' | 'end' | 'center' | 'stretch'",
+          "default": "\"stretch\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "align",
+          "attribute": "align",
+          "description": "Sets the alignment of layered elements along the block (vertical) axis.",
+          "type": "'start' | 'end' | 'center' | 'stretch'",
+          "default": "\"stretch\""
+        },
+        {
+          "name": "justify",
+          "attribute": "justify",
+          "description": "Sets the alignment of layered elements along the inline (horizontal) axis.",
+          "type": "'start' | 'end' | 'center' | 'stretch'",
+          "default": "\"stretch\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "Use to insert layered elements. Each slotted element occupies the same cell and stacks in source order, with the last element on top."
         }
       ]
     },

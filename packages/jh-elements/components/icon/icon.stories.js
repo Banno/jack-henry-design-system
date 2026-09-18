@@ -23,6 +23,11 @@ export default {
       options: ['x-small', 'small', 'medium', 'large', 'x-large', 'xx-large'],
     },
   },
+  parameters: {
+    actions: {
+      disable: true
+    },
+  },
 };
 
 export const Overview = {

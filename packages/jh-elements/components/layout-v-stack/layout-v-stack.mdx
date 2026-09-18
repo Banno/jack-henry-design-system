@@ -1,0 +1,90 @@
+{/*
+SPDX-FileCopyrightText: 2026 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+ */}
+import { Meta, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as stories from './layout-v-stack.stories.js';
+
+<Meta title="Primitives/Layout V Stack" of={stories} />
+
+# Layout V Stack
+
+[Guidelines](https://jackhenry.design/pages/components/layout-v-stack/)
+
+<hr />
+
+Layout V Stack is a layout primitive that arranges elements slotted into it in a single vertical column.
+It uses Flexbox under the hood, stacking slotted elements from top to bottom.
+
+## Usage
+
+Import the `<jh-layout-v-stack>` component:
+
+```javascript
+import '@jack-henry/jh-elements/primitives/layout-v-stack/layout-v-stack.js';
+```
+
+Place elements in the default slot. Each slotted element becomes a flex item stacked vertically:
+
+```html
+<jh-layout-v-stack gap="100">
+  <jh-button label="Save"></jh-button>
+  <jh-button label="Cancel"></jh-button>
+</jh-layout-v-stack>
+```
+
+## Spacing
+
+`gap` and `padding` both map to the `--jh-dimension-*` token scale, so spacing stays consistent with the rest of the design system.
+
+- `gap` sets the space between slotted elements.
+- `padding` sets the inner padding between the container edges and its slotted elements.
+
+Both accept the same values: `0`, `25`, `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, and `1000`.
+
+```html
+<jh-layout-v-stack gap="200" padding="100">
+  <!-- slotted elements -->
+</jh-layout-v-stack>
+```
+
+## Alignment
+
+`align` and `justify` control how slotted elements are positioned:
+
+- `align` sets the cross-axis (horizontal) alignment via `align-items`: `start`, `end`, `center`, `stretch`, or `baseline`.
+- `justify` sets the main-axis (vertical) distribution via `justify-content`: `start`, `end`, `center`, `between`, `around`, or `evenly`.
+
+```html
+<jh-layout-v-stack align="center" justify="between">
+  <!-- slotted elements -->
+</jh-layout-v-stack>
+```
+
+## Wrapping
+
+By default slotted elements stay in a single column and may overflow the container. Add the boolean `wrap` attribute to let slotted elements reflow onto new columns when they run out of space along the main axis.
+
+```html
+<jh-layout-v-stack wrap gap="100">
+  <!-- slotted elements -->
+</jh-layout-v-stack>
+```
+
+## Composition
+
+Layout primitives are designed to compose. Because `<jh-layout-v-stack>` is itself a valid flex child, it nests freely inside `<jh-layout-h-stack>` and other `<jh-layout-v-stack>` containers. See [Layout Composition](?path=/docs/primitives-layout-composition--docs) for common patterns such as toolbars, card layouts, and form rows.
+
+## Component API
+
+For boolean attributes, true indicates that the attribute has been set without a value: `<jh-layout-v-stack wrap></jh-layout-v-stack>`. While false indicates the attribute does not exist in the DOM: `<jh-layout-v-stack></jh-layout-v-stack>`.
+
+<ArgTypes />
+
+## Feedback
+
+Have an idea that will improve this component or have an issue to report? Let us know by submitting 
+an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
+
+Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

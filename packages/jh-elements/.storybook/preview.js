@@ -58,6 +58,8 @@ const preview = {
           ['*',
           ['Table', 'Table Row', 'Table Data Cell', 'Table Header Cell'],
         ],
+        'Primitives',
+        ['Primitives', '*']
         ],
         locales: '',
       },

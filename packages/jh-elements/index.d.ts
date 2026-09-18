@@ -34,6 +34,7 @@ import { JhTableDataCell } from './components/table-data-cell/table-data-cell.js
 import { JhTableHeaderCell } from './components/table-header-cell/table-header-cell.js';
 import { JhSelect } from './components/select/select.js';
 import { JhInputNumber } from './components/input-number/input-number.js';
+import { JhLayoutZStack } from './components/layout-z-stack/layout-z-stack.js';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -69,5 +70,6 @@ declare global {
     'jh-table-header-cell': JhTableHeaderCell;
     'jh-select': JhSelect;
     'jh-input-number': JhInputNumber;
+    'jh-layout-z-stack': JhLayoutZStack;
   }
 }

@@ -81,6 +81,6 @@ for engineers, author guidance, and a playground where you can test drive our co
 We are currently not accepting PRs, however there are a number of ways you can contribute in the form of feedback such as requesting features, reporting bugs,
 and participating in our discussions space.
 
-## Release Guide
+## Release guide
 
 Release cadence, versioning, release phases, breaking changes, and deprecations: [docs/release-guide.md](./docs/release-guide.md)

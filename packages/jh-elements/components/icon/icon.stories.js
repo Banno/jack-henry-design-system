@@ -75,6 +75,7 @@ const fallbackStoryStyles = css`
   div[id^="story-root"] {
     display: flex;
     justify-content: center;
+    align-items: flex-start;
     gap: 2rem;
   }
   .fallback-item {
@@ -124,7 +125,7 @@ export const Fallback = {
           />
         </svg>
       </jh-icon>
-      <span>size="bogus"</span>
+      <span>size="bogus" (unrecognized, fails visibly)</span>
     </div>
   `,
 };
@@ -137,7 +138,7 @@ Fallback.parameters = {
   styles: fallbackStoryStyles,
   docs: {
     description: {
-      story: 'When `size` is absent or set to an unrecognized value, the icon falls back to the `medium` size.',
+      story: 'When `size` is absent, the icon falls back to the documented `medium` default. An unrecognized value is not corrected: the icon renders at the SVG\'s intrinsic size so the error stays visible, per RFC 7 Amendment 1.',
     },
   },
 };

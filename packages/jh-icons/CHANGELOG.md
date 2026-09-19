@@ -1,5 +1,11 @@
 # @jack-henry/jh-icons
 
+## 2.1.2
+
+### Patch Changes
+
+- [#238](https://github.com/Banno/jack-henry-design-system/pull/238) [`b945c11`](https://github.com/Banno/jack-henry-design-system/commit/b945c11b5b3c760d206322a77dae3d1e7ef3e5fa) Thanks [@stephhubka](https://github.com/stephhubka)! - [icons] bug fix - generate-wc.js now reports generation failures and exits non-zero instead of always reporting success.
+
 ## 2.1.1
 
 ### Patch Changes

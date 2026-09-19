@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2026 Jack Henry & Associates, Inc.
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # List item + list group — pass 1 spec
 
 2026-09-18 · Steph Hubka

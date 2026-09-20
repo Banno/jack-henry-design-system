@@ -26,7 +26,14 @@ const json = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
  *   events: { [eventName]: { prependToDescription: deprecatedMessage } }
  * }
  */
-const deprecations = {};
+const deprecations = {
+  'jh-badge': {
+    cssProperties: {
+      '--jh-badge-color-background-enabled': 'Use `appearance` or the per-appearance hooks.',
+      '--jh-badge-color-text-enabled': 'Use `appearance` or the per-appearance hooks.',
+    },
+  },
+};
 
 // Apply deprecations
 json.tags.forEach(tag => {

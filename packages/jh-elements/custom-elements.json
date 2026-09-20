@@ -7,33 +7,76 @@
       "attributes": [
         {
           "name": "count",
-          "description": "Number to show within the badge. If no `count` is supplied, Badge will render as a dot.",
+          "description": "Number to show within the badge. If no `count` is supplied, Badge renders as a dot.",
           "type": "?string"
         },
         {
           "name": "max-count",
-          "description": "Sets the max count to show. Appends `+` to the `max-count` when value is exceeded.",
+          "description": "Sets the max count to show. Appends `+` to the `max-count` when the value is exceeded. Set to `0` to disable.",
           "type": "?number",
           "default": "99"
+        },
+        {
+          "name": "appearance",
+          "description": "`negative` (default) means act — unread, overdue, failed. `neutral` means count — items, selected.",
+          "type": "'negative' | 'neutral'",
+          "default": "\"negative\""
+        },
+        {
+          "name": "show-zero",
+          "description": "Render the badge when `count` is `0`. Off by default: a zero count renders nothing.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "label",
+          "description": "Accessible text for the badge, e.g. \"3 unread messages\". Required for a dot badge to convey meaning.",
+          "type": "?string"
         }
       ],
       "properties": [
         {
           "name": "count",
           "attribute": "count",
-          "description": "Number to show within the badge. If no `count` is supplied, Badge will render as a dot.",
+          "description": "Number to show within the badge. If no `count` is supplied, Badge renders as a dot.",
           "type": "?string"
         },
         {
           "name": "maxCount",
           "attribute": "max-count",
-          "description": "Sets the max count to show. Appends `+` to the `max-count` when value is exceeded.",
+          "description": "Sets the max count to show. Appends `+` to the `max-count` when the value is exceeded. Set to `0` to disable.",
           "type": "?number",
           "default": "99"
         },
         {
+          "name": "appearance",
+          "attribute": "appearance",
+          "description": "`negative` (default) means act — unread, overdue, failed. `neutral` means count — items, selected.",
+          "type": "'negative' | 'neutral'",
+          "default": "\"negative\""
+        },
+        {
+          "name": "showZero",
+          "attribute": "show-zero",
+          "description": "Render the badge when `count` is `0`. Off by default: a zero count renders nothing.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "Accessible text for the badge, e.g. \"3 unread messages\". Required for a dot badge to convey meaning.",
+          "type": "?string"
+        },
+        {
           "name": "uniqueId",
           "type": "number"
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "Optional anchor. When content is slotted (an icon, an avatar, a nav item), the badge\noverlays its top-right corner. With no slotted content the badge renders inline."
         }
       ],
       "cssProperties": [
@@ -42,12 +85,42 @@
           "description": "The badge border radius. Defaults to `--jh-border-radius-pill`."
         },
         {
+          "name": "--jh-badge-color-background-negative",
+          "description": "Background for `appearance=\"negative\"`. Defaults to `--jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-badge-color-text-negative",
+          "description": "Text color for `appearance=\"negative\"`. Defaults to `--jh-color-content-on-negative-enabled`."
+        },
+        {
+          "name": "--jh-badge-color-background-neutral",
+          "description": "Background for `appearance=\"neutral\"`. Defaults to `--jh-color-container-neutral-enabled`."
+        },
+        {
+          "name": "--jh-badge-color-text-neutral",
+          "description": "Text color for `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-badge-color-ring",
+          "description": "A 2px ring around the badge that separates it from what's behind it\n(an avatar, a brand-colored nav item). Defaults to `transparent`; set it to the surface color."
+        },
+        {
+          "name": "--jh-badge-space-offset-x",
+          "description": "Horizontal offset of an anchored badge from the anchor's right edge. Defaults to `--jh-dimension-100` (inward)."
+        },
+        {
+          "name": "--jh-badge-space-offset-y",
+          "description": "Vertical offset of an anchored badge from the anchor's top edge. Defaults to `--jh-dimension-100` (inward)."
+        },
+        {
           "name": "--jh-badge-color-background-enabled",
-          "description": "The badge background color. Defaults to `--jh-color-content-negative-enabled`."
+          "description": "Deprecated. Use `appearance` or the per-appearance hooks.",
+          "deprecatedMessage": "Use `appearance` or the per-appearance hooks."
         },
         {
           "name": "--jh-badge-color-text-enabled",
-          "description": "The badge text color. Defaults to `--jh-color-content-on-negative-enabled`."
+          "description": "Deprecated. Use `appearance` or the per-appearance hooks.",
+          "deprecatedMessage": "Use `appearance` or the per-appearance hooks."
         }
       ]
     },

@@ -32,9 +32,64 @@ To use `<jh-badge>`:
 ```
 
 ## Count Behavior
-- Badges display the `count` when set to a numerical value greater than or equal to 0. 
+- Badges display the `count` when set to a numerical value greater than 0.
+- A `count` of `0` renders nothing by default. Set `show-zero` to render the badge when `count` is `0`.
+- A non-numeric `count` logs a console warning and renders nothing.
 - When the `max-count` is set and surpassed by the `count`, the `max-count` will render with an appended `+` character as such: `max-count+`
 - Authors can omit the `count` property to render a dot-only badge in cases where `count` does not need to be displayed. 
+
+```html
+<jh-badge count="0" show-zero></jh-badge>
+```
+
+## Appearance
+
+Use the `appearance` property to communicate the intent of the badge.
+
+- `negative` (default): the user should act. Use for unread, overdue, or failed items.
+- `neutral`: the badge is only a count. Use for the number of items or selections.
+
+The neutral dot uses a content color (gray-600); the neutral count uses a light container with dark text.
+
+```html
+<jh-badge count="3"></jh-badge>
+<jh-badge appearance="neutral" count="3"></jh-badge>
+```
+
+## Anchoring
+
+Place content in the default slot to anchor the badge to it. When content is slotted (an icon, an avatar, a nav item), the badge overlays its top-right corner. With no slotted content, the badge renders inline.
+
+```html
+<jh-badge count="3"><jh-icon-bell size="medium"></jh-icon-bell></jh-badge>
+```
+
+Use `--jh-badge-space-offset-x` and `--jh-badge-space-offset-y` to adjust the position of an anchored badge.
+
+When the badge sits on top of an avatar or a brand-colored surface, set `--jh-badge-color-ring` to the color of the surface behind the badge. This renders a 2px ring that separates the badge from its anchor. The ring defaults to `transparent`.
+
+```html
+<jh-badge count="3" style="--jh-badge-color-ring: var(--jh-color-container-primary-enabled);">
+  <jh-icon-bell size="medium"></jh-icon-bell>
+</jh-badge>
+```
+
+## Label
+
+Use the `label` property to provide accessible text for the badge, for example `3 unread messages`. When `label` is set, the visible count is hidden from assistive technology and the `label` is announced instead. A dot badge has no text content, so `label` is required for a dot badge to convey meaning.
+
+```html
+<jh-badge label="Unread notifications"><jh-icon-bell size="medium"></jh-icon-bell></jh-badge>
+```
+
+## Deprecated CSS hooks
+
+`--jh-badge-color-background-enabled` and `--jh-badge-color-text-enabled` are deprecated. They continue to work, but authors should use `appearance` or the per-appearance hooks instead:
+
+| Deprecated | Replacement |
+| --- | --- |
+| `--jh-badge-color-background-enabled` | `--jh-badge-color-background-negative`, `--jh-badge-color-background-neutral` |
+| `--jh-badge-color-text-enabled` | `--jh-badge-color-text-negative`, `--jh-badge-color-text-neutral` |
 
 
 ## Accessibility
@@ -60,7 +115,7 @@ The following success criteria are of concern:
 
 - To satisfy [WCAG 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) when using custom colors, be sure the minimum contrast requirements are met.
 
-- When using the dot-only variant to represent the presence of items, for example unread messages, ensure that the meaning of the badge is also conveyed to users in text via the originating element.
+- When using the dot-only variant to represent the presence of items, for example unread messages, set the `label` property or ensure that the meaning of the badge is also conveyed to users in text via the originating element.
 
 - When badge is used to indicate a change on the page, for example a new chat message, authors should be sure to set up an appropriate live region in order to communicate those changes to screen reader users.
 

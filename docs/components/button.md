@@ -86,6 +86,7 @@ Buttons act as a link when a hyperlink is set via the `href` property. Assistive
 - Pair a tertiary button with a primary button when there are multiple calls to action.
 - Keep labels concise and lead with an imperative verb, such as "Submit" instead of "Submitting."
 - Use `iconOnly` instead of removing the label when a button needs to be a perfect square.
+- Set `aria-busy="true"` on a live region while a pending button's process runs, and `aria-busy="false"` once it completes, so the update is announced at the right time.
 
 ### Don't
 
@@ -116,8 +117,6 @@ The following WCAG 2.2 success criteria are relevant:
 - Use `accessible-disabled="true"` instead when a disabled button should stay discoverable to assistive technology. It sets `aria-disabled="true"` on the button, so it remains perceivable to screen reader users while staying inoperable.
 
 ## API reference
-
-See the [Button docs on Storybook](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-button--docs) for a full interactive reference.
 
 Import the component and slot an icon into the corresponding slot:
 

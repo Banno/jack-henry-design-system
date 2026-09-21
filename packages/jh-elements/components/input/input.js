@@ -7,7 +7,6 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { JhElement } from '../element/element.js';
 import '../button/button.js';
 import '@jack-henry/jh-icons/icons-wc/icon-circle-xmark.js';
-import { validationMixin } from '../../../jh-validate/validate.js';
 
 /**
  * @cssprop --jh-input-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.

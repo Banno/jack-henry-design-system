@@ -625,6 +625,7 @@ export class JhInput extends JhElement {
         reference: {
           'maxlength': this.maxlength,
           'minlength': this.minlength,
+          'pattern': this.pattern,
         }
       } );
     }

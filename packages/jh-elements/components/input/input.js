@@ -424,9 +424,6 @@ export class JhInput extends JhElement {
       size: { type: String, reflect: true },
       /** Sets the value of the input. */
       value: { type: String },
-
-      // added for validation library compatibility
-      pattern: { type: String },
     };
   }
 

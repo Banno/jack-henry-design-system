@@ -33,7 +33,6 @@ export class JhRadioGroup extends JhElement {
   /** @type {?string} */
   #value;
 
-
   static get styles() {
     return css`
       :host {

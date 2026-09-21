@@ -189,9 +189,6 @@ export class JhCheckboxGroup extends JhElement {
         reflect: true,
         attribute: 'show-indicator',
       },
-      // added for validation library compatibility
-      minRequired: { type: Number, attribute: 'min-required' },
-      maxRequired: { type: Number, attribute: 'max-required' },
     };
   }
   constructor() {
@@ -214,9 +211,6 @@ export class JhCheckboxGroup extends JhElement {
     this.orientation = 'vertical';
     /** @type {?boolean} */
     this.showIndicator = false;
-    // added for validation library compatibility
-    this.minRequired = null;
-    this.maxRequired = null;
     this.addEventListener('jh-change', this.#handleChange);
   }
 

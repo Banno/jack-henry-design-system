@@ -33,8 +33,6 @@ export class JhRadioGroup extends JhElement {
   /** @type {?string} */
   #value;
 
-  // added for validation library compatibility
-  static groupControl = true;
 
   static get styles() {
     return css`

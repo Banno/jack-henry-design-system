@@ -116,7 +116,6 @@ export class JhInput extends JhElement {
           --jh-input-value-color-text,
           var(--jh-color-content-primary-enabled)
         );
-        border: 3px solid green;
       }
       label {
         color: var(
@@ -481,9 +480,6 @@ export class JhInput extends JhElement {
     this.size = 'medium';
     /** @type {?string} */
     this.value = null;
-
-    // added for validation library compatibility
-    this.pattern = null;
   }
 
   connectedCallback() {
@@ -632,7 +628,6 @@ export class JhInput extends JhElement {
         reference: {
           'maxlength': this.maxlength,
           'minlength': this.minlength,
-          'pattern': this.pattern,
         }
       } );
     }

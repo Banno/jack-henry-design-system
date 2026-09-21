@@ -11,5 +11,17 @@
       "Brad McCormick",
       "Maya Buser De"
     ],
-    "license": "Apache-2.0"
+    "license": "Apache-2.0",
+    "type": "module",
+    "files": [
+      "mixins",
+      "NOTICE"
+    ],
+    "scripts": {
+    "prepack": "cp ../../NOTICE .",
+    "postpack": "rm -f NOTICE"
+    },
+    "exports": {
+      "./jh-validate": "./mixins/jh-validate/validate.js"
+    }
 }

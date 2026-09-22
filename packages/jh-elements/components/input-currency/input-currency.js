@@ -21,38 +21,60 @@ export class JhInputCurrency extends JhInput {
 
   static get properties() {
     return {
-      /** Sets the maximum value for validation (package or custom). Does not natively enforce limits. */
       max: { type: Number },
-      /** Sets the minimum value for validation (package or custom). Does not natively enforce limits. */
       min: { type: Number },
-      /** Disables automatic comma insertion into the input value as the user types. */
-      hideCommas: { type: Boolean, attribute: 'hide-commas', reflect: true },
-      /** Disables formatting the value with two decimal places as the user types, cash-register style (each digit entered shifts in from the right). */
-      hideDecimal: { type: Boolean, attribute: 'hide-decimal', reflect: true },
-      /** Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot. */
+      hideCommas: { 
+        type: Boolean, 
+        attribute: 'hide-commas',
+        reflect: true 
+      },
+      hideDecimal: { 
+        type: Boolean, 
+        attribute: 'hide-decimal',
+        reflect: true 
+      },
       prefix: { type: String },
-       /** Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.
-       *
-       * [Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)
-       */
       inputmode: { type: String },
     };
   }
 
   constructor() {
     super();
-    /** @type {number | null} */
+    /** 
+     * Sets the maximum value for validation (package or custom). Does not natively enforce limits.
+     * @type {number | null} 
+     */
     this.max = null;
-    /** @type {number | null} */
+    /** 
+     * Sets the minimum value for validation (package or custom). Does not natively enforce limits.
+     * @type {number | null} 
+     */
     this.min = null;
-    /** @type {boolean} */
+    /** 
+     * Disables automatic comma insertion into the input value as the user types.
+     * @attr hide-commas
+     * @type {boolean} 
+     */
     this.hideCommas = false;
-    /** @type {boolean} */
+    /** 
+     * Disables formatting the value with two decimal places as the user types, cash-register style (each digit entered shifts in from the right).
+     * @attr hide-decimal
+     * @type {boolean} 
+     */
     this.hideDecimal = false;
-    /** @type {string | null} */
+    /** 
+     * Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.
+     * @type {string | null} 
+     */
     this.prefix = '$';
-    /** @type {string | null} */
+    /** 
+     * Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.
+     *
+     * [Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)
+     * @type {string | null} 
+     */
     this.inputmode = 'decimal';
+
     this.addEventListener('jh-input', this.#addRawValueToInputEvent);
   }
 

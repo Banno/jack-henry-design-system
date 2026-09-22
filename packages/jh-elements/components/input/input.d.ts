@@ -90,7 +90,6 @@ export class JhInput extends JhElement {
             type: BooleanConstructor;
             attribute: string;
         };
-        /** Determines whether the input value is aligned to the left or right side of the input field. */
         horizontalAlign: {
             type: StringConstructor;
             attribute: string;
@@ -120,7 +119,6 @@ export class JhInput extends JhElement {
         pattern: {
             type: StringConstructor;
         };
-        /** Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot. */
         prefix: {
             type: StringConstructor;
         };
@@ -146,7 +144,6 @@ export class JhInput extends JhElement {
             type: StringConstructor;
             reflect: boolean;
         };
-        /** Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot. */
         suffix: {
             type: StringConstructor;
         };
@@ -210,7 +207,10 @@ export class JhInput extends JhElement {
      * @type {boolean}
      */
     hideRightSlot: boolean;
-    /** @type {'left' | 'right'} */
+    /**
+     * Determines whether the input value is aligned to the left or right side of the input field.
+     * @type {'left' | 'right'}
+     */
     horizontalAlign: "left" | "right";
     /**
      * Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.
@@ -285,7 +285,10 @@ export class JhInput extends JhElement {
      * @type { 'small' | 'medium' | 'large' }
      */
     size: "small" | "medium" | "large";
-    /** @type {string | null} */
+    /**
+     * Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.
+     * @type {string | null}
+     */
     suffix: string | null;
     /** @param {string | null} newValue */
     set value(newValue: string | null);

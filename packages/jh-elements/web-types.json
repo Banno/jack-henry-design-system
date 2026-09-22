@@ -766,22 +766,6 @@
           "doc-url": "",
           "attributes": [
             {
-              "name": "max",
-              "description": "Sets the maximum value for validation (package or custom). Does not natively enforce limits.",
-              "value": {
-                "type": "number | null",
-                "default": "null"
-              }
-            },
-            {
-              "name": "min",
-              "description": "Sets the minimum value for validation (package or custom). Does not natively enforce limits.",
-              "value": {
-                "type": "number | null",
-                "default": "null"
-              }
-            },
-            {
               "name": "hide-commas",
               "description": "Disables automatic comma insertion into the input value as the user types.",
               "value": {
@@ -795,6 +779,22 @@
               "value": {
                 "type": "boolean",
                 "default": "false"
+              }
+            },
+            {
+              "name": "max",
+              "description": "Sets the maximum value for validation (package or custom). Does not natively enforce limits.",
+              "value": {
+                "type": "number | null",
+                "default": "null"
+              }
+            },
+            {
+              "name": "min",
+              "description": "Sets the minimum value for validation (package or custom). Does not natively enforce limits.",
+              "value": {
+                "type": "number | null",
+                "default": "null"
               }
             },
             {
@@ -1006,9 +1006,9 @@
             },
             {
               "name": "value",
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "value": {
-                "type": "?string",
+                "type": "string | null",
                 "default": "null"
               }
             }
@@ -1083,8 +1083,8 @@
               },
               {
                 "name": "value",
-                "description": "Sets the value of the input.",
-                "type": "?string"
+                "description": "The current value of the input.",
+                "type": "string | null"
               },
               {
                 "name": "accessibleLabel",
@@ -1448,9 +1448,9 @@
             },
             {
               "name": "value",
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "value": {
-                "type": "?string",
+                "type": "string | null",
                 "default": "null"
               }
             }
@@ -1500,8 +1500,8 @@
               },
               {
                 "name": "value",
-                "description": "Sets the value of the input.",
-                "type": "?string"
+                "description": "The current value of the input.",
+                "type": "string | null"
               },
               {
                 "name": "accessibleLabel",
@@ -1894,9 +1894,9 @@
             },
             {
               "name": "value",
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "value": {
-                "type": "?string",
+                "type": "string | null",
                 "default": "null"
               }
             }
@@ -1964,8 +1964,8 @@
               },
               {
                 "name": "value",
-                "description": "Sets the value of the input.",
-                "type": "?string"
+                "description": "The current value of the input.",
+                "type": "string | null"
               },
               {
                 "name": "accessibleLabel",
@@ -2363,9 +2363,9 @@
             },
             {
               "name": "value",
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "value": {
-                "type": "?string",
+                "type": "string | null",
                 "default": "null"
               }
             }
@@ -2433,8 +2433,8 @@
               },
               {
                 "name": "value",
-                "description": "Sets the value of the input.",
-                "type": "?string"
+                "description": "The current value of the input.",
+                "type": "string | null"
               },
               {
                 "name": "accessibleLabel",
@@ -2808,9 +2808,9 @@
             },
             {
               "name": "value",
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "value": {
-                "type": "?string",
+                "type": "string | null",
                 "default": "null"
               }
             }
@@ -2855,8 +2855,8 @@
             "properties": [
               {
                 "name": "value",
-                "description": "Sets the value of the input.",
-                "type": "?string"
+                "description": "The current value of the input.",
+                "type": "string | null"
               },
               {
                 "name": "accessibleLabel",
@@ -3230,9 +3230,9 @@
             },
             {
               "name": "value",
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "value": {
-                "type": "?string",
+                "type": "string | null",
                 "default": "null"
               }
             }
@@ -3277,8 +3277,8 @@
             "properties": [
               {
                 "name": "value",
-                "description": "Sets the value of the input.",
-                "type": "?string"
+                "description": "The current value of the input.",
+                "type": "string | null"
               },
               {
                 "name": "accessibleLabel",
@@ -3693,9 +3693,9 @@
             },
             {
               "name": "value",
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "value": {
-                "type": "?string",
+                "type": "string | null",
                 "default": "null"
               }
             }
@@ -3775,8 +3775,8 @@
               },
               {
                 "name": "value",
-                "description": "Sets the value of the input.",
-                "type": "?string"
+                "description": "The current value of the input.",
+                "type": "string | null"
               },
               {
                 "name": "accessibleLabel",
@@ -4141,9 +4141,9 @@
             },
             {
               "name": "value",
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "value": {
-                "type": "?string",
+                "type": "string | null",
                 "default": "null"
               }
             }
@@ -4188,8 +4188,8 @@
             "properties": [
               {
                 "name": "value",
-                "description": "Sets the value of the input.",
-                "type": "?string"
+                "description": "The current value of the input.",
+                "type": "string | null"
               },
               {
                 "name": "accessibleLabel",
@@ -4563,9 +4563,9 @@
             },
             {
               "name": "value",
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "value": {
-                "type": "?string",
+                "type": "string | null",
                 "default": "null"
               }
             }
@@ -4610,8 +4610,8 @@
             "properties": [
               {
                 "name": "value",
-                "description": "Sets the value of the input.",
-                "type": "?string"
+                "description": "The current value of the input.",
+                "type": "string | null"
               },
               {
                 "name": "accessibleLabel",
@@ -5763,9 +5763,9 @@
             },
             {
               "name": "value",
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "value": {
-                "type": "?string",
+                "type": "string | null",
                 "default": "null"
               }
             }
@@ -5837,8 +5837,8 @@
               },
               {
                 "name": "value",
-                "description": "Sets the value of the input.",
-                "type": "?string"
+                "description": "The current value of the input.",
+                "type": "string | null"
               },
               {
                 "name": "accessibleLabel",

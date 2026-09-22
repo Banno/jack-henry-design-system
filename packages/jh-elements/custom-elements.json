@@ -2428,9 +2428,9 @@
               "name": "value",
               "privacy": "public",
               "type": {
-                "text": "?string"
+                "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -2915,6 +2915,26 @@
           ],
           "attributes": [
             {
+              "name": "hide-commas",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Disables automatic comma insertion into the input value as the user types.",
+              "default": "false",
+              "fieldName": "hideCommas",
+              "attribute": "hide-commas"
+            },
+            {
+              "name": "hide-decimal",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Disables formatting the value with two decimal places as the user types, cash-register style (each digit entered shifts in from the right).",
+              "default": "false",
+              "fieldName": "hideDecimal",
+              "attribute": "hide-decimal"
+            },
+            {
               "name": "max",
               "type": {
                 "text": "number | null"
@@ -2931,24 +2951,6 @@
               "description": "Sets the minimum value for validation (package or custom). Does not natively enforce limits.",
               "default": "null",
               "fieldName": "min"
-            },
-            {
-              "name": "hide-commas",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Disables automatic comma insertion into the input value as the user types.",
-              "default": "false",
-              "fieldName": "hideCommas"
-            },
-            {
-              "name": "hide-decimal",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Disables formatting the value with two decimal places as the user types, cash-register style (each digit entered shifts in from the right).",
-              "default": "false",
-              "fieldName": "hideDecimal"
             },
             {
               "name": "prefix",
@@ -3300,9 +3302,9 @@
             {
               "name": "value",
               "type": {
-                "text": "?string"
+                "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -3667,9 +3669,9 @@
               "name": "value",
               "privacy": "public",
               "type": {
-                "text": "?string"
+                "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -4782,9 +4784,9 @@
             {
               "name": "value",
               "type": {
-                "text": "?string"
+                "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -5267,9 +5269,9 @@
               "name": "value",
               "privacy": "public",
               "type": {
-                "text": "?string"
+                "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -6118,9 +6120,9 @@
             {
               "name": "value",
               "type": {
-                "text": "?string"
+                "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -6301,9 +6303,9 @@
               "name": "value",
               "privacy": "public",
               "type": {
-                "text": "?string"
+                "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -7169,9 +7171,9 @@
             {
               "name": "value",
               "type": {
-                "text": "?string"
+                "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -7495,9 +7497,9 @@
               "name": "value",
               "privacy": "public",
               "type": {
-                "text": "?string"
+                "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -8625,9 +8627,9 @@
             {
               "name": "value",
               "type": {
-                "text": "?string"
+                "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -8713,9 +8715,9 @@
               "name": "value",
               "privacy": "public",
               "type": {
-                "text": "?string"
+                "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -9843,9 +9845,9 @@
             {
               "name": "value",
               "type": {
-                "text": "?string"
+                "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -10295,9 +10297,9 @@
               "name": "value",
               "privacy": "public",
               "type": {
-                "text": "?string"
+                "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -11179,9 +11181,9 @@
             {
               "name": "value",
               "type": {
-                "text": "?string"
+                "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -11257,9 +11259,9 @@
               "name": "value",
               "privacy": "public",
               "type": {
-                "text": "?string"
+                "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -12387,9 +12389,9 @@
             {
               "name": "value",
               "type": {
-                "text": "?string"
+                "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -12627,9 +12629,9 @@
               "name": "value",
               "privacy": "public",
               "type": {
-                "text": "?string"
+                "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -13257,9 +13259,9 @@
             {
               "name": "value",
               "type": {
-                "text": "?string"
+                "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -15957,9 +15959,9 @@
               "name": "value",
               "privacy": "public",
               "type": {
-                "text": "?string"
+                "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -16843,9 +16845,9 @@
             {
               "name": "value",
               "type": {
-                "text": "?string"
+                "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",

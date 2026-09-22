@@ -403,7 +403,6 @@ export class JhInput extends JhElement {
       helperText: { type: String, attribute: 'helper-text' },
       hideLeftSlot: { type: Boolean, attribute: 'hide-left-slot' },
       hideRightSlot: { type: Boolean, attribute: 'hide-right-slot' },
-      /** Determines whether the input value is aligned to the left or right side of the input field. */
       horizontalAlign: { type: String, attribute: 'horizontal-align' },
       inputMask: { type: String, attribute: 'input-mask' },
       inputmode: { type: String },
@@ -413,7 +412,6 @@ export class JhInput extends JhElement {
       minlength: { type: Number },
       name: { type: String },
       pattern: { type: String },
-      /** Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot. */
       prefix: { type: String },
       readonly: { type: Boolean },
       required: { type: Boolean },
@@ -421,7 +419,6 @@ export class JhInput extends JhElement {
       showClearButton: {type: Boolean, attribute: 'show-clear-button'}, 
       showIndicator: { type: Boolean, attribute: 'show-indicator' },
       size: { type: String, reflect: true },
-      /** Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot. */
       suffix: { type: String },
       value: { type: String },
     };
@@ -485,7 +482,10 @@ export class JhInput extends JhElement {
      * @type {boolean}
      */
     this.hideRightSlot = false;
-    /** @type {'left' | 'right'} */
+    /** 
+     * Determines whether the input value is aligned to the left or right side of the input field.
+     * @type {'left' | 'right'} 
+     */
     this.horizontalAlign = 'left';
     /**
      * Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.
@@ -530,7 +530,10 @@ export class JhInput extends JhElement {
      * @type {string | null}
      */
     this.pattern = null;
-    /** @type {string | null} */
+    /** 
+     * Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.
+     * @type {string | null} 
+     */
     this.prefix = null;
     /** @type {boolean} */
     this.readonly = false;
@@ -562,9 +565,15 @@ export class JhInput extends JhElement {
      * @type { 'small' | 'medium' | 'large' }
      */
     this.size = 'medium';
-    /** @type {string | null} */
+    /**
+     * Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.
+     * @type {string | null}
+     */
     this.suffix = null;
-    /** @type {?string} */
+    /**
+     * The current value of the input.
+     * @type {string | null}
+     */
     this.value = null;
   }
 

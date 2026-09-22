@@ -34,9 +34,17 @@ export default {
       control: 'number',
     },
   },
+  parameters: {
+    actions: {
+      disable: true
+    },
+    interactions: {
+      disable: true
+    }
+  }
 };
 
-export const Overview = { 
+export const Overview = {
   render: (args) => html`
     <div class="overview-row">
       <jh-badge></jh-badge>
@@ -69,7 +77,3 @@ count: 1,
 Playground.parameters = {
   theme: 'both-themes',
 };
-
-
-
-

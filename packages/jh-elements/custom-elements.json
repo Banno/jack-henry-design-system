@@ -76,6 +76,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -742,6 +746,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -1113,6 +1121,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -1395,6 +1407,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -1850,6 +1866,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -2063,6 +2083,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -2144,6 +2168,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ]
             }
@@ -2188,7 +2216,7 @@
               "name": "--jh-icon-color-fill"
             },
             {
-              "description": "The icon size when `size=\"extra-small\"`. Defaults to `--jh-dimension-400`.",
+              "description": "The icon size when `size=\"x-small\"`. Defaults to `--jh-dimension-400`.",
               "name": "--jh-icon-size-extra-small"
             },
             {
@@ -2204,11 +2232,11 @@
               "name": "--jh-icon-size-large"
             },
             {
-              "description": "The icon size when `size=\"extra-large\"`. Defaults to `--jh-dimension-1400`.",
+              "description": "The icon size when `size=\"x-large\"`. Defaults to `--jh-dimension-1400`.",
               "name": "--jh-icon-size-extra-large"
             },
             {
-              "description": "The icon size when `size=\"extra-extra-large\"`. Defaults to `--jh-dimension-2100`.",
+              "description": "The icon size when `size=\"xx-large\"`. Defaults to `--jh-dimension-2100`.",
               "name": "--jh-icon-size-extra-extra-large"
             }
           ],
@@ -2268,6 +2296,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -2713,6 +2745,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -4186,6 +4222,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -4658,6 +4698,27 @@
           ],
           "members": [
             {
+              "kind": "method",
+              "name": "dispatchCustomEvent",
+              "parameters": [
+                {
+                  "name": "eventName"
+                },
+                {
+                  "name": "detail",
+                  "default": "{}"
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
+                }
+              ],
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            },
+            {
               "kind": "field",
               "name": "accessibleLabelHidePassword",
               "privacy": "public",
@@ -5071,29 +5132,47 @@
                 "name": "JhElement",
                 "module": "components/element/element.js"
               }
+            }
+          ],
+          "events": [
+            {
+              "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`. Unlike other inputs, this event does not bubble or cross the shadow boundary, so it is only observable on the element itself.",
+              "name": "jh-select",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
             },
             {
-              "kind": "method",
-              "name": "dispatchCustomEvent",
-              "parameters": [
-                {
-                  "name": "eventName",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "detail",
-                  "default": "{}",
-                  "optional": true,
-                  "type": {
-                    "text": "Object"
-                  }
-                }
-              ],
+              "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.",
+              "name": "jh-change",
               "inheritedFrom": {
-                "name": "JhElement",
-                "module": "components/element/element.js"
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.",
+              "name": "jh-input",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`.",
+              "name": "jh-maxlength",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`.",
+              "name": "jh-input:clear-button-click",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
               }
             }
           ],
@@ -5722,48 +5801,6 @@
                 "module": "components/input/input.js"
               }
             }
-          ],
-          "events": [
-            {
-              "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.",
-              "name": "jh-select",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.",
-              "name": "jh-change",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.",
-              "name": "jh-input",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "description": "Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`.",
-              "name": "jh-maxlength",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`.",
-              "name": "jh-input:clear-button-click",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            }
           ]
         }
       ],
@@ -6185,6 +6222,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -7277,6 +7318,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -8686,6 +8731,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -9567,6 +9616,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -10707,6 +10760,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -11076,6 +11133,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -11421,6 +11482,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -11581,6 +11646,14 @@
             {
               "description": "The text color. Defaults to `--jh-color-content-primary-enabled`.",
               "name": "--jh-menu-color-text"
+            },
+            {
+              "description": "The menu host overflow, which controls clipping of the menu (including its rounded corners). Defaults to `hidden`.",
+              "name": "--jh-menu-overflow"
+            },
+            {
+              "description": "The menu content overflow, which controls scrolling of the menu items. Defaults to `hidden auto`.",
+              "name": "--jh-menu-content-overflow"
             }
           ],
           "slots": [
@@ -11619,6 +11692,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -11938,6 +12015,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -12250,6 +12331,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -12625,6 +12710,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -12999,6 +13088,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -13999,6 +14092,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -14589,6 +14686,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -14811,6 +14912,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -15136,6 +15241,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -15269,6 +15378,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -15476,6 +15589,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -15628,6 +15745,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -15913,6 +16034,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -16095,6 +16220,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -16272,6 +16401,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {
@@ -16442,6 +16575,10 @@
                   "type": {
                     "text": "Object"
                   }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
                 }
               ],
               "inheritedFrom": {

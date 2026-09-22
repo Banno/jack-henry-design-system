@@ -5,7 +5,9 @@
 name: Release
 on:
   push:
-    branches: [main] # Adjust branch name as needed
+    branches: 
+      - main
+      - 'release/v*' # Matches release/v3, release/v4, etc.
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref_name }}  
@@ -34,8 +36,6 @@ jobs:
       - name: Publish Packages
         id: changesets
         uses: changesets/action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           publish: pnpm run changeset:release
           createGithubReleases: true

@@ -19,7 +19,7 @@ export class JhElement extends LitElement {
      * @param {string} eventName
      * @param {Object} [detail]
      */
-    dispatchCustomEvent(eventName: string, detail?: any): void;
+    dispatchCustomEvent(eventName: string, detail?: any, options?: {}): void;
     #private;
 }
 import { LitElement } from 'lit';

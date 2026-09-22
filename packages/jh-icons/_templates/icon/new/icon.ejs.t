@@ -20,10 +20,6 @@ export default class <%= h.inflection.camelize(prefix.replace(/-/gi,'_')) %>Icon
   static get styles() {
     return css`
       :host {
-        --icon-size: var(
-          --jh-icon-size-medium,
-          var(--jh-dimension-600)
-        );
         fill: var(
           --jh-icon-color-fill,
           var(--jh-color-content-secondary-enabled)
@@ -31,6 +27,12 @@ export default class <%= h.inflection.camelize(prefix.replace(/-/gi,'_')) %>Icon
         width: var(--icon-size);
         height: var(--icon-size);
         display: inline-block;
+      }
+      :host(:not([size])) {
+        --icon-size: var(
+          --jh-icon-size-medium,
+          var(--jh-dimension-600)
+        );
       }
       :host([size='x-small']) {
         --icon-size: var(

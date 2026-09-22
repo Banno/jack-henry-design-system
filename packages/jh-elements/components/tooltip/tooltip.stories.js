@@ -72,6 +72,11 @@ export default {
       },
     },
   },
+  parameters: {
+    actions: {
+      disable: true
+    },
+  },
 };
 
 export const Overview = {

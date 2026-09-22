@@ -310,6 +310,9 @@ Empty.argTypes = {
 
 Empty.parameters = {
   styles: storyStyles,
+  actions: {
+    disable: true
+  },
 };
 
 export const MenuFlip = { render: (args) => html`

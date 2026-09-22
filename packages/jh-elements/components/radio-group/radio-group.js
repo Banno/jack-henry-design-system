@@ -7,7 +7,10 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { JhElement } from '../element/element.js';
 
 /**
- *
+ * Radio groups contain sets of radios from which only one option can be selected. 
+ * 
+ * [Radio Group Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-radio-group--docs)
+ * 
  * @cssprop --jh-radio-group-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-radio-group-required-color-text - The required indicator color. 
  * Defaults to `--jh-color-content-negative-enabled`.
@@ -29,8 +32,9 @@ export class JhRadioGroup extends JhElement {
   static get formAssociated() {
     return true;
   }
+  /** @type {Element | null} */
   #checked;
-  /** @type {?string} */
+  /** @type {string | null} */
   #value;
 
   static get styles() {
@@ -142,60 +146,45 @@ export class JhRadioGroup extends JhElement {
   }
   static get properties() {
     return {
-      /** Sets an `aria-label` to assist screen reader users when no visible label is present. */
       accessibleLabel: {
         type: String,
         attribute: 'accessible-label',
       },
-      /** Disables the radio group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT). */      
       disabled: {
         type: Boolean,
         reflect: true
       },
-      /** Text to be displayed when radio group has failed validation and `invalid` is true. */
       errorText: {
         type: String,
         attribute: 'error-text',
       },
-      /**
-       * Provides additional context or guidance for using the radio group. For `helper-text` to be displayed, the `label` property must also be set.
-       */
       helperText: {
+        type: String,
         attribute: 'helper-text',
       },
-      /** Sets an `aria-invalid` on the radio group to indicate the value supplied was invalid and displays `error-text` when set. */
       invalid: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Describes the type of data to be collected.
-       */
       label: {
         type: String,
       },
-      /** Sets the name of the radio group data when submitted in a form. */
       name: {
         type: String,
       },
-      /** Indicates a value is required. */
       required: {
         type: Boolean,
         reflect: true,
       },
-      /** Determines the orientation of the radio group. */
       orientation: {
         type: String,
         reflect: true,
       },
-      /** Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required`
-       * property is also set. For the indicator to be displayed, the `label` property must also be set.*/
       showIndicator: {
         type: Boolean,
         reflect: true,
         attribute: 'show-indicator',
       },
-      /** Sets the value of the radio group. */
       value: {
         type: String,
         reflect: true,
@@ -204,27 +193,61 @@ export class JhRadioGroup extends JhElement {
   }
   constructor() {
     super();
-    /** @type {?string} */
+    /**
+     * Sets an `aria-label` to assist screen reader users when no visible label is present.
+     * @attr accessible-label
+     * @type {string | null}
+     */
     this.accessibleLabel = null;
-    /** @type {boolean} */
+    /**
+     * Disables the radio group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).
+     * @type {boolean}
+     */
     this.disabled = false;
-    /** @type {?string} */
+    /**
+     * Text to be displayed when radio group has failed validation and `invalid` is true.
+     * @attr error-text
+     * @type {string | null}
+     */
     this.errorText = null;
-    /** @type {?string} */
+    /**
+     * Provides additional context or guidance for using the radio group. For `helper-text` to be displayed, the `label` property must also be set.
+     * @attr helper-text
+     * @type {string | null}
+     */
     this.helperText = null;
-    /** @type {?boolean} */
+    /**
+     * Sets an `aria-invalid` on the radio group to indicate the value supplied was invalid and displays `error-text` when set.
+     * @type {boolean}
+     */
     this.invalid = false;
-    /** @type {?string} */
+    /**
+     * Describes the type of data to be collected.
+     * @type {string | null}
+     */
     this.label = null;
-    /** @type {?string} */
+    /**
+     * Sets the name of the radio group data when submitted in a form.
+     * @type {string | null}
+     */
     this.name = null;
-    /** @type {?boolean} */
+    /**
+     * Indicates a value is required.
+     * @type {boolean}
+     */
     this.required = false;
-    /** @type {'vertical'|'horizontal'} */
+    /**
+     * Determines the orientation of the radio group.
+     * @type { 'vertical' | 'horizontal' }
+     */
     this.orientation = 'vertical';
-    /** @type {?boolean} */
+    /**
+     * Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required` property is also set. For the indicator to be displayed, the `label` property must also be set.
+     * @attr show-indicator
+     * @type {boolean}
+     */
     this.showIndicator = false;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.value = null;
 
     this.addEventListener('jh-change', this.#handleChange);
@@ -232,34 +255,43 @@ export class JhRadioGroup extends JhElement {
     this.addEventListener('focusout', this.#handleFocusOut);
   }
 
+  /** @protected */
   firstUpdated() {
-    this._syncDisabledToChildren();
+    this.#syncDisabledToChildren();
   }
 
+  /**
+   * @protected
+   * @param {import('lit').PropertyValues} changedProperties
+   */
   updated(changedProperties) {
     if (changedProperties.has('disabled')) {
-      this._syncDisabledToChildren();
+      this.#syncDisabledToChildren();
     }
   }
 
   /**
    * Returns the radio group's parent form element.
-   * @type {?HTMLFormElement}
+   * @type {HTMLFormElement | null}
    */
   get form() {
     return this.internals.form;
   }
 
-  /** @ignore */
+  /** @type {ValidityState} */
   get validity() {
     return this.internals.validity;
   }
 
-  /** @type {?string} */
+  /**
+   * Sets the value of the radio group.
+   * @type {string | null}
+   */
   get value() {
     return this.#value;
   }
 
+  /** @param {string | null} newValue */
   set value(newValue) {
     const oldValue = this.#value;
     if (newValue !== oldValue) {
@@ -269,7 +301,7 @@ export class JhRadioGroup extends JhElement {
     this.requestUpdate('value', oldValue);
   }
 
-  _syncDisabledToChildren() {
+  #syncDisabledToChildren() {
     const slot = this.renderRoot.querySelector('slot');
     if(!slot) return;
 
@@ -303,7 +335,7 @@ export class JhRadioGroup extends JhElement {
       radios[0].tabIndex = 0;
     }
 
-    this._syncDisabledToChildren();
+    this.#syncDisabledToChildren();
   }
 
   #handleChange(e) {
@@ -383,6 +415,7 @@ export class JhRadioGroup extends JhElement {
     }
   }
 
+  /** @protected */
   render() {
     let indicator;
     let helperText;

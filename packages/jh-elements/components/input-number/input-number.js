@@ -13,7 +13,9 @@ import '@jack-henry/jh-icons/icons-wc/icon-minus.js';
 import '@jack-henry/jh-icons/icons-wc/icon-plus.js';
 
 /**
- * Input Number
+ * The input number component provides a single-line text field for capturing numeric values, with increment and decrement stepper buttons.
+ * 
+ * [Input Number Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-number--docs)
  * 
  * @cssprop --jh-input-number-stepper-border-radius - The button container border-radius. Defaults to `--jh-border-radius-100`.
  * @cssprop --jh-input-number-stepper-color-background-enabled - The stepper button background-color when enabled. Defaults to `transparent`.
@@ -36,7 +38,7 @@ import '@jack-henry/jh-icons/icons-wc/icon-plus.js';
  * @customElement jh-input-number
  */
 export class JhInputNumber extends JhInput {
-  /** @type {?string} */
+  /** @type {string | null} */
   #stepperAnnouncement;
   /** @type {boolean} */
   #incrementDisabled = false;
@@ -112,25 +114,31 @@ export class JhInputNumber extends JhInput {
 
   static get properties() {
     return {
-      /** Sets the maximum value for the input number. */
       max: { type: Number },
-      /** Sets the minimum value for the input number. */
       min: { type: Number },
-      /** Sets the stepper buttons increment and decrement the value. */
       step: { type: Number },
     };
   }
 
   constructor() {
     super();
-    /** @type {?number} */
+    /**
+     * Sets the maximum value for the input number.
+     *  @type {number | null} 
+     */
     this.max = null;
-    /** @type {?number} */
+    /** 
+     * Sets the minimum value for the input number.
+     * @type {number | null}
+     */
     this.min = null;
-    /** @type {number} */
+    /**
+     * Sets the stepper buttons increment and decrement the value.
+     *  @type {number} 
+     */
     this.step = 1;
   }
-
+    /** @protected */
   willUpdate(changedProperties) {
     if (changedProperties.has('value') ||
         changedProperties.has('min') ||
@@ -187,6 +195,7 @@ export class JhInputNumber extends JhInput {
     this.#updateValue(-this.step);
   }
 
+  /** @protected */
   _handleInput(e) {
     super._handleInput(e);
     // reset announcement when using native input controls to avoid stale stepper value announcements
@@ -194,6 +203,7 @@ export class JhInputNumber extends JhInput {
   }
 
   // Firefox: prevent non number chars from being entered in the input field
+  /** @protected */
   _handleKeydown(e) {
     // allow backspace, tab, arrow keys, etc. 
     if (e.key.length > 1) return;
@@ -215,6 +225,7 @@ export class JhInputNumber extends JhInput {
     this.#decrementDisabled = this.min !== null && Number(this.value) <= this.min;
   }
 
+  /** @protected */
   renderRightSlot() {
     return html`
       <slot name="jh-input-right" @slotchange=${this._handleSlotChange}>       
@@ -240,7 +251,8 @@ export class JhInputNumber extends JhInput {
       </slot> 
     `;
   }
-
+  
+  /** @protected */
   renderInput() {
     let describedby;
 

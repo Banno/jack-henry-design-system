@@ -28,10 +28,10 @@ export default {
   title: 'Components/Badge',
   argTypes: {
     count: {
-      control: 'text',
+      control: 'number',
     },
     'max-count': {
-      control: 'text',
+      control: 'number',
     },
   },
   parameters: {
@@ -70,8 +70,8 @@ export const Playground = { render: (args) => html`
 `};
 
 Playground.args = {
-count: '1',
-'max-count': '99',
+count: 1,
+'max-count': 99,
 };
 
 Playground.parameters = {

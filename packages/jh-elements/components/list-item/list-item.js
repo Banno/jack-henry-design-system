@@ -8,6 +8,10 @@ import '../divider/divider.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
+ * A list item represents one item in a list of connected objects. List items are used as building blocks in complex components such as lists, menus, and dropdowns.
+ * 
+ * [List Item Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-list-item--docs)
+ * 
  * @cssprop --jh-list-item-color-background-enabled - The list-item container's background-color.
  * Defaults to `transparent`.
  * @cssprop --jh-list-item-color-text-primary-enabled - The list-item text color for the default, left, right slots and primary text.
@@ -373,58 +377,34 @@ export class JhListItem extends JhElement {
 
   static get properties() {
     return {
-      /**
-       * Disables the list-item and prevents all user interactions. May cause list-item to be ignored by assistive technologies(AT).
-       */
       disabled: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * The inset of the optional divider. Omit to use the divider-inset token instead.
-       */
       dividerInset: {
         type: Number,
         attribute: 'divider-inset',
       },
-      /**
-       * The text to show as primary text.
-       */
       primaryText: {
         type: String,
         attribute: 'primary-text',
       },
-      /**
-       * The text to show as secondary text.
-       */
       secondaryText: {
         type: String,
         attribute: 'secondary-text',
       },
-            /**
-       * The text to show as primary metadata.
-       */
       primaryMetadata: {
         type: String,
         attribute: 'primary-metadata',
       },
-      /**
-       * The text to show as secondary metadata.
-       */
       secondaryMetadata: {
         type: String,
         attribute: 'secondary-metadata',
       },
-      /**
-       * Determines whether an interactive list-item is selected.
-       */
       selected: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Determines whether the divider is displayed below the list-item.
-       */
       showDivider: {
         type: Boolean,
         reflect: true,
@@ -439,24 +419,57 @@ export class JhListItem extends JhElement {
   constructor() {
     super();
     this.internals.role = 'listitem';
-    /** @type {?boolean} */
+    /**
+     * Disables the list-item and prevents all user interactions. May cause list-item to be ignored by assistive technologies(AT).
+     * @type {boolean}
+     */
     this.disabled = false;
-    /** @type {null|0|8|16|24|32|40|48|56|64|72|80|88|96} */
+    /**
+     * The inset of the optional divider. Omit to use the divider-inset token instead.
+     * @attr divider-inset
+     * @type { 0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null }
+     */
     this.dividerInset = null;
-    /** @type {?string} */
+    /**
+     * The text to show as primary text.
+     * @attr primary-text
+     * @type {string | null}
+     */
     this.primaryText = null;
-    /** @type {?string} */
+    /**
+     * The text to show as secondary text.
+     * @attr secondary-text
+     * @type {string | null}
+     */
     this.secondaryText = null;
-    /** @type {?string} */
+    /**
+     * The text to show as primary metadata.
+     * @attr primary-metadata
+     * @type {string | null}
+     */
     this.primaryMetadata = null;
-    /** @type {?string} */
+    /**
+     * The text to show as secondary metadata.
+     * @attr secondary-metadata
+     * @type {string | null}
+     */
     this.secondaryMetadata = null;
-    /** @type {?boolean} */
+    /**
+     * Determines whether an interactive list-item is selected.
+     * @type {boolean}
+     */
     this.selected = false;
-    /** @type {?boolean} */
+    /**
+     * Determines whether the divider is displayed below the list-item.
+     * @attr show-divider
+     * @type {boolean}
+     */
     this.showDivider = false;
+    /** @internal @type {boolean} */
     this._showFallback = true;
+    /** @internal @type {boolean} */
     this._hasLeftSlotContent = false;
+    /** @internal @type {boolean} */
     this._hasRightSlotContent = false;
   }
 
@@ -484,6 +497,7 @@ export class JhListItem extends JhElement {
   }
 }
 
+  /** @protected */
   render() {
     let showDivider;
 

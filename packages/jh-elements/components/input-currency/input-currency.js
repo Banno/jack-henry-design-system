@@ -272,7 +272,6 @@ export class JhInputCurrency extends JhInput {
             @change=${this._handleChange}
             @input=${this._handleInput}
             @select=${this._handleSelect}
-            @blur=${this._handleBlur}
           />
           ${suffix}
           ${clearButton}

@@ -34,8 +34,8 @@ const disableControls = {
   readonly: { control: { disable: true } },
   required: { control: { disable: true } },
   suffix: { control: { disable: true } },
-  'show-commas': { control: { disable: true } },
-  'show-decimal': { control: { disable: true } },
+  'hide-commas': { control: { disable: true } },
+  'hide-decimal': { control: { disable: true } },
   'show-clear-button': { control: { disable: true } },
   'show-indicator': { control: { disable: true } },
   size: { control: { disable: true } },
@@ -143,10 +143,10 @@ export default {
     'show-clear-button': {
       control: 'boolean'
     },
-    'show-commas': {
+    'hide-commas': {
       control: 'boolean',
     },
-    'show-decimal': {
+    'hide-decimal': {
       control: 'boolean',
     },
     'show-indicator': {
@@ -217,10 +217,10 @@ export const Playground = { render: (args) => html`
     prefix=${ifDefined(args.prefix === '' ? null : args.prefix)}
     ?readonly=${args.readonly}
     ?required=${args.required}
-    .showCommas=${args['show-commas']}
+    .hideCommas=${args['hide-commas']}
     ?show-char-count=${args['show-char-count']}
     ?show-clear-button=${args['show-clear-button']}
-    .showDecimal=${args['show-decimal']}
+    .hideDecimal=${args['hide-decimal']}
     ?show-indicator=${args['show-indicator']}
     size=${args.size}
     suffix=${ifDefined(args.suffix === '' ? null : args.suffix)}
@@ -230,8 +230,8 @@ export const Playground = { render: (args) => html`
 
 Playground.args = {
   size: 'medium',
-  'show-commas': false,
-  'show-decimal': false,
+  'hide-commas': false,
+  'hide-decimal': false,
   prefix: null,
   suffix: 'USD',
   disabled: false,

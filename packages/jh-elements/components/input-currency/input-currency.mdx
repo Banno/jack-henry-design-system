@@ -32,41 +32,48 @@ To use `<jh-input-currency>`:
 
 ## Formatting
 
-The input currency component provides the following properties to control automatic value formatting: `show-commas` and `show-decimal`.
+The input currency component provides the following properties to control automatic value formatting: `hide-commas` and `hide-decimal`. Both are `false` by default, so comma and decimal formatting are applied out of the box.
 
-### show-commas
+### hide-commas
 
-When `show-commas` is enabled (true by default), thousands separators are automatically inserted into the value as the user types, and the comma key is blocked from manual entry while typing.
+By default (`hide-commas` is `false`), thousands separators are automatically inserted into the value as the user types, and the comma key is blocked from manual entry while typing.
 
 ```html
 <jh-input-currency value="1000000"></jh-input-currency>
 <!-- displays as 1,000,000 -->
 ```
 
-Set `show-commas` to `false` to disable automatic comma insertion. When disabled, the user is also prevented from typing a comma manually.
-
-### show-decimal
-
-When `show-decimal` is enabled, the value is rounded to two decimal places when the input loses focus.
+Set `hide-commas` to `true` to disable automatic comma insertion. When disabled, the user is also permitted to type a comma manually.
 
 ```html
-<jh-input-currency value="1000"></jh-input-currency>
-<!-- after blur, displays as 1,000.00 -->
+<jh-input-currency hide-commas value="1000000"></jh-input-currency>
+<!-- displays as 1000000 -->
 ```
 
-Set `show-decimal` to `false` to leave the value as entered, without appending or enforcing decimal places on blur:
+### hide-decimal
+
+By default (`hide-decimal` is `false`), the value is formatted with two decimal places as the user types, cash-register style: each digit entered shifts the existing digits left, with the two rightmost digits always representing cents.
 
 ```html
-<jh-input-currency show-decimal show-commas="false" value="1000"></jh-input-currency>
-<!-- after blur, displays as 1000.00 -->
+<jh-input-currency></jh-input-currency>
+<!-- typing 1, 2, 3 in sequence updates the value to 0.01, then 0.12, then 1.23 -->
 ```
 
-If both `show-commas` and `show-decimal` are true:
+Set `hide-decimal` to `true` to leave the value as typed, without shifting digits or enforcing decimal places:
 
 ```html
-<jh-input-currency show-decimal value="1000"></jh-input-currency>
-<!-- after blur, displays as 1,000.00 -->
+<jh-input-currency hide-decimal value="1000"></jh-input-currency>
+<!-- typing is not reformatted; the value displays exactly as entered -->
 ```
+
+If both `hide-commas` and `hide-decimal` are `false` (the default):
+
+```html
+<jh-input-currency></jh-input-currency>
+<!-- typing 100000000 updates the value to 1,000,000.00 -->
+```
+
+
 
 ## Dependencies
 The input currency component makes use of required compositional dependencies.

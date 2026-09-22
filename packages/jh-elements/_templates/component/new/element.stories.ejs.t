@@ -6,7 +6,7 @@ to: components/<%= unprefixedName %>/<%= unprefixedName %>.stories.js
 # SPDX-License-Identifier: Apache-2.0
 ---
 /**
-* SPDX-FileCopyrightText: 2026 Jack Henry
+* SPDX-FileCopyrightText: <%= new Date().getFullYear() %> Jack Henry
 *
 * SPDX-License-Identifier: Apache-2.0
 */

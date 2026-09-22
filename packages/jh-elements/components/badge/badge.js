@@ -48,7 +48,6 @@ export class JhBadge extends JhElement {
     return {
 
       count: { type: Number },
-
       maxCount: { type: Number, attribute: 'max-count' },
     };
   }

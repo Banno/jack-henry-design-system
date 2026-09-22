@@ -37,6 +37,8 @@
  * @cssprop --jh-input-helper-color-text - The helper-text text color. Defaults to `jh-color-content-secondary-enabled`.
  * @cssprop --jh-input-counter-color-text - The character counter text color. Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-input-value-color-text - The value text color. Defaults to `jh-color-content-primary-enabled`.
+ * @cssprop --jh-input-prefix-color-text - The prefix text color. Defaults to `--jh-color-content-secondary-enabled`.
+ * @cssprop --jh-input-suffix-color-text - The suffix text color. Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-input-error-color-text - The error message text color. Defaults to `jh-color-content-negative-enabled`.
  * @cssprop --jh-input-size - The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large.
  * @event jh-select - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.
@@ -88,6 +90,11 @@ export class JhInput extends JhElement {
             type: BooleanConstructor;
             attribute: string;
         };
+        /** Determines whether the input value is aligned to the left or right side of the input field. */
+        horizontalAlign: {
+            type: StringConstructor;
+            attribute: string;
+        };
         inputMask: {
             type: StringConstructor;
             attribute: string;
@@ -113,6 +120,10 @@ export class JhInput extends JhElement {
         pattern: {
             type: StringConstructor;
         };
+        /** Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot. */
+        prefix: {
+            type: StringConstructor;
+        };
         readonly: {
             type: BooleanConstructor;
         };
@@ -134,6 +145,10 @@ export class JhInput extends JhElement {
         size: {
             type: StringConstructor;
             reflect: boolean;
+        };
+        /** Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot. */
+        suffix: {
+            type: StringConstructor;
         };
         value: {
             type: StringConstructor;
@@ -195,6 +210,8 @@ export class JhInput extends JhElement {
      * @type {boolean}
      */
     hideRightSlot: boolean;
+    /** @type {'left' | 'right'} */
+    horizontalAlign: "left" | "right";
     /**
      * Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.
      * @attr input-mask
@@ -238,10 +255,7 @@ export class JhInput extends JhElement {
      * @type {string | null}
      */
     pattern: string | null;
-    /**
-     * Prevents users from changing the input value. Removes all slotted content.
-     * @type {boolean}
-     */
+    /** @type {boolean} */
     readonly: boolean;
     /**
      * Indicates a value is required.
@@ -271,6 +285,8 @@ export class JhInput extends JhElement {
      * @type { 'small' | 'medium' | 'large' }
      */
     size: "small" | "medium" | "large";
+    /** @type {string | null} */
+    suffix: string | null;
     /** @param {string | null} newValue */
     set value(newValue: string | null);
     /**
@@ -315,8 +331,11 @@ export class JhInput extends JhElement {
     protected renderLeftSlot(): import("lit").TemplateResult<1>;
     /** @protected */
     protected renderRightSlot(): import("lit").TemplateResult<1>;
-    /** @protected */
-    protected renderClearButton(): import("lit").TemplateResult<1>;
+    renderPrefix(): import("lit").TemplateResult<1>;
+    renderPrefix(): import("lit").TemplateResult<1>;
+    renderSuffix(): import("lit").TemplateResult<1>;
+    renderSuffix(): import("lit").TemplateResult<1>;
+    renderClearButton(): import("lit").TemplateResult<1>;
     /**
      * @protected
      * @returns {string}

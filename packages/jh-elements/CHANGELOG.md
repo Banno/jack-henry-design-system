@@ -1,5 +1,22 @@
 # @jack-henry/jh-elements
 
+## 2.2.1
+
+### Patch Changes
+
+- [#233](https://github.com/Banno/jack-henry-design-system/pull/233) [`ef01a9b`](https://github.com/Banno/jack-henry-design-system/commit/ef01a9ba43eb05c4b146b59c1a68a7ca7240fd7a) Thanks [@stephhubka](https://github.com/stephhubka)! - [badge] fixes single-digit badges rendering oval and stabilizes multi-digit width. Rendered badge width changes: a single-digit count is now a 16x16 circle rather than ~15x16, and multi-digit counts no longer shift width depending on which digits are shown. Vertical centering of the count is now explicit rather than incidental.
+
+- [#240](https://github.com/Banno/jack-henry-design-system/pull/240) [`f91efd1`](https://github.com/Banno/jack-henry-design-system/commit/f91efd15cfa9a262615c1e82bfbc8c12fb3a3729) Thanks [@stephhubka](https://github.com/stephhubka)! - [icon] bug fix - an absent or unrecognized size attribute no longer renders the icon at the SVG's intrinsic size; it now falls back to the documented medium default.
+
+- [#312](https://github.com/Banno/jack-henry-design-system/pull/312) [`983772c`](https://github.com/Banno/jack-henry-design-system/commit/983772c52a537248f6626d33d3f7b0f3b72cf79e) Thanks [@stephhubka](https://github.com/stephhubka)! - [icon] bug fix - the `medium` size fallback now applies only when the `size` attribute is absent. An unrecognized `size` value is no longer corrected to `medium` and renders at the SVG's intrinsic size so the error stays visible, per RFC 7 Amendment 1.
+
+- [#239](https://github.com/Banno/jack-henry-design-system/pull/239) [`93a9223`](https://github.com/Banno/jack-henry-design-system/commit/93a92234d036cd3f49df9162499da6ccf4a3cd7c) Thanks [@stephhubka](https://github.com/stephhubka)! - [icon] docs - corrects the documented size attribute values in the style hook descriptions, adds size and style hook documentation, and rewrites the accessibility guidance around decorative vs. meaningful icons.
+
+- [#235](https://github.com/Banno/jack-henry-design-system/pull/235) [`6ca874d`](https://github.com/Banno/jack-henry-design-system/commit/6ca874d72a9bb354c4f5a7a5fefd92ce6eb1b94d) Thanks [@stephhubka](https://github.com/stephhubka)! - [divider, card, and list-item] replaces the hardcoded `jh-divider` margins with the `--jh-dimension-400` token, corrects the inset component token name in the divider, card, and list-item docs from `--jh-divider-inset-space` to `--jh-divider-space-inset`, and adds appearance guidance to the divider docs covering the `--jh-divider-border-style` token.
+
+- Updated dependencies [[`b945c11`](https://github.com/Banno/jack-henry-design-system/commit/b945c11b5b3c760d206322a77dae3d1e7ef3e5fa)]:
+  - @jack-henry/jh-icons@2.1.2
+
 ## 2.2.0
 
 ### Minor Changes

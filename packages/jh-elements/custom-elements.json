@@ -1398,16 +1398,16 @@
           "type": "number | null"
         },
         {
-          "name": "show-commas",
-          "description": "Adds commas to the input value on input. No commas are permitted when set to false.",
+          "name": "hide-commas",
+          "description": "Disables automatic comma insertion into the input value as the user types.",
           "type": "boolean",
-          "default": "true"
+          "default": "false"
         },
         {
-          "name": "show-decimal",
-          "description": "Add decimals to the input value on blur. No decimals are permitted when set to false.",
+          "name": "hide-decimal",
+          "description": "Disables formatting the value with two decimal places as the user types, cash-register style (each digit entered shifts in from the right).",
           "type": "boolean",
-          "default": "true"
+          "default": "false"
         },
         {
           "name": "accessible-label",
@@ -1572,18 +1572,18 @@
           "type": "number | null"
         },
         {
-          "name": "showCommas",
-          "attribute": "show-commas",
-          "description": "Adds commas to the input value on input. No commas are permitted when set to false.",
+          "name": "hideCommas",
+          "attribute": "hide-commas",
+          "description": "Disables automatic comma insertion into the input value as the user types.",
           "type": "boolean",
-          "default": "true"
+          "default": "false"
         },
         {
-          "name": "showDecimal",
-          "attribute": "show-decimal",
-          "description": "Add decimals to the input value on blur. No decimals are permitted when set to false.",
+          "name": "hideDecimal",
+          "attribute": "hide-decimal",
+          "description": "Disables formatting the value with two decimal places as the user types, cash-register style (each digit entered shifts in from the right).",
           "type": "boolean",
-          "default": "true"
+          "default": "false"
         },
         {
           "name": "accessibleLabel",
@@ -1768,11 +1768,11 @@
       "events": [
         {
           "name": "jh-change",
-          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when `show-commas` is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `pattern` property and can be accessed via `e.detail.reference.pattern`."
+          "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when `hide-commas` is not set and can be accessed via `e.detail.state.rawValue`. Payload also includes the `pattern` property and can be accessed via `e.detail.reference.pattern`."
         },
         {
           "name": "jh-input",
-          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when `show-commas` is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `pattern` property and can be accessed via `e.detail.reference.pattern`.\n\nInput Currency"
+          "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when `hide-commas` is not set and can be accessed via `e.detail.state.rawValue`. Payload also includes the `pattern` property and can be accessed via `e.detail.reference.pattern`.\n\nInput Currency"
         },
         {
           "name": "jh-select",

@@ -9,23 +9,26 @@ import { JhInput } from '../input/input.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
- * @event jh-change - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when `show-commas` is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `pattern` property and can be accessed via `e.detail.reference.pattern`.
- * @event jh-input - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when `show-commas` is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `pattern` property and can be accessed via `e.detail.reference.pattern`.
+ * @event jh-change - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when `hide-commas` is not set and can be accessed via `e.detail.state.rawValue`. Payload also includes the `pattern` property and can be accessed via `e.detail.reference.pattern`.
+ * @event jh-input - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when `hide-commas` is not set and can be accessed via `e.detail.state.rawValue`. Payload also includes the `pattern` property and can be accessed via `e.detail.reference.pattern`.
  * 
  * Input Currency
  * @customElement jh-input-currency
  */
 export class JhInputCurrency extends JhInput {
+  /** @type {number | null} */
+  #minorUnits = null;
+
   static get properties() {
     return {
       /** Sets the maximum value for validation (package or custom). Does not natively enforce limits. */
       max: { type: Number },
       /** Sets the minimum value for validation (package or custom). Does not natively enforce limits. */
       min: { type: Number },
-      /** Adds commas to the input value on input. No commas are permitted when set to false. */
-      showCommas: { type: Boolean, attribute: 'show-commas', reflect: true },
-      /** Add decimals to the input value on blur. No decimals are permitted when set to false. */
-      showDecimal: { type: Boolean, attribute: 'show-decimal', reflect: true },
+      /** Disables automatic comma insertion into the input value as the user types. */
+      hideCommas: { type: Boolean, attribute: 'hide-commas', reflect: true },
+      /** Disables formatting the value with two decimal places as the user types, cash-register style (each digit entered shifts in from the right). */
+      hideDecimal: { type: Boolean, attribute: 'hide-decimal', reflect: true },
       /** Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot. */
       prefix: { type: String },
        /** Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.
@@ -43,9 +46,9 @@ export class JhInputCurrency extends JhInput {
     /** @type {number | null} */
     this.min = null;
     /** @type {boolean} */
-    this.showCommas = true;
+    this.hideCommas = false;
     /** @type {boolean} */
-    this.showDecimal = true;
+    this.hideDecimal = false;
     /** @type {string | null} */
     this.prefix = '$';
     /** @type {string | null} */
@@ -54,25 +57,80 @@ export class JhInputCurrency extends JhInput {
   }
 
   #addRawValueToInputEvent = (e) => {
-    e.detail.state.rawValue = this.#removeCommasFromValue();
+    e.detail.state.rawValue = this.#getRawValue();
   };
 
-  #removeCommasFromValue() {
-    return this.value ? this.value.replaceAll(',', '') : null;
+  // convert minor units (cents) to a decimal number
+  #getRawValue() {
+    return this.#minorUnits === null ? null : this.#minorUnits / 100;
+  }
+
+  // convert value into cents to avoid floating-point rounding errors
+  #toMinorUnits(displayValue) {
+    const stripped = displayValue ? displayValue.replaceAll(',', '') : '';
+
+    if (!/^-?\d+(\.\d*)?$/.test(stripped)) return null;
+
+    const [wholePart, decimalPart = ''] = stripped.split('.');
+    const minorPart = decimalPart.padEnd(2, '0').slice(0, 2);
+    const minorUnits = Number(`${wholePart}${minorPart}`);
+
+    return Number.isNaN(minorUnits) ? null : minorUnits;
+  }
+
+  // formats cents into a string with two decimal places, adding commas unless hideCommas is true
+  #formatFromMinorUnits() {
+    if (this.#minorUnits === null) return '';
+
+    const formatter = new Intl.NumberFormat('en-US', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+      useGrouping: !this.hideCommas,
+    });
+
+    return formatter.format(this.#minorUnits / 100);
   }
 
   _handleInput(e) {
+    if (!this.hideDecimal) {
+      this.#handleCashRegisterInput(e);
+      return;
+    }
+
+    // read from e.target.value so this stays in sync before super dispatches jh-input
+    this.#minorUnits = this.#toMinorUnits(e.target.value);
+
     super._handleInput(e);
 
-    if (this.showCommas) {
+    if (!this.hideCommas) {
       this.#formatCommas(e);
     }
+  }
+
+  // treat every digit in the input as part of the cents value, shifting existing digits left like a cash register
+  async #handleCashRegisterInput(e) {
+    const input = e.target;
+    const digits = input.value.replace(/\D/g, '');
+    this.#minorUnits = digits === '' ? null : Number(digits);
+    this.value = this.#formatFromMinorUnits();
+
+    this.dispatchCustomEvent('jh-input', {
+      reference: {
+        'minlength': this.minlength,
+        'maxlength': this.maxlength,
+        'pattern': this.pattern,
+      },
+    });
+
+    // set caret position at the end of value so additional digits shift in from the right
+    await this.updateComplete;
+    input.setSelectionRange(this.value.length, this.value.length);
   }
 
   _handleChange(e) {
     this.dispatchCustomEvent('jh-change', {
       state: { 
-        rawValue: this.#removeCommasFromValue(),
+        rawValue: this.#getRawValue(),
       },
       reference: {
         'minlength': this.minlength,
@@ -88,29 +146,27 @@ export class JhInputCurrency extends JhInput {
       super._handleKeydown(e);
     }
 
-    // prevent comma insertion when formatCommas is false
-    if (!this.showCommas && e.key === ',') {
+    // commas are only ever inserted by automatic formatting, never typed manually
+    if (e.key === ',') {
+      e.preventDefault();
+    }
+
+    // decimal points are not permitted when hideDecimal is true
+    if (this.hideDecimal && e.key === '.') {
       e.preventDefault();
     }
   }
 
-  // enforce decimals on blur when showDecimal is true, does not add commas
-  _handleBlur(e) {
-    if (!this.showDecimal || !this.value) return;
+  // finds the index in formattedValue that lands after the given count of non-comma characters
+  #findCursorPosition(formattedValue, numberDigitsBeforeCursor) {
+    let digitCount = 0;
 
-    // remove existing commas to parse as a valid number
-    const numericValue = Number(this.value.replaceAll(',', ''));
-    if (Number.isNaN(numericValue)) return;
+    for (let i = 0; i < formattedValue.length; i++) {
+      if (digitCount === numberDigitsBeforeCursor) return i;
+      if (formattedValue[i] !== ',') digitCount++;
+    }
 
-    // round to 2 decimal places and split integer/decimal
-    const [integer, decimal] = numericValue.toFixed(2).split('.');
-
-    // re-apply thousands separators to the integer when showCommas is true
-    const formattedInteger = this.showCommas
-      ? integer.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-      : integer;
-
-    this.value = `${formattedInteger}.${decimal}`;
+    return formattedValue.length;
   }
 
   // add commas every 3 digits left of the decimal point
@@ -130,18 +186,11 @@ export class JhInputCurrency extends JhInput {
 
     this.value = formattedValue;
 
-    // set cursor position after formatting
-    let cursorPosition = 0;
-    let digitCount = 0;
-    while (
-      digitCount < numberDigitsBeforeCursor &&
-      cursorPosition < formattedValue.length
-    ) {
-      if (formattedValue[cursorPosition] !== ',') {
-        digitCount++;
-      }
-      cursorPosition++;
-    }
+    const cursorPosition = this.#findCursorPosition(
+      formattedValue,
+      numberDigitsBeforeCursor,
+    );
+
     // wait for Lit's DOM update to prevent value update from overwriting the cursor position
     await this.updateComplete;
 
@@ -197,9 +246,7 @@ export class JhInputCurrency extends JhInput {
             ?required=${this.required}
             type="text"
             .value=${this.value}
-            @keydown=${
-              this.inputMask || !this.showCommas ? this._handleKeydown : null
-            }
+            @keydown=${this._handleKeydown}
             @change=${this._handleChange}
             @input=${this._handleInput}
             @select=${this._handleSelect}

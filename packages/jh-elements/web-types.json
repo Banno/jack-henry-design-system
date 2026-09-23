@@ -6014,7 +6014,11 @@
         },
         {
           "name": "--jh-badge-color-background-neutral",
-          "description": "Background for `appearance=\"neutral\"`. Defaults to `--jh-color-container-neutral-enabled`."
+          "description": "Count background for `appearance=\"neutral\"`. Defaults to `--jh-color-container-neutral-enabled`."
+        },
+        {
+          "name": "--jh-badge-color-dot-neutral",
+          "description": "Dot color for `appearance=\"neutral\"` when no `count` is set. Defaults to `--jh-color-content-secondary-enabled`."
         },
         {
           "name": "--jh-badge-color-text-neutral",

@@ -19,7 +19,8 @@ import { JhElement } from '../element/element.js';
  * @cssprop --jh-badge-color-text-enabled - The badge text color. Defaults to `--jh-color-content-on-negative-enabled`.
  * @cssprop --jh-badge-color-background-negative - Background for `appearance="negative"`. Defaults to `--jh-color-content-negative-enabled`.
  * @cssprop --jh-badge-color-text-negative - Text color for `appearance="negative"`. Defaults to `--jh-color-content-on-negative-enabled`.
- * @cssprop --jh-badge-color-background-neutral - Background for `appearance="neutral"`. Defaults to `--jh-color-container-neutral-enabled`.
+ * @cssprop --jh-badge-color-background-neutral - Count background for `appearance="neutral"`. Defaults to `--jh-color-container-neutral-enabled`.
+ * @cssprop --jh-badge-color-dot-neutral - Dot color for `appearance="neutral"` when no `count` is set. Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-badge-color-text-neutral - Text color for `appearance="neutral"`. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-badge-color-ring - A 2px ring around the badge that separates it from what's behind it
  * (an avatar, a brand-colored nav item). Defaults to `transparent`; set it to the surface color.
@@ -55,7 +56,7 @@ export class JhBadge extends JhElement {
       }
 
       :host([appearance='neutral']) .badge:not(.count-present) {
-        background: var(--jh-badge-color-background-neutral, var(--jh-color-content-secondary-enabled));
+        background: var(--jh-badge-color-dot-neutral, var(--jh-color-content-secondary-enabled));
       }
 
       .count-present {

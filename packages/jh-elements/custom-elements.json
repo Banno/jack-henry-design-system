@@ -32,8 +32,12 @@
               "name": "--jh-badge-color-text-negative"
             },
             {
-              "description": "Background for `appearance=\"neutral\"`. Defaults to `--jh-color-container-neutral-enabled`.",
+              "description": "Count background for `appearance=\"neutral\"`. Defaults to `--jh-color-container-neutral-enabled`.",
               "name": "--jh-badge-color-background-neutral"
+            },
+            {
+              "description": "Dot color for `appearance=\"neutral\"` when no `count` is set. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-badge-color-dot-neutral"
             },
             {
               "description": "Text color for `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-enabled`.",

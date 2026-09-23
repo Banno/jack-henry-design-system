@@ -46,6 +46,11 @@ Use the `appearance` property to communicate the intent of the badge.
 
 The neutral dot uses a content color (gray-600); the neutral count uses a light container with dark text.
 
+Each appearance has its own styling hooks:
+
+- `negative`: `--jh-badge-color-background-negative` sets the background of the count and the dot. `--jh-badge-color-text-negative` sets the count text.
+- `neutral`: `--jh-badge-color-background-neutral` sets the count background, and `--jh-badge-color-text-neutral` sets the count text. `--jh-badge-color-dot-neutral` sets the dot, which defaults to `--jh-color-content-secondary-enabled`.
+
 ```html
 <jh-badge count="3"></jh-badge>
 <jh-badge appearance="neutral" count="3"></jh-badge>

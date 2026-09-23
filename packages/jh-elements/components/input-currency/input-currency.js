@@ -115,7 +115,8 @@ export class JhInputCurrency extends JhInput {
 
   /** @protected */
   _handleInput(e) {
-    if (!this.hideDecimal) {
+    // pasted values are used as-is; cash-register decimal shifting only applies to typed input
+    if (!this.hideDecimal && e.inputType !== 'insertFromPaste') {
       this.#handleCashRegisterInput(e);
       return;
     }

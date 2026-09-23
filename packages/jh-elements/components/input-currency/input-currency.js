@@ -91,7 +91,7 @@ export class JhInputCurrency extends JhInput {
   #toMinorUnits(displayValue) {
     const stripped = displayValue ? displayValue.replaceAll(',', '') : '';
 
-    if (!/^-?\d+(\.\d*)?$/.test(stripped)) return null;
+    if (!/^[+-]?\d+(\.\d*)?$/.test(stripped)) return null;
 
     const [wholePart, decimalPart = ''] = stripped.split('.');
     const minorPart = decimalPart.padEnd(2, '0').slice(0, 2);
@@ -100,9 +100,9 @@ export class JhInputCurrency extends JhInput {
     return Number.isNaN(minorUnits) ? null : minorUnits;
   }
 
-  // formats cents into a string with two decimal places, adding commas unless hideCommas is true
-  #formatFromMinorUnits() {
-    if (this.#minorUnits === null) return '';
+  // formats cents (magnitude, unsigned) into a string with two decimal places, adding commas unless hideCommas is true
+  #formatFromMinorUnits(minorUnits) {
+    if (minorUnits === null) return '';
 
     const formatter = new Intl.NumberFormat('en-US', {
       minimumFractionDigits: 2,
@@ -110,7 +110,7 @@ export class JhInputCurrency extends JhInput {
       useGrouping: !this.hideCommas,
     });
 
-    return formatter.format(this.#minorUnits / 100);
+    return formatter.format(minorUnits / 100);
   }
 
   /** @protected */
@@ -133,9 +133,12 @@ export class JhInputCurrency extends JhInput {
   // treat every digit in the input as part of the cents value, shifting existing digits left like a cash register
   async #handleCashRegisterInput(e) {
     const input = e.target;
+    const sign = /^[+-]/.test(input.value) ? input.value[0] : '';
     const digits = input.value.replace(/\D/g, '');
-    this.#minorUnits = digits === '' ? null : Number(digits);
-    this.value = this.#formatFromMinorUnits();
+    const magnitude = digits === '' ? null : Number(digits);
+
+    this.#minorUnits = magnitude === null ? null : sign === '-' ? -magnitude : magnitude;
+    this.value = magnitude === null ? sign : sign + this.#formatFromMinorUnits(magnitude);
 
     this.dispatchCustomEvent('jh-input', {
       reference: {
@@ -176,6 +179,20 @@ export class JhInputCurrency extends JhInput {
 
     // allow backspace, tab, arrow keys, etc.
     if (e.key.length > 1) return;
+
+    // +/- are only permitted as the first character, replacing any existing sign
+    if (/[+-]/.test(e.key)) {
+      const { selectionStart, selectionEnd, value } = e.target;
+      const hasLeadingSign = /^[+-]/.test(value);
+      const replacingLeadingSign =
+        hasLeadingSign && selectionStart === 0 && selectionEnd >= 1;
+      const insertingAtStartWithNoSign = !hasLeadingSign && selectionStart === 0;
+
+      if (!replacingLeadingSign && !insertingAtStartWithNoSign) {
+        e.preventDefault();
+      }
+      return;
+    }
 
     // only numeric characters are permitted; commas and decimal points are either auto-inserted by formatting or disabled via hide-commas/hide-decimal
     if (!/[0-9]/.test(e.key)) {

@@ -5,7 +5,9 @@
 name: Release
 on:
   push:
-    branches: [main] # Adjust branch name as needed
+    branches: 
+      - main
+      - 'release/v*' # Matches release/v3, release/v4, etc.
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref_name }}  

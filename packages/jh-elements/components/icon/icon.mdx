@@ -30,7 +30,7 @@ Import the `<jh-icon>` component:
 import '@jack-henry/jh-elements/components/icon/icon.js';
 ```
 
-To use jh-icon, slot your own SVG markdown in the component's default slot:
+To use jh-icon, slot your own SVG markup in the component's default slot:
 
 ```html
 <jh-icon size="large">
@@ -41,6 +41,52 @@ To use jh-icon, slot your own SVG markdown in the component's default slot:
 </jh-icon>
 ```
 
+## Sizes
+
+The `size` attribute accepts six values. The default is `medium`.
+
+Each value is paired below with the style hook that overrides it and the token that hook falls back to.
+
+- `x-small` — `--jh-icon-size-extra-small`, defaults to `--jh-dimension-400`
+- `small` — `--jh-icon-size-small`, defaults to `--jh-dimension-500`
+- `medium` — `--jh-icon-size-medium`, defaults to `--jh-dimension-600`
+- `large` — `--jh-icon-size-large`, defaults to `--jh-dimension-900`
+- `x-large` — `--jh-icon-size-extra-large`, defaults to `--jh-dimension-1400`
+- `xx-large` — `--jh-icon-size-extra-extra-large`, defaults to `--jh-dimension-2100`
+
+Note that the attribute values are abbreviated (`x-small`) while the style hook names are spelled out
+(`extra-small`).
+
+To change what a size means within a given context, set the matching hook on an ancestor. The value should be a
+step on the dimension scale (`--jh-dimension-0`, `-25`, `-50`, then `-100` through `-2400` in steps of 100)
+rather than a raw pixel value, so the icon stays aligned with the rest of the layout:
+
+```css
+.feature-tile {
+  --jh-icon-size-large: var(--jh-dimension-1100);
+}
+```
+
+Prefer this over setting `width` or `height` on the element directly, which bypasses the size scale entirely.
+
+## Color
+
+Icon color is set by `--jh-icon-color-fill`, which defaults to `--jh-color-content-secondary-enabled`. The slotted
+SVG inherits it, so slotted markup should not set its own `fill` — a hard-coded `fill` on a `<path>` overrides the
+token and the icon will no longer respond to theming.
+
+Override the hook with a color token, not a literal value:
+
+```css
+.status-error jh-icon {
+  --jh-icon-color-fill: var(--jh-color-content-negative-enabled);
+}
+```
+
+The component sets `fill` but never `stroke`. An SVG drawn with strokes rather than fills will ignore
+`--jh-icon-color-fill` and render in whatever stroke color the markup declares. Convert stroke-based artwork to
+filled paths before slotting it.
+
 ## Accessibility
 
 This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria. The following success criteria are of concern:
@@ -50,26 +96,62 @@ a text alternative that serves the equivalent purpose.
 
 ### What we provide
 
-The icon component has the following implicit accessibility features, both of which can be overridden by the author. 
+The icon component sets the following defaults, both of which can be overridden by the author.
 
 - `role="graphics-symbol"`
 - `aria-hidden="true"`
 
-### Author guidance
+These are applied through `ElementInternals` rather than as markup, so they are present in the accessibility
+tree but will not appear as attributes in the DOM. DOM-based auditing tools may not report them.
 
-All accessibility considerations should be addressed on the jh-icon element itself and not within the slotted SVG markdown.
-Slotted SVGs should not include the `<title>` or `<desc>` elements to ensure consistency in both experience and behavior with 
-assistive technology. There are number of issues an author should consider when using the jh-icon component.
+### Author Guidance
 
-- If an icon must be interactive, consider using the icon only variant of our [button](/docs/components-button--docs) component or an `<a>` 
-tag wrapper instead. If icon level interactivity is necessary, set `tabindex="0"` on the `<jh-icon>` element.
-- Decorative icons, those that are paired with text or are purely for decoration, should be ignore by assistive technology. 
-By default the icon component is hidden from assistive technology. Should interactivity be necessary, set `aria-hidden="false"` 
-to avoid anomalous behavior.
-- Note that setting a tabindex on the jh-icon while `aria-hidden="true"`, will result in assistive technology honoring browser 
-focus and announcing the icon.
-- To satisfy [WCAG 1.1.1 Non-text Content](https://www.w3.org/TR/WCAG22/#non-text-content), use an aria-label attribute when 
-no supporting text for the icon is present.
+Every icon is one of two things, and the required outcome differs:
+
+- **Decorative** — the icon repeats adjacent text or is purely ornamental. It must be ignored by assistive
+technology so that the same information is not announced twice.
+- **Meaningful** — the icon is the only thing conveying a piece of information. It must be exposed to assistive
+technology and carry an accessible name that describes what it conveys, not what it depicts.
+
+The component defaults to decorative. For decorative icons, no action is needed: the component is hidden from
+assistive technology by default.
+
+A meaningful icon needs both an accessible name and exposure to assistive technology. Setting `aria-label`
+on its own is not enough — while the element is still `aria-hidden="true"`, the label is never announced.
+Set both to satisfy [WCAG 1.1.1 Non-text Content](https://www.w3.org/TR/WCAG22/#non-text-content):
+
+```html
+<jh-icon aria-hidden="false" aria-label="Verified">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="..."/>
+  </svg>
+</jh-icon>
+```
+
+All accessibility considerations should be addressed on the jh-icon element itself and not within the slotted
+SVG markup. Slotted SVGs should not include the `<title>` or `<desc>` elements, to ensure consistency in both
+experience and behavior with assistive technology.
+
+### Interactive icons
+
+An icon should rarely be the interactive element itself. If an icon must be clickable, use the icon-only variant
+of the [button](/docs/components-button--docs) component or wrap the icon in an `<a>` element, and put the
+accessible name on that wrapper. The icon stays decorative.
+
+If icon-level interactivity is unavoidable, the icon is by definition meaningful, so all three of the following
+are required together:
+
+```html
+<jh-icon tabindex="0" aria-hidden="false" aria-label="Dismiss">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="..."/>
+  </svg>
+</jh-icon>
+```
+
+Do not set `tabindex` on its own. A focusable element that is still `aria-hidden="true"` is a WCAG failure:
+browsers will move focus to it, assistive technology will honor that focus and announce the icon, and because it
+has no accessible name the announcement is meaningless to the user.
 
 ## Component API
 

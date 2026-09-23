@@ -7,6 +7,10 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { JhElement } from '../element/element.js';
 
 /**
+ * Checkboxes allow users to select one or more options from a group of options.
+ * 
+ * [Checkbox Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-checkbox--docs)
+ * 
  * @cssprop --jh-checkbox-opacity-disabled - The checkbox opacity when disabled. Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-checkbox-input-border-radius - The checkbox border radius. Defaults to `--jh-border-radius-50`.
  * @cssprop --jh-checkbox-color-focus - The checkbox outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.
@@ -61,12 +65,11 @@ export class JhCheckbox extends JhElement {
   static get formAssociated() {
     return true;
   }
-
-  /** @type {?Boolean} */
+  /** @type {boolean} */
   #checked;
-  /** @type {?Boolean} */
+  /** @type {boolean} */
   #indeterminate;
-  /** @type {?string} */
+  /** @type {string | null} */
   #value;
 
   static get styles() {
@@ -404,45 +407,31 @@ export class JhCheckbox extends JhElement {
 
   static get properties() {
     return {
-      /** Sets the selected or 'checked' state on the checkbox. */
       checked: {
         type: Boolean,
         reflect: true,
       },
-      /** Sets the indeterminate state on the checkbox. */
       indeterminate: {
         type: Boolean,
         reflect: true,
       },
-      /** Disables the checkbox and prevents all user interactions. May cause checkbox to be ignored by assistive technologies(AT). */
       disabled: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Sets the value of the data to be collected when selected.
-       */
       label: {
         type: String,
       },
-      /**
-       * Provides additional context or guidance for using the checkbox. For `helper-text` to be displayed, the `label` property must also be set.
-       */
       helperText: {
         type: String,
         attribute: 'helper-text',
       },
-      /** Sets the name of the checkbox data when submitted in a form. */
       name: {
         type: String,
       },
-      /** Sets the value of the checkbox. */
       value: {
         type: String,
       },
-      /**
-       * Sets an `aria-label` to assist screen reader users when no visible label is present.
-       */
       accessibleLabel: {
         type: String,
         attribute: 'accessible-label',
@@ -452,42 +441,61 @@ export class JhCheckbox extends JhElement {
 
   constructor() {
     super();
-    /** @type {?boolean} */
+    /** @type {boolean} */
     this.checked = false;
-    /** @type {?boolean} */
+    /** @type {boolean} */
     this.indeterminate = false;
-    /** @type {?boolean} */
+    /**
+     * Disables the checkbox and prevents all user interactions. May cause checkbox to be ignored by assistive technologies(AT).
+     * @type {boolean}
+     */
     this.disabled = false;
-    /** @type {?string} */
+    /**
+     * Sets the value of the data to be collected when selected.
+     * @type {string | null}
+     */
     this.label = null;
-    /** @type {?string} */
+    /**
+     * Provides additional context or guidance for using the checkbox. For `helper-text` to be displayed, the `label` property must also be set.
+     * @attr helper-text
+     * @type {string | null}
+     */
     this.helperText = null;
-    /** @type {?string} */
+    /**
+     * Sets the name of the checkbox data when submitted in a form.
+     * @type {string | null}
+     */
     this.name = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.value = null;
-    /** @type {?string} */
+    /**
+     * Sets an `aria-label` to assist screen reader users when no visible label is present.
+     * @attr accessible-label
+     * @type {string | null}
+     */
     this.accessibleLabel = null;
   }
 
   /**
    * Returns the checkbox's parent form element.
-   * @type {?HTMLFormElement}
+   * @type {HTMLFormElement | null}
    */
   get form() {
     return this.internals.form;
   }
-
-  /** @ignore */
+  /** @type {ValidityState} */
   get validity() {
     return this.internals.validity;
   }
-
-  /** @type {?string} */
+  /**
+   * Sets the value of the checkbox.
+   * @type {string | null}
+   */
   get value() {
     return this.#value;
   }
 
+  /** @param {string | null} newValue */
   set value(newValue) {
     const oldValue = this.#value;
     if (newValue !== oldValue) {
@@ -496,12 +504,15 @@ export class JhCheckbox extends JhElement {
     }
     this.requestUpdate('value', oldValue);
   }
-
-  /** @type {?Boolean} */
+  /**
+   * Sets the selected or 'checked' state on the checkbox.
+   * @type {boolean}
+   */
   get checked() {
     return this.#checked;
   }
 
+  /** @param {boolean} newValue */
   set checked(newValue) {
     const oldValue = this.#checked;
     if (newValue !== oldValue) {
@@ -510,12 +521,15 @@ export class JhCheckbox extends JhElement {
     }
     this.requestUpdate('checked', oldValue);
   }
-
-  /** @type {?Boolean} */
+  /**
+   * Sets the indeterminate state on the checkbox.
+   * @type {boolean}
+   */
   get indeterminate() {
     return this.#indeterminate;
   }
 
+  /** @param {boolean} newValue */
   set indeterminate(newValue) {
     const oldValue = this.#indeterminate;
     if (newValue !== oldValue) {
@@ -542,6 +556,7 @@ export class JhCheckbox extends JhElement {
     });
   }
 
+  /** @protected */
   render() {
     let helperText;
     let label;

@@ -29,7 +29,10 @@ const disableControls = {
   inputmode: { control: { disable: true } },
   invalid: { control: { disable: true } },
   label: { control: { disable: true } },
+  max: { control: { disable: true } },
+  min: { control: { disable: true } },
   name: { control: { disable: true } },
+  pattern: { control: { disable: true } },
   prefix: { control: { disable: true } },
   readonly: { control: { disable: true } },
   required: { control: { disable: true } },
@@ -119,13 +122,22 @@ export default {
     label: {
       control: 'text',
     },
+    max: {
+      control: 'number',
+    },
     maxlength: {
       table: { disable: true },
+    },
+    min: {
+      control: 'number',
     },
     minlength: {
       table: { disable: true },
     },
     name: {
+      control: 'text',
+    },
+    pattern: {
       control: 'text',
     },
     prefix: {
@@ -237,6 +249,8 @@ Playground.args = {
   disabled: false,
   readonly: false,
   invalid: false,
+  max: null,
+  min: null,
   'show-indicator': false,
   'show-clear-button': true,
   'show-char-count': false,
@@ -251,6 +265,7 @@ Playground.args = {
   'accessible-label-clear-button': 'clear amount input',
   autocomplete: null,
   'horizontal-align': 'left',
+  pattern: null,
   inputmode: null,
   name: null,
   value: null,

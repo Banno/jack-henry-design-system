@@ -5571,11 +5571,13 @@
         },
         {
           "name": "--jh-list-item-color-background-hover",
-          "description": "Deprecated; still honored. Use `--jh-list-item-color-state-*`. Removed in v3."
+          "description": "Deprecated; still honored. Use `--jh-list-item-color-state-*`. Removed in v3.",
+          "deprecatedMessage": "Use `--jh-list-item-color-state-hover`. Still honored as a fallback; removed in v3."
         },
         {
           "name": "--jh-list-item-color-background-active",
-          "description": "Deprecated; still honored. Use `--jh-list-item-color-state-*`. Removed in v3."
+          "description": "Deprecated; still honored. Use `--jh-list-item-color-state-*`. Removed in v3.",
+          "deprecatedMessage": "Use `--jh-list-item-color-state-active`. Still honored as a fallback; removed in v3."
         },
         {
           "name": "--jh-list-item-color-background-disabled",

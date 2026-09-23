@@ -26,7 +26,16 @@ const json = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
  *   events: { [eventName]: { prependToDescription: deprecatedMessage } }
  * }
  */
-const deprecations = {};
+const deprecations = {
+  'jh-list-item': {
+    cssProperties: {
+      '--jh-list-item-color-background-hover':
+        'Use `--jh-list-item-color-state-hover`. Still honored as a fallback; removed in v3.',
+      '--jh-list-item-color-background-active':
+        'Use `--jh-list-item-color-state-active`. Still honored as a fallback; removed in v3.',
+    },
+  },
+};
 
 // Apply deprecations
 json.tags.forEach(tag => {

@@ -46,7 +46,7 @@ const preview = {
         order: [
           'Welcome',
           'What\'s New',
-           ['V2 Release', ['Overview'],'Migrating'],
+           ['V3 Release', ['Overview'],'Migrating'],
           'Getting Started',
           ['Installing', 'Usage', 'Typography', 'Typography Utility Classes', 'Design Tokens'],
           'Iconography',

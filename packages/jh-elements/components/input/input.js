@@ -371,9 +371,8 @@ export class JhInput extends JhElement {
       p {
         margin: 0;
       }
-
       /* Optional/Required/Show-indicator */
-      :host([show-indicator]) span {
+      :host([show-indicator]) span.indicator {
         color: var(
           --jh-input-optional-color-text,
           var(--jh-color-content-primary-enabled)
@@ -383,7 +382,7 @@ export class JhInput extends JhElement {
         font-size: var(--input-helper-regular-font-size);
         line-height: var(--input-helper-regular-line-height);
       }
-      :host([show-indicator][required]) span {
+      :host([show-indicator][required]) span.indicator {
         color: var(
           --jh-input-required-color-text,
           var(--jh-color-content-negative-enabled)

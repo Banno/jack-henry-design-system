@@ -5341,11 +5341,19 @@
         },
         {
           "name": "--jh-list-group-subheader-space-padding-right",
-          "description": "The subheader padding-right.\nDefaults to `--jh-dimension-600`"
+          "description": "The subheader padding-right.\nDefaults to `--jh-dimension-400`"
         },
         {
           "name": "--jh-list-group-subheader-space-padding-left",
-          "description": "The subheader padding-left.\nDefaults to `--jh-dimension-600`"
+          "description": "The subheader padding-left.\nDefaults to `--jh-dimension-400`"
+        },
+        {
+          "name": "--jh-list-group-subheader-space-padding-top",
+          "description": "The subheader padding-top.\nDefaults to `--jh-dimension-400`"
+        },
+        {
+          "name": "--jh-list-group-subheader-space-padding-bottom",
+          "description": "The subheader padding-bottom.\nDefaults to `--jh-dimension-200`"
         }
       ]
     },
@@ -5523,19 +5531,23 @@
         },
         {
           "name": "--jh-list-item-space-padding-right",
-          "description": "The right padding on the list-item container. Defaults to `--jh-dimension-600`."
+          "description": "The right padding on the list-item container. Defaults to `--jh-dimension-400`."
         },
         {
           "name": "--jh-list-item-space-padding-left",
-          "description": "The left padding on the list-item container. Defaults to `--jh-dimension-600`."
+          "description": "The left padding on the list-item container. Defaults to `--jh-dimension-400`."
         },
         {
           "name": "--jh-list-item-space-padding-top",
-          "description": "The top padding on the list-item container. Defaults to `--jh-dimension-400`."
+          "description": "The top padding on the list-item container. Defaults to `--jh-dimension-300`."
         },
         {
           "name": "--jh-list-item-space-padding-bottom",
-          "description": "The bottom padding on the list-item container. Defaults to `--jh-dimension-400`."
+          "description": "The bottom padding on the list-item container. Defaults to `--jh-dimension-300`."
+        },
+        {
+          "name": "--jh-list-item-space-gap",
+          "description": "The gap between the left slot, content, and right slot. Defaults to `--jh-dimension-300`."
         },
         {
           "name": "--jh-list-item-size-height",
@@ -5543,19 +5555,27 @@
         },
         {
           "name": "--jh-list-item-color-background-focus",
-          "description": "The list-item background-color when interactive and focused.\nDefaults to `--jh-color-container-primary-hover`."
+          "description": "The list-item background-color when interactive and focused.\nDefaults to `transparent` (focus is indicated by the outline only)."
         },
         {
           "name": "--jh-list-item-color-focus",
           "description": "The list-item outline when it is interactive and receives keyboard focus.\nDefaults to `--jh-border-focus-color`."
         },
         {
+          "name": "--jh-list-item-color-state-hover",
+          "description": "The translucent state layer painted over the list-item when interactive and hovered.\nDefaults to `--jh-color-state-hover`, falling back to `--jh-color-black-alpha-10`."
+        },
+        {
+          "name": "--jh-list-item-color-state-active",
+          "description": "The translucent state layer painted over the list-item when interactive and active.\nDefaults to `--jh-color-state-active`, falling back to `--jh-color-black-alpha-20`."
+        },
+        {
           "name": "--jh-list-item-color-background-hover",
-          "description": "The list-item background-color when interactive and hovered.\nDefaults to `--jh-color-container-primary-hover`."
+          "description": "Deprecated; still honored. Use `--jh-list-item-color-state-*`. Removed in v3."
         },
         {
           "name": "--jh-list-item-color-background-active",
-          "description": "The list-item background-color when interactive and active.\nDefaults to `--jh-color-container-primary-active`."
+          "description": "Deprecated; still honored. Use `--jh-list-item-color-state-*`. Removed in v3."
         },
         {
           "name": "--jh-list-item-color-background-disabled",
@@ -5567,11 +5587,15 @@
         },
         {
           "name": "--jh-list-item-color-background-selected",
-          "description": "The list-item background-color when interactive and selected. Defaults to `--jh-color-container-primary-selected`."
+          "description": "The list-item background-color when interactive and selected.\nDefaults to `--jh-color-state-selected` (a translucent brand layer), falling back to `--jh-color-blue-alpha-10`."
         },
         {
           "name": "--jh-list-item-color-border-selected",
-          "description": "The list-item border-left-color when interactive and selected.\nDefaults to `--jh-border-selected-color`."
+          "description": "The list-item border-left-color when interactive and selected.\nDefaults to `--jh-border-selected-color`. Only visible when `--jh-list-item-border-selected-width` is set."
+        },
+        {
+          "name": "--jh-list-item-border-selected-width",
+          "description": "The width of the optional left bar on a selected list-item.\nDefaults to `0` (no bar). Set to `--jh-dimension-100` for navigation lists."
         },
         {
           "name": "--jh-list-item-metadata-color-text-primary-enabled",

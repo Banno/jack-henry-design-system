@@ -101,7 +101,7 @@ Three new semantic tokens, two new alpha primitives, and four new component hook
 | `--jh-list-item-border-selected-width` | component (new) | `0` | `0` | nav lists set `dimension-100` |
 | `--jh-list-item-space-gap` | component (new) | `dimension-300` | | |
 | `--jh-list-item-color-background-focus` | component | `transparent` (was `container-primary-hover`) | | hook kept |
-| `--jh-list-item-color-background-hover` / `-active` | component | deprecated | | still honored this release; remove in pass 2 |
+| `--jh-list-item-color-background-hover` / `-active` | component | deprecated | | still honored this release; removed in v3 |
 | `--jh-list-group-subheader-space-padding-top` / `-bottom` | component (new) | `dimension-400` / `dimension-200` | | |
 
 Added as a `color.state` group in `tokens/light/color.json` and `tokens/dark/color.json`, and a `blue.alpha` group in `tokens/global/color.json`, in the same DTCG shape as the existing entries.
@@ -125,7 +125,7 @@ CSS only in both files; no property, slot, attribute or render change.
 - Subheader type `font-heading-medium-1` → `font-helper-medium`
 - Subheader padding `16/24/16/24` → `16/16/8/16` via two new hooks for top/bottom
 
-Release note: minor. Visual change to any interactive list item and any list group with a label. Anyone overriding `--jh-list-item-color-background-hover` keeps working this release but should move to `--jh-list-item-color-state-hover`. Consumers with visual regression tests should expect snapshot updates.
+Release note: minor. Visual change to any interactive list item and any list group with a label. Anyone overriding `--jh-list-item-color-background-hover` keeps working this release but should move to `--jh-list-item-color-state-hover`; the deprecated hooks are removed in v3, which is why removal ships as a breaking change rather than in pass 2. Consumers with visual regression tests should expect snapshot updates.
 
 ## Figma
 

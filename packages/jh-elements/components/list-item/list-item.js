@@ -48,8 +48,8 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * Defaults to `--jh-color-state-hover`, falling back to `--jh-color-black-alpha-10`.
  * @cssprop --jh-list-item-color-state-active - The translucent state layer painted over the list-item when interactive and active.
  * Defaults to `--jh-color-state-active`, falling back to `--jh-color-black-alpha-20`.
- * @cssprop --jh-list-item-color-background-hover - Deprecated. Use `--jh-list-item-color-state-hover`.
- * @cssprop --jh-list-item-color-background-active - Deprecated. Use `--jh-list-item-color-state-active`.
+ * @cssprop --jh-list-item-color-background-hover - Deprecated; still honored. Use `--jh-list-item-color-state-*`. Removed in v3.
+ * @cssprop --jh-list-item-color-background-active - Deprecated; still honored. Use `--jh-list-item-color-state-*`. Removed in v3.
  * @cssprop --jh-list-item-color-background-disabled - The list-item background-color when interactive and disabled.
  * Defaults to `transparent`.
  * @cssprop --jh-list-item-opacity-disabled - The list-item opacity when interactive and disabled.
@@ -124,6 +124,7 @@ export class JhListItem extends JhElement {
         align-items: center;
         box-sizing: border-box;
         position: relative;
+        isolation: isolate;
         border-left-style: var(--jh-border-selected-style);
         border-left-width: var(--jh-list-item-border-selected-width, 0);
         border-left-color: transparent;
@@ -167,6 +168,7 @@ export class JhListItem extends JhElement {
         position: absolute;
         inset: 0;
         pointer-events: none;
+        z-index: -1;
         background-color: transparent;
       }
       /* states for interactive list-items*/
@@ -214,7 +216,10 @@ export class JhListItem extends JhElement {
       :host([tabindex]:hover) .list-item::before {
         background-color: var(
           --jh-list-item-color-state-hover,
-          var(--jh-color-state-hover, var(--jh-color-black-alpha-10))
+          var(
+            --jh-list-item-color-background-hover,
+            var(--jh-color-state-hover, var(--jh-color-black-alpha-10))
+          )
         );
       }
       :host([tabindex]:hover) .secondary-text {
@@ -246,7 +251,10 @@ export class JhListItem extends JhElement {
       :host([tabindex]:active) .list-item::before {
         background-color: var(
           --jh-list-item-color-state-active,
-          var(--jh-color-state-active, var(--jh-color-black-alpha-20))
+          var(
+            --jh-list-item-color-background-active,
+            var(--jh-color-state-active, var(--jh-color-black-alpha-20))
+          )
         );
       }
       :host([tabindex]:active) .secondary-text {

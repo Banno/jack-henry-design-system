@@ -8,7 +8,7 @@
       "elements": [
         {
           "name": "jh-badge",
-          "description": "A Badge is a visual indicator that represents numbers, such as counters. It also supports a dot-only variant.\n\n[Badge Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-badge--docs)\n---\n",
+          "description": "A Badge is a visual indicator that represents numbers, such as counters. It also supports a dot-only variant.\n\n[Badge Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-badge--docs)\n---\n\n\n### **Slots:**\n - _default_ - Optional anchor. When content is slotted (an icon, an avatar, a nav item), the badge overlays its top-right corner. With no slotted content the badge renders inline.",
           "doc-url": "",
           "attributes": [
             {
@@ -26,6 +26,20 @@
                 "type": "number | null",
                 "default": "null"
               }
+            },
+            {
+              "name": "appearance",
+              "description": "`negative` (default) means act — unread, overdue, failed. `neutral` means count — items, selected.",
+              "value": {
+                "type": "'negative' | 'neutral'",
+                "default": "'negative'"
+              }
+            }
+          ],
+          "slots": [
+            {
+              "name": "",
+              "description": "Optional anchor. When content is slotted (an icon, an avatar, a nav item), the badge overlays its top-right corner. With no slotted content the badge renders inline."
             }
           ],
           "events": [],
@@ -40,6 +54,11 @@
                 "name": "maxCount",
                 "description": "Sets the max count to show. Appends `+` to the `max-count` when value is exceeded.",
                 "type": "number | null"
+              },
+              {
+                "name": "appearance",
+                "description": "`negative` (default) means act — unread, overdue, failed. `neutral` means count — items, selected.",
+                "type": "'negative' | 'neutral'"
               },
               {
                 "name": "uniqueId",
@@ -5984,6 +6003,38 @@
         {
           "name": "--jh-badge-color-text-enabled",
           "description": "The badge text color. Defaults to `--jh-color-content-on-negative-enabled`."
+        },
+        {
+          "name": "--jh-badge-color-background-negative",
+          "description": "Background for `appearance=\"negative\"`. Defaults to `--jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-badge-color-text-negative",
+          "description": "Text color for `appearance=\"negative\"`. Defaults to `--jh-color-content-on-negative-enabled`."
+        },
+        {
+          "name": "--jh-badge-color-background-neutral",
+          "description": "Count background for `appearance=\"neutral\"`. Defaults to `--jh-color-container-neutral-enabled`."
+        },
+        {
+          "name": "--jh-badge-color-dot-neutral",
+          "description": "Dot color for `appearance=\"neutral\"` when no `count` is set. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-badge-color-text-neutral",
+          "description": "Text color for `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-badge-color-ring",
+          "description": "A 2px ring around the badge that separates it from what's behind it (an avatar, a brand-colored nav item). Defaults to `transparent`; set it to the surface color."
+        },
+        {
+          "name": "--jh-badge-space-offset-x",
+          "description": "Horizontal offset of an anchored badge from the anchor's right edge. Defaults to `--jh-dimension-100` (inward)."
+        },
+        {
+          "name": "--jh-badge-space-offset-y",
+          "description": "Vertical offset of an anchored badge from the anchor's top edge. Defaults to `--jh-dimension-100` (inward)."
         },
         {
           "name": "--jh-button-color-background-primary-enabled",

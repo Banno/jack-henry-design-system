@@ -34,46 +34,29 @@ To use `<jh-input-currency>`:
 
 The input currency component provides the following properties to control automatic value formatting: `hide-commas` and `hide-decimal`. Both are `false` by default, so comma and decimal formatting are applied out of the box.
 
-### hide-commas
+By default, the value is formatted with two decimal places as the user types, cash-register style: each digit entered shifts the existing digits left, with the two rightmost digits always representing cents. Once the value reaches the thousands, comma separators are added automatically.
 
-By default (`hide-commas` is `false`), thousands separators are automatically inserted into the value as the user types, and the comma key is blocked from manual entry while typing.
-
-```html
-<jh-input-currency value="1000000"></jh-input-currency>
-<!-- displays as 1,000,000 -->
-```
-
-Set `hide-commas` to `true` to disable automatic comma insertion. When disabled, the user is also permitted to type a comma manually.
-
-```html
-<jh-input-currency hide-commas value="1000000"></jh-input-currency>
-<!-- displays as 1000000 -->
-```
+Typing **1**, **2**, **3**, **4**, **5**, **6** in sequence updates the value to **0.01**, then **0.12**, **1.23**, **12.34**, **123.45**, and finally **1,234.56**.
 
 ### hide-decimal
 
-By default (`hide-decimal` is `false`), the value is formatted with two decimal places as the user types, cash-register style: each digit entered shifts the existing digits left, with the two rightmost digits always representing cents.
-
-```html
-<jh-input-currency></jh-input-currency>
-<!-- typing 1, 2, 3 in sequence updates the value to 0.01, then 0.12, then 1.23 -->
-```
-
-Set `hide-decimal` to `true` to leave the value as typed, without shifting digits or enforcing decimal places:
+Set the `hide-decimal` property to leave the value as typed, without shifting digits or enforcing decimal places:
 
 ```html
 <jh-input-currency hide-decimal value="1000"></jh-input-currency>
-<!-- typing is not reformatted; the value displays exactly as entered -->
 ```
 
-If both `hide-commas` and `hide-decimal` are `false` (the default):
+Typing is not reformatted; the value displays exactly as entered.
+
+### hide-commas
+
+Set the `hide-commas` property to disable automatic comma insertion. When disabled, the user is also permitted to type a comma manually.
 
 ```html
-<jh-input-currency></jh-input-currency>
-<!-- typing 100000000 updates the value to 1,000,000.00 -->
+<jh-input-currency hide-commas value="1000000"></jh-input-currency>
 ```
 
-
+Displays as **1000000**.
 
 ## Dependencies
 The input currency component makes use of required compositional dependencies.

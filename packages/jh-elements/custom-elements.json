@@ -95,17 +95,6 @@
             },
             {
               "kind": "field",
-              "name": "label",
-              "privacy": "public",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Accessible text for the badge, e.g. \"3 unread messages\". Required for a dot badge to convey meaning.",
-              "default": "null",
-              "attribute": "label"
-            },
-            {
-              "kind": "field",
               "name": "uniqueId",
               "type": {
                 "text": "number"
@@ -173,15 +162,6 @@
               "description": "`negative` (default) means act — unread, overdue, failed. `neutral` means count — items, selected.",
               "default": "'negative'",
               "fieldName": "appearance"
-            },
-            {
-              "name": "label",
-              "type": {
-                "text": "string | null"
-              },
-              "description": "Accessible text for the badge, e.g. \"3 unread messages\". Required for a dot badge to convey meaning.",
-              "default": "null",
-              "fieldName": "label"
             }
           ],
           "superclass": {

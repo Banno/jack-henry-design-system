@@ -38,9 +38,6 @@ export class JhBadge extends JhElement {
             type: StringConstructor;
             reflect: boolean;
         };
-        label: {
-            type: StringConstructor;
-        };
     };
     /** Number to show within the badge. If no `count` is supplied, Badge will render as a dot.
     * @type {number | null} */
@@ -54,10 +51,6 @@ export class JhBadge extends JhElement {
     * `negative` (default) means act — unread, overdue, failed. `neutral` means count — items, selected.
     * @type {'negative' | 'neutral'} */
     appearance: "negative" | "neutral";
-    /**
-    * Accessible text for the badge, e.g. "3 unread messages". Required for a dot badge to convey meaning.
-    * @type {string | null} */
-    label: string | null;
     /** @protected */
     protected render(): import("lit").TemplateResult<1>;
     #private;

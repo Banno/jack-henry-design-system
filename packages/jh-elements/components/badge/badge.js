@@ -81,18 +81,6 @@ export class JhBadge extends JhElement {
         );
         pointer-events: none;
       }
-
-      .visually-hidden {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
-      }
     `;
   }
 
@@ -102,7 +90,6 @@ export class JhBadge extends JhElement {
       count: { type: Number },
       maxCount: { type: Number, attribute: 'max-count' },
       appearance: { type: String, reflect: true },
-      label: { type: String },
     };
   }
 
@@ -120,10 +107,6 @@ export class JhBadge extends JhElement {
     * `negative` (default) means act — unread, overdue, failed. `neutral` means count — items, selected.
     * @type {'negative' | 'neutral'} */
     this.appearance = 'negative';
-    /**
-    * Accessible text for the badge, e.g. "3 unread messages". Required for a dot badge to convey meaning.
-    * @type {string | null} */
-    this.label = null;
     this.#anchored = false;
   }
 
@@ -153,8 +136,7 @@ export class JhBadge extends JhElement {
 
     return html`
       <slot @slotchange=${this.#handleSlotChange}></slot>
-      <span class=${classMap(classes)} aria-hidden=${this.label ? 'true' : 'false'}>${count}</span>
-      ${this.label ? html`<span class="visually-hidden">${this.label}</span>` : null}
+      <span class=${classMap(classes)}>${count}</span>
     `;
   }
 }

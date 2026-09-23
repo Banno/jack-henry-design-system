@@ -3,7 +3,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { html, css } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import '@jack-henry/jh-icons/icons-wc/icon-bell.js';
 import './badge.js';
 
@@ -31,7 +30,6 @@ const disableControls = {
   count: { control: { disable: true } },
   'max-count': { control: { disable: true } },
   appearance: { control: { disable: true } },
-  label: { control: { disable: true } },
 }
 
 export default {
@@ -47,9 +45,6 @@ export default {
     appearance: {
       control: 'select',
       options: ['negative', 'neutral'],
-    },
-    label: {
-      control: 'text',
     },
   },
   parameters: {
@@ -119,24 +114,11 @@ Anchored.parameters = {
   styles: storyStyles,
 };
 
-export const DotWithLabel = {
-  render: (args) => html`
-    <jh-badge label="Unread notifications">
-      <jh-icon-bell size="medium"></jh-icon-bell>
-    </jh-badge>
-  `
-};
-
-DotWithLabel.argTypes = {
-  ...disableControls,
-};
-
 export const Playground = { render: (args) => html`
   <jh-badge
    count=${args.count} 
    max-count=${args['max-count']} 
    appearance=${args.appearance}
-   label=${ifDefined(args.label || undefined)}
    ></jh-badge>
 `};
 
@@ -144,7 +126,6 @@ Playground.args = {
 count: 1,
 'max-count': 99,
 appearance: 'negative',
-label: '',
 };
 
 Playground.parameters = {

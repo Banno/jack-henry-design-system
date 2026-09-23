@@ -35,6 +35,7 @@ To use `<jh-badge>`:
 - Badges display the `count` when set to a numerical value greater than or equal to 0. 
 - When the `max-count` is set and surpassed by the `count`, the `max-count` will render with an appended `+` character as such: `max-count+`
 - Authors can omit the `count` property to render a dot-only badge in cases where `count` does not need to be displayed. 
+- `count="0"` renders "0". If there's nothing to count, remove the badge. When zero is meaningful, use `appearance="neutral"`.
 
 ## Appearance
 
@@ -68,24 +69,72 @@ When the badge sits on top of an avatar or a brand-colored surface, set `--jh-ba
 </jh-badge>
 ```
 
-## Label
+## Accessibility
 
-Use the `label` property to provide accessible text for the badge, for example `3 unread messages`. When `label` is set, the visible count is hidden from assistive technology and the `label` is announced instead. A dot badge has no text content, so `label` is required for a dot badge to convey meaning.
+A badge, with or without a count, is a visual indicator. A number such as "3" means nothing to a screen reader user on its own. The meaning has to come from the element the badge belongs to, for example "Emails, 3 unread, button".
+
+Today, assistive technology announces the badge's count on its own, after any slotted content, which puts it out of context. In v3 ([#325](https://github.com/Banno/jack-henry-design-system/issues/325)), Badge will set `aria-hidden="true"` on its internal indicator so that it is visual only. The `<jh-badge>` host and any slotted content will not be hidden. Put the badge's meaning in the anchor's accessible name now, so that your badge is ready for v3 without further changes.
+
+Authors are responsible for providing the meaning of the badge and for deciding when changes to it are announced. How to do this depends on how the badge is used.
+
+### Slotted interactive element
+
+When the badge is anchored to an interactive element, such as a button or a link, use the accessible name of that element to convey the badge's meaning.
 
 ```html
-<jh-badge label="Unread notifications"><jh-icon-bell size="medium"></jh-icon-bell></jh-badge>
+<jh-badge count="3">
+  <jh-button accessible-label="Emails, 3 unread">
+    <jh-icon-envelope slot="jh-button-icon-left"></jh-icon-envelope>
+  </jh-button>
+</jh-badge>
 ```
 
-## Accessibility
+### Slotted non-interactive element
+
+When the badge is anchored to a non-interactive element, such as an avatar, give that element a semantic role and an accessible name. For an avatar, use `role="img"`. Without a semantic role, the accessible name is not announced.
+
+```html
+<jh-badge>
+  <span class="avatar" role="img" aria-label="Jordan Lee, online">JL</span>
+</jh-badge>
+```
+
+### Standalone badge
+
+When the badge renders inline with no slotted content, there is no other element to carry its meaning, so the badge labels itself. Set `role="img"` and `aria-label` on `<jh-badge>`.
+
+```html
+<jh-badge count="3" role="img" aria-label="3 unread messages"></jh-badge>
+```
+
+When updates to a standalone badge need to be announced, use `role="status"` instead of `role="img"`.
+
+```html
+<jh-badge count="3" role="status" aria-label="3 unread messages"></jh-badge>
+```
+
+### Live announcements
+
+Badge does not announce changes. Authors decide whether an update should be announced and when.
+
+- To announce updates to a slotted badge, set `aria-live="polite"` and `aria-atomic="true"` on the originating element, and update its accessible name when the badge changes.
+- To announce updates to a standalone badge, use `role="status"` as shown above.
+- In both cases, update the `aria-label` whenever the `count` changes, so that the announced text matches the badge.
+
+### WCAG
 
 This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria. 
 The following success criteria are of concern:
+
+- [WCAG 1.1.1 Non-text Content](https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html): All non-text content that is presented to the user has a text alternative that serves the equivalent purpose.
 
 - [WCAG 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html): Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element.
 
 - [WCAG 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html): The visual presentation of text and images of text has a contrast ratio of at least 4.5:1.
 
 - [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html): Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.
+
+- [WCAG 4.1.3 Status Messages](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html): Status messages can be programmatically determined through role or properties such that they can be presented to the user by assistive technologies without receiving focus.
 
 ### What we provide
 
@@ -95,13 +144,13 @@ The following success criteria are of concern:
 
 ### Author Guidance
 
+- To satisfy [WCAG 1.1.1 Non-text Content](https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html), convey the badge's meaning through the accessible name of the originating element, or of the badge itself when it is standalone, as described above.
+
 - To satisfy [WCAG 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html) when using color to convey information, ensure the information is also conveyed in text via the originating element. 
 
 - To satisfy [WCAG 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) when using custom colors, be sure the minimum contrast requirements are met.
 
-- When using the dot-only variant to represent the presence of items, for example unread messages, set the `label` property or ensure that the meaning of the badge is also conveyed to users in text via the originating element.
-
-- When badge is used to indicate a change on the page, for example a new chat message, authors should be sure to set up an appropriate live region in order to communicate those changes to screen reader users.
+- To satisfy [WCAG 4.1.3 Status Messages](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html), announce badge updates that users need to know about, as described in Live announcements.
 
 ## Component API
 

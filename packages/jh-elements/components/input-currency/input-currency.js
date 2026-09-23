@@ -113,6 +113,7 @@ export class JhInputCurrency extends JhInput {
     return formatter.format(this.#minorUnits / 100);
   }
 
+  /** @protected */
   _handleInput(e) {
     if (!this.hideDecimal) {
       this.#handleCashRegisterInput(e);
@@ -149,6 +150,7 @@ export class JhInputCurrency extends JhInput {
     input.setSelectionRange(this.value.length, this.value.length);
   }
 
+  /** @protected */
   _handleChange(e) {
     this.dispatchCustomEvent('jh-change', {
       state: { 
@@ -162,19 +164,21 @@ export class JhInputCurrency extends JhInput {
     });
   }
 
+  /** @protected */
   _handleKeydown(e) {
     if (this.inputMask) {
       // call super to handle input mask
       super._handleKeydown(e);
     }
 
-    // commas are only ever inserted by automatic formatting, never typed manually
-    if (e.key === ',') {
-      e.preventDefault();
-    }
+    // don't block keyboard shortcuts ie ctrl/cmd + c, x, etc.
+    if (e.ctrlKey || e.metaKey) return;
 
-    // decimal points are not permitted when hideDecimal is true
-    if (this.hideDecimal && e.key === '.') {
+    // allow backspace, tab, arrow keys, etc.
+    if (e.key.length > 1) return;
+
+    // only numeric characters are permitted; commas and decimal points are either auto-inserted by formatting or disabled via hide-commas/hide-decimal
+    if (!/[0-9]/.test(e.key)) {
       e.preventDefault();
     }
   }

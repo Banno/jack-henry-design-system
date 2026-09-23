@@ -16,9 +16,13 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * @cssprop --jh-list-group-subheader-color-text - The subheader text color.
  * Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-list-group-subheader-space-padding-right - The subheader padding-right.
- * Defaults to `--jh-dimension-600`
+ * Defaults to `--jh-dimension-400`
  * @cssprop --jh-list-group-subheader-space-padding-left - The subheader padding-left.
- * Defaults to `--jh-dimension-600`
+ * Defaults to `--jh-dimension-400`
+ * @cssprop --jh-list-group-subheader-space-padding-top - The subheader padding-top.
+ * Defaults to `--jh-dimension-400`
+ * @cssprop --jh-list-group-subheader-space-padding-bottom - The subheader padding-bottom.
+ * Defaults to `--jh-dimension-200`
  *
  * @slot default - Use to insert `<jh-list-item>` component(s).
  * @customElement jh-list-group
@@ -39,19 +43,19 @@ export class JhListGroup extends JhElement {
           --jh-list-group-subheader-color-text,
           var(--jh-color-content-secondary-enabled)
         );
-        font-family: var(--jh-font-heading-medium-1-font-family);
-        font-weight: var(--jh-font-heading-medium-1-font-weight);
-        font-size: var(--jh-font-heading-medium-1-font-size);
-        line-height: var(--jh-font-heading-medium-1-line-height);
-        padding-top: var(--jh-dimension-400);
+        font-family: var(--jh-font-helper-medium-font-family);
+        font-weight: var(--jh-font-helper-medium-font-weight);
+        font-size: var(--jh-font-helper-medium-font-size);
+        line-height: var(--jh-font-helper-medium-line-height);
+        padding-top: var(--jh-list-group-subheader-space-padding-top, var(--jh-dimension-400));
         padding-right: var(
           --jh-list-group-subheader-space-padding-right,
-          var(--jh-dimension-600)
+          var(--jh-dimension-400)
         );
-        padding-bottom: var(--jh-dimension-400);
+        padding-bottom: var(--jh-list-group-subheader-space-padding-bottom, var(--jh-dimension-200));
         padding-left: var(
           --jh-list-group-subheader-space-padding-left,
-          var(--jh-dimension-600)
+          var(--jh-dimension-400)
         );
         word-break: break-word;
       }

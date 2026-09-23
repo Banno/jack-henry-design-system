@@ -39,3 +39,5 @@ jobs:
         with:
           publish: pnpm run changeset:release
           createGithubReleases: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

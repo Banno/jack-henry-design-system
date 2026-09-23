@@ -136,10 +136,15 @@ export class JhInputCurrency extends JhInput {
     const input = e.target;
     const sign = /^[+-]/.test(input.value) ? input.value[0] : '';
     const digits = input.value.replace(/\D/g, '');
-    const magnitude = digits === '' ? null : Number(digits);
+    // deleting into a zero value clears the field entirely
+    const isClearing = e.inputType.startsWith('delete') && Number(digits) === 0;
+    const magnitude = digits === '' || isClearing ? null : Number(digits);
 
     this.#minorUnits = magnitude === null ? null : sign === '-' ? -magnitude : magnitude;
     this.value = magnitude === null ? sign : sign + this.#formatFromMinorUnits(magnitude);
+
+    // Force native DOM input value sync in case Lit skips re-rendering when value hasn't changed
+    input.value = this.value;
 
     this.dispatchCustomEvent('jh-input', {
       reference: {
@@ -216,19 +221,34 @@ export class JhInputCurrency extends JhInput {
   // add commas every 3 digits left of the decimal point
   async #formatCommas(e) {
     const input = e.target;
-    const numberDigitsBeforeCursor = input.value
-      .slice(0, input.selectionStart)
-      .replace(/,/g, '').length;
 
     // remove existing commas
     const value = input.value.replace(/,/g, '');
     const parts = value.split('.');
+    const originalWholePart = parts[0];
+    const signLength = /^[+-]/.test(originalWholePart) ? 1 : 0;
+
+    // strip leading zeros (eg "0000000" -> "0") so they aren't grouped as if significant
+    parts[0] = originalWholePart.replace(/^([+-]?)0+(?=\d)/, '$1');
+    const leadingZerosRemoved = originalWholePart.length - parts[0].length;
+
+    let numberDigitsBeforeCursor = input.value
+      .slice(0, input.selectionStart)
+      .replace(/,/g, '').length;
+    const zerosBeforeCursorRemoved = Math.min(
+      leadingZerosRemoved,
+      Math.max(0, numberDigitsBeforeCursor - signLength),
+    );
+    numberDigitsBeforeCursor -= zerosBeforeCursorRemoved;
 
     // add commas every 3 digits left of the decimal point
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     const formattedValue = parts.join('.');
 
     this.value = formattedValue;
+
+    // Force native DOM input value sync
+    input.value = formattedValue;
 
     const cursorPosition = this.#findCursorPosition(
       formattedValue,

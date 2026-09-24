@@ -66,6 +66,16 @@ export class JhSelect extends JhInput {
             type: BooleanConstructor;
             attribute: string;
         };
+        /** Allows users to type in the input field to filter the list of options. */
+        searchable: {
+            type: BooleanConstructor;
+            reflect: boolean;
+        };
+        /** Sets the message shown in the menu when a search returns no matching options. Only applies when `searchable` is set. */
+        noResultsText: {
+            type: StringConstructor;
+            attribute: string;
+        };
     };
     /**
      * Sets the position of the dropdown menu relative to the input field. The menu automatically flips when there is insufficient space unless `flip-disabled` is set.
@@ -84,11 +94,13 @@ export class JhSelect extends JhInput {
      * @type {boolean}
      */
     flipDisabled: boolean;
-    /**
-     * @protected
-     * @param {Array} options
-     */
-    protected renderData(options: any[]): import("lit").TemplateResult<1>[];
+    /** Whether the options are searchable
+     * @type {boolean}
+    */
+    searchable: boolean;
+    /** @type {string} */
+    noResultsText: string;
+    renderData(options: any): import("lit").TemplateResult<1> | import("lit").TemplateResult<1>[];
     #private;
 }
 import { JhInput } from '../input/input.js';

@@ -13662,6 +13662,15 @@
           ],
           "members": [
             {
+              "kind": "method",
+              "name": "renderData",
+              "parameters": [
+                {
+                  "name": "options"
+                }
+              ]
+            },
+            {
               "kind": "field",
               "name": "menuPosition",
               "privacy": "public",
@@ -13693,6 +13702,29 @@
               "description": "Prevents the dropdown menu from automatically flipping its position when there is insufficient viewport space.",
               "default": "false",
               "attribute": "flip-disabled"
+            },
+            {
+              "kind": "field",
+              "name": "searchable",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Whether the options are searchable",
+              "default": "false",
+              "attribute": "searchable",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "noResultsText",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "description": "Sets the message shown in the menu when a search returns no matching options. Only applies when `searchable` is set.",
+              "default": "'No results found'",
+              "attribute": "no-results-text"
             },
             {
               "kind": "field",
@@ -14166,6 +14198,24 @@
               "default": "false",
               "fieldName": "flipDisabled",
               "attribute": "flip-disabled"
+            },
+            {
+              "name": "searchable",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Whether the options are searchable",
+              "default": "false",
+              "fieldName": "searchable"
+            },
+            {
+              "name": "no-results-text",
+              "type": {
+                "text": "string"
+              },
+              "description": "Sets the message shown in the menu when a search returns no matching options. Only applies when `searchable` is set.",
+              "default": "'No results found'",
+              "fieldName": "noResultsText"
             },
             {
               "name": "accessible-label",

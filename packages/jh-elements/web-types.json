@@ -4783,6 +4783,22 @@
               }
             },
             {
+              "name": "searchable",
+              "description": "Whether the options are searchable",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
+              "name": "no-results-text",
+              "description": "Sets the message shown in the menu when a search returns no matching options. Only applies when `searchable` is set.",
+              "value": {
+                "type": "string",
+                "default": "'No results found'"
+              }
+            },
+            {
               "name": "accessible-label",
               "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
               "value": {
@@ -5039,6 +5055,16 @@
                 "name": "flipDisabled",
                 "description": "Prevents the dropdown menu from automatically flipping its position when there is insufficient viewport space.",
                 "type": "boolean"
+              },
+              {
+                "name": "searchable",
+                "description": "Whether the options are searchable",
+                "type": "boolean"
+              },
+              {
+                "name": "noResultsText",
+                "description": "Sets the message shown in the menu when a search returns no matching options. Only applies when `searchable` is set.",
+                "type": "string"
               },
               {
                 "name": "value",

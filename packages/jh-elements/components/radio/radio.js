@@ -6,6 +6,10 @@ import { css, html } from 'lit';
 import { JhElement } from '../element/element.js';
 
 /**
+ * Radio buttons, typically presented in radio groups, allow users to select only one option amongst a group of options.
+ * 
+ * [Radio Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-radio--docs)
+ * 
  * @cssprop --jh-radio-opacity-disabled - The radio opacity when disabled. Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-radio-input-border-radius - The radio and status mark border-radius.
  * Defaults to `--jh-border-radius-circle`.
@@ -59,7 +63,7 @@ import { JhElement } from '../element/element.js';
  * Defaults to `--jh-border-control-color`.
  * @cssprop --jh-radio-status-color-background-selected-disabled - The status mark color when selected and disabled. Defaults to `--jh-color-content-brand-enabled`.
  *
- * @event jh-change - Dispatched when the state of the radio has changed. Event payload includes the value of the radio and can be accessed via `e.detail.state.value`. 
+ * @event jh-change - Dispatched when the state of the radio has changed. Event payload includes the value and checked state of the radio and can be accessed via `e.detail.state.value` and `e.detail.state.checked`. 
  *
  * @customElement jh-radio */
 
@@ -278,35 +282,25 @@ export class JhRadio extends JhElement {
 
   static get properties() {
     return {
-      /** Sets an `aria-label` to assist screen reader users when no visible label is present. */
       accessibleLabel: {
         type: String,
         attribute: 'accessible-label',
       },
-      /** Sets the selected or 'checked' state on the radio. */
       checked: {
         type: Boolean,
         reflect: true,
       },
-      /** Disables the radio and prevents all user interactions. May cause radio to be ignored by assistive technologies(AT). */
       disabled: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Provides additional context or guidance for using the radio. For `helper-text` to be displayed, the `label` property must also be set.
-       */
       helperText: {
         type: String,
         attribute: 'helper-text',
       },
-      /**
-       * Sets the value of the data to be collected when selected.
-       */
       label: {
         type: String,
       },
-      /** Sets the value of the radio. */
       value: {
         type: String,
       },
@@ -316,17 +310,37 @@ export class JhRadio extends JhElement {
   constructor() {
     super();
     this.internals.role = 'radio';
-    /** @type {?string} */
+    /**
+     * Sets an `aria-label` to assist screen reader users when no visible label is present.
+     * @attr accessible-label
+     * @type {string | null}
+     */
     this.accessibleLabel = null;
-    /** @type {?boolean} */
+    /**
+     * Sets the selected or 'checked' state on the radio.
+     * @type {boolean}
+     */
     this.checked = false;
-    /** @type {?boolean} */
+    /**
+     * Disables the radio and prevents all user interactions. May cause radio to be ignored by assistive technologies(AT).
+     * @type {boolean}
+     */
     this.disabled = false;
-    /** @type {?string} */
+    /**
+     * Provides additional context or guidance for using the radio. For `helper-text` to be displayed, the `label` property must also be set.
+     * @attr helper-text
+     * @type {string | null}
+     */
     this.helperText = null;
-    /** @type {?string} */
+    /**
+     * Sets the value of the data to be collected when selected.
+     * @type {string | null}
+     */
     this.label = null;
-    /** @type {?string} */
+    /**
+     * Sets the value of the radio.
+     * @type {string | null}
+     */
     this.value = null;
 
     this.addEventListener('click', this.#handleClick);
@@ -370,7 +384,7 @@ export class JhRadio extends JhElement {
     if (this.checked) return;
 
     this.checked = true;
-    this.dispatchCustomEvent('jh-change');
+    this.dispatchCustomEvent('jh-change', {state: { checked: this.checked }});
   }
 
   #handleKeydown(e) {
@@ -379,6 +393,7 @@ export class JhRadio extends JhElement {
     }
   }
 
+  /** @protected */
   render() {
     let helperText;
     let label;

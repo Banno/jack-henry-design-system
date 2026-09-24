@@ -16,7 +16,6 @@ export class JhElement extends LitElement {
 
   constructor() {
     super();
-    /** @type {ElementInternals} */
     this.#internals = this.attachInternals();
   }
 
@@ -26,17 +25,27 @@ export class JhElement extends LitElement {
   }
 
   // getter for unique id
+  /** @type {number} */
   get uniqueId() {
     return this.#id;
   }
 
   // getter for element internals
-  /** @ignore */
+  /**
+   * @protected
+   * @type {ElementInternals}
+   */
   get internals() {
     return this.#internals;
   }
 
-  dispatchCustomEvent(eventName, detail = {}) {
+  /**
+   * @param {string} eventName
+   * @param {Object} [detail]
+   */
+  dispatchCustomEvent(eventName, detail = {}, options = {}) {
+    const { bubbles = true, composed = true, cancelable = true } = options;
+
     // gather base detail info
     let baseDetail = {
       form: {
@@ -74,14 +83,18 @@ export class JhElement extends LitElement {
     // create and dispatch event
     const event = new CustomEvent(eventName, {
       detail: finalDetail,
-      bubbles: true,
-      composed: true,
-      cancelable: true,
+      bubbles,
+      composed,
+      cancelable,
     });
     this.dispatchEvent(event);
   }
 
   // register method to avoid custom element registry conflicts
+  /**
+   * @param {string} tagName
+   * @param {CustomElementConstructor} targetClass
+   */
   static register(tagName, targetClass) {
     if (customElements.get(tagName)) {
       console.warn(

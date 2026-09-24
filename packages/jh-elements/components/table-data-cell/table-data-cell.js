@@ -6,7 +6,9 @@ import { css, html } from 'lit';
 import { JhElement } from '../element/element.js';
 
 /**
- * Table Cell
+ * The table data cell is used to display one cell of table data. Table data cells can contain text or other content and have to be placed inside `<jh-table-row>`s.
+ * 
+ * [Table Data Cell Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table-data-cell--docs)
  * 
  * @cssprop --jh-table-data-cell-color-text - The cell text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-table-data-cell-color-background - The cell background color. Defaults to `--jh-color-container-primary-enabled`.
@@ -88,15 +90,15 @@ export class JhTableDataCell extends JhElement {
   constructor() {
     super();
     this.internals.role = 'cell';
-    /** 
+    /**
      * Sets the horizontal alignment of the content.
      * @attr horizontal-align
-     * @type {'left' | 'center' | 'right'} 
-     * 
-    */
+     * @type { 'left' | 'center' | 'right' }
+     */
     this.horizontalAlign = 'left';
   }
 
+  /** @protected */
   render() {
     return html`<slot></slot>`;
   }

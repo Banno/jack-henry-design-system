@@ -13,7 +13,7 @@ force: true
 */
 import {LitElement, css, html} from 'lit';
 
-export default class <%= h.inflection.classify(prefix.replace(/-/gi,'_')) %>Icon<%= h.inflection.classify(name.replace(/-/gi,'_')) %> extends LitElement {
+export default class <%= h.inflection.camelize(prefix.replace(/-/gi,'_')) %>Icon<%= h.inflection.camelize(name.replace(/-/gi,'_')) %> extends LitElement {
   /** @type {ElementInternals} */
   #internals;
 
@@ -27,6 +27,12 @@ export default class <%= h.inflection.classify(prefix.replace(/-/gi,'_')) %>Icon
         width: var(--icon-size);
         height: var(--icon-size);
         display: inline-block;
+      }
+      :host(:not([size])) {
+        --icon-size: var(
+          --jh-icon-size-medium,
+          var(--jh-dimension-600)
+        );
       }
       :host([size='x-small']) {
         --icon-size: var(
@@ -94,9 +100,9 @@ export default class <%= h.inflection.classify(prefix.replace(/-/gi,'_')) %>Icon
 
   render() {
     return html`
-      <%- svg %>
+      <%- svg.replace(/\\/g, '\\\\').replace(/`/g, '\\`').replace(/\$\{/g, '\\${') %>
     `;
   }
 }
 
-customElements.define('<%= prefix %>-icon-<%= name %>', <%= h.inflection.classify(prefix.replace(/-/gi,'_')) %>Icon<%= h.inflection.classify(name.replace(/-/gi,'_')) %>);
+customElements.define('<%= prefix %>-icon-<%= name %>', <%= h.inflection.camelize(prefix.replace(/-/gi,'_')) %>Icon<%= h.inflection.camelize(name.replace(/-/gi,'_')) %>);

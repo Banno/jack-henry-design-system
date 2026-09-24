@@ -5,7 +5,7 @@
 */
 import {LitElement, css, html} from 'lit';
 
-export default class JhIconBuildingColumn extends LitElement {
+export default class JhIconBuildingColumns extends LitElement {
   /** @type {ElementInternals} */
   #internals;
 
@@ -91,4 +91,4 @@ export default class JhIconBuildingColumn extends LitElement {
   }
 }
 
-customElements.define('jh-icon-building-columns', JhIconBuildingColumn);
+customElements.define('jh-icon-building-columns', JhIconBuildingColumns);

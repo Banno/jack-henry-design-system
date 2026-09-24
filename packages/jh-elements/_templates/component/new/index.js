@@ -2,19 +2,9 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-const { classify, titleize } = require('inflection');
-
 const PREFIX = 'jh-';
 
-/**
- * @param {string} str 
- * @returns The string with dashes replaced with underscores
- */
-function underscoreize(str) {
-  return str.replace(/-/g, '_');
-}
-
-module.exports = {
+export default {
   /**
    * @param {{
    *  args: {name: string}
@@ -33,14 +23,8 @@ module.exports = {
     }
 
     return {
-      // e.g. "JhAvatarGroup"
-      className: classify(underscoreize(elementName)),
       // e.g. "jh-avatar-group'
       elementName,
-      // e.g. "Avatar Group"
-      titleName: titleize(underscoreize(unprefixedName)),
-      // e.g. "AvatarGroup"
-      unprefixedClassName: classify(underscoreize(unprefixedName)),
       // e.g. "avatar-group"
       unprefixedName,
     };

@@ -9,6 +9,10 @@ import '../button/button.js';
 import '@jack-henry/jh-icons/icons-wc/icon-circle-xmark.js';
 
 /**
+ * The input component offers a single-line text field for collecting user data.
+ * 
+ * [Input Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input--docs)
+ * 
  * @cssprop --jh-input-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-input-field-color-background - The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`.
  * @cssprop --jh-input-field-color-border-enabled - The input field border-color. Defaults to `--jh-border-control-color`.
@@ -40,12 +44,13 @@ import '@jack-henry/jh-icons/icons-wc/icon-circle-xmark.js';
  * @cssprop --jh-input-counter-color-text - The character counter text color. Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-input-value-color-text - The value text color. Defaults to `jh-color-content-primary-enabled`.
  * @cssprop --jh-input-error-color-text - The error message text color. Defaults to `jh-color-content-negative-enabled`.
- * 
- * @event jh-select - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selected`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.
+ * @cssprop --jh-input-size - The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large.
+ * @event jh-select - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.
  * @event jh-change - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.
  * @event jh-input - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.
  * @event jh-maxlength - Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`.
  * @event jh-input:clear-button-click - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`.
+ * 
  * @slot jh-input-left - Use to insert an element on the left side of the input field, such as an icon or button.
  * @slot jh-input-right - Use to insert an element on the right side of the input field, such as an icon or button.
  * @slot jh-input-clear-button - Use to insert an icon within the clear button. 
@@ -57,7 +62,7 @@ export class JhInput extends JhElement {
     return true;
   }
 
-  /** @type {?string} */
+  /** @type {string | null} */
   #value;
   /** @type {string} */
   #rawValue = '';
@@ -65,7 +70,7 @@ export class JhInput extends JhElement {
   #startLastFixedChar;
   /** @type {boolean} */
   #deletedChar = false;
-  /** @type {number} */
+  /** @type {number | null} */
   #adjustCaretPositionStart = null;
   /** @type {Object} */
   #selectedText = {
@@ -172,13 +177,13 @@ export class JhInput extends JhElement {
 
       /* Sizes on input wrapper */
       :host([size='small']) .input-wrapper {
-        height: var(--jh-dimension-800);
+        height: var(--jh-input-size, var(--jh-dimension-800));
       }
       :host([size='medium']) .input-wrapper {
-        height: var(--jh-dimension-1000);
+        height: var(--jh-input-size, var(--jh-dimension-1000));
       }
       :host([size='large']) .input-wrapper {
-        height: var(--jh-dimension-1200);
+        height: var(--jh-input-size, var(--jh-dimension-1200));
       }
 
       /* Input element — no border, grows to fill */
@@ -365,117 +370,168 @@ export class JhInput extends JhElement {
 
   static get properties() {
     return {
-      /** Sets an `aria-label` on the input field to assist screen reader users when no visible label is present. */
       accessibleLabel: { type: String, attribute: 'accessible-label' },
-      /** Sets an aria-label on the clear button to assist screen reader users. Indicates that activating the button will clear the input field. */
       accessibleLabelClearButton: { type: String, attribute: 'accessible-label-clear-button'},
-      /**
-       * Determines whether the browser can provide assistance in filling out the input value and what type of information is expected.
-       * This property will override any autocomplete attribute present on the input's parent form element.
-       *
-       * [Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)
-       */
       autocomplete: { type: String },
-      /** Disables the input and prevents all user interactions. May cause the input to be ignored by assistive technologies (AT). */
       disabled: { type: Boolean },
-      /** Specifies which action label or icon to present for the enter key on virtual keyboards.
-       *
-       * [Visit MDN for information on supported enterkeyhint values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint)
-       */
       enterkeyhint: { type: String },
-      /** Text to be displayed when input has failed validation and `invalid` is true. */
       errorText: { type: String, attribute: 'error-text' },
-      /** Provides additional context or guidance for using the input. For `helper-text` to be displayed, the `label` property must also be set. */
       helperText: { type: String, attribute: 'helper-text' },
-      /** Hides the left slot from input. */
       hideLeftSlot: { type: Boolean, attribute: 'hide-left-slot' },
-      /** Hides the right slot from input. */
       hideRightSlot: { type: Boolean, attribute: 'hide-right-slot' },
-      /** Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details. */
       inputMask: { type: String, attribute: 'input-mask' },
-      /** Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.
-       *
-       * [Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)
-       */
       inputmode: { type: String },
-      /** Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set. */
       invalid: { type: Boolean },
-      /** Identifies what data should be entered into the input field. */
       label: { type: String },
-      /** Sets the maximum number of characters a user can enter into the field. */
-      maxlength: { type: String },
-      /** Sets the minimum number of characters a user can enter into the field. */
-      minlength: { type: String },
-      /** Sets a name for the input control. */
+      maxlength: { type: Number },
+      minlength: { type: Number },
       name: { type: String },
-      /** Sets the pattern attribute on the input field. */
       pattern: { type: String },
-      /** Prevents users from changing the input value. Removes all slotted content. */
       readonly: { type: Boolean },
-      /** Indicates a value is required. */
       required: { type: Boolean },
-      /** Displays a character counter at the bottom right corner below the input field. */
       showCharCount: { type: Boolean, attribute: 'show-char-count' },
-      /** Displays a clear button in the input field when it contains a value and is focused or hovered. Deletes input value when activated. */
       showClearButton: {type: Boolean, attribute: 'show-clear-button'}, 
-      /** Adds a visual indicator next to the label. Indicates that a value is optional(by default) or required if the `required` property is also set. */
       showIndicator: { type: Boolean, attribute: 'show-indicator' },
-      /** Sets the size of the input. */
       size: { type: String, reflect: true },
-      /** Sets the value of the input. */
       value: { type: String },
     };
   }
 
   constructor() {
     super();
-    /** @type {?string} */
+    /**
+     * Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.
+     * @attr accessible-label
+     * @type {string | null}
+     */
     this.accessibleLabel = null;
-    /** @type {?string} */
+    /**
+     * Sets an aria-label on the clear button to assist screen reader users. Indicates that activating the button will clear the input field.
+     * @attr accessible-label-clear-button
+     * @type {string | null}
+     */
     this.accessibleLabelClearButton = null;
-    /** @type {?string} */
+    /**
+     * Determines whether the browser can provide assistance in filling out the input value and what type of information is expected.
+     * This property will override any autocomplete attribute present on the input's parent form element.
+     *
+     * [Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)
+     * @type {string | null}
+     */
     this.autocomplete = null;
-    /** @type {boolean} */
+    /**
+     * Disables the input and prevents all user interactions. May cause the input to be ignored by assistive technologies (AT).
+     * @type {boolean}
+     */
     this.disabled = false;
-    /** @type {?string} */
+    /**
+     * Specifies which action label or icon to present for the enter key on virtual keyboards.
+     *
+     * [Visit MDN for information on supported enterkeyhint values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint)
+     * @type {string | null}
+     */
     this.enterkeyhint = null;
-    /** @type {?string} */
+    /**
+     * Text to be displayed when input has failed validation and `invalid` is true.
+     * @attr error-text
+     * @type {string | null}
+     */
     this.errorText = null;
-    /** @type {?string} */
+    /**
+     * Provides additional context or guidance for using the input. For `helper-text` to be displayed, the `label` property must also be set.
+     * @attr helper-text
+     * @type {string | null}
+     */
     this.helperText = null;
-    /** @type {boolean} */
+    /**
+     * Hides the left slot from input.
+     * @attr hide-left-slot
+     * @type {boolean}
+     */
     this.hideLeftSlot = false;
-    /** @type {boolean} */
+    /**
+     * Hides the right slot from input.
+     * @attr hide-right-slot
+     * @type {boolean}
+     */
     this.hideRightSlot = false;
-    /** @type {?string} */
+    /**
+     * Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.
+     * @attr input-mask
+     * @type {string | null}
+     */
     this.inputMask = null;
-    /** @type {?string} */
+    /**
+     * Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.
+     *
+     * [Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)
+     * @type {string | null}
+     */
     this.inputmode = null;
-    /** @type {boolean} */
+    /**
+     * Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.
+     * @type {boolean}
+     */
     this.invalid = false;
-    /** @type {?string} */
+    /**
+     * Identifies what data should be entered into the input field.
+     * @type {string | null}
+     */
     this.label = null;
-    /** @type {?string} */
+    /**
+     * Sets the maximum number of characters a user can enter into the field.
+     * @type {number | null}
+     */
     this.maxlength = null;
-    /** @type {?string} */
+    /**
+     * Sets the minimum number of characters a user can enter into the field.
+     * @type {number | null}
+     */
     this.minlength = null;
-    /** @type {?string} */
+    /**
+     * Sets a name for the input control.
+     * @type {string | null}
+     */
     this.name = null;
-    /** @type {?string} */
+    /**
+     * Sets the pattern attribute on the input field.
+     * @type {string | null}
+     */
     this.pattern = null;
-    /** @type {boolean} */
+    /**
+     * Prevents users from changing the input value. Removes all slotted content.
+     * @type {boolean}
+     */
     this.readonly = false;
-    /** @type {boolean} */
+    /**
+     * Indicates a value is required.
+     * @type {boolean}
+     */
     this.required = false;
-    /** @type {boolean} */
+    /**
+     * Displays a character counter at the bottom right corner below the input field.
+     * @attr show-char-count
+     * @type {boolean}
+     */
     this.showCharCount = false;
-    /** @type {boolean} */
+    /**
+     * Displays a clear button in the input field when it contains a value and is focused or hovered. Deletes input value when activated.
+     * @attr show-clear-button
+     * @type {boolean}
+     */
     this.showClearButton = false;
-    /** @type {boolean} */
+    /**
+     * Adds a visual indicator next to the label. Indicates that a value is optional(by default) or required if the `required` property is also set.
+     * @attr show-indicator
+     * @type {boolean}
+     */
     this.showIndicator = false;
-    /** @type {'small'|'medium'|'large'} */
+    /**
+     * Sets the size of the input.
+     * @type { 'small' | 'medium' | 'large' }
+     */
     this.size = 'medium';
-    /** @type {?string} */
+    /** @type {string | null} */
     this.value = null;
   }
 
@@ -484,16 +540,9 @@ export class JhInput extends JhElement {
     this.#captureMaskIndexes();
     let observer = new MutationObserver(this.#captureMaskIndexes.bind(this));
     observer.observe(this, { attributeFilter: ['input-mask'] });
-    this.addEventListener('jh-select', this.#setSelection);
 }
 
-  disconnectedCallback() {
-    super.disconnectedCallback();
-    if (this.inputMask) {
-      this.removeEventListener('jh-select', this.#setSelection);
-    }
-  }
-
+  /** @protected */
   firstUpdated() {
     // attach event listeners to show/hide clear button
     if (this.showClearButton) {
@@ -600,23 +649,20 @@ export class JhInput extends JhElement {
     }
   }
 
-  #setSelection(e) {
-    this.#selectedText = {
-      selected: true,
-      selectionStart: e.detail.selectionStart,
-      selectionEnd: e.detail.selectionEnd,
-    }
-  }
-
-  /** @ignore */
+  /** @type {HTMLFormElement | null} */
   get form() {
     return this.internals.form;
   }
 
+  /**
+   * Sets the value of the input.
+   * @type {string | null}
+   */
   get value() {
     return this.#value;
   }
 
+  /** @param {string | null} newValue */
   set value(newValue) {
     const oldValue = this.#value;
     if (newValue !== oldValue) {
@@ -626,6 +672,10 @@ export class JhInput extends JhElement {
     this.requestUpdate('value', oldValue);
   }
 
+  /**
+   * @protected
+   * @param {InputEvent} e
+   */
   _handleInput(e) {
     this.value = e.target.value;
     let inputType = e.inputType;
@@ -647,11 +697,22 @@ export class JhInput extends JhElement {
     }
   }
 
+  /**
+   * @protected
+   * @param {KeyboardEvent} e
+   */
   _handleKeydown(e) {
     const value = e.target.value;
     let selectionStart = e.target.selectionStart;
     let selectionEnd = e.target.selectionEnd;
 
+    // capture the live selection so mask edits act on the current range, not a stale one
+    const hasSelection = selectionEnd > selectionStart;
+    this.#selectedText = {
+      selected: hasSelection,
+      selectionStart: hasSelection ? selectionStart : null,
+      selectionEnd: hasSelection ? selectionEnd : null,
+    };
 
     const testKey = (metaChar, key) => {
       if (!this.#regexSubset[metaChar].test(key)) {
@@ -666,6 +727,9 @@ export class JhInput extends JhElement {
 
     // only validate single char keys 
     if (e.key.length === 1) {
+      if (this.#advanceOverLiterals(e, selectionStart, value)) {
+        return;
+      }
       if (selectionStart < value.length) {
         this.#validateInsertion(e, selectionStart, testKey);
       } else {
@@ -796,6 +860,46 @@ export class JhInput extends JhElement {
     }
   }
 
+  // let users type a fixed character to move past it instead of rejecting the key
+  #advanceOverLiterals(e, selectionStart, value) {
+    if (this.#selectedText?.selected || !this.#maskFixedCharIndexes?.length) {
+      return false;
+    }
+
+    // caret at the end: reveal the pending literal(s) up to the next data slot
+    if (selectionStart >= value.length) {
+      let nextMeta = this.#maskMetaCharIndexes[this.#rawValue.length];
+      let pending = this.#maskFixedCharIndexes.filter((fixedChar) =>
+        fixedChar.formattedValIndex >= value.length &&
+        (nextMeta ? fixedChar.formattedValIndex < nextMeta.formattedValIndex : true)
+      );
+
+      if (!pending.length || this.inputMask[pending[0].maskIndex] !== e.key) {
+        return false;
+      }
+
+      e.preventDefault();
+      let revealed = value + pending.map((fixedChar) => this.inputMask[fixedChar.maskIndex]).join('');
+      this.value = revealed;
+      this.updateComplete.then(() => this.#inputEl?.setSelectionRange(revealed.length, revealed.length));
+      return true;
+    }
+
+    // caret before a rendered literal: skip past the consecutive literal run
+    let fixedAtCaret = this.#maskFixedCharIndexes.find((fixedChar) => fixedChar.formattedValIndex === selectionStart);
+    if (!fixedAtCaret || this.inputMask[fixedAtCaret.maskIndex] !== e.key) {
+      return false;
+    }
+
+    e.preventDefault();
+    let caret = selectionStart;
+    while (caret < value.length && this.#maskFixedCharIndexes.some((fixedChar) => fixedChar.formattedValIndex === caret)) {
+      caret++;
+    }
+    e.target.setSelectionRange(caret, caret);
+    return true;
+  }
+
   #captureLastFixedCharIndex() {
     // initialize index to the last element in the mask fixed character indexes array
     let index = this.#maskFixedCharIndexes.length - 1;
@@ -816,8 +920,11 @@ export class JhInput extends JhElement {
     
   #removeMask(e, value) {
     let insertedChar =  e.target.selectionStart < value.length;
-    this.#adjustCaretPositionStart = insertedChar ? e.target.selectionStart : null;
     let replacedChar = this.#selectedText?.selected;
+    // after a range delete, keep the caret at the deletion point instead of the reformatted end
+    this.#adjustCaretPositionStart = replacedChar && this.#deletedChar
+      ? this.#selectedText.selectionStart
+      : insertedChar ? e.target.selectionStart : null;
     let valueArray = value.split('');
 
     if (replacedChar) {
@@ -1045,14 +1152,19 @@ export class JhInput extends JhElement {
   }
 
   // restore caret position after input mask is applied if change to the value is within the value length
+  /**
+   * @protected
+   * @param {import('lit').PropertyValues} changedProperties
+   */
   updated(changedProperties) {
-    if (this.#adjustCaretPositionStart) {
+    if (this.#adjustCaretPositionStart != null) {
       if (changedProperties.has('value')) {
         let input = this.shadowRoot.querySelector('input');
-        let selectionStart = this.#selectedText.selectionStart ? this.#selectedText.selectionStart : this.#adjustCaretPositionStart;
+        let selectionStart = this.#selectedText.selectionStart != null ? this.#selectedText.selectionStart : this.#adjustCaretPositionStart;
 
         input.setSelectionRange(selectionStart, selectionStart);
         this.#selectedText.selectionStart = null;
+        this.#adjustCaretPositionStart = null;
       }
     }
 
@@ -1075,6 +1187,7 @@ export class JhInput extends JhElement {
     }
   }
 
+  /** @protected */
   _handleChange() {
     this.dispatchCustomEvent('jh-change', {
       state: {
@@ -1088,6 +1201,10 @@ export class JhInput extends JhElement {
     });
   }
 
+  /**
+   * @protected
+   * @param {Event} e
+   */
   _handleSelect(e) {
     const selectedString = e.target.value.substring(
       e.target.selectionStart,
@@ -1106,6 +1223,7 @@ export class JhInput extends JhElement {
     }
   }
 
+  /** @protected */
   _handleMaxlength() {
     this.dispatchCustomEvent('jh-maxlength', {
       reference: {
@@ -1114,6 +1232,10 @@ export class JhInput extends JhElement {
     });
   }
 
+  /**
+   * @protected
+   * @param {PointerEvent} e
+   */
   _handleClearButtonClick(e) {
     let previousValue = this.value;
     // clear input value
@@ -1130,6 +1252,10 @@ export class JhInput extends JhElement {
     });
   }
 
+  /**
+   * @protected
+   * @param {Event} e
+   */
   _handleSlotChange(e) {
     let newSlottedElement = e.target.assignedElements()[0];
     let slot = e.target;
@@ -1147,6 +1273,7 @@ export class JhInput extends JhElement {
     }
   }
 
+  /** @protected */
   renderLeftSlot() {
     if (this.hideLeftSlot) return null;
     return html`
@@ -1154,6 +1281,7 @@ export class JhInput extends JhElement {
     `;
   }
    
+  /** @protected */
   renderRightSlot() {
     if (this.hideRightSlot) return null;
     return html`
@@ -1161,6 +1289,7 @@ export class JhInput extends JhElement {
     `;
   }
 
+  /** @protected */
   renderClearButton() {
     if (!this.showClearButton || !this.value || this.disabled) return null;
     return html`
@@ -1175,6 +1304,10 @@ export class JhInput extends JhElement {
     `;
   }
 
+  /**
+   * @protected
+   * @returns {string}
+   */
   _getDescribedby() {
     let describedbyString = '';
 
@@ -1187,6 +1320,7 @@ export class JhInput extends JhElement {
     return describedbyString;
   }
 
+  /** @protected */
   renderLabel() {
     let label;
     let indicator;
@@ -1217,6 +1351,7 @@ export class JhInput extends JhElement {
     return label;
   }
 
+  /** @protected */
   renderFooter() {
     let footer;
     let errorText;
@@ -1257,6 +1392,7 @@ export class JhInput extends JhElement {
     return footer;
   }
 
+  /** @protected */
   renderInput() {
     let describedby;
 
@@ -1307,6 +1443,7 @@ export class JhInput extends JhElement {
     `;
   }
 
+  /** @protected */
   render() {
     const label = this.renderLabel();
     const input = this.renderInput();

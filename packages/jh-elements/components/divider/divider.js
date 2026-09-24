@@ -6,23 +6,43 @@ import { css } from 'lit';
 import { JhElement } from '../element/element.js';
 
 /**
+ * Dividers are used to group content vertically at the page or component level and should be used when whitespace does not provide a clear enough separation.
+ * 
+ * [Divider Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-divider--docs) 
+ * 
  * @cssprop --jh-divider-border-width - The divider width. Defaults to `--jh-border-decorative-width`.
  * @cssprop --jh-divider-border-style - The divider style. Defaults to `--jh-border-decorative-style`.
  * @cssprop --jh-divider-color-border - The divider color. Defaults to `--jh-border-decorative-color`.
- * @cssprop --jh-divider-space-inset - The divider margin-left. Defaults to `0`.
+ * @cssprop --jh-divider-space-inset - The horizontal divider margin-left. Defaults to `0`.
+ * 
  * @customElement jh-divider
  */
 export class JhDivider extends JhElement {
   static get styles() {
     return css`
         :host {
+          display: block;
+          box-sizing: content-box;
+        }
+        :host([orientation='horizontal']) {
           border-bottom-width: var(--jh-divider-border-width, var(--jh-border-decorative-width));
           border-bottom-style: var(--jh-divider-border-style, var(--jh-border-decorative-style));
           border-bottom-color: var(--jh-divider-color-border, var(--jh-border-decorative-color));
-          display: block;
-          margin-top: 16px;
-          margin-bottom: 16px;
-          box-sizing: content-box;
+          margin-top: var(--jh-dimension-400);
+          margin-bottom: var(--jh-dimension-400);
+        }
+        :host([orientation='vertical']) {
+          border-bottom: none;
+          border-left-width: var(--jh-divider-border-width, var(--jh-border-decorative-width));
+          border-left-style: var(--jh-divider-border-style, var(--jh-border-decorative-style));
+          border-left-color: var(--jh-divider-color-border, var(--jh-border-decorative-color));
+          margin-top: 0;
+          margin-bottom: 0;
+          margin-left: var(--jh-dimension-400);
+          margin-right: var(--jh-dimension-400);
+          height: 100%;
+          width: 0px;
+          align-self: stretch;
         }
         :host([inset='0']) {
           --inset: 0;
@@ -63,8 +83,8 @@ export class JhDivider extends JhElement {
         :host([inset='96']) {
           --inset: var(--jh-dimension-2400);
         }
-        :host,
-        :host[inset] {
+        :host(:not([orientation='vertical'])),
+        :host(:not([orientation='vertical'])[inset]) {
           margin-left: var(--inset, var(--jh-divider-space-inset));
         }
       `
@@ -72,20 +92,35 @@ export class JhDivider extends JhElement {
 
   static get properties() {
     return {
-      /**
-       * The alignment of the left edge of the divider.
-       */
       inset: {
         type: Number,
+        reflect: true,
+      },
+      orientation: {
+        type: String,
         reflect: true,
       },
     };
   }
 
+  updated(changedProperties) {
+    if (changedProperties.has('orientation')) {
+      this.internals.ariaOrientation = this.orientation;
+    }
+  }
+
   constructor() {
     super();
-    /** @type {0|8|16|24|32|40|48|56|64|72|80|88|96} */
+    this.internals.role="separator"
+    /**
+     * The alignment of the left edge of the horizontal divider.
+     * @type { 0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null }
+     */
     this.inset = null;
+    /** 
+     * The orientation of the divider.
+     * @type {'horizontal'|'vertical'} */
+    this.orientation = 'horizontal';
   }
 }
 JhDivider.register('jh-divider', JhDivider);

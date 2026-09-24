@@ -5,7 +5,7 @@
 */
 import {LitElement, css, html} from 'lit';
 
-export default class JhIconCalendarPlu extends LitElement {
+export default class JhIconCalendarPlus extends LitElement {
   /** @type {ElementInternals} */
   #internals;
 
@@ -91,4 +91,4 @@ export default class JhIconCalendarPlu extends LitElement {
   }
 }
 
-customElements.define('jh-icon-calendar-plus', JhIconCalendarPlu);
+customElements.define('jh-icon-calendar-plus', JhIconCalendarPlus);

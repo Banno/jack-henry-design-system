@@ -7,7 +7,10 @@ import { JhElement } from '../element/element.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
- *
+ * Checkbox groups contain sets of checkboxes where several options can be selected.
+ * 
+ * [Checkbox Group Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-checkbox-group--docs)
+ * 
  * @cssprop --jh-checkbox-group-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-checkbox-group-opacity-disabled - The opacity of the checkbox group when disabled. Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-checkbox-group-required-color-text - The required indicator color.
@@ -18,12 +21,17 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-checkbox-group-error-color-text - The error-text text color.
  * Defaults to `--jh-color-content-negative-enabled`.
+ * 
+ * @event jh-change - Fired when the selection of checkboxes is changed by the user. Event payload includes both current and previous selections, accessible via `e.detail.state.selectedValue` and `e.detail.state.previousSelectedValue`.
  *
  * @slot default - Use to insert `<jh-checkbox>` component(s).
  *
  * @customElement jh-checkbox-group
  */
 export class JhCheckboxGroup extends JhElement {
+  #previousSelectedValue = [];
+
+
   static get styles() {
     return css`
       :host {
@@ -135,50 +143,37 @@ export class JhCheckboxGroup extends JhElement {
   }
   static get properties() {
     return {
-      /** Sets an `aria-label` to assist screen reader users when no visible label is present. */
       accessibleLabel: {
         type: String,
         attribute: 'accessible-label',
       },
-      /** Disables the checkbox group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT). */
       disabled: {
         type: Boolean,
         reflect: true,
       },
-      /** Text to be displayed when checkbox group has failed validation and `invalid` is true. */
       errorText: {
         type: String,
         attribute: 'error-text',
       },
-      /**
-       * Provides additional context or guidance for using the checkbox group. For `helper-text` to be displayed, the `label` property must also be set.
-       */
       helperText: {
+        type: String,
         attribute: 'helper-text',
       },
-      /** Sets an `aria-invalid` on the checkbox group to indicate the value supplied was invalid and displays `error-text` when set. */
       invalid: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Describes the type of data to be collected.
-       */
       label: {
         type: String,
       },
-      /** Indicates a value is required. */
       required: {
         type: Boolean,
         reflect: true,
       },
-      /** Determines the orientation of the checkbox group. */
       orientation: {
         type: String,
         reflect: true,
       },
-      /** 
-       * Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required` property is also set. For the indicator to be displayed, the `label` property must also be set. */
       showIndicator: {
         type: Boolean,
         reflect: true,
@@ -188,35 +183,78 @@ export class JhCheckboxGroup extends JhElement {
   }
   constructor() {
     super();
-    /** @type {boolean} */
+    /**
+     * Disables the checkbox group and prevents all user interactions. May cause the group to be ignored by assistive technologies (AT).
+     * @type {boolean}
+     */
     this.disabled = false;
-    /** @type {?string} */
+    /**
+     * Sets an `aria-label` to assist screen reader users when no visible label is present.
+     * @attr accessible-label
+     * @type {string | null}
+     */
     this.accessibleLabel = null;
-    /** @type {?string} */
+    /**
+     * Text to be displayed when checkbox group has failed validation and `invalid` is true.
+     * @attr error-text
+     * @type {string | null}
+     */
     this.errorText = null;
-    /** @type {?string} */
+    /**
+     * Provides additional context or guidance for using the checkbox group. For `helper-text` to be displayed, the `label` property must also be set.
+     * @attr helper-text
+     * @type {string | null}
+     */
     this.helperText = null;
-    /** @type {?boolean} */
+    /**
+     * Sets an `aria-invalid` on the checkbox group to indicate the value supplied was invalid and displays `error-text` when set.
+     * @type {boolean}
+     */
     this.invalid = false;
-    /** @type {?string} */
+    /**
+     * Describes the type of data to be collected.
+     * @type {string | null}
+     */
     this.label = null;
-    /** @type {?boolean} */
+    /**
+     * Indicates a value is required.
+     * @type {boolean}
+     */
     this.required = false;
-    /** @type {'vertical'|'horizontal'} */
+    /**
+     * Determines the orientation of the checkbox group.
+     * @type { 'vertical' | 'horizontal' }
+     */
     this.orientation = 'vertical';
-    /** @type {?boolean} */
+    /**
+     * Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required` property is also set. For the indicator to be displayed, the `label` property must also be set.
+     * @attr show-indicator
+     * @type {boolean}
+     */
     this.showIndicator = false;
+    this.addEventListener('jh-change', this.#handleChange);
   }
 
+  /** @protected */
   firstUpdated() {
     const slot = this.renderRoot?.querySelector('slot');
     this.#syncDisabledToChildren();
+    this.#getPreviousValues();
   }
 
+  /**
+   * @protected
+   * @param {import('lit').PropertyValues} changedProperties
+   */
   updated(changedProperties) {
     if (changedProperties.has('disabled')) {
       this.#syncDisabledToChildren();
     }
+  }
+
+  #handleSlotChange() {
+    this.#syncDisabledToChildren();
+    this.#getPreviousValues();
   }
 
   #syncDisabledToChildren() {
@@ -241,6 +279,31 @@ export class JhCheckboxGroup extends JhElement {
     }
   }
 
+  #handleChange(e) {
+    if (e.detail.reference.originHost === 'jh-checkbox') {
+      const { previousSelectedValue, selectedValues } = this.#getPreviousValues();
+
+      this.dispatchCustomEvent('jh-change', {
+        state: {
+          previousSelectedValue,
+          selectedValue: selectedValues,
+        },
+      });
+    }
+  }
+
+  #getPreviousValues() {
+    const previousSelectedValue = [...this.#previousSelectedValue];
+    const selectedValues = Array.from(this.querySelectorAll('jh-checkbox'))
+        .filter(checkbox => checkbox.checked && !checkbox.indeterminate)
+        .map(checkbox => checkbox.value);
+
+    this.#previousSelectedValue = [...selectedValues];
+
+    return { previousSelectedValue, selectedValues };
+  }
+
+  /** @protected */
   render() {
     let indicator;
     let helperText;
@@ -280,7 +343,7 @@ export class JhCheckboxGroup extends JhElement {
         aria-disabled=${ifDefined(this.disabled ? 'true' : null)}
         aria-label=${ifDefined(this.accessibleLabel)}>
         ${label}
-        <div class="controls"><slot @slotchange=${() => this.#syncDisabledToChildren()} ></slot></div>
+        <div class="controls"><slot @slotchange=${this.#handleSlotChange}></slot></div>
         ${errorText}
       </fieldset>
     `;

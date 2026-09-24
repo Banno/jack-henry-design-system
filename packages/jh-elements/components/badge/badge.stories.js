@@ -28,15 +28,23 @@ export default {
   title: 'Components/Badge',
   argTypes: {
     count: {
-      control: 'text',
+      control: 'number',
     },
     'max-count': {
-      control: 'text',
+      control: 'number',
     },
   },
+  parameters: {
+    actions: {
+      disable: true
+    },
+    interactions: {
+      disable: true
+    }
+  }
 };
 
-export const Overview = { 
+export const Overview = {
   render: (args) => html`
     <div class="overview-row">
       <jh-badge></jh-badge>
@@ -62,14 +70,10 @@ export const Playground = { render: (args) => html`
 `};
 
 Playground.args = {
-count: '1',
-'max-count': '99',
+count: 1,
+'max-count': 99,
 };
 
 Playground.parameters = {
   theme: 'both-themes',
 };
-
-
-
-

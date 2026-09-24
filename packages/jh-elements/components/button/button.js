@@ -8,6 +8,10 @@ import { JhElement } from '../element/element.js';
 import '../progress/progress.js';
 
 /**
+ * Buttons enable a user to initiate a specific action.
+ * 
+ * [Button Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-button--docs)
+ * 
  * @cssprop --jh-button-color-background-primary-enabled - The button container background-color when enabled and `appearance="primary"`. Defaults to `--jh-color-content-brand-enabled`.
  * @cssprop --jh-button-color-border-primary-enabled - The button container border-color when enabled and `appearance="primary"`. Defaults to `transparent`.
  * @cssprop --jh-button-color-background-primary-focus - The button container background-color when in focus and `appearance="primary"`. Defaults to `--jh-color-content-brand-hover`.
@@ -31,6 +35,7 @@ import '../progress/progress.js';
  * @cssprop --jh-button-icon-color-fill-primary-active - The icon color when active and `appearance="primary"`. Defaults to `--jh-color-content-on-brand-active`.
  * @cssprop --jh-button-icon-color-fill-primary-disabled - The icon color when disabled and `appearance="primary"`. Defaults to `--jh-color-content-on-brand-enabled`.
  * @cssprop --jh-button-progress-color-border-primary-pending - The progress indicator border-color when `appearance="primary"`. Defaults to `--jh-color-content-on-brand-enabled`.
+ * @cssprop --jh-button-progress-track-color-border-primary-pending - The progress indicator track-color when `appearance="primary"`. Defaults to `--jh-color-control-enabled`.
  * @cssprop --jh-button-color-background-secondary-enabled - The button container background-color when enabled and `appearance="secondary"`. Defaults to `transparent`.
  * @cssprop --jh-button-color-border-secondary-enabled - The button container border-color when enabled and `appearance="secondary"`. Defaults to `--jh-border-action-color`.
  * @cssprop --jh-button-color-background-secondary-focus - The button container background-color when in focus and `appearance="secondary"`. Defaults to `--jh-color-content-brand-hover`.
@@ -54,6 +59,7 @@ import '../progress/progress.js';
  * @cssprop --jh-button-icon-color-fill-secondary-active - The icon color when active and `appearance="secondary"`. Defaults to `--jh-color-content-on-brand-active`.
  * @cssprop --jh-button-icon-color-fill-secondary-disabled - The icon color when disabled and `appearance="secondary"`. Defaults to `--jh-color-content-brand-enabled`.
  * @cssprop --jh-button-progress-color-border-secondary-pending - The progress indicator border-color when `appearance="secondary"`. Defaults to `--jh-color-content-brand-enabled`.
+ * @cssprop --jh-button-progress-track-color-border-secondary-pending - The progress indicator track-color when `appearance="secondary"`. Defaults to `--jh-color-control-enabled`.
  * @cssprop --jh-button-color-background-tertiary-enabled - The button container background-color when enabled and `appearance="tertiary"`. Defaults to `transparent`.
  * @cssprop --jh-button-color-border-tertiary-enabled - The button container border-color when enabled and `appearance="tertiary"`. Defaults to `transparent`.
  * @cssprop --jh-button-color-background-tertiary-focus - The button container background-color when in focus and `appearance="tertiary"`. Defaults to `--jh-color-content-brand-hover`.
@@ -77,6 +83,7 @@ import '../progress/progress.js';
  * @cssprop --jh-button-icon-color-fill-tertiary-active - The icon color when active and `appearance="tertiary"`. Defaults to `--jh-color-content-on-brand-active`.
  * @cssprop --jh-button-icon-color-fill-tertiary-disabled - The icon color when disabled and `appearance="tertiary"`. Defaults to `--jh-color-content-brand-enabled`.
  * @cssprop --jh-button-progress-color-border-tertiary-pending - The progress indicator border-color when `appearance="tertiary"`. Defaults to `--jh-color-content-brand-enabled`.
+ * @cssprop --jh-button-progress-track-color-border-tertiary-pending - The progress indicator track-color when `appearance="tertiary"`. Defaults to `--jh-color-control-enabled`.
  * @cssprop --jh-button-color-background-danger-enabled - The button container background-color when enabled and `appearance="danger"`. Defaults to `--jh-color-content-negative-enabled`.
  * @cssprop --jh-button-color-border-danger-enabled - The button container border-color when enabled and `appearance="danger"`. Defaults to `transparent`.
  * @cssprop --jh-button-color-background-danger-focus - The button container background-color when in focus and `appearance="danger"`. Defaults to `--jh-color-content-negative-hover`.
@@ -100,6 +107,7 @@ import '../progress/progress.js';
  * @cssprop --jh-button-icon-color-fill-danger-active - The icon color when active and `appearance="danger"`. Defaults to `--jh-color-content-on-negative-active`.
  * @cssprop --jh-button-icon-color-fill-danger-disabled - The icon color when disabled and `appearance="danger"`. Defaults to `--jh-color-content-on-negative-enabled`.
  * @cssprop --jh-button-progress-color-border-danger-pending - The progress indicator border-color when `appearance="danger"`. Defaults to `--jh-color-content-on-negative-enabled`.
+ * @cssprop --jh-button-progress-track-color-border-danger-pending - The progress indicator track-color when `appearance="danger"`. Defaults to `--jh-color-control-enabled`.
  * @cssprop --jh-button-border-radius - The button container border-radius. Defaults to `--jh-border-radius-100`.
  * @cssprop --jh-button-opacity-disabled - The button container opacity when disabled. Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-button-color-focus - The button container outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.
@@ -110,12 +118,11 @@ import '../progress/progress.js';
  * @customElement jh-button
  */
 export class JhButton extends JhElement {
-  /** @ignore */
   static get formAssociated() {
     return true;
   }
 
-  /** @type {?string} */
+  /** @type {string | null} */
   #value;
 
   static get styles() {
@@ -639,6 +646,7 @@ export class JhButton extends JhElement {
           --jh-button-progress-color-border-primary-pending,
           var(--jh-color-content-on-brand-enabled)
         );
+        --jh-progress-track-color: var(--jh-button-progress-track-color-border-primary-pending);
       }
       :host([pending][appearance='secondary']) button,
       :host([pending][appearance='secondary']) a {
@@ -656,6 +664,7 @@ export class JhButton extends JhElement {
           --jh-button-progress-color-border-secondary-pending,
           var(--jh-color-content-brand-enabled)
         );
+        --jh-progress-track-color: var(--jh-button-progress-track-color-border-secondary-pending);
       }
       :host([pending][appearance='tertiary']) button,
       :host([pending][appearance='tertiary']) a {
@@ -673,6 +682,7 @@ export class JhButton extends JhElement {
           --jh-button-progress-color-border-tertiary-pending,
           var(--jh-color-content-brand-enabled)
         );
+        --jh-progress-track-color: var(--jh-button-progress-track-color-border-tertiary-pending);
       }
       :host([pending][appearance='danger']) button,
       :host([pending][appearance='danger']) a {
@@ -690,6 +700,7 @@ export class JhButton extends JhElement {
           --jh-button-progress-color-border-danger-pending,
           var(--jh-color-content-on-negative-enabled)
         );
+        --jh-progress-track-color: var(--jh-button-progress-track-color-border-danger-pending);
       }
 
       /* Single icon styling */
@@ -731,62 +742,49 @@ export class JhButton extends JhElement {
 
   static get properties() {
     return {
-      /** Sets an `aria-disabled` to signify to screen readers that the disabled button should remain perceivable while disabled. */
       accessibleDisabled: {
         type: String,
         attribute: 'accessible-disabled',
         reflect: true,
       },
-      /** Sets an `aria-label` to assist screen reader users when no visible label is present. */
       accessibleLabel: {
         type: String,
         attribute: 'accessible-label',
       },
-      /** Determines the button color. */
       appearance: {
         type: String,
         reflect: true,
       },
-      /** Sets the button width to its parent container. */
       block: {
         type: Boolean,
       },
-      /** Disables the button and prevents all user interactions. May cause button to be ignored by assistive technologies(AT). See `accessible-disabled` attribute if the button should remain perceivable to AT. */
       disabled: {
         type: Boolean,
         reflect: true,
       },
-      /** Sets the link's destination. */
       href: {
         type: String,
       },
-      /** Displays a progress indicator. */
       pending: {
         type: Boolean,
         reflect: true,
       },
-      /** Describes the intent of the button.*/
       label: {
         type: String,
       },
-      /** Sets the name of the button data when submitted in a form. */
       name: {
         type: String,
       },
-      /** Sets the size of the button. */
       size: {
         type: String,
         reflect: true,
       },
-      /** Sets button `type='submit'`. Button defaults to `type='button'`. */
       submit: {
         type: Boolean,
       },
-      /** Specifies where to display the linked URL set by the `href` property. */
       target: {
         type: String,
       },
-      /** Sets the value of the button. */
       value: {
         type: String,
       },
@@ -803,48 +801,95 @@ export class JhButton extends JhElement {
 
   constructor() {
     super();
-    /** @type {ElementInternals} */
-    this.internals.form;
-    /** @type {'true'|'false'} */
+    /**
+     * Sets an `aria-disabled` to signify to screen readers that the disabled button should remain perceivable while disabled.
+     * @attr accessible-disabled
+     * @type { 'true' | 'false' | null}
+     */
     this.accessibleDisabled = null;
-    /** @type {?string} */
+    /**
+     * Sets an `aria-label` to assist screen reader users when no visible label is present.
+     * @attr accessible-label
+     * @type {string | null}
+     */
     this.accessibleLabel = null;
-    /** @type {'primary'|'secondary'|'tertiary'|'danger'} */
+    /**
+     * Determines the button color.
+     * @type { 'primary' | 'secondary' | 'tertiary' | 'danger' }
+     */
     this.appearance = 'secondary';
-    /** @type {boolean} */
+    /**
+     * Sets the button width to its parent container.
+     * @type {boolean}
+     */
     this.block = false;
-    /** @type {boolean} */
+    /**
+     * Disables the button and prevents all user interactions. May cause button to be ignored by assistive technologies(AT). See `accessible-disabled` attribute if the button should remain perceivable to AT.
+     * @type {boolean}
+     */
     this.disabled = false;
-    /** @type {?string} */
+    /**
+     * Sets the link's destination.
+     * @type {string | null}
+     */
     this.href = null;
-    /** @type {?boolean} */
+    /**
+     * Displays a progress indicator.
+     * @type {boolean}
+     */
     this.pending = false;
-    /** @type {?string} */
+    /**
+     * Describes the intent of the button.
+     * @type {string | null}
+     */
     this.label = null;
-    /** @type {?string} */
+    /**
+     * Sets the name of the button data when submitted in a form.
+     * @type {string | null}
+     */
     this.name = null;
-    /** @type {'x-small'|'small'|'medium'|'large'} */
+    /**
+     * Sets the size of the button.
+     * @type { 'x-small' | 'small' | 'medium' | 'large' }
+     */
     this.size = 'medium';
-    /** @type {?boolean} */
+    /**
+     * Sets button `type='submit'`. Button defaults to `type='button'`.
+     * @type {boolean}
+     */
     this.submit = false;
-    /** @type {'_blank'|'_self'|'_parent'|'_top'} */
+    /**
+     * Specifies where to display the linked URL set by the `href` property.
+     * @type { '_blank' | '_self' | '_parent' | '_top' | null }
+     */
     this.target = null;
-    /** @type {?string} */
+    /** @type {string | null} */
     this.value = null;
-    /** @type {boolean} */
+    /** 
+     * @internal
+     * @type {boolean} 
+     * */
     this._hasLeftSlotContent = false;
-    /** @type {boolean} */
+    /** 
+     * @internal
+     * @type {boolean} 
+     * */
     this._hasRightSlotContent = false;
 
     this.addEventListener('click', this.#onClick);
     this.addEventListener('keydown', this.#handleKeydown);
   }
 
-  /** @type {?string} */
+  /**
+   * Sets the value of the button.
+   * @type {string | null}
+   */
   get value() {
     return this.#value;
   }
-
+  /**
+  * @param {string | null} newValue
+  */
   set value(newValue) {
     const oldValue = this.#value;
     if (newValue !== oldValue) {
@@ -853,31 +898,36 @@ export class JhButton extends JhElement {
     }
     this.requestUpdate('value', oldValue);
   }
-
+  /** @protected */
   firstUpdated() {
     this.#cacheButtonDimensions();
     new ResizeObserver(this.#cacheButtonDimensions.bind(this)).observe(this);
   }
 
   //if button size changes, adjust the size of the icons accordingly.
+  /**
+  * @protected
+  * @param {import('lit').PropertyValues} changedProperties
+  */
   updated(changedProperties) {
-  if (changedProperties.has('size')) {
-    const iconSize = this.size === 'x-small' ? 'x-small' : 'medium';
-    const slots = this.shadowRoot.querySelectorAll('slot');
-    slots.forEach(slot => {
-    const icon = slot?.assignedElements({flatten: true})[0];
-    if (icon) {
-      icon.setAttribute('size', iconSize);
-      }
-    });
+    if (changedProperties.has('size')) {
+      const iconSize = this.size === 'x-small' ? 'x-small' : 'medium';
+      const slots = this.shadowRoot.querySelectorAll('slot');
+      slots.forEach(slot => {
+        const icon = slot?.assignedElements({flatten: true})[0];
+        if (icon) {
+          icon.setAttribute('size', iconSize);
+        }
+      });
+    }
   }
-}
-  #cacheButtonDimensions() {
-    const { width } = this.getBoundingClientRect();
 
+  #cacheButtonDimensions() {
+    const { width } = this.shadowRoot.querySelector('button, a').getBoundingClientRect();
     this.style.setProperty('--populated-button-width', `${width}px`);
   }
 
+  /** @param {boolean} disabled */
   formDisabledCallback(disabled) {
     this.disabled = disabled;
   }
@@ -964,7 +1014,7 @@ export class JhButton extends JhElement {
 
     return html` <span class="content-wrapper">${buttonContent}</span> `;
   }
-
+  /** @protected */
   render() {
     const buttonContent = this.#renderButtonContent(this.pending, this.label);
     let ariaDisabled;

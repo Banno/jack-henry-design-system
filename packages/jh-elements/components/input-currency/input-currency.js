@@ -131,7 +131,8 @@ export class JhInputCurrency extends JhInput {
 
     super._handleInput(e);
 
-    if (!this.hideCommas) {
+    // pasted values are used as-is, without adding comma separators
+    if (!this.hideCommas && e.inputType !== 'insertFromPaste') {
       this.#formatCommas(e);
     }
   }

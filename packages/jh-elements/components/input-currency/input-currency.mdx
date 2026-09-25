@@ -38,6 +38,8 @@ By default, the value is formatted with two decimal places as the user types, ca
 
 Typing **1**, **2**, **3**, **4**, **5**, **6** in sequence updates the value to **0.01**, then **0.12**, **1.23**, **12.34**, **123.45**, and finally **1,234.56**.
 
+Pasted values are never reformatted, regardless of `hide-commas` or `hide-decimal`; no digit shifting, decimal enforcement, or comma insertion is applied, so authors are responsible for validating pasted content.
+
 ### hide-decimal
 
 Set the `hide-decimal` property to leave the value as typed, without shifting digits or enforcing decimal places:
@@ -60,13 +62,7 @@ Displays as **1000000**.
 
 ### Signed values
 
-A `+` or `-` can be typed to indicate a positive or negative value, such as for deposits and withdrawals. A sign is only accepted as the first character of the value; it cannot be typed anywhere else, and only one sign is permitted at a time.
-
-```html
-<jh-input-currency value="-10000"></jh-input-currency>
-```
-
-Displays as **-100.00**.
+`+`, `-`, `(`, and `)` can be typed in the value to indicate a positive or negative value, such as for deposits and withdrawals, or accounting-style negatives like `(123)`.
 
 ## Dependencies
 The input currency component makes use of required compositional dependencies.

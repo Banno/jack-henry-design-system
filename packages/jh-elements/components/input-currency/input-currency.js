@@ -258,7 +258,19 @@ export class JhInputCurrency extends JhInput {
     // numeric characters and +, -, (, ) are permitted anywhere in the value; commas and decimal points are either auto-inserted by formatting or disabled via hide-commas/hide-decimal
     if (!CONTENT_CHAR_PATTERN.test(e.key)) {
       e.preventDefault();
+      return;
     }
+
+    // without comma/decimal formatting to clean up extra zeros, block typing a second leading 0
+    if (this.hideDecimal && this.hideCommas && e.key === '0' && this.#isRedundantLeadingZero(e.target)) {
+      e.preventDefault();
+    }
+  }
+
+  // true when the input's digits are already just a single "0" and there's no selection to replace it
+  #isRedundantLeadingZero(input) {
+    if (input.selectionStart !== input.selectionEnd) return false;
+    return input.value.replace(/\D/g, '') === '0';
   }
 
   // finds the index in formattedValue that lands after the given count of non-comma characters

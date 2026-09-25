@@ -1,5 +1,4 @@
 ---
-"@jack-henry/jh-datasets": minor
 "@jack-henry/jh-elements": minor
 ---
 

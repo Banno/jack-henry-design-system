@@ -43,6 +43,8 @@ import '@jack-henry/jh-icons/icons-wc/icon-circle-xmark.js';
  * @cssprop --jh-input-helper-color-text - The helper-text text color. Defaults to `jh-color-content-secondary-enabled`.
  * @cssprop --jh-input-counter-color-text - The character counter text color. Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-input-value-color-text - The value text color. Defaults to `jh-color-content-primary-enabled`.
+ * @cssprop --jh-input-prefix-color-text - The prefix text color. Defaults to `--jh-color-content-secondary-enabled`.
+ * @cssprop --jh-input-suffix-color-text - The suffix text color. Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-input-error-color-text - The error message text color. Defaults to `jh-color-content-negative-enabled`.
  * @cssprop --jh-input-size - The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large.
  * @event jh-select - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.
@@ -204,12 +206,34 @@ export class JhInput extends JhElement {
       :host([readonly]) input {
         height: auto;
       } 
-
+      :host([horizontal-align='right']) input {
+        text-align: right;
+      }
+      :host([horizontal-align='left']) input {
+        text-align: left;
+      }
       /* Slot wrappers */
       .slot-wrapper {
         display: none;
         align-items: center;
         flex-shrink: 0;
+      }
+      .prefix,
+      .suffix {
+        font-family: var(--jh-font-code-regular-1-font-family);
+        font-weight: var(--jh-font-code-regular-1-font-weight);
+        font-size: var(--jh-font-code-regular-1-font-size);
+        line-height: var(--jh-font-code-regular-1-line-height);
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+      .prefix {
+        padding-right: var(--jh-dimension-200);
+        color: var(--jh-input-prefix-color-text, var(--jh-color-content-secondary-enabled));
+      }
+      .suffix {
+        padding-left: var(--jh-dimension-200);
+        color: var(--jh-input-suffix-color-text, var(--jh-color-content-secondary-enabled));
       }
       slot[name="jh-input-left"] {
         display: none;
@@ -347,9 +371,8 @@ export class JhInput extends JhElement {
       p {
         margin: 0;
       }
-
       /* Optional/Required/Show-indicator */
-      :host([show-indicator]) span {
+      :host([show-indicator]) span.indicator {
         color: var(
           --jh-input-optional-color-text,
           var(--jh-color-content-primary-enabled)
@@ -359,7 +382,7 @@ export class JhInput extends JhElement {
         font-size: var(--input-helper-regular-font-size);
         line-height: var(--input-helper-regular-line-height);
       }
-      :host([show-indicator][required]) span {
+      :host([show-indicator][required]) span.indicator {
         color: var(
           --jh-input-required-color-text,
           var(--jh-color-content-negative-enabled)
@@ -379,6 +402,7 @@ export class JhInput extends JhElement {
       helperText: { type: String, attribute: 'helper-text' },
       hideLeftSlot: { type: Boolean, attribute: 'hide-left-slot' },
       hideRightSlot: { type: Boolean, attribute: 'hide-right-slot' },
+      horizontalAlign: { type: String, attribute: 'horizontal-align' },
       inputMask: { type: String, attribute: 'input-mask' },
       inputmode: { type: String },
       invalid: { type: Boolean },
@@ -387,12 +411,14 @@ export class JhInput extends JhElement {
       minlength: { type: Number },
       name: { type: String },
       pattern: { type: String },
+      prefix: { type: String },
       readonly: { type: Boolean },
       required: { type: Boolean },
       showCharCount: { type: Boolean, attribute: 'show-char-count' },
       showClearButton: {type: Boolean, attribute: 'show-clear-button'}, 
       showIndicator: { type: Boolean, attribute: 'show-indicator' },
       size: { type: String, reflect: true },
+      suffix: { type: String },
       value: { type: String },
     };
   }
@@ -455,6 +481,11 @@ export class JhInput extends JhElement {
      * @type {boolean}
      */
     this.hideRightSlot = false;
+    /** 
+     * Determines whether the input value is aligned to the left or right side of the input field.
+     * @type {'left' | 'right'} 
+     */
+    this.horizontalAlign = 'left';
     /**
      * Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.
      * @attr input-mask
@@ -498,10 +529,12 @@ export class JhInput extends JhElement {
      * @type {string | null}
      */
     this.pattern = null;
-    /**
-     * Prevents users from changing the input value. Removes all slotted content.
-     * @type {boolean}
+    /** 
+     * Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.
+     * @type {string | null} 
      */
+    this.prefix = null;
+    /** @type {boolean} */
     this.readonly = false;
     /**
      * Indicates a value is required.
@@ -531,7 +564,15 @@ export class JhInput extends JhElement {
      * @type { 'small' | 'medium' | 'large' }
      */
     this.size = 'medium';
-    /** @type {string | null} */
+    /**
+     * Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.
+     * @type {string | null}
+     */
+    this.suffix = null;
+    /**
+     * The current value of the input.
+     * @type {string | null}
+     */
     this.value = null;
   }
 
@@ -1289,7 +1330,26 @@ export class JhInput extends JhElement {
     `;
   }
 
-  /** @protected */
+  renderPrefix() {
+    if (!this.prefix) return null;
+    return html`<span class="prefix" id="jh-input-prefix-${this.uniqueId}">${this.prefix}</span>`;
+  }
+
+  renderSuffix() {
+    if (!this.suffix) return null;
+    return html`<span class="suffix" id="jh-input-suffix-${this.uniqueId}">${this.suffix}</span>`;
+  }
+
+  renderPrefix() {
+    if (!this.prefix) return null;
+    return html`<span class="prefix" id="jh-input-prefix-${this.uniqueId}">${this.prefix}</span>`;
+  }
+
+  renderSuffix() {
+    if (!this.suffix) return null;
+    return html`<span class="suffix" id="jh-input-suffix-${this.uniqueId}">${this.suffix}</span>`;
+  }
+
   renderClearButton() {
     if (!this.showClearButton || !this.value || this.disabled) return null;
     return html`
@@ -1316,6 +1376,12 @@ export class JhInput extends JhElement {
     }
     if (this.helperText) {
       describedbyString += ` jh-input-helper-${this.uniqueId}`;
+    }
+    if (this.prefix) {
+      describedbyString += ` jh-input-prefix-${this.uniqueId}`;
+    }
+    if (this.suffix) {
+      describedbyString += ` jh-input-suffix-${this.uniqueId}`;
     }
     return describedbyString;
   }
@@ -1403,11 +1469,14 @@ export class JhInput extends JhElement {
     const leftSlot = this.readonly ? null : this.renderLeftSlot();
     const rightSlot = this.readonly ? null : this.renderRightSlot();
     const clearButton = this.readonly ? null : this.renderClearButton();
+    const prefix = this.renderPrefix();
+    const suffix = this.renderSuffix();
 
     return html`
       <div class="input-container">
         <div class="input-wrapper">
           ${leftSlot}
+          ${prefix}
           <input
             id="jh-input-${this.uniqueId}"
             aria-describedby=${describedby}
@@ -1436,6 +1505,7 @@ export class JhInput extends JhElement {
             @input=${this._handleInput}
             @select=${this._handleSelect}
           />
+          ${suffix}
           ${clearButton}
           ${rightSlot}
         </div>

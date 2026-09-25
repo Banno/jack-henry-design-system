@@ -2340,13 +2340,74 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/input-email/input-email.js",
+      "path": "components/input-currency/input-currency.js",
       "declarations": [
         {
           "kind": "class",
-          "description": "The input email component provides a single-line text field for email addresses.\n\n[Input Email Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-email--docs)",
-          "name": "JhInputEmail",
+          "description": "",
+          "name": "JhInputCurrency",
           "members": [
+            {
+              "kind": "field",
+              "name": "max",
+              "privacy": "public",
+              "type": {
+                "text": "number | null"
+              },
+              "description": "Sets the maximum value for validation (package or custom). Does not natively enforce limits.",
+              "default": "null",
+              "attribute": "max"
+            },
+            {
+              "kind": "field",
+              "name": "min",
+              "privacy": "public",
+              "type": {
+                "text": "number | null"
+              },
+              "description": "Sets the minimum value for validation (package or custom). Does not natively enforce limits.",
+              "default": "null",
+              "attribute": "min"
+            },
+            {
+              "kind": "field",
+              "name": "hideCommas",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Disables automatic comma insertion into the input value as the user types.",
+              "default": "false",
+              "attribute": "hide-commas",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hideDecimal",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Disables formatting the value with two decimal places as the user types, cash-register style (each digit entered shifts in from the right).",
+              "default": "false",
+              "attribute": "hide-decimal",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "prefix",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+              "default": "'$'",
+              "attribute": "prefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
             {
               "kind": "field",
               "name": "inputmode",
@@ -2355,7 +2416,7 @@
                 "text": "string | null"
               },
               "description": "Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.\n\n[Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)",
-              "default": "'email'",
+              "default": "'decimal'",
               "attribute": "inputmode",
               "inheritedFrom": {
                 "name": "JhInput",
@@ -2369,7 +2430,7 @@
               "type": {
                 "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -2380,6 +2441,30 @@
               ],
               "default": "null",
               "attribute": "value",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderPrefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderSuffix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderClearButton",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -2522,6 +2607,21 @@
             },
             {
               "kind": "field",
+              "name": "horizontalAlign",
+              "privacy": "public",
+              "type": {
+                "text": "'left' | 'right'"
+              },
+              "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+              "default": "'left'",
+              "attribute": "horizontal-align",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
               "name": "inputMask",
               "privacy": "public",
               "type": {
@@ -2632,7 +2732,6 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Prevents users from changing the input value. Removes all slotted content.",
               "default": "false",
               "attribute": "readonly",
               "inheritedFrom": {
@@ -2711,6 +2810,1277 @@
               "default": "'medium'",
               "attribute": "size",
               "reflects": true,
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "suffix",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+              "default": "null",
+              "attribute": "suffix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "uniqueId",
+              "type": {
+                "text": "number"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "dispatchCustomEvent",
+              "parameters": [
+                {
+                  "name": "eventName",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "default": "{}",
+                  "optional": true,
+                  "type": {
+                    "text": "Object"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
+                }
+              ],
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            }
+          ],
+          "events": [
+            {
+              "description": "Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when `hide-commas` is not set and can be accessed via `e.detail.state.rawValue`. Payload also includes the `pattern` property and can be accessed via `e.detail.reference.pattern`.",
+              "name": "jh-change",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when `hide-commas` is not set and can be accessed via `e.detail.state.rawValue`. Payload also includes the `pattern` property and can be accessed via `e.detail.reference.pattern`. Input Currency",
+              "name": "jh-input",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.",
+              "name": "jh-select",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`.",
+              "name": "jh-maxlength",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`.",
+              "name": "jh-input:clear-button-click",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "hide-commas",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Disables automatic comma insertion into the input value as the user types.",
+              "default": "false",
+              "fieldName": "hideCommas",
+              "attribute": "hide-commas"
+            },
+            {
+              "name": "hide-decimal",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Disables formatting the value with two decimal places as the user types, cash-register style (each digit entered shifts in from the right).",
+              "default": "false",
+              "fieldName": "hideDecimal",
+              "attribute": "hide-decimal"
+            },
+            {
+              "name": "max",
+              "type": {
+                "text": "number | null"
+              },
+              "description": "Sets the maximum value for validation (package or custom). Does not natively enforce limits.",
+              "default": "null",
+              "fieldName": "max"
+            },
+            {
+              "name": "min",
+              "type": {
+                "text": "number | null"
+              },
+              "description": "Sets the minimum value for validation (package or custom). Does not natively enforce limits.",
+              "default": "null",
+              "fieldName": "min"
+            },
+            {
+              "name": "prefix",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+              "default": "'$'",
+              "fieldName": "prefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "inputmode",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.\n\n[Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)",
+              "default": "'decimal'",
+              "fieldName": "inputmode",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "accessible-label",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
+              "default": "null",
+              "fieldName": "accessibleLabel",
+              "attribute": "accessible-label",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "accessible-label-clear-button",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets an aria-label on the clear button to assist screen reader users. Indicates that activating the button will clear the input field.",
+              "default": "null",
+              "fieldName": "accessibleLabelClearButton",
+              "attribute": "accessible-label-clear-button",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "error-text",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to be displayed when input has failed validation and `invalid` is true.",
+              "default": "null",
+              "fieldName": "errorText",
+              "attribute": "error-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "helper-text",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Provides additional context or guidance for using the input. For `helper-text` to be displayed, the `label` property must also be set.",
+              "default": "null",
+              "fieldName": "helperText",
+              "attribute": "helper-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "hide-left-slot",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the left slot from input.",
+              "default": "false",
+              "fieldName": "hideLeftSlot",
+              "attribute": "hide-left-slot",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "hide-right-slot",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the right slot from input.",
+              "default": "false",
+              "fieldName": "hideRightSlot",
+              "attribute": "hide-right-slot",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "input-mask",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
+              "default": "null",
+              "fieldName": "inputMask",
+              "attribute": "input-mask",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "show-char-count",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays a character counter at the bottom right corner below the input field.",
+              "default": "false",
+              "fieldName": "showCharCount",
+              "attribute": "show-char-count",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "show-clear-button",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays a clear button in the input field when it contains a value and is focused or hovered. Deletes input value when activated.",
+              "default": "false",
+              "fieldName": "showClearButton",
+              "attribute": "show-clear-button",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "show-indicator",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a visual indicator next to the label. Indicates that a value is optional(by default) or required if the `required` property is also set.",
+              "default": "false",
+              "fieldName": "showIndicator",
+              "attribute": "show-indicator",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "autocomplete",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Determines whether the browser can provide assistance in filling out the input value and what type of information is expected.\nThis property will override any autocomplete attribute present on the input's parent form element.\n\n[Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)",
+              "default": "null",
+              "fieldName": "autocomplete",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Disables the input and prevents all user interactions. May cause the input to be ignored by assistive technologies (AT).",
+              "default": "false",
+              "fieldName": "disabled",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "enterkeyhint",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Specifies which action label or icon to present for the enter key on virtual keyboards.\n\n[Visit MDN for information on supported enterkeyhint values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint)",
+              "default": "null",
+              "fieldName": "enterkeyhint",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "horizontal-align",
+              "type": {
+                "text": "'left' | 'right'"
+              },
+              "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+              "default": "'left'",
+              "fieldName": "horizontalAlign",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "invalid",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
+              "default": "false",
+              "fieldName": "invalid",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Identifies what data should be entered into the input field.",
+              "default": "null",
+              "fieldName": "label",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "maxlength",
+              "type": {
+                "text": "number | null"
+              },
+              "description": "Sets the maximum number of characters a user can enter into the field.",
+              "default": "null",
+              "fieldName": "maxlength",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "minlength",
+              "type": {
+                "text": "number | null"
+              },
+              "description": "Sets the minimum number of characters a user can enter into the field.",
+              "default": "null",
+              "fieldName": "minlength",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets a name for the input control.",
+              "default": "null",
+              "fieldName": "name",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "pattern",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets the pattern attribute on the input field.",
+              "default": "null",
+              "fieldName": "pattern",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "readonly",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "readonly",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Indicates a value is required.",
+              "default": "false",
+              "fieldName": "required",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "'small' | 'medium' | 'large'"
+              },
+              "description": "Sets the size of the input.",
+              "default": "'medium'",
+              "fieldName": "size",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "suffix",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+              "default": "null",
+              "fieldName": "suffix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "The current value of the input.",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "string | null"
+                  }
+                }
+              ],
+              "default": "null",
+              "fieldName": "value",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "JhInput",
+            "module": "/components/input/input.js"
+          },
+          "tagName": "jh-input-currency",
+          "customElement": true,
+          "slots": [
+            {
+              "description": "Use to insert an element on the left side of the input field, such as an icon or button.",
+              "name": "jh-input-left",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "Use to insert an element on the right side of the input field, such as an icon or button.",
+              "name": "jh-input-right",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "Use to insert an icon within the clear button.",
+              "name": "jh-input-clear-button",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            }
+          ],
+          "cssProperties": [
+            {
+              "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-input-label-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The input field background-color when in an editable state. This property does not apply when the component is set to `readonly`. Defaults to `--jh-color-container-primary-enabled`.",
+              "name": "--jh-input-field-color-background",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The input field border-color. Defaults to `--jh-border-control-color`.",
+              "name": "--jh-input-field-color-border-enabled",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The input field border radius. Defaults to `--jh-border-radius-100`.",
+              "name": "--jh-input-field-border-radius",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The input field outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.",
+              "name": "--jh-input-color-focus",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The input field border-color when in focus. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-input-field-color-border-focus",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The input field border-color when hovered. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-input-field-color-border-hover",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
+              "name": "--jh-input-field-color-border-active",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The input field border-color when disabled. Defaults to `--jh-border-control-color`.",
+              "name": "--jh-input-field-color-border-disabled",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The input opacity when disabled. Defaults to `--jh-opacity-disabled`.",
+              "name": "--jh-input-opacity-disabled",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The input field border-color when invalid. Defaults to `--jh-border-error-color`.",
+              "name": "--jh-input-field-color-border-error",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button border radius. Defaults to `--jh-border-radius-100`.",
+              "name": "--jh-input-clear-border-radius",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button background-color. Defaults to `transparent`.",
+              "name": "--jh-input-clear-color-background-enabled",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button border-color. Defaults to `transparent`.",
+              "name": "--jh-input-clear-color-border-enabled",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button icon fill color. Defaults to `--jh-color-content-brand-enabled`.",
+              "name": "--jh-input-clear-icon-color-fill-enabled",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button background-color when in focus. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-input-clear-color-background-focus",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button border-color when in focus. Defaults to `transparent`.",
+              "name": "--jh-input-clear-color-border-focus",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.",
+              "name": "--jh-input-clear-color-focus",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button icon fill color when in focus. Defaults to `--jh-color-content-on-brand-hover`.",
+              "name": "--jh-input-clear-icon-color-fill-focus",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button background-color when hovered. Defaults to `--jh-color-content-brand-hover`.",
+              "name": "--jh-input-clear-color-background-hover",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button border-color when hovered. Defaults to `transparent`.",
+              "name": "--jh-input-clear-color-border-hover",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button icon fill color when hovered. Defaults to `--jh-color-content-on-brand-hover`.",
+              "name": "--jh-input-clear-icon-color-fill-hover",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button background-color when active. Defaults to `--jh-color-content-brand-active`.",
+              "name": "--jh-input-clear-color-background-active",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button border-color when active. Defaults to `transparent`.",
+              "name": "--jh-input-clear-color-border-active",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The clear button icon fill color when active. Defaults to `--jh-color-content-on-brand-active`.",
+              "name": "--jh-input-clear-icon-color-fill-active",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The required indicator color. Defaults to `jh-color-content-negative-enabled`.",
+              "name": "--jh-input-required-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The optional indicator text color. Defaults to `jh-color-content-primary-enabled`.",
+              "name": "--jh-input-optional-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The helper-text text color. Defaults to `jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-helper-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The character counter text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-counter-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The value text color. Defaults to `jh-color-content-primary-enabled`.",
+              "name": "--jh-input-value-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-prefix-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The suffix text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-suffix-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`.",
+              "name": "--jh-input-error-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The height of the input field. Defaults to `--jh-dimension-800` for small, `--jh-dimension-1000` for medium, and `--jh-dimension-1200` for large.",
+              "name": "--jh-input-size",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JhInputCurrency",
+          "declaration": {
+            "name": "JhInputCurrency",
+            "module": "components/input-currency/input-currency.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/input-email/input-email.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The input email component provides a single-line text field for email addresses.\n\n[Input Email Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-email--docs)",
+          "name": "JhInputEmail",
+          "members": [
+            {
+              "kind": "field",
+              "name": "inputmode",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Indicates expected input value type and allows for browsers to display appropriate virtual keyboard.\n\n[Visit MDN for information on supported inputmode values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)",
+              "default": "'email'",
+              "attribute": "inputmode",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "The current value of the input.",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "string | null"
+                  }
+                }
+              ],
+              "default": "null",
+              "attribute": "value",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderPrefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderSuffix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderClearButton",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "accessibleLabel",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets an `aria-label` on the input field to assist screen reader users when no visible label is present.",
+              "default": "null",
+              "attribute": "accessible-label",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "accessibleLabelClearButton",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets an aria-label on the clear button to assist screen reader users. Indicates that activating the button will clear the input field.",
+              "default": "null",
+              "attribute": "accessible-label-clear-button",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "autocomplete",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Determines whether the browser can provide assistance in filling out the input value and what type of information is expected.\nThis property will override any autocomplete attribute present on the input's parent form element.\n\n[Visit MDN for information on supported autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)",
+              "default": "null",
+              "attribute": "autocomplete",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Disables the input and prevents all user interactions. May cause the input to be ignored by assistive technologies (AT).",
+              "default": "false",
+              "attribute": "disabled",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "enterkeyhint",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Specifies which action label or icon to present for the enter key on virtual keyboards.\n\n[Visit MDN for information on supported enterkeyhint values](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint)",
+              "default": "null",
+              "attribute": "enterkeyhint",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "errorText",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to be displayed when input has failed validation and `invalid` is true.",
+              "default": "null",
+              "attribute": "error-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "helperText",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Provides additional context or guidance for using the input. For `helper-text` to be displayed, the `label` property must also be set.",
+              "default": "null",
+              "attribute": "helper-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "hideLeftSlot",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the left slot from input.",
+              "default": "false",
+              "attribute": "hide-left-slot",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "hideRightSlot",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the right slot from input.",
+              "default": "false",
+              "attribute": "hide-right-slot",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "horizontalAlign",
+              "privacy": "public",
+              "type": {
+                "text": "'left' | 'right'"
+              },
+              "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+              "default": "'left'",
+              "attribute": "horizontal-align",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "inputMask",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Formats user entered data on input based on fixed lengths. This property does not support dynamic formatting or pasted values. See the input mask documentation above for implementation details.",
+              "default": "null",
+              "attribute": "input-mask",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "invalid",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
+              "default": "false",
+              "attribute": "invalid",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Identifies what data should be entered into the input field.",
+              "default": "null",
+              "attribute": "label",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "maxlength",
+              "privacy": "public",
+              "type": {
+                "text": "number | null"
+              },
+              "description": "Sets the maximum number of characters a user can enter into the field.",
+              "default": "null",
+              "attribute": "maxlength",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "minlength",
+              "privacy": "public",
+              "type": {
+                "text": "number | null"
+              },
+              "description": "Sets the minimum number of characters a user can enter into the field.",
+              "default": "null",
+              "attribute": "minlength",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets a name for the input control.",
+              "default": "null",
+              "attribute": "name",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "pattern",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets the pattern attribute on the input field.",
+              "default": "null",
+              "attribute": "pattern",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "prefix",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+              "default": "null",
+              "attribute": "prefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "readonly",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "readonly",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Indicates a value is required.",
+              "default": "false",
+              "attribute": "required",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "showCharCount",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays a character counter at the bottom right corner below the input field.",
+              "default": "false",
+              "attribute": "show-char-count",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "showClearButton",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays a clear button in the input field when it contains a value and is focused or hovered. Deletes input value when activated.",
+              "default": "false",
+              "attribute": "show-clear-button",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "showIndicator",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a visual indicator next to the label. Indicates that a value is optional(by default) or required if the `required` property is also set.",
+              "default": "false",
+              "attribute": "show-indicator",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "privacy": "public",
+              "type": {
+                "text": "'small' | 'medium' | 'large'"
+              },
+              "description": "Sets the size of the input.",
+              "default": "'medium'",
+              "attribute": "size",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "suffix",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+              "default": "null",
+              "attribute": "suffix",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -3031,6 +4401,22 @@
               }
             },
             {
+              "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-prefix-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The suffix text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-suffix-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`.",
               "name": "--jh-input-error-color-text",
               "inheritedFrom": {
@@ -3228,6 +4614,19 @@
               }
             },
             {
+              "name": "horizontal-align",
+              "type": {
+                "text": "'left' | 'right'"
+              },
+              "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+              "default": "'left'",
+              "fieldName": "horizontalAlign",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "inputmode",
               "type": {
                 "text": "string | null"
@@ -3319,11 +4718,23 @@
               }
             },
             {
+              "name": "prefix",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+              "default": "null",
+              "fieldName": "prefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "readonly",
               "type": {
                 "text": "boolean"
               },
-              "description": "Prevents users from changing the input value. Removes all slotted content.",
               "default": "false",
               "fieldName": "readonly",
               "inheritedFrom": {
@@ -3358,11 +4769,24 @@
               }
             },
             {
+              "name": "suffix",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+              "default": "null",
+              "fieldName": "suffix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "value",
               "type": {
                 "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -3740,6 +5164,22 @@
               }
             },
             {
+              "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-prefix-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The suffix text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-suffix-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`.",
               "name": "--jh-input-error-color-text",
               "inheritedFrom": {
@@ -3831,7 +5271,7 @@
               "type": {
                 "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -3842,6 +5282,30 @@
               ],
               "default": "null",
               "attribute": "value",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderPrefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderSuffix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderClearButton",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -3984,6 +5448,21 @@
             },
             {
               "kind": "field",
+              "name": "horizontalAlign",
+              "privacy": "public",
+              "type": {
+                "text": "'left' | 'right'"
+              },
+              "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+              "default": "'left'",
+              "attribute": "horizontal-align",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
               "name": "inputMask",
               "privacy": "public",
               "type": {
@@ -4104,12 +5583,26 @@
             },
             {
               "kind": "field",
+              "name": "prefix",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+              "default": "null",
+              "attribute": "prefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
               "name": "readonly",
               "privacy": "public",
               "type": {
                 "text": "boolean"
               },
-              "description": "Prevents users from changing the input value. Removes all slotted content.",
               "default": "false",
               "attribute": "readonly",
               "inheritedFrom": {
@@ -4188,6 +5681,21 @@
               "default": "'medium'",
               "attribute": "size",
               "reflects": true,
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "suffix",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+              "default": "null",
+              "attribute": "suffix",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -4442,6 +5950,19 @@
               }
             },
             {
+              "name": "horizontal-align",
+              "type": {
+                "text": "'left' | 'right'"
+              },
+              "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+              "default": "'left'",
+              "fieldName": "horizontalAlign",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "inputmode",
               "type": {
                 "text": "string | null"
@@ -4533,11 +6054,23 @@
               }
             },
             {
+              "name": "prefix",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+              "default": "null",
+              "fieldName": "prefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "readonly",
               "type": {
                 "text": "boolean"
               },
-              "description": "Prevents users from changing the input value. Removes all slotted content.",
               "default": "false",
               "fieldName": "readonly",
               "inheritedFrom": {
@@ -4572,11 +6105,24 @@
               }
             },
             {
+              "name": "suffix",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+              "default": "null",
+              "fieldName": "suffix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "value",
               "type": {
                 "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -4759,7 +6305,7 @@
               "type": {
                 "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -4770,6 +6316,30 @@
               ],
               "default": "null",
               "attribute": "value",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderPrefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderSuffix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderClearButton",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -4912,6 +6482,21 @@
             },
             {
               "kind": "field",
+              "name": "horizontalAlign",
+              "privacy": "public",
+              "type": {
+                "text": "'left' | 'right'"
+              },
+              "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+              "default": "'left'",
+              "attribute": "horizontal-align",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
               "name": "inputMask",
               "privacy": "public",
               "type": {
@@ -5032,12 +6617,26 @@
             },
             {
               "kind": "field",
+              "name": "prefix",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+              "default": "null",
+              "attribute": "prefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
               "name": "readonly",
               "privacy": "public",
               "type": {
                 "text": "boolean"
               },
-              "description": "Prevents users from changing the input value. Removes all slotted content.",
               "default": "false",
               "attribute": "readonly",
               "inheritedFrom": {
@@ -5116,6 +6715,21 @@
               "default": "'medium'",
               "attribute": "size",
               "reflects": true,
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "suffix",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+              "default": "null",
+              "attribute": "suffix",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -5387,6 +7001,19 @@
               }
             },
             {
+              "name": "horizontal-align",
+              "type": {
+                "text": "'left' | 'right'"
+              },
+              "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+              "default": "'left'",
+              "fieldName": "horizontalAlign",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "inputmode",
               "type": {
                 "text": "string | null"
@@ -5478,11 +7105,23 @@
               }
             },
             {
+              "name": "prefix",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+              "default": "null",
+              "fieldName": "prefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "readonly",
               "type": {
                 "text": "boolean"
               },
-              "description": "Prevents users from changing the input value. Removes all slotted content.",
               "default": "false",
               "fieldName": "readonly",
               "inheritedFrom": {
@@ -5517,11 +7156,24 @@
               }
             },
             {
+              "name": "suffix",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+              "default": "null",
+              "fieldName": "suffix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "value",
               "type": {
                 "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -5786,6 +7438,22 @@
               }
             },
             {
+              "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-prefix-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The suffix text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-suffix-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`.",
               "name": "--jh-input-error-color-text",
               "inheritedFrom": {
@@ -5831,7 +7499,7 @@
               "type": {
                 "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -5842,6 +7510,30 @@
               ],
               "default": "null",
               "attribute": "value",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderPrefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderSuffix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderClearButton",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -5984,6 +7676,21 @@
             },
             {
               "kind": "field",
+              "name": "horizontalAlign",
+              "privacy": "public",
+              "type": {
+                "text": "'left' | 'right'"
+              },
+              "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+              "default": "'left'",
+              "attribute": "horizontal-align",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
               "name": "inputMask",
               "privacy": "public",
               "type": {
@@ -6104,12 +7811,26 @@
             },
             {
               "kind": "field",
+              "name": "prefix",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+              "default": "null",
+              "attribute": "prefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
               "name": "readonly",
               "privacy": "public",
               "type": {
                 "text": "boolean"
               },
-              "description": "Prevents users from changing the input value. Removes all slotted content.",
               "default": "false",
               "attribute": "readonly",
               "inheritedFrom": {
@@ -6188,6 +7909,21 @@
               "default": "'medium'",
               "attribute": "size",
               "reflects": true,
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "suffix",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+              "default": "null",
+              "attribute": "suffix",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -6508,6 +8244,22 @@
               }
             },
             {
+              "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-prefix-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The suffix text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-suffix-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`.",
               "name": "--jh-input-error-color-text",
               "inheritedFrom": {
@@ -6705,6 +8457,19 @@
               }
             },
             {
+              "name": "horizontal-align",
+              "type": {
+                "text": "'left' | 'right'"
+              },
+              "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+              "default": "'left'",
+              "fieldName": "horizontalAlign",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "inputmode",
               "type": {
                 "text": "string | null"
@@ -6796,11 +8561,23 @@
               }
             },
             {
+              "name": "prefix",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+              "default": "null",
+              "fieldName": "prefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "readonly",
               "type": {
                 "text": "boolean"
               },
-              "description": "Prevents users from changing the input value. Removes all slotted content.",
               "default": "false",
               "fieldName": "readonly",
               "inheritedFrom": {
@@ -6835,11 +8612,24 @@
               }
             },
             {
+              "name": "suffix",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+              "default": "null",
+              "fieldName": "suffix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "value",
               "type": {
                 "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -6927,7 +8717,7 @@
               "type": {
                 "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -6938,6 +8728,30 @@
               ],
               "default": "null",
               "attribute": "value",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderPrefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderSuffix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderClearButton",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -7080,6 +8894,21 @@
             },
             {
               "kind": "field",
+              "name": "horizontalAlign",
+              "privacy": "public",
+              "type": {
+                "text": "'left' | 'right'"
+              },
+              "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+              "default": "'left'",
+              "attribute": "horizontal-align",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
               "name": "inputMask",
               "privacy": "public",
               "type": {
@@ -7200,12 +9029,26 @@
             },
             {
               "kind": "field",
+              "name": "prefix",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+              "default": "null",
+              "attribute": "prefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
               "name": "readonly",
               "privacy": "public",
               "type": {
                 "text": "boolean"
               },
-              "description": "Prevents users from changing the input value. Removes all slotted content.",
               "default": "false",
               "attribute": "readonly",
               "inheritedFrom": {
@@ -7284,6 +9127,21 @@
               "default": "'medium'",
               "attribute": "size",
               "reflects": true,
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "suffix",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+              "default": "null",
+              "attribute": "suffix",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -7604,6 +9462,22 @@
               }
             },
             {
+              "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-prefix-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The suffix text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-suffix-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`.",
               "name": "--jh-input-error-color-text",
               "inheritedFrom": {
@@ -7801,6 +9675,19 @@
               }
             },
             {
+              "name": "horizontal-align",
+              "type": {
+                "text": "'left' | 'right'"
+              },
+              "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+              "default": "'left'",
+              "fieldName": "horizontalAlign",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "inputmode",
               "type": {
                 "text": "string | null"
@@ -7892,11 +9779,23 @@
               }
             },
             {
+              "name": "prefix",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+              "default": "null",
+              "fieldName": "prefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "readonly",
               "type": {
                 "text": "boolean"
               },
-              "description": "Prevents users from changing the input value. Removes all slotted content.",
               "default": "false",
               "fieldName": "readonly",
               "inheritedFrom": {
@@ -7931,11 +9830,24 @@
               }
             },
             {
+              "name": "suffix",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+              "default": "null",
+              "fieldName": "suffix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "value",
               "type": {
                 "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -8261,6 +10173,22 @@
               }
             },
             {
+              "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-prefix-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The suffix text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-suffix-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`.",
               "name": "--jh-input-error-color-text",
               "inheritedFrom": {
@@ -8356,9 +10284,9 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Prevents users from changing the input value.",
               "default": "false",
               "attribute": "readonly",
+              "description": "Prevents users from changing the input value.",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -8371,7 +10299,7 @@
               "type": {
                 "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -8382,6 +10310,30 @@
               ],
               "default": "null",
               "attribute": "value",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderPrefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderSuffix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderClearButton",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -8524,6 +10476,21 @@
             },
             {
               "kind": "field",
+              "name": "horizontalAlign",
+              "privacy": "public",
+              "type": {
+                "text": "'left' | 'right'"
+              },
+              "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+              "default": "'left'",
+              "attribute": "horizontal-align",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
               "name": "inputMask",
               "privacy": "public",
               "type": {
@@ -8644,6 +10611,21 @@
             },
             {
               "kind": "field",
+              "name": "prefix",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+              "default": "null",
+              "attribute": "prefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
               "name": "required",
               "privacy": "public",
               "type": {
@@ -8697,6 +10679,21 @@
               "description": "Adds a visual indicator next to the label. Indicates that a value is optional(by default) or required if the `required` property is also set.",
               "default": "false",
               "attribute": "show-indicator",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "suffix",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+              "default": "null",
+              "attribute": "suffix",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -8838,9 +10835,9 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Prevents users from changing the input value.",
               "default": "false",
               "fieldName": "readonly",
+              "description": "Prevents users from changing the input value.",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -9026,6 +11023,19 @@
               }
             },
             {
+              "name": "horizontal-align",
+              "type": {
+                "text": "'left' | 'right'"
+              },
+              "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+              "default": "'left'",
+              "fieldName": "horizontalAlign",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "inputmode",
               "type": {
                 "text": "string | null"
@@ -9117,6 +11127,19 @@
               }
             },
             {
+              "name": "prefix",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+              "default": "null",
+              "fieldName": "prefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "required",
               "type": {
                 "text": "boolean"
@@ -9143,11 +11166,24 @@
               }
             },
             {
+              "name": "suffix",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+              "default": "null",
+              "fieldName": "suffix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "value",
               "type": {
                 "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -9225,7 +11261,7 @@
               "type": {
                 "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -9236,6 +11272,30 @@
               ],
               "default": "null",
               "attribute": "value",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderPrefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderSuffix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderClearButton",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -9378,6 +11438,21 @@
             },
             {
               "kind": "field",
+              "name": "horizontalAlign",
+              "privacy": "public",
+              "type": {
+                "text": "'left' | 'right'"
+              },
+              "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+              "default": "'left'",
+              "attribute": "horizontal-align",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
               "name": "inputMask",
               "privacy": "public",
               "type": {
@@ -9498,12 +11573,26 @@
             },
             {
               "kind": "field",
+              "name": "prefix",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+              "default": "null",
+              "attribute": "prefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
               "name": "readonly",
               "privacy": "public",
               "type": {
                 "text": "boolean"
               },
-              "description": "Prevents users from changing the input value. Removes all slotted content.",
               "default": "false",
               "attribute": "readonly",
               "inheritedFrom": {
@@ -9582,6 +11671,21 @@
               "default": "'medium'",
               "attribute": "size",
               "reflects": true,
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "suffix",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+              "default": "null",
+              "attribute": "suffix",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -9902,6 +12006,22 @@
               }
             },
             {
+              "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-prefix-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The suffix text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-suffix-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`.",
               "name": "--jh-input-error-color-text",
               "inheritedFrom": {
@@ -10099,6 +12219,19 @@
               }
             },
             {
+              "name": "horizontal-align",
+              "type": {
+                "text": "'left' | 'right'"
+              },
+              "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+              "default": "'left'",
+              "fieldName": "horizontalAlign",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "inputmode",
               "type": {
                 "text": "string | null"
@@ -10190,11 +12323,23 @@
               }
             },
             {
+              "name": "prefix",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+              "default": "null",
+              "fieldName": "prefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "readonly",
               "type": {
                 "text": "boolean"
               },
-              "description": "Prevents users from changing the input value. Removes all slotted content.",
               "default": "false",
               "fieldName": "readonly",
               "inheritedFrom": {
@@ -10229,11 +12374,24 @@
               }
             },
             {
+              "name": "suffix",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+              "default": "null",
+              "fieldName": "suffix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "value",
               "type": {
                 "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -10435,6 +12593,14 @@
               "name": "--jh-input-value-color-text"
             },
             {
+              "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-prefix-color-text"
+            },
+            {
+              "description": "The suffix text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-suffix-color-text"
+            },
+            {
               "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`.",
               "name": "--jh-input-error-color-text"
             },
@@ -10465,7 +12631,7 @@
               "type": {
                 "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -10476,6 +12642,26 @@
               ],
               "default": "null",
               "attribute": "value"
+            },
+            {
+              "kind": "method",
+              "name": "renderPrefix"
+            },
+            {
+              "kind": "method",
+              "name": "renderSuffix"
+            },
+            {
+              "kind": "method",
+              "name": "renderPrefix"
+            },
+            {
+              "kind": "method",
+              "name": "renderSuffix"
+            },
+            {
+              "kind": "method",
+              "name": "renderClearButton"
             },
             {
               "kind": "field",
@@ -10578,6 +12764,17 @@
             },
             {
               "kind": "field",
+              "name": "horizontalAlign",
+              "privacy": "public",
+              "type": {
+                "text": "'left' | 'right'"
+              },
+              "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+              "default": "'left'",
+              "attribute": "horizontal-align"
+            },
+            {
+              "kind": "field",
               "name": "inputMask",
               "privacy": "public",
               "type": {
@@ -10666,12 +12863,22 @@
             },
             {
               "kind": "field",
+              "name": "prefix",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+              "default": "null",
+              "attribute": "prefix"
+            },
+            {
+              "kind": "field",
               "name": "readonly",
               "privacy": "public",
               "type": {
                 "text": "boolean"
               },
-              "description": "Prevents users from changing the input value. Removes all slotted content.",
               "default": "false",
               "attribute": "readonly"
             },
@@ -10730,6 +12937,17 @@
               "default": "'medium'",
               "attribute": "size",
               "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "suffix",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+              "default": "null",
+              "attribute": "suffix"
             },
             {
               "kind": "field",
@@ -10923,6 +13141,15 @@
               "fieldName": "enterkeyhint"
             },
             {
+              "name": "horizontal-align",
+              "type": {
+                "text": "'left' | 'right'"
+              },
+              "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+              "default": "'left'",
+              "fieldName": "horizontalAlign"
+            },
+            {
               "name": "inputmode",
               "type": {
                 "text": "string | null"
@@ -10986,11 +13213,19 @@
               "fieldName": "pattern"
             },
             {
+              "name": "prefix",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+              "default": "null",
+              "fieldName": "prefix"
+            },
+            {
               "name": "readonly",
               "type": {
                 "text": "boolean"
               },
-              "description": "Prevents users from changing the input value. Removes all slotted content.",
               "default": "false",
               "fieldName": "readonly"
             },
@@ -11013,11 +13248,20 @@
               "fieldName": "size"
             },
             {
+              "name": "suffix",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+              "default": "null",
+              "fieldName": "suffix"
+            },
+            {
               "name": "value",
               "type": {
                 "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -13606,6 +15850,22 @@
               }
             },
             {
+              "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-prefix-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "description": "The suffix text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-suffix-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "description": "The error message text color. Defaults to `jh-color-content-negative-enabled`.",
               "name": "--jh-input-error-color-text",
               "inheritedFrom": {
@@ -13701,7 +15961,7 @@
               "type": {
                 "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",
@@ -13712,6 +15972,30 @@
               ],
               "default": "null",
               "attribute": "value",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderPrefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderSuffix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderClearButton",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -13854,6 +16138,21 @@
             },
             {
               "kind": "field",
+              "name": "horizontalAlign",
+              "privacy": "public",
+              "type": {
+                "text": "'left' | 'right'"
+              },
+              "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+              "default": "'left'",
+              "attribute": "horizontal-align",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
               "name": "inputMask",
               "privacy": "public",
               "type": {
@@ -13974,12 +16273,26 @@
             },
             {
               "kind": "field",
+              "name": "prefix",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+              "default": "null",
+              "attribute": "prefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
               "name": "readonly",
               "privacy": "public",
               "type": {
                 "text": "boolean"
               },
-              "description": "Prevents users from changing the input value. Removes all slotted content.",
               "default": "false",
               "attribute": "readonly",
               "inheritedFrom": {
@@ -14058,6 +16371,21 @@
               "default": "'medium'",
               "attribute": "size",
               "reflects": true,
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "suffix",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+              "default": "null",
+              "attribute": "suffix",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -14347,6 +16675,19 @@
               }
             },
             {
+              "name": "horizontal-align",
+              "type": {
+                "text": "'left' | 'right'"
+              },
+              "description": "Determines whether the input value is aligned to the left or right side of the input field.",
+              "default": "'left'",
+              "fieldName": "horizontalAlign",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "inputmode",
               "type": {
                 "text": "string | null"
@@ -14438,11 +16779,23 @@
               }
             },
             {
+              "name": "prefix",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.",
+              "default": "null",
+              "fieldName": "prefix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "readonly",
               "type": {
                 "text": "boolean"
               },
-              "description": "Prevents users from changing the input value. Removes all slotted content.",
               "default": "false",
               "fieldName": "readonly",
               "inheritedFrom": {
@@ -14477,11 +16830,24 @@
               }
             },
             {
+              "name": "suffix",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to display after the input value, such as a unit of measurement or percentages. Sits to the left of the `jh-input-right` slot.",
+              "default": "null",
+              "fieldName": "suffix",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "value",
               "type": {
                 "text": "string | null"
               },
-              "description": "Sets the value of the input.",
+              "description": "The current value of the input.",
               "parameters": [
                 {
                   "name": "newValue",

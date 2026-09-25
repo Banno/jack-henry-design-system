@@ -30,6 +30,17 @@ To use `<jh-input-currency>`:
 <jh-input-currency value="10000"></jh-input-currency>
 ```
 
+## Prefix and suffix
+
+Use the `prefix` and `suffix` properties to display static text alongside the input value, such as a currency symbol or currency code.
+
+```html
+<jh-input-currency prefix="€" value="1000"></jh-input-currency>
+<jh-input-currency suffix="USD" value="1000"></jh-input-currency>
+```
+
+Prefix and suffix text is decorative only; it is not included in the input's value.
+
 ## Formatting
 
 The input currency component provides the following properties to control automatic value formatting: `hide-commas` and `hide-decimal`. Both are `false` by default, so comma and decimal formatting are applied out of the box.
@@ -49,6 +60,8 @@ Set the `hide-decimal` property to leave the value as typed, without shifting di
 ```
 
 Typing is not reformatted; the value displays exactly as entered.
+
+When `hide-decimals` is true, users cannot enter `.`. 
 
 ### hide-commas
 

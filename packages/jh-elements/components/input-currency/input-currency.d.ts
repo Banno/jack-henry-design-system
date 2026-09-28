@@ -3,11 +3,15 @@
 // SPDX-License-Identifier: Apache-2.0
 
 /**
+ * The input currency component provides a single-line text field for entering monetary values.
+ *
+ * [Input Currency Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-currency--docs)
+ *
  * @event jh-change - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when `hide-commas` is not set and can be accessed via `e.detail.state.rawValue`. Payload also includes the `pattern` property and can be accessed via `e.detail.reference.pattern`.
  * @event jh-input - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when `hide-commas` is not set and can be accessed via `e.detail.state.rawValue`. Payload also includes the `pattern` property and can be accessed via `e.detail.reference.pattern`.
  *
- * Input Currency
  * @customElement jh-input-currency
+ *
  */
 export class JhInputCurrency extends JhInput {
     static get properties(): {
@@ -56,9 +60,11 @@ export class JhInputCurrency extends JhInput {
      * @type {boolean}
      */
     hideDecimal: boolean;
-    _handleInput(e: any): void;
-    _handleChange(e: any): void;
-    _handleKeydown(e: any): void;
+    /**
+     * @protected
+     * @param {Event} e
+     */
+    protected _handleChange(e: Event): void;
     #private;
 }
 import { JhInput } from '../input/input.js';

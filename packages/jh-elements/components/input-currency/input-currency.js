@@ -13,11 +13,15 @@ const DECORATION_PATTERN = /[+\-()]/;
 const CONTENT_CHAR_PATTERN = /[0-9+\-()]/;
 
 /**
+ * The input currency component provides a single-line text field for entering monetary values.
+ *
+ * [Input Currency Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-currency--docs)
+ * 
  * @event jh-change - Dispatched when the value of the input has changed and input loses focus. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when `hide-commas` is not set and can be accessed via `e.detail.state.rawValue`. Payload also includes the `pattern` property and can be accessed via `e.detail.reference.pattern`.
  * @event jh-input - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when `hide-commas` is not set and can be accessed via `e.detail.state.rawValue`. Payload also includes the `pattern` property and can be accessed via `e.detail.reference.pattern`.
  * 
- * Input Currency
  * @customElement jh-input-currency
+ *
  */
 export class JhInputCurrency extends JhInput {
   /** @type {bigint | null} */
@@ -118,7 +122,10 @@ export class JhInputCurrency extends JhInput {
     return `${groupedWholePart}.${centsPart}`;
   }
 
-  /** @protected */
+  /**
+   * @protected
+   * @param {InputEvent} e
+   */
   _handleInput(e) {
     // pasted values are used as-is; cash-register decimal shifting only applies to typed input
     if (!this.hideDecimal && e.inputType !== 'insertFromPaste') {
@@ -232,7 +239,10 @@ export class JhInputCurrency extends JhInput {
     };
   }
 
-  /** @protected */
+  /**
+   * @protected
+   * @param {Event} e
+   */
   _handleChange(e) {
     this.dispatchCustomEvent('jh-change', {
       state: { 
@@ -242,7 +252,10 @@ export class JhInputCurrency extends JhInput {
     });
   }
 
-  /** @protected */
+  /**
+   * @protected
+   * @param {KeyboardEvent} e
+   */
   _handleKeydown(e) {
     if (this.inputMask) {
       // call super to handle input mask
@@ -328,6 +341,7 @@ export class JhInputCurrency extends JhInput {
     input.setSelectionRange(cursorPosition, cursorPosition);
   }
 
+  /** @protected */
   renderInput() {
     let describedby;
 

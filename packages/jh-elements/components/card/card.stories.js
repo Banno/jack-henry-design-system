@@ -72,6 +72,14 @@ export default {
       options: [1, 2, 3, 4, 5, 6],
     },
   },
+  parameters: {
+    actions: {
+      disable: true
+    },
+    interactions: {
+      disable: true
+    }
+  }
 };
 
 export const Overview = {

@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "es2020",
+    "moduleResolution": "bundler",
+    "target": "es2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "allowJs": true,
+    "checkJs": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "noEmit": false,
+    "stripInternal": true,
+    "skipLibCheck": true
+  },
+  "include": ["components/**/*.js"],
+  "exclude": [
+    "node_modules",
+    "components/**/*.stories.js",
+    "components/**/*.d.ts"
+  ]
+}

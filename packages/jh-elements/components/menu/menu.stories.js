@@ -29,6 +29,11 @@ const storyStyles = css`
 export default {
   component: 'jh-menu',
   title: 'Components/Menu',
+  parameters: {
+    actions: {
+      disable: true
+    },
+  },
 };
 
 export const Overview = {

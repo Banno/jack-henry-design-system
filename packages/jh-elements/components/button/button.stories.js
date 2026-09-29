@@ -80,6 +80,14 @@ export default {
     },
     form: { table: { disable: true } },
   },
+  parameters: {
+    actions: {
+      disable: true
+    },
+    interactions: {
+      disable: true
+    }
+  }
 };
 
 export const Overview = {
@@ -284,5 +292,3 @@ FormAssociated.argTypes = {
   size: { table: { disable: true } },
   target: { table: { disable: true } },
 };
-
-

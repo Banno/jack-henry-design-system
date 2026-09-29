@@ -8,7 +8,7 @@
 
 - [#49](https://github.com/Banno/jack-henry-design-system/pull/49) [`0c80119`](https://github.com/Banno/jack-henry-design-system/commit/0c80119ee046887f69b924003e25d622b5b4270d) Thanks [@mayabuserde](https://github.com/mayabuserde)! - Adds TypeScript related docs.
 
-- [#326](https://github.com/Banno/jack-henry-design-system/pull/326) [`e01fde9`](https://github.com/Banno/jack-henry-design-system/commit/e01fde997f780212aff264f279e3bbb85b9fb506) Thanks [@mayabuserde](https://github.com/mayabuserde)! - [#47](https://github.com/Banno/jack-henry-design-system/pull/47) [`94871e4`](https://github.com/Banno/jack-henry-design-system/commit/94871e4aa7292f5742ea427a753fb6aeb96bb31e) - Adds TypeScript and IDE support to `jh-elements` (Thanks [@mayabuserde](https://github.com/mayabuserde)!)
+- [#47](https://github.com/Banno/jack-henry-design-system/pull/47) [`94871e4`](https://github.com/Banno/jack-henry-design-system/commit/94871e4aa7292f5742ea427a753fb6aeb96bb31e) - Adds TypeScript and IDE support to `jh-elements` (Thanks [@mayabuserde](https://github.com/mayabuserde)!)
 
 - [#298](https://github.com/Banno/jack-henry-design-system/pull/298) [`e9c48d6`](https://github.com/Banno/jack-henry-design-system/commit/e9c48d606facc99df33afdce9c6586d0e365d3c2) Thanks [@abissier](https://github.com/abissier)! - jh-table bugfix: corrects sorted cell id reference
 

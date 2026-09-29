@@ -25,6 +25,11 @@ export default {
       options: ['horizontal', 'vertical'],
     },
   },
+  parameters: {
+    actions: {
+      disable: true
+    },
+  },
 };
 
 

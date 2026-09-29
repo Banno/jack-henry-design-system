@@ -9,6 +9,10 @@ import '@jack-henry/jh-icons/icons-wc/icon-eye-slash.js';
 import '@jack-henry/jh-icons/icons-wc/icon-eye.js';
 
 /**
+ * The input password component provides a single-line text field that includes a toggle password button, allowing users to mask and unmask the input value.
+ * 
+ * [Input Password Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-password--docs)
+ * 
  * @slot jh-input-password-hidden - Use to insert a custom icon within the toggle password button when the input value is masked. 
  * @slot jh-input-password-visible - Use to insert a custom icon within the toggle password button when the input value is unmasked.
  * @event jh-select - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`. Unlike other inputs, this event does not bubble or cross the shadow boundary, so it is only observable on the element itself.
@@ -29,14 +33,11 @@ export class JhInputPassword extends JhInput {
 
   static get properties() {
     return {
-      /** Unmasks the input field value when set. */
       passwordVisible: { type: Boolean, attribute: 'password-visible', reflect: true},
-      /** Sets an `aria-label` on the toggle password button, which encapsulates the `jh-input-password-visible` slot, to assist screen reader users. The label should indicate that activating the button will mask the password. */
       accessibleLabelHidePassword: {
         type: String,
         attribute: 'accessible-label-hide-password',
       },
-      /** Sets an `aria-label` on the toggle password button, which encapsulates the `jh-input-password-hidden` slot, to assist screen reader users. The label should indicate that activating the button will unmask the password. */
       accessibleLabelShowPassword: {
         type: String,
         attribute: 'accessible-label-show-password',
@@ -46,14 +47,27 @@ export class JhInputPassword extends JhInput {
 
   constructor() {
     super();
-    /** @type {?string} */
+    /**
+     * Sets an `aria-label` on the toggle password button, which encapsulates the `jh-input-password-visible` slot, to assist screen reader users. The label should indicate that activating the button will mask the password.
+     * @attr accessible-label-hide-password
+     * @type {string | null}
+     */
     this.accessibleLabelHidePassword = null;
-    /** @type {?string} */
+    /**
+     * Sets an `aria-label` on the toggle password button, which encapsulates the `jh-input-password-hidden` slot, to assist screen reader users. The label should indicate that activating the button will unmask the password.
+     * @attr accessible-label-show-password
+     * @type {string | null}
+     */
     this.accessibleLabelShowPassword = null;
-    /** @type {boolean} */
+    /**
+     * Unmasks the input field value when set.
+     * @attr password-visible
+     * @type {boolean}
+     */
     this.passwordVisible = false;
   }
 
+  /** @protected */
   renderInput() {
     let describedby;
 
@@ -103,6 +117,7 @@ export class JhInputPassword extends JhInput {
     `;
   }
 
+  /** @protected */
   renderRightSlot() {
     if (this.hideRightSlot) return;
     

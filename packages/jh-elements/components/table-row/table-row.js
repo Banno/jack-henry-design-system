@@ -6,7 +6,9 @@ import { css, html } from 'lit';
 import { JhElement } from '../element/element.js';
 
 /**
- * Table Row
+ * The table row is used to display one row of table data. It contains `<jh-table-data-cell>` or `<jh-table-header-cell>` components.
+ * 
+ * [Table Row Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-table-table-row--docs)
  * 
  * @cssprop --jh-table-row-color-text-enabled - The row text color when enabled. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-table-row-color-background-enabled - The row background color when enabled. Defaults to `--jh-color-container-primary-enabled`. 
@@ -15,7 +17,7 @@ import { JhElement } from '../element/element.js';
  * @cssprop --jh-table-row-color-background-hover - The row background color when hovered. Defaults to `--jh-color-container-primary-hover`.
  * @cssprop --jh-table-row-color-border-bottom-hover - The row border bottom color when hovered. Defaults to `--jh-border-decorative-color`.
  * 
- * @slot default - Use to insert `<jh-table-data-cell>`s or `<jh-table-header-cell>`s.
+ * @slot default - Use to insert `<jh-table-data-cell>` or `<jh-table-header-cell>` components.
  * @customElement jh-table-row
  */
 export class JhTableRow extends JhElement {
@@ -41,6 +43,7 @@ export class JhTableRow extends JhElement {
     this.internals.role = 'row';
   }
 
+  /** @protected */
   render() {
     return html`<slot></slot>`;
   }

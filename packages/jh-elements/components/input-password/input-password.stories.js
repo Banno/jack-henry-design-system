@@ -27,12 +27,14 @@ const disableControls = {
   maxlength: { control: { disable: true } },
   minlength: { control: { disable: true } },
   name: { control: { disable: true } },
+  prefix: { control: { disable: true } },
   readonly: { control: { disable: true } },
   required: { control: { disable: true } },
   'show-char-count': { control: { disable: true } },
   'show-clear-button': { control: { disable: true } },
   'show-indicator': { control: { disable: true } },
   size: { control: { disable: true } },
+  suffix: { control: { disable: true } },
   value: { control: { disable: true } },
   pattern: { control: { disable: true } },
 };
@@ -60,7 +62,6 @@ export default {
       (story) => html`
         <div class="story-decorator"
           @jh-change=${(e) => logCustomEvent('jh-change', e)}
-          @jh-select=${(e) => logCustomEvent('jh-select', e)}
           @jh-input=${(e) => logCustomEvent('jh-input', e)}
           @jh-maxlength=${(e) => logCustomEvent('jh-maxlength', e)}
           @jh-input:clear-button-click=${(e) => logCustomEvent('jh-input:clear-button-click', e)}
@@ -109,6 +110,9 @@ export default {
     'hide-right-slot': {
       control: 'boolean',
     },
+    'horizontal-align': {
+      table: { disable: true },
+    },
     'input-mask': {
       control: 'text'
     },
@@ -130,6 +134,9 @@ export default {
     name: {
       control: 'text',
     },
+    prefix: {
+      control: 'text',
+    },
     readonly: {
       control: 'boolean',
     },
@@ -149,6 +156,9 @@ export default {
       control: 'select',
       options: ['small', 'medium', 'large'],
     },
+    suffix: {
+      control: 'text',
+    },
     value: {
       control: 'text',
     },
@@ -159,7 +169,7 @@ export default {
 };
 
 export const Overview = { render: (args) => html`
-  <jh-input-password label="Label" helper-text="Helper text" required show-indicator></jh-input-password>
+  <jh-input-password label="Label" helper-text="Helper text" required show-indicator @jh-select=${(e) => logCustomEvent('jh-select', e)}></jh-input-password>
 `};
 
 Overview.argTypes = {
@@ -168,7 +178,7 @@ Overview.argTypes = {
 
 export const Playground = {
   render: (args) => html`
-  <jh-input-password 
+  <jh-input-password @jh-select=${(e) => logCustomEvent('jh-select', e)}
     ?password-visible=${args['password-visible']} 
     accessible-label-show-password=${ifDefined(
       args['accessible-label-show-password'] === ''
@@ -207,12 +217,14 @@ export const Playground = {
     maxlength=${ifDefined(args.maxlength ? args.maxlength : null)}
     minlength=${ifDefined(args.minlength ? args.minlength : null)}
     name=${ifDefined(args.name === '' ? null : args.name)}
+    prefix=${ifDefined(args.prefix === '' ? null : args.prefix)}
     ?readonly=${args.readonly}
     ?required=${args.required}
     ?show-char-count=${args['show-char-count']}
     ?show-clear-button=${args['show-clear-button']}
     ?show-indicator=${args['show-indicator']}
     size=${args.size}
+    suffix=${ifDefined(args.suffix === '' ? null : args.suffix)}
     value=${ifDefined(args.value === '' ? null : args.value)}
     pattern=${ifDefined(args.pattern === '' ? null : args.pattern)}
     >
@@ -247,6 +259,8 @@ Playground.argTypes = {
   autocomplete: { control: { disable: false } },
   inputmode: { control: { disable: false } },
   name: { control: { disable: false } },
+  prefix: { control: { disable: false } },
+  suffix: { control: { disable: false } },
   value: { control: { disable: false } },
   pattern: { control: { disable: false } },
 }
@@ -277,6 +291,8 @@ Playground.args = {
   autocomplete: 'off',
   inputmode: null,
   name: null,
+  prefix: null,
+  suffix: null,
   value: null,
   pattern: null,
 };
@@ -286,7 +302,7 @@ Playground.parameters = {
 };
 
 export const Default = { render: (args) => html`
-  <jh-input-password></jh-input-password>
+  <jh-input-password @jh-select=${(e) => logCustomEvent('jh-select', e)}></jh-input-password>
 `};
 
 Default.argTypes = {

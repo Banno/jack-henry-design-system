@@ -1,5 +1,11 @@
 # @jack-henry/jh-icons
 
+## 2.1.1
+
+### Patch Changes
+
+- [#276](https://github.com/Banno/jack-henry-design-system/pull/276) [`1c3374a`](https://github.com/Banno/jack-henry-design-system/commit/1c3374a30735e945844b4f3cab403da5c3eb5343) Thanks [@mayabuserde](https://github.com/mayabuserde)! - [icons] updates icon generation script and corrects robot-sparkles icon class name.
+
 ## 2.1.0
 
 ### Minor Changes

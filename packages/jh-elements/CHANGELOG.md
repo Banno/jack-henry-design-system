@@ -1,5 +1,22 @@
 # @jack-henry/jh-elements
 
+## 2.2.0
+
+### Minor Changes
+
+- [#257](https://github.com/Banno/jack-henry-design-system/pull/257) [`5f3c13a`](https://github.com/Banno/jack-henry-design-system/commit/5f3c13ae7dcdc9326215d6db61b96ea3a6b3e760) Thanks [@mayabuserde](https://github.com/mayabuserde)! - [Input] fixes an input mask bug and adds skip over fixed chars
+
+- [#281](https://github.com/Banno/jack-henry-design-system/pull/281) [`94cd6b7`](https://github.com/Banno/jack-henry-design-system/commit/94cd6b791fd070bfb3fa07d024b6b2179b3f4d3f) Thanks [@mayabuserde](https://github.com/mayabuserde)! - [Menu] adds overflow styling hooks and updates docs
+
+- [#282](https://github.com/Banno/jack-henry-design-system/pull/282) [`1dca422`](https://github.com/Banno/jack-henry-design-system/commit/1dca42227cc6a0ef390142d9abb94cb052427838) Thanks [@mayabuserde](https://github.com/mayabuserde)! - [Select] corrects the menu hiding logic and updates menu-flipping method
+
+- [#275](https://github.com/Banno/jack-henry-design-system/pull/275) [`7e5f2d7`](https://github.com/Banno/jack-henry-design-system/commit/7e5f2d7942a10698b3bd31e7ba7f086a0592efa8) Thanks [@mayabuserde](https://github.com/mayabuserde)! - [input-password] it confines the jh-select event to the component itself.
+
+### Patch Changes
+
+- Updated dependencies [[`1c3374a`](https://github.com/Banno/jack-henry-design-system/commit/1c3374a30735e945844b4f3cab403da5c3eb5343)]:
+  - @jack-henry/jh-icons@2.1.1
+
 ## 2.1.0
 
 ### Minor Changes

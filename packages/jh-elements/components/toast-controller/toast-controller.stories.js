@@ -57,9 +57,9 @@ export const Overview = {
   render: (args) => html`
     <div class="overview-story">
       <jh-toast-controller>
-        <jh-toast timeout=0 appearance="positive" hide-dismiss-button>Address successfully updated.<jh-icon-circle-info slot="jh-toast-icon"></jh-icon-circle-info></jh-toast>
-        <jh-toast timeout=0 appearance="neutral" dismiss-button-accessible-label="dismiss toast">Email deleted.<jh-button slot="jh-toast-action" label="Undo"></jh-button></jh-toast>
-        <jh-toast timeout=0 appearance="negative" dismiss-button-accessible-label="dismiss toast">Failed to send email.</jh-toast>
+        <jh-toast timeout=0 hide-dismiss-button>Address successfully updated.<jh-icon-circle-info slot="jh-toast-icon"></jh-icon-circle-info></jh-toast>
+        <jh-toast timeout=0 dismiss-button-accessible-label="dismiss toast">Email deleted.<jh-button slot="jh-toast-action" label="Undo"></jh-button></jh-toast>
+        <jh-toast timeout=0 dismiss-button-accessible-label="dismiss toast">Failed to send email.</jh-toast>
       </jh-toast-controller>
     </div>
   `,
@@ -83,7 +83,6 @@ const createToast = (storyId) => {
   }
 
   let toast = document.createElement('jh-toast');
-  toast.setAttribute('appearance', 'positive');
   toast.setAttribute('dismiss-button-accessible-label', 'dismiss toast');
   toast.setAttribute('timeout', '0');
   toast.innerHTML = `Toast added! Enable screen reader to test addition of toast to the controller.`;

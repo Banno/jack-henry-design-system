@@ -18,7 +18,7 @@ unique needs. It's a living system constantly growing, with frequent releases th
 
 ## Principles
 
-### Framework Agnostic
+### Framework agnostic
 
 We have the modern web in mind. Our components are built on native web component technologies and standards that are framework agnostic. You’re not 
 locked into a particular framework out of the box and our components will work comfortably within the tech stack of your choice if needed.
@@ -57,16 +57,16 @@ Designer and Developer experience are a core concern and we've invested heavily 
 API and extensive documentation at your disposal, our components will fit right into your development process without the need to learn a new system, letting 
 you focus on solving high impact problems unique to your domain.
 
-## Getting Started
+## Getting started
 
 If you're just getting started, we highly recommend you first visit [jackhenry.design](https://jackhenry.design/) to learn more about the Forge Design System and 
 review it's usage guidelines and style guide. If you're ready to dive into the technical side, visit our [Storybook](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/welcome-about-jh--docs) instance for documentation and to test drive our components.
 
-| Package Name         | Description                          |
+| Package name         | Description                          |
 |----------------------|--------------------------------------|
-| [@jack-henry/jh-elements](./packages/jh-elements/)    | Web Components                       |
-| [@jack-henry/jh-tokens](./packages/jh-tokens/)  | Design Tokens                        |
-| [@jack-henry/jh-icons](./packages/jh-icons/) | SVG and Web Component icons |
+| [@jack-henry/jh-elements](./packages/jh-elements/)    | Web components                       |
+| [@jack-henry/jh-tokens](./packages/jh-tokens/)  | Design tokens                        |
+| [@jack-henry/jh-icons](./packages/jh-icons/) | SVG and Web component icons |
 
 ## Documentation
 
@@ -81,15 +81,15 @@ for engineers, author guidance, and a playground where you can test drive our co
 We are currently not accepting PRs, however there are a number of ways you can contribute in the form of feedback such as requesting features, reporting bugs,
 and participating in our discussions space.
 
-## Release Guide
+## Release guide
 
-### Release Cadence
+### Release cadence
 
 Currently, all Design System assets from both design and engineering, with the exception of some documentation, are versioned together. This means that with each release, changes to Figma UI kits, design tokens, component code, and documentation are all aligned with the same release number and published simultaneously. This ensures all assets accurately represent the state of the system.
 
 In alignment with our two-week sprint cycles; generally at the start of a new sprint every other Monday, UI Kits, code packages, and documentation are released to the community. For major releases, only features that have been upgraded to an alpha state or higher will be released.
 
-### Release Types
+### Release types
 
 #### Major
 
@@ -111,7 +111,7 @@ Hot fixes are triggered by the discovery of a severe, blocking bug and are relea
 
 On occasion, we may release an experimental feature or package independent of our normal release cadence to test a feature and quickly iterate without disrupting stable packages. Experimental releases are versioned independently of our normal releases.
 
-### Semantic Versioning
+### Semantic versioning
 
 The design system follows Semantic Versioning rules defined here: [semver.org](https://semver.org/). 
 
@@ -145,7 +145,7 @@ When in a pre-release state, we do not increment minor or patch numbers. The num
 
 1.0.0, 1.1.0, 1.1.1
 
-### Release Phases
+### Release phases
 
 The process to move from one release phase to another is at the discretion of the design system team. Whether a release is upgraded to the next phase is determined by a number of possible criteria including:
 
@@ -171,33 +171,35 @@ Represents an unstable version that may change significantly and may be missing 
 
 Generally considered feature-complete and more stable, but may contain bugs. The scope of the release should not significantly change. This release is suitable for early adopters that want access to new features and bug fixes. Changes may still occur.
 
-#### Release Candidate (RC)
+#### Release candidate (RC)
 
 A stable version that is undergoing a final round of testing. This version will be released to the public if no showstopper bugs are reported during a testing cycle.
 
-#### General Availability (GA) - Stable Release
+#### General availability (GA) - Stable release
 
 Represents the last release candidate version where no major issues were found. The version is considered stable and ready for production use. The team has deemed this release as code-complete and any remaining minor bugs are backlogged. All future changes will result in a package version increase and follow the defined versioning process.
 
-### Breaking Changes
+### Breaking changes
 
-Breaking changes are defined as any change that will introduce code incompatibility or changes in style that require an author to implement updates in order to ensure the application will function or appear as expected. Some examples include:
-
-Code deprecations such as tokens, properties, events, or components.
-
-Renaming any part of a component’s public interface such as its tag name, an attribute, a property, or event.
-
-Style changes that include spatial, color, and typography.
-
-Breaking changes will result in a major version increase and will include a migration plan to assist authors in upgrading to the new version.
+-Breaking changes are defined as any change that will introduce code incompatibility or changes in style that require an author to implement updates in order to ensure the application will function or appear as expected. Some examples include:
++A breaking change is any change that requires an author to update their code for the application to function or render as expected. Some examples include:
+ 
+-Code deprecations such as tokens, properties, events, or components.
++Removing a token, CSS custom property, attribute, property, event, slot, or component. Marking one as deprecated is not breaking; see Deprecations.
+ 
+-Renaming any part of a component’s public interface such as its tag name, an attribute, a property, or event.
++Renaming any part of a component’s public interface such as its tag name, an attribute, a property, an event, a slot, or a CSS custom property.
+ 
+-Style changes that include spatial, color, and typography.
++Changing a component’s default behavior so that existing markup does something different.
++
++Visual changes that leave the public interface intact — spacing, color, typography, elevation, and state styling — are not breaking. They ship in minor releases and are called out in the release notes. Authors who run visual regression tests should expect snapshot updates on minor releases.
+ 
+Breaking changes will result in a major version increase and will include a migration plan to assist authors in upgrading to the new version. 
 
 ### Deprecations
 
 A deprecated feature indicates that we plan to stop supporting and remove a feature from the Design System. As we identify features to deprecate, if a replacement feature is available, we will provide guidance for using an existing feature in its place or introduce new functionality through a minor version release. This process provides authors with enough time to migrate off the deprecated feature before the breaking change occurs in a major release. We will strive to provide adequate notice of upcoming deprecations when possible.
-
-### Maintenance Long Term Support (LTS)
-
-TBD
 
 ### Release Partner
 

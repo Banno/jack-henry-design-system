@@ -35,6 +35,11 @@ export default {
       options: ['start','end']
     }
   },
+  parameters: {
+    actions: {
+      disable: true
+    },
+  },
 };
 
 export const Overview = { render: (args) => html`

@@ -159,18 +159,24 @@ export default {
     'enterkeyhint': { table: { disable: true } },
     'hide-left-slot': { table: { disable: true } },
     'hide-right-slot': { table: { disable: true } },
+    'horizontal-align': { table: { disable: true } },
     'input-mask': { table: { disable: true } },
     'inputmode': { table: { disable: true } },
     'maxlength': { table: { disable: true } },
     'minlength': { table: { disable: true } },
+    pattern: { table: { disable: true } },
+    prefix: { table: { disable: true } },
     'show-char-count': { table: { disable: true } },
     'show-clear-button': { table: { disable: true } },
+    suffix: { table: { disable: true } },
     // Hide inherited jh-input events not relevant to select
     'jh-select': { table: { disable: true } },
     'jh-input': { table: { disable: true } },
     'jh-maxlength': { table: { disable: true } },
     'jh-input:clear-button-click': { table: { disable: true } },
     // Hide inherited jh-input CSS custom properties
+    '--jh-input-prefix-color-text': { table: { disable: true } },
+    '--jh-input-suffix-color-text': { table: { disable: true } },
     '--jh-input-label-color-text': { table: { disable: true } },
     '--jh-input-field-color-background': { table: { disable: true } },
     '--jh-input-field-color-border-enabled': { table: { disable: true } },
@@ -310,6 +316,9 @@ Empty.argTypes = {
 
 Empty.parameters = {
   styles: storyStyles,
+  actions: {
+    disable: true
+  },
 };
 
 export const MenuFlip = { render: (args) => html`

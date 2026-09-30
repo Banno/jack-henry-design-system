@@ -3411,14 +3411,6 @@
               }
             },
             {
-              "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-input-field-color-border-active",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
               "description": "The input field border-color when disabled. Defaults to `--jh-border-control-color`.",
               "name": "--jh-input-field-color-border-disabled",
               "inheritedFrom": {
@@ -4217,14 +4209,6 @@
               }
             },
             {
-              "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-input-field-color-border-active",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
               "description": "The input field border-color when disabled. Defaults to `--jh-border-control-color`.",
               "name": "--jh-input-field-color-border-disabled",
               "inheritedFrom": {
@@ -4974,14 +4958,6 @@
             {
               "description": "The input field border-color when hovered. Defaults to `--jh-color-content-brand-hover`.",
               "name": "--jh-input-field-color-border-hover",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-input-field-color-border-active",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -7254,14 +7230,6 @@
               }
             },
             {
-              "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-input-field-color-border-active",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
               "description": "The input field border-color when disabled. Defaults to `--jh-border-control-color`.",
               "name": "--jh-input-field-color-border-disabled",
               "inheritedFrom": {
@@ -8054,14 +8022,6 @@
             {
               "description": "The input field border-color when hovered. Defaults to `--jh-color-content-brand-hover`.",
               "name": "--jh-input-field-color-border-hover",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-input-field-color-border-active",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -9278,14 +9238,6 @@
               }
             },
             {
-              "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-input-field-color-border-active",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
               "description": "The input field border-color when disabled. Defaults to `--jh-border-control-color`.",
               "name": "--jh-input-field-color-border-disabled",
               "inheritedFrom": {
@@ -9983,14 +9935,6 @@
             {
               "description": "The input field border-color when hovered. Defaults to `--jh-color-content-brand-hover`.",
               "name": "--jh-input-field-color-border-hover",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-input-field-color-border-active",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -11822,14 +11766,6 @@
               }
             },
             {
-              "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-input-field-color-border-active",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
               "description": "The input field border-color when disabled. Defaults to `--jh-border-control-color`.",
               "name": "--jh-input-field-color-border-disabled",
               "inheritedFrom": {
@@ -12499,10 +12435,6 @@
             {
               "description": "The input field border-color when hovered. Defaults to `--jh-color-content-brand-hover`.",
               "name": "--jh-input-field-color-border-hover"
-            },
-            {
-              "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-input-field-color-border-active"
             },
             {
               "description": "The input field border-color when disabled. Defaults to `--jh-border-control-color`.",
@@ -15546,10 +15478,6 @@
               "name": "--jh-select-input-field-color-border-hover"
             },
             {
-              "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-select-input-field-color-border-active"
-            },
-            {
               "description": "The input field border-color when disabled. Defaults to `--jh-border-control-color`.",
               "name": "--jh-select-input-field-color-border-disabled"
             },
@@ -15660,14 +15588,6 @@
             {
               "description": "The input field border-color when hovered. Defaults to `--jh-color-content-brand-hover`.",
               "name": "--jh-input-field-color-border-hover",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-input-field-color-border-active",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"

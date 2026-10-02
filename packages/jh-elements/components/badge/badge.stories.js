@@ -3,6 +3,9 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { html, css } from 'lit';
+import '@jack-henry/jh-icons/icons-wc/icon-bell.js';
+import '@jack-henry/jh-icons/icons-wc/icon-envelope.js';
+import '../button/button.js';
 import './badge.js';
 
 const storyStyles = css`
@@ -15,6 +18,13 @@ div[id^="story-root"] {
   align-items: center;
   margin: 2%;
   width: 100%;
+}
+.anchor-circle {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--jh-color-container-neutral-enabled);
 }
 `;
 
@@ -82,6 +92,29 @@ Neutral.argTypes = {
 };
 
 Neutral.parameters = {
+  styles: storyStyles,
+};
+
+export const Anchored = {
+  render: (args) => html`
+    <div class="overview-row">
+      <jh-badge count="3">
+        <jh-button accessible-label="Emails, 3 unread">
+          <jh-icon-envelope slot="jh-button-icon-left"></jh-icon-envelope>
+        </jh-button>
+      </jh-badge>
+      <jh-badge>
+        <span class="anchor-circle" role="img" aria-label="Jordan Lee, online"></span>
+      </jh-badge>
+    </div>
+  `
+};
+
+Anchored.argTypes = {
+  ...disableControls,
+};
+
+Anchored.parameters = {
   styles: storyStyles,
 };
 

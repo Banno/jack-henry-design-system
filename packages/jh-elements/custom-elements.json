@@ -42,6 +42,20 @@
             {
               "description": "Text color for `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-enabled`.",
               "name": "--jh-badge-color-text-neutral"
+            },
+            {
+              "description": "Horizontal offset of an anchored badge from the anchor's right edge. Defaults to `--jh-dimension-100` (inward).",
+              "name": "--jh-badge-space-offset-x"
+            },
+            {
+              "description": "Vertical offset of an anchored badge from the anchor's top edge. Defaults to `--jh-dimension-100` (inward).",
+              "name": "--jh-badge-space-offset-y"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Optional anchor. When content is slotted (an icon, an avatar, a nav item), the badge overlays its top-right corner. With no slotted content the badge renders inline.",
+              "name": ""
             }
           ],
           "members": [

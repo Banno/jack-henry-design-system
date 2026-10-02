@@ -1,5 +1,11 @@
 # @jack-henry/jh-icons
 
+## 2.1.3
+
+### Patch Changes
+
+- [#303](https://github.com/Banno/jack-henry-design-system/pull/303) [`efbec00`](https://github.com/Banno/jack-henry-design-system/commit/efbec00e22ee28d6450b6c2030edf1a97de6f579) Thanks [@stephhubka](https://github.com/stephhubka)! - `generate-wc.js` now resolves its hygen template relative to the script instead of the current working directory, so it works from any cwd. Repeated identical failures are grouped into a single line with a count, and a missing-template failure names the path where the template was expected.
+
 ## 2.1.2
 
 ### Patch Changes

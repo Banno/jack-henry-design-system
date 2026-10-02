@@ -20,7 +20,6 @@ import '@jack-henry/jh-icons/icons-wc/icon-circle-xmark.js';
  * @cssprop --jh-input-color-focus - The input field outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.
  * @cssprop --jh-input-field-color-border-focus - The input field border-color when in focus. Defaults to `--jh-color-content-brand-hover`.
  * @cssprop --jh-input-field-color-border-hover - The input field border-color when hovered. Defaults to `--jh-color-content-brand-hover`.
- * @cssprop --jh-input-field-color-border-active - The input field border-color when active. Defaults to `--jh-color-content-brand-active`.
  * @cssprop --jh-input-field-color-border-disabled - The input field border-color when disabled. Defaults to `--jh-border-control-color`.
  * @cssprop --jh-input-opacity-disabled - The input opacity when disabled. Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-input-field-color-border-error - The input field border-color when invalid. Defaults to `--jh-border-error-color`.
@@ -259,12 +258,6 @@ export class JhInput extends JhElement {
       }
 
       /* States on input wrapper */
-      .input-wrapper:active {
-        border-color: var(
-          --jh-input-field-color-border-active,
-          var(--jh-color-content-brand-active)
-        );
-      }
       :host([disabled]) {
         opacity: var(--jh-input-opacity-disabled, var(--jh-opacity-disabled));
       }

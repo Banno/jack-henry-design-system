@@ -15,6 +15,14 @@
  * }
  */
 export const deprecations = {
+    JhListItem: {
+        cssProperties: {
+            '--jh-list-item-color-background-hover':
+                'Use `--jh-list-item-color-state-hover`. Still honored as a fallback; removed in v3.',
+            '--jh-list-item-color-background-active':
+                'Use `--jh-list-item-color-state-active`. Still honored as a fallback; removed in v3.',
+        },
+    },
     // JhNotification: {
     //     slots: {'jh-notification-action': 'The `jh-notification-action` slot is deprecated.'},
     //     cssProperties: {'--jh-notification-action-color-background-active': 'The `--jh-notification-action-color-background-active` CSS property is deprecated.'},

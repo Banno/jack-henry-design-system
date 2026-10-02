@@ -21,6 +21,7 @@ div[id^="story-root"] {
 const disableControls = {
   count: { control: { disable: true } },
   'max-count': { control: { disable: true } },
+  appearance: { control: { disable: true } },
 }
 
 export default {
@@ -32,6 +33,10 @@ export default {
     },
     'max-count': {
       control: 'number',
+    },
+    appearance: {
+      control: 'select',
+      options: ['negative', 'neutral'],
     },
   },
   parameters: {
@@ -62,16 +67,36 @@ Overview.parameters = {
   styles: storyStyles,
 };
 
+export const Neutral = {
+  render: (args) => html`
+    <div class="overview-row">
+      <jh-badge appearance="neutral"></jh-badge>
+      <jh-badge appearance="neutral" count="50"></jh-badge>
+      <jh-badge appearance="neutral" count="100"></jh-badge>
+    </div>
+  `
+};
+
+Neutral.argTypes = {
+  ...disableControls,
+};
+
+Neutral.parameters = {
+  styles: storyStyles,
+};
+
 export const Playground = { render: (args) => html`
   <jh-badge
    count=${args.count} 
    max-count=${args['max-count']} 
+   appearance=${args.appearance}
    ></jh-badge>
 `};
 
 Playground.args = {
 count: 1,
 'max-count': 99,
+appearance: 'negative',
 };
 
 Playground.parameters = {

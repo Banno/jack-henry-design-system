@@ -11,6 +11,9 @@ import { JhElement } from '../element/element.js';
  * 
  * [Badge Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-badge--docs)
  * 
+ * @slot - Optional anchor. When content is slotted (an icon, an avatar, a nav item), the badge
+ * overlays its top-right corner. With no slotted content the badge renders inline.
+ *
  * @cssprop --jh-badge-border-radius - The badge border radius. Defaults to `--jh-border-radius-pill`.
  * @cssprop --jh-badge-color-background-enabled - The badge background color. Defaults to `--jh-color-content-negative-enabled`. 
  * @cssprop --jh-badge-color-text-enabled - The badge text color. Defaults to `--jh-color-content-on-negative-enabled`.
@@ -19,6 +22,8 @@ import { JhElement } from '../element/element.js';
  * @cssprop --jh-badge-color-background-neutral - Count background for `appearance="neutral"`. Defaults to `--jh-color-container-neutral-enabled`.
  * @cssprop --jh-badge-color-dot-neutral - Dot color for `appearance="neutral"` when no `count` is set. Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-badge-color-text-neutral - Text color for `appearance="neutral"`. Defaults to `--jh-color-content-primary-enabled`.
+ * @cssprop --jh-badge-space-offset-x - Horizontal offset of an anchored badge from the anchor's right edge. Defaults to `--jh-dimension-100` (inward).
+ * @cssprop --jh-badge-space-offset-y - Vertical offset of an anchored badge from the anchor's top edge. Defaults to `--jh-dimension-100` (inward).
  * 
  * @customElement jh-badge
  */
@@ -27,6 +32,7 @@ export class JhBadge extends JhElement {
     return css`
       :host {
         display: inline-flex;
+        position: relative;
       }
 
       .badge {
@@ -61,6 +67,18 @@ export class JhBadge extends JhElement {
         padding: var(--jh-dimension-0) var(--jh-dimension-100);
         width: auto;
       }
+
+      /* anchored: badge overlays the top-right corner of the slotted content */
+      .anchored {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(
+          calc(50% - var(--jh-badge-space-offset-x, var(--jh-dimension-100))),
+          calc(-50% + var(--jh-badge-space-offset-y, var(--jh-dimension-100)))
+        );
+        pointer-events: none;
+      }
     `;
   }
 
@@ -87,6 +105,19 @@ export class JhBadge extends JhElement {
     * `negative` (default) means act — unread, overdue, failed. `neutral` means count — items, selected.
     * @type {'negative' | 'neutral'} */
     this.appearance = 'negative';
+    this.#anchored = false;
+  }
+
+  #anchored;
+
+  #handleSlotChange(e) {
+    const assigned = e.target.assignedNodes({ flatten: true })
+      .filter((n) => n.nodeType !== Node.TEXT_NODE || n.textContent.trim() !== '');
+    const anchored = assigned.length > 0;
+    if (anchored !== this.#anchored) {
+      this.#anchored = anchored;
+      this.requestUpdate();
+    }
   }
 
   /** @protected */
@@ -99,9 +130,10 @@ export class JhBadge extends JhElement {
       count = this.count;
     }
 
-    const classes = { badge: true, 'count-present': count !== undefined };
+    const classes = { badge: true, 'count-present': count !== undefined, anchored: this.#anchored };
 
     return html`
+      <slot @slotchange=${this.#handleSlotChange}></slot>
       <span class=${classMap(classes)}>${count}</span>
     `;
   }

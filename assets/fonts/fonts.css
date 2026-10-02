@@ -5,6 +5,13 @@
  */
 
 @font-face {
+  font-family: 'Figtree';
+  src: url(./Figtree-VariableFont.woff2) format('woff2');
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+}
+@font-face {
   font-family: 'Roboto Flex';
   src: url(./RobotoFlex-VariableFont.woff2) format('woff2');
   font-style: normal; 

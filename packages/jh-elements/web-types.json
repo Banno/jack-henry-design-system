@@ -26,6 +26,14 @@
                 "type": "number | null",
                 "default": "null"
               }
+            },
+            {
+              "name": "appearance",
+              "description": "`negative` (default) means act — unread, overdue, failed. `neutral` means count — items, selected.",
+              "value": {
+                "type": "'negative' | 'neutral'",
+                "default": "'negative'"
+              }
             }
           ],
           "events": [],
@@ -40,6 +48,11 @@
                 "name": "maxCount",
                 "description": "Sets the max count to show. Appends `+` to the `max-count` when value is exceeded.",
                 "type": "number | null"
+              },
+              {
+                "name": "appearance",
+                "description": "`negative` (default) means act — unread, overdue, failed. `neutral` means count — items, selected.",
+                "type": "'negative' | 'neutral'"
               },
               {
                 "name": "uniqueId",
@@ -6793,6 +6806,26 @@
         {
           "name": "--jh-badge-color-text-enabled",
           "description": "The badge text color. Defaults to `--jh-color-content-on-negative-enabled`."
+        },
+        {
+          "name": "--jh-badge-color-background-negative",
+          "description": "Background for `appearance=\"negative\"`. Defaults to `--jh-color-content-negative-enabled`."
+        },
+        {
+          "name": "--jh-badge-color-text-negative",
+          "description": "Text color for `appearance=\"negative\"`. Defaults to `--jh-color-content-on-negative-enabled`."
+        },
+        {
+          "name": "--jh-badge-color-background-neutral",
+          "description": "Count background for `appearance=\"neutral\"`. Defaults to `--jh-color-container-neutral-enabled`."
+        },
+        {
+          "name": "--jh-badge-color-dot-neutral",
+          "description": "Dot color for `appearance=\"neutral\"` when no `count` is set. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-badge-color-text-neutral",
+          "description": "Text color for `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-enabled`."
         },
         {
           "name": "--jh-button-color-background-primary-enabled",

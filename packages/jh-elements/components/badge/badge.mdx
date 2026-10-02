@@ -35,6 +35,19 @@ To use `<jh-badge>`:
 - Badges display the `count` when set to a numerical value greater than or equal to 0. 
 - When the `max-count` is set and surpassed by the `count`, the `max-count` will render with an appended `+` character as such: `max-count+`
 - Authors can omit the `count` property to render a dot-only badge in cases where `count` does not need to be displayed. 
+- `count="0"` renders "0". If there's nothing to count, remove the badge. When zero is meaningful, use `appearance="neutral"`.
+
+## Appearance
+
+Use the `appearance` property to communicate the intent of the badge.
+
+- `negative` (default): the user should act. Use for unread, overdue, or failed items.
+- `neutral`: the badge is only a count. Use for the number of items or selections.
+
+```html
+<jh-badge count="3"></jh-badge>
+<jh-badge appearance="neutral" count="3"></jh-badge>
+```
 
 ## Placement
 

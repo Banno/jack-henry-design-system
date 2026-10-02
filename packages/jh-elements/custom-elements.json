@@ -44,6 +44,10 @@
               "name": "--jh-badge-color-text-neutral"
             },
             {
+              "description": "A 2px ring around the badge that separates it from what's behind it (an avatar, a brand-colored nav item). Defaults to `transparent`; set it to the surface color.",
+              "name": "--jh-badge-color-ring"
+            },
+            {
               "description": "Horizontal offset of an anchored badge from the anchor's right edge. Defaults to `--jh-dimension-100` (inward).",
               "name": "--jh-badge-space-offset-x"
             },

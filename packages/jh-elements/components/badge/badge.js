@@ -22,6 +22,8 @@ import { JhElement } from '../element/element.js';
  * @cssprop --jh-badge-color-background-neutral - Count background for `appearance="neutral"`. Defaults to `--jh-color-container-neutral-enabled`.
  * @cssprop --jh-badge-color-dot-neutral - Dot color for `appearance="neutral"` when no `count` is set. Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-badge-color-text-neutral - Text color for `appearance="neutral"`. Defaults to `--jh-color-content-primary-enabled`.
+ * @cssprop --jh-badge-color-ring - A 2px ring around the badge that separates it from what's behind it
+ * (an avatar, a brand-colored nav item). Defaults to `transparent`; set it to the surface color.
  * @cssprop --jh-badge-space-offset-x - Horizontal offset of an anchored badge from the anchor's right edge. Defaults to `--jh-dimension-100` (inward).
  * @cssprop --jh-badge-space-offset-y - Vertical offset of an anchored badge from the anchor's top edge. Defaults to `--jh-dimension-100` (inward).
  * 
@@ -39,6 +41,7 @@ export class JhBadge extends JhElement {
         background: var(--jh-badge-color-background-enabled, var(--jh-badge-color-background-negative, var(--jh-color-content-negative-enabled)));
         color: var(--jh-badge-color-text-enabled, var(--jh-badge-color-text-negative, var(--jh-color-content-on-negative-enabled)));
         border-radius: var(--jh-badge-border-radius, var(--jh-border-radius-pill));
+        box-shadow: 0 0 0 var(--jh-dimension-50) var(--jh-badge-color-ring, transparent);
         box-sizing: border-box;
         min-width: var(--jh-dimension-200);
         height: var(--jh-dimension-200);

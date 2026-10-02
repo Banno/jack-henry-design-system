@@ -4199,7 +4199,7 @@
     "type": "family",
     "item": "primary",
     "value": "jh-font-family-sans",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -4211,8 +4211,8 @@
     "category": "font",
     "type": "family",
     "item": "sans",
-    "value": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "value": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -4239,7 +4239,7 @@
     "item": "regular",
     "subItem": "fontFamily",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -4295,7 +4295,7 @@
     "item": "medium",
     "subItem": "fontFamily",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -4351,7 +4351,7 @@
     "item": "bold",
     "subItem": "fontFamily",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -4407,7 +4407,7 @@
     "item": "regular",
     "subItem": "fontFamily",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -4463,7 +4463,7 @@
     "item": "medium",
     "subItem": "fontFamily",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -4519,7 +4519,7 @@
     "item": "bold",
     "subItem": "fontFamily",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -4575,7 +4575,7 @@
     "item": "regular",
     "subItem": "1",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -4631,7 +4631,7 @@
     "item": "regular",
     "subItem": "2",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -4687,7 +4687,7 @@
     "item": "medium",
     "subItem": "1",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -4743,7 +4743,7 @@
     "item": "medium",
     "subItem": "2",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -4799,7 +4799,7 @@
     "item": "bold",
     "subItem": "1",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -4855,7 +4855,7 @@
     "item": "bold",
     "subItem": "2",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -5023,7 +5023,7 @@
     "item": "light",
     "subItem": "1",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -5079,7 +5079,7 @@
     "item": "light",
     "subItem": "2",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -5135,7 +5135,7 @@
     "item": "light",
     "subItem": "3",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -5191,7 +5191,7 @@
     "item": "regular",
     "subItem": "1",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -5247,7 +5247,7 @@
     "item": "regular",
     "subItem": "2",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -5303,7 +5303,7 @@
     "item": "regular",
     "subItem": "3",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -5359,7 +5359,7 @@
     "item": "regular",
     "subItem": "4",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -5415,7 +5415,7 @@
     "item": "regular",
     "subItem": "5",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -5471,7 +5471,7 @@
     "item": "regular",
     "subItem": "6",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -5527,7 +5527,7 @@
     "item": "medium",
     "subItem": "1",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -5583,7 +5583,7 @@
     "item": "medium",
     "subItem": "2",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -5639,7 +5639,7 @@
     "item": "medium",
     "subItem": "3",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -5695,7 +5695,7 @@
     "item": "medium",
     "subItem": "4",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -5751,7 +5751,7 @@
     "item": "medium",
     "subItem": "5",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -5807,7 +5807,7 @@
     "item": "medium",
     "subItem": "6",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -5863,7 +5863,7 @@
     "item": "bold",
     "subItem": "1",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -5919,7 +5919,7 @@
     "item": "bold",
     "subItem": "2",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -5975,7 +5975,7 @@
     "item": "bold",
     "subItem": "3",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -6031,7 +6031,7 @@
     "item": "bold",
     "subItem": "4",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -6087,7 +6087,7 @@
     "item": "bold",
     "subItem": "5",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -6143,7 +6143,7 @@
     "item": "bold",
     "subItem": "6",
     "value": "jh-font-family-primary",
-    "computedValue": "'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7375,7 +7375,7 @@
     "type": "micro",
     "item": "regular",
     "value": "jh-font-weight-400 jh-font-size-250/jh-font-line-height-300 jh-font-family-primary",
-    "computedValue": "400 10px/12px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "400 10px/12px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7388,7 +7388,7 @@
     "type": "micro",
     "item": "medium",
     "value": "jh-font-weight-500 jh-font-size-250/jh-font-line-height-300 jh-font-family-primary",
-    "computedValue": "500 10px/12px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "500 10px/12px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7401,7 +7401,7 @@
     "type": "micro",
     "item": "bold",
     "value": "jh-font-weight-700 jh-font-size-250/jh-font-line-height-300 jh-font-family-primary",
-    "computedValue": "700 10px/12px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "700 10px/12px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7414,7 +7414,7 @@
     "type": "helper",
     "item": "regular",
     "value": "jh-font-weight-400 jh-font-size-300/jh-font-line-height-400 jh-font-family-primary",
-    "computedValue": "400 12px/16px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "400 12px/16px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7427,7 +7427,7 @@
     "type": "helper",
     "item": "medium",
     "value": "jh-font-weight-500 jh-font-size-300/jh-font-line-height-400 jh-font-family-primary",
-    "computedValue": "500 12px/16px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "500 12px/16px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7440,7 +7440,7 @@
     "type": "helper",
     "item": "bold",
     "value": "jh-font-weight-700 jh-font-size-300/jh-font-line-height-400 jh-font-family-primary",
-    "computedValue": "700 12px/16px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "700 12px/16px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7454,7 +7454,7 @@
     "item": "regular",
     "subItem": "1",
     "value": "jh-font-weight-400 jh-font-size-350/jh-font-line-height-500 jh-font-family-primary",
-    "computedValue": "400 14px/20px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "400 14px/20px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7468,7 +7468,7 @@
     "item": "regular",
     "subItem": "2",
     "value": "jh-font-weight-400 jh-font-size-400/jh-font-line-height-600 jh-font-family-primary",
-    "computedValue": "400 16px/24px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "400 16px/24px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7482,7 +7482,7 @@
     "item": "medium",
     "subItem": "1",
     "value": "jh-font-weight-500 jh-font-size-350/jh-font-line-height-500 jh-font-family-primary",
-    "computedValue": "500 14px/20px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "500 14px/20px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7496,7 +7496,7 @@
     "item": "medium",
     "subItem": "2",
     "value": "jh-font-weight-500 jh-font-size-400/jh-font-line-height-600 jh-font-family-primary",
-    "computedValue": "500 16px/24px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "500 16px/24px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7510,7 +7510,7 @@
     "item": "bold",
     "subItem": "1",
     "value": "jh-font-weight-700 jh-font-size-350/jh-font-line-height-500 jh-font-family-primary",
-    "computedValue": "700 14px/20px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "700 14px/20px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7524,7 +7524,7 @@
     "item": "bold",
     "subItem": "2",
     "value": "jh-font-weight-700 jh-font-size-400/jh-font-line-height-600 jh-font-family-primary",
-    "computedValue": "700 16px/24px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "700 16px/24px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7566,7 +7566,7 @@
     "item": "light",
     "subItem": "1",
     "value": "jh-font-weight-300 jh-font-size-1050/jh-font-line-height-1300 jh-font-family-primary",
-    "computedValue": "300 42px/52px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "300 42px/52px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7580,7 +7580,7 @@
     "item": "light",
     "subItem": "2",
     "value": "jh-font-weight-300 jh-font-size-1350/jh-font-line-height-1600 jh-font-family-primary",
-    "computedValue": "300 54px/64px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "300 54px/64px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7594,7 +7594,7 @@
     "item": "light",
     "subItem": "3",
     "value": "jh-font-weight-300 jh-font-size-2300/jh-font-line-height-2700 jh-font-family-primary",
-    "computedValue": "300 92px/108px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "300 92px/108px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7608,7 +7608,7 @@
     "item": "regular",
     "subItem": "1",
     "value": "jh-font-weight-400 jh-font-size-350/jh-font-line-height-500 jh-font-family-primary",
-    "computedValue": "400 14px/20px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "400 14px/20px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7622,7 +7622,7 @@
     "item": "regular",
     "subItem": "2",
     "value": "jh-font-weight-400 jh-font-size-400/jh-font-line-height-600 jh-font-family-primary",
-    "computedValue": "400 16px/24px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "400 16px/24px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7636,7 +7636,7 @@
     "item": "regular",
     "subItem": "3",
     "value": "jh-font-weight-400 jh-font-size-500/jh-font-line-height-700 jh-font-family-primary",
-    "computedValue": "400 20px/28px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "400 20px/28px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7650,7 +7650,7 @@
     "item": "regular",
     "subItem": "4",
     "value": "jh-font-weight-400 jh-font-size-700/jh-font-line-height-900 jh-font-family-primary",
-    "computedValue": "400 28px/36px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "400 28px/36px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7664,7 +7664,7 @@
     "item": "regular",
     "subItem": "5",
     "value": "jh-font-weight-400 jh-font-size-800/jh-font-line-height-1000 jh-font-family-primary",
-    "computedValue": "400 32px/40px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "400 32px/40px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7678,7 +7678,7 @@
     "item": "regular",
     "subItem": "6",
     "value": "jh-font-weight-400 jh-font-size-900/jh-font-line-height-1100 jh-font-family-primary",
-    "computedValue": "400 36px/44px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "400 36px/44px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7692,7 +7692,7 @@
     "item": "medium",
     "subItem": "1",
     "value": "jh-font-weight-500 jh-font-size-350/jh-font-line-height-500 jh-font-family-primary",
-    "computedValue": "500 14px/20px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "500 14px/20px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7706,7 +7706,7 @@
     "item": "medium",
     "subItem": "2",
     "value": "jh-font-weight-500 jh-font-size-400/jh-font-line-height-600 jh-font-family-primary",
-    "computedValue": "500 16px/24px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "500 16px/24px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7720,7 +7720,7 @@
     "item": "medium",
     "subItem": "3",
     "value": "jh-font-weight-500 jh-font-size-500/jh-font-line-height-700 jh-font-family-primary",
-    "computedValue": "500 20px/28px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "500 20px/28px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7734,7 +7734,7 @@
     "item": "medium",
     "subItem": "4",
     "value": "jh-font-weight-500 jh-font-size-700/jh-font-line-height-900 jh-font-family-primary",
-    "computedValue": "500 28px/36px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "500 28px/36px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7748,7 +7748,7 @@
     "item": "medium",
     "subItem": "5",
     "value": "jh-font-weight-500 jh-font-size-800/jh-font-line-height-1000 jh-font-family-primary",
-    "computedValue": "500 32px/40px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "500 32px/40px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7762,7 +7762,7 @@
     "item": "medium",
     "subItem": "6",
     "value": "jh-font-weight-500 jh-font-size-900/jh-font-line-height-1100 jh-font-family-primary",
-    "computedValue": "500 36px/44px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "500 36px/44px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7776,7 +7776,7 @@
     "item": "bold",
     "subItem": "1",
     "value": "jh-font-weight-700 jh-font-size-350/jh-font-line-height-500 jh-font-family-primary",
-    "computedValue": "700 14px/20px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "700 14px/20px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7790,7 +7790,7 @@
     "item": "bold",
     "subItem": "2",
     "value": "jh-font-weight-700 jh-font-size-400/jh-font-line-height-600 jh-font-family-primary",
-    "computedValue": "700 16px/24px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "700 16px/24px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7804,7 +7804,7 @@
     "item": "bold",
     "subItem": "3",
     "value": "jh-font-weight-700 jh-font-size-500/jh-font-line-height-700 jh-font-family-primary",
-    "computedValue": "700 20px/28px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "700 20px/28px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7818,7 +7818,7 @@
     "item": "bold",
     "subItem": "4",
     "value": "jh-font-weight-700 jh-font-size-700/jh-font-line-height-900 jh-font-family-primary",
-    "computedValue": "700 28px/36px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "700 28px/36px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7832,7 +7832,7 @@
     "item": "bold",
     "subItem": "5",
     "value": "jh-font-weight-700 jh-font-size-800/jh-font-line-height-1000 jh-font-family-primary",
-    "computedValue": "700 32px/40px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "700 32px/40px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -7846,7 +7846,7 @@
     "item": "bold",
     "subItem": "6",
     "value": "jh-font-weight-700 jh-font-size-900/jh-font-line-height-1100 jh-font-family-primary",
-    "computedValue": "700 36px/44px 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
+    "computedValue": "700 36px/44px Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif",
     "deprecated": false,
     "deprecatedMessage": ""
   }

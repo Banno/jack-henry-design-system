@@ -38,10 +38,11 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-list-item-color-text-secondary-disabled - The secondary text color when interactive and disabled.
  * Defaults to `--jh-color-content-secondary-enabled`.
- * @cssprop --jh-list-item-space-padding-right - The right padding on the list-item container. Defaults to `--jh-dimension-600`.
- * @cssprop --jh-list-item-space-padding-left - The left padding on the list-item container. Defaults to `--jh-dimension-600`.
- * @cssprop --jh-list-item-space-padding-top - The top padding on the list-item container. Defaults to `--jh-dimension-400`.
- * @cssprop --jh-list-item-space-padding-bottom - The bottom padding on the list-item container. Defaults to `--jh-dimension-400`.
+ * @cssprop --jh-list-item-space-padding-right - The right padding on the list-item container. Defaults to `--jh-dimension-400`.
+ * @cssprop --jh-list-item-space-padding-left - The left padding on the list-item container. Defaults to `--jh-dimension-400`.
+ * @cssprop --jh-list-item-space-padding-top - The top padding on the list-item container. Defaults to `--jh-dimension-300`.
+ * @cssprop --jh-list-item-space-padding-bottom - The bottom padding on the list-item container. Defaults to `--jh-dimension-300`.
+ * @cssprop --jh-list-item-space-gap - The gap between the left slot, content, and right slot. Defaults to `--jh-dimension-300`.
  * @cssprop --jh-list-item-size-height - The list-item's height. Defaults to `auto`.
  * @cssprop --jh-list-item-color-background-focus - The list-item background-color when interactive and focused.
  * Defaults to `transparent` (focus is indicated by the outline only).
@@ -112,16 +113,16 @@ export class JhListItem extends JhElement {
       .list-item {
         padding-right: var(
           --jh-list-item-space-padding-right,
-          var(--jh-dimension-600)
+          var(--jh-dimension-400)
         );
         padding-left: var(
           --jh-list-item-space-padding-left,
-          var(--jh-dimension-600)
+          var(--jh-dimension-400)
         );
         height: var(--jh-list-item-size-height, auto);
-        padding-top: var(--jh-list-item-space-padding-top, var(--jh-dimension-400));
-        padding-bottom: var(--jh-list-item-space-padding-bottom, var(--jh-dimension-400));
-        gap: var(--jh-dimension-200);
+        padding-top: var(--jh-list-item-space-padding-top, var(--jh-dimension-300));
+        padding-bottom: var(--jh-list-item-space-padding-bottom, var(--jh-dimension-300));
+        gap: var(--jh-list-item-space-gap, var(--jh-dimension-300));
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -349,7 +350,7 @@ export class JhListItem extends JhElement {
         /* optional left bar — width defaults to 0; nav lists set --jh-list-item-border-selected-width */
         padding-left: calc(var(
           --jh-list-item-space-padding-left,
-          var(--jh-dimension-600)
+          var(--jh-dimension-400)
         ) - var(--jh-list-item-border-selected-width, 0px));
         border-left-color: var(
           --jh-list-item-color-border-selected,
@@ -372,7 +373,7 @@ export class JhListItem extends JhElement {
         min-width: 0; 
       }
       .content {
-        gap: var(--jh-dimension-200);
+        gap: var(--jh-list-item-space-gap, var(--jh-dimension-300));
         display: none;
         flex-direction: row;
         flex: 1 1 auto;

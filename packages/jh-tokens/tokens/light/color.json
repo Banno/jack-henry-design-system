@@ -204,6 +204,35 @@
         }
       }
     },
+    "state": {
+      "hover": {
+        "$value": "{color.black.alpha.10}",
+        "$description": "Translucent layer painted over an interactive surface on hover. Stacks on any background.",
+        "$extensions": {
+          "alias": true,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "active": {
+        "$value": "{color.black.alpha.20}",
+        "$description": "Translucent layer painted over an interactive surface while pressed.",
+        "$extensions": {
+          "alias": true,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "selected": {
+        "$value": "{color.blue.alpha.10}",
+        "$description": "Translucent brand layer for the selected item in a list or menu. Follows institution theming when brand is themed.",
+        "$extensions": {
+          "alias": true,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      }
+    },
     "overlay": {
       "$value": "{color.black.alpha.50}",
       "$description": "Used to distinguish the modal layer from the layer underneath",

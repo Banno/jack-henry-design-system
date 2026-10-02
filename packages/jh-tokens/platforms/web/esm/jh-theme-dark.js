@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  * 
  * Do not edit directly, this file was auto-generated.
- * Generated on Tue, 07 Apr 2026 18:56:06 GMT
+ * Generated on Fri, 18 Sep 2026 14:01:37 GMT
  */
 
 export default `
@@ -311,6 +311,8 @@ export default `
     --jh-color-violet-150: #e8cff6ff;
     --jh-color-violet-100: #f4e7faff;
     --jh-color-violet-50: #f7f2faff;
+    --jh-color-blue-alpha-12: #085ce51f;
+    --jh-color-blue-alpha-10: #085ce51a;
     --jh-color-blue-950: #06185fff;
     --jh-color-blue-900: #132377ff;
     --jh-color-blue-850: #192a89ff;
@@ -542,6 +544,9 @@ export default `
     --jh-color-control-hover: var(--jh-color-gray-700);
     --jh-color-control-enabled: var(--jh-color-gray-750);
     --jh-color-overlay: var(--jh-color-black-alpha-70);
+    --jh-color-state-selected: var(--jh-color-blue-alpha-12);
+    --jh-color-state-active: var(--jh-color-white-alpha-20);
+    --jh-color-state-hover: var(--jh-color-white-alpha-10);
     --jh-color-container-negative-active: var(--jh-color-red-700);
     --jh-color-container-negative-hover: var(--jh-color-red-750);
     --jh-color-container-negative-enabled: var(--jh-color-red-800);

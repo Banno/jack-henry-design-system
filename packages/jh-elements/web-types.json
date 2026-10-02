@@ -8848,19 +8848,23 @@
         },
         {
           "name": "--jh-list-item-space-padding-right",
-          "description": "The right padding on the list-item container. Defaults to `--jh-dimension-600`."
+          "description": "The right padding on the list-item container. Defaults to `--jh-dimension-400`."
         },
         {
           "name": "--jh-list-item-space-padding-left",
-          "description": "The left padding on the list-item container. Defaults to `--jh-dimension-600`."
+          "description": "The left padding on the list-item container. Defaults to `--jh-dimension-400`."
         },
         {
           "name": "--jh-list-item-space-padding-top",
-          "description": "The top padding on the list-item container. Defaults to `--jh-dimension-400`."
+          "description": "The top padding on the list-item container. Defaults to `--jh-dimension-300`."
         },
         {
           "name": "--jh-list-item-space-padding-bottom",
-          "description": "The bottom padding on the list-item container. Defaults to `--jh-dimension-400`."
+          "description": "The bottom padding on the list-item container. Defaults to `--jh-dimension-300`."
+        },
+        {
+          "name": "--jh-list-item-space-gap",
+          "description": "The gap between the left slot, content, and right slot. Defaults to `--jh-dimension-300`."
         },
         {
           "name": "--jh-list-item-size-height",

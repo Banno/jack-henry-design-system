@@ -22,6 +22,44 @@
             {
               "description": "The badge text color. Defaults to `--jh-color-content-on-negative-enabled`.",
               "name": "--jh-badge-color-text-enabled"
+            },
+            {
+              "description": "Background for `appearance=\"negative\"`. Defaults to `--jh-color-content-negative-enabled`.",
+              "name": "--jh-badge-color-background-negative"
+            },
+            {
+              "description": "Text color for `appearance=\"negative\"`. Defaults to `--jh-color-content-on-negative-enabled`.",
+              "name": "--jh-badge-color-text-negative"
+            },
+            {
+              "description": "Count background for `appearance=\"neutral\"`. Defaults to `--jh-color-container-neutral-enabled`.",
+              "name": "--jh-badge-color-background-neutral"
+            },
+            {
+              "description": "Dot color for `appearance=\"neutral\"` when no `count` is set. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-badge-color-dot-neutral"
+            },
+            {
+              "description": "Text color for `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-badge-color-text-neutral"
+            },
+            {
+              "description": "A 2px ring around the badge that separates it from what's behind it (an avatar, a brand-colored nav item). Defaults to `transparent`; set it to the surface color.",
+              "name": "--jh-badge-color-ring"
+            },
+            {
+              "description": "Horizontal offset of an anchored badge from the anchor's right edge. Defaults to `--jh-dimension-100` (inward).",
+              "name": "--jh-badge-space-offset-x"
+            },
+            {
+              "description": "Vertical offset of an anchored badge from the anchor's top edge. Defaults to `--jh-dimension-100` (inward).",
+              "name": "--jh-badge-space-offset-y"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Optional anchor. When content is slotted (an icon, an avatar, a nav item), the badge overlays its top-right corner. With no slotted content the badge renders inline.",
+              "name": ""
             }
           ],
           "members": [
@@ -46,6 +84,18 @@
               "description": "Sets the max count to show. Appends `+` to the `max-count` when value is exceeded.",
               "default": "99",
               "attribute": "max-count"
+            },
+            {
+              "kind": "field",
+              "name": "appearance",
+              "privacy": "public",
+              "type": {
+                "text": "'negative' | 'neutral'"
+              },
+              "description": "`negative` (default) means act — unread, overdue, failed. `neutral` means count — items, selected.",
+              "default": "'negative'",
+              "attribute": "appearance",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -107,6 +157,15 @@
               "description": "Number to show within the badge. If no `count` is supplied, Badge will render as a dot.",
               "default": "null",
               "fieldName": "count"
+            },
+            {
+              "name": "appearance",
+              "type": {
+                "text": "'negative' | 'neutral'"
+              },
+              "description": "`negative` (default) means act — unread, overdue, failed. `neutral` means count — items, selected.",
+              "default": "'negative'",
+              "fieldName": "appearance"
             }
           ],
           "superclass": {

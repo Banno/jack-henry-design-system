@@ -8884,11 +8884,11 @@
         },
         {
           "name": "--jh-list-item-color-background-hover",
-          "description": "Deprecated; still honored. Use `--jh-list-item-color-state-*`. Removed in v3."
+          "description": "The list-item background-color when interactive and hovered. Defaults to `--jh-color-container-primary-hover`."
         },
         {
           "name": "--jh-list-item-color-background-active",
-          "description": "Deprecated; still honored. Use `--jh-list-item-color-state-*`. Removed in v3."
+          "description": "The list-item background-color when interactive and active. Defaults to `--jh-color-container-primary-active`."
         },
         {
           "name": "--jh-list-item-color-background-disabled",

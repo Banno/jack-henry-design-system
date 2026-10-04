@@ -13527,14 +13527,14 @@
               "name": "--jh-list-item-color-state-active"
             },
             {
-              "description": "Deprecated; still honored. Use `--jh-list-item-color-state-*`. Removed in v3.",
+              "description": "The list-item background-color when interactive and hovered. Defaults to `--jh-color-container-primary-hover`.",
               "name": "--jh-list-item-color-background-hover",
-              "deprecatedMessage": "Use `--jh-list-item-color-state-hover`. Still honored as a fallback; removed in v3."
+              "deprecatedMessage": "Use `--jh-list-item-color-state-hover` instead."
             },
             {
-              "description": "Deprecated; still honored. Use `--jh-list-item-color-state-*`. Removed in v3.",
+              "description": "The list-item background-color when interactive and active. Defaults to `--jh-color-container-primary-active`.",
               "name": "--jh-list-item-color-background-active",
-              "deprecatedMessage": "Use `--jh-list-item-color-state-active`. Still honored as a fallback; removed in v3."
+              "deprecatedMessage": "Use `--jh-list-item-color-state-active` instead."
             },
             {
               "description": "The list-item background-color when interactive and disabled. Defaults to `transparent`.",

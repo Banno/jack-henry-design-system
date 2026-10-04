@@ -18,9 +18,9 @@ export const deprecations = {
     JhListItem: {
         cssProperties: {
             '--jh-list-item-color-background-hover':
-                'Use `--jh-list-item-color-state-hover`. Still honored as a fallback; removed in v3.',
+                'Use `--jh-list-item-color-state-hover` instead.',
             '--jh-list-item-color-background-active':
-                'Use `--jh-list-item-color-state-active`. Still honored as a fallback; removed in v3.',
+                'Use `--jh-list-item-color-state-active` instead.',
         },
     },
     // JhNotification: {

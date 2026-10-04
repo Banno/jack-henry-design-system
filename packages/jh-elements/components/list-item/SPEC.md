@@ -45,13 +45,13 @@ One signal per state. Hover and active are a translucent layer painted over what
 | Hover | state layer | `color-state-hover` = black-alpha-10 | white-alpha-10 |
 | Active | state layer | `color-state-active` = black-alpha-20 | white-alpha-20 |
 | Focus | ring only, no fill | 2px blue-600, inset −2px (unchanged tokens) | unchanged |
-| Selected | brand state layer, no bar | `color-state-selected` = blue-600 @ 10% | blue-600 @ 12% |
+| Selected | blue state layer, no bar | `color-state-selected` = blue-600 @ 10% | same |
 | Selected + hover | selected layer + hover layer | stacks | stacks |
 | Disabled | opacity on content | `opacity-disabled` (0.3) | same |
 
 Why alpha instead of two more grays: the existing alpha ramp steps by 10%, which lands close to Material's 8% hover / 12% pressed and reads correctly on white, on `container-page`, and on the selected tint. It also removes the active = page-background collision. If 20% active feels heavy in practice, that's a case for adding `alpha-15` to the ramp, not for going back to solid grays.
 
-Selected is a state layer too, on the brand color instead of on-surface. That keeps it distinguishable from hover by hue rather than intensity, and because Banno Online is themed per institution, a brand-alpha layer follows the FI's color where a fixed `blue-50` would not. List item reads `color-state-selected` directly. `container-primary-selected` is left unchanged in pass 1; re-pointing it to the state layer is a system-wide decision for DSPD-111.
+Selected is a state layer too, on blue instead of on-surface. That keeps it distinguishable from hover by hue rather than intensity. It does not follow brand theming yet: `blue-alpha-10` is a fixed primitive, so it stays blue for every FI until the theming layer exposes a brand-alpha. List item reads `color-state-selected` directly. `container-primary-selected` is left unchanged in pass 1; re-pointing it to the state layer is a system-wide decision for DSPD-111.
 
 This applies to list items and menu items, where selected means the one you're looking at. Multi-select rows in a data table mean included in the set; the checkbox already says that, so table rows stay neutral.
 
@@ -86,14 +86,14 @@ No uppercase, no letter-spacing. If the 12px label feels too quiet next to 14px 
 
 ## Tokens
 
-Three new semantic tokens, two new alpha primitives, and four new component hooks. Tokens are purely additive; no existing token's value changes.
+Three new semantic tokens, one new alpha primitive, and four new component hooks. Tokens are purely additive; no existing token's value changes.
 
 | Token | Tier | Light | Dark | Notes |
 | --- | --- | --- | --- | --- |
 | `--jh-color-state-hover` | semantic (new) | `black-alpha-10` | `white-alpha-10` | reusable by menu item, table row, tab, nav link later |
 | `--jh-color-state-active` | semantic (new) | `black-alpha-20` | `white-alpha-20` | same |
-| `--jh-color-state-selected` | semantic (new) | `blue-alpha-10` | `blue-alpha-12` | brand @ ~10%; should follow FI theming once the theming layer exposes a brand-alpha |
-| `--jh-color-blue-alpha-10` / `-12` | primitive (new) | `#085ce51a` / `#085ce51f` | same | first blue alpha steps; black/white alpha already exist |
+| `--jh-color-state-selected` | semantic (new) | `blue-alpha-10` | `blue-alpha-10` | blue @ 10%; does not follow brand theming yet (needs a brand-alpha from the theming layer) |
+| `--jh-color-blue-alpha-10` | primitive (new) | `#085ce51a` | same | first blue alpha step; black/white alpha already exist |
 | `--jh-color-container-primary-selected` | semantic | blue-50 (unchanged) | blue-850 (unchanged) | not touched in pass 1; aliasing it to `color-state-selected` is a DSPD-111 decision |
 | `--jh-list-item-color-state-hover` | component (new) | → `color-state-hover` | | falls back to `black-alpha-10` |
 | `--jh-list-item-color-state-active` | component (new) | → `color-state-active` | | falls back to `black-alpha-20` |

@@ -44,7 +44,7 @@
               "name": "--jh-badge-color-text-neutral"
             },
             {
-              "description": "A 2px ring around the badge that separates it from what's behind it (an avatar, a brand-colored nav item). Defaults to `transparent`; set it to the surface color.",
+              "description": "Cutout color override. Only applies when `show-cutout` is set. Defaults to `--jh-color-container-primary-enabled`.",
               "name": "--jh-badge-color-ring"
             },
             {
@@ -99,6 +99,17 @@
             },
             {
               "kind": "field",
+              "name": "showCutout",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Renders a 2px cutout around the badge that separates it from the content behind it.",
+              "default": "false",
+              "attribute": "show-cutout"
+            },
+            {
+              "kind": "field",
               "name": "uniqueId",
               "type": {
                 "text": "number"
@@ -148,6 +159,16 @@
               "default": "99",
               "fieldName": "maxCount",
               "attribute": "max-count"
+            },
+            {
+              "name": "show-cutout",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Renders a 2px cutout around the badge that separates it from the content behind it.",
+              "default": "false",
+              "fieldName": "showCutout",
+              "attribute": "show-cutout"
             },
             {
               "name": "count",

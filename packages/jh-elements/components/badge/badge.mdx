@@ -59,13 +59,15 @@ Place content in the default slot to anchor the badge to it. When content is slo
 
 Use `--jh-badge-space-offset-x` and `--jh-badge-space-offset-y` to adjust the position of an anchored badge.
 
-When the badge sits on top of an avatar or a brand-colored surface, set `--jh-badge-color-ring` to the color of the surface behind the badge. This renders a 2px ring that separates the badge from its anchor. The ring defaults to `transparent`.
+Set `show-cutout` to render a 2px cutout around the badge that separates it from its anchor, such as an avatar or an icon.
 
 ```html
-<jh-badge count="3" style="--jh-badge-color-ring: var(--jh-color-container-primary-enabled);">
+<jh-badge count="3" show-cutout>
   <jh-icon-bell size="medium"></jh-icon-bell>
 </jh-badge>
 ```
+
+The cutout matches `--jh-color-container-primary-enabled`. When the badge sits on a different surface, such as a brand-colored nav item, set `--jh-badge-color-ring` to that surface color.
 
 ## Accessibility
 

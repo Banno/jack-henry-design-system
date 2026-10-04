@@ -44,6 +44,10 @@
               "name": "--jh-badge-color-text-neutral"
             },
             {
+              "description": "Cutout color override. Only applies when `show-cutout` is set. Defaults to `--jh-color-container-primary-enabled`.",
+              "name": "--jh-badge-color-ring"
+            },
+            {
               "description": "Horizontal offset of an anchored badge from the anchor's right edge. Defaults to `--jh-dimension-100` (inward).",
               "name": "--jh-badge-space-offset-x"
             },
@@ -92,6 +96,17 @@
               "default": "'negative'",
               "attribute": "appearance",
               "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "showCutout",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Renders a 2px cutout around the badge that separates it from the content behind it.",
+              "default": "false",
+              "attribute": "show-cutout"
             },
             {
               "kind": "field",
@@ -144,6 +159,16 @@
               "default": "99",
               "fieldName": "maxCount",
               "attribute": "max-count"
+            },
+            {
+              "name": "show-cutout",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Renders a 2px cutout around the badge that separates it from the content behind it.",
+              "default": "false",
+              "fieldName": "showCutout",
+              "attribute": "show-cutout"
             },
             {
               "name": "count",

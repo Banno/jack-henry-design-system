@@ -32,6 +32,7 @@ const disableControls = {
   count: { control: { disable: true } },
   'max-count': { control: { disable: true } },
   appearance: { control: { disable: true } },
+  'show-cutout': { control: { disable: true } },
 }
 
 export default {
@@ -47,6 +48,9 @@ export default {
     appearance: {
       control: 'select',
       options: ['negative', 'neutral'],
+    },
+    'show-cutout': {
+      control: 'boolean',
     },
   },
   parameters: {
@@ -118,11 +122,33 @@ Anchored.parameters = {
   styles: storyStyles,
 };
 
+export const ShowCutout = {
+  render: (args) => html`
+    <div class="overview-row">
+      <jh-badge count="3" show-cutout>
+        <span class="anchor-circle" role="img" aria-label="Jordan Lee, 3 unread messages"></span>
+      </jh-badge>
+      <jh-badge show-cutout>
+        <span class="anchor-circle" role="img" aria-label="Jordan Lee, online"></span>
+      </jh-badge>
+    </div>
+  `
+};
+
+ShowCutout.argTypes = {
+  ...disableControls,
+};
+
+ShowCutout.parameters = {
+  styles: storyStyles,
+};
+
 export const Playground = { render: (args) => html`
   <jh-badge
    count=${args.count} 
    max-count=${args['max-count']} 
    appearance=${args.appearance}
+   ?show-cutout=${args['show-cutout']}
    ></jh-badge>
 `};
 
@@ -130,6 +156,7 @@ Playground.args = {
 count: 1,
 'max-count': 99,
 appearance: 'negative',
+'show-cutout': false,
 };
 
 Playground.parameters = {

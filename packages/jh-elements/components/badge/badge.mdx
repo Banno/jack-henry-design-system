@@ -59,6 +59,16 @@ Place content in the default slot to anchor the badge to it. When content is slo
 
 Use `--jh-badge-space-offset-x` and `--jh-badge-space-offset-y` to adjust the position of an anchored badge.
 
+Set `show-cutout` to render a 2px cutout around the badge that separates it from its anchor, such as an avatar or an icon.
+
+```html
+<jh-badge count="3" show-cutout>
+  <jh-icon-bell size="medium"></jh-icon-bell>
+</jh-badge>
+```
+
+The cutout matches `--jh-color-container-primary-enabled`. When the badge sits on a different surface, such as a brand-colored nav item, set `--jh-badge-color-ring` to that surface color.
+
 ## Accessibility
 
 A badge, with or without a count, is a visual indicator. A number such as "3" means nothing to a screen reader user on its own. The meaning has to come from the element the badge belongs to, for example "Emails, 3 unread, button".

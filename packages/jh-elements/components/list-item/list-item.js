@@ -51,8 +51,10 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * Defaults to `--jh-color-state-hover`, falling back to `--jh-color-black-alpha-10`.
  * @cssprop --jh-list-item-color-state-active - The translucent state layer painted over the list-item when interactive and active.
  * Defaults to `--jh-color-state-active`, falling back to `--jh-color-black-alpha-20`.
- * @cssprop --jh-list-item-color-background-hover - Deprecated; still honored. Use `--jh-list-item-color-state-*`. Removed in v3.
- * @cssprop --jh-list-item-color-background-active - Deprecated; still honored. Use `--jh-list-item-color-state-*`. Removed in v3.
+ * @cssprop --jh-list-item-color-background-hover - The list-item background-color when interactive and hovered.
+ * Defaults to `--jh-color-container-primary-hover`.
+ * @cssprop --jh-list-item-color-background-active - The list-item background-color when interactive and active.
+ * Defaults to `--jh-color-container-primary-active`.
  * @cssprop --jh-list-item-color-background-disabled - The list-item background-color when interactive and disabled.
  * Defaults to `transparent`.
  * @cssprop --jh-list-item-opacity-disabled - The list-item opacity when interactive and disabled.

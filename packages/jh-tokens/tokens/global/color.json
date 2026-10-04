@@ -1581,15 +1581,6 @@
             "deprecated": false,
             "deprecatedMessage": ""
           }
-        },
-        "12": {
-          "$value": "#085ce51f",
-          "$description": "Blue at 12% opacity",
-          "$extensions": {
-            "alias": false,
-            "deprecated": false,
-            "deprecatedMessage": ""
-          }
         }
       }
     },

@@ -225,7 +225,7 @@
       },
       "selected": {
         "$value": "{color.blue.alpha.10}",
-        "$description": "Translucent brand layer for the selected item in a list or menu. Follows institution theming when brand is themed.",
+        "$description": "Translucent blue layer for the selected item in a list or menu. Does not follow brand theming yet.",
         "$extensions": {
           "alias": true,
           "deprecated": false,

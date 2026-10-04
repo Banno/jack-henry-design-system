@@ -1571,6 +1571,17 @@
           "deprecated": false,
           "deprecatedMessage": ""
         }
+      },
+      "alpha": {
+        "10": {
+          "$value": "#085ce51a",
+          "$description": "Blue at 10% opacity",
+          "$extensions": {
+            "alias": false,
+            "deprecated": false,
+            "deprecatedMessage": ""
+          }
+        }
       }
     },
     "violet": {

@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  * 
  * Do not edit directly, this file was auto-generated.
- * Generated on Fri, 18 Sep 2026 14:01:37 GMT
+ * Generated on Sun, 04 Oct 2026 01:57:45 GMT
  */
 
 export default `
@@ -311,7 +311,6 @@ export default `
     --jh-color-violet-150: #e8cff6ff;
     --jh-color-violet-100: #f4e7faff;
     --jh-color-violet-50: #f7f2faff;
-    --jh-color-blue-alpha-12: #085ce51f;
     --jh-color-blue-alpha-10: #085ce51a;
     --jh-color-blue-950: #06185fff;
     --jh-color-blue-900: #132377ff;

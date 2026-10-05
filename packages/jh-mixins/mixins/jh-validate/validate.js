@@ -13,7 +13,6 @@ const VALIDATION_ERROR_TYPES = {
   STEP_MISMATCH: 'stepMismatch',
 };
 
-// distinguishes "not configured" from a legitimate 0 constraint (e.g. min=0, minlength=0)
 const isSet = (val) => val !== undefined && val !== null && val !== '';
 
 const validationMixin = (superClass) =>
@@ -84,31 +83,28 @@ const validationMixin = (superClass) =>
 
     constructor() {
       super();
-      // reuse ElementInternals already attached by a superclass (e.g. JhElement);
+      // reuse ElementInternals already attached by JhElement or another superclass
       this.#internals = super.internals ?? this.attachInternals();
     }
 
     connectedCallback() {
       super.connectedCallback();
 
-      // controls with the isGroupControl property are treated as groups
-      if (this.constructor.isGroupControl) {
-        this.#handleFocusOut ??= (event) => {
-          // check that focus has left the group before validating
-          if ((event.relatedTarget && !this.contains(event.relatedTarget)) || !event.relatedTarget) {
+      this.#handleFocusOut ??= (event) => {
+        // check that focus has truly left the control/group before validating
+        if ((event.relatedTarget && !this.contains(event.relatedTarget)) || !event.relatedTarget) {
+          if (this.constructor.isGroupControl) {
             this.validateGroup();
+          } else {
+            this.validateControl();
           }
-        };
-        this.addEventListener('focusout', this.#handleFocusOut);
-      } else {
-        // single control validation 
-        this.addEventListener('blur', this.handleBlur);
-      }
+        }
+      };
+      this.addEventListener('focusout', this.#handleFocusOut);
     }
 
     disconnectedCallback() {
       super.disconnectedCallback?.();
-      this.removeEventListener('blur', this.handleBlur);
       if (this.#handleFocusOut) {
         this.removeEventListener('focusout', this.#handleFocusOut);
       }
@@ -155,7 +151,7 @@ const validationMixin = (superClass) =>
       this.#checkedCount = checkedCount;
     }
 
-    handleBlur() {
+    validateControl() {
       this.#runValidationRules(this.#singleControlRules);
     }
 

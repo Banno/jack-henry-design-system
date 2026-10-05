@@ -5,6 +5,7 @@
 import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { JhElement } from '../element/element.js';
+import { validationMixin } from '@jack-henry/jh-mixins/jh-validate';
 import '../button/button.js';
 import '@jack-henry/jh-icons/icons-wc/icon-circle-xmark.js';
 
@@ -59,10 +60,7 @@ import '@jack-henry/jh-icons/icons-wc/icon-circle-xmark.js';
  * 
  * @customElement jh-input
  */
-export class JhInput extends JhElement {
-  static get formAssociated() {
-    return true;
-  }
+export class JhInput extends validationMixin(JhElement) {
 
   /** @type {string | null} */
   #value;
@@ -688,11 +686,6 @@ export class JhInput extends JhElement {
     } else {
       this.#startLastFixedChar = -1;
     }
-  }
-
-  /** @type {HTMLFormElement | null} */
-  get form() {
-    return this.internals.form;
   }
 
   /**

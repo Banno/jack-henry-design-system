@@ -13,43 +13,54 @@ const VALIDATION_ERROR_TYPES = {
   STEP_MISMATCH: 'stepMismatch',
 };
 
+// distinguishes "not configured" from a legitimate 0 constraint (e.g. min=0, minlength=0)
+const isSet = (val) => val !== undefined && val !== null && val !== '';
+
 const validationMixin = (superClass) =>
   class extends superClass {
 
     static get formAssociated() {
       return true;
     }
-    // temp code: ElementInternals will be added to base element
+
+    static get properties() {
+      return {
+        ...super.properties,
+        invalid: { type: Boolean, reflect: true },
+      };
+    }
+
     #internals;
     #checkedCount = 0;
+    #handleFocusOut;
 
     #singleControlRules = [
       {
-        condition: () => this.required && !this.value,
+        condition: () => this.required && !isSet(this.value),
         type: VALIDATION_ERROR_TYPES.VALUE_MISSING,
       },
       {
-        condition: () => this.maxlength && this.value?.length > this.maxlength,
+        condition: () => isSet(this.maxlength) && this.value?.length > this.maxlength,
         type: VALIDATION_ERROR_TYPES.TOO_LONG,
       },
       {
-        condition: () => this.minlength && this.value?.length < this.minlength,
+        condition: () => isSet(this.minlength) && this.value?.length < this.minlength,
         type: VALIDATION_ERROR_TYPES.TOO_SHORT,
       },
       {
         condition: () => this.pattern && this.value && !new RegExp(this.pattern).test(this.value),
         type: VALIDATION_ERROR_TYPES.PATTERN_MISMATCH,
       },
-            {
-        condition: () => this.min && Number(this.value) < Number(this.min),
+      {
+        condition: () => isSet(this.min) && Number(this.value) < Number(this.min),
         type: VALIDATION_ERROR_TYPES.RANGE_UNDERFLOW,
       },
       {
-        condition: () => this.max && Number(this.value) > Number(this.max),
+        condition: () => isSet(this.max) && Number(this.value) > Number(this.max),
         type: VALIDATION_ERROR_TYPES.RANGE_OVERFLOW,
       },
       {
-        condition: () => this.step && Number(this.value) % Number(this.step) !== 0,
+        condition: () => isSet(this.step) && Number(this.value) % Number(this.step) !== 0,
         type: VALIDATION_ERROR_TYPES.STEP_MISMATCH,
       }
     ];
@@ -61,33 +72,34 @@ const validationMixin = (superClass) =>
       },
       {
         condition: () =>
-          this.minRequired && this.#checkedCount < this.minRequired,
+          isSet(this.minRequired) && this.#checkedCount < this.minRequired,
         type: VALIDATION_ERROR_TYPES.TOO_SHORT,
       },
       {
         condition: () =>
-          this.maxRequired && this.#checkedCount > this.maxRequired,
+          isSet(this.maxRequired) && this.#checkedCount > this.maxRequired,
         type: VALIDATION_ERROR_TYPES.TOO_LONG,
       },
     ];
 
     constructor() {
       super();
-      // TEMP code: elementInternals will be added to base element
-      this.#internals = this.attachInternals();
+      // reuse ElementInternals already attached by a superclass (e.g. JhElement);
+      this.#internals = super.internals ?? this.attachInternals();
     }
 
     connectedCallback() {
       super.connectedCallback();
 
       // controls with the isGroupControl property are treated as groups
-      if (this.constructor.groupControl) {
-        this.addEventListener('focusout', (event) => {
+      if (this.constructor.isGroupControl) {
+        this.#handleFocusOut ??= (event) => {
           // check that focus has left the group before validating
-          if (event.relatedTarget && !this.contains(event.relatedTarget) || !event.relatedTarget) {
+          if ((event.relatedTarget && !this.contains(event.relatedTarget)) || !event.relatedTarget) {
             this.validateGroup();
           }
-        });
+        };
+        this.addEventListener('focusout', this.#handleFocusOut);
       } else {
         // single control validation 
         this.addEventListener('blur', this.handleBlur);
@@ -97,7 +109,18 @@ const validationMixin = (superClass) =>
     disconnectedCallback() {
       super.disconnectedCallback?.();
       this.removeEventListener('blur', this.handleBlur);
-      this.removeEventListener('focusout', this.validateGroup);
+      if (this.#handleFocusOut) {
+        this.removeEventListener('focusout', this.#handleFocusOut);
+      }
+    }
+
+    formResetCallback() {
+      this.invalid = false;
+      this.#internals.setValidity({});
+    }
+
+    formDisabledCallback(disabled) {
+      this.disabled = disabled;
     }
 
     get validity() { 
@@ -112,6 +135,15 @@ const validationMixin = (superClass) =>
       this.#internals.setFormValue(value);
     }
 
+    // standard form-control contract delegated to ElementInternals
+    checkValidity() {
+      return this.#internals.checkValidity();
+    }
+
+    reportValidity() {
+      return this.#internals.reportValidity();
+    }
+
     calculateCheckedCount() {
       let childrenEl = this.children;
       let checkedCount = 0;
@@ -124,15 +156,15 @@ const validationMixin = (superClass) =>
     }
 
     handleBlur() {
-      this.checkValidity(this.#singleControlRules);
+      this.#runValidationRules(this.#singleControlRules);
     }
 
     validateGroup() {
       this.calculateCheckedCount();
-      this.checkValidity(this.#groupControlRules);
+      this.#runValidationRules(this.#groupControlRules);
     }
 
-    checkValidity(rules) {
+    #runValidationRules(rules) {
       let failedRules = rules.filter(rule => rule.condition());
 
       if (failedRules.length > 0) {
@@ -140,7 +172,7 @@ const validationMixin = (superClass) =>
         let errors = failedRules.map((rule) => rule.type);
 
         // Map errors to native validity flags for ElementInternals
-        const flags = [];
+        const flags = {};
         errors.forEach(err => flags[err] = true);
         this.#internals.setValidity(flags, `Validation failed: ${errors.join(', ')}`, this);
         this.dispatch(errors);
@@ -151,23 +183,23 @@ const validationMixin = (superClass) =>
     }
 
     dispatch(errors) {
-      this.dispatchEvent(new CustomEvent('jh-invalid', {
-        detail: {
-          error: errors,
+      const detail = {
+        state: {
+          validity: errors,
           validityState: this.validity,
-          element: this,
         },
-        bubbles: true,
-        composed: true,
-        cancelable: true,
-      }));
-    // replace dispatch method when jh-element is merged 
-    //   this.dispatchCustomEvent('jh-invalid', e, {
-    //     state: {
-    //       validity: errors,
-    //     },
-    //   });
-    // }
+      };
+      // prefer JhElement's event pattern when available, else fall back to a plain CustomEvent
+      if (typeof this.dispatchCustomEvent === 'function') {
+        this.dispatchCustomEvent('jh-invalid', detail);
+      } else {
+        this.dispatchEvent(new CustomEvent('jh-invalid', {
+          detail,
+          bubbles: true,
+          composed: true,
+          cancelable: true,
+        }));
+      }
     }
   };
   

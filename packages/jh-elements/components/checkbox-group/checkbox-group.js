@@ -5,6 +5,7 @@
 import { css, html } from 'lit';
 import { JhElement } from '../element/element.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { validationMixin } from '@jack-henry/jh-mixins/jh-validate';
 
 /**
  * Checkbox groups contain sets of checkboxes where several options can be selected.
@@ -28,7 +29,9 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  *
  * @customElement jh-checkbox-group
  */
-export class JhCheckboxGroup extends JhElement {
+export class JhCheckboxGroup extends validationMixin(JhElement) {
+  static isGroupControl = true;
+
   #previousSelectedValue = [];
 
 

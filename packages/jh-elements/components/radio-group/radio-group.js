@@ -5,6 +5,7 @@
 import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { JhElement } from '../element/element.js';
+import { validationMixin } from '@jack-henry/jh-mixins/jh-validate';
 
 /**
  * Radio groups contain sets of radios from which only one option can be selected. 
@@ -28,10 +29,9 @@ import { JhElement } from '../element/element.js';
  *
  * @customElement jh-radio-group
  */
-export class JhRadioGroup extends JhElement {
-  static get formAssociated() {
-    return true;
-  }
+export class JhRadioGroup extends validationMixin(JhElement) {
+  static isGroupControl = true;
+
   /** @type {Element | null} */
   #checked;
   /** @type {string | null} */
@@ -268,19 +268,6 @@ export class JhRadioGroup extends JhElement {
     if (changedProperties.has('disabled')) {
       this.#syncDisabledToChildren();
     }
-  }
-
-  /**
-   * Returns the radio group's parent form element.
-   * @type {HTMLFormElement | null}
-   */
-  get form() {
-    return this.internals.form;
-  }
-
-  /** @type {ValidityState} */
-  get validity() {
-    return this.internals.validity;
   }
 
   /**

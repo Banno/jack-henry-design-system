@@ -37,6 +37,7 @@
   "dependencies": {
     "@jack-henry/jh-tokens": "workspace:2.0.0",
     "@jack-henry/jh-icons": "workspace:2.1.2",
+    "@jack-henry/jh-mixins": "workspace:1.0.0",
     "lit": "3.3.1"
   },
   "devDependencies": {

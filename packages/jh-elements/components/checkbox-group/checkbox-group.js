@@ -5,7 +5,8 @@
 import { css, html } from 'lit';
 import { JhElement } from '../element/element.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { validationMixin } from '@jack-henry/jh-mixins/jh-validate';
+// TODO: switch back to '@jack-henry/jh-mixins/jh-validate' once the package is published
+import { validationMixin } from '../../../jh-mixins/mixins/jh-validate/validate.js';
 
 /**
  * Checkbox groups contain sets of checkboxes where several options can be selected.

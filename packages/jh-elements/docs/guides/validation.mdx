@@ -5,13 +5,20 @@ SPDX-FileCopyrightText: 2026 Jack Henry
 SPDX-License-Identifier: Apache-2.0
 */}
 
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import * as stories from './validation.stories.js';
 
-<Meta title="Guides/Validation" tags={['new']} />
+<Meta title="Guides/Validation" of={stories} tags={['new']} />
 
 # Validatation
 
 The design system offers a validation mixin that centralizes common validation rules. The mixin is automatically integrated by the desgin system form control components, and can be extended to custom components to ensure consistent validation behavior across your application. 
+
+## Live Example
+
+The example below wires `required`, `minlength`/`maxlength`, `pattern`, and `max`/`step` rules into real `<jh-input>` and `<jh-input-number>` components, and group selection `required` rules into real `<jh-checkbox-group>` and `<jh-radio-group>` components. Tab through the fields (or click away) to trigger `focusout` validation — the `jh-invalid` listener populates contextual `error-text` messages, and the event log on the right shows each `jh-invalid` event's target and `detail.state.validity` payload in real time.
+
+<Story of={stories.FormValidationExample} />
 
 ## Getting Started with jh-validate
 

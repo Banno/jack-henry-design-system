@@ -58,6 +58,10 @@ The tag component makes use of both required compositional and suggested content
 
 - `<jh-icon>`. [Iconography documentation](/docs/iconography-overview--docs).
 
+## Security
+
+The value bound to `href` is rendered as-is and is not sanitized. When the URL originates from an untrusted source, validate it against an allowlist of expected schemes (e.g. `https:`) to avoid `javascript:` and other unsafe URLs. See [Security](/docs/getting-started-usage--docs#security) for system-wide guidance.
+
 ## Accessibility
 
 This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria. 

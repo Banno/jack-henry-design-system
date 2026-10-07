@@ -68,6 +68,11 @@ export default {
       control: 'boolean',
     },
   },
+  parameters: {
+    actions: {
+      disable: true
+    },
+  },
 };
 
 export const Overview = {

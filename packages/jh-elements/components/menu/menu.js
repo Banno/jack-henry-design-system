@@ -6,12 +6,18 @@ import { css, html } from 'lit';
 import { JhElement } from '../element/element.js';
 
 /**
+ * Menus display lists of choices or actions. This is not a Navigation component.
+ * 
+ * [Menu Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-menu--docs)
+ * 
  * @cssprop --jh-menu-z-index - The menu z-index. Defaults to `--jh-z-index-positive-1000`.
  * @cssprop --jh-menu-color-background - The menu container background-color. Defaults to `--jh-color-container-primary-enabled`.
  * @cssprop --jh-menu-shadow - The menu box-shadow. Defaults to `--jh-shadow-high`.
  * @cssprop --jh-menu-border-radius - The menu border-radius. Defaults to `--jh-border-radius-200`.
  * @cssprop --jh-menu-space-padding - The menu container padding. Defaults to `--jh-dimension-200 0`.
  * @cssprop --jh-menu-color-text - The text color. Defaults to `--jh-color-content-primary-enabled`.
+ * @cssprop --jh-menu-overflow - The menu host overflow, which controls clipping of the menu (including its rounded corners). Defaults to `hidden`.
+ * @cssprop --jh-menu-content-overflow - The menu content overflow, which controls scrolling of the menu items. Defaults to `hidden auto`.
  *
  * @slot default - Use to insert menu items.
  * @customElement jh-menu
@@ -43,12 +49,12 @@ export class JhMenu extends JhElement {
         display: flex;
         flex-direction: column;
         position: relative;
-        overflow: hidden;
+        overflow: var(--jh-menu-overflow, hidden);
         height: 100%;
       }
       .menu-content {
         flex: 1;
-        overflow-y: auto;
+        overflow: var(--jh-menu-content-overflow, hidden auto);
         width: 100%;
       }
     `;
@@ -57,6 +63,7 @@ export class JhMenu extends JhElement {
     super();
     this.internals.role = 'menu';
   }
+  /** @protected */
   render() {
     return html`
       <div class="menu-content">

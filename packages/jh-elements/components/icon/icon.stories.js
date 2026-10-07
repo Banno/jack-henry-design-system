@@ -23,6 +23,11 @@ export default {
       options: ['x-small', 'small', 'medium', 'large', 'x-large', 'xx-large'],
     },
   },
+  parameters: {
+    actions: {
+      disable: true
+    },
+  },
 };
 
 export const Overview = {
@@ -69,4 +74,76 @@ Playground.args = {
 Playground.parameters = {
   styles: storyStyles,
   theme: 'both-themes',
+};
+
+const fallbackStoryStyles = css`
+  div[id^="story-root"] {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .fallback-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+`;
+
+export const Fallback = {
+  render: (args) => html`
+    <div class="fallback-item">
+      <jh-icon size="medium">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M8.53,11.47a.75.75,0,0,0-1.06,1.06L10,15A.75.75,0,0,0,11,15v0h0L16,10.06A.75.75,0,0,0,14.94,9L10.5,13.44Z"
+          />
+          <path
+            d="M12,2.14,3.25,7.06V7.5c0,6.73,2.31,10.24,4.25,12a8.81,8.81,0,0,0,4.41,2.25h.19a8.81,8.81,0,0,0,4.41-2.25c1.94-1.76,4.25-5.26,4.25-12V7.06Zm0,18.1c-.89-.16-7.08-1.66-7.25-12.3L12,3.86l7.25,4.08C19.08,18.59,12.88,20.08,12,20.24Z"
+          />
+        </svg>
+      </jh-icon>
+      <span>size="medium"</span>
+    </div>
+    <div class="fallback-item">
+      <jh-icon>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M8.53,11.47a.75.75,0,0,0-1.06,1.06L10,15A.75.75,0,0,0,11,15v0h0L16,10.06A.75.75,0,0,0,14.94,9L10.5,13.44Z"
+          />
+          <path
+            d="M12,2.14,3.25,7.06V7.5c0,6.73,2.31,10.24,4.25,12a8.81,8.81,0,0,0,4.41,2.25h.19a8.81,8.81,0,0,0,4.41-2.25c1.94-1.76,4.25-5.26,4.25-12V7.06Zm0,18.1c-.89-.16-7.08-1.66-7.25-12.3L12,3.86l7.25,4.08C19.08,18.59,12.88,20.08,12,20.24Z"
+          />
+        </svg>
+      </jh-icon>
+      <span>no size attribute</span>
+    </div>
+    <div class="fallback-item">
+      <jh-icon size="bogus">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M8.53,11.47a.75.75,0,0,0-1.06,1.06L10,15A.75.75,0,0,0,11,15v0h0L16,10.06A.75.75,0,0,0,14.94,9L10.5,13.44Z"
+          />
+          <path
+            d="M12,2.14,3.25,7.06V7.5c0,6.73,2.31,10.24,4.25,12a8.81,8.81,0,0,0,4.41,2.25h.19a8.81,8.81,0,0,0,4.41-2.25c1.94-1.76,4.25-5.26,4.25-12V7.06Zm0,18.1c-.89-.16-7.08-1.66-7.25-12.3L12,3.86l7.25,4.08C19.08,18.59,12.88,20.08,12,20.24Z"
+          />
+        </svg>
+      </jh-icon>
+      <span>size="bogus" (unrecognized, fails visibly)</span>
+    </div>
+  `,
+};
+
+Fallback.argTypes = {
+  size: { control: { disable: true } },
+};
+
+Fallback.parameters = {
+  styles: fallbackStoryStyles,
+  docs: {
+    description: {
+      story: 'When `size` is absent, the icon falls back to the documented `medium` default. An unrecognized value is not corrected: the icon renders at the SVG\'s intrinsic size so the error stays visible, per RFC 7 Amendment 1.',
+    },
+  },
 };

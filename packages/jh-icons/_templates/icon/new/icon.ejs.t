@@ -28,6 +28,12 @@ export default class <%= h.inflection.camelize(prefix.replace(/-/gi,'_')) %>Icon
         height: var(--icon-size);
         display: inline-block;
       }
+      :host(:not([size])) {
+        --icon-size: var(
+          --jh-icon-size-medium,
+          var(--jh-dimension-600)
+        );
+      }
       :host([size='x-small']) {
         --icon-size: var(
           --jh-icon-size-extra-small,
@@ -94,7 +100,7 @@ export default class <%= h.inflection.camelize(prefix.replace(/-/gi,'_')) %>Icon
 
   render() {
     return html`
-      <%- svg %>
+      <%- svg.replace(/\\/g, '\\\\').replace(/`/g, '\\`').replace(/\$\{/g, '\\${') %>
     `;
   }
 }

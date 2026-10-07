@@ -5,7 +5,7 @@
 */
 import {LitElement, css, html} from 'lit';
 
-export default class JhIconRobotSparkle extends LitElement {
+export default class JhIconRobotSparkles extends LitElement {
   /** @type {ElementInternals} */
   #internals;
 
@@ -91,4 +91,4 @@ export default class JhIconRobotSparkle extends LitElement {
   }
 }
 
-customElements.define('jh-icon-robot-sparkles', JhIconRobotSparkle);
+customElements.define('jh-icon-robot-sparkles', JhIconRobotSparkles);

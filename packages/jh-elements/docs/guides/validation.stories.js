@@ -36,6 +36,34 @@ const storyStyles = css`
   #validation-log h3 {
     margin-top: 0;
   }
+  #api-demo {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  #api-example-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 400px;
+    flex-shrink: 0;
+  }
+  #api-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  #api-log {
+    width: 400px;
+    max-height: 500px;
+    overflow-y: auto;
+    padding: 12px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  #api-log h3 {
+    margin-top: 0;
+  }
   .validation-log-entry {
     margin: 0 0 8px;
     padding: 8px;
@@ -94,6 +122,27 @@ function onSubmit(event) {
   event.preventDefault();
   action('onFormdata')([...new FormData(event.target)]);
   action('onSubmit')(event);
+}
+
+// renders a labeled API call result into the on-page log panel
+function logApiResult(logContainer, label, value) {
+  logContainer.querySelector('.validation-log-empty')?.remove();
+
+  const entry = document.createElement('pre');
+  entry.className = 'validation-log-entry';
+  entry.textContent = `${label}\n${JSON.stringify(value, null, 2)}`;
+  logContainer.append(entry);
+}
+
+// ValidityState getters live on the prototype, so JSON.stringify needs an explicit plain-object snapshot
+function serializeValidity(validity) {
+  return {
+    valid: validity.valid,
+    valueMissing: validity.valueMissing,
+    tooShort: validity.tooShort,
+    tooLong: validity.tooLong,
+    patternMismatch: validity.patternMismatch,
+  };
 }
 
 export default {
@@ -168,5 +217,93 @@ export const FormValidationExample = {
 };
 
 FormValidationExample.parameters = {
+  styles: storyStyles,
+};
+
+/**
+ * Demonstrates the standard form-control API (`.form`, `.validity`, `.checkValidity()`,
+ * `.reportValidity()`) that `jh-validate` adds to components, and confirms that resetting
+ * the parent `<form>` clears `invalid` and the control's validity state automatically.
+ */
+export const StandardFormControlApiExample = {
+  render: () => html`
+    <div id="api-demo">
+      <form
+        id="api-example-form"
+        @jh-invalid=${handleInvalid}
+        @reset=${(event) => {
+          const demo = event.target.closest('#api-demo');
+          const logContainer = demo.querySelector('#api-log');
+          // reflect state after the native reset (and formResetCallback) completes
+          setTimeout(() => {
+            const input = demo.querySelector('#api-input');
+            logApiResult(logContainer, 'form reset', { invalid: input.invalid, valid: input.validity.valid });
+          });
+        }}
+      >
+        <jh-input
+          id="api-input"
+          label="Username"
+          helper-text="At least 3 characters, required"
+          name="username"
+          required
+          minlength="3"
+        ></jh-input>
+
+        <div id="api-actions">
+          <jh-button
+            label=".form"
+            size="small"
+            @click=${(event) => {
+              const demo = event.target.closest('#api-demo');
+              const input = demo.querySelector('#api-input');
+              logApiResult(demo.querySelector('#api-log'), '.form', { form: input.form?.id ?? null });
+            }}
+          ></jh-button>
+          <jh-button
+            label=".validity"
+            size="small"
+            @click=${(event) => {
+              const demo = event.target.closest('#api-demo');
+              const input = demo.querySelector('#api-input');
+              logApiResult(demo.querySelector('#api-log'), '.validity', serializeValidity(input.validity));
+            }}
+          ></jh-button>
+          <jh-button
+            label=".checkValidity()"
+            size="small"
+            @click=${(event) => {
+              const demo = event.target.closest('#api-demo');
+              const input = demo.querySelector('#api-input');
+              logApiResult(demo.querySelector('#api-log'), '.checkValidity()', { returned: input.checkValidity() });
+            }}
+          ></jh-button>
+          <jh-button
+            label=".reportValidity()"
+            size="small"
+            @click=${(event) => {
+              const demo = event.target.closest('#api-demo');
+              const input = demo.querySelector('#api-input');
+              logApiResult(demo.querySelector('#api-log'), '.reportValidity()', { returned: input.reportValidity() });
+            }}
+          ></jh-button>
+          <jh-button
+            label="Reset Form"
+            appearance="tertiary"
+            size="small"
+            @click=${(event) => event.target.closest('form').reset()}
+          ></jh-button>
+        </div>
+      </form>
+
+      <div id="api-log" aria-live="polite">
+        <h3>API Results</h3>
+        <p class="validation-log-empty">No results yet. Click a button above to inspect the input's form-control API.</p>
+      </div>
+    </div>
+  `,
+};
+
+StandardFormControlApiExample.parameters = {
   styles: storyStyles,
 };

@@ -54,8 +54,12 @@ Components using the mixin are form-associated (`static formAssociated = true`) 
 
 - `.form`: Returns the control's parent `<form>`, if any.
 - `.validity`: Returns the underlying `ValidityState`.
-- `.checkValidity()` / `.reportValidity()`: Delegate to `ElementInternals`, matching native input behavior.
+`.checkValidity()` / `.reportValidity()`: Delegate to `ElementInternals`, matching native input behavior.
 - Resetting the parent `<form>` clears `invalid` and the control's validity state automatically.
+
+The example below exposes each of these on a real `<jh-input>` — click a button to log its return value, or reset the form to see `invalid` and `.validity` clear automatically.
+
+<Story of={stories.StandardFormControlApiExample} />
 
 ### When Validation Fails
 

@@ -13519,11 +13519,11 @@
               "name": "--jh-list-item-color-focus"
             },
             {
-              "description": "The translucent state layer painted over the list-item when interactive and hovered. Defaults to `--jh-color-state-hover`, falling back to `--jh-color-black-alpha-10`.",
+              "description": "The translucent state layer painted over the list-item when interactive and hovered. Defaults to `--jh-color-state-hover`.",
               "name": "--jh-list-item-color-state-hover"
             },
             {
-              "description": "The translucent state layer painted over the list-item when interactive and active. Defaults to `--jh-color-state-active`, falling back to `--jh-color-black-alpha-20`.",
+              "description": "The translucent state layer painted over the list-item when interactive and active. Defaults to `--jh-color-state-active`.",
               "name": "--jh-list-item-color-state-active"
             },
             {
@@ -13545,7 +13545,7 @@
               "name": "--jh-list-item-opacity-disabled"
             },
             {
-              "description": "The list-item background-color when interactive and selected. Defaults to `--jh-color-state-selected` (a translucent brand layer), falling back to `--jh-color-blue-alpha-10`.",
+              "description": "The list-item background-color when interactive and selected. Defaults to `--jh-color-state-selected` (a translucent blue layer).",
               "name": "--jh-list-item-color-background-selected"
             },
             {

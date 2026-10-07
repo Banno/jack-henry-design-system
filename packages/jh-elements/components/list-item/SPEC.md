@@ -95,9 +95,9 @@ Three new semantic tokens, one new alpha primitive, and four new component hooks
 | `--jh-color-state-selected` | semantic (new) | `blue-alpha-10` | `blue-alpha-10` | blue @ 10%; does not follow brand theming yet (needs a brand-alpha from the theming layer) |
 | `--jh-color-blue-alpha-10` | primitive (new) | `#085ce51a` | same | first blue alpha step; black/white alpha already exist |
 | `--jh-color-container-primary-selected` | semantic | blue-50 (unchanged) | blue-850 (unchanged) | not touched in pass 1; aliasing it to `color-state-selected` is a DSPD-111 decision |
-| `--jh-list-item-color-state-hover` | component (new) | → `color-state-hover` | | falls back to `black-alpha-10` |
-| `--jh-list-item-color-state-active` | component (new) | → `color-state-active` | | falls back to `black-alpha-20` |
-| `--jh-list-item-color-background-selected` | component | → `color-state-selected` (was `container-primary-selected`) | | falls back to `blue-alpha-10` |
+| `--jh-list-item-color-state-hover` | component (new) | → `color-state-hover` | | no literal fallback; `color-state-hover` is guaranteed by jh-tokens |
+| `--jh-list-item-color-state-active` | component (new) | → `color-state-active` | | no literal fallback; `color-state-active` is guaranteed by jh-tokens |
+| `--jh-list-item-color-background-selected` | component | → `color-state-selected` (was `container-primary-selected`) | | no literal fallback; `color-state-selected` is guaranteed by jh-tokens |
 | `--jh-list-item-border-selected-width` | component (new) | `0` | `0` | nav lists set `dimension-100` |
 | `--jh-list-item-space-gap` | component (new) | `dimension-300` | | |
 | `--jh-list-item-color-background-focus` | component | `transparent` (was `container-primary-hover`) | | hook kept |

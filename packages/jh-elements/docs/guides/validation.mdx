@@ -48,7 +48,41 @@ Components using the mixin are form-associated (`static formAssociated = true`) 
 - `.form`: Returns the control's parent `<form>`, if any.
 - `.validity`: Returns the underlying `ValidityState`.
 - `.checkValidity()` / `.reportValidity()`: Delegate to `ElementInternals`, matching native input behavior.
-- Resetting the parent `<form>` clears `invalid` and the control's validity state automatically.
+
+#### Form Reset Behavior
+
+The mixin implements `formResetCallback()`, which the browser automatically invokes when the parent `<form>` is reset.
+
+When a reset occurs, the mixin automatically:
+
+- Clears the invalid property (resets it to false).
+- Resets the component's ElementInternals validity state (`setValidity({})`) so `.checkValidity()` and `.reportValidity()` report valid.
+
+*Note*: The mixin does not automatically restore the control's value. Unlike native `<input>` elements (which revert to defaultValue or defaultChecked), form-associated custom elements only receive formResetCallback() as a notification. By default, our design system controls leave value and checked unchanged on reset.
+
+##### Restoring Default Values
+
+If your custom element requires native-like reset behavior, capture the initial state when the component connects and override `formResetCallback()` to restore it:
+
+```javascript
+export class MyCheckboxGroup extends validationMixin(LitElement) {
+  static isGroupControl = true;
+  #defaultChecked;
+
+  connectedCallback() {
+    super.connectedCallback();
+    // capture each child's author-set checked state before any user interaction can change it
+    this.#defaultChecked ??= [...this.children].map((child) => child.hasAttribute('checked'));
+  }
+
+  formResetCallback() {
+    super.formResetCallback();
+    [...this.children].forEach((child, i) => {
+      child.checked = this.#defaultChecked[i];
+    });
+  }
+}
+```
 
 ### When Validation Fails
 

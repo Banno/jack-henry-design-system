@@ -13511,7 +13511,7 @@
               "name": "--jh-list-item-size-height"
             },
             {
-              "description": "The list-item background-color when interactive and focused. Defaults to `--jh-color-container-primary-hover`.",
+              "description": "The list-item background-color when interactive and focused. Defaults to `transparent` (focus is indicated by the outline only).",
               "name": "--jh-list-item-color-background-focus"
             },
             {
@@ -13519,12 +13519,22 @@
               "name": "--jh-list-item-color-focus"
             },
             {
+              "description": "The translucent state layer painted over the list-item when interactive and hovered. Defaults to `--jh-color-state-hover`.",
+              "name": "--jh-list-item-color-state-hover"
+            },
+            {
+              "description": "The translucent state layer painted over the list-item when interactive and active. Defaults to `--jh-color-state-active`.",
+              "name": "--jh-list-item-color-state-active"
+            },
+            {
               "description": "The list-item background-color when interactive and hovered. Defaults to `--jh-color-container-primary-hover`.",
-              "name": "--jh-list-item-color-background-hover"
+              "name": "--jh-list-item-color-background-hover",
+              "deprecatedMessage": "Use `--jh-list-item-color-state-hover` instead."
             },
             {
               "description": "The list-item background-color when interactive and active. Defaults to `--jh-color-container-primary-active`.",
-              "name": "--jh-list-item-color-background-active"
+              "name": "--jh-list-item-color-background-active",
+              "deprecatedMessage": "Use `--jh-list-item-color-state-active` instead."
             },
             {
               "description": "The list-item background-color when interactive and disabled. Defaults to `transparent`.",
@@ -13535,12 +13545,16 @@
               "name": "--jh-list-item-opacity-disabled"
             },
             {
-              "description": "The list-item background-color when interactive and selected. Defaults to `--jh-color-container-primary-selected`.",
+              "description": "The list-item background-color when interactive and selected. Defaults to `--jh-color-state-selected` (a translucent blue layer).",
               "name": "--jh-list-item-color-background-selected"
             },
             {
-              "description": "The list-item border-left-color when interactive and selected. Defaults to `--jh-border-selected-color`.",
+              "description": "The list-item border-left-color when interactive and selected. Defaults to `--jh-border-selected-color`. Only visible when `--jh-list-item-border-selected-width` is set.",
               "name": "--jh-list-item-color-border-selected"
+            },
+            {
+              "description": "The width of the optional left bar on a selected list-item. Defaults to `0` (no bar). Set to `--jh-dimension-100` for navigation lists.",
+              "name": "--jh-list-item-border-selected-width"
             },
             {
               "description": "The primary metadata text color. Defaults to `--jh-color-content-primary-enabled`.",

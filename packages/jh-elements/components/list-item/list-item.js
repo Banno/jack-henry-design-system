@@ -48,9 +48,9 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * @cssprop --jh-list-item-color-focus - The list-item outline when it is interactive and receives keyboard focus.
  * Defaults to `--jh-border-focus-color`.
  * @cssprop --jh-list-item-color-state-hover - The translucent state layer painted over the list-item when interactive and hovered.
- * Defaults to `--jh-color-state-hover`, falling back to `--jh-color-black-alpha-10`.
+ * Defaults to `--jh-color-state-hover`.
  * @cssprop --jh-list-item-color-state-active - The translucent state layer painted over the list-item when interactive and active.
- * Defaults to `--jh-color-state-active`, falling back to `--jh-color-black-alpha-20`.
+ * Defaults to `--jh-color-state-active`.
  * @cssprop --jh-list-item-color-background-hover - The list-item background-color when interactive and hovered.
  * Defaults to `--jh-color-container-primary-hover`.
  * @cssprop --jh-list-item-color-background-active - The list-item background-color when interactive and active.
@@ -60,7 +60,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * @cssprop --jh-list-item-opacity-disabled - The list-item opacity when interactive and disabled.
  * Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-list-item-color-background-selected - The list-item background-color when interactive and selected.
- * Defaults to `--jh-color-state-selected` (a translucent brand layer), falling back to `--jh-color-blue-alpha-10`.
+ * Defaults to `--jh-color-state-selected` (a translucent blue layer).
  * @cssprop --jh-list-item-color-border-selected - The list-item border-left-color when interactive and selected.
  * Defaults to `--jh-border-selected-color`. Only visible when `--jh-list-item-border-selected-width` is set.
  * @cssprop --jh-list-item-border-selected-width - The width of the optional left bar on a selected list-item.
@@ -223,7 +223,7 @@ export class JhListItem extends JhElement {
           --jh-list-item-color-state-hover,
           var(
             --jh-list-item-color-background-hover,
-            var(--jh-color-state-hover, var(--jh-color-black-alpha-10))
+            var(--jh-color-state-hover)
           )
         );
       }
@@ -258,7 +258,7 @@ export class JhListItem extends JhElement {
           --jh-list-item-color-state-active,
           var(
             --jh-list-item-color-background-active,
-            var(--jh-color-state-active, var(--jh-color-black-alpha-20))
+            var(--jh-color-state-active)
           )
         );
       }
@@ -324,7 +324,7 @@ export class JhListItem extends JhElement {
         );
         background-color: var(
           --jh-list-item-color-background-selected,
-          var(--jh-color-state-selected, var(--jh-color-blue-alpha-10))
+          var(--jh-color-state-selected)
         );
       }
       :host([tabindex][selected]) .secondary-text {

@@ -51,6 +51,11 @@ const validationMixin = (superClass) =>
         type: VALIDATION_ERROR_TYPES.PATTERN_MISMATCH,
       },
       {
+        // relies on the native input's own type to flag format mismatches
+        condition: () => isSet(this.value) && this.shadowRoot?.querySelector('input')?.validity?.typeMismatch,
+        type: VALIDATION_ERROR_TYPES.TYPE_MISMATCH,
+      },
+      {
         condition: () => isSet(this.min) && Number(this.value) < Number(this.min),
         type: VALIDATION_ERROR_TYPES.RANGE_UNDERFLOW,
       },

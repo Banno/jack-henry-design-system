@@ -57,7 +57,9 @@ Components using the mixin are form-associated (`static formAssociated = true`) 
 
 - `.form`: Returns the control's parent `<form>`, if any.
 - `.validity`: Returns the underlying `ValidityState`.
-- `.checkValidity()` / `.reportValidity()`: Delegate to `ElementInternals`, matching native input behavior.
+- `.checkValidity()`: Delegates to `ElementInternals`, matching native input behavior. 
+
+*Note*: There is no `.reportValidity()` support. The mixin never shows the browser's native validation bubble since `error-text` handles messaging and focus placement is left to a form component.
 
 #### Form Reset Behavior
 
@@ -66,7 +68,7 @@ The mixin implements `formResetCallback()`, which the browser automatically invo
 When a reset occurs, the mixin automatically:
 
 - Clears the invalid property (resets it to false).
-- Resets the component's ElementInternals validity state (`setValidity({})`) so `.checkValidity()` and `.reportValidity()` report valid.
+- Resets the component's ElementInternals validity state (`setValidity({})`) so `.checkValidity()` reports valid.
 
 *Note*: The mixin does not automatically restore the control's value. Unlike native `<input>` elements (which revert to defaultValue or defaultChecked), form-associated custom elements only receive formResetCallback() as a notification. By default, our design system controls leave value and checked unchanged on reset.
 
@@ -103,7 +105,7 @@ The example below exposes each of these on a real `<jh-input>` — click a butto
 When a component fails validation, the mixin will:
 
 1. Set the `invalid` property on the component (declared and reflected by the mixin itself — you don't need to redeclare it). For design system components, the `invalid` property will automatically display invalid styles and render the `error-text` message if one is defined. 
-2. Update the component's native `ElementInternals` validity state, so `.checkValidity()`, `.reportValidity()`, and native form submission behave consistently with the `invalid` property.
+2. Update the component's native `ElementInternals` validity state, so `.checkValidity()` and native form submission behave consistently with the `invalid` property.
 3. Dispatch a `jh-invalid` event.
 
 #### Event Payload
@@ -293,3 +295,4 @@ export class MyCheckboxGroup extends validationMixin(LitElement) {
   }
 }
 customElements.define('my-checkbox-group', MyCheckboxGroup);
+```

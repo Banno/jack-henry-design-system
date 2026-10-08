@@ -141,10 +141,6 @@ const validationMixin = (superClass) =>
       return this.#internals.checkValidity();
     }
 
-    reportValidity() {
-      return this.#internals.reportValidity();
-    }
-
     calculateCheckedCount() {
       let childrenEl = this.children;
       let checkedCount = 0;
@@ -175,7 +171,7 @@ const validationMixin = (superClass) =>
         // Map errors to native validity flags for ElementInternals
         const flags = {};
         errors.forEach(err => flags[err] = true);
-        this.#internals.setValidity(flags, `Validation failed: ${errors.join(', ')}`, this);
+        this.#internals.setValidity(flags, `Validation failed: ${errors.join(', ')}`);
         this.dispatch(errors);
       } else {
         this.invalid = false;

@@ -231,8 +231,8 @@ FormValidationExample.parameters = {
 };
 
 /**
- * Demonstrates the standard form-control API (`.form`, `.validity`, `.checkValidity()`,
- * `.reportValidity()`) that `jh-validate` adds to components, and confirms that resetting
+ * Demonstrates the standard form-control API (`.form`, `.validity`, `.checkValidity()`)
+ * that `jh-validate` adds to components, and confirms that resetting
  * the parent `<form>` clears `invalid` and the control's validity state automatically.
  */
 export const StandardFormControlApiExample = {
@@ -286,15 +286,6 @@ export const StandardFormControlApiExample = {
               const demo = event.target.closest('#api-demo');
               const input = demo.querySelector('#api-input');
               logApiResult(demo.querySelector('#api-log'), '.checkValidity()', { returned: input.checkValidity() });
-            }}
-          ></jh-button>
-          <jh-button
-            label=".reportValidity()"
-            size="small"
-            @click=${(event) => {
-              const demo = event.target.closest('#api-demo');
-              const input = demo.querySelector('#api-input');
-              logApiResult(demo.querySelector('#api-log'), '.reportValidity()', { returned: input.reportValidity() });
             }}
           ></jh-button>
           <jh-button

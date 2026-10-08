@@ -1,7 +1,7 @@
 {
     "name": "@jack-henry/jh-mixins",
     "description": "Jack Henry's design system mixins library.",
-    "version": "1.0.0",
+    "version": "2.3.0",
     "repository": {
       "type": "git",
       "url": "git+https://github.com/Banno/jack-henry-design-system.git"
@@ -22,6 +22,6 @@
     "postpack": "rm -f NOTICE"
     },
     "exports": {
-      "./jh-validate": "./mixins/jh-validate/validate.js"
+      "./jh-*": "./mixins/jh-*/*.js"
     }
 }

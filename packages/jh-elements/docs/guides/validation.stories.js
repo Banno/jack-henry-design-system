@@ -5,6 +5,7 @@
 import { html, css } from 'lit';
 import '../../components/input/input.js';
 import '../../components/input-number/input-number.js';
+import '../../components/input-url/input-url.js';
 import '../../components/checkbox-group/checkbox-group.js';
 import '../../components/checkbox/checkbox.js';
 import '../../components/radio-group/radio-group.js';
@@ -92,6 +93,8 @@ function handleInvalid(event) {
       : `Maximum length is ${invalidElement.maxlength} characters.`;
   } else if (errors.includes('patternMismatch')) {
     invalidElement.errorText = 'The input does not match the required pattern.';
+  } else if (errors.includes('typeMismatch')) {
+    invalidElement.errorText = 'Please enter a valid URL.';
   } else {
     invalidElement.errorText = 'Invalid input.';
   }
@@ -193,6 +196,13 @@ export const FormValidationExample = {
           show-indicator
           pattern="^[0-9]{5}$"
         ></jh-input>
+
+        <jh-input-url
+          label="Website"
+          helper-text="e.g. https://example.com"
+          name="website"
+          show-indicator
+        ></jh-input-url>
 
         <jh-checkbox-group label="Interests" helper-text="Select at least one" required show-indicator>
           <jh-checkbox label="Design" name="interests" value="design"></jh-checkbox>

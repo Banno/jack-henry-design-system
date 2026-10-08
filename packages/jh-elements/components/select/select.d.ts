@@ -43,16 +43,22 @@
  * @cssprop --jh-select-item-color-background-selected - The list item background color when selected. Defaults to `--jh-color-container-primary-selected`.
  * @cssprop --jh-select-item-color-border-selected - The list item border color when selected. Defaults to `--jh-border-selected-color`.
  * @cssprop --jh-select-item-space-padding-left-indent - The additional left padding for grouped list items. Defaults to `--jh-dimension-200`.
+ * @cssprop --jh-select-item-icon-color-fill - The list item icon color, such as the custom-add option icon. Defaults to `--jh-color-content-secondary-enabled`.
  *
  * @slot jh-select-trigger-left - Use to insert an element such as an icon on the left side of the select input field.
  * @slot jh-select-trigger-open - Use to replace the default chevron icon displayed when the select menu is open.
  * @slot jh-select-trigger-closed - Use to replace the default chevron icon displayed when the select menu is closed.
  *
  * @event jh-change - Dispatched when the selected value changes. Event payload includes the `value` and can be accessed via `e.detail.state.value`.
- */
+ * @event jh-custom-add - Dispatched when a user commits a custom value not present in `options`. The value is available via `e.detail.state.value`. Authors can listen to persist the value into `options`.
+*/
 export class JhSelect extends JhInput {
     static get styles(): import("lit").CSSResult[];
     static get properties(): {
+        allowCustom: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
         menuPosition: {
             type: StringConstructor;
             reflect: boolean;
@@ -66,12 +72,10 @@ export class JhSelect extends JhInput {
             type: BooleanConstructor;
             attribute: string;
         };
-        /** Allows users to type in the input field to filter the list of options. */
         searchable: {
             type: BooleanConstructor;
             reflect: boolean;
         };
-        /** Sets the message shown in the menu when a search returns no matching options. Only applies when `searchable` is set. */
         noResultsText: {
             type: StringConstructor;
             attribute: string;
@@ -94,11 +98,20 @@ export class JhSelect extends JhInput {
      * @type {boolean}
      */
     flipDisabled: boolean;
-    /** Whether the options are searchable
+    /** Allows users to type in the input field to filter the list of options.
      * @type {boolean}
     */
     searchable: boolean;
-    /** @type {string} */
+    /** Allows users to enter custom values not present in the list of options. Only applies when `searchable` is set.
+     * @type {boolean}
+     * @attr allow-custom
+    */
+    allowCustom: boolean;
+    /**
+     * Sets the message shown in the menu when a search returns no matching options. Only applies when `searchable` is set.
+     * @type {string}
+     * @attr no-results-text
+     */
     noResultsText: string;
     renderData(options: any): import("lit").TemplateResult<1> | import("lit").TemplateResult<1>[];
     #private;

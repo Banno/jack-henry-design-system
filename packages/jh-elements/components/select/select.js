@@ -12,6 +12,7 @@ import '../list-item/list-item.js';
 import '../list-group/list-group.js';
 import '@jack-henry/jh-icons/icons-wc/icon-chevron-up-small.js';
 import '@jack-henry/jh-icons/icons-wc/icon-chevron-down-small.js';
+import '@jack-henry/jh-icons/icons-wc/icon-plus.js';
 import { JhFilter } from './filtering.js';
 
 /**
@@ -55,13 +56,15 @@ import { JhFilter } from './filtering.js';
  * @cssprop --jh-select-item-color-background-selected - The list item background color when selected. Defaults to `--jh-color-container-primary-selected`.
  * @cssprop --jh-select-item-color-border-selected - The list item border color when selected. Defaults to `--jh-border-selected-color`.
  * @cssprop --jh-select-item-space-padding-left-indent - The additional left padding for grouped list items. Defaults to `--jh-dimension-200`.
+ * @cssprop --jh-select-item-icon-color-fill - The list item icon color, such as the custom-add option icon. Defaults to `--jh-color-content-secondary-enabled`.
  *
  * @slot jh-select-trigger-left - Use to insert an element such as an icon on the left side of the select input field.
  * @slot jh-select-trigger-open - Use to replace the default chevron icon displayed when the select menu is open.
  * @slot jh-select-trigger-closed - Use to replace the default chevron icon displayed when the select menu is closed.
  *
  * @event jh-change - Dispatched when the selected value changes. Event payload includes the `value` and can be accessed via `e.detail.state.value`.
- */
+ * @event jh-custom-add - Dispatched when a user commits a custom value not present in `options`. The value is available via `e.detail.state.value`. Authors can listen to persist the value into `options`. 
+*/
 export class JhSelect extends JhInput {
   /** @type {string | null} */
   #displayValue = null;
@@ -79,6 +82,12 @@ export class JhSelect extends JhInput {
   #flatOptions = [];
   /** @type {?string} Current search query when searchable; null when not actively searching */
   #searchTerm = null;
+  /** @type {Array} Custom values committed this session — kept in the list until reload */
+  #customOptions = [];
+  /** @type {boolean} True only while the active item is driven by arrow-key navigation, to gate the focus ring */
+  #keyboardNav = false;
+  /** @type {string} Prefix shown before the typed value on the custom "add" option; isolated for translation */
+  #useText = 'Use';
   /** @type {(e: Event) => void} */
   #boundDocumentClick;
   /** @type {(e: Event) => void} */
@@ -176,6 +185,9 @@ export class JhSelect extends JhInput {
             --jh-list-item-color-background-focus,
             var(--jh-color-container-primary-hover)
           );
+        }
+        /* Ring only during arrow-key navigation, not passive filter/type-ahead highlight */
+        jh-list-item.is-active.is-keyboard {
           outline-color: var(--jh-list-item-color-focus, var(--jh-border-focus-color));
           outline-style: var(--jh-border-focus-style);
           outline-width: var(--jh-border-focus-width);
@@ -187,18 +199,20 @@ export class JhSelect extends JhInput {
             var(--jh-color-container-primary-selected)
           );
         }
+        jh-list-item jh-icon-plus {
+          --jh-icon-color-fill: var(--jh-select-item-icon-color-fill);
+        }
       `,
     ];
   }
 
   static get properties() {
     return {
+      allowCustom: { type: Boolean, attribute: 'allow-custom' },
       menuPosition: { type: String, reflect: true, attribute: 'menu-position' },
       options: { type: Array, attribute: false },
       flipDisabled: { type: Boolean, attribute: 'flip-disabled' },
-      /** Allows users to type in the input field to filter the list of options. */
       searchable: { type: Boolean, reflect: true },
-      /** Sets the message shown in the menu when a search returns no matching options. Only applies when `searchable` is set. */
       noResultsText: { type: String, attribute: 'no-results-text' }
     };
   }
@@ -222,12 +236,21 @@ export class JhSelect extends JhInput {
      * @type {boolean}
      */
     this.flipDisabled = false;
-    /** Whether the options are searchable 
+    /** Allows users to type in the input field to filter the list of options. 
      * @type {boolean}
     */
     this.searchable = false;
-    /** @type {string} */
-    this.noResultsText = 'No results found';
+    /** Allows users to enter custom values not present in the list of options. Only applies when `searchable` is set.
+     * @type {boolean}
+     * @attr allow-custom
+    */
+    this.allowCustom = false;
+    /** 
+     * Sets the message shown in the menu when a search returns no matching options. Only applies when `searchable` is set. 
+     * @type {string}
+     * @attr no-results-text
+     */
+    this.noResultsText = 'No results found.';
     this.addEventListener('keydown', this.#handleKeydown);
     this.#boundDocumentClick = this.#handleDocumentClick.bind(this);
     this.#boundDocumentScroll = this.#handleDocumentScroll.bind(this);
@@ -252,7 +275,7 @@ export class JhSelect extends JhInput {
         this.#flatOptions = [];
         return;
       }
-      this.#allOptions = this.options.flatMap((item) => {
+      const built = this.options.flatMap((item) => {
         if (item.groupValues) {
           return item.groupValues.map((subItem) => ({
             label: subItem.label != null ? subItem.label : String(subItem.value),
@@ -265,6 +288,13 @@ export class JhSelect extends JhInput {
           ...item,
         };
       });
+      // Re-append session customs so they survive author-driven options updates
+      this.#allOptions = [
+        ...built,
+        ...this.#customOptions.filter(
+          (c) => !built.some((o) => String(o.value) === String(c.value)),
+        ),
+      ];
       this.#flatOptions = this.#allOptions;
       this.#activeIndex = null;
       this.#searchTerm = null;
@@ -293,10 +323,16 @@ export class JhSelect extends JhInput {
       this.#displayValue = null;
       return;
     }
-    const match = this.#flatOptions.find(
+    const match = this.#allOptions.find(
       (opt) => String(opt.value) === String(this.value)
     );
-    this.#displayValue = match ? (match.label ?? String(match.value)) : null;
+    if (match) {
+      this.#displayValue = match.label ?? String(match.value);
+    } else if (this.allowCustom) {
+      this.#displayValue = String(this.value);
+    } else {
+      this.#displayValue = null;
+    }
   }
 
   #getIndexFromId(elementId) {
@@ -363,6 +399,7 @@ export class JhSelect extends JhInput {
     });
     // Only set active item on keyboard open to avoid showing focus ring on mouse open
     if (keyboard && this.#activeIndex === null) {
+      this.#keyboardNav = true;
       const selectedIdx = this.#flatOptions.findIndex(
         (opt) => String(opt.value) === String(this.value));
       this.#setActiveItem(selectedIdx !== -1 ? selectedIdx : 0);
@@ -371,6 +408,7 @@ export class JhSelect extends JhInput {
   #handleCloseSelect() {
     this.#open = false;
     this.#buffer = '';
+    this.#keyboardNav = false;
     // Revert the field to the selected value and restore the full option list
     this.#searchTerm = null;
     this.#applyFilter('');
@@ -418,6 +456,7 @@ export class JhSelect extends JhInput {
       if (!this.#open) {
         this.#handleOpenSelect({ keyboard: true });
       } else {
+        this.#keyboardNav = true;
         const selectedIdx = this.#flatOptions.findIndex(
           (opt) => String(opt.value) === String(this.value));
         this.#setActiveItem((this.#activeIndex ?? selectedIdx) + 1);
@@ -429,6 +468,7 @@ export class JhSelect extends JhInput {
         if (!this.#open) {
           this.#handleOpenSelect({ keyboard: true });
         } else {
+          this.#keyboardNav = true;
           const selectedIdx = this.#flatOptions.findIndex(
             (opt) => String(opt.value) === String(this.value));
           this.#setActiveItem(
@@ -478,6 +518,7 @@ export class JhSelect extends JhInput {
   #handleTypeAhead(e) {
     if (e.key.length !== 1) return;
     e.preventDefault();
+    this.#keyboardNav = false;
     clearTimeout(this.#timer);
     this.#buffer += e.key;
 
@@ -533,6 +574,7 @@ export class JhSelect extends JhInput {
     this.#applyFilter(this.#searchTerm);
     // Highlight the first match so Enter can select it — surfaced, not committed
     this.#activeIndex = null;
+    this.#keyboardNav = false;
     if (!this.#open) {
       this.#handleOpenSelect();
     }
@@ -544,7 +586,7 @@ export class JhSelect extends JhInput {
 
   #applyFilter(searchTerm) {
     this.#flatOptions = searchTerm
-      ? JhFilter.filterList(this.#allOptions, searchTerm, 'label')
+      ? JhFilter.filterList(this.#allOptions, searchTerm, this.allowCustom, 'label')
       : this.#allOptions;
   }
 
@@ -559,9 +601,21 @@ export class JhSelect extends JhInput {
       this.requestUpdate();
       this.#scrollToActiveItem();
 
+      if (option.custom) {
+        this.#addCustomOption(option);
+        this.dispatchCustomEvent('jh-custom-add');
+      }
       //dispatch a jh-change event when the selected value changes.
       this.dispatchCustomEvent('jh-change');
     }
+  }
+
+  // Persist without the custom flag so the icon shows only on the add-time candidate
+  #addCustomOption(option) {
+    if (this.#customOptions.some((o) => String(o.value) === String(option.value))) return;
+    const entry = { value: option.value, label: option.label };
+    this.#customOptions = [...this.#customOptions, entry];
+    this.#allOptions = [...this.#allOptions, entry];
   }
 
   //method to flip the menu if it is not fully visible on the viewport.
@@ -716,6 +770,11 @@ export class JhSelect extends JhInput {
    * @param {Array} options
    */
   #renderOption(option, idx) {
+    const primaryText = option.custom
+      ? `${this.#useText} "${option.label}"`
+      : option.label != null
+        ? option.label
+        : String(option.value);
     return html`<jh-list-item
       role="option"
       tabindex="-1"
@@ -723,8 +782,11 @@ export class JhSelect extends JhInput {
       ?selected=${String(this.value) === String(option.value)}
       aria-selected=${String(this.value) === String(option.value)}
       id="jh-select-option-${this.uniqueId}-${idx}"
-      class="${this.#activeIndex === idx ? 'is-active' : ''}"
-      primary-text=${option.label != null ? option.label : String(option.value)}></jh-list-item>`;
+      class="${this.#activeIndex === idx ? (this.#keyboardNav ? 'is-active is-keyboard' : 'is-active') : ''}"
+      primary-text=${primaryText}
+      >${option.custom
+        ? html`<jh-icon-plus slot="jh-list-item-left" size="medium"></jh-icon-plus>`
+        : null}</jh-list-item>`;
   }
 
   #renderNoResults() {

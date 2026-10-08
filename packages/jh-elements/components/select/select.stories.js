@@ -72,6 +72,7 @@ const disableControls = {
   'flip-disabled': { control: { disable: true } },
   searchable: { control: { disable: true } },
   'no-results-text': { control: { disable: true } },
+  'allow-custom': { control: { disable: true } },
 }
 
 function logCustomEvent(name, e) {
@@ -97,7 +98,7 @@ export default {
       (story) => html`
         <div class="story-decorator"
           @jh-change=${(e) => logCustomEvent('jh-change', e)}
-          @jh-select=${(e) => logCustomEvent('jh-select', e)}
+          @jh-custom-add=${(e) => logCustomEvent('jh-custom-add', e)}
         >
           ${story()}
         </div>
@@ -158,6 +159,10 @@ export default {
     'no-results-text': {
       control: 'text',
       description: 'Sets the message shown in the menu when a search returns no matching options. Only applies when `searchable` is set.',
+    },
+    'allow-custom': {
+      control: 'boolean',
+      description: 'Allows users to enter custom values that are not present in the list of options.',
     },
     // Hide inherited jh-input slots
     'jh-input-right': { table: { disable: true } },
@@ -228,10 +233,9 @@ export const Searchable = { render: (args) => html`
   <div class="select-container">
     <jh-select searchable label="Select a state" helper-text="Type to filter the options" .options=${US_STATES_FLAT}></jh-select>
   </div>
-  <div class="select-container">
-    <jh-select searchable label="Select an account" helper-text="Search works across groups" .options=${testOptions} value="cc-travel"></jh-select>
-  </div>
 `};
+
+Searchable.tags = ['new'];
 
 Searchable.argTypes = {
   ...disableControls,
@@ -239,11 +243,37 @@ Searchable.argTypes = {
 
 Searchable.parameters = {
   styles: storyStyles,
+  docs: {
+    description: {
+      story: 'Set `searchable` to let users filter the list by typing. The first match is highlighted so pressing `Enter` selects it.',
+    },
+  },
+};
+
+export const CustomValues = { render: (args) => html`
+  <div class="select-container">
+    <jh-select searchable allow-custom label="Select an account" helper-text="Type to filter, or enter a custom value" .options=${testOptions} value="cc-travel"></jh-select>
+  </div>
+`};
+
+CustomValues.tags = ['new'];
+
+CustomValues.argTypes = {
+  ...disableControls,
+};
+
+CustomValues.parameters = {
+  styles: storyStyles,
+  docs: {
+    description: {
+      story: 'Add `allow-custom` (requires `searchable`) to let users commit a value that is not in `options`. While typing a non-matching value, a "Use …" option with a plus icon appears; selecting it commits the typed text and dispatches `jh-custom-add`. Custom values persist in the list for the session but are cleared on reload.',
+    },
+  },
 };
 
 export const Playground = { render: (args) => html`
   <div class="select-container">
-  <jh-select
+  <jh-select ?allow-custom=${args['allow-custom']}
     accessible-label=${ifDefined(args['accessible-label'] === '' ? null : args['accessible-label'])}
     ?disabled=${args.disabled}
     error-text=${ifDefined(args['error-text'] === '' ? null : args['error-text'])}
@@ -282,6 +312,7 @@ Playground.args = {
   'menu-position': 'bottom',
   readonly: false,
   required: false,
+  'allow-custom': false,
   'show-clear-button': false,
   'show-indicator': false,
   size: 'medium',

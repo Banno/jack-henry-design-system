@@ -103,6 +103,18 @@ Filtering matches the option `label` (case-insensitive) and works across both fl
 - When no options match, a non-selectable "No results found" message is displayed. Customize this text with the `no-results-text` attribute.
 - Closing the menu without choosing an option reverts the field to the previously selected value.
 
+### Custom values
+
+Set the `allow-custom` attribute (in addition to `searchable`) to let users commit a value that is not present in the `options`.
+
+- While typing a value that does not match any option, a **"Use "…"" option with a plus icon** appears at the end of the list. Selecting it by click or `Enter` commits the typed text as the value.
+- A committed custom value **persists in the list for the current session**, so it stays visible when the menu reopens, but it is **cleared on reload** — it is never written back to `options`. The plus icon only appears on the add-time option.
+- To persist custom values durably, listen for the `jh-custom-add` event and add the value to your own `options`. The committed value is available via `e.detail.state.value`.
+
+```html
+<jh-select searchable allow-custom label="Account type" .options=${myOptions}></jh-select>
+```
+
 ## Setting the Value
 
 ### Initial value

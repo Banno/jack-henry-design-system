@@ -4763,7 +4763,7 @@
         },
         {
           "name": "jh-select",
-          "description": "Select\n---\n\n\n### **Events:**\n - **jh-change** - Dispatched when the selected value changes. Event payload includes the `value` and can be accessed via `e.detail.state.value`.\n- **jh-select** - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.\n- **jh-input** - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-maxlength** - Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`.\n- **jh-input:clear-button-click** - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`.\n\n### **Slots:**\n - **jh-select-trigger-left** - Use to insert an element such as an icon on the left side of the select input field.\n- **jh-select-trigger-open** - Use to replace the default chevron icon displayed when the select menu is open.\n- **jh-select-trigger-closed** - Use to replace the default chevron icon displayed when the select menu is closed.\n- **jh-input-left** - Use to insert an element on the left side of the input field, such as an icon or button.\n- **jh-input-right** - Use to insert an element on the right side of the input field, such as an icon or button.\n- **jh-input-clear-button** - Use to insert an icon within the clear button.",
+          "description": "Select\n---\n\n\n### **Events:**\n - **jh-change** - Dispatched when the selected value changes. Event payload includes the `value` and can be accessed via `e.detail.state.value`.\n- **jh-custom-add** - Dispatched when a user commits a custom value not present in `options`. The value is available via `e.detail.state.value`. Authors can listen to persist the value into `options`.\n- **jh-select** - Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.\n- **jh-input** - Dispatched when the value of the input has changed. Event payload includes the value of the input and can be accessed via `e.detail.state.value`. Payload also includes the raw/unformatted value when an input mask is applied and can be accessed via `e.detail.state.rawValue`. Payload also includes the `maxlength` and `minlength` values and can be accessed via `e.detail.reference.maxlength` and `e.detail.reference.minlength` as well as the `pattern` value and can be accessed via `e.detail.reference.pattern`.\n- **jh-maxlength** - Dispatched when the `maxlength` property is set and it's value is reached. Event payload includes the `maxlength` value and can be accessed via `e.detail.reference.maxlength`.\n- **jh-input:clear-button-click** - Dispatched when the clear button is activated. Event payload contains the previous value of the input field before it was cleared and can be accessed via `e.detail.state.previousValue`. Payload also contains the method used to activate the clear button (mouse or keyboard) and can be accessed via `e.detail.reference.clearMethod`.\n\n### **Slots:**\n - **jh-select-trigger-left** - Use to insert an element such as an icon on the left side of the select input field.\n- **jh-select-trigger-open** - Use to replace the default chevron icon displayed when the select menu is open.\n- **jh-select-trigger-closed** - Use to replace the default chevron icon displayed when the select menu is closed.\n- **jh-input-left** - Use to insert an element on the left side of the input field, such as an icon or button.\n- **jh-input-right** - Use to insert an element on the right side of the input field, such as an icon or button.\n- **jh-input-clear-button** - Use to insert an icon within the clear button.",
           "doc-url": "",
           "attributes": [
             {
@@ -4783,8 +4783,8 @@
               }
             },
             {
-              "name": "searchable",
-              "description": "Whether the options are searchable",
+              "name": "allow-custom",
+              "description": "Allows users to enter custom values not present in the list of options. Only applies when `searchable` is set.",
               "value": {
                 "type": "boolean",
                 "default": "false"
@@ -4795,7 +4795,15 @@
               "description": "Sets the message shown in the menu when a search returns no matching options. Only applies when `searchable` is set.",
               "value": {
                 "type": "string",
-                "default": "'No results found'"
+                "default": "'No results found.'"
+              }
+            },
+            {
+              "name": "searchable",
+              "description": "Allows users to type in the input field to filter the list of options.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
               }
             },
             {
@@ -5023,6 +5031,10 @@
               "description": "Dispatched when the selected value changes. Event payload includes the `value` and can be accessed via `e.detail.state.value`."
             },
             {
+              "name": "jh-custom-add",
+              "description": "Dispatched when a user commits a custom value not present in `options`. The value is available via `e.detail.state.value`. Authors can listen to persist the value into `options`."
+            },
+            {
               "name": "jh-select",
               "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`."
             },
@@ -5058,7 +5070,12 @@
               },
               {
                 "name": "searchable",
-                "description": "Whether the options are searchable",
+                "description": "Allows users to type in the input field to filter the list of options.",
+                "type": "boolean"
+              },
+              {
+                "name": "allowCustom",
+                "description": "Allows users to enter custom values not present in the list of options. Only applies when `searchable` is set.",
                 "type": "boolean"
               },
               {
@@ -5195,6 +5212,10 @@
               {
                 "name": "jh-change",
                 "description": "Dispatched when the selected value changes. Event payload includes the `value` and can be accessed via `e.detail.state.value`."
+              },
+              {
+                "name": "jh-custom-add",
+                "description": "Dispatched when a user commits a custom value not present in `options`. The value is available via `e.detail.state.value`. Authors can listen to persist the value into `options`."
               },
               {
                 "name": "jh-select",
@@ -8490,6 +8511,10 @@
         {
           "name": "--jh-select-item-space-padding-left-indent",
           "description": "The additional left padding for grouped list items. Defaults to `--jh-dimension-200`."
+        },
+        {
+          "name": "--jh-select-item-icon-color-fill",
+          "description": "The list item icon color, such as the custom-add option icon. Defaults to `--jh-color-content-secondary-enabled`."
         },
         {
           "name": "--jh-input-label-color-text",

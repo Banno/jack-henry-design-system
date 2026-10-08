@@ -41,6 +41,10 @@ The mixin supports the following validation properties:
 
 The mixin reads the `checked` property of each direct child element (e.g. `myCheckboxElement.checked`) to determine the current selection count. Children must be direct children of the host element as wrapping them in another element (e.g. a `<div>`) prevents the mixin from seeing them. 
 
+#### Type Mismatch Error
+
+`<jh-input-email>` and `<jh-input-url>` validate the format of their value automatically and fail with a `typeMismatch` error when the value doesn't conform. There's no property to set for this check. 
+
 ### Standard Form-Control API
 
 Components using the mixin are form-associated (`static formAssociated = true`) and get the following native form control behavior:
@@ -134,6 +138,9 @@ export class AppContainer extends LitElement {
     }
     if (errors.includes('tooLong')) {
       customErrorMessage = `The input is too long. Maximum length is ${invalidElement.maxlength} characters.`;
+    }
+    if (errors.includes('typeMismatch')) {
+      customErrorMessage = 'The input does not match the expected format.';
     }
     invalidElement.errorText = customErrorMessage || 'Invalid input.';
   }

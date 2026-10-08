@@ -16,9 +16,10 @@ import '@jack-henry/jh-icons/icons-wc/icon-plus.js';
 import { JhFilter } from './filtering.js';
 
 /**
- * Select
- * @customElement jh-select
- *
+ * The select component allows users to choose a single option from a list of predefined values.
+ * 
+ * [Select Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-select--docs)
+ * 
  * @cssprop --jh-select-input-field-border-radius - The input field border radius. Defaults to `--jh-border-radius-100`.
  * @cssprop --jh-select-input-field-color-background - The input field background-color. Defaults to `--jh-color-container-primary-enabled`.
  * @cssprop --jh-select-icon-color-fill - The select icons color. Defaults to `--jh-color-content-secondary-enabled`.
@@ -64,6 +65,8 @@ import { JhFilter } from './filtering.js';
  *
  * @event jh-change - Dispatched when the selected value changes. Event payload includes the `value` and can be accessed via `e.detail.state.value`.
  * @event jh-custom-add - Dispatched when a user commits a custom value not present in `options`. The value is available via `e.detail.state.value`. Authors can listen to persist the value into `options`. 
+ * 
+ * @customElement jh-select
 */
 export class JhSelect extends JhInput {
   /** @type {string | null} */
@@ -86,8 +89,12 @@ export class JhSelect extends JhInput {
   #customOptions = [];
   /** @type {boolean} True only while the active item is driven by arrow-key navigation, to gate the focus ring */
   #keyboardNav = false;
-  /** @type {string} Prefix shown before the typed value on the custom "add" option; isolated for translation */
+  /** @type {string} Prefix shown before the typed value on the custom "add" option */
   #useText = 'Use';
+  /** @type {string} Politely-announced status text (result count / no-results) for screen readers */
+  #liveMessage = '';
+  /** @type {number | null} */
+  #announceTimer = null;
   /** @type {(e: Event) => void} */
   #boundDocumentClick;
   /** @type {(e: Event) => void} */
@@ -202,6 +209,17 @@ export class JhSelect extends JhInput {
         jh-list-item jh-icon-plus {
           --jh-icon-color-fill: var(--jh-select-item-icon-color-fill);
         }
+        .sr-only {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        }
       `,
     ];
   }
@@ -262,6 +280,7 @@ export class JhSelect extends JhInput {
     document.removeEventListener('click', this.#boundDocumentClick, true);
     document.removeEventListener('scroll', this.#boundDocumentScroll, true);
     clearTimeout(this.#timer);
+    clearTimeout(this.#announceTimer);
   }
 
   /**
@@ -312,7 +331,7 @@ export class JhSelect extends JhInput {
       }
     }
 
-    // Handle external value changes (e.g. .value = 'x' or value="x" attribute)
+    // Handle external value changes
     if (changedProperties.has('value') && !changedProperties.has('options')) {
       this.#syncDisplayValue();
     }
@@ -335,16 +354,27 @@ export class JhSelect extends JhInput {
     }
   }
 
-  #getIndexFromId(elementId) {
-    const parts = elementId?.split('-');
-    const index = Number(parts?.[parts.length - 1]);
-    return Number.isNaN(index) ? null : index;
+  // Stable per-option id derived from the option value so aria-activedescendant
+  // changes when the first filtered result changes. encodeURIComponent keeps the
+  // value a single valid IDREF (no spaces/special characters).
+  #optionId(option) {
+    return `jh-select-option-${this.uniqueId}-${encodeURIComponent(String(option.value))}`;
+  }
+
+  // Debounced polite announcement so fast typing doesn't flood the screen reader.
+  #announce(message) {
+    clearTimeout(this.#announceTimer);
+    this.#announceTimer = setTimeout(() => {
+      this.#liveMessage = message;
+      this.requestUpdate();
+    }, 200);
   }
 
   async #scrollToActiveItem() {
     await this.updateComplete;
-    const el = this.shadowRoot.getElementById(
-      `jh-select-option-${this.uniqueId}-${this.#activeIndex}`);
+    if (this.#activeIndex === null) return;
+    const active = this.#flatOptions[this.#activeIndex];
+    const el = active && this.shadowRoot.getElementById(this.#optionId(active));
     if (!el) return;
 
     const menu = this.shadowRoot.querySelector('jh-menu');
@@ -420,6 +450,8 @@ export class JhSelect extends JhInput {
     document.removeEventListener('click', this.#boundDocumentClick, true);
     document.removeEventListener('scroll', this.#boundDocumentScroll, true);
     this.#activeIndex = null;
+    clearTimeout(this.#announceTimer);
+    this.#liveMessage = '';
     this.requestUpdate();
   }
 
@@ -540,8 +572,8 @@ export class JhSelect extends JhInput {
     const item = e.target.closest('jh-list-item');
     if (!item || item.disabled) return;
 
-    const index = this.#getIndexFromId(item.id);
-    if (index === null) return;
+    const index = this.#flatOptions.findIndex((o) => this.#optionId(o) === item.id);
+    if (index === -1) return;
 
     this.#handleSelection(index);
     this.#handleCloseSelect();
@@ -580,6 +612,27 @@ export class JhSelect extends JhInput {
     }
     if (this.#flatOptions.length) {
       this.#setActiveItem(0);
+    }
+    // Announce counts only while filtering; stay quiet when the field is cleared back to the full list
+    if (this.#searchTerm) {
+      // Count real matches only; the custom-add entry is advertised separately
+      const customAvailable = this.#flatOptions.some((o) => o.custom);
+      const count = this.#flatOptions.filter((o) => !o.custom).length;
+      let message;
+      if (count) {
+        message = `${count} result${count === 1 ? '' : 's'} available`;
+        if (customAvailable) {
+          message += `, or ${this.#useText.toLowerCase()} "${this.#searchTerm}"`;
+        }
+      } else if (customAvailable) {
+        message = `${this.#useText} "${this.#searchTerm}" to add a custom value`;
+      } else {
+        message = this.noResultsText;
+      }
+      this.#announce(message);
+    } else {
+      clearTimeout(this.#announceTimer);
+      this.#liveMessage = '';
     }
     this.requestUpdate();
   }
@@ -744,8 +797,8 @@ export class JhSelect extends JhInput {
             id="jh-input-${this.uniqueId}"
             aria-expanded=${this.#open ? 'true' : 'false'}
             aria-activedescendant=${ifDefined(
-              this.#activeIndex !== null
-                ? `jh-select-option-${this.uniqueId}-${this.#activeIndex}`
+              this.#activeIndex !== null && this.#flatOptions[this.#activeIndex]
+                ? this.#optionId(this.#flatOptions[this.#activeIndex])
                 : undefined,
             )}
             aria-describedby=${ifDefined(describedby)}
@@ -781,7 +834,7 @@ export class JhSelect extends JhInput {
       ?disabled=${option.disabled}
       ?selected=${String(this.value) === String(option.value)}
       aria-selected=${String(this.value) === String(option.value)}
-      id="jh-select-option-${this.uniqueId}-${idx}"
+      id=${this.#optionId(option)}
       class="${this.#activeIndex === idx ? (this.#keyboardNav ? 'is-active is-keyboard' : 'is-active') : ''}"
       primary-text=${primaryText}
       >${option.custom
@@ -790,8 +843,8 @@ export class JhSelect extends JhInput {
   }
 
   #renderNoResults() {
-    // No tabindex keeps it inert (no hover/focus styles); role="status" announces the change
-    return html`<jh-list-item role="status">${this.noResultsText}</jh-list-item>`;
+    // Visual-only; the persistent live region handles the announcement.
+    return html`<jh-list-item aria-hidden="true">${this.noResultsText}</jh-list-item>`;
   }
 
   renderData(options) {
@@ -827,6 +880,7 @@ export class JhSelect extends JhInput {
 
     return html`
       ${label} ${input} ${footer}
+      <div class="sr-only" role="status" aria-live="polite">${this.#liveMessage}</div>
       ${this.options && this.options.length
         ? html` <div class="menu-container ${this.#open ? 'show' : ''}">
             <jh-menu

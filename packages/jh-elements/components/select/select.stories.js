@@ -248,11 +248,6 @@ Searchable.argTypes = {
 
 Searchable.parameters = {
   styles: storyStyles,
-  docs: {
-    description: {
-      story: 'Set `searchable` to let users filter the list by typing. The first match is highlighted so pressing `Enter` selects it.',
-    },
-  },
 };
 
 export const CustomValues = { render: (args) => html`
@@ -269,11 +264,6 @@ CustomValues.argTypes = {
 
 CustomValues.parameters = {
   styles: storyStyles,
-  docs: {
-    description: {
-      story: 'Add `allow-custom` (requires `searchable`) to let users commit a value that is not in `options`. While typing a non-matching value, a "Use …" option with a plus icon appears; selecting it commits the typed text and dispatches `jh-custom-add`. Custom values persist in the list for the session but are cleared on reload.',
-    },
-  },
 };
 
 export const Playground = { render: (args) => html`
@@ -304,8 +294,6 @@ export const Playground = { render: (args) => html`
 
 Playground.args = {
   'accessible-label': null,
-  'accessible-label-clear-button': null,
-  autocomplete: null,
   disabled: false,
   'error-text': 'Error text',
   'helper-text': 'Helper text',
@@ -318,12 +306,11 @@ Playground.args = {
   readonly: false,
   required: false,
   'allow-custom': false,
-  'show-clear-button': false,
   'show-indicator': false,
   size: 'medium',
   'flip-disabled': false,
   searchable: false,
-  'no-results-text': 'No results found',
+  'no-results-text': 'No results found.',
   value: "",
 };
 

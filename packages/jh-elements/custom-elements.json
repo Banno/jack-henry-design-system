@@ -15433,7 +15433,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Select",
+          "description": "The select component allows users to choose a single option from a list of predefined values.\n\n[Select Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-select--docs)",
           "name": "JhSelect",
           "cssProperties": [
             {

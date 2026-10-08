@@ -3,8 +3,9 @@
 // SPDX-License-Identifier: Apache-2.0
 
 /**
- * Select
- * @customElement jh-select
+ * The select component allows users to choose a single option from a list of predefined values.
+ *
+ * [Select Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-select--docs)
  *
  * @cssprop --jh-select-input-field-border-radius - The input field border radius. Defaults to `--jh-border-radius-100`.
  * @cssprop --jh-select-input-field-color-background - The input field background-color. Defaults to `--jh-color-container-primary-enabled`.
@@ -51,6 +52,8 @@
  *
  * @event jh-change - Dispatched when the selected value changes. Event payload includes the `value` and can be accessed via `e.detail.state.value`.
  * @event jh-custom-add - Dispatched when a user commits a custom value not present in `options`. The value is available via `e.detail.state.value`. Authors can listen to persist the value into `options`.
+ *
+ * @customElement jh-select
 */
 export class JhSelect extends JhInput {
     static get styles(): import("lit").CSSResult[];

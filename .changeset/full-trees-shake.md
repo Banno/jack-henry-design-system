@@ -2,4 +2,4 @@
 "@jack-henry/jh-elements": minor
 ---
 
-[Select] add searchable select and update docs and stories.
+[Select] adds searchable filtering, custom values (allow-custom), and screen-reader announcements; updates docs and stories.

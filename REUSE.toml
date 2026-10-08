@@ -29,6 +29,13 @@ SPDX-FileCopyrightText = "2026 Jack Henry"
 SPDX-License-Identifier = "Apache-2.0"
 
 [[annotations]]
+path = [ "**/assets/fonts/Figtree-VariableFont.woff2"
+]
+precedence = "override"
+SPDX-License-Identifier = "OFL-1.1"
+SPDX-FileCopyrightText = "Copyright 2022 The Figtree Project Authors"
+
+[[annotations]]
 path = [ "**/assets/fonts/RobotoFlex-VariableFont.woff2"
 ]
 precedence = "override"

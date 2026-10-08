@@ -4,7 +4,7 @@
 
 import '@jack-henry/jh-tokens/platforms/web/css/jh-theme-light.css';
 import '@jack-henry/jh-tokens/platforms/web/css/jh-theme-dark.css';
-import './public/assets/fonts/fonts.css';
+import '../../../assets/fonts/fonts.css';
 import { html } from 'lit';
 import { lightTheme } from './sb-themes';
 import { darkTheme } from './sb-themes';
@@ -72,7 +72,7 @@ const preview = {
           'Design Tokens',
           'Guides',
           ['Extending'],
-          'Components',
+          'Components', ['Badge', 'Button', 'Card', 'Checkbox Group', 'Checkbox', 'Divider', 'Icon', 'Input', '*'],
           ['*',
           ['Table', 'Table Row', 'Table Data Cell', 'Table Header Cell'],
         ],

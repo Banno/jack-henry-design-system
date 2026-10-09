@@ -34,9 +34,9 @@ import { JhTableDataCell } from './components/table-data-cell/table-data-cell.js
 import { JhTableHeaderCell } from './components/table-header-cell/table-header-cell.js';
 import { JhSelect } from './components/select/select.js';
 import { JhInputNumber } from './components/input-number/input-number.js';
-import { ForgeVStack } from './components/v-stack/v-stack.js';
-import { ForgeHStack } from './components/h-stack/h-stack.js';
-import { ForgeZStack } from './components/z-stack/z-stack.js';
+import { ForgeColumn } from './components/column/column.js';
+import { ForgeRow } from './components/row/row.js';
+import { ForgeStack } from './components/stack/stack.js';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -72,8 +72,8 @@ declare global {
     'jh-table-header-cell': JhTableHeaderCell;
     'jh-select': JhSelect;
     'jh-input-number': JhInputNumber;
-    'forge-v-stack': ForgeVStack;
-    'forge-h-stack': ForgeHStack;
-    'forge-z-stack': ForgeZStack;
+    'forge-column': ForgeColumn;
+    'forge-row': ForgeRow;
+    'forge-stack': ForgeStack;
   }
 }

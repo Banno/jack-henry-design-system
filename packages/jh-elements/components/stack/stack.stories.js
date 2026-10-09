@@ -6,7 +6,7 @@
 
 import { html, css } from 'lit';
 import { action } from 'storybook/actions';
-import './z-stack.js';
+import './stack.js';
 import '../button/button.js';
 import '../badge/badge.js';
 import '../tag/tag.js';
@@ -113,8 +113,8 @@ const disableControls = {
 const alignOptions = ['start', 'end', 'center', 'stretch'];
 
 export default {
-  component: 'forge-z-stack',
-  title: 'Primitives/Z Stack',
+  component: 'forge-stack',
+  title: 'Primitives/Stack',
   tags: ['beta'],
   argTypes: {
     align: {
@@ -131,23 +131,23 @@ export default {
 /**
  * Overview — a media layer with a translucent caption overlay on top, and a
  * corner badge positioned with `align`/`justify`. Shows the two core uses of a
- * z-stack: overlaying content and anchoring an element to an edge.
+ * stack: overlaying content and anchoring an element to an edge.
  */
 export const Overview = {
   render: () => html`
     <div class="demo-figure">
-      <forge-z-stack>
+      <forge-stack>
         <div class="layer-base">Base layer</div>
         <div class="layer-overlay">Overlay layer</div>
-      </forge-z-stack>
+      </forge-stack>
       <span class="demo-caption">Overlay covering the base layer.</span>
     </div>
 
     <div class="demo-figure">
-      <forge-z-stack align="start" justify="end">
+      <forge-stack align="start" justify="end">
         <div class="layer-base">Avatar</div>
         <jh-badge count="8" class="inset"></jh-badge>
-      </forge-z-stack>
+      </forge-stack>
       <span class="demo-caption">
         A badge anchored to the top-right with <code>align="start"</code> +
         <code>justify="end"</code>.
@@ -171,13 +171,13 @@ Overview.parameters = {
  */
 export const Playground = {
   render: (args) => html`
-    <forge-z-stack
+    <forge-stack
       align=${args.align}
       justify=${args.justify}
     >
       <div class="layer-base">Base layer</div>
       <div class="layer-overlay" style="width: 120px; height: 60px;">Top layer</div>
-    </forge-z-stack>
+    </forge-stack>
   `,
 };
 
@@ -198,24 +198,24 @@ Playground.parameters = {
 export const Alignment = {
   render: () => html`
     <div class="demo-figure">
-      <forge-z-stack align="start" justify="start">
+      <forge-stack align="start" justify="start">
         <div class="layer-base"></div>
         <jh-badge count="1" class="inset"></jh-badge>
-      </forge-z-stack>
+      </forge-stack>
       <span class="demo-caption">align="start" justify="start"</span>
     </div>
     <div class="demo-figure">
-      <forge-z-stack align="center" justify="center">
+      <forge-stack align="center" justify="center">
         <div class="layer-base"></div>
         <jh-badge count="2"></jh-badge>
-      </forge-z-stack>
+      </forge-stack>
       <span class="demo-caption">align="center" justify="center"</span>
     </div>
     <div class="demo-figure">
-      <forge-z-stack align="end" justify="end">
+      <forge-stack align="end" justify="end">
         <div class="layer-base"></div>
         <jh-badge count="3" class="inset"></jh-badge>
-      </forge-z-stack>
+      </forge-stack>
       <span class="demo-caption">align="end" justify="end"</span>
     </div>
   `,
@@ -230,33 +230,33 @@ Alignment.parameters = {
 };
 
 /**
- * Anchored badge — the most common z-stack pattern. A small element (badge, dot,
+ * Anchored badge — the most common stack pattern. A small element (badge, dot,
  * or tag) is layered over a base and pinned to an edge with `align`/`justify`.
  * Use a `margin` to inset it from the corner or a `transform` to overhang it.
  */
 export const AnchoredBadge = {
   render: () => html`
     <div class="demo-figure">
-      <forge-z-stack align="start" justify="end">
+      <forge-stack align="start" justify="end">
         <jh-button label="Notifications"></jh-button>
         <jh-badge count="8" class="overhang"></jh-badge>
-      </forge-z-stack>
+      </forge-stack>
       <span class="demo-caption">Count badge hanging off the corner.</span>
     </div>
 
     <div class="demo-figure">
-      <forge-z-stack align="start" justify="end">
+      <forge-stack align="start" justify="end">
         <div class="avatar"><jh-icon-user size="large"></jh-icon-user></div>
         <jh-badge></jh-badge>
-      </forge-z-stack>
+      </forge-stack>
       <span class="demo-caption">Presence dot on an avatar.</span>
     </div>
 
     <div class="demo-figure">
-      <forge-z-stack align="start" justify="end">
+      <forge-stack align="start" justify="end">
         <jh-card header-title="Card title">Card content</jh-card>
         <jh-tag label="New" class="inset"></jh-tag>
-      </forge-z-stack>
+      </forge-stack>
       <span class="demo-caption">Status tag anchored to a corner.</span>
     </div>
   `,
@@ -279,7 +279,7 @@ AnchoredBadge.parameters = {
 export const LoadingOverlay = {
   render: () => html`
     <div class="demo-figure">
-      <forge-z-stack>
+      <forge-stack>
         <jh-card
           header-title="Account balance"
           class="loading-card"
@@ -299,7 +299,7 @@ export const LoadingOverlay = {
             accessible-label="Loading account"
           ></jh-progress>
         </div>
-      </forge-z-stack>
+      </forge-stack>
       <span class="demo-caption">
         The scrim covers the card and blocks the Transfer button while loading.
       </span>
@@ -316,7 +316,7 @@ LoadingOverlay.parameters = {
 };
 
 /**
- * Pointer events — a known z-stack gotcha. Because a top layer sits over the
+ * Pointer events — a known stack gotcha. Because a top layer sits over the
  * layers below it, it intercepts pointer events even where it looks empty. In
  * the first example the overlay blocks the button underneath (clicking it logs
  * nothing). In the second, the overlay sets `pointer-events: none`, so clicks
@@ -326,7 +326,7 @@ LoadingOverlay.parameters = {
 export const PointerEvents = {
   render: () => html`
     <div class="demo-figure">
-      <forge-z-stack>
+      <forge-stack>
         <div class="layer-base">
           <jh-button
             label="Try to click"
@@ -334,14 +334,14 @@ export const PointerEvents = {
           ></jh-button>
         </div>
         <div class="layer-overlay">Overlay intercepts clicks</div>
-      </forge-z-stack>
+      </forge-stack>
       <span class="demo-caption">
         Overlay on top — the button below cannot be clicked.
       </span>
     </div>
 
     <div class="demo-figure">
-      <forge-z-stack>
+      <forge-stack>
         <div class="layer-base">
           <jh-button
             label="Click me"
@@ -349,7 +349,7 @@ export const PointerEvents = {
           ></jh-button>
         </div>
         <div class="layer-overlay pass-through">pointer-events: none</div>
-      </forge-z-stack>
+      </forge-stack>
       <span class="demo-caption">
         Overlay uses <code>pointer-events: none</code> — clicks reach the button.
       </span>
@@ -364,6 +364,3 @@ PointerEvents.argTypes = {
 PointerEvents.parameters = {
   styles: storyStyles,
 };
-
-
-

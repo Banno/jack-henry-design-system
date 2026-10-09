@@ -4,34 +4,34 @@ SPDX-FileCopyrightText: 2026 Jack Henry
 SPDX-License-Identifier: Apache-2.0
  */}
 import { Meta, ArgTypes } from '@storybook/addon-docs/blocks';
-import * as stories from './v-stack.stories.js';
+import * as stories from './column.stories.js';
 
-<Meta title="Primitives/V Stack" of={stories} />
+<Meta title="Primitives/Column" of={stories} />
 
-# V Stack
+# Column
 
-[Guidelines](https://jackhenry.design/pages/components/v-stack/)
+[Guidelines](https://jackhenry.design/pages/components/column/)
 
 <hr />
 
-V Stack is a layout primitive that arranges elements slotted into it in a single vertical column.
+Column is a layout primitive that arranges elements slotted into it in a single vertical column.
 It uses Flexbox under the hood, stacking slotted elements from top to bottom.
 
 ## Usage
 
-Import the `<forge-v-stack>` component:
+Import the `<forge-column>` component:
 
 ```javascript
-import '@jack-henry/jh-elements/components/v-stack/v-stack.js';
+import '@jack-henry/jh-elements/components/column/column.js';
 ```
 
 Place elements in the default slot. Each slotted element becomes a flex item stacked vertically:
 
 ```html
-<forge-v-stack gap="100">
+<forge-column gap="100">
   <jh-button label="Save"></jh-button>
   <jh-button label="Cancel"></jh-button>
-</forge-v-stack>
+</forge-column>
 ```
 
 ## Spacing
@@ -44,9 +44,9 @@ Place elements in the default slot. Each slotted element becomes a flex item sta
 Both accept the same values: `0`, `25`, `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, and `1000`.
 
 ```html
-<forge-v-stack gap="200" padding="100">
+<forge-column gap="200" padding="100">
   <!-- slotted elements -->
-</forge-v-stack>
+</forge-column>
 ```
 
 ## Alignment
@@ -57,9 +57,9 @@ Both accept the same values: `0`, `25`, `50`, `100`, `200`, `300`, `400`, `500`,
 - `justify` sets the main-axis (vertical) distribution via `justify-content`: `start`, `end`, `center`, `between`, `around`, or `evenly`.
 
 ```html
-<forge-v-stack align="center" justify="between">
+<forge-column align="center" justify="between">
   <!-- slotted elements -->
-</forge-v-stack>
+</forge-column>
 ```
 
 ## Wrapping
@@ -67,18 +67,18 @@ Both accept the same values: `0`, `25`, `50`, `100`, `200`, `300`, `400`, `500`,
 By default slotted elements stay in a single column and may overflow the container. Add the boolean `wrap` attribute to let slotted elements reflow onto new columns when they run out of space along the main axis.
 
 ```html
-<forge-v-stack wrap gap="100">
+<forge-column wrap gap="100">
   <!-- slotted elements -->
-</forge-v-stack>
+</forge-column>
 ```
 
 ## Composition
 
-Layout primitives are designed to compose. Because `<forge-v-stack>` is itself a valid flex child, it nests freely inside `<forge-h-stack>` and other `<forge-v-stack>` containers. See [Layout Composition](?path=/docs/primitives-layout-composition--docs) for common patterns such as toolbars, card layouts, and form rows.
+Layout primitives are designed to compose. Because `<forge-column>` is itself a valid flex child, it nests freely inside `<forge-row>` and other `<forge-column>` containers. See [Layout Composition](?path=/docs/primitives-layout-composition--docs) for common patterns such as toolbars, card layouts, and form rows.
 
 ## Component API
 
-For boolean attributes, true indicates that the attribute has been set without a value: `<forge-v-stack wrap></forge-v-stack>`. While false indicates the attribute does not exist in the DOM: `<forge-v-stack></forge-v-stack>`.
+For boolean attributes, true indicates that the attribute has been set without a value: `<forge-column wrap></forge-column>`. While false indicates the attribute does not exist in the DOM: `<forge-column></forge-column>`.
 
 <ArgTypes />
 

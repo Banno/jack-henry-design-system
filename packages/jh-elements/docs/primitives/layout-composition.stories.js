@@ -5,8 +5,8 @@
 */
 
 import { html, css } from 'lit';
-import '../../components/v-stack/v-stack.js';
-import '../../components/h-stack/h-stack.js';
+import '../../components/column/column.js';
+import '../../components/row/row.js';
 import '../../components/button/button.js';
 import '../../components/card/card.js';
 import '../../components/input/input.js';
@@ -66,13 +66,13 @@ export default {
  */
 export const Toolbar = {
   render: () => html`
-    <forge-h-stack class="demo-surface" padding="200" gap="100" align="center" justify="between">
+    <forge-row class="demo-surface" padding="200" gap="100" align="center" justify="between">
       <strong class="text-heading">Account settings</strong>
-      <forge-h-stack gap="100" align="center">
+      <forge-row gap="100" align="center">
         <jh-button appearance="secondary" label="Cancel"></jh-button>
         <jh-button appearance="primary" label="Save"></jh-button>
-      </forge-h-stack>
-    </forge-h-stack>
+      </forge-row>
+    </forge-row>
   `,
 };
 
@@ -84,39 +84,39 @@ export const Toolbar = {
  */
 export const SplitGroups = {
   render: () => html`
-    <forge-h-stack class="demo-surface" padding="200" gap="100" align="center" justify="between">
-      <forge-h-stack gap="100">
+    <forge-row class="demo-surface" padding="200" gap="100" align="center" justify="between">
+      <forge-row gap="100">
         <jh-button appearance="secondary" label="Previous"></jh-button>
         <jh-button appearance="secondary" label="Next"></jh-button>
-      </forge-h-stack>
-      <forge-h-stack gap="100">
+      </forge-row>
+      <forge-row gap="100">
         <jh-button appearance="secondary" label="Cancel"></jh-button>
         <jh-button appearance="primary" label="Save"></jh-button>
-      </forge-h-stack>
-    </forge-h-stack>
+      </forge-row>
+    </forge-row>
   `,
 };
 
 
 /**
  * Card composition — a `jh-card` provides the surface, header, and footer, while
- * `forge-h-stack` arranges the custom header row and footer actions. Shows the
+ * `forge-row` arranges the custom header row and footer actions. Shows the
  * primitives slotting cleanly into a higher-level component.
  */
 export const CardLayout = {
   render: () => html`
     <jh-card show-footer-divider>
-      <forge-h-stack slot="jh-card-header" gap="100" align="center" justify="between">
+      <forge-row slot="jh-card-header" gap="100" align="center" justify="between">
         <strong>Payment method</strong>
         <jh-button appearance="secondary" size="small" label="Edit"></jh-button>
-      </forge-h-stack>
+      </forge-row>
 
       <span class="demo-block">Visa ending in 4242 — expires 08/28</span>
 
-      <forge-h-stack slot="jh-card-footer" gap="100" justify="end">
+      <forge-row slot="jh-card-footer" gap="100" justify="end">
         <jh-button appearance="danger" label="Remove"></jh-button>
         <jh-button appearance="primary" label="Set as default"></jh-button>
-      </forge-h-stack>
+      </forge-row>
     </jh-card>
   `,
 };
@@ -129,16 +129,16 @@ export const CardLayout = {
  */
 export const FormRow = {
   render: () => html`
-    <forge-v-stack class="demo-surface" padding="300" gap="200">
-      <forge-h-stack gap="200" align="baseline" justify="between">
+    <forge-column class="demo-surface" padding="300" gap="200">
+      <forge-row gap="200" align="baseline" justify="between">
         <span class="text-label" style="min-width: 6rem;">First name</span>
         <span class="demo-block text-body">Ada</span>
-      </forge-h-stack>
-      <forge-h-stack gap="200" align="baseline" justify="between">
+      </forge-row>
+      <forge-row gap="200" align="baseline" justify="between">
         <span class="text-label" style="min-width: 6rem;">Last name</span>
         <span class="demo-block text-body">Lovelace</span>
-      </forge-h-stack>
-    </forge-v-stack>
+      </forge-row>
+    </forge-column>
   `,
 };
 
@@ -149,34 +149,34 @@ export const FormRow = {
  */
 export const Wrapping = {
   render: () => html`
-    <forge-h-stack class="demo-surface" padding="200" gap="100" wrap>
+    <forge-row class="demo-surface" padding="200" gap="100" wrap>
       <jh-button appearance="secondary" label="Overview"></jh-button>
       <jh-button appearance="secondary" label="Transactions"></jh-button>
       <jh-button appearance="secondary" label="Statements"></jh-button>
       <jh-button appearance="secondary" label="Settings"></jh-button>
       <jh-button appearance="secondary" label="Notifications"></jh-button>
       <jh-button appearance="secondary" label="Security"></jh-button>
-    </forge-h-stack>
+    </forge-row>
   `,
 };
 
 /**
  * Larger form — a `jh-card` frames the form with a title and a divided footer,
- * while a `forge-v-stack` stacks the inputs, a `forge-h-stack` places the
+ * while a `forge-column` stacks the inputs, a `forge-row` places the
  * two checkbox-groups side by side, and the footer actions are pushed to the end.
  * Shows the primitives scaling up inside a full component.
  */
 export const Form = {
   render: () => html`
     <jh-card header-title="Create account" show-footer-divider class="form-card">
-      <forge-v-stack gap="300">
-        <forge-v-stack gap="200">
+      <forge-column gap="300">
+        <forge-column gap="200">
           <jh-input label="First name" helper-text="Legal first name"></jh-input>
           <jh-input label="Last name" helper-text="Legal last name"></jh-input>
           <jh-input label="Email" helper-text="We'll send a confirmation here"></jh-input>
-        </forge-v-stack>
+        </forge-column>
 
-        <forge-h-stack gap="400" justify="around">
+        <forge-row gap="400" justify="around">
           <jh-checkbox-group label="Account types" helper-text="Select all that apply">
             <jh-checkbox label="Checking" name="acct-checking"></jh-checkbox>
             <jh-checkbox label="Savings" name="acct-savings"></jh-checkbox>
@@ -187,14 +187,13 @@ export const Form = {
             <jh-checkbox label="SMS" name="notify-sms"></jh-checkbox>
             <jh-checkbox label="Push" name="notify-push"></jh-checkbox>
           </jh-checkbox-group>
-        </forge-h-stack>
-      </forge-v-stack>
+        </forge-row>
+      </forge-column>
 
-      <forge-h-stack slot="jh-card-footer" gap="100" align="center" justify="end">
+      <forge-row slot="jh-card-footer" gap="100" align="center" justify="end">
         <jh-button appearance="secondary" label="Cancel"></jh-button>
         <jh-button appearance="primary" label="Create account"></jh-button>
-      </forge-h-stack>
+      </forge-row>
     </jh-card>
   `,
 };
-

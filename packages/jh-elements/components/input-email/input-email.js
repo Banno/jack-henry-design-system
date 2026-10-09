@@ -16,5 +16,12 @@ export class JhInputEmail extends JhInput {
     super();
     this.inputmode = 'email';
   }
+
+  /** @protected */
+  firstUpdated() {
+    super.firstUpdated();
+    let inputEl = this.shadowRoot.querySelector('input');
+    inputEl.setAttribute('type', 'email');
+  }
 }
 JhInputEmail.register('jh-input-email', JhInputEmail);

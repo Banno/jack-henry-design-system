@@ -6,7 +6,7 @@
 
 import { html, css } from 'lit';
 import { action } from 'storybook/actions';
-import './h-stack.js';
+import './row.js';
 import '../button/button.js';
 
 const storyStyles = css`
@@ -28,8 +28,8 @@ const disableControls = {
 };
 
 export default {
-  component: 'forge-h-stack',
-  title: 'Primitives/H Stack',
+  component: 'forge-row',
+  title: 'Primitives/Row',
   tags: ['beta'],
   argTypes: {
     gap: {
@@ -55,11 +55,11 @@ export default {
 };
 
 export const Overview = { render: (args) => html`
-  <forge-h-stack>
+  <forge-row>
     <jh-button label="Button 1"></jh-button>
     <jh-button label="Button 2"></jh-button>
     <jh-button label="Button 3"></jh-button>
-  </forge-h-stack>
+  </forge-row>
 `};
 
 Overview.argTypes = {
@@ -67,7 +67,7 @@ Overview.argTypes = {
 };
 
 export const Playground = { render: (args) => html`
-  <forge-h-stack
+  <forge-row
     gap=${args.gap}
     padding=${args.padding}
     align=${args.align}
@@ -77,7 +77,7 @@ export const Playground = { render: (args) => html`
     <jh-button label="Button 1"></jh-button>
     <jh-button label="Button 2"></jh-button>
     <jh-button label="Button 3"></jh-button>
-  </forge-h-stack>
+  </forge-row>
 `};
 
 Playground.args = {

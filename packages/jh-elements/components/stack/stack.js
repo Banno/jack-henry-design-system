@@ -8,13 +8,13 @@ import { css, html } from 'lit';
 import { JhElement } from '../element/element.js';
 
 /**
- * Z Stack
+ * Stack
  *
- * @customElement forge-z-stack
+ * @customElement forge-stack
  *
  * @slot default - Use to insert layered elements. Each slotted element occupies the same cell and stacks in source order, with the last element on top.
  */
-export class ForgeZStack extends JhElement {
+export class ForgeStack extends JhElement {
   static get styles() {
     return css`
         :host {
@@ -63,4 +63,4 @@ export class ForgeZStack extends JhElement {
     `;
   }
 }
-ForgeZStack.register('forge-z-stack', ForgeZStack);
+ForgeStack.register('forge-stack', ForgeStack);

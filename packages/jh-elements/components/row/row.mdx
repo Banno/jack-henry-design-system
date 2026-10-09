@@ -4,34 +4,34 @@ SPDX-FileCopyrightText: 2026 Jack Henry
 SPDX-License-Identifier: Apache-2.0
  */}
 import { Meta, ArgTypes } from '@storybook/addon-docs/blocks';
-import * as stories from './h-stack.stories.js';
+import * as stories from './row.stories.js';
 
-<Meta title="Primitives/H Stack" of={stories} />
+<Meta title="Primitives/Row" of={stories} />
 
-# H Stack
+# Row
 
-[Guidelines](https://jackhenry.design/pages/components/h-stack/)
+[Guidelines](https://jackhenry.design/pages/components/row/)
 
 <hr />
 
-H Stack is a layout primitive that arranges elements slotted into it in a single horizontal row.
+Row is a layout primitive that arranges elements slotted into it in a single horizontal row.
 It uses Flexbox under the hood, stacking slotted elements from left to right.
 
 ## Usage
 
-Import the `<forge-h-stack>` component:
+Import the `<forge-row>` component:
 
 ```javascript
-import '@jack-henry/jh-elements/components/h-stack/h-stack.js';
+import '@jack-henry/jh-elements/components/row/row.js';
 ```
 
 Place elements in the default slot. Each slotted element becomes a flex item stacked horizontally:
 
 ```html
-<forge-h-stack gap="100" align="center">
+<forge-row gap="100" align="center">
   <jh-button label="Save"></jh-button>
   <jh-button label="Cancel"></jh-button>
-</forge-h-stack>
+</forge-row>
 ```
 
 ## Spacing
@@ -44,9 +44,9 @@ Place elements in the default slot. Each slotted element becomes a flex item sta
 Both accept the same values: `0`, `25`, `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, and `1000`.
 
 ```html
-<forge-h-stack gap="200" padding="100">
+<forge-row gap="200" padding="100">
   <!-- slotted elements -->
-</forge-h-stack>
+</forge-row>
 ```
 
 ## Alignment
@@ -57,9 +57,9 @@ Both accept the same values: `0`, `25`, `50`, `100`, `200`, `300`, `400`, `500`,
 - `justify` sets the main-axis (horizontal) distribution via `justify-content`: `start`, `end`, `center`, `between`, `around`, or `evenly`.
 
 ```html
-<forge-h-stack align="center" justify="between">
+<forge-row align="center" justify="between">
   <!-- slotted elements -->
-</forge-h-stack>
+</forge-row>
 ```
 
 ## Wrapping
@@ -67,18 +67,18 @@ Both accept the same values: `0`, `25`, `50`, `100`, `200`, `300`, `400`, `500`,
 By default slotted elements stay on a single line and may overflow the container. Add the boolean `wrap` attribute to let slotted elements reflow onto new lines when they run out of space along the main axis.
 
 ```html
-<forge-h-stack wrap gap="100">
+<forge-row wrap gap="100">
   <!-- slotted elements -->
-</forge-h-stack>
+</forge-row>
 ```
 
 ## Composition
 
-Layout primitives are designed to compose. Because `<forge-h-stack>` is itself a valid flex child, it nests freely inside `<forge-v-stack>` and other `<forge-h-stack>` containers. See [Layout Composition](?path=/docs/primitives-layout-composition--docs) for common patterns such as toolbars, card layouts, and form rows.
+Layout primitives are designed to compose. Because `<forge-row>` is itself a valid flex child, it nests freely inside `<forge-column>` and other `<forge-row>` containers. See [Layout Composition](?path=/docs/primitives-layout-composition--docs) for common patterns such as toolbars, card layouts, and form rows.
 
 ## Component API
 
-For boolean attributes, true indicates that the attribute has been set without a value: `<forge-h-stack wrap></forge-h-stack>`. While false indicates the attribute does not exist in the DOM: `<forge-h-stack></forge-h-stack>`.
+For boolean attributes, true indicates that the attribute has been set without a value: `<forge-row wrap></forge-row>`. While false indicates the attribute does not exist in the DOM: `<forge-row></forge-row>`.
 
 <ArgTypes />
 

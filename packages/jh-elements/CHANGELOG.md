@@ -1,5 +1,13 @@
 # @jack-henry/jh-elements
 
+## 2.3.1
+
+### Patch Changes
+
+- Updated dependencies [[`265d0cc`](https://github.com/Banno/jack-henry-design-system/commit/265d0cc42f374fc890440c68e674b88f7420b199), [`a9ebb17`](https://github.com/Banno/jack-henry-design-system/commit/a9ebb17914447e25893ad73655bfa9e215ae3728), [`efbec00`](https://github.com/Banno/jack-henry-design-system/commit/efbec00e22ee28d6450b6c2030edf1a97de6f579), [`aec4f73`](https://github.com/Banno/jack-henry-design-system/commit/aec4f736781bac427d20d5459bdf2b1513ba289a)]:
+  - @jack-henry/jh-tokens@2.1.0
+  - @jack-henry/jh-icons@2.2.0
+
 ## 2.3.0
 
 ### Minor Changes

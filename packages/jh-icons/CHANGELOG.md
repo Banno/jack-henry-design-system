@@ -1,5 +1,17 @@
 # @jack-henry/jh-icons
 
+## 2.2.0
+
+### Minor Changes
+
+- [#329](https://github.com/Banno/jack-henry-design-system/pull/329) [`a9ebb17`](https://github.com/Banno/jack-henry-design-system/commit/a9ebb17914447e25893ad73655bfa9e215ae3728) Thanks [@abissier](https://github.com/abissier)! - Adds arrow-rotate-left and ellipsis-vertical icons.
+
+- [#330](https://github.com/Banno/jack-henry-design-system/pull/330) [`aec4f73`](https://github.com/Banno/jack-henry-design-system/commit/aec4f736781bac427d20d5459bdf2b1513ba289a) Thanks [@abissier](https://github.com/abissier)! - Generates icons with new size fallback styles.
+
+### Patch Changes
+
+- [#303](https://github.com/Banno/jack-henry-design-system/pull/303) [`efbec00`](https://github.com/Banno/jack-henry-design-system/commit/efbec00e22ee28d6450b6c2030edf1a97de6f579) Thanks [@stephhubka](https://github.com/stephhubka)! - `generate-wc.js` now resolves its hygen template relative to the script instead of the current working directory, so it works from any cwd. Repeated identical failures are grouped into a single line with a count, and a missing-template failure names the path where the template was expected.
+
 ## 2.1.2
 
 ### Patch Changes

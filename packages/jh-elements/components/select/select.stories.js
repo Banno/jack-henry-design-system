@@ -70,6 +70,9 @@ const disableControls = {
   size: { control: { disable: true } },
   value: { control: { disable: true } },
   'flip-disabled': { control: { disable: true } },
+  searchable: { control: { disable: true } },
+  'no-results-text': { control: { disable: true } },
+  'allow-custom': { control: { disable: true } },
 }
 
 function logCustomEvent(name, e) {
@@ -95,7 +98,7 @@ export default {
       (story) => html`
         <div class="story-decorator"
           @jh-change=${(e) => logCustomEvent('jh-change', e)}
-          @jh-select=${(e) => logCustomEvent('jh-select', e)}
+          @jh-custom-add=${(e) => logCustomEvent('jh-custom-add', e)}
         >
           ${story()}
         </div>
@@ -149,6 +152,18 @@ export default {
       description: 'Sets the value of the select programmatically.',
     },
     'flip-disabled': { control: 'boolean' },
+    searchable: {
+      control: 'boolean',
+      description: 'Allows users to type in the input field to filter the list of options.',
+    },
+    'no-results-text': {
+      control: 'text',
+      description: 'Sets the message shown in the menu when a search returns no matching options. Only applies when `searchable` is set.',
+    },
+    'allow-custom': {
+      control: 'boolean',
+      description: 'Allows users to enter custom values that are not present in the list of options.',
+    },
     // Hide inherited jh-input slots
     'jh-input-right': { table: { disable: true } },
     'jh-input-left': { table: { disable: true } },
@@ -219,9 +234,41 @@ Overview.argTypes = {
   ...disableControls,
 };
 
+export const Searchable = { render: (args) => html`
+  <div class="select-container">
+    <jh-select searchable label="Select a state" helper-text="Type to filter the options" .options=${US_STATES_FLAT}></jh-select>
+  </div>
+`};
+
+Searchable.tags = ['new'];
+
+Searchable.argTypes = {
+  ...disableControls,
+};
+
+Searchable.parameters = {
+  styles: storyStyles,
+};
+
+export const CustomValues = { render: (args) => html`
+  <div class="select-container">
+    <jh-select searchable allow-custom label="Select an account" helper-text="Type to filter, or enter a custom value" .options=${testOptions} value="cc-travel"></jh-select>
+  </div>
+`};
+
+CustomValues.tags = ['new'];
+
+CustomValues.argTypes = {
+  ...disableControls,
+};
+
+CustomValues.parameters = {
+  styles: storyStyles,
+};
+
 export const Playground = { render: (args) => html`
   <div class="select-container">
-  <jh-select
+  <jh-select ?allow-custom=${args['allow-custom']}
     accessible-label=${ifDefined(args['accessible-label'] === '' ? null : args['accessible-label'])}
     ?disabled=${args.disabled}
     error-text=${ifDefined(args['error-text'] === '' ? null : args['error-text'])}
@@ -237,6 +284,8 @@ export const Playground = { render: (args) => html`
     ?show-indicator=${args['show-indicator']}
     size=${args.size}
     ?flip-disabled=${args['flip-disabled']}
+    ?searchable=${args.searchable}
+    no-results-text=${ifDefined(args['no-results-text'] === '' ? null : args['no-results-text'])}
     .options=${testOptions}
     value=${args.value}
   ></jh-select>
@@ -245,8 +294,6 @@ export const Playground = { render: (args) => html`
 
 Playground.args = {
   'accessible-label': null,
-  'accessible-label-clear-button': null,
-  autocomplete: null,
   disabled: false,
   'error-text': 'Error text',
   'helper-text': 'Helper text',
@@ -258,10 +305,12 @@ Playground.args = {
   'menu-position': 'bottom',
   readonly: false,
   required: false,
-  'show-clear-button': false,
+  'allow-custom': false,
   'show-indicator': false,
   size: 'medium',
   'flip-disabled': false,
+  searchable: false,
+  'no-results-text': 'No results found.',
   value: "",
 };
 

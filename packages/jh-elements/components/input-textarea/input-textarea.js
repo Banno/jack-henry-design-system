@@ -97,12 +97,6 @@ export class JhInputTextarea extends JhInput {
         scroll-padding: var(--textarea-large-padding);
       }
       /** textarea states */
-      textarea:active {
-        border-color: var(
-          --jh-input-field-color-border-active,
-          var(--jh-color-content-brand-active)
-        );
-      }
       textarea:hover {
         border-color: var(
           --jh-input-field-color-border-hover,

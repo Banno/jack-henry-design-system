@@ -184,7 +184,6 @@ export default {
     '--jh-input-color-focus': { table: { disable: true } },
     '--jh-input-field-color-border-focus': { table: { disable: true } },
     '--jh-input-field-color-border-hover': { table: { disable: true } },
-    '--jh-input-field-color-border-active': { table: { disable: true } },
     '--jh-input-field-color-border-disabled': { table: { disable: true } },
     '--jh-input-opacity-disabled': { table: { disable: true } },
     '--jh-input-field-color-border-error': { table: { disable: true } },

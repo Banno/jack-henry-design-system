@@ -16,11 +16,11 @@
               "name": "--jh-badge-border-radius"
             },
             {
-              "description": "The badge background color. Defaults to `--jh-color-content-negative-enabled`.",
+              "description": "The badge background color for the `negative` (default) appearance only. Defaults to `--jh-color-content-negative-enabled`.",
               "name": "--jh-badge-color-background-enabled"
             },
             {
-              "description": "The badge text color. Defaults to `--jh-color-content-on-negative-enabled`.",
+              "description": "The badge text color for the `negative` (default) appearance only. Defaults to `--jh-color-content-on-negative-enabled`.",
               "name": "--jh-badge-color-text-enabled"
             }
           ],
@@ -46,6 +46,18 @@
               "description": "Sets the max count to show. Appends `+` to the `max-count` when value is exceeded.",
               "default": "99",
               "attribute": "max-count"
+            },
+            {
+              "kind": "field",
+              "name": "appearance",
+              "privacy": "public",
+              "type": {
+                "text": "'negative' | 'neutral'"
+              },
+              "description": "`negative` (default) means act — unread, overdue, failed. `neutral` means count — items, selected. `neutral` is not customizable.",
+              "default": "'negative'",
+              "attribute": "appearance",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -107,6 +119,15 @@
               "description": "Number to show within the badge. If no `count` is supplied, Badge will render as a dot.",
               "default": "null",
               "fieldName": "count"
+            },
+            {
+              "name": "appearance",
+              "type": {
+                "text": "'negative' | 'neutral'"
+              },
+              "description": "`negative` (default) means act — unread, overdue, failed. `neutral` means count — items, selected. `neutral` is not customizable.",
+              "default": "'negative'",
+              "fieldName": "appearance"
             }
           ],
           "superclass": {

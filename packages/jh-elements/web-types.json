@@ -26,6 +26,14 @@
                 "type": "number | null",
                 "default": "null"
               }
+            },
+            {
+              "name": "appearance",
+              "description": "`negative` (default) means act — unread, overdue, failed. `neutral` means count — items, selected. `neutral` is not customizable.",
+              "value": {
+                "type": "'negative' | 'neutral'",
+                "default": "'negative'"
+              }
             }
           ],
           "events": [],
@@ -40,6 +48,11 @@
                 "name": "maxCount",
                 "description": "Sets the max count to show. Appends `+` to the `max-count` when value is exceeded.",
                 "type": "number | null"
+              },
+              {
+                "name": "appearance",
+                "description": "`negative` (default) means act — unread, overdue, failed. `neutral` means count — items, selected. `neutral` is not customizable.",
+                "type": "'negative' | 'neutral'"
               },
               {
                 "name": "uniqueId",
@@ -6788,11 +6801,11 @@
         },
         {
           "name": "--jh-badge-color-background-enabled",
-          "description": "The badge background color. Defaults to `--jh-color-content-negative-enabled`."
+          "description": "The badge background color for the `negative` (default) appearance only. Defaults to `--jh-color-content-negative-enabled`."
         },
         {
           "name": "--jh-badge-color-text-enabled",
-          "description": "The badge text color. Defaults to `--jh-color-content-on-negative-enabled`."
+          "description": "The badge text color for the `negative` (default) appearance only. Defaults to `--jh-color-content-on-negative-enabled`."
         },
         {
           "name": "--jh-button-color-background-primary-enabled",

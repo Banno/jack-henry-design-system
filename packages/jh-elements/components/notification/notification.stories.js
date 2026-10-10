@@ -82,6 +82,11 @@ export default {
       control: { type: 'text' },
     },
   },
+  parameters: {
+    actions: {
+      disable: true
+    },
+  },
 };
 
 export const Overview = {
@@ -108,6 +113,9 @@ export const Overview = {
 
 Overview.parameters = {
   styles: storyStyles,
+  actions: {
+    disable: false
+  },
 };
 
 Overview.argTypes = {
@@ -147,6 +155,9 @@ Playground.args = {
 Playground.parameters = {
   theme: 'both-themes',
   styles: storyStyles,
+  actions: {
+    disable: false
+  },
 };
 
 export const Banner = {

@@ -5,6 +5,7 @@
 import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { JhElement } from '../element/element.js';
+import { ValidationController } from '../../controllers/validationController.js';
 
 /**
  * Radio groups contain sets of radios from which only one option can be selected. 
@@ -36,6 +37,7 @@ export class JhRadioGroup extends JhElement {
   #checked;
   /** @type {string | null} */
   #value;
+  #validation = new ValidationController(this, { isGroupControl: true });
 
   static get styles() {
     return css`
@@ -280,7 +282,15 @@ export class JhRadioGroup extends JhElement {
 
   /** @type {ValidityState} */
   get validity() {
-    return this.internals.validity;
+    return this.#validation.validity;
+  }
+
+  checkValidity() {
+    return this.#validation.checkValidity();
+  }
+
+  formResetCallback() {
+    this.#validation.reset();
   }
 
   /**

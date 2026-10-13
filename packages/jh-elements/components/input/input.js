@@ -5,6 +5,7 @@
 import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { JhElement } from '../element/element.js';
+import { ValidationController } from '../../controllers/validationController.js';
 import '../button/button.js';
 import '@jack-henry/jh-icons/icons-wc/icon-circle-xmark.js';
 
@@ -83,6 +84,7 @@ export class JhInput extends JhElement {
   #maskMetaCharIndexes;
   /** @type {Array} */
   #maskFixedCharIndexes;
+  #validation = new ValidationController(this);
   /** @type {Object} */
   #regexSubset = {
     // digits -> phone numbers, CC, etc
@@ -398,7 +400,7 @@ export class JhInput extends JhElement {
       horizontalAlign: { type: String, attribute: 'horizontal-align' },
       inputMask: { type: String, attribute: 'input-mask' },
       inputmode: { type: String },
-      invalid: { type: Boolean },
+      invalid: { type: Boolean, reflect: true },
       label: { type: String },
       maxlength: { type: Number },
       minlength: { type: Number },
@@ -686,6 +688,19 @@ export class JhInput extends JhElement {
   /** @type {HTMLFormElement | null} */
   get form() {
     return this.internals.form;
+  }
+
+  /** @type {ValidityState} */
+  get validity() {
+    return this.#validation.validity;
+  }
+
+  checkValidity() {
+    return this.#validation.checkValidity();
+  }
+
+  formResetCallback() {
+    this.#validation.reset();
   }
 
   /**

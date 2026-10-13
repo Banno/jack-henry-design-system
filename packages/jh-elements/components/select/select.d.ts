@@ -44,6 +44,7 @@
  * @cssprop --jh-select-item-color-border-selected - The list item border color when selected. Defaults to `--jh-border-selected-color`.
  * @cssprop --jh-select-item-space-padding-left-indent - The additional left padding for grouped list items. Defaults to `--jh-dimension-200`.
  * @cssprop --jh-select-item-icon-color-fill - The list item icon color, such as the custom-add option icon. Defaults to `--jh-color-content-secondary-enabled`.
+ * @cssprop --jh-select-no-results-color-text - The text color for the "no results" message. Defaults to `--jh-color-content-secondary-enabled`.
  *
  * @slot jh-select-trigger-left - Use to insert an element such as an icon on the left side of the select input field.
  * @slot jh-select-trigger-open - Use to replace the default chevron icon displayed when the select menu is open.

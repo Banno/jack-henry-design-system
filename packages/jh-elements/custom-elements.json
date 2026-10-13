@@ -15517,6 +15517,10 @@
               "name": "--jh-select-item-icon-color-fill"
             },
             {
+              "description": "The text color for the \"no results\" message. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-select-no-results-color-text"
+            },
+            {
               "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`.",
               "name": "--jh-input-label-color-text",
               "inheritedFrom": {

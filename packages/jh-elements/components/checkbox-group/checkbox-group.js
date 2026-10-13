@@ -4,6 +4,7 @@
 
 import { css, html } from 'lit';
 import { JhElement } from '../element/element.js';
+import { ValidationController } from '../../controllers/validationController.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
@@ -30,6 +31,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  */
 export class JhCheckboxGroup extends JhElement {
   #previousSelectedValue = [];
+  #validation = new ValidationController(this, { isGroupControl: true });
 
 
   static get styles() {

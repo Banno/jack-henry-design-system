@@ -488,10 +488,16 @@ export class JhSelect extends JhInput {
       if (!this.#open) {
         this.#handleOpenSelect({ keyboard: true });
       } else {
+        // First arrow after a passive (search/type-ahead) highlight engages the current item, not the next
+        const wasPassive = !this.#keyboardNav && this.#activeIndex !== null;
         this.#keyboardNav = true;
-        const selectedIdx = this.#flatOptions.findIndex(
-          (opt) => String(opt.value) === String(this.value));
-        this.#setActiveItem((this.#activeIndex ?? selectedIdx) + 1);
+        if (wasPassive) {
+          this.#setActiveItem(this.#activeIndex);
+        } else {
+          const selectedIdx = this.#flatOptions.findIndex(
+            (opt) => String(opt.value) === String(this.value));
+          this.#setActiveItem((this.#activeIndex ?? selectedIdx) + 1);
+        }
       }
       return;
 
@@ -500,11 +506,17 @@ export class JhSelect extends JhInput {
         if (!this.#open) {
           this.#handleOpenSelect({ keyboard: true });
         } else {
+          // First arrow after a passive (search/type-ahead) highlight engages the current item, not the previous
+          const wasPassive = !this.#keyboardNav && this.#activeIndex !== null;
           this.#keyboardNav = true;
-          const selectedIdx = this.#flatOptions.findIndex(
-            (opt) => String(opt.value) === String(this.value));
-          this.#setActiveItem(
-            (this.#activeIndex ?? (selectedIdx !== -1 ? selectedIdx : this.#flatOptions.length)) - 1);
+          if (wasPassive) {
+            this.#setActiveItem(this.#activeIndex);
+          } else {
+            const selectedIdx = this.#flatOptions.findIndex(
+              (opt) => String(opt.value) === String(this.value));
+            this.#setActiveItem(
+              (this.#activeIndex ?? (selectedIdx !== -1 ? selectedIdx : this.#flatOptions.length)) - 1);
+          }
         }
         return;
 

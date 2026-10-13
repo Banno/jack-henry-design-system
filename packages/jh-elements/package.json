@@ -18,6 +18,7 @@
   "files": [
     "components/**/!(*.stories).js",
     "components/**/*.d.ts",
+    "controllers",
     "utils",
     "custom-elements.json",
     "web-types.json",

@@ -27,7 +27,6 @@
  * @cssprop --jh-select-input-field-color-border-focus - The input field border-color when in focus. Defaults to `--jh-color-content-brand-hover`.
  * @cssprop --jh-select-input-color-focus - The input field outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.
  * @cssprop --jh-select-input-field-color-border-hover - The input field border-color when hovered. Defaults to `--jh-color-content-brand-hover`.
- * @cssprop --jh-select-input-field-color-border-active - The input field border-color when active. Defaults to `--jh-color-content-brand-active`.
  * @cssprop --jh-select-input-field-color-border-disabled - The input field border-color when disabled. Defaults to `--jh-border-control-color`.
  * @cssprop --jh-select-opacity-disabled - The select opacity when disabled. Defaults to `--jh-opacity-disabled`.
  * @cssprop --jh-select-error-color-text - The error message text color. Defaults to `jh-color-content-negative-enabled`.

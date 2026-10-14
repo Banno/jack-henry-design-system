@@ -8,7 +8,7 @@
 
 // returns a filtered list of terms that include the search term in the specified key (default is 'label')
 export const JhFilter = {
-  filterList(items, searchTerm, key = 'label') {
+  filterList(items, searchTerm, allowCustom, key = 'label') {
     if (!items || items.length === 0) {
       return [];
     }
@@ -16,6 +16,11 @@ export const JhFilter = {
       return items;
     }
     const lowerSearchTerm = searchTerm.toLowerCase();
+    const hasExact = items.some(
+      (item) => String(item[key] || '').toLowerCase() === lowerSearchTerm);
+    if (allowCustom && !hasExact) {
+      items = [...items, { value: searchTerm, label: searchTerm, custom: true }];
+    }
     return items.filter((item) =>
       String(item[key] || '')
         .toLowerCase()

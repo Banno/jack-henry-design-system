@@ -585,7 +585,7 @@
     "item": "primary",
     "subItem": "enabled",
     "value": "jh-color-gray-900",
-    "computedValue": "#2c2c2cff",
+    "computedValue": "#202020ff",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -599,7 +599,7 @@
     "item": "primary",
     "subItem": "hover",
     "value": "jh-color-gray-950",
-    "computedValue": "#202020ff",
+    "computedValue": "#161616ff",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -1383,6 +1383,19 @@
     "deprecatedMessage": ""
   },
   {
+    "name": "Color Gray 0",
+    "token": "jh-color-gray-0",
+    "alias": false,
+    "description": "Gray 0",
+    "category": "color",
+    "type": "gray",
+    "item": "0",
+    "value": "#ffffffff",
+    "computedValue": "#ffffffff",
+    "deprecated": false,
+    "deprecatedMessage": ""
+  },
+  {
     "name": "Color Gray 50",
     "token": "jh-color-gray-50",
     "alias": false,
@@ -1585,8 +1598,8 @@
     "category": "color",
     "type": "gray",
     "item": "800",
-    "value": "#3e3e3eff",
-    "computedValue": "#3e3e3eff",
+    "value": "#343434ff",
+    "computedValue": "#343434ff",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -1598,8 +1611,8 @@
     "category": "color",
     "type": "gray",
     "item": "850",
-    "value": "#343434ff",
-    "computedValue": "#343434ff",
+    "value": "#2c2c2cff",
+    "computedValue": "#2c2c2cff",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -1611,8 +1624,8 @@
     "category": "color",
     "type": "gray",
     "item": "900",
-    "value": "#2c2c2cff",
-    "computedValue": "#2c2c2cff",
+    "value": "#202020ff",
+    "computedValue": "#202020ff",
     "deprecated": false,
     "deprecatedMessage": ""
   },
@@ -1624,8 +1637,21 @@
     "category": "color",
     "type": "gray",
     "item": "950",
-    "value": "#202020ff",
-    "computedValue": "#202020ff",
+    "value": "#161616ff",
+    "computedValue": "#161616ff",
+    "deprecated": false,
+    "deprecatedMessage": ""
+  },
+  {
+    "name": "Color Gray 1000",
+    "token": "jh-color-gray-1000",
+    "alias": false,
+    "description": "Gray 1000",
+    "category": "color",
+    "type": "gray",
+    "item": "1000",
+    "value": "#000000ff",
+    "computedValue": "#000000ff",
     "deprecated": false,
     "deprecatedMessage": ""
   },

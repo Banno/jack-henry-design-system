@@ -190,6 +190,15 @@
       }
     },
     "gray": {
+      "0": {
+        "$value": "#ffffffff",
+        "$description": "Gray 0",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
       "50": {
         "$value": "#f4f4f4ff",
         "$description": "Gray 50",
@@ -326,7 +335,7 @@
         }
       },
       "800": {
-        "$value": "#3e3e3eff",
+        "$value": "#343434ff",
         "$description": "Gray 800",
         "$extensions": {
           "alias": false,
@@ -335,7 +344,7 @@
         }
       },
       "850": {
-        "$value": "#343434ff",
+        "$value": "#2c2c2cff",
         "$description": "Gray 850",
         "$extensions": {
           "alias": false,
@@ -344,7 +353,7 @@
         }
       },
       "900": {
-        "$value": "#2c2c2cff",
+        "$value": "#202020ff",
         "$description": "Gray 900",
         "$extensions": {
           "alias": false,
@@ -353,8 +362,17 @@
         }
       },
       "950": {
-        "$value": "#202020ff",
+        "$value": "#161616ff",
         "$description": "Gray 950",
+        "$extensions": {
+          "alias": false,
+          "deprecated": false,
+          "deprecatedMessage": ""
+        }
+      },
+      "1000": {
+        "$value": "#000000ff",
+        "$description": "Gray 1000",
         "$extensions": {
           "alias": false,
           "deprecated": false,

@@ -934,7 +934,7 @@
               "name": "--jh-card-color-background"
             },
             {
-              "description": "The card border-radius. Defaults to `--jh-border-radius-200`. Also applied to the top corners of the media slot.",
+              "description": "The card border-radius. Defaults to `--jh-border-radius-200`. Also applied to the top corners of the media slot unless `--jh-card-media-border-radius` is set.",
               "name": "--jh-card-border-radius"
             },
             {
@@ -942,8 +942,20 @@
               "name": "--jh-card-color-border"
             },
             {
+              "description": "The card border width. Defaults to `--jh-border-decorative-width`.",
+              "name": "--jh-card-border-width"
+            },
+            {
+              "description": "The card box-shadow. Defaults to `none`. Recommended value: `--jh-shadow-low`.",
+              "name": "--jh-card-elevation"
+            },
+            {
               "description": "The media slot aspect-ratio. Defaults to `auto`.",
               "name": "--jh-card-media-aspect-ratio"
+            },
+            {
+              "description": "The media slot top-corner border-radius. Defaults to `--jh-card-border-radius`.",
+              "name": "--jh-card-media-border-radius"
             },
             {
               "description": "The media slot padding. Defaults to `0`.",
@@ -980,6 +992,10 @@
             {
               "description": "The header subtitle text color. Defaults to `--jh-color-content-secondary-enabled`.",
               "name": "--jh-card-header-subtitle-color-text"
+            },
+            {
+              "description": "The inset for the built-in header and footer dividers. Defaults to `0`. Overridden per divider by header-divider-inset / footer-divider-inset.",
+              "name": "--jh-card-divider-space-inset"
             }
           ],
           "slots": [

@@ -12,9 +12,12 @@ import '../divider/divider.js';
  * 
  * [Card Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-card--docs)
  * @cssprop --jh-card-color-background - The card background-color. Defaults to `--jh-color-container-primary-enabled`.
- * @cssprop --jh-card-border-radius - The card border-radius. Defaults to `--jh-border-radius-200`. Also applied to the top corners of the media slot.
+ * @cssprop --jh-card-border-radius - The card border-radius. Defaults to `--jh-border-radius-200`. Also applied to the top corners of the media slot unless `--jh-card-media-border-radius` is set.
  * @cssprop --jh-card-color-border - The card border color. Defaults to `--jh-border-decorative-color`.
+ * @cssprop --jh-card-border-width - The card border width. Defaults to `--jh-border-decorative-width`.
+ * @cssprop --jh-card-elevation - The card box-shadow. Defaults to `none`. Recommended value: `--jh-shadow-low`.
  * @cssprop --jh-card-media-aspect-ratio - The media slot aspect-ratio. Defaults to `auto`.
+ * @cssprop --jh-card-media-border-radius - The media slot top-corner border-radius. Defaults to `--jh-card-border-radius`.
  * @cssprop --jh-card-media-space-padding - The media slot padding. Defaults to `0`.
  * @cssprop --jh-card-header-color-text - The header text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-card-header-space-padding - The header slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600 0`. When `padding="small"`, defaults to
@@ -29,6 +32,7 @@ import '../divider/divider.js';
  * `padding="none"` and `show-footer-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`.
  * @cssprop --jh-card-header-title-color-text - The header title text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-card-header-subtitle-color-text - The header subtitle text color. Defaults to `--jh-color-content-secondary-enabled`.
+ * @cssprop --jh-card-divider-space-inset - The inset for the built-in header and footer dividers. Defaults to `0`. Overridden per divider by header-divider-inset / footer-divider-inset.
  * 
  * @slot default - Use to insert card body content.
  * @slot jh-card-media - Use to insert media content in the top section of the card. User may need to add additional styling to elements such as border, object-fit, etc.
@@ -51,8 +55,9 @@ export class JhCard extends JhElement {
           var(--border-radius)
         );
         border-color: var(--jh-card-color-border, var(--jh-border-decorative-color));
-        border-width: var(--jh-border-decorative-width);
+        border-width: var(--jh-card-border-width, var(--jh-border-decorative-width));
         border-style: var(--jh-border-decorative-style);
+        box-shadow: var(--jh-card-elevation, none);
         word-break: break-word;
         display: block;
       }
@@ -61,8 +66,8 @@ export class JhCard extends JhElement {
       }
       slot[name='jh-card-media'] {
         padding: var(--jh-card-media-space-padding, 0);
-        border-radius: var(--jh-card-border-radius, var(--border-radius))
-          var(--jh-card-border-radius, var(--border-radius)) 0 0;
+        border-radius: var(--jh-card-media-border-radius, var(--jh-card-border-radius, var(--border-radius)))
+          var(--jh-card-media-border-radius, var(--jh-card-border-radius, var(--border-radius))) 0 0;
         overflow: hidden;
       }
       ::slotted([slot='jh-card-media']) {
@@ -130,6 +135,7 @@ export class JhCard extends JhElement {
       .card-footer-divider {
         margin-top: 0px;
         margin-bottom: 0px;
+        --jh-divider-space-inset: var(--jh-card-divider-space-inset, 0);
       }
       /* padding */
       :host([padding='small']) .display-header,

@@ -934,7 +934,7 @@
               "name": "--jh-card-color-background"
             },
             {
-              "description": "The card border-radius. Defaults to `--jh-border-radius-200`.",
+              "description": "The card border-radius. Defaults to `--jh-border-radius-200`. Also applied to the top corners of the media slot.",
               "name": "--jh-card-border-radius"
             },
             {
@@ -954,7 +954,7 @@
               "name": "--jh-card-header-color-text"
             },
             {
-              "description": "The header slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600 0`. When `padding=\"small\"`, defaults to `--jh-dimension-400 --jh-dimension-400 0`. When `padding=\"small\"` and `show-header-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none'` and `show-header-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`.",
+              "description": "The header slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600 0`. When `padding=\"small\"`, defaults to `--jh-dimension-400 --jh-dimension-400 0`. When `padding=\"small\"` and `show-header-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none\"` and `show-header-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`.",
               "name": "--jh-card-header-space-padding"
             },
             {
@@ -988,11 +988,11 @@
               "name": "default"
             },
             {
-              "description": "Use to insert media content in the top section of the card. User may need to add addtional styling to elements such as border, object-fit, etc.",
+              "description": "Use to insert media content in the top section of the card. User may need to add additional styling to elements such as border, object-fit, etc.",
               "name": "jh-card-media"
             },
             {
-              "description": "Use to insert custom card header layout. Default layout includes `headerTitle` and `headerSubtitle` properties.",
+              "description": "Use to insert custom card header layout. Replaces the default layout; header-title and header-subtitle are ignored when this slot is filled.",
               "name": "jh-card-header"
             },
             {
@@ -1041,7 +1041,7 @@
               "type": {
                 "text": "'small' | 'medium' | 'none'"
               },
-              "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
+              "description": "Sets padding on all slots. none removes horizontal padding from the default slot only; vertical padding and header/footer padding are unchanged. To override, set the component token for the desired slot.",
               "default": "'medium'",
               "attribute": "padding",
               "reflects": true
@@ -1209,7 +1209,7 @@
               "type": {
                 "text": "'small' | 'medium' | 'none'"
               },
-              "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
+              "description": "Sets padding on all slots. none removes horizontal padding from the default slot only; vertical padding and header/footer padding are unchanged. To override, set the component token for the desired slot.",
               "default": "'medium'",
               "fieldName": "padding"
             }

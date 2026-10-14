@@ -259,7 +259,7 @@
         },
         {
           "name": "jh-card",
-          "description": "Cards are content structures that provide an entry point for more complex and detailed information.\n\n[Card Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-card--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert card body content.\n- **jh-card-media** - Use to insert media content in the top section of the card. User may need to add addtional styling to elements such as border, object-fit, etc.\n- **jh-card-header** - Use to insert custom card header layout. Default layout includes `headerTitle` and `headerSubtitle` properties.\n- **jh-card-footer** - Use to insert card footer content.",
+          "description": "Cards are content structures that provide an entry point for more complex and detailed information.\n\n[Card Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-card--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert card body content.\n- **jh-card-media** - Use to insert media content in the top section of the card. User may need to add additional styling to elements such as border, object-fit, etc.\n- **jh-card-header** - Use to insert custom card header layout. Replaces the default layout; header-title and header-subtitle are ignored when this slot is filled.\n- **jh-card-footer** - Use to insert card footer content.",
           "doc-url": "",
           "attributes": [
             {
@@ -320,7 +320,7 @@
             },
             {
               "name": "padding",
-              "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
+              "description": "Sets padding on all slots. none removes horizontal padding from the default slot only; vertical padding and header/footer padding are unchanged. To override, set the component token for the desired slot.",
               "value": {
                 "type": "'small' | 'medium' | 'none'",
                 "default": "'medium'"
@@ -334,11 +334,11 @@
             },
             {
               "name": "jh-card-media",
-              "description": "Use to insert media content in the top section of the card. User may need to add addtional styling to elements such as border, object-fit, etc."
+              "description": "Use to insert media content in the top section of the card. User may need to add additional styling to elements such as border, object-fit, etc."
             },
             {
               "name": "jh-card-header",
-              "description": "Use to insert custom card header layout. Default layout includes `headerTitle` and `headerSubtitle` properties."
+              "description": "Use to insert custom card header layout. Replaces the default layout; header-title and header-subtitle are ignored when this slot is filled."
             },
             {
               "name": "jh-card-footer",
@@ -365,7 +365,7 @@
               },
               {
                 "name": "padding",
-                "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
+                "description": "Sets padding on all slots. none removes horizontal padding from the default slot only; vertical padding and header/footer padding are unchanged. To override, set the component token for the desired slot.",
                 "type": "'small' | 'medium' | 'none'"
               },
               {
@@ -7247,7 +7247,7 @@
         },
         {
           "name": "--jh-card-border-radius",
-          "description": "The card border-radius. Defaults to `--jh-border-radius-200`."
+          "description": "The card border-radius. Defaults to `--jh-border-radius-200`. Also applied to the top corners of the media slot."
         },
         {
           "name": "--jh-card-color-border",
@@ -7267,7 +7267,7 @@
         },
         {
           "name": "--jh-card-header-space-padding",
-          "description": "The header slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600 0`. When `padding=\"small\"`, defaults to `--jh-dimension-400 --jh-dimension-400 0`. When `padding=\"small\"` and `show-header-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none'` and `show-header-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`."
+          "description": "The header slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600 0`. When `padding=\"small\"`, defaults to `--jh-dimension-400 --jh-dimension-400 0`. When `padding=\"small\"` and `show-header-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none\"` and `show-header-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`."
         },
         {
           "name": "--jh-card-default-color-text",

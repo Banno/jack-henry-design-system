@@ -44,9 +44,13 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * @cssprop --jh-list-item-space-padding-bottom - The bottom padding on the list-item container. Defaults to `--jh-dimension-400`.
  * @cssprop --jh-list-item-size-height - The list-item's height. Defaults to `auto`.
  * @cssprop --jh-list-item-color-background-focus - The list-item background-color when interactive and focused.
- * Defaults to `--jh-color-container-primary-hover`.
+ * Defaults to `transparent` (focus is indicated by the outline only).
  * @cssprop --jh-list-item-color-focus - The list-item outline when it is interactive and receives keyboard focus.
  * Defaults to `--jh-border-focus-color`.
+ * @cssprop --jh-list-item-color-state-hover - The translucent state layer painted over the list-item when interactive and hovered.
+ * Defaults to `--jh-color-state-hover`.
+ * @cssprop --jh-list-item-color-state-active - The translucent state layer painted over the list-item when interactive and active.
+ * Defaults to `--jh-color-state-active`.
  * @cssprop --jh-list-item-color-background-hover - The list-item background-color when interactive and hovered.
  * Defaults to `--jh-color-container-primary-hover`.
  * @cssprop --jh-list-item-color-background-active - The list-item background-color when interactive and active.
@@ -55,9 +59,12 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * Defaults to `transparent`.
  * @cssprop --jh-list-item-opacity-disabled - The list-item opacity when interactive and disabled.
  * Defaults to `--jh-opacity-disabled`.
- * @cssprop --jh-list-item-color-background-selected - The list-item background-color when interactive and selected. Defaults to `--jh-color-container-primary-selected`.
+ * @cssprop --jh-list-item-color-background-selected - The list-item background-color when interactive and selected.
+ * Defaults to `--jh-color-state-selected` (a translucent blue layer).
  * @cssprop --jh-list-item-color-border-selected - The list-item border-left-color when interactive and selected.
- * Defaults to `--jh-border-selected-color`.
+ * Defaults to `--jh-border-selected-color`. Only visible when `--jh-list-item-border-selected-width` is set.
+ * @cssprop --jh-list-item-border-selected-width - The width of the optional left bar on a selected list-item.
+ * Defaults to `0` (no bar). Set to `--jh-dimension-100` for navigation lists.
  * @cssprop --jh-list-item-metadata-color-text-primary-enabled - The primary metadata text color.
  * Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-list-item-metadata-color-text-primary-focus - The primary metadata text color when interactive and focused.
@@ -121,6 +128,11 @@ export class JhListItem extends JhElement {
         flex-direction: row;
         align-items: center;
         box-sizing: border-box;
+        position: relative;
+        isolation: isolate;
+        border-left-style: var(--jh-border-selected-style);
+        border-left-width: var(--jh-list-item-border-selected-width, 0);
+        border-left-color: transparent;
       }
       .secondary-text {
         color: var(
@@ -155,16 +167,22 @@ export class JhListItem extends JhElement {
         display: block;
         word-break: break-word;
       }
+      /* state layer: a translucent overlay so hover/active stack on any background (incl. selected) */
+      .list-item::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: -1;
+        background-color: transparent;
+      }
       /* states for interactive list-items*/
       :host([tabindex]:focus-visible) {
         color: var(
           --jh-list-item-color-text-primary-focus,
           var(--jh-list-item-color-text-primary-enabled, var(--jh-color-content-primary-enabled))
         );
-        background-color: var(
-          --jh-list-item-color-background-focus,
-          var(--jh-color-container-primary-hover)
-        );
+        background-color: var(--jh-list-item-color-background-focus, transparent);
         outline-color: var(
           --jh-list-item-color-focus,
           var(--jh-border-focus-color)
@@ -198,11 +216,16 @@ export class JhListItem extends JhElement {
           --jh-list-item-color-text-primary-hover,
           var(--jh-list-item-color-text-primary-enabled, var(--jh-color-content-primary-enabled))
         );
-        background-color: var(
-          --jh-list-item-color-background-hover,
-          var(--jh-color-container-primary-hover)
-        );
         cursor: pointer;
+      }
+      :host([tabindex]:hover) .list-item::before {
+        background-color: var(
+          --jh-list-item-color-state-hover,
+          var(
+            --jh-list-item-color-background-hover,
+            var(--jh-color-state-hover)
+          )
+        );
       }
       :host([tabindex]:hover) .secondary-text {
         color: var(
@@ -229,9 +252,14 @@ export class JhListItem extends JhElement {
           --jh-list-item-color-text-primary-active,
           var(--jh-list-item-color-text-primary-enabled, var(--jh-color-content-primary-enabled))
         );
+      }
+      :host([tabindex]:active) .list-item::before {
         background-color: var(
-          --jh-list-item-color-background-active,
-          var(--jh-color-container-primary-active)
+          --jh-list-item-color-state-active,
+          var(
+            --jh-list-item-color-background-active,
+            var(--jh-color-state-active)
+          )
         );
       }
       :host([tabindex]:active) .secondary-text {
@@ -263,6 +291,9 @@ export class JhListItem extends JhElement {
         cursor: default;
         pointer-events: none;
       }
+      :host([tabindex][disabled]) .list-item::before {
+        background-color: transparent;
+      }
       :host([tabindex][disabled]) .secondary-text {
         color: var(
           --jh-list-item-color-text-secondary-disabled,
@@ -293,7 +324,7 @@ export class JhListItem extends JhElement {
         );
         background-color: var(
           --jh-list-item-color-background-selected,
-          var(--jh-color-container-primary-selected)
+          var(--jh-color-state-selected)
         );
       }
       :host([tabindex][selected]) .secondary-text {
@@ -317,16 +348,15 @@ export class JhListItem extends JhElement {
         );
       }
       :host([tabindex][selected]) .list-item {
+        /* optional left bar — width defaults to 0; nav lists set --jh-list-item-border-selected-width */
         padding-left: calc(var(
           --jh-list-item-space-padding-left,
           var(--jh-dimension-600)
-        ) - var(--jh-border-selected-width));
+        ) - var(--jh-list-item-border-selected-width, 0px));
         border-left-color: var(
           --jh-list-item-color-border-selected,
           var(--jh-border-selected-color)
         );
-        border-left-style: var(--jh-border-selected-style);
-        border-left-width: var(--jh-border-selected-width);
       }
       jh-divider {
         margin-top: 0;

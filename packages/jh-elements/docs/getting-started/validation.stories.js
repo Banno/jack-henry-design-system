@@ -163,6 +163,7 @@ export default {
  * Tab through the fields (or click away) to trigger `focusout` validation and see
  * the `jh-invalid` listener populate contextual `error-text` messages.
  */
+<<<<<<< HEAD
 
 
 const testOptions = [
@@ -175,6 +176,8 @@ const testOptions = [
   { label: "Brokerage Account", value: "brokerage-standard" },
 ];
 
+=======
+>>>>>>> 5e926fa3 (adds validation docs and stories)
 export const FormValidationExample = {
   render: () => html`
     <div id="validation-demo">
@@ -239,7 +242,7 @@ export const FormValidationExample = {
           show-indicator
         ></jh-input-url>
 
-        <jh-checkbox-group label="Interests" helper-text="Select at least one option below" required show-indicator>
+        <jh-checkbox-group label="Interests" helper-text="Select at least two" required min-required="2" show-indicator>
           <jh-checkbox label="Design" name="interests" value="design"></jh-checkbox>
           <jh-checkbox label="Engineering" name="interests" value="engineering"></jh-checkbox>
           <jh-checkbox label="Product" name="interests" value="product"></jh-checkbox>

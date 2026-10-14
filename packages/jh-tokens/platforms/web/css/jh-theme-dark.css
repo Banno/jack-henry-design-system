@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  * 
  * Do not edit directly, this file was auto-generated.
- * Generated on Tue, 07 Apr 2026 18:56:06 GMT
+ * Generated on Fri, 02 Oct 2026 03:23:47 GMT
  */
 
 .jh-theme-dark {
@@ -244,7 +244,7 @@
   --jh-font-micro-regular-font-size: var(--jh-font-size-250);
   --jh-font-micro-regular-font-family: var(--jh-font-family-primary);
   --jh-font-family-mono: 'Roboto Mono', monospace;
-  --jh-font-family-sans: 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif;
+  --jh-font-family-sans: Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif;
   --jh-font-family-primary: var(--jh-font-family-sans);
   --jh-border-radius-pill: 9999px;
   --jh-border-radius-circle: 50%;

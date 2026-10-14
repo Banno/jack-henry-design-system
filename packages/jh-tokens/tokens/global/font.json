@@ -3,7 +3,7 @@
     "family": {
       "$type": "fontFamily",
       "sans": {
-        "$value": ["Roboto Flex", "Roboto", "Helvetica", "Arial", "sans-serif"],
+        "$value": ["Figtree", "Roboto Flex", "Roboto", "Helvetica", "Arial", "sans-serif"],
         "$description": "Sans-serif font family",
         "$extensions": {
           "alias": false,

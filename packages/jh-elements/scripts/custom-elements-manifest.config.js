@@ -12,7 +12,8 @@ export default {
   globs: ['components/**/*.js'],
   /** Globs to exclude */
   exclude: ['components/**/*.stories.js',
-    'components/**/*.d.ts'
+    'components/**/*.d.ts',
+    'components/select/filtering.js',
   ],
   /** Run in dev mode, provides extra logging */
   dev: false,

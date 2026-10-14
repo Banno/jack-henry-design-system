@@ -1,5 +1,21 @@
 # @jack-henry/jh-elements
 
+## 2.4.0
+
+### Minor Changes
+
+- [#256](https://github.com/Banno/jack-henry-design-system/pull/256) [`dd7df61`](https://github.com/Banno/jack-henry-design-system/commit/dd7df6110e44c6c57529e25ac96dbdcf20ba05a8) Thanks [@mayabuserde](https://github.com/mayabuserde)! - [Select] adds searchable filtering, custom values (allow-custom), and screen-reader announcements; updates docs and stories.
+
+- [#348](https://github.com/Banno/jack-henry-design-system/pull/348) [`6710f3c`](https://github.com/Banno/jack-henry-design-system/commit/6710f3c57b3421f42de80dd7bbf2507114b73a5e) Thanks [@abissier](https://github.com/abissier)! - Sets type email on input element so component can be validated against type mismatch.
+
+### Patch Changes
+
+- [#328](https://github.com/Banno/jack-henry-design-system/pull/328) [`31d557a`](https://github.com/Banno/jack-henry-design-system/commit/31d557aa9aa9c63c14174c6997e64748a497c738) Thanks [@mayabuserde](https://github.com/mayabuserde)! - [Input and Select] removes unused active styles and related styling hooks.
+
+- Updated dependencies [[`265d0cc`](https://github.com/Banno/jack-henry-design-system/commit/265d0cc42f374fc890440c68e674b88f7420b199), [`a9ebb17`](https://github.com/Banno/jack-henry-design-system/commit/a9ebb17914447e25893ad73655bfa9e215ae3728), [`efbec00`](https://github.com/Banno/jack-henry-design-system/commit/efbec00e22ee28d6450b6c2030edf1a97de6f579), [`aec4f73`](https://github.com/Banno/jack-henry-design-system/commit/aec4f736781bac427d20d5459bdf2b1513ba289a)]:
+  - @jack-henry/jh-tokens@2.1.0
+  - @jack-henry/jh-icons@2.2.0
+
 ## 2.3.0
 
 ### Minor Changes

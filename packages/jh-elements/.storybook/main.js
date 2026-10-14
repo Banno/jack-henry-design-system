@@ -19,7 +19,7 @@ const config = {
     name: '@storybook/web-components-vite',
     options: {}
   },
-  staticDirs: ['./public'],
+  staticDirs: ['./public', '../../../assets'],
   managerHead: (head) => `
     ${head}
     <link rel="icon" type="image/svg+xml" href="/logos/forge-favicon.svg" />

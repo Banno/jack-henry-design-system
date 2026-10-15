@@ -61,15 +61,15 @@ To control which layer is on top, reorder the elements in your markup.
 
 ## Alignment
 
-`align` and `justify` position every layer within the shared cell:
+`align-y` and `align-x` position every layer within the shared cell:
 
-- `align` sets the block (vertical) axis via `align-items`: `start`, `end`, `center`, or `stretch`.
-- `justify` sets the inline (horizontal) axis via `justify-items`: `start`, `end`, `center`, or `stretch`.
+- `align-y` sets the block (vertical) axis via `align-items`: `start`, `end`, `center`, or `stretch`.
+- `align-x` sets the inline (horizontal) axis via `justify-items`: `start`, `end`, `center`, or `stretch`.
 
-Combine the two to anchor a layer to an edge or corner — for example `align="start"` with `justify="end"` pins a badge to the top-right. Alignment applies to all layers at once; to position a single layer differently, set `align-self` / `justify-self` on that element.
+Combine the two to anchor a layer to an edge or corner — for example `align-y="start"` with `align-x="end"` pins a badge to the top-right. Alignment applies to all layers at once; to position a single layer differently, set `align-self` / `justify-self` on that element.
 
 ```html
-<forge-stack align="start" justify="end">
+<forge-stack align-y="start" align-x="end">
   <div class="avatar"></div>
   <jh-badge count="8" class="inset"></jh-badge>
 </forge-stack>

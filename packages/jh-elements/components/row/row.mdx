@@ -28,7 +28,7 @@ import '@jack-henry/jh-elements/components/row/row.js';
 Place elements in the default slot. Each slotted element becomes a flex item stacked horizontally:
 
 ```html
-<forge-row gap="100" align="center">
+<forge-row gap="100" align-y="center">
   <jh-button label="Save"></jh-button>
   <jh-button label="Cancel"></jh-button>
 </forge-row>
@@ -51,13 +51,13 @@ Both accept the same values: `0`, `25`, `50`, `100`, `200`, `300`, `400`, `500`,
 
 ## Alignment
 
-`align` and `justify` control how slotted elements are positioned:
+`align-y` and `align-x` control how slotted elements are positioned:
 
-- `align` sets the cross-axis (vertical) alignment via `align-items`: `start`, `end`, `center`, `stretch`, or `baseline`.
-- `justify` sets the main-axis (horizontal) distribution via `justify-content`: `start`, `end`, `center`, `between`, `around`, or `evenly`.
+- `align-y` sets the vertical alignment via `align-items`: `start`, `end`, `center`, `stretch`, or `baseline`.
+- `align-x` sets the horizontal distribution via `justify-content`: `start`, `end`, `center`, `between`, `around`, or `evenly`.
 
 ```html
-<forge-row align="center" justify="between">
+<forge-row align-y="center" align-x="between">
   <!-- slotted elements -->
 </forge-row>
 ```

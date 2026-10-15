@@ -426,6 +426,22 @@
               }
             },
             {
+              "name": "min-required",
+              "description": "Specifies the minimum number of child checkboxes that must be checked.",
+              "value": {
+                "type": "number | null",
+                "default": "0"
+              }
+            },
+            {
+              "name": "max-required",
+              "description": "Specifies the maximum number of child checkboxes that can be checked.",
+              "value": {
+                "type": "number | null",
+                "default": "null"
+              }
+            },
+            {
               "name": "show-indicator",
               "description": "Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required` property is also set. For the indicator to be displayed, the `label` property must also be set.",
               "value": {
@@ -517,6 +533,16 @@
                 "name": "label",
                 "description": "Describes the type of data to be collected.",
                 "type": "string | null"
+              },
+              {
+                "name": "minRequired",
+                "description": "Specifies the minimum number of child checkboxes that must be checked.",
+                "type": "number | null"
+              },
+              {
+                "name": "maxRequired",
+                "description": "Specifies the maximum number of child checkboxes that can be checked.",
+                "type": "number | null"
               },
               {
                 "name": "required",

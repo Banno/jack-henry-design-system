@@ -14,8 +14,9 @@ import * as stories from './row.stories.js';
 
 <hr />
 
-Row is a layout primitive that arranges elements slotted into it in a single horizontal row.
-It uses Flexbox under the hood, stacking slotted elements from left to right.
+Row is a layout primitive that arranges elements slotted into it in one or multiple horizontal rows.
+It uses the [CSS Flexbox layout model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox), under the hood, displaying slotted elements from left to right.
+Knowledge of the Flexbox layout model is helpful when using this component, but is not a requirement.
 
 ## Usage
 
@@ -25,7 +26,7 @@ Import the `<forge-row>` component:
 import '@jack-henry/jh-elements/components/row/row.js';
 ```
 
-Place elements in the default slot. Each slotted element becomes a flex item stacked horizontally:
+Place elements in the default slot. Each slotted element is stacked horizontally from left to right:
 
 ```html
 <forge-row gap="100" align-y="center">
@@ -34,9 +35,9 @@ Place elements in the default slot. Each slotted element becomes a flex item sta
 </forge-row>
 ```
 
-## Spacing
+## Spacing between and around slotted elements
 
-`gap` and `padding` both map to the `--jh-dimension-*` token scale, so spacing stays consistent with the rest of the design system.
+The properties `gap` and `padding` both map to the `--jh-dimension-*` token scale, so spacing stays consistent with the rest of the Forge Design System.
 
 - `gap` sets the space between slotted elements.
 - `padding` sets the inner padding between the container edges and its slotted elements.
@@ -51,20 +52,24 @@ Both accept the same values: `0`, `25`, `50`, `100`, `200`, `300`, `400`, `500`,
 
 ## Alignment
 
-`align-y` and `align-x` control how slotted elements are positioned:
+`align-x` and `align-y` control how slotted elements are positioned along the horizontal and vertical axes of the container:
 
-- `align-y` sets the vertical alignment via `align-items`: `start`, `end`, `center`, `stretch`, or `baseline`.
-- `align-x` sets the horizontal distribution via `justify-content`: `start`, `end`, `center`, `between`, `around`, or `evenly`.
+- `align-x` sets the horizontal alignment and maps to `justify-content` in Flexbox terms. The possible values are: `start`, `end`, `center`, `between`, `around`, or `evenly`. Like Flexbox's `flex-start`/`flex-end`, `start` and `end` are relative to text direction.
+- `align-y` sets the vertical alignment and maps to `align-items` in Flexbox terms. The possible values are: `start`, `end`, `center`, `stretch`, or `baseline`.
+
+The distribution values `between`, `around`, and `evenly` apply to `align-x` on a row (the `justify-content` axis); on a `<forge-column>` they move to `align-y`. The `between`, `around`, and `evenly` values also need free space along the horizontal axis to have a visible effect.
 
 ```html
-<forge-row align-y="center" align-x="between">
+<forge-row align-x="between" align-y="center" >
   <!-- slotted elements -->
 </forge-row>
 ```
 
 ## Wrapping
 
-By default slotted elements stay on a single line and may overflow the container. Add the boolean `wrap` attribute to let slotted elements reflow onto new lines when they run out of space along the main axis.
+By default slotted elements stay on a single line and may overflow the container. 
+Add the boolean `wrap` (Flexbox `flex-wrap`) attribute to let slotted elements reflow onto new lines when they run out of space along the horizontal axis, similar to how text wraps within a paragraph.
+
 
 ```html
 <forge-row wrap gap="100">
@@ -74,7 +79,7 @@ By default slotted elements stay on a single line and may overflow the container
 
 ## Composition
 
-Layout primitives are designed to compose. Because `<forge-row>` is itself a valid flex child, it nests freely inside `<forge-column>` and other `<forge-row>` containers. See [Layout Composition](?path=/docs/primitives-layout-composition--docs) for common patterns such as toolbars, card layouts, and form rows.
+Layout primitives are designed to compose. `<forge-row>` can be used freely inside `<forge-column>` and other `<forge-row>` containers. See [Layout Composition](?path=/docs/primitives-layout-composition--docs) for common patterns such as toolbars, card layouts, and form rows.
 
 ## Component API
 

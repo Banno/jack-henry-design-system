@@ -20,14 +20,14 @@ components they use — that's how you'll reach for them.
 
 ## Toolbar / split header
 
-A title on the left with actions grouped on the right. `justify="between"` pushes
+A title on the left with actions grouped on the right. `align-x="between"` pushes
 the two groups to opposite ends of a `<forge-row>`.
 
 <Canvas of={stories.Toolbar} />
 
 ## Split groups
 
-Two groups pushed to opposite ends of the row with `justify="between"`, while each
+Two groups pushed to opposite ends of the row with `align-x="between"`, while each
 nested `<forge-row>` keeps its own `gap`. Use it to separate, say, a set
 of navigation buttons from a set of actions.
 
@@ -36,15 +36,15 @@ of navigation buttons from a set of actions.
 ## Card layout (nested stacks)
 
 A `<forge-column>` whose rows are `<forge-row>`s. Each header/footer
-row can use its own `justify` and `align` — nesting works because a stack is just
+row can use its own `align-x` and `align-y` — nesting works because a stack is just
 another flex child.
 
 <Canvas of={stories.CardLayout} />
 
 ## Form row
 
-A `<forge-column>` of labeled `<forge-row>`s. `align="baseline"`
-keeps labels and values sitting on a shared text baseline, and `justify="between"`
+A `<forge-column>` of labeled `<forge-row>`s. `align-y="baseline"`
+keeps labels and values sitting on a shared text baseline, and `align-x="between"`
 pushes each value to the opposite end of its label.
 
 <Canvas of={stories.FormRow} />

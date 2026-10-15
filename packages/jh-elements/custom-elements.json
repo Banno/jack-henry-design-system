@@ -1286,14 +1286,14 @@
           "default": "\"0\""
         },
         {
-          "name": "align",
-          "description": "Sets the alignment of slotted elements along the cross axis.",
+          "name": "align-x",
+          "description": "Sets the alignment of slotted elements along the horizontal axis.",
           "type": "'start' | 'end' | 'center' | 'stretch' | 'baseline'",
           "default": "\"stretch\""
         },
         {
-          "name": "justify",
-          "description": "Sets the alignment of the slotted elements along the main axis.",
+          "name": "align-y",
+          "description": "Sets the alignment of the slotted elements along the vertical axis.",
           "type": "'start' | 'end' | 'center' | 'between' | 'around' | 'evenly'",
           "default": "\"start\""
         },
@@ -1320,16 +1320,16 @@
           "default": "\"0\""
         },
         {
-          "name": "align",
-          "attribute": "align",
-          "description": "Sets the alignment of slotted elements along the cross axis.",
+          "name": "alignX",
+          "attribute": "align-x",
+          "description": "Sets the alignment of slotted elements along the horizontal axis.",
           "type": "'start' | 'end' | 'center' | 'stretch' | 'baseline'",
           "default": "\"stretch\""
         },
         {
-          "name": "justify",
-          "attribute": "justify",
-          "description": "Sets the alignment of the slotted elements along the main axis.",
+          "name": "alignY",
+          "attribute": "align-y",
+          "description": "Sets the alignment of the slotted elements along the vertical axis.",
           "type": "'start' | 'end' | 'center' | 'between' | 'around' | 'evenly'",
           "default": "\"start\""
         },
@@ -6624,14 +6624,14 @@
           "default": "\"0\""
         },
         {
-          "name": "align",
-          "description": "Sets the alignment of slotted elements along the cross axis.",
+          "name": "align-y",
+          "description": "Sets the alignment of slotted elements along the vertical axis.",
           "type": "'start' | 'end' | 'center' | 'stretch' | 'baseline'",
           "default": "\"stretch\""
         },
         {
-          "name": "justify",
-          "description": "Sets the alignment of the slotted elements along the main axis.",
+          "name": "align-x",
+          "description": "Sets the alignment of the slotted elements along the horizontal axis.",
           "type": "'start' | 'end' | 'center' | 'between' | 'around' | 'evenly'",
           "default": "\"start\""
         },
@@ -6658,16 +6658,16 @@
           "default": "\"0\""
         },
         {
-          "name": "align",
-          "attribute": "align",
-          "description": "Sets the alignment of slotted elements along the cross axis.",
+          "name": "alignY",
+          "attribute": "align-y",
+          "description": "Sets the alignment of slotted elements along the vertical axis.",
           "type": "'start' | 'end' | 'center' | 'stretch' | 'baseline'",
           "default": "\"stretch\""
         },
         {
-          "name": "justify",
-          "attribute": "justify",
-          "description": "Sets the alignment of the slotted elements along the main axis.",
+          "name": "alignX",
+          "attribute": "align-x",
+          "description": "Sets the alignment of the slotted elements along the horizontal axis.",
           "type": "'start' | 'end' | 'center' | 'between' | 'around' | 'evenly'",
           "default": "\"start\""
         },
@@ -7361,30 +7361,30 @@
       "description": "Stack",
       "attributes": [
         {
-          "name": "align",
-          "description": "Sets the alignment of layered elements along the block (vertical) axis.",
+          "name": "align-y",
+          "description": "Sets the alignment of layered elements along the vertical axis.",
           "type": "'start' | 'end' | 'center' | 'stretch'",
           "default": "\"stretch\""
         },
         {
-          "name": "justify",
-          "description": "Sets the alignment of layered elements along the inline (horizontal) axis.",
+          "name": "align-x",
+          "description": "Sets the alignment of layered elements along the horizontal axis.",
           "type": "'start' | 'end' | 'center' | 'stretch'",
           "default": "\"stretch\""
         }
       ],
       "properties": [
         {
-          "name": "align",
-          "attribute": "align",
-          "description": "Sets the alignment of layered elements along the block (vertical) axis.",
+          "name": "alignY",
+          "attribute": "align-y",
+          "description": "Sets the alignment of layered elements along the vertical axis.",
           "type": "'start' | 'end' | 'center' | 'stretch'",
           "default": "\"stretch\""
         },
         {
-          "name": "justify",
-          "attribute": "justify",
-          "description": "Sets the alignment of layered elements along the inline (horizontal) axis.",
+          "name": "alignX",
+          "attribute": "align-x",
+          "description": "Sets the alignment of layered elements along the horizontal axis.",
           "type": "'start' | 'end' | 'center' | 'stretch'",
           "default": "\"stretch\""
         },

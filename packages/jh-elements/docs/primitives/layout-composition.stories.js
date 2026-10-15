@@ -62,13 +62,13 @@ export default {
 
 /**
  * Toolbar / split header — a title on the left with the actions grouped on the
- * right. `justify="between"` pushes the two groups to opposite ends of the row.
+ * right. `align-x="between"` pushes the two groups to opposite ends of the row.
  */
 export const Toolbar = {
   render: () => html`
-    <forge-row class="demo-surface" padding="200" gap="100" align="center" justify="between">
+    <forge-row class="demo-surface" padding="200" gap="100" align-y="center" align-x="between">
       <strong class="text-heading">Account settings</strong>
-      <forge-row gap="100" align="center">
+      <forge-row gap="100" align-y="center">
         <jh-button appearance="secondary" label="Cancel"></jh-button>
         <jh-button appearance="primary" label="Save"></jh-button>
       </forge-row>
@@ -79,12 +79,12 @@ export const Toolbar = {
 
 /**
  * Split groups — two button groups pushed to opposite ends of the row with
- * `justify="between"`, each nested group keeping its own `gap`. Shows the groups
+ * `align-x="between"`, each nested group keeping its own `gap`. Shows the groups
  * separated rather than bunched at one edge.
  */
 export const SplitGroups = {
   render: () => html`
-    <forge-row class="demo-surface" padding="200" gap="100" align="center" justify="between">
+    <forge-row class="demo-surface" padding="200" gap="100" align-y="center" align-x="between">
       <forge-row gap="100">
         <jh-button appearance="secondary" label="Previous"></jh-button>
         <jh-button appearance="secondary" label="Next"></jh-button>
@@ -106,14 +106,14 @@ export const SplitGroups = {
 export const CardLayout = {
   render: () => html`
     <jh-card show-footer-divider>
-      <forge-row slot="jh-card-header" gap="100" align="center" justify="between">
+      <forge-row slot="jh-card-header" gap="100" align-y="center" align-x="between">
         <strong>Payment method</strong>
         <jh-button appearance="secondary" size="small" label="Edit"></jh-button>
       </forge-row>
 
       <span class="demo-block">Visa ending in 4242 — expires 08/28</span>
 
-      <forge-row slot="jh-card-footer" gap="100" justify="end">
+      <forge-row slot="jh-card-footer" gap="100" align-x="end">
         <jh-button appearance="danger" label="Remove"></jh-button>
         <jh-button appearance="primary" label="Set as default"></jh-button>
       </forge-row>
@@ -123,18 +123,18 @@ export const CardLayout = {
 
 
 /**
- * Form row — a vertical stack of labeled horizontal rows, using `align="baseline"`
- * to keep labels and controls on a shared baseline and `justify="between"` to push
+ * Form row — a vertical stack of labeled horizontal rows, using `align-y="baseline"`
+ * to keep labels and controls on a shared baseline and `align-x="between"` to push
  * each value to the opposite end of its label.
  */
 export const FormRow = {
   render: () => html`
     <forge-column class="demo-surface" padding="300" gap="200">
-      <forge-row gap="200" align="baseline" justify="between">
+      <forge-row gap="200" align-y="baseline" align-x="between">
         <span class="text-label" style="min-width: 6rem;">First name</span>
         <span class="demo-block text-body">Ada</span>
       </forge-row>
-      <forge-row gap="200" align="baseline" justify="between">
+      <forge-row gap="200" align-y="baseline" align-x="between">
         <span class="text-label" style="min-width: 6rem;">Last name</span>
         <span class="demo-block text-body">Lovelace</span>
       </forge-row>
@@ -176,7 +176,7 @@ export const Form = {
           <jh-input label="Email" helper-text="We'll send a confirmation here"></jh-input>
         </forge-column>
 
-        <forge-row gap="400" justify="around">
+        <forge-row gap="400" align-x="around">
           <jh-checkbox-group label="Account types" helper-text="Select all that apply">
             <jh-checkbox label="Checking" name="acct-checking"></jh-checkbox>
             <jh-checkbox label="Savings" name="acct-savings"></jh-checkbox>
@@ -190,7 +190,7 @@ export const Form = {
         </forge-row>
       </forge-column>
 
-      <forge-row slot="jh-card-footer" gap="100" align="center" justify="end">
+      <forge-row slot="jh-card-footer" gap="100" align-y="center" align-x="end">
         <jh-button appearance="secondary" label="Cancel"></jh-button>
         <jh-button appearance="primary" label="Create account"></jh-button>
       </forge-row>

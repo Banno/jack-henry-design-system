@@ -22,8 +22,8 @@ const justifyOptions = ['start', 'end', 'center', 'between', 'around', 'evenly']
 const disableControls = {
   gap: { control: { disable: true } },
   padding: { control: { disable: true } },
-  align: { control: { disable: true } },
-  justify: { control: { disable: true } },
+  'align-x': { control: { disable: true } },
+  'align-y': { control: { disable: true } },
   wrap: { control: { disable: true } },
 };
 
@@ -40,11 +40,11 @@ export default {
       control: 'select',
       options: dimensionOptions,
     },
-    align: {
+    'align-x': {
       control: 'select',
       options: alignOptions,
     },
-    justify: {
+    'align-y': {
       control: 'select',
       options: justifyOptions,
     },
@@ -70,8 +70,8 @@ export const Playground = { render: (args) => html`
   <forge-column
     gap=${args.gap}
     padding=${args.padding}
-    align=${args.align}
-    justify=${args.justify}
+    align-x=${args['align-x']}
+    align-y=${args['align-y']}
     ?wrap=${args.wrap}
   >
     <jh-button label="Button 1"></jh-button>
@@ -83,8 +83,8 @@ export const Playground = { render: (args) => html`
 Playground.args = {
   gap: '100',
   padding: '100',
-  align: 'stretch',
-  justify: 'start',
+  'align-x': 'stretch',
+  'align-y': 'start',
   wrap: false,
 };
 

@@ -52,17 +52,17 @@ export class ForgeRow extends JhElement {
       :host([padding="800"]) { padding: var(--forge-row-padding, var(--jh-dimension-800)); }
       :host([padding="900"]) { padding: var(--forge-row-padding, var(--jh-dimension-900)); }
       :host([padding="1000"]) { padding: var(--forge-row-padding, var(--jh-dimension-1000)); }
-      :host([align="start"]) { align-items: flex-start; }
-      :host([align="end"]) { align-items: flex-end; }
-      :host([align="center"]) { align-items: center; }
-      :host([align="stretch"]) { align-items: stretch; }
-      :host([align="baseline"]) { align-items: baseline; }
-      :host([justify="start"]) { justify-content: flex-start; }
-      :host([justify="end"]) { justify-content: flex-end; }
-      :host([justify="center"]) { justify-content: center; }
-      :host([justify="between"]) { justify-content: space-between; }
-      :host([justify="around"]) { justify-content: space-around; }
-      :host([justify="evenly"]) { justify-content: space-evenly; }
+      :host([align-y="start"]) { align-items: flex-start; }
+      :host([align-y="end"]) { align-items: flex-end; }
+      :host([align-y="center"]) { align-items: center; }
+      :host([align-y="stretch"]) { align-items: stretch; }
+      :host([align-y="baseline"]) { align-items: baseline; }
+      :host([align-x="start"]) { justify-content: flex-start; }
+      :host([align-x="end"]) { justify-content: flex-end; }
+      :host([align-x="center"]) { justify-content: center; }
+      :host([align-x="between"]) { justify-content: space-between; }
+      :host([align-x="around"]) { justify-content: space-around; }
+      :host([align-x="evenly"]) { justify-content: space-evenly; }
       :host([wrap]) { flex-wrap: wrap; }
     `;
   }
@@ -73,10 +73,10 @@ export class ForgeRow extends JhElement {
       gap: { type: String, reflect: true },
       /** Sets the inner padding of the layout container.  */
       padding: { type: String, reflect: true },
-      /** Sets the alignment of slotted elements along the cross axis. */
-      align: { type: String, reflect: true },
-      /** Sets the alignment of the slotted elements along the main axis. */
-      justify: { type: String, reflect: true },
+      /** Sets the alignment of slotted elements along the vertical axis. */
+      alignY: { type: String, reflect: true, attribute: 'align-y' },
+      /** Sets the alignment of the slotted elements along the horizontal axis. */
+      alignX: { type: String, reflect: true, attribute: 'align-x' },
       /** Determines whether the slotted elements should wrap onto multiple lines. */
       wrap: { type: Boolean, reflect: true }
     };
@@ -89,9 +89,9 @@ export class ForgeRow extends JhElement {
     /** @type {'0' | '25' | '50' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900' | '1000'} */
     this.padding = '0';
     /** @type {'start' | 'end' | 'center' | 'stretch' | 'baseline'} */
-    this.align = 'stretch';
+    this.alignY = 'stretch';
     /** @type {'start' | 'end' | 'center' | 'between' | 'around' | 'evenly'} */
-    this.justify = 'start';
+    this.alignX = 'start';
     /** @type {boolean} */
     this.wrap = false;
   }

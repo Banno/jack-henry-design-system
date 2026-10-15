@@ -38,7 +38,7 @@ const preview = {
       },
       expanded: true,
       //RegEx to hide all tokens, properties, events, and slots from Controls
-      exclude: /([A-Z])\w+|(jh)|(default)/g,
+      exclude: /([A-Z])\w*|(jh)|(forge)|(default)/g,
     },
     options: {
       storySort: {
@@ -77,7 +77,7 @@ const preview = {
       },
       argTypes: {
         //hide properties with 2+words
-        exclude: /([A-Z])\w+/g,
+        exclude: /([A-Z])\w*/g,
         sort: 'alpha',
       },
       container: (context) => {

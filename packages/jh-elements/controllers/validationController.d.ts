@@ -17,8 +17,8 @@ export type ValidationControllerHost = ReactiveControllerHost &
     min?: number | string;
     max?: number | string;
     step?: number | string;
-    minRequired?: number;
-    maxRequired?: number;
+    minRequired?: number | null;
+    maxRequired?: number | null;
     internals?: ElementInternals;
     attachInternals?: () => ElementInternals;
     dispatchCustomEvent?: (eventName: string, detail?: object) => void;

@@ -87,7 +87,7 @@ export class ForgeRow extends JhElement {
       alignY: { type: String, reflect: true, attribute: 'align-y' },
       /** Sets the alignment of the slotted elements along the horizontal axis. */
       alignX: { type: String, reflect: true, attribute: 'align-x' },
-      /** Distributes wrapped lines along the cross axis. Only applies when `wrap` is set and content spans multiple lines. */
+      /** Distributes wrapped lines along the vertical axis. Only applies when `wrap` is set and content spans multiple lines. */
       alignWrap: { type: String, reflect: true, attribute: 'align-wrap' },
       /** Reverses the order in which slotted elements are displayed. */
       reverse: { type: Boolean, reflect: true },

@@ -92,7 +92,7 @@ The `wrap` attribute (Flexbox `flex-wrap`) controls whether slotted elements ref
 
 ### Aligning wrapped columns
 
-When `wrap` produces more than one column, `align-wrap` (Flexbox `align-content`) distributes those columns along the cross axis — the horizontal axis on a `<forge-column>`. It has no effect on a single column. The possible values are: `start`, `end`, `center`, `between`, `around`, `evenly`, or `stretch` (default). Because it acts on the horizontal axis, `start` and `end` are relative to text direction.
+When `wrap` produces more than one column, `align-wrap` (Flexbox `align-content`) distributes those columns along the horizontal axis of a `<forge-column>`. It has no effect on a single column. The possible values are: `start`, `end`, `center`, `between`, `around`, `evenly`, or `stretch` (default). Because it acts on the horizontal axis, `start` and `end` are relative to text direction.
 
 ```html
 <forge-column wrap="wrap" align-wrap="between" gap="100">

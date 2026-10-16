@@ -1,0 +1,72 @@
+{/*
+SPDX-FileCopyrightText: 2026 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+ */}
+import { Meta, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as stories from './heading.stories.js';
+
+<Meta title="Primitives/Heading" of={stories} />
+
+# Heading
+
+<hr />
+
+`<forge-heading>` is a text primitive for titles, such as page titles, section titles, card titles, and so on. It replaces hand-rolled `<h1>`–`<h6>` styling with a component that keeps document
+structure and visual appearance consistent across your app.
+
+## Usage
+
+Import the component:
+
+```javascript
+import '@jack-henry/jh-elements/components/heading/heading.js';
+```
+
+Wrap your title text in it:
+
+```html
+<forge-heading level="1">Account overview</forge-heading>
+```
+
+## Level
+
+`level` (`1`–`6`) tells assistive technology where this heading sits in the page's outline, via
+`role="heading"` and `aria-level` — the same way you'd think about `<h1>`–`<h6>`. A page should
+usually have exactly one `level="1"` heading, with `level="2"`, `level="3"`, etc. nested
+underneath it.
+
+`level` also determines the heading's visual style. Every `level="3"` heading looks the same
+wherever it appears in your app, so you don't need (or get) a separate size or weight control —
+pick the `level` that matches the heading's place in the outline, and its appearance follows
+automatically.
+
+```html
+<forge-heading level="2">Section title</forge-heading>
+```
+
+## Accessibility
+
+This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria.
+The following success criteria are of concern:
+
+- [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html): Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.
+
+### What we provide
+
+- To satisfy [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html), `<forge-heading>` sets `role="heading"` and an `aria-level` that reflects the `level` property, so assistive technology can programmatically determine the heading's place in the page's outline.
+
+### Author Guidance
+
+- To satisfy [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html), choose a `level` that reflects the true structure of the page — don't skip levels, and keep headings in document order.
+
+## Component API
+
+<ArgTypes />
+
+## Feedback
+
+Have an idea that will improve this component or have an issue to report? Let us know by submitting
+an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
+
+Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

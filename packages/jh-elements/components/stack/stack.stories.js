@@ -146,6 +146,11 @@ export default {
       options: alignOptions,
     },
   },
+  parameters: {
+    actions: {
+      disable: true
+    },
+  },
 };
 
 /**

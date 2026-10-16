@@ -160,6 +160,11 @@ export default {
       options: alignmentOptions,
     },
   },
+  parameters: {
+    actions: {
+      disable: true
+    },
+  },
 };
 
 /**

@@ -5,12 +5,26 @@
 */
 
 import { html, css } from 'lit';
-import { action } from 'storybook/actions';
 import './row.js';
 import '../button/button.js';
 
 const storyStyles = css`
-
+  .demo-container {
+    display: inline-block;
+    border: 1px dashed #a855f7;
+    padding: 16px;
+  }
+  .demo-box {
+    border: 1px solid #0ea5e9;
+  }
+  .demo-box.is-playground {
+    width: 420px;
+    height: 160px;
+  }
+  .demo-box.is-wrapping {
+    width: 320px;
+    height: 220px;
+  }
 `;
 
 const dimensionOptions = ['0', '25', '50', '100', '200', '300', '400', '500', '600', '700', '800', '900', '1000'];
@@ -19,11 +33,17 @@ const alignOptions = ['start', 'end', 'center', 'stretch', 'baseline'];
 
 const justifyOptions = ['start', 'end', 'center', 'between', 'around', 'evenly'];
 
+const alignContentOptions = ['start', 'end', 'center', 'between', 'around', 'evenly', 'stretch'];
+
+const wrapOptions = ['nowrap', 'wrap', 'wrap-reverse'];
+
 const disableControls = {
   gap: { control: { disable: true } },
   padding: { control: { disable: true } },
   'align-y': { control: { disable: true } },
   'align-x': { control: { disable: true } },
+  'align-wrap': { control: { disable: true } },
+  reverse: { control: { disable: true } },
   wrap: { control: { disable: true } },
 };
 
@@ -48,8 +68,21 @@ export default {
       control: 'select',
       options: justifyOptions,
     },
-    wrap: {
+    'align-wrap': {
+      control: 'select',
+      options: alignContentOptions,
+    },
+    reverse: {
       control: 'boolean',
+    },
+    wrap: {
+      control: 'select',
+      options: wrapOptions,
+    },
+  },
+    parameters: {
+    actions: {
+      disable: true
     },
   },
 };
@@ -67,17 +100,20 @@ Overview.argTypes = {
 };
 
 export const Playground = { render: (args) => html`
-  <forge-row
-    gap=${args.gap}
-    padding=${args.padding}
-    align-y=${args['align-y']}
-    align-x=${args['align-x']}
-    ?wrap=${args.wrap}
-  >
-    <jh-button label="Button 1"></jh-button>
-    <jh-button label="Button 2"></jh-button>
-    <jh-button label="Button 3"></jh-button>
-  </forge-row>
+  <div class="demo-container">
+    <forge-row
+      class="demo-box is-playground"
+      gap=${args.gap}
+      padding=${args.padding}
+      align-y=${args['align-y']}
+      align-x=${args['align-x']}
+      ?reverse=${args.reverse}
+    >
+      <jh-button label="Button 1"></jh-button>
+      <jh-button label="Button 2"></jh-button>
+      <jh-button label="Button 3"></jh-button>
+    </forge-row>
+  </div>
 `};
 
 Playground.args = {
@@ -85,9 +121,49 @@ Playground.args = {
   padding: '100',
   'align-y': 'stretch',
   'align-x': 'start',
-  wrap: false,
+  reverse: false,
+};
+
+Playground.argTypes = {
+  'align-wrap': { control: { disable: true } },
+  wrap: { control: { disable: true } },
 };
 
 Playground.parameters = {
   theme: 'both-themes',
+  styles: storyStyles,
+};
+
+export const Wrapping = { render: (args) => html`
+  <div class="demo-container">
+    <forge-row
+      class="demo-box is-wrapping"
+      gap="100"
+      wrap=${args.wrap}
+      align-wrap=${args['align-wrap']}
+    >
+      <jh-button label="Button 1"></jh-button>
+      <jh-button label="Button 2"></jh-button>
+      <jh-button label="Button 3"></jh-button>
+      <jh-button label="Button 4"></jh-button>
+      <jh-button label="Button 5"></jh-button>
+      <jh-button label="Button 6"></jh-button>
+    </forge-row>
+  </div>
+`};
+
+Wrapping.args = {
+  wrap: 'wrap',
+  'align-wrap': 'start',
+};
+
+Wrapping.argTypes = {
+  ...disableControls,
+  wrap: { control: 'select', options: wrapOptions },
+  'align-wrap': { control: 'select', options: alignContentOptions },
+};
+
+Wrapping.parameters = {
+  theme: 'both-themes',
+  styles: storyStyles,
 };

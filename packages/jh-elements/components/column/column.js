@@ -63,7 +63,17 @@ export class ForgeColumn extends JhElement {
       :host([align-y="between"]) { justify-content: space-between; }
       :host([align-y="around"]) { justify-content: space-around; }
       :host([align-y="evenly"]) { justify-content: space-evenly; }
-      :host([wrap]) { flex-wrap: wrap; }
+      :host([align-wrap="start"]) { align-content: flex-start; }
+      :host([align-wrap="end"]) { align-content: flex-end; }
+      :host([align-wrap="center"]) { align-content: center; }
+      :host([align-wrap="between"]) { align-content: space-between; }
+      :host([align-wrap="around"]) { align-content: space-around; }
+      :host([align-wrap="evenly"]) { align-content: space-evenly; }
+      :host([align-wrap="stretch"]) { align-content: stretch; }
+      :host([reverse]) { flex-direction: column-reverse; }
+      :host([wrap="nowrap"]) { flex-wrap: nowrap; }
+      :host([wrap="wrap"]) { flex-wrap: wrap; }
+      :host([wrap="wrap-reverse"]) { flex-wrap: wrap-reverse; }
     `;
   }
 
@@ -77,8 +87,12 @@ export class ForgeColumn extends JhElement {
       alignX: { type: String, reflect: true, attribute: 'align-x' },
       /** Sets the alignment of the slotted elements along the vertical axis. */
       alignY: { type: String, reflect: true, attribute: 'align-y' },
-      /** Determines whether the slotted elements should wrap onto multiple columns. */
-      wrap: { type: Boolean, reflect: true }
+      /** Distributes wrapped columns along the cross axis. Only applies when `wrap` is set and content spans multiple columns. */
+      alignWrap: { type: String, reflect: true, attribute: 'align-wrap' },
+      /** Reverses the order in which slotted elements are displayed. */
+      reverse: { type: Boolean, reflect: true },
+      /** Determines whether and how slotted elements wrap onto multiple columns. */
+      wrap: { type: String, reflect: true }
     };
   }
 
@@ -92,8 +106,12 @@ export class ForgeColumn extends JhElement {
     this.alignX = 'stretch';
     /** @type {'start' | 'end' | 'center' | 'between' | 'around' | 'evenly'} */
     this.alignY = 'start';
+    /** @type {'start' | 'end' | 'center' | 'between' | 'around' | 'evenly' | 'stretch'} */
+    this.alignWrap = 'stretch';
     /** @type {boolean} */
-    this.wrap = false;
+    this.reverse = false;
+    /** @type {'nowrap' | 'wrap' | 'wrap-reverse'} */
+    this.wrap = 'nowrap';
   }
 
   render() {

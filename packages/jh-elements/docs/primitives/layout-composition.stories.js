@@ -57,6 +57,12 @@ export default {
   tags: ['beta'],
   parameters: {
     styles: storyStyles,
+    actions: {
+      disable: true
+    },
+    controls: {
+      disable: true
+    }
   },
 };
 

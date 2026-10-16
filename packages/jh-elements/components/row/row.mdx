@@ -65,14 +65,37 @@ The distribution values `between`, `around`, and `evenly` apply to `align-x` on 
 </forge-row>
 ```
 
+## Reversing order
+
+Add the boolean `reverse` attribute to display slotted elements in the opposite order (Flexbox `row-reverse`). Because it reverses along the horizontal axis, the visual order is also relative to text direction.
+
+```html
+<forge-row reverse gap="100">
+  <!-- slotted elements -->
+</forge-row>
+```
+
 ## Wrapping
 
 By default slotted elements stay on a single line and may overflow the container. 
-Add the boolean `wrap` (Flexbox `flex-wrap`) attribute to let slotted elements reflow onto new lines when they run out of space along the horizontal axis, similar to how text wraps within a paragraph.
+The `wrap` attribute (Flexbox `flex-wrap`) controls whether slotted elements reflow onto new lines when they run out of space along the horizontal axis, similar to how text wraps within a paragraph. It accepts three values:
 
+- `nowrap` (default) keeps all slotted elements on a single line.
+- `wrap` lets slotted elements reflow onto new lines below.
+- `wrap-reverse` lets slotted elements reflow onto new lines above.
 
 ```html
-<forge-row wrap gap="100">
+<forge-row wrap="wrap" gap="100">
+  <!-- slotted elements -->
+</forge-row>
+```
+
+### Aligning wrapped lines
+
+When `wrap` produces more than one line, `align-wrap` (Flexbox `align-content`) distributes those lines along the cross axis — the vertical axis on a `<forge-row>`. It has no effect on a single line. The possible values are: `start`, `end`, `center`, `between`, `around`, `evenly`, or `stretch` (default).
+
+```html
+<forge-row wrap="wrap" align-wrap="between" gap="100">
   <!-- slotted elements -->
 </forge-row>
 ```
@@ -83,7 +106,7 @@ Layout primitives are designed to compose. `<forge-row>` can be used freely insi
 
 ## Component API
 
-For boolean attributes, true indicates that the attribute has been set without a value: `<forge-row wrap></forge-row>`. While false indicates the attribute does not exist in the DOM: `<forge-row></forge-row>`.
+For boolean attributes, true indicates that the attribute has been set without a value: `<forge-row reverse></forge-row>`. While false indicates the attribute does not exist in the DOM: `<forge-row></forge-row>`.
 
 <ArgTypes />
 

@@ -11,6 +11,8 @@ import { JhElement } from '../element/element.js';
  * @customElement forge-heading
  *
  * @slot default - Use to insert the heading text.
+ *
+ * @cssprop --forge-heading-color-text-enabled - The text color. Defaults to `--jh-color-content-primary-enabled`.
  */
 export class ForgeHeading extends JhElement {
   static get styles() {
@@ -18,7 +20,7 @@ export class ForgeHeading extends JhElement {
       :host {
         display: block;
         margin: 0;
-        color: var(--jh-color-content-primary-enabled);
+        color: var(--forge-heading-color-text-enabled, var(--jh-color-content-primary-enabled));
         word-break: break-word;
       }
       :host([level="1"]) {

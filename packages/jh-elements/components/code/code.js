@@ -12,14 +12,14 @@ import { JhElement } from '../element/element.js';
  *
  * @slot default - Use to insert the code text.
  *
- * @cssprop --jh-forge-color-text-enabled - The text color. Defaults to `--jh-color-content-primary-enabled`.
+ * @cssprop --forge-code-color-text-enabled - The text color. Defaults to `--jh-color-content-primary-enabled`.
  */
 export class ForgeCode extends JhElement {
   static get styles() {
     return css`
       :host {
         margin: 0;
-        color: var(--jh-forge-color-text-enabled, var(--jh-color-content-primary-enabled));
+        color: var(--forge-code-color-text-enabled, var(--jh-color-content-primary-enabled));
         display: inline;
         word-break: break-word;
       }

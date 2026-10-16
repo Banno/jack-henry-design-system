@@ -43,7 +43,7 @@ The following success criteria are of concern:
 
 ### Author Guidance
 
-- To satisfy [WCAG 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) when `<forge-code>` is placed on a non-default background (for example, inside a colored container), override the `--jh-forge-color-text-enabled` custom property to maintain sufficient contrast.
+- To satisfy [WCAG 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) when `<forge-code>` is placed on a non-default background (for example, inside a colored container), set the `--forge-code-color-text-enabled` styling hook to a value that maintains sufficient contrast.
 
 - `<forge-code>` renders as plain inline or block text, the same way the native `<code>` element does, so it carries no distinct role for assistive technology. When it matters that the content is code (for example, a multi-line snippet), introduce it with surrounding text so screen reader users have that context.
 

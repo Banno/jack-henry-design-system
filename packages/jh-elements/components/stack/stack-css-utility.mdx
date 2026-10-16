@@ -1,0 +1,85 @@
+{/*
+SPDX-FileCopyrightText: 2026 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+ */}
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as stories from './stack.stories.js';
+
+<Meta of={stories} name="CSS Utility" />
+
+# Stack CSS Utility
+
+<hr />
+
+An option to consider is using a CSS utility instead of the web component. Because stacking is a thin layer over CSS Grid, the behavior `<forge-stack>` provides can also be delivered as a small CSS utility, a `.jh-stack` class with `data-align-*` attributes, instead of a full-fledged web component. 
+
+Avoiding a full web component means we don't have to deal with some of challenges of the shadow DOM encapsulation, which might be helpful to solve some of the issues pointed out in the initial review feedback.
+
+However, both the component and the utility share the same pointer-events, screen reader announcement, and reading-order considerations described in the [Stack](?path=/docs/primitives-stack--docs) docs, since those come from visual layering itself rather than from how the stack is built.
+Both also have the limitation that they can't handle raw text nodes as direct children, every layer must be wrapped in an element.
+
+<p><em>The utility shown here is illustrative only. It is not published yet.</em></p>
+
+## Side by side
+
+Both implementations produce the same result. The component requires a JavaScript import and element registration; the utility needs a single stylesheet and then works with plain markup in one light-DOM tree.
+
+<Canvas of={stories.ComponentVsCssUtility} />
+
+```html
+<!-- web component -->
+<forge-stack align-y="start" align-x="end">
+  <div class="avatar"></div>
+  <jh-badge count="8"></jh-badge>
+</forge-stack>
+
+<!-- CSS utility -->
+<div class="jh-stack" data-align-y="start" data-align-x="end">
+  <div class="avatar"></div>
+  <jh-badge count="8"></jh-badge>
+</div>
+```
+
+## Why consider the CSS utility as an alternative
+
+The utility keeps the ergonomics of a stacking primitive while leaning into what plain CSS does best and avoiding some of the pitfalls of the Shadow DOM:
+
+- **Zero JavaScript.** One stylesheet and you're done. No per-app import or element registration, nothing to initialize, and nothing to ship in your bundle.
+- **Accessibility is not blocked by the shadow DOM.** Everything lives in a single light-DOM tree, so `aria-labelledby`, `aria-describedby`, and other ARIA references resolve naturally across layers.
+- **Same for native layering behavior.** Tooltips, menus, and popovers opened from a lower layer paint exactly where you expect, using normal `z-index` with no stacking-context surprises.
+- **Overflow stays contained.** `min-width: 0` / `min-height: 0` on each layer keeps long or unbreakable content inside the stack instead of blowing out its size.
+
+## The stylesheet
+
+This is an example of how the CSS utility can be implemented to mimic the behavior of `<forge-stack>`.
+
+```css
+.jh-stack {
+  display: grid;
+}
+
+.jh-stack > * {
+  grid-area: 1 / 1;   /* every child shares one cell → they overlap */
+  min-width: 0;       /* contain long content instead of overflowing */
+  min-height: 0;
+}
+
+/* alignment — applies to every layer at once */
+.jh-stack[data-align-y="start"]   { align-items: start; }
+.jh-stack[data-align-y="end"]     { align-items: end; }
+.jh-stack[data-align-y="center"]  { align-items: center; }
+.jh-stack[data-align-y="stretch"] { align-items: stretch; }
+
+.jh-stack[data-align-x="start"]   { justify-items: start; }
+.jh-stack[data-align-x="end"]     { justify-items: end; }
+.jh-stack[data-align-x="center"]  { justify-items: center; }
+.jh-stack[data-align-x="stretch"] { justify-items: stretch; }
+```
+
+## Feedback
+
+Have an idea that will improve this component or have an issue to report? Let us know by submitting
+an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
+
+Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

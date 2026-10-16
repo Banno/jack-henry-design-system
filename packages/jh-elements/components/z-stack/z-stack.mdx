@@ -4,17 +4,17 @@ SPDX-FileCopyrightText: 2025 Jack Henry
 SPDX-License-Identifier: Apache-2.0
  */}
 import { Meta, ArgTypes, Canvas } from '@storybook/addon-docs/blocks';
-import * as stories from './layout-z-stack.stories.js';
+import * as stories from './z-stack.stories.js';
 
-<Meta title="Primitives/Layout Z Stack" of={stories} />
+<Meta title="Primitives/Z Stack" of={stories} />
 
-# Layout Z Stack
+# Z Stack
 
-[Guidelines](https://jackhenry.design/pages/components/layout-z-stack/)
+[Guidelines](https://jackhenry.design/pages/components/z-stack/)
 
 <hr />
 
-Layout Z Stack is a layout primitive that layers the elements slotted into it on top of one another along the z-axis.
+Z Stack is a layout primitive that layers the elements slotted into it on top of one another along the z-axis.
 It uses CSS Grid under the hood: every slotted element occupies the same grid cell, so they overlap instead of flowing in a row or column. Use it for overlays, badges anchored to a corner, or any UI where elements need to share the same space.
 
 ## When to use it
@@ -38,19 +38,19 @@ Switching to `position: absolute` instead of a z-stack does not reduce any of th
 
 ## Usage
 
-Import the `<jh-layout-z-stack>` component:
+Import the `<forge-z-stack>` component:
 
 ```javascript
-import '@jack-henry/jh-elements/components/layout-z-stack/layout-z-stack.js';
+import '@jack-henry/jh-elements/components/z-stack/z-stack.js';
 ```
 
 Place elements in the default slot. Each slotted element becomes its own layer, stacked in source order with the last element on top:
 
 ```html
-<jh-layout-z-stack>
+<forge-z-stack>
   <img src="cover.jpg" alt="" />
   <span>Overlaid caption</span>
-</jh-layout-z-stack>
+</forge-z-stack>
 ```
 
 ## Layering
@@ -69,10 +69,10 @@ To control which layer is on top, reorder the elements in your markup.
 Combine the two to anchor a layer to an edge or corner — for example `align="start"` with `justify="end"` pins a badge to the top-right. Alignment applies to all layers at once; to position a single layer differently, set `align-self` / `justify-self` on that element.
 
 ```html
-<jh-layout-z-stack align="start" justify="end">
+<forge-z-stack align="start" justify="end">
   <div class="avatar"></div>
   <jh-badge count="8" class="inset"></jh-badge>
-</jh-layout-z-stack>
+</forge-z-stack>
 ```
 
 ### Anchoring inside or outside the corner
@@ -118,7 +118,7 @@ A full-cover layer can dim content and block the mouse while something loads. Bu
 
 ## Composition
 
-Layout primitives are designed to compose. A `<jh-layout-z-stack>` can hold `<jh-layout-flex>` containers as layers (and vice versa), letting you arrange content within a layer while still stacking layers on the z-axis.
+Layout primitives are designed to compose. A `<forge-z-stack>` can hold `<forge-h-stack>` and `<forge-v-stack>` containers as layers (and vice versa), letting you arrange content within a layer while still stacking layers on the z-axis.
 
 ## Accessibility
 

@@ -85,7 +85,7 @@ export class ForgeColumn extends JhElement {
       padding: { type: String, reflect: true },
       /** Sets the alignment of slotted elements along the horizontal axis. */
       alignX: { type: String, reflect: true, attribute: 'align-x' },
-      /** Sets the alignment of the slotted elements along the vertical axis. */
+      /** Sets the alignment of slotted elements along the vertical axis. */
       alignY: { type: String, reflect: true, attribute: 'align-y' },
       /** Distributes wrapped columns along the horizontal axis. Only applies when `wrap` is set and content spans multiple columns. */
       alignWrap: { type: String, reflect: true, attribute: 'align-wrap' },

@@ -41,13 +41,13 @@ The following success criteria are of concern:
 
 ### What we provide
 
-- To satisfy [WCAG 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html), the default secondary text color meets the minimum contrast of 4.5:1.
-
 - To satisfy [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html), `<forge-caption>` can be resized without assistive technology up to 200 percent without loss of content or functionality.
 
 ### Author Guidance
 
 - To satisfy [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) when using `<forge-caption>` as helper, error, or descriptive text for another control, associate the two by setting `aria-describedby` (or `aria-labelledby`, as appropriate) on the related control to the caption's `id`.
+
+- To satisfy [WCAG 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) when `<forge-caption>` is placed on a non-default background (for example, inside a colored container), set the `--forge-caption-color-text-enabled` styling hook to a value that maintains sufficient contrast.
 
 ## Component API
 

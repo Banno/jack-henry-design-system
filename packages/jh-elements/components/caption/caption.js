@@ -11,6 +11,8 @@ import { JhElement } from '../element/element.js';
  * @customElement forge-caption
  *
  * @slot default - Use to insert the caption text.
+ *
+ * @cssprop --forge-caption-color-text-enabled - The text color. Defaults to `--jh-color-content-secondary-enabled`.
  */
 export class ForgeCaption extends JhElement {
   static get styles() {
@@ -18,7 +20,7 @@ export class ForgeCaption extends JhElement {
       :host {
         display: block;
         margin: 0;
-        color: var(--jh-color-content-secondary-enabled);
+        color: var(--forge-caption-color-text-enabled, var(--jh-color-content-secondary-enabled));
         word-break: break-word;
         font-family: var(--jh-font-helper-regular-font-family);
         font-weight: var(--jh-font-helper-regular-font-weight);

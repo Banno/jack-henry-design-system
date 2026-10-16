@@ -1,0 +1,59 @@
+{/*
+SPDX-FileCopyrightText: 2026 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+ */}
+import { Meta, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as stories from './code.stories.js';
+
+<Meta title="Primitives/Code" of={stories} />
+
+# Code
+
+<hr />
+
+`<forge-code>` is used for content that should read as monospace, such as code samples, file names, variable names, IDs, and similar literal values.
+
+## Usage
+
+Import the component:
+
+```javascript
+import '@jack-henry/jh-elements/components/code/code.js';
+```
+
+To use `forge-code`:
+
+```html
+<forge-paragraph>Set the <forge-code>--jh-color-content-brand-enabled</forge-code> token to change the color of the text.</forge-paragraph>
+```
+
+## Accessibility
+
+This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria.
+The following success criteria are of concern:
+
+- [WCAG 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html): The visual presentation of text and images of text has a contrast ratio of at least 4.5:1.
+
+- [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html): Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.
+
+### What we provide
+
+- To satisfy [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html), `<forge-code>` can be resized without assistive technology up to 200 percent without loss of content or functionality.
+
+### Author Guidance
+
+- To satisfy [WCAG 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) when `<forge-code>` is placed on a non-default background (for example, inside a colored container), override the `--jh-forge-color-text-enabled` custom property to maintain sufficient contrast.
+
+- `<forge-code>` renders as plain inline or block text, the same way the native `<code>` element does, so it carries no distinct role for assistive technology. When it matters that the content is code (for example, a multi-line snippet), introduce it with surrounding text so screen reader users have that context.
+
+## Component API
+
+<ArgTypes />
+
+## Feedback
+
+Have an idea that will improve this component or have an issue to report? Let us know by submitting
+an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
+
+Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

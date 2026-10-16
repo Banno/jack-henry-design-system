@@ -18,22 +18,20 @@ export class ForgeHeading extends JhElement {
   static get styles() {
     return css`
       :host {
+        color: var(--forge-heading-color-text-enabled, var(--jh-color-content-primary-enabled));
+        font-family: var(--jh-font-heading-bold-5-font-family);
+        font-weight: var(--jh-font-heading-bold-5-font-weight);
+        font-size: var(--jh-font-heading-bold-5-font-size);
+        line-height: var(--jh-font-heading-bold-5-line-height);
+        word-break: break-word;
         display: block;
         margin: 0;
-        color: var(--forge-heading-color-text-enabled, var(--jh-color-content-primary-enabled));
-        word-break: break-word;
       }
       :host([level="1"]) {
         font-family: var(--jh-font-heading-bold-6-font-family);
         font-weight: var(--jh-font-heading-bold-6-font-weight);
         font-size: var(--jh-font-heading-bold-6-font-size);
         line-height: var(--jh-font-heading-bold-6-line-height);
-      }
-      :host([level="2"]) {
-        font-family: var(--jh-font-heading-bold-5-font-family);
-        font-weight: var(--jh-font-heading-bold-5-font-weight);
-        font-size: var(--jh-font-heading-bold-5-font-size);
-        line-height: var(--jh-font-heading-bold-5-line-height);
       }
       :host([level="3"]) {
         font-family: var(--jh-font-heading-bold-4-font-family);

@@ -1298,10 +1298,22 @@
           "default": "\"start\""
         },
         {
-          "name": "wrap",
-          "description": "Determines whether the slotted elements should wrap onto multiple columns.",
+          "name": "align-wrap",
+          "description": "Distributes wrapped columns along the cross axis. Only applies when `wrap` is set and content spans multiple columns.",
+          "type": "'start' | 'end' | 'center' | 'between' | 'around' | 'evenly' | 'stretch'",
+          "default": "\"stretch\""
+        },
+        {
+          "name": "reverse",
+          "description": "Reverses the order in which slotted elements are displayed.",
           "type": "boolean",
           "default": "false"
+        },
+        {
+          "name": "wrap",
+          "description": "Determines whether and how slotted elements wrap onto multiple columns.",
+          "type": "'nowrap' | 'wrap' | 'wrap-reverse'",
+          "default": "\"nowrap\""
         }
       ],
       "properties": [
@@ -1334,11 +1346,25 @@
           "default": "\"start\""
         },
         {
-          "name": "wrap",
-          "attribute": "wrap",
-          "description": "Determines whether the slotted elements should wrap onto multiple columns.",
+          "name": "alignWrap",
+          "attribute": "align-wrap",
+          "description": "Distributes wrapped columns along the cross axis. Only applies when `wrap` is set and content spans multiple columns.",
+          "type": "'start' | 'end' | 'center' | 'between' | 'around' | 'evenly' | 'stretch'",
+          "default": "\"stretch\""
+        },
+        {
+          "name": "reverse",
+          "attribute": "reverse",
+          "description": "Reverses the order in which slotted elements are displayed.",
           "type": "boolean",
           "default": "false"
+        },
+        {
+          "name": "wrap",
+          "attribute": "wrap",
+          "description": "Determines whether and how slotted elements wrap onto multiple columns.",
+          "type": "'nowrap' | 'wrap' | 'wrap-reverse'",
+          "default": "\"nowrap\""
         },
         {
           "name": "uniqueId",
@@ -6636,10 +6662,22 @@
           "default": "\"start\""
         },
         {
-          "name": "wrap",
-          "description": "Determines whether the slotted elements should wrap onto multiple lines.",
+          "name": "align-wrap",
+          "description": "Distributes wrapped lines along the cross axis. Only applies when `wrap` is set and content spans multiple lines.",
+          "type": "'start' | 'end' | 'center' | 'between' | 'around' | 'evenly' | 'stretch'",
+          "default": "\"stretch\""
+        },
+        {
+          "name": "reverse",
+          "description": "Reverses the order in which slotted elements are displayed.",
           "type": "boolean",
           "default": "false"
+        },
+        {
+          "name": "wrap",
+          "description": "Determines whether and how slotted elements wrap onto multiple lines.",
+          "type": "'nowrap' | 'wrap' | 'wrap-reverse'",
+          "default": "\"nowrap\""
         }
       ],
       "properties": [
@@ -6672,11 +6710,25 @@
           "default": "\"start\""
         },
         {
-          "name": "wrap",
-          "attribute": "wrap",
-          "description": "Determines whether the slotted elements should wrap onto multiple lines.",
+          "name": "alignWrap",
+          "attribute": "align-wrap",
+          "description": "Distributes wrapped lines along the cross axis. Only applies when `wrap` is set and content spans multiple lines.",
+          "type": "'start' | 'end' | 'center' | 'between' | 'around' | 'evenly' | 'stretch'",
+          "default": "\"stretch\""
+        },
+        {
+          "name": "reverse",
+          "attribute": "reverse",
+          "description": "Reverses the order in which slotted elements are displayed.",
           "type": "boolean",
           "default": "false"
+        },
+        {
+          "name": "wrap",
+          "attribute": "wrap",
+          "description": "Determines whether and how slotted elements wrap onto multiple lines.",
+          "type": "'nowrap' | 'wrap' | 'wrap-reverse'",
+          "default": "\"nowrap\""
         },
         {
           "name": "uniqueId",

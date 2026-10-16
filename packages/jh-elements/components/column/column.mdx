@@ -65,13 +65,37 @@ The distribution values `between`, `around`, and `evenly` apply to `align-y` on 
 </forge-column>
 ```
 
+## Reversing order
+
+Add the boolean `reverse` attribute to display slotted elements in the opposite order, from bottom to top (Flexbox `column-reverse`).
+
+```html
+<forge-column reverse gap="100">
+  <!-- slotted elements -->
+</forge-column>
+```
+
 ## Wrapping
 
 By default slotted elements stay in a single column and may overflow the container. 
-Add the boolean `wrap` (Flexbox `flex-wrap`) attribute to let slotted elements reflow onto new columns when they run out of space along the vertical axis.
+The `wrap` attribute (Flexbox `flex-wrap`) controls whether slotted elements reflow onto new columns when they run out of space along the vertical axis. It accepts three values:
+
+- `nowrap` (default) keeps all slotted elements in a single column.
+- `wrap` lets slotted elements reflow onto new columns.
+- `wrap-reverse` lets slotted elements reflow onto new columns in the reverse direction.
 
 ```html
-<forge-column wrap gap="100">
+<forge-column wrap="wrap" gap="100">
+  <!-- slotted elements -->
+</forge-column>
+```
+
+### Aligning wrapped columns
+
+When `wrap` produces more than one column, `align-wrap` (Flexbox `align-content`) distributes those columns along the cross axis — the horizontal axis on a `<forge-column>`. It has no effect on a single column. The possible values are: `start`, `end`, `center`, `between`, `around`, `evenly`, or `stretch` (default). Because it acts on the horizontal axis, `start` and `end` are relative to text direction.
+
+```html
+<forge-column wrap="wrap" align-wrap="between" gap="100">
   <!-- slotted elements -->
 </forge-column>
 ```
@@ -82,7 +106,7 @@ Layout primitives are designed to compose. `<forge-column>` can be used freely i
 
 ## Component API
 
-For boolean attributes, true indicates that the attribute has been set without a value: `<forge-column wrap></forge-column>`. While false indicates the attribute does not exist in the DOM: `<forge-column></forge-column>`.
+For boolean attributes, true indicates that the attribute has been set without a value: `<forge-column reverse></forge-column>`. While false indicates the attribute does not exist in the DOM: `<forge-column></forge-column>`.
 
 <ArgTypes />
 

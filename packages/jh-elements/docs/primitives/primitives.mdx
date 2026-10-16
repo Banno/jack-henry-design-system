@@ -10,10 +10,11 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Primitives
 
-Primitives are low-level, unopinionated building blocks. They carry no visual
-styling of their own — their job is to arrange other components.
+Primitives are helpful building blocks to ensure consistency across your UI.
 
 ## Layout primitives
+
+Use layout primitives to arrange other components. 
 
 - **[Layout V Stack](?path=/docs/primitives-layout-v-stack--docs)** — arranges
   its children in a vertical column (`display: flex; flex-direction: column`).
@@ -23,9 +24,18 @@ styling of their own — their job is to arrange other components.
 Both stacks expose `gap` and `padding` (mapped to dimension tokens) and
 `align`, `justify`, and `wrap` (mapped to flexbox).
 
-## Seeing them in action
+### Seeing them in action
 
 Individually these primitives don't mean much — they're designed to compose,
 and a stack is itself a valid flex child, so they nest freely. See
 **[Layout Composition](?path=/docs/primitives-layout-composition--docs)** for
 real-world patterns: toolbars, nested-stack cards, form rows, and wrapping.
+
+## Text primitives
+
+Use text primitives to enforce consistent typography, semantic HTML hierarchy, and accessibility across your application.
+
+- **[Heading](?path=/docs/primitives-heading--docs)** — Page and section titles. 
+- **[Paragraph](?path=/docs/primitives-paragraph--docs)** — Standard body text, multi-line content, and general descriptions.
+- **[Caption](?path=/docs/primitives-caption--docs)** — Secondary, smaller supporting text, such as form helper text, metadata, and timestamps.
+- **[Code](?path=/docs/primitives-code--docs)** — Monospace formatting for inline snippets, terminal commands, file paths, or literal values.

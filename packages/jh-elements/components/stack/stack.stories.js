@@ -105,6 +105,26 @@ const storyStyles = css`
   }
 `;
 
+/* Inline CSS-utility equivalent of <forge-stack>, Storybook-only for side-by-side comparison. Not shipped. */
+const stackUtilityStyles = css`
+  .jh-stack {
+    display: grid;
+  }
+  .jh-stack > * {
+    grid-area: 1 / 1;
+    min-width: 0;
+    min-height: 0;
+  }
+  .jh-stack[data-align-y='start'] { align-items: start; }
+  .jh-stack[data-align-y='end'] { align-items: end; }
+  .jh-stack[data-align-y='center'] { align-items: center; }
+  .jh-stack[data-align-y='stretch'] { align-items: stretch; }
+  .jh-stack[data-align-x='start'] { justify-items: start; }
+  .jh-stack[data-align-x='end'] { justify-items: end; }
+  .jh-stack[data-align-x='center'] { justify-items: center; }
+  .jh-stack[data-align-x='stretch'] { justify-items: stretch; }
+`;
+
 const disableControls = {
   'align-y': { control: { disable: true } },
   'align-x': { control: { disable: true } },
@@ -301,7 +321,7 @@ export const LoadingOverlay = {
         </div>
       </forge-stack>
       <span class="demo-caption">
-        The scrim covers the card and blocks the Transfer button while loading.
+        The scrim covers the card and blocks the Transfer button while loading, but the button can still be reached with the keyboard.
       </span>
     </div>
   `,
@@ -363,4 +383,55 @@ PointerEvents.argTypes = {
 
 PointerEvents.parameters = {
   styles: storyStyles,
+};
+
+/**
+ * Component vs. CSS utility — the same layouts built two ways: with the
+ * `<forge-stack>` web component and with an inline `.jh-stack` CSS utility
+ * (`data-align-*` for alignment). Both produce identical results; the utility
+ * needs no element registration and keeps everything in one light-DOM tree. The
+ * `.jh-stack` styles here are Storybook-only and are not published yet.
+ */
+export const ComponentVsCssUtility = {
+  render: () => html`
+    <div class="demo-figure">
+      <forge-stack align-y="start" align-x="end">
+        <div class="layer-base">Component</div>
+        <jh-badge count="8" class="inset"></jh-badge>
+      </forge-stack>
+      <span class="demo-caption">&lt;forge-stack&gt; — web component</span>
+    </div>
+
+    <div class="demo-figure">
+      <div class="jh-stack" data-align-y="start" data-align-x="end">
+        <div class="layer-base">CSS utility</div>
+        <jh-badge count="8" class="inset"></jh-badge>
+      </div>
+      <span class="demo-caption">.jh-stack — CSS utility</span>
+    </div>
+
+    <div class="demo-figure">
+      <forge-stack>
+        <div class="layer-base">Base</div>
+        <div class="layer-overlay">Overlay</div>
+      </forge-stack>
+      <span class="demo-caption">&lt;forge-stack&gt; overlay</span>
+    </div>
+
+    <div class="demo-figure">
+      <div class="jh-stack">
+        <div class="layer-base">Base</div>
+        <div class="layer-overlay">Overlay</div>
+      </div>
+      <span class="demo-caption">.jh-stack overlay</span>
+    </div>
+  `,
+};
+
+ComponentVsCssUtility.argTypes = {
+  ...disableControls,
+};
+
+ComponentVsCssUtility.parameters = {
+  styles: css`${storyStyles} ${stackUtilityStyles}`,
 };

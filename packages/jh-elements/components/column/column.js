@@ -87,7 +87,7 @@ export class ForgeColumn extends JhElement {
       alignX: { type: String, reflect: true, attribute: 'align-x' },
       /** Sets the alignment of the slotted elements along the vertical axis. */
       alignY: { type: String, reflect: true, attribute: 'align-y' },
-      /** Distributes wrapped columns along the cross axis. Only applies when `wrap` is set and content spans multiple columns. */
+      /** Distributes wrapped columns along the horizontal axis. Only applies when `wrap` is set and content spans multiple columns. */
       alignWrap: { type: String, reflect: true, attribute: 'align-wrap' },
       /** Reverses the order in which slotted elements are displayed. */
       reverse: { type: Boolean, reflect: true },

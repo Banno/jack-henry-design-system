@@ -8,13 +8,13 @@ import { css, html } from 'lit';
 import { JhElement } from '../element/element.js';
 
 /**
- * Z Stack
+ * Stack
  *
- * @customElement forge-z-stack
+ * @customElement forge-stack
  *
  * @slot default - Use to insert layered elements. Each slotted element occupies the same cell and stacks in source order, with the last element on top.
  */
-export class ForgeZStack extends JhElement {
+export class ForgeStack extends JhElement {
   static get styles() {
     return css`
         :host {
@@ -28,33 +28,33 @@ export class ForgeZStack extends JhElement {
         isolation: isolate;
       }
 
-      :host([align="start"]) { align-items: start; }
-      :host([align="end"]) { align-items: end; }
-      :host([align="center"]) { align-items: center; }
-      :host([align="stretch"]) { align-items: stretch; }
+      :host([align-y="start"]) { align-items: start; }
+      :host([align-y="end"]) { align-items: end; }
+      :host([align-y="center"]) { align-items: center; }
+      :host([align-y="stretch"]) { align-items: stretch; }
 
-      :host([justify="start"]) { justify-items: start; }
-      :host([justify="end"]) { justify-items: end; }
-      :host([justify="center"]) { justify-items: center; }
-      :host([justify="stretch"]) { justify-items: stretch; }
+      :host([align-x="start"]) { justify-items: start; }
+      :host([align-x="end"]) { justify-items: end; }
+      :host([align-x="center"]) { justify-items: center; }
+      :host([align-x="stretch"]) { justify-items: stretch; }
     `;
   }
 
   static get properties() {
     return {
-      /** Sets the alignment of layered elements along the block (vertical) axis. */
-      align: { type: String, reflect: true },
-      /** Sets the alignment of layered elements along the inline (horizontal) axis. */
-      justify: { type: String, reflect: true }
+      /** Sets the alignment of layered elements along the vertical axis. */
+      alignY: { type: String, reflect: true, attribute: 'align-y' },
+      /** Sets the alignment of layered elements along the horizontal axis. */
+      alignX: { type: String, reflect: true, attribute: 'align-x' }
     };
   }
 
   constructor() {
     super();
     /** @type {'start' | 'end' | 'center' | 'stretch'} */
-    this.align = 'stretch';
+    this.alignY = 'stretch';
     /** @type {'start' | 'end' | 'center' | 'stretch'} */
-    this.justify = 'stretch';
+    this.alignX = 'stretch';
   }
 
   render() {
@@ -63,4 +63,4 @@ export class ForgeZStack extends JhElement {
     `;
   }
 }
-ForgeZStack.register('forge-z-stack', ForgeZStack);
+ForgeStack.register('forge-stack', ForgeStack);

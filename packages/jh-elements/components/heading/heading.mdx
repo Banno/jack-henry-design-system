@@ -31,19 +31,7 @@ Wrap your title text in it:
 
 ## Level
 
-`level` (`1`–`6`) tells assistive technology where this heading sits in the page's outline, via
-`role="heading"` and `aria-level` — the same way you'd think about `<h1>`–`<h6>`. A page should
-usually have exactly one `level="1"` heading, with `level="2"`, `level="3"`, etc. nested
-underneath it.
-
-`level` also determines the heading's visual style. Every `level="3"` heading looks the same
-wherever it appears in your app, so you don't need (or get) a separate size or weight control —
-pick the `level` that matches the heading's place in the outline, and its appearance follows
-automatically.
-
-```html
-<forge-heading level="2">Section title</forge-heading>
-```
+The `level` property establishes where the heading sits in the document outline for assistive technologies. The component automatically applies role="heading" and the appropriate aria-level for you, behaving identically to standard HTML <h1> through <h6> tags without requiring any manual ARIA configuration. Pages should generally contain a single level="1" heading, with subsequent levels nested sequentially.
 
 ## Accessibility
 

@@ -1293,13 +1293,13 @@
         },
         {
           "name": "align-y",
-          "description": "Sets the alignment of the slotted elements along the vertical axis.",
+          "description": "Sets the alignment of slotted elements along the vertical axis.",
           "type": "'start' | 'end' | 'center' | 'between' | 'around' | 'evenly'",
           "default": "\"start\""
         },
         {
           "name": "align-wrap",
-          "description": "Distributes wrapped columns along the cross axis. Only applies when `wrap` is set and content spans multiple columns.",
+          "description": "Distributes wrapped columns along the horizontal axis. Only applies when `wrap` is set and content spans multiple columns.",
           "type": "'start' | 'end' | 'center' | 'between' | 'around' | 'evenly' | 'stretch'",
           "default": "\"stretch\""
         },
@@ -1341,14 +1341,14 @@
         {
           "name": "alignY",
           "attribute": "align-y",
-          "description": "Sets the alignment of the slotted elements along the vertical axis.",
+          "description": "Sets the alignment of slotted elements along the vertical axis.",
           "type": "'start' | 'end' | 'center' | 'between' | 'around' | 'evenly'",
           "default": "\"start\""
         },
         {
           "name": "alignWrap",
           "attribute": "align-wrap",
-          "description": "Distributes wrapped columns along the cross axis. Only applies when `wrap` is set and content spans multiple columns.",
+          "description": "Distributes wrapped columns along the horizontal axis. Only applies when `wrap` is set and content spans multiple columns.",
           "type": "'start' | 'end' | 'center' | 'between' | 'around' | 'evenly' | 'stretch'",
           "default": "\"stretch\""
         },
@@ -6657,13 +6657,13 @@
         },
         {
           "name": "align-x",
-          "description": "Sets the alignment of the slotted elements along the horizontal axis.",
+          "description": "Sets the alignment of slotted elements along the horizontal axis.",
           "type": "'start' | 'end' | 'center' | 'between' | 'around' | 'evenly'",
           "default": "\"start\""
         },
         {
           "name": "align-wrap",
-          "description": "Distributes wrapped lines along the cross axis. Only applies when `wrap` is set and content spans multiple lines.",
+          "description": "Distributes wrapped lines along the vertical axis. Only applies when `wrap` is set and content spans multiple lines.",
           "type": "'start' | 'end' | 'center' | 'between' | 'around' | 'evenly' | 'stretch'",
           "default": "\"stretch\""
         },
@@ -6705,14 +6705,14 @@
         {
           "name": "alignX",
           "attribute": "align-x",
-          "description": "Sets the alignment of the slotted elements along the horizontal axis.",
+          "description": "Sets the alignment of slotted elements along the horizontal axis.",
           "type": "'start' | 'end' | 'center' | 'between' | 'around' | 'evenly'",
           "default": "\"start\""
         },
         {
           "name": "alignWrap",
           "attribute": "align-wrap",
-          "description": "Distributes wrapped lines along the cross axis. Only applies when `wrap` is set and content spans multiple lines.",
+          "description": "Distributes wrapped lines along the vertical axis. Only applies when `wrap` is set and content spans multiple lines.",
           "type": "'start' | 'end' | 'center' | 'between' | 'around' | 'evenly' | 'stretch'",
           "default": "\"stretch\""
         },

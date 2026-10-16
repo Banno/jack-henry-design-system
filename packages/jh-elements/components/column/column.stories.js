@@ -12,11 +12,11 @@ import '../button/button.js';
 const storyStyles = css`
   .demo-container {
     display: inline-block;
-    border: 1px dashed #a855f7;
+    border: 1px dashed var(--jh-border-control-color);
     padding: 16px;
   }
   .demo-box {
-    border: 1px solid #0ea5e9;
+    border: 1px solid var(--jh-color-content-brand-enabled);
   }
   .demo-box.is-playground {
     width: 240px;
@@ -120,7 +120,7 @@ export const Playground = { render: (args) => html`
 Playground.args = {
   gap: '100',
   padding: '100',
-  'align-x': 'stretch',
+  'align-x': 'center',
   'align-y': 'start',
   reverse: false,
 };

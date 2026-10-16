@@ -45,9 +45,11 @@ The following success criteria are of concern:
 
 - To satisfy [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html), `<forge-paragraph>` renders its content inside a native `<p>` element, so assistive technology can programmatically determine it as paragraph text.
 
-- To satisfy [WCAG 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html), the default text color meets the minimum contrast of 4.5:1.
-
 - To satisfy [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html), `<forge-paragraph>` can be resized without assistive technology up to 200 percent without loss of content or functionality.
+
+### Author Guidance
+
+- To satisfy [WCAG 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) when `<forge-paragraph>` is placed on a non-default background (for example, inside a colored container), set the `--forge-paragraph-color-text-enabled` styling hook to a value that maintains sufficient contrast.
 
 ## Component API
 

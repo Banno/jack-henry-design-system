@@ -11,6 +11,8 @@ import { JhElement } from '../element/element.js';
  * @customElement forge-paragraph
  *
  * @slot default - Use to insert the paragraph text.
+ *
+ * @cssprop --forge-paragraph-color-text-enabled - The text color. Defaults to `--jh-color-content-primary-enabled`.
  */
 export class ForgeParagraph extends JhElement {
   static get styles() {
@@ -18,7 +20,7 @@ export class ForgeParagraph extends JhElement {
       :host {
         display: block;
         margin: 0;
-        color: var(--jh-color-content-primary-enabled);
+        color: var(--forge-paragraph-color-text-enabled, var(--jh-color-content-primary-enabled));
         word-break: break-word;
       }
       :host([size="1"]) {

@@ -11,7 +11,7 @@ import * as stories from './tooltip.stories.js';
 
 # Tooltip
 
-[Guidelines](https://jackhenry.design/v2/components/tooltip/)
+[Guidelines](https://jackhenry.design/components/tooltip/)
 
 <hr />
 
@@ -41,6 +41,18 @@ To use `<jh-tooltip>`, place the originating element in the component's default 
 - Only the first element placed in the default slot will be used as originating the element for the tooltip.
 - By default tooltips flip to the opposite side when they reach the edge of the viewport. 
 The attribute `flip-disabled` can be set to disable this feature.
+
+## Sizing
+
+Tooltips cap at 160px by default, so longer text wraps. Override the width with the `--jh-tooltip-size-max-width` custom property on `jh-tooltip`, for example `240px`, or `none` so content like dates or code stays on one line.
+
+```css
+jh-tooltip {
+  --jh-tooltip-size-max-width: 240px;
+}
+```
+
+The full list of style hooks is in the Component API table below.
 
 ## Accessibility
 

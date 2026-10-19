@@ -120,6 +120,10 @@ A full-cover layer can dim content and block the mouse while something loads. Bu
 
 Layout primitives are designed to compose. A `<forge-stack>` can hold `<forge-row>` and `<forge-column>` containers as layers (and vice versa), letting you arrange content within a layer while still stacking layers on the z-axis.
 
+## Component vs. CSS utility
+
+Stacking is a thin layer over CSS Grid, so the same behavior can be delivered as a small CSS utility instead of a web component. See [Stack CSS Utility](?path=/docs/primitives-stack--css-utility) for a side-by-side comparison, the stylesheet, and the trade-offs between the two approaches.
+
 ## Accessibility
 
 The stack component contains no implicit accessibility features. 

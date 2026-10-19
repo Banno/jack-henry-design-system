@@ -104,6 +104,33 @@ When `wrap` produces more than one line, `align-wrap` (Flexbox `align-content`) 
 
 Layout primitives are designed to compose. `<forge-row>` can be used freely inside `<forge-column>` and other `<forge-row>` containers. See [Layout Composition](?path=/docs/primitives-layout-composition--docs) for common patterns such as toolbars, card layouts, and form rows.
 
+## Accessibility
+
+This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria.
+The following success criteria are of concern:
+
+- [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html): Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.
+- [WCAG 1.3.2 Meaningful Sequence](https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html): When the sequence in which content is presented affects its meaning, a correct reading sequence can be programmatically determined.
+- [WCAG 1.4.10 Reflow](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html): Content can be presented without loss of information or functionality, and without requiring scrolling in two dimensions, at a width equivalent to 320 CSS pixels.
+- [WCAG 2.4.3 Focus Order](https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html): If a web page can be navigated sequentially and the navigation sequences affect meaning or operation, focusable components receive focus in an order that preserves meaning and operability.
+- [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html): The size of the target for pointer inputs is at least 24 by 24 CSS pixels, except where:
+  - Spacing: Undersized targets (those less than 24 by 24 CSS pixels) are positioned so that if a 24 CSS pixel diameter circle is centered on the bounding box of each, the circles do not intersect another target or the circle for another undersized target;
+  - Equivalent: The function can be achieved through a different control on the same page that meets this criterion;
+  - Inline: The target is in a sentence or its size is otherwise constrained by the line-height of non-target text;
+  - User agent control: The size of the target is determined by the user agent and is not modified by the author;
+  - Essential: A particular presentation of the target is essential or is legally required for the information being conveyed.
+
+### What we provide
+
+- Row is purely presentational. It adds no role, so it stays out of the accessibility tree and does not add extra announcements.
+- To satisfy [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html), the token-based `gap` property provides consistent spacing between slotted controls.
+
+### Author Guidance
+
+- To satisfy [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html), add semantics when a group has meaning, for example `role="toolbar"` (with its expected keyboard behavior), a list, or a `<nav>` element.
+- To satisfy [WCAG 1.3.2 Meaningful Sequence](https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html) and [WCAG 2.4.3 Focus Order](https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html), use `reverse` and `wrap-reverse` only when order does not carry meaning. Screen readers and keyboard focus follow source order, not visual order.
+- To satisfy [WCAG 1.4.10 Reflow](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html), set `wrap="wrap"` on rows that can exceed narrow viewports or zoomed layouts.
+
 ## Component API
 
 For boolean attributes, true indicates that the attribute has been set without a value: `<forge-row reverse></forge-row>`. While false indicates the attribute does not exist in the DOM: `<forge-row></forge-row>`.

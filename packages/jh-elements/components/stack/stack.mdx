@@ -4,22 +4,22 @@ SPDX-FileCopyrightText: 2025 Jack Henry
 SPDX-License-Identifier: Apache-2.0
  */}
 import { Meta, ArgTypes, Canvas } from '@storybook/addon-docs/blocks';
-import * as stories from './z-stack.stories.js';
+import * as stories from './stack.stories.js';
 
-<Meta title="Primitives/Z Stack" of={stories} />
+<Meta title="Primitives/Stack" of={stories} />
 
-# Z Stack
+# Stack
 
-[Guidelines](https://jackhenry.design/pages/components/z-stack/)
+[Guidelines](https://jackhenry.design/pages/components/stack/)
 
 <hr />
 
-Z Stack is a layout primitive that layers the elements slotted into it on top of one another along the z-axis.
+Stack is a layout primitive that layers the elements slotted into it on top of one another along the z-axis.
 It uses CSS Grid under the hood: every slotted element occupies the same grid cell, so they overlap instead of flowing in a row or column. Use it for overlays, badges anchored to a corner, or any UI where elements need to share the same space.
 
 ## When to use it
 
-Reach for a z-stack when you need to overlap **independent, meaningful, non-blocking** elements and their source order already matches the order they should be read in. Good fits include:
+Reach for a stack when you need to overlap **independent, meaningful, non-blocking** elements and their source order already matches the order they should be read in. Good fits include:
 
 - Caption or heading text over an image or media
 - A value label centered on a chart or sparkline
@@ -34,23 +34,23 @@ Layering is purely visual — it carries no semantics — so some patterns are b
 - **Blocking interaction while loading or disabled** — this is a *state*, not a layout. Use `inert` (with `aria-busy`), a `disabled` control, or a native `<dialog>`; these also block keyboard and assistive tech, which `pointer-events` cannot.
 - **Purely decorative layering** (gradients, watermarks) — a CSS `background`, pseudo-element, or single SVG never enters the accessibility tree.
 
-Switching to `position: absolute` instead of a z-stack does not reduce any of these risks — it is the same visual layering with the same hazards. The safety comes from the semantics, not the positioning method.
+Switching to `position: absolute` instead of a stack does not reduce any of these risks — it is the same visual layering with the same hazards. The safety comes from the semantics, not the positioning method.
 
 ## Usage
 
-Import the `<forge-z-stack>` component:
+Import the `<forge-stack>` component:
 
 ```javascript
-import '@jack-henry/jh-elements/components/z-stack/z-stack.js';
+import '@jack-henry/jh-elements/components/stack/stack.js';
 ```
 
 Place elements in the default slot. Each slotted element becomes its own layer, stacked in source order with the last element on top:
 
 ```html
-<forge-z-stack>
+<forge-stack>
   <img src="cover.jpg" alt="" />
   <span>Overlaid caption</span>
-</forge-z-stack>
+</forge-stack>
 ```
 
 ## Layering
@@ -61,18 +61,18 @@ To control which layer is on top, reorder the elements in your markup.
 
 ## Alignment
 
-`align` and `justify` position every layer within the shared cell:
+`align-y` and `align-x` position every layer within the shared cell:
 
-- `align` sets the block (vertical) axis via `align-items`: `start`, `end`, `center`, or `stretch`.
-- `justify` sets the inline (horizontal) axis via `justify-items`: `start`, `end`, `center`, or `stretch`.
+- `align-y` sets the block (vertical) axis via `align-items`: `start`, `end`, `center`, or `stretch`.
+- `align-x` sets the inline (horizontal) axis via `justify-items`: `start`, `end`, `center`, or `stretch`.
 
-Combine the two to anchor a layer to an edge or corner — for example `align="start"` with `justify="end"` pins a badge to the top-right. Alignment applies to all layers at once; to position a single layer differently, set `align-self` / `justify-self` on that element.
+Combine the two to anchor a layer to an edge or corner — for example `align-y="start"` with `align-x="end"` pins a badge to the top-right. Alignment applies to all layers at once; to position a single layer differently, set `align-self` / `justify-self` on that element.
 
 ```html
-<forge-z-stack align="start" justify="end">
+<forge-stack align-y="start" align-x="end">
   <div class="avatar"></div>
   <jh-badge count="8" class="inset"></jh-badge>
-</forge-z-stack>
+</forge-stack>
 ```
 
 ### Anchoring inside or outside the corner
@@ -118,11 +118,11 @@ A full-cover layer can dim content and block the mouse while something loads. Bu
 
 ## Composition
 
-Layout primitives are designed to compose. A `<forge-z-stack>` can hold `<forge-h-stack>` and `<forge-v-stack>` containers as layers (and vice versa), letting you arrange content within a layer while still stacking layers on the z-axis.
+Layout primitives are designed to compose. A `<forge-stack>` can hold `<forge-row>` and `<forge-column>` containers as layers (and vice versa), letting you arrange content within a layer while still stacking layers on the z-axis.
 
 ## Accessibility
 
-The z-stack component contains no implicit accessibility features. 
+The stack component contains no implicit accessibility features. 
 
 ### Author Guidance
 

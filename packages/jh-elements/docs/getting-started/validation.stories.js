@@ -242,7 +242,7 @@ export const FormValidationExample = {
           show-indicator
         ></jh-input-url>
 
-        <jh-checkbox-group label="Interests" helper-text="Select at least two" required min-required="2" show-indicator>
+        <jh-checkbox-group label="Interests" helper-text="Select at least one option below" required show-indicator>
           <jh-checkbox label="Design" name="interests" value="design"></jh-checkbox>
           <jh-checkbox label="Engineering" name="interests" value="engineering"></jh-checkbox>
           <jh-checkbox label="Product" name="interests" value="product"></jh-checkbox>

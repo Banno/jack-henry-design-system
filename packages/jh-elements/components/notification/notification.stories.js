@@ -297,3 +297,32 @@ TriggerNotification.argTypes = {
 TriggerNotification.parameters = {
   styles: storyStyles,
 };
+
+// Demonstrates the default slot wrapping at word boundaries 
+export const TextWrapping = {
+  render: (args) =>
+    html`
+      <div style="width: ${args.width}px;">
+        <jh-notification type="alert" ?stacked=${args.stacked}>
+          <p>${args.message}</p>
+          <jh-button
+            label="Action button"
+            slot="jh-notification-action"
+          ></jh-button>
+        </jh-notification>
+      </div>
+    `,
+};
+
+TextWrapping.args = {
+  width: 247,
+  stacked: false,
+  message:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+};
+
+TextWrapping.argTypes = {
+  width: { control: { type: 'number' } },
+  stacked: { control: { type: 'boolean' } },
+  message: { control: { type: 'text' } },
+};

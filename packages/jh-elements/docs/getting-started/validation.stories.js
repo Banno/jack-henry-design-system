@@ -163,9 +163,6 @@ export default {
  * Tab through the fields (or click away) to trigger `focusout` validation and see
  * the `jh-invalid` listener populate contextual `error-text` messages.
  */
-<<<<<<< HEAD
-
-
 const testOptions = [
   { label: "select a value...", value: "", selected: true },
   { label: "Personal Loan", value: "loan-personal" },
@@ -176,8 +173,6 @@ const testOptions = [
   { label: "Brokerage Account", value: "brokerage-standard" },
 ];
 
-=======
->>>>>>> 5e926fa3 (adds validation docs and stories)
 export const FormValidationExample = {
   render: () => html`
     <div id="validation-demo">

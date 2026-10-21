@@ -53,6 +53,10 @@ all radios need to have a `value` attribute set and the radio-group needs to hav
   - Set the attribute `value` on the radio group to the value of the desired radio.
 - Setting the `value` attribute on the radio group overrides setting `checked` on the individual radio.
 
+## Validation
+
+Set the `required` attribute to require that a radio is selected. Validation runs when focus leaves the entire group, and the `jh-invalid` event can be used to set the `invalid` property and `error-text`. See the [Validation guide](/docs/guides-validation--docs) for more information on how validation rules are applied and how to handle validation events.
+
 ## Accessibility
 
 This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria. 

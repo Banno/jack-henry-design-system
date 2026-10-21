@@ -23,6 +23,7 @@ customElements.modules?.forEach(module => {
       declaration.attributes,
       declaration.members?.filter(member => member.kind === 'field'),
       declaration.cssProperties,
+      declaration.cssParts,
       declaration.events,
       declaration.slots,
     ];

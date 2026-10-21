@@ -13523,6 +13523,28 @@
               "name": "--jh-list-item-metadata-color-text-secondary-disabled"
             }
           ],
+          "cssParts": [
+            {
+              "description": "The list-item container.",
+              "name": "list-item"
+            },
+            {
+              "description": "The primary text.",
+              "name": "text-primary"
+            },
+            {
+              "description": "The secondary text.",
+              "name": "text-secondary"
+            },
+            {
+              "description": "The primary metadata. Example: `jh-list-item::part(metadata-primary) { font-weight: 700; }`.",
+              "name": "metadata-primary"
+            },
+            {
+              "description": "The secondary metadata.",
+              "name": "metadata-secondary"
+            }
+          ],
           "slots": [
             {
               "description": "Use to insert custom content into the list-item.",

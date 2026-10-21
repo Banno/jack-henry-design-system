@@ -83,6 +83,12 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * @cssprop --jh-list-item-metadata-color-text-secondary-disabled - The secondary metadata text color when interactive and disabled.
  * Defaults to `--jh-color-content-secondary-enabled`.
  *
+ * @csspart list-item - The list-item container.
+ * @csspart text-primary - The primary text.
+ * @csspart text-secondary - The secondary text.
+ * @csspart metadata-primary - The primary metadata. Example: `jh-list-item::part(metadata-primary) { font-weight: 700; }`.
+ * @csspart metadata-secondary - The secondary metadata.
+ *
  * @slot default - Use to insert custom content into the list-item.
  * @slot jh-list-item-left - Use to insert custom content on the left the list-item. 
  * @slot jh-list-item-right - Use to insert custom content on the right the list-item.
@@ -516,7 +522,7 @@ export class JhListItem extends JhElement {
     }
 
     return html`
-      <div class="list-item">
+      <div class="list-item" part="list-item">
         <slot
           name="jh-list-item-left"
           class=${this._hasLeftSlotContent ? 'has-content' : ''}
@@ -526,12 +532,12 @@ export class JhListItem extends JhElement {
           class=${this._showFallback ? '' : 'has-content'}></slot>
         <div class=${`content ${this._showFallback ? 'display' : ''}`}>
           <div class="text">
-            ${this.primaryText ? html`<div class="primary-text">${this.primaryText}</div>` : ''}
-            ${this.secondaryText ? html`<div class="secondary-text">${this.secondaryText}</div>` : ''}
+            ${this.primaryText ? html`<div class="primary-text" part="text-primary">${this.primaryText}</div>` : ''}
+            ${this.secondaryText ? html`<div class="secondary-text" part="text-secondary">${this.secondaryText}</div>` : ''}
           </div>
           <div class="metadata">
-            ${this.primaryMetadata ? html`<div class="primary-metadata">${this.primaryMetadata}</div>` : ''}
-            ${this.secondaryMetadata ? html`<div class="secondary-metadata">${this.secondaryMetadata}</div>` : ''}
+            ${this.primaryMetadata ? html`<div class="primary-metadata" part="metadata-primary">${this.primaryMetadata}</div>` : ''}
+            ${this.secondaryMetadata ? html`<div class="secondary-metadata" part="metadata-secondary">${this.secondaryMetadata}</div>` : ''}
           </div>
         </div>
         <slot

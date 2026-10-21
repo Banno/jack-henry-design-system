@@ -4822,7 +4822,7 @@
         },
         {
           "name": "jh-list-item",
-          "description": "A list item represents one item in a list of connected objects. List items are used as building blocks in complex components such as lists, menus, and dropdowns.\n\n[List Item Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-list-item--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert custom content into the list-item.\n- **jh-list-item-left** - Use to insert custom content on the left the list-item.\n- **jh-list-item-right** - Use to insert custom content on the right the list-item.",
+          "description": "A list item represents one item in a list of connected objects. List items are used as building blocks in complex components such as lists, menus, and dropdowns.\n\n[List Item Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-list-item--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert custom content into the list-item.\n- **jh-list-item-left** - Use to insert custom content on the left the list-item.\n- **jh-list-item-right** - Use to insert custom content on the right the list-item.\n\n### **CSS Parts:**\n - **list-item** - The list-item container.\n- **text-primary** - The primary text.\n- **text-secondary** - The secondary text.\n- **metadata-primary** - The primary metadata. Example: `jh-list-item::part(metadata-primary) { font-weight: 700; }`.\n- **metadata-secondary** - The secondary metadata.",
           "doc-url": "",
           "attributes": [
             {
@@ -10146,7 +10146,28 @@
           "description": "The maximum width of the tooltip. Defaults to `160px`."
         }
       ],
-      "pseudo-elements": []
+      "pseudo-elements": [
+        {
+          "name": "part(list-item)",
+          "description": "The list-item container."
+        },
+        {
+          "name": "part(text-primary)",
+          "description": "The primary text."
+        },
+        {
+          "name": "part(text-secondary)",
+          "description": "The secondary text."
+        },
+        {
+          "name": "part(metadata-primary)",
+          "description": "The primary metadata. Example: `jh-list-item::part(metadata-primary) { font-weight: 700; }`."
+        },
+        {
+          "name": "part(metadata-secondary)",
+          "description": "The secondary metadata."
+        }
+      ]
     }
   }
 }

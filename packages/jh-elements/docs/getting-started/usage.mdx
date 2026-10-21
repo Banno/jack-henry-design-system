@@ -71,6 +71,16 @@ jh-badge {
 
 For more information on working with styling hooks, please reference the [design tokens documentation](/docs/getting-started-design-tokens--docs). 
 
+## Using CSS parts
+
+A CSS part lets you apply any CSS to a named internal element. A styling hook sets one predefined value.
+
+```css
+jh-list-item::part(metadata-primary) { font-weight: 700; }
+```
+
+Parts are listed under "CSS Shadow Parts" in each component's API docs.
+
 ## Using fonts
 
 The Figtree variable font is our primary font. We strongly encourage self-hosting fonts rather than relying on google fonts' CDN. 

@@ -11,6 +11,7 @@ import '../../components/checkbox-group/checkbox-group.js';
 import '../../components/checkbox/checkbox.js';
 import '../../components/radio-group/radio-group.js';
 import '../../components/radio/radio.js';
+import '../../components/select/select.js';
 import '../../components/button/button.js';
 import { action } from 'storybook/actions';
 
@@ -162,6 +163,18 @@ export default {
  * Tab through the fields (or click away) to trigger `focusout` validation and see
  * the `jh-invalid` listener populate contextual `error-text` messages.
  */
+
+
+const testOptions = [
+  { label: "select a value...", value: "", selected: true },
+  { label: "Personal Loan", value: "loan-personal" },
+  { label: "Mortgage Refinance", value: "mortgage-refi" },
+  { label: "Certificate of Deposit", value: "cd-12-month" },
+  { label: "IRA Investment", value: "ira-traditional" },
+  { label: "Health Savings Account", value: "hsa-01" },
+  { label: "Brokerage Account", value: "brokerage-standard" },
+];
+
 export const FormValidationExample = {
   render: () => html`
     <div id="validation-demo">
@@ -193,6 +206,15 @@ export const FormValidationExample = {
           min="1"
           step="1"
         ></jh-input-number>
+
+        <jh-select
+          label="Account Type"
+          helper-text="Select your account type"
+          name="account-type"
+          required
+          show-indicator
+          .options=${testOptions}
+        ></jh-select>
 
         <jh-input-telephone
           label="Telephone"

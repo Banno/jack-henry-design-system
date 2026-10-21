@@ -100,12 +100,12 @@ import '../progress/progress.js';
  * @cssprop --jh-button-label-color-text-neutral-focus - The label text color when in focus and `appearance="neutral"`. Defaults to `--jh-color-content-primary-hover`.
  * @cssprop --jh-button-label-color-text-neutral-hover - The label text color when hovered and `appearance="neutral"`. Defaults to `--jh-color-content-primary-hover`.
  * @cssprop --jh-button-label-color-text-neutral-active - The label text color when active and `appearance="neutral"`. Defaults to `--jh-color-content-primary-active`.
- * @cssprop --jh-button-label-color-text-neutral-disabled - The label text color when disabled and `appearance="neutral"`. Defaults to `--jh-color-content-secondary-enabled`.
+ * @cssprop --jh-button-label-color-text-neutral-disabled - The label text color when disabled and `appearance="neutral"`. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-button-icon-color-fill-neutral-enabled - The icon color when enabled and `appearance="neutral"`. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-button-icon-color-fill-neutral-focus - The icon color when in focus and `appearance="neutral"`. Defaults to `--jh-color-content-primary-hover`.
  * @cssprop --jh-button-icon-color-fill-neutral-hover - The icon color when hovered and `appearance="neutral"`. Defaults to `--jh-color-content-primary-hover`.
  * @cssprop --jh-button-icon-color-fill-neutral-active - The icon color when active and `appearance="neutral"`. Defaults to `--jh-color-content-primary-active`.
- * @cssprop --jh-button-icon-color-fill-neutral-disabled - The icon color when disabled and `appearance="neutral"`. Defaults to `--jh-color-content-secondary-enabled`.
+ * @cssprop --jh-button-icon-color-fill-neutral-disabled - The icon color when disabled and `appearance="neutral"`. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-button-progress-color-border-neutral-pending - The progress indicator border-color when `appearance="neutral"`. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-button-progress-track-color-border-neutral-pending - The progress indicator track-color when `appearance="neutral"`. Defaults to `--jh-color-control-enabled`.
  * @cssprop --jh-button-color-background-danger-enabled - The button container background-color when enabled and `appearance="danger"`. Defaults to `--jh-color-content-negative-enabled`.
@@ -623,7 +623,7 @@ export class JhButton extends JhElement {
         );
         color: var(
           --jh-button-label-color-text-neutral-disabled,
-          var(--jh-color-content-secondary-enabled)
+          var(--jh-color-content-primary-enabled)
         );
         --button-border-color: var(
           --jh-button-color-border-neutral-disabled,
@@ -636,7 +636,7 @@ export class JhButton extends JhElement {
       :host([appearance='neutral']) a[disabled] {
         --jh-icon-color-fill: var(
           --jh-button-icon-color-fill-neutral-disabled,
-          var(--jh-color-content-secondary-enabled)
+          var(--jh-color-content-primary-enabled)
         );
       }
       /* appearance='danger' */

@@ -225,10 +225,11 @@ export const FormValidationExample = {
 
         <jh-input
           label="Postal Code"
-          helper-text="5 digits, e.g. 12345"
+          helper-text="5 digits, e.g. 12345-6789"
           name="postal-code"
           show-indicator
-          pattern="^[0-9]{5}$"
+          input-mask="99999-9999"
+          pattern="^[0-9]{5}(-[0-9]{4})?$"
         ></jh-input>
 
         <jh-input-url

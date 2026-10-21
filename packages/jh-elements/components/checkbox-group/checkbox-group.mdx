@@ -48,6 +48,9 @@ The checkbox group component makes use of suggested content dependencies.
 - Checkboxes without a `name` attributed are not submitted in forms. 
 - If a checked checkbox does not have a `value` attribute, the string `on` will be submitted in the form.
 
+## Validation
+
+Set the `required` attribute to require that at least one checkbox is checked. Validation runs when focus leaves the entire group, and the `jh-invalid` event can be used to set the `invalid` property and `error-text`. See the [Validation guide](/docs/guides-validation--docs) for more information on how validation rules are applied and how to handle validation events.
 
 ## Accessibility
 

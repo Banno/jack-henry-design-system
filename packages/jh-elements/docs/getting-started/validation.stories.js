@@ -183,11 +183,12 @@ export const FormValidationExample = {
 
         <jh-input-number
           label="Number of Accounts"
-          helper-text="Max 3, step 1"
+          helper-text="Min 1, max 3, step 1"
           name="accounts"
           required
           show-indicator
           max="3"
+          min="1"
           step="1"
         ></jh-input-number>
 

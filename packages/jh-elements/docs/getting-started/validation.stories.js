@@ -179,6 +179,7 @@ export const FormValidationExample = {
           required
           show-indicator
           minlength="3"
+          maxlength="10"
         ></jh-input>
 
         <jh-input-number

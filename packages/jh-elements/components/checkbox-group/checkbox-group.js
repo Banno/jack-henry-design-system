@@ -4,6 +4,7 @@
 
 import { css, html } from 'lit';
 import { JhElement } from '../element/element.js';
+import { ValidationController } from '../../controllers/validationController.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
@@ -29,7 +30,11 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * @customElement jh-checkbox-group
  */
 export class JhCheckboxGroup extends JhElement {
+  static get formAssociated() {
+    return true;
+  }
   #previousSelectedValue = [];
+  #validation = new ValidationController(this, { isGroupControl: true });
 
 
   static get styles() {
@@ -255,6 +260,27 @@ export class JhCheckboxGroup extends JhElement {
   #handleSlotChange() {
     this.#syncDisabledToChildren();
     this.#getPreviousValues();
+  }
+
+  /**
+   * Returns the checkbox group's parent form element.
+   * @type {HTMLFormElement | null}
+   */
+  get form() {
+    return this.internals.form;
+  }
+
+  /** @type {ValidityState} */
+  get validity() {
+    return this.#validation.validity;
+  }
+
+  checkValidity() {
+    return this.#validation.checkValidity();
+  }
+
+  formResetCallback() {
+    this.#validation.reset();
   }
 
   #syncDisabledToChildren() {

@@ -142,6 +142,8 @@ export class JhRadioGroup extends JhElement {
     get form(): HTMLFormElement | null;
     /** @type {ValidityState} */
     get validity(): ValidityState;
+    checkValidity(): boolean;
+    formResetCallback(): void;
     /** @protected */
     protected render(): import("lit").TemplateResult<1>;
     #private;

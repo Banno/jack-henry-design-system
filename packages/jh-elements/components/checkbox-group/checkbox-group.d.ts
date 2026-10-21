@@ -25,6 +25,7 @@
  * @customElement jh-checkbox-group
  */
 export class JhCheckboxGroup extends JhElement {
+    static get formAssociated(): boolean;
     static get styles(): import("lit").CSSResult;
     static get properties(): {
         accessibleLabel: {
@@ -115,6 +116,15 @@ export class JhCheckboxGroup extends JhElement {
     showIndicator: boolean;
     /** @protected */
     protected firstUpdated(): void;
+    /**
+     * Returns the checkbox group's parent form element.
+     * @type {HTMLFormElement | null}
+     */
+    get form(): HTMLFormElement | null;
+    /** @type {ValidityState} */
+    get validity(): ValidityState;
+    checkValidity(): boolean;
+    formResetCallback(): void;
     /** @protected */
     protected render(): import("lit").TemplateResult<1>;
     #private;

@@ -181,6 +181,10 @@ const customizedData = manageSelectDataset({
 <jh-select label="State" .options=${customizedData}></jh-select>
 ```
 
+## Validation
+
+Set the `required` attribute to require an option be selected. Validation runs when focus leaves the control, and the `jh-invalid` event can be used to set the `invalid` property and `error-text`. See the [Validation guide](/docs/guides-validation--docs) for more information on how validation rules are applied and how to handle validation events.
+
 ## Dependencies
 
 The select component makes use of the following required compositional dependencies.

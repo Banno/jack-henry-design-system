@@ -584,6 +584,14 @@
               }
             },
             {
+              "name": "invalid",
+              "description": "Sets an `aria-invalid` on the checkbox to indicate the value supplied was invalid and displays `error-text` when set.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
               "name": "disabled",
               "description": "Disables the checkbox and prevents all user interactions. May cause checkbox to be ignored by assistive technologies(AT).",
               "value": {
@@ -605,6 +613,14 @@
               "value": {
                 "type": "string | null",
                 "default": "null"
+              }
+            },
+            {
+              "name": "required",
+              "description": "Indicates a selection is required.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
               }
             },
             {
@@ -640,6 +656,11 @@
                 "type": "boolean"
               },
               {
+                "name": "invalid",
+                "description": "Sets an `aria-invalid` on the checkbox to indicate the value supplied was invalid and displays `error-text` when set.",
+                "type": "boolean"
+              },
+              {
                 "name": "disabled",
                 "description": "Disables the checkbox and prevents all user interactions. May cause checkbox to be ignored by assistive technologies(AT).",
                 "type": "boolean"
@@ -658,6 +679,11 @@
                 "name": "name",
                 "description": "Sets the name of the checkbox data when submitted in a form.",
                 "type": "string | null"
+              },
+              {
+                "name": "required",
+                "description": "Indicates a selection is required.",
+                "type": "boolean"
               },
               {
                 "name": "accessibleLabel",

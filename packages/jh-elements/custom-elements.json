@@ -1783,6 +1783,18 @@
             },
             {
               "kind": "field",
+              "name": "invalid",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Sets an `aria-invalid` on the checkbox to indicate the value supplied was invalid and displays `error-text` when set.",
+              "default": "false",
+              "attribute": "invalid",
+              "reflects": true
+            },
+            {
+              "kind": "field",
               "name": "disabled",
               "privacy": "public",
               "type": {
@@ -1825,6 +1837,18 @@
               "description": "Sets the name of the checkbox data when submitted in a form.",
               "default": "null",
               "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Indicates a selection is required.",
+              "default": "false",
+              "attribute": "required",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -1940,6 +1964,15 @@
               "fieldName": "indeterminate"
             },
             {
+              "name": "invalid",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Sets an `aria-invalid` on the checkbox to indicate the value supplied was invalid and displays `error-text` when set.",
+              "default": "false",
+              "fieldName": "invalid"
+            },
+            {
               "name": "disabled",
               "type": {
                 "text": "boolean"
@@ -1965,6 +1998,15 @@
               "description": "Sets the name of the checkbox data when submitted in a form.",
               "default": "null",
               "fieldName": "name"
+            },
+            {
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Indicates a selection is required.",
+              "default": "false",
+              "fieldName": "required"
             },
             {
               "name": "value",

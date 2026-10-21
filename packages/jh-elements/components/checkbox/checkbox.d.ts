@@ -69,6 +69,10 @@ export class JhCheckbox extends JhElement {
             type: BooleanConstructor;
             reflect: boolean;
         };
+        invalid: {
+            type: BooleanConstructor;
+            reflect: boolean;
+        };
         disabled: {
             type: BooleanConstructor;
             reflect: boolean;
@@ -82,6 +86,10 @@ export class JhCheckbox extends JhElement {
         };
         name: {
             type: StringConstructor;
+        };
+        required: {
+            type: BooleanConstructor;
+            reflect: boolean;
         };
         value: {
             type: StringConstructor;
@@ -106,6 +114,11 @@ export class JhCheckbox extends JhElement {
      */
     get indeterminate(): boolean;
     /**
+     * Sets an `aria-invalid` on the checkbox to indicate the value supplied was invalid and displays `error-text` when set.
+     * @type {boolean}
+     */
+    invalid: boolean;
+    /**
      * Disables the checkbox and prevents all user interactions. May cause checkbox to be ignored by assistive technologies(AT).
      * @type {boolean}
      */
@@ -126,6 +139,11 @@ export class JhCheckbox extends JhElement {
      * @type {string | null}
      */
     name: string | null;
+    /**
+     * Indicates a selection is required.
+     * @type {boolean}
+     */
+    required: boolean;
     /** @param {string | null} newValue */
     set value(newValue: string | null);
     /**

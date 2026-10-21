@@ -415,6 +415,10 @@ export class JhCheckbox extends JhElement {
         type: Boolean,
         reflect: true,
       },
+      invalid: {
+        type: Boolean,
+        reflect: true,
+      },
       disabled: {
         type: Boolean,
         reflect: true,
@@ -428,6 +432,10 @@ export class JhCheckbox extends JhElement {
       },
       name: {
         type: String,
+      },
+      required: {
+        type: Boolean,
+        reflect: true,
       },
       value: {
         type: String,
@@ -445,6 +453,11 @@ export class JhCheckbox extends JhElement {
     this.checked = false;
     /** @type {boolean} */
     this.indeterminate = false;
+    /**
+     * Sets an `aria-invalid` on the checkbox to indicate the value supplied was invalid and displays `error-text` when set.
+     * @type {boolean}
+     */
+    this.invalid = false;
     /**
      * Disables the checkbox and prevents all user interactions. May cause checkbox to be ignored by assistive technologies(AT).
      * @type {boolean}
@@ -466,6 +479,11 @@ export class JhCheckbox extends JhElement {
      * @type {string | null}
      */
     this.name = null;
+    /**
+     * Indicates a selection is required.
+     * @type {boolean}
+     */
+    this.required = false;
     /** @type {string | null} */
     this.value = null;
     /**
@@ -595,6 +613,8 @@ export class JhCheckbox extends JhElement {
         aria-describedby=${ifDefined(
           this.helperText ? `checkbox-helper-text-${this.uniqueId}` : null
         )}
+        ?aria-invalid=${ifDefined(this.invalid ? 'true' : null)}
+        ?required=${this.required}
       />
       <span aria-hidden="true"></span>
       ${label}

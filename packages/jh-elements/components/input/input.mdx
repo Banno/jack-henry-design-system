@@ -95,7 +95,9 @@ When implementing the `input-mask` attribute, it is important to distinguish bet
 
 ### Implementation Notes
 
-**Paste Events**: Note that input masking does not occur on paste events. This prevents the removal of characters without the user’s knowledge, which could lead to incorrect data being submitted in a form. It is the authors responsibility to validate the input field when needed. 
+**Paste Events**: Note that input masking does not occur on paste events. This prevents the removal of characters without the user’s knowledge, which could lead to incorrect data being submitted in a form. 
+
+**Validation**: Input masking only formats the value as the user types and does not enforce any kind of validation. A masked value may still be incomplete or invalid (e.g., `123-4` in a `999-99-9999` mask). Authors should use the `pattern` attribute to validate the input value, and account for any fixed characters in the mask when writing the pattern (e.g., `pattern="\d{3}-\d{2}-\d{4}"` for an SSN mask of `999-99-9999`). See the [Validation guide](/docs/guides-validation--docs) for more information on how validation rules are applied and how to handle validation events.
 
 **Maxlength**: Input masking does not enforce a maxlength and characters that surpass the length of the `input-mask` will not be validated. Authors should set the `maxlength` property as needed and account for any fixed characters when determining the maxlength. 
 

@@ -426,11 +426,11 @@
               "name": "--jh-button-progress-track-color-border-tertiary-pending"
             },
             {
-              "description": "The button container background-color when enabled and `appearance=\"neutral\"`. Defaults to `--jh-color-container-neutral-enabled`.",
+              "description": "The button container background-color when enabled and `appearance=\"neutral\"`. Defaults to `transparent`.",
               "name": "--jh-button-color-background-neutral-enabled"
             },
             {
-              "description": "The button container border-color when enabled and `appearance=\"neutral\"`. Defaults to `transparent`.",
+              "description": "The button container border-color when enabled and `appearance=\"neutral\"`. Defaults to `--jh-border-control-color`.",
               "name": "--jh-button-color-border-neutral-enabled"
             },
             {
@@ -438,7 +438,7 @@
               "name": "--jh-button-color-background-neutral-focus"
             },
             {
-              "description": "The button container border-color when in focus and `appearance=\"neutral\"`. Defaults to `transparent`.",
+              "description": "The button container border-color when in focus and `appearance=\"neutral\"`. Defaults to `--jh-border-control-color`.",
               "name": "--jh-button-color-border-neutral-focus"
             },
             {
@@ -446,7 +446,7 @@
               "name": "--jh-button-color-background-neutral-hover"
             },
             {
-              "description": "The button container border-color when hovered and `appearance=\"neutral\"`. Defaults to `transparent`.",
+              "description": "The button container border-color when hovered and `appearance=\"neutral\"`. Defaults to `--jh-border-control-color`.",
               "name": "--jh-button-color-border-neutral-hover"
             },
             {
@@ -454,23 +454,23 @@
               "name": "--jh-button-color-background-neutral-active"
             },
             {
-              "description": "The button container border-color when active and `appearance=\"neutral\"`. Defaults to `transparent`.",
+              "description": "The button container border-color when active and `appearance=\"neutral\"`. Defaults to `--jh-border-control-color`.",
               "name": "--jh-button-color-border-neutral-active"
             },
             {
-              "description": "The button container background-color when disabled and `appearance=\"neutral\"`. Defaults to `--jh-color-container-neutral-enabled`.",
+              "description": "The button container background-color when disabled and `appearance=\"neutral\"`. Defaults to `transparent`.",
               "name": "--jh-button-color-background-neutral-disabled"
             },
             {
-              "description": "The button container border-color when disabled and `appearance=\"neutral\"`. Defaults to `transparent`.",
+              "description": "The button container border-color when disabled and `appearance=\"neutral\"`. Defaults to `--jh-border-control-color`.",
               "name": "--jh-button-color-border-neutral-disabled"
             },
             {
-              "description": "The button container background-color when pending and `appearance=\"neutral\"`. Defaults to `--jh-color-container-neutral-enabled`.",
+              "description": "The button container background-color when pending and `appearance=\"neutral\"`. Defaults to `transparent`.",
               "name": "--jh-button-color-background-neutral-pending"
             },
             {
-              "description": "The button container border-color when pending and `appearance=\"neutral\"`. Defaults to `transparent`.",
+              "description": "The button container border-color when pending and `appearance=\"neutral\"`. Defaults to `--jh-border-control-color`.",
               "name": "--jh-button-color-border-neutral-pending"
             },
             {
@@ -490,7 +490,7 @@
               "name": "--jh-button-label-color-text-neutral-active"
             },
             {
-              "description": "The label text color when disabled and `appearance=\"neutral\"`. Defaults to `--jh-color-content-secondary-enabled`.",
+              "description": "The label text color when disabled and `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-enabled`.",
               "name": "--jh-button-label-color-text-neutral-disabled"
             },
             {
@@ -510,7 +510,7 @@
               "name": "--jh-button-icon-color-fill-neutral-active"
             },
             {
-              "description": "The icon color when disabled and `appearance=\"neutral\"`. Defaults to `--jh-color-content-secondary-enabled`.",
+              "description": "The icon color when disabled and `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-enabled`.",
               "name": "--jh-button-icon-color-fill-neutral-disabled"
             },
             {

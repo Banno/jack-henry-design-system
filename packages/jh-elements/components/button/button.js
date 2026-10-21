@@ -84,18 +84,18 @@ import '../progress/progress.js';
  * @cssprop --jh-button-icon-color-fill-tertiary-disabled - The icon color when disabled and `appearance="tertiary"`. Defaults to `--jh-color-content-brand-enabled`.
  * @cssprop --jh-button-progress-color-border-tertiary-pending - The progress indicator border-color when `appearance="tertiary"`. Defaults to `--jh-color-content-brand-enabled`.
  * @cssprop --jh-button-progress-track-color-border-tertiary-pending - The progress indicator track-color when `appearance="tertiary"`. Defaults to `--jh-color-control-enabled`.
- * @cssprop --jh-button-color-background-neutral-enabled - The button container background-color when enabled and `appearance="neutral"`. Defaults to `--jh-color-container-neutral-enabled`.
- * @cssprop --jh-button-color-border-neutral-enabled - The button container border-color when enabled and `appearance="neutral"`. Defaults to `transparent`.
+ * @cssprop --jh-button-color-background-neutral-enabled - The button container background-color when enabled and `appearance="neutral"`. Defaults to `transparent`.
+ * @cssprop --jh-button-color-border-neutral-enabled - The button container border-color when enabled and `appearance="neutral"`. Defaults to `--jh-border-control-color`.
  * @cssprop --jh-button-color-background-neutral-focus - The button container background-color when in focus and `appearance="neutral"`. Defaults to `--jh-color-container-neutral-hover`.
- * @cssprop --jh-button-color-border-neutral-focus - The button container border-color when in focus and `appearance="neutral"`. Defaults to `transparent`.
+ * @cssprop --jh-button-color-border-neutral-focus - The button container border-color when in focus and `appearance="neutral"`. Defaults to `--jh-border-control-color`.
  * @cssprop --jh-button-color-background-neutral-hover - The button container background-color when hovered and `appearance="neutral"`. Defaults to `--jh-color-container-neutral-hover`.
- * @cssprop --jh-button-color-border-neutral-hover - The button container border-color when hovered and `appearance="neutral"`. Defaults to `transparent`.
+ * @cssprop --jh-button-color-border-neutral-hover - The button container border-color when hovered and `appearance="neutral"`. Defaults to `--jh-border-control-color`.
  * @cssprop --jh-button-color-background-neutral-active - The button container background-color when active and `appearance="neutral"`. Defaults to `--jh-color-container-neutral-active`.
- * @cssprop --jh-button-color-border-neutral-active - The button container border-color when active and `appearance="neutral"`. Defaults to `transparent`.
- * @cssprop --jh-button-color-background-neutral-disabled - The button container background-color when disabled and `appearance="neutral"`. Defaults to `--jh-color-container-neutral-enabled`.
- * @cssprop --jh-button-color-border-neutral-disabled - The button container border-color when disabled and `appearance="neutral"`. Defaults to `transparent`.
- * @cssprop --jh-button-color-background-neutral-pending - The button container background-color when pending and `appearance="neutral"`. Defaults to `--jh-color-container-neutral-enabled`.
- * @cssprop --jh-button-color-border-neutral-pending - The button container border-color when pending and `appearance="neutral"`. Defaults to `transparent`.
+ * @cssprop --jh-button-color-border-neutral-active - The button container border-color when active and `appearance="neutral"`. Defaults to `--jh-border-control-color`.
+ * @cssprop --jh-button-color-background-neutral-disabled - The button container background-color when disabled and `appearance="neutral"`. Defaults to `transparent`.
+ * @cssprop --jh-button-color-border-neutral-disabled - The button container border-color when disabled and `appearance="neutral"`. Defaults to `--jh-border-control-color`.
+ * @cssprop --jh-button-color-background-neutral-pending - The button container background-color when pending and `appearance="neutral"`. Defaults to `transparent`.
+ * @cssprop --jh-button-color-border-neutral-pending - The button container border-color when pending and `appearance="neutral"`. Defaults to `--jh-border-control-color`.
  * @cssprop --jh-button-label-color-text-neutral-enabled - The label text color when enabled and `appearance="neutral"`. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-button-label-color-text-neutral-focus - The label text color when in focus and `appearance="neutral"`. Defaults to `--jh-color-content-primary-hover`.
  * @cssprop --jh-button-label-color-text-neutral-hover - The label text color when hovered and `appearance="neutral"`. Defaults to `--jh-color-content-primary-hover`.
@@ -538,7 +538,7 @@ export class JhButton extends JhElement {
       :host([appearance='neutral']) a {
         background-color: var(
           --jh-button-color-background-neutral-enabled,
-          var(--jh-color-container-neutral-enabled)
+          transparent
         );
         color: var(
           --jh-button-label-color-text-neutral-enabled,
@@ -546,7 +546,7 @@ export class JhButton extends JhElement {
         );
         --button-border-color: var(
           --jh-button-color-border-neutral-enabled,
-          transparent
+          var(--jh-border-control-color)
         );
         --jh-icon-color-fill: var(
           --jh-button-icon-color-fill-neutral-enabled,
@@ -565,7 +565,7 @@ export class JhButton extends JhElement {
         );
         --button-border-color: var(
           --jh-button-color-border-neutral-focus,
-          transparent
+          var(--jh-border-control-color)
         );
         --jh-icon-color-fill: var(
           --jh-button-icon-color-fill-neutral-focus,
@@ -584,7 +584,7 @@ export class JhButton extends JhElement {
         );
         --button-border-color: var(
           --jh-button-color-border-neutral-hover,
-          transparent
+          var(--jh-border-control-color)
         );
         --jh-icon-color-fill: var(
           --jh-button-icon-color-fill-neutral-hover,
@@ -603,7 +603,7 @@ export class JhButton extends JhElement {
         );
         --button-border-color: var(
           --jh-button-color-border-neutral-active,
-          transparent
+          var(--jh-border-control-color)
         );
         --jh-icon-color-fill: var(
           --jh-button-icon-color-fill-neutral-active,
@@ -619,7 +619,7 @@ export class JhButton extends JhElement {
       :host([appearance='neutral']) a[disabled] {
         background-color: var(
           --jh-button-color-background-neutral-disabled,
-          var(--jh-color-container-neutral-enabled)
+          transparent
         );
         color: var(
           --jh-button-label-color-text-neutral-disabled,
@@ -627,7 +627,7 @@ export class JhButton extends JhElement {
         );
         --button-border-color: var(
           --jh-button-color-border-neutral-disabled,
-          transparent
+          var(--jh-border-control-color)
         );
       }
       :host([appearance='neutral']) button[aria-disabled='true'],
@@ -818,11 +818,11 @@ export class JhButton extends JhElement {
       :host([pending][appearance='neutral']) a {
         background-color: var(
           --jh-button-color-background-neutral-pending,
-          var(--jh-color-container-neutral-enabled)
+          transparent
         );
         --button-border-color: var(
           --jh-button-color-border-neutral-pending,
-          transparent
+          var(--jh-border-control-color)
         );
       }
       :host([pending][appearance='neutral']) jh-progress {

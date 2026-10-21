@@ -36,6 +36,7 @@
  * @cssprop --jh-input-helper-color-text - The helper-text text color. Defaults to `jh-color-content-secondary-enabled`.
  * @cssprop --jh-input-counter-color-text - The character counter text color. Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-input-value-color-text - The value text color. Defaults to `jh-color-content-primary-enabled`.
+ * @cssprop --jh-input-placeholder-color-text - The placeholder text color. Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-input-prefix-color-text - The prefix text color. Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-input-suffix-color-text - The suffix text color. Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-input-error-color-text - The error message text color. Defaults to `jh-color-content-negative-enabled`.
@@ -81,6 +82,11 @@ export class JhInput extends JhElement {
             type: StringConstructor;
             attribute: string;
         };
+        hideLabel: {
+            type: BooleanConstructor;
+            attribute: string;
+            reflect: boolean;
+        };
         hideLeftSlot: {
             type: BooleanConstructor;
             attribute: string;
@@ -116,6 +122,9 @@ export class JhInput extends JhElement {
             type: StringConstructor;
         };
         pattern: {
+            type: StringConstructor;
+        };
+        placeholder: {
             type: StringConstructor;
         };
         prefix: {
@@ -195,6 +204,14 @@ export class JhInput extends JhElement {
      */
     helperText: string | null;
     /**
+     * Visually hides the label while keeping it in the accessibility tree. The `label` property is still required.
+     * Use only where an adjacent element (a column header, a group heading, a search icon) already names the field,
+     * and pair with `placeholder` so sighted users see the field's name before typing.
+     * @attr hide-label
+     * @type {boolean}
+     */
+    hideLabel: boolean;
+    /**
      * Hides the left slot from input.
      * @attr hide-left-slot
      * @type {boolean}
@@ -254,6 +271,13 @@ export class JhInput extends JhElement {
      * @type {string | null}
      */
     pattern: string | null;
+    /**
+     * Hint or example text shown in the field while it is empty. Disappears once the user types, so it is never a
+     * substitute for `label` or `helper-text`: format rules and requirements belong in `helper-text`. When `hide-label`
+     * is set, the placeholder should match the label text.
+     * @type {string | null}
+     */
+    placeholder: string | null;
     /** @type {boolean} */
     readonly: boolean;
     /**

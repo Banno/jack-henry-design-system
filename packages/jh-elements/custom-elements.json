@@ -2577,6 +2577,22 @@
             },
             {
               "kind": "field",
+              "name": "hideLabel",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Visually hides the label while keeping it in the accessibility tree. The `label` property is still required.\nUse only where an adjacent element (a column header, a group heading, a search icon) already names the field,\nand pair with `placeholder` so sighted users see the field's name before typing.",
+              "default": "false",
+              "attribute": "hide-label",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
               "name": "hideLeftSlot",
               "privacy": "public",
               "type": {
@@ -2720,6 +2736,21 @@
               "description": "Sets the pattern attribute on the input field.",
               "default": "null",
               "attribute": "pattern",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "placeholder",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Hint or example text shown in the field while it is empty. Disappears once the user types, so it is never a\nsubstitute for `label` or `helper-text`: format rules and requirements belong in `helper-text`. When `hide-label`\nis set, the placeholder should match the label text.",
+              "default": "null",
+              "attribute": "placeholder",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -3035,6 +3066,20 @@
               }
             },
             {
+              "name": "hide-label",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Visually hides the label while keeping it in the accessibility tree. The `label` property is still required.\nUse only where an adjacent element (a column header, a group heading, a search icon) already names the field,\nand pair with `placeholder` so sighted users see the field's name before typing.",
+              "default": "false",
+              "fieldName": "hideLabel",
+              "attribute": "hide-label",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "hide-left-slot",
               "type": {
                 "text": "boolean"
@@ -3243,6 +3288,19 @@
               "description": "Sets the pattern attribute on the input field.",
               "default": "null",
               "fieldName": "pattern",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "placeholder",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Hint or example text shown in the field while it is empty. Disappears once the user types, so it is never a\nsubstitute for `label` or `helper-text`: format rules and requirements belong in `helper-text`. When `hide-label`\nis set, the placeholder should match the label text.",
+              "default": "null",
+              "fieldName": "placeholder",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -3587,6 +3645,14 @@
               }
             },
             {
+              "description": "The placeholder text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-placeholder-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`.",
               "name": "--jh-input-prefix-color-text",
               "inheritedFrom": {
@@ -3810,6 +3876,22 @@
             },
             {
               "kind": "field",
+              "name": "hideLabel",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Visually hides the label while keeping it in the accessibility tree. The `label` property is still required.\nUse only where an adjacent element (a column header, a group heading, a search icon) already names the field,\nand pair with `placeholder` so sighted users see the field's name before typing.",
+              "default": "false",
+              "attribute": "hide-label",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
               "name": "hideLeftSlot",
               "privacy": "public",
               "type": {
@@ -3953,6 +4035,21 @@
               "description": "Sets the pattern attribute on the input field.",
               "default": "null",
               "attribute": "pattern",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "placeholder",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Hint or example text shown in the field while it is empty. Disappears once the user types, so it is never a\nsubstitute for `label` or `helper-text`: format rules and requirements belong in `helper-text`. When `hide-label`\nis set, the placeholder should match the label text.",
+              "default": "null",
+              "attribute": "placeholder",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -4385,6 +4482,14 @@
               }
             },
             {
+              "description": "The placeholder text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-placeholder-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`.",
               "name": "--jh-input-prefix-color-text",
               "inheritedFrom": {
@@ -4469,6 +4574,20 @@
               "default": "null",
               "fieldName": "helperText",
               "attribute": "helper-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "hide-label",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Visually hides the label while keeping it in the accessibility tree. The `label` property is still required.\nUse only where an adjacent element (a column header, a group heading, a search icon) already names the field,\nand pair with `placeholder` so sighted users see the field's name before typing.",
+              "default": "false",
+              "fieldName": "hideLabel",
+              "attribute": "hide-label",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -4696,6 +4815,19 @@
               "description": "Sets the pattern attribute on the input field.",
               "default": "null",
               "fieldName": "pattern",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "placeholder",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Hint or example text shown in the field while it is empty. Disappears once the user types, so it is never a\nsubstitute for `label` or `helper-text`: format rules and requirements belong in `helper-text`. When `hide-label`\nis set, the placeholder should match the label text.",
+              "default": "null",
+              "fieldName": "placeholder",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -5140,6 +5272,14 @@
               }
             },
             {
+              "description": "The placeholder text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-placeholder-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`.",
               "name": "--jh-input-prefix-color-text",
               "inheritedFrom": {
@@ -5394,6 +5534,22 @@
             },
             {
               "kind": "field",
+              "name": "hideLabel",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Visually hides the label while keeping it in the accessibility tree. The `label` property is still required.\nUse only where an adjacent element (a column header, a group heading, a search icon) already names the field,\nand pair with `placeholder` so sighted users see the field's name before typing.",
+              "default": "false",
+              "attribute": "hide-label",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
               "name": "hideLeftSlot",
               "privacy": "public",
               "type": {
@@ -5552,6 +5708,21 @@
               "description": "Sets the pattern attribute on the input field.",
               "default": "null",
               "attribute": "pattern",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "placeholder",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Hint or example text shown in the field while it is empty. Disappears once the user types, so it is never a\nsubstitute for `label` or `helper-text`: format rules and requirements belong in `helper-text`. When `hide-label`\nis set, the placeholder should match the label text.",
+              "default": "null",
+              "attribute": "placeholder",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -5803,6 +5974,20 @@
               }
             },
             {
+              "name": "hide-label",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Visually hides the label while keeping it in the accessibility tree. The `label` property is still required.\nUse only where an adjacent element (a column header, a group heading, a search icon) already names the field,\nand pair with `placeholder` so sighted users see the field's name before typing.",
+              "default": "false",
+              "fieldName": "hideLabel",
+              "attribute": "hide-label",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "hide-left-slot",
               "type": {
                 "text": "boolean"
@@ -6024,6 +6209,19 @@
               "description": "Sets the pattern attribute on the input field.",
               "default": "null",
               "fieldName": "pattern",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "placeholder",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Hint or example text shown in the field while it is empty. Disappears once the user types, so it is never a\nsubstitute for `label` or `helper-text`: format rules and requirements belong in `helper-text`. When `hide-label`\nis set, the placeholder should match the label text.",
+              "default": "null",
+              "fieldName": "placeholder",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -6428,6 +6626,22 @@
             },
             {
               "kind": "field",
+              "name": "hideLabel",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Visually hides the label while keeping it in the accessibility tree. The `label` property is still required.\nUse only where an adjacent element (a column header, a group heading, a search icon) already names the field,\nand pair with `placeholder` so sighted users see the field's name before typing.",
+              "default": "false",
+              "attribute": "hide-label",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
               "name": "hideLeftSlot",
               "privacy": "public",
               "type": {
@@ -6586,6 +6800,21 @@
               "description": "Sets the pattern attribute on the input field.",
               "default": "null",
               "attribute": "pattern",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "placeholder",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Hint or example text shown in the field while it is empty. Disappears once the user types, so it is never a\nsubstitute for `label` or `helper-text`: format rules and requirements belong in `helper-text`. When `hide-label`\nis set, the placeholder should match the label text.",
+              "default": "null",
+              "attribute": "placeholder",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -6854,6 +7083,20 @@
               }
             },
             {
+              "name": "hide-label",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Visually hides the label while keeping it in the accessibility tree. The `label` property is still required.\nUse only where an adjacent element (a column header, a group heading, a search icon) already names the field,\nand pair with `placeholder` so sighted users see the field's name before typing.",
+              "default": "false",
+              "fieldName": "hideLabel",
+              "attribute": "hide-label",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "hide-left-slot",
               "type": {
                 "text": "boolean"
@@ -7075,6 +7318,19 @@
               "description": "Sets the pattern attribute on the input field.",
               "default": "null",
               "fieldName": "pattern",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "placeholder",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Hint or example text shown in the field while it is empty. Disappears once the user types, so it is never a\nsubstitute for `label` or `helper-text`: format rules and requirements belong in `helper-text`. When `hide-label`\nis set, the placeholder should match the label text.",
+              "default": "null",
+              "fieldName": "placeholder",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -7406,6 +7662,14 @@
               }
             },
             {
+              "description": "The placeholder text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-placeholder-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`.",
               "name": "--jh-input-prefix-color-text",
               "inheritedFrom": {
@@ -7614,6 +7878,22 @@
             },
             {
               "kind": "field",
+              "name": "hideLabel",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Visually hides the label while keeping it in the accessibility tree. The `label` property is still required.\nUse only where an adjacent element (a column header, a group heading, a search icon) already names the field,\nand pair with `placeholder` so sighted users see the field's name before typing.",
+              "default": "false",
+              "attribute": "hide-label",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
               "name": "hideLeftSlot",
               "privacy": "public",
               "type": {
@@ -7772,6 +8052,21 @@
               "description": "Sets the pattern attribute on the input field.",
               "default": "null",
               "attribute": "pattern",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "placeholder",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Hint or example text shown in the field while it is empty. Disappears once the user types, so it is never a\nsubstitute for `label` or `helper-text`: format rules and requirements belong in `helper-text`. When `hide-label`\nis set, the placeholder should match the label text.",
+              "default": "null",
+              "attribute": "placeholder",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -8204,6 +8499,14 @@
               }
             },
             {
+              "description": "The placeholder text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-placeholder-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`.",
               "name": "--jh-input-prefix-color-text",
               "inheritedFrom": {
@@ -8288,6 +8591,20 @@
               "default": "null",
               "fieldName": "helperText",
               "attribute": "helper-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "hide-label",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Visually hides the label while keeping it in the accessibility tree. The `label` property is still required.\nUse only where an adjacent element (a column header, a group heading, a search icon) already names the field,\nand pair with `placeholder` so sighted users see the field's name before typing.",
+              "default": "false",
+              "fieldName": "hideLabel",
+              "attribute": "hide-label",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -8515,6 +8832,19 @@
               "description": "Sets the pattern attribute on the input field.",
               "default": "null",
               "fieldName": "pattern",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "placeholder",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Hint or example text shown in the field while it is empty. Disappears once the user types, so it is never a\nsubstitute for `label` or `helper-text`: format rules and requirements belong in `helper-text`. When `hide-label`\nis set, the placeholder should match the label text.",
+              "default": "null",
+              "fieldName": "placeholder",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -8824,6 +9154,22 @@
             },
             {
               "kind": "field",
+              "name": "hideLabel",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Visually hides the label while keeping it in the accessibility tree. The `label` property is still required.\nUse only where an adjacent element (a column header, a group heading, a search icon) already names the field,\nand pair with `placeholder` so sighted users see the field's name before typing.",
+              "default": "false",
+              "attribute": "hide-label",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
               "name": "hideLeftSlot",
               "privacy": "public",
               "type": {
@@ -8982,6 +9328,21 @@
               "description": "Sets the pattern attribute on the input field.",
               "default": "null",
               "attribute": "pattern",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "placeholder",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Hint or example text shown in the field while it is empty. Disappears once the user types, so it is never a\nsubstitute for `label` or `helper-text`: format rules and requirements belong in `helper-text`. When `hide-label`\nis set, the placeholder should match the label text.",
+              "default": "null",
+              "attribute": "placeholder",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -9414,6 +9775,14 @@
               }
             },
             {
+              "description": "The placeholder text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-placeholder-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`.",
               "name": "--jh-input-prefix-color-text",
               "inheritedFrom": {
@@ -9498,6 +9867,20 @@
               "default": "null",
               "fieldName": "helperText",
               "attribute": "helper-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "hide-label",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Visually hides the label while keeping it in the accessibility tree. The `label` property is still required.\nUse only where an adjacent element (a column header, a group heading, a search icon) already names the field,\nand pair with `placeholder` so sighted users see the field's name before typing.",
+              "default": "false",
+              "fieldName": "hideLabel",
+              "attribute": "hide-label",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -9725,6 +10108,19 @@
               "description": "Sets the pattern attribute on the input field.",
               "default": "null",
               "fieldName": "pattern",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "placeholder",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Hint or example text shown in the field while it is empty. Disappears once the user types, so it is never a\nsubstitute for `label` or `helper-text`: format rules and requirements belong in `helper-text`. When `hide-label`\nis set, the placeholder should match the label text.",
+              "default": "null",
+              "fieldName": "placeholder",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -10117,6 +10513,14 @@
               }
             },
             {
+              "description": "The placeholder text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-placeholder-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`.",
               "name": "--jh-input-prefix-color-text",
               "inheritedFrom": {
@@ -10390,6 +10794,22 @@
             },
             {
               "kind": "field",
+              "name": "hideLabel",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Visually hides the label while keeping it in the accessibility tree. The `label` property is still required.\nUse only where an adjacent element (a column header, a group heading, a search icon) already names the field,\nand pair with `placeholder` so sighted users see the field's name before typing.",
+              "default": "false",
+              "attribute": "hide-label",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
               "name": "hideLeftSlot",
               "privacy": "public",
               "type": {
@@ -10548,6 +10968,21 @@
               "description": "Sets the pattern attribute on the input field.",
               "default": "null",
               "attribute": "pattern",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "placeholder",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Hint or example text shown in the field while it is empty. Disappears once the user types, so it is never a\nsubstitute for `label` or `helper-text`: format rules and requirements belong in `helper-text`. When `hide-label`\nis set, the placeholder should match the label text.",
+              "default": "null",
+              "attribute": "placeholder",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -10844,6 +11279,20 @@
               }
             },
             {
+              "name": "hide-label",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Visually hides the label while keeping it in the accessibility tree. The `label` property is still required.\nUse only where an adjacent element (a column header, a group heading, a search icon) already names the field,\nand pair with `placeholder` so sighted users see the field's name before typing.",
+              "default": "false",
+              "fieldName": "hideLabel",
+              "attribute": "hide-label",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "hide-left-slot",
               "type": {
                 "text": "boolean"
@@ -11065,6 +11514,19 @@
               "description": "Sets the pattern attribute on the input field.",
               "default": "null",
               "fieldName": "pattern",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "placeholder",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Hint or example text shown in the field while it is empty. Disappears once the user types, so it is never a\nsubstitute for `label` or `helper-text`: format rules and requirements belong in `helper-text`. When `hide-label`\nis set, the placeholder should match the label text.",
+              "default": "null",
+              "fieldName": "placeholder",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -11352,6 +11814,22 @@
             },
             {
               "kind": "field",
+              "name": "hideLabel",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Visually hides the label while keeping it in the accessibility tree. The `label` property is still required.\nUse only where an adjacent element (a column header, a group heading, a search icon) already names the field,\nand pair with `placeholder` so sighted users see the field's name before typing.",
+              "default": "false",
+              "attribute": "hide-label",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
               "name": "hideLeftSlot",
               "privacy": "public",
               "type": {
@@ -11510,6 +11988,21 @@
               "description": "Sets the pattern attribute on the input field.",
               "default": "null",
               "attribute": "pattern",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "placeholder",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Hint or example text shown in the field while it is empty. Disappears once the user types, so it is never a\nsubstitute for `label` or `helper-text`: format rules and requirements belong in `helper-text`. When `hide-label`\nis set, the placeholder should match the label text.",
+              "default": "null",
+              "attribute": "placeholder",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -11942,6 +12435,14 @@
               }
             },
             {
+              "description": "The placeholder text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-placeholder-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`.",
               "name": "--jh-input-prefix-color-text",
               "inheritedFrom": {
@@ -12026,6 +12527,20 @@
               "default": "null",
               "fieldName": "helperText",
               "attribute": "helper-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "hide-label",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Visually hides the label while keeping it in the accessibility tree. The `label` property is still required.\nUse only where an adjacent element (a column header, a group heading, a search icon) already names the field,\nand pair with `placeholder` so sighted users see the field's name before typing.",
+              "default": "false",
+              "fieldName": "hideLabel",
+              "attribute": "hide-label",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -12253,6 +12768,19 @@
               "description": "Sets the pattern attribute on the input field.",
               "default": "null",
               "fieldName": "pattern",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "placeholder",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Hint or example text shown in the field while it is empty. Disappears once the user types, so it is never a\nsubstitute for `label` or `helper-text`: format rules and requirements belong in `helper-text`. When `hide-label`\nis set, the placeholder should match the label text.",
+              "default": "null",
+              "fieldName": "placeholder",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -12525,6 +13053,10 @@
               "name": "--jh-input-value-color-text"
             },
             {
+              "description": "The placeholder text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-placeholder-color-text"
+            },
+            {
               "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`.",
               "name": "--jh-input-prefix-color-text"
             },
@@ -12674,6 +13206,18 @@
             },
             {
               "kind": "field",
+              "name": "hideLabel",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Visually hides the label while keeping it in the accessibility tree. The `label` property is still required.\nUse only where an adjacent element (a column header, a group heading, a search icon) already names the field,\nand pair with `placeholder` so sighted users see the field's name before typing.",
+              "default": "false",
+              "attribute": "hide-label",
+              "reflects": true
+            },
+            {
+              "kind": "field",
               "name": "hideLeftSlot",
               "privacy": "public",
               "type": {
@@ -12792,6 +13336,17 @@
               "description": "Sets the pattern attribute on the input field.",
               "default": "null",
               "attribute": "pattern"
+            },
+            {
+              "kind": "field",
+              "name": "placeholder",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Hint or example text shown in the field while it is empty. Disappears once the user types, so it is never a\nsubstitute for `label` or `helper-text`: format rules and requirements belong in `helper-text`. When `hide-label`\nis set, the placeholder should match the label text.",
+              "default": "null",
+              "attribute": "placeholder"
             },
             {
               "kind": "field",
@@ -12986,6 +13541,16 @@
               "attribute": "helper-text"
             },
             {
+              "name": "hide-label",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Visually hides the label while keeping it in the accessibility tree. The `label` property is still required.\nUse only where an adjacent element (a column header, a group heading, a search icon) already names the field,\nand pair with `placeholder` so sighted users see the field's name before typing.",
+              "default": "false",
+              "fieldName": "hideLabel",
+              "attribute": "hide-label"
+            },
+            {
               "name": "hide-left-slot",
               "type": {
                 "text": "boolean"
@@ -13143,6 +13708,15 @@
               "description": "Sets the pattern attribute on the input field.",
               "default": "null",
               "fieldName": "pattern"
+            },
+            {
+              "name": "placeholder",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Hint or example text shown in the field while it is empty. Disappears once the user types, so it is never a\nsubstitute for `label` or `helper-text`: format rules and requirements belong in `helper-text`. When `hide-label`\nis set, the placeholder should match the label text.",
+              "default": "null",
+              "fieldName": "placeholder"
             },
             {
               "name": "prefix",
@@ -15753,6 +16327,14 @@
               }
             },
             {
+              "description": "The placeholder text color. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-input-placeholder-color-text",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "description": "The prefix text color. Defaults to `--jh-color-content-secondary-enabled`.",
               "name": "--jh-input-prefix-color-text",
               "inheritedFrom": {
@@ -16054,6 +16636,22 @@
             },
             {
               "kind": "field",
+              "name": "hideLabel",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Visually hides the label while keeping it in the accessibility tree. The `label` property is still required.\nUse only where an adjacent element (a column header, a group heading, a search icon) already names the field,\nand pair with `placeholder` so sighted users see the field's name before typing.",
+              "default": "false",
+              "attribute": "hide-label",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
               "name": "hideLeftSlot",
               "privacy": "public",
               "type": {
@@ -16212,6 +16810,21 @@
               "description": "Sets the pattern attribute on the input field.",
               "default": "null",
               "attribute": "pattern",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "placeholder",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Hint or example text shown in the field while it is empty. Disappears once the user types, so it is never a\nsubstitute for `label` or `helper-text`: format rules and requirements belong in `helper-text`. When `hide-label`\nis set, the placeholder should match the label text.",
+              "default": "null",
+              "attribute": "placeholder",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -16531,6 +17144,20 @@
               }
             },
             {
+              "name": "hide-label",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Visually hides the label while keeping it in the accessibility tree. The `label` property is still required.\nUse only where an adjacent element (a column header, a group heading, a search icon) already names the field,\nand pair with `placeholder` so sighted users see the field's name before typing.",
+              "default": "false",
+              "fieldName": "hideLabel",
+              "attribute": "hide-label",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "name": "hide-left-slot",
               "type": {
                 "text": "boolean"
@@ -16752,6 +17379,19 @@
               "description": "Sets the pattern attribute on the input field.",
               "default": "null",
               "fieldName": "pattern",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "name": "placeholder",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Hint or example text shown in the field while it is empty. Disappears once the user types, so it is never a\nsubstitute for `label` or `helper-text`: format rules and requirements belong in `helper-text`. When `hide-label`\nis set, the placeholder should match the label text.",
+              "default": "null",
+              "fieldName": "placeholder",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"

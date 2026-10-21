@@ -42,6 +42,7 @@ import '@jack-henry/jh-icons/icons-wc/icon-circle-xmark.js';
  * @cssprop --jh-input-helper-color-text - The helper-text text color. Defaults to `jh-color-content-secondary-enabled`.
  * @cssprop --jh-input-counter-color-text - The character counter text color. Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-input-value-color-text - The value text color. Defaults to `jh-color-content-primary-enabled`.
+ * @cssprop --jh-input-placeholder-color-text - The placeholder text color. Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-input-prefix-color-text - The prefix text color. Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-input-suffix-color-text - The suffix text color. Defaults to `--jh-color-content-secondary-enabled`.
  * @cssprop --jh-input-error-color-text - The error message text color. Defaults to `jh-color-content-negative-enabled`.
@@ -149,8 +150,27 @@ export class JhInput extends JhElement {
       :host([show-char-count]) .helper-text {
         display: inline-block;
       }
-      :host([label]) .input-container {
+      :host([label]:not([hide-label])) .input-container {
         margin-top: var(--jh-dimension-200);
+      }
+      /* Visually hidden label: stays in the accessibility tree, takes no space */
+      :host([hide-label]) {
+        position: relative;
+      }
+      :host([hide-label]) label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        clip-path: inset(50%);
+        white-space: nowrap;
+        border: 0;
+      }
+      :host([hide-label]) .helper-text {
+        margin-bottom: var(--jh-dimension-200);
       }
 
       /* Flex wrapper */
@@ -333,6 +353,14 @@ export class JhInput extends JhElement {
         padding-right: 0;
       }
 
+      input::placeholder {
+        color: var(
+          --jh-input-placeholder-color-text,
+          var(--jh-color-content-secondary-enabled)
+        );
+        opacity: 1;
+      }
+
       /* Override Chrome autofill styles */
       input:autofill {
         -webkit-text-fill-color: var(--input-value-color-text);
@@ -393,6 +421,7 @@ export class JhInput extends JhElement {
       enterkeyhint: { type: String },
       errorText: { type: String, attribute: 'error-text' },
       helperText: { type: String, attribute: 'helper-text' },
+      hideLabel: { type: Boolean, attribute: 'hide-label', reflect: true },
       hideLeftSlot: { type: Boolean, attribute: 'hide-left-slot' },
       hideRightSlot: { type: Boolean, attribute: 'hide-right-slot' },
       horizontalAlign: { type: String, attribute: 'horizontal-align' },
@@ -404,6 +433,7 @@ export class JhInput extends JhElement {
       minlength: { type: Number },
       name: { type: String },
       pattern: { type: String },
+      placeholder: { type: String },
       prefix: { type: String },
       readonly: { type: Boolean },
       required: { type: Boolean },
@@ -462,6 +492,14 @@ export class JhInput extends JhElement {
      * @type {string | null}
      */
     this.helperText = null;
+    /**
+     * Visually hides the label while keeping it in the accessibility tree. The `label` property is still required.
+     * Use only where an adjacent element (a column header, a group heading, a search icon) already names the field,
+     * and pair with `placeholder` so sighted users see the field's name before typing.
+     * @attr hide-label
+     * @type {boolean}
+     */
+    this.hideLabel = false;
     /**
      * Hides the left slot from input.
      * @attr hide-left-slot
@@ -522,7 +560,14 @@ export class JhInput extends JhElement {
      * @type {string | null}
      */
     this.pattern = null;
-    /** 
+    /**
+     * Hint or example text shown in the field while it is empty. Disappears once the user types, so it is never a
+     * substitute for `label` or `helper-text`: format rules and requirements belong in `helper-text`. When `hide-label`
+     * is set, the placeholder should match the label text.
+     * @type {string | null}
+     */
+    this.placeholder = null;
+    /**
      * Text to display before the input value, such as a currency symbol. Sits to the right of the `jh-input-left` slot.
      * @type {string | null} 
      */
@@ -1489,6 +1534,7 @@ export class JhInput extends JhElement {
             minlength=${ifDefined(this.minlength === '' ? null : this.minlength)}
             name=${ifDefined(this.name === '' ? null : this.name)}
             pattern=${ifDefined(this.pattern === '' ? null : this.pattern)}
+            placeholder=${ifDefined(this.placeholder === '' ? null : this.placeholder)}
             ?readonly=${this.readonly}
             ?required=${this.required}
             type="text"

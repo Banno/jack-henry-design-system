@@ -33,6 +33,7 @@ const disableControls = {
   enterkeyhint: { control: { disable: true } },
   'error-text': { control: { disable: true } },
   'helper-text': { control: { disable: true } },
+  'hide-label': { control: { disable: true } },
   'hide-left-slot': { control: { disable: true } },
   'hide-right-slot': { control: { disable: true } },
   'horizontal-align': { control: { disable: true } },
@@ -43,6 +44,7 @@ const disableControls = {
   maxlength: { control: { disable: true } },
   minlength: { control: { disable: true } },
   name: { control: { disable: true } },
+  placeholder: { control: { disable: true } },
   prefix: { control: { disable: true } },
   readonly: { control: { disable: true } },
   required: { control: { disable: true } },
@@ -247,6 +249,7 @@ export const Playground = { render: (args) => html`
   helper-text=${ifDefined(
     args['helper-text'] === '' ? null : args['helper-text']
   )}
+  ?hide-label=${args['hide-label']}
   ?hide-left-slot=${args['hide-left-slot']}
   ?hide-right-slot=${args['hide-right-slot']}
   horizontal-align=${ifDefined(
@@ -259,6 +262,7 @@ export const Playground = { render: (args) => html`
   maxlength=${ifDefined(args.maxlength ? args.maxlength :  null)}
   minlength=${ifDefined(args.minlength ? args.minlength : null)}
   name=${ifDefined(args.name || args.name === '' ? null : args.name)}
+  placeholder=${ifDefined(args.placeholder === '' ? null : args.placeholder)}
   prefix=${ifDefined(args.prefix === '' ? null : args.prefix)}
   ?readonly=${args.readonly}
   ?required=${args.required}
@@ -286,6 +290,7 @@ Playground.args = {
   enterkeyhint: null,
   'error-text': 'Error text',
   'helper-text': 'Helper text',
+  'hide-label': false,
   'hide-left-slot': false,
   'hide-right-slot': false,
   'horizontal-align': 'left',
@@ -296,6 +301,7 @@ Playground.args = {
   autocomplete: null,
   inputmode: null,
   name: null,
+  placeholder: null,
   prefix: null,
   suffix: null,
   value: null,
@@ -382,7 +388,38 @@ PrefixSuffix.argTypes = {
   value: { table: { disable: false } },
 };
 
-export const CharacterCount = { 
+export const PlaceholderAndHiddenLabel = {
+  render: (args) => html`
+    <div style="display: flex; gap: 8px; align-items: center; max-width: 480px;">
+      <jh-input
+        size="small"
+        label="Search transactions"
+        ?hide-label=${args['hide-label']}
+        placeholder=${ifDefined(args.placeholder === '' ? null : args.placeholder)}
+        show-clear-button
+        accessible-label-clear-button="Clear search"
+      ><jh-icon-magnifying-glass slot="jh-input-left"></jh-icon-magnifying-glass></jh-input>
+    </div>
+    <p style="margin: 16px 0 0; font: var(--jh-font-helper-regular-font-weight) var(--jh-font-helper-regular-font-size) var(--jh-font-helper-regular-font-family); color: var(--jh-color-content-secondary-enabled); max-width: 480px;">
+      With <code>hide-label</code>, the label stays in the accessibility tree and the placeholder carries the field's
+      name for sighted users. Use only where surrounding context (a toolbar, a column header, an icon) already
+      identifies the field once the user types.
+    </p>
+  `,
+};
+
+PlaceholderAndHiddenLabel.args = {
+  'hide-label': true,
+  placeholder: 'Search transactions',
+};
+
+PlaceholderAndHiddenLabel.argTypes = {
+  ...disableControls,
+  'hide-label': { table: { disable: false } },
+  placeholder: { table: { disable: false } },
+};
+
+export const CharacterCount = {
   render: (args) => html`
     <jh-input 
       label=${args.label} 

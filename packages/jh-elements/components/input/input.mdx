@@ -48,6 +48,33 @@ The input component makes use of both required compositional and suggested conte
 
 - `<jh-icon>`. [Iconography documentation](/docs/iconography-overview--docs).
 
+## Placeholder and Hidden Labels
+
+Every input has a `label`. In dense layouts (filter bars, table toolbars, inline editing) there is often no room to show it, so the label can be visually hidden with `hide-label` and a `placeholder` can carry the field's name for sighted users:
+
+```html
+<jh-input
+  size="small"
+  label="Search transactions"
+  hide-label
+  placeholder="Search transactions"
+  show-clear-button
+  accessible-label-clear-button="Clear search"
+>
+  <jh-icon-magnifying-glass slot="jh-input-left" aria-hidden="true"></jh-icon-magnifying-glass>
+</jh-input>
+```
+
+Rules of use:
+
+- `label` is still required. `hide-label` only removes it visually; it stays associated with the field for assistive technology.
+- Hide the label only where an adjacent element (a column header, a toolbar grouping, an icon) still identifies the field after the user has typed.
+- When the label is hidden, the `placeholder` should match the label text so speech-input users can activate the field by saying what they see.
+- Placeholder is a hint or example, never a substitute for instructions. Format rules and requirements belong in `helper-text`, which stays visible.
+- Placeholder text is styled through `--jh-input-placeholder-color-text`. Keep it visibly distinct from a filled value so an empty field is not mistaken for a completed one.
+
+`hide-label` replaces the earlier pattern of omitting `label` and setting `accessible-label`. That pattern still works, but it also drops `helper-text` and the required/optional indicator, which `hide-label` keeps.
+
 ## Slotting Buttons
 
 When slotting jh-button(s) within the `jh-input-left` or `jh-input-right` slots, consider setting `appearance="tertiary"` for consistent styles across the input component. 
@@ -147,7 +174,9 @@ The following success criteria are of concern:
 
 - To satisfy [WCAG 1.3.5 Identify Input Purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html), use the `autocomplete` property to allow automated assistance in providing an input value.
 - To satisfy [WCAG 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html), when using the `required` property and `show-indicator` attribute, include instructions at the top of the form to explain required inputs are marked with a red asterisk.
-- To satisfy [WCAG 2.4.6 Headings and Labels](https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html) and [WCAG 3.3.2 Labels or Instructions](https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html), ensure the `label` property or the `accessible-label` attribute are descriptive.
+- To satisfy [WCAG 2.4.6 Headings and Labels](https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html) and [WCAG 3.3.2 Labels or Instructions](https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html), ensure the `label` property or the `accessible-label` attribute are descriptive. Never rely on `placeholder` alone to name a field; it is not announced consistently and disappears once a value is entered.
+- To satisfy [WCAG 2.5.3 Label in Name](https://www.w3.org/WAI/WCAG22/Understanding/label-in-name.html) when using `hide-label`, set `placeholder` to the same text as `label` so the visible text is contained in the accessible name.
+- To satisfy [WCAG 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html), if a theme overrides `--jh-input-placeholder-color-text`, keep it at 4.5:1 against the field background. The default secondary content color meets this.
 - To satisfy [WCAG 3.3.1 Error Identification](https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html), set the `invalid` attribute to generate an `aria-invalid` attribute on input to indicate an error. Utilize the `error-text` attribute to provide feedback on a failed value.
 - To satisfy [WCAG 3.3.3 Error Suggestion](https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html), use the `error-text` attribute to provide a suggestion to correct the input error when appropriate.
 - To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value), set the `accessible-label` attribute to generate an `aria-label` when a visible label cannot be used.

@@ -19,6 +19,7 @@ const storyStyles = css`
     display: flex;
     align-items: flex-start;
     gap: 24px;
+    margin-bottom: 24px;
   }
   #validation-example-form {
     display: flex;

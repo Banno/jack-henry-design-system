@@ -171,6 +171,14 @@ export class JhCheckboxGroup extends JhElement {
       label: {
         type: String,
       },
+      minRequired: {
+        type: Number,
+        attribute: 'min-required',
+      },
+      maxRequired: {
+        type: Number,
+        attribute: 'max-required',
+      },
       required: {
         type: Boolean,
         reflect: true,
@@ -221,6 +229,18 @@ export class JhCheckboxGroup extends JhElement {
      * @type {string | null}
      */
     this.label = null;
+    /**
+     * Specifies the minimum number of child checkboxes that must be checked.
+     * @attr min-required
+     * @type {number | null}
+     */
+    this.minRequired = 0;
+    /**
+     * Specifies the maximum number of child checkboxes that can be checked.
+     * @attr max-required
+     * @type {number | null}
+     */
+    this.maxRequired = null;
     /**
      * Indicates a value is required.
      * @type {boolean}

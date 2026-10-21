@@ -1352,6 +1352,28 @@
             },
             {
               "kind": "field",
+              "name": "minRequired",
+              "privacy": "public",
+              "type": {
+                "text": "number | null"
+              },
+              "description": "Specifies the minimum number of child checkboxes that must be checked.",
+              "default": "0",
+              "attribute": "min-required"
+            },
+            {
+              "kind": "field",
+              "name": "maxRequired",
+              "privacy": "public",
+              "type": {
+                "text": "number | null"
+              },
+              "description": "Specifies the maximum number of child checkboxes that can be checked.",
+              "default": "null",
+              "attribute": "max-required"
+            },
+            {
+              "kind": "field",
               "name": "required",
               "privacy": "public",
               "type": {
@@ -1463,6 +1485,26 @@
               "default": "null",
               "fieldName": "helperText",
               "attribute": "helper-text"
+            },
+            {
+              "name": "min-required",
+              "type": {
+                "text": "number | null"
+              },
+              "description": "Specifies the minimum number of child checkboxes that must be checked.",
+              "default": "0",
+              "fieldName": "minRequired",
+              "attribute": "min-required"
+            },
+            {
+              "name": "max-required",
+              "type": {
+                "text": "number | null"
+              },
+              "description": "Specifies the maximum number of child checkboxes that can be checked.",
+              "default": "null",
+              "fieldName": "maxRequired",
+              "attribute": "max-required"
             },
             {
               "name": "show-indicator",

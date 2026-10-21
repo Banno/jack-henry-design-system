@@ -163,8 +163,6 @@ export default {
  * Tab through the fields (or click away) to trigger `focusout` validation and see
  * the `jh-invalid` listener populate contextual `error-text` messages.
  */
-
-
 const testOptions = [
   { label: "select a value...", value: "", selected: true },
   { label: "Personal Loan", value: "loan-personal" },

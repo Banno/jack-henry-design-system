@@ -11,6 +11,7 @@
  * @cssprop --jh-checkbox-input-border-radius - The checkbox border radius. Defaults to `--jh-border-radius-50`.
  * @cssprop --jh-checkbox-color-focus - The checkbox outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.
  * @cssprop --jh-checkbox-helper-color-text - The helper text color. Defaults to `--jh-color-content-secondary-enabled`.
+ * @cssprop --jh-checkbox-error-color-text - The error text color. Defaults to `--jh-color-content-negative-enabled`.
  * @cssprop --jh-checkbox-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-checkbox-input-color-background-unselected-enabled - The checkbox background-color when unselected. Defaults to `--jh-color-container-primary-enabled`.
  * @cssprop --jh-checkbox-input-color-border-unselected-enabled - The checkbox border-color when unselected. Defaults to `--jh-border-control-color`.
@@ -84,12 +85,21 @@ export class JhCheckbox extends JhElement {
             type: StringConstructor;
             attribute: string;
         };
+        errorText: {
+            type: StringConstructor;
+            attribute: string;
+        };
         name: {
             type: StringConstructor;
         };
         required: {
             type: BooleanConstructor;
             reflect: boolean;
+        };
+        showIndicator: {
+            type: BooleanConstructor;
+            reflect: boolean;
+            attribute: string;
         };
         value: {
             type: StringConstructor;
@@ -135,6 +145,12 @@ export class JhCheckbox extends JhElement {
      */
     helperText: string | null;
     /**
+     * Text to be displayed when the checkbox has failed validation and `invalid` is true.
+     * @attr error-text
+     * @type {string | null}
+     */
+    errorText: string | null;
+    /**
      * Sets the name of the checkbox data when submitted in a form.
      * @type {string | null}
      */
@@ -144,6 +160,12 @@ export class JhCheckbox extends JhElement {
      * @type {boolean}
      */
     required: boolean;
+    /**
+     * Determines whether the indicator is shown.
+     * @attr show-indicator
+     * @type {boolean}
+     */
+    showIndicator: boolean;
     /** @param {string | null} newValue */
     set value(newValue: string | null);
     /**

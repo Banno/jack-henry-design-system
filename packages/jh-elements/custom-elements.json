@@ -1557,6 +1557,10 @@
               "name": "--jh-checkbox-helper-color-text"
             },
             {
+              "description": "The error text color. Defaults to `--jh-color-content-negative-enabled`.",
+              "name": "--jh-checkbox-error-color-text"
+            },
+            {
               "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`.",
               "name": "--jh-checkbox-label-color-text"
             },
@@ -1829,6 +1833,17 @@
             },
             {
               "kind": "field",
+              "name": "errorText",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to be displayed when the checkbox has failed validation and `invalid` is true.",
+              "default": "null",
+              "attribute": "error-text"
+            },
+            {
+              "kind": "field",
               "name": "name",
               "privacy": "public",
               "type": {
@@ -1848,6 +1863,18 @@
               "description": "Indicates a selection is required.",
               "default": "false",
               "attribute": "required",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "showIndicator",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether the indicator is shown.",
+              "default": "false",
+              "attribute": "show-indicator",
               "reflects": true
             },
             {
@@ -1918,6 +1945,26 @@
               "default": "null",
               "fieldName": "helperText",
               "attribute": "helper-text"
+            },
+            {
+              "name": "error-text",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to be displayed when the checkbox has failed validation and `invalid` is true.",
+              "default": "null",
+              "fieldName": "errorText",
+              "attribute": "error-text"
+            },
+            {
+              "name": "show-indicator",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether the indicator is shown.",
+              "default": "false",
+              "fieldName": "showIndicator",
+              "attribute": "show-indicator"
             },
             {
               "name": "accessible-label",

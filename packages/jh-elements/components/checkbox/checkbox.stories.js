@@ -20,6 +20,8 @@ const storyStyles = css`
 const disableControls = {
   label: { control: { disable: true } },
   'helper-text': { control: { disable: true } },
+  'error-text': { control: { disable: true } },
+  invalid: { control: { disable: true } },
   name: { control: { disable: true } },
   value: { control: { disable: true } },
   'accessible-label': { control: { disable: true } },
@@ -72,11 +74,23 @@ export default {
     'helper-text': {
       control: 'text',
     },
+    invalid: {
+      control: 'boolean',
+    },
+    'error-text': {
+      control: 'text',
+    },
     name: {
       control: 'text',
     },
     value: {
       control: 'text',
+    },
+    required: {
+      control: 'boolean', 
+    },
+    'show-indicator': {
+      control: 'boolean',
     },
     'accessible-label': {
       control: 'text',
@@ -87,7 +101,7 @@ export default {
 
 export const Overview = {
   render: (args) => html`
-    <jh-checkbox label="Label" helper-text="Helper text"></jh-checkbox>
+    <jh-checkbox label="Label" helper-text="Helper text" show-indicator required></jh-checkbox>
     <jh-checkbox checked label="Label" helper-text="Helper text"></jh-checkbox>
     <jh-checkbox
       indeterminate
@@ -124,8 +138,12 @@ export const Playground = {
       <jh-checkbox
         label=${args.label}
         helper-text=${args['helper-text']}
+        ?invalid=${args.invalid}
+        error-text=${args['error-text']}
         name=${args.name}
         value=${args.value}
+        ?required=${args.required}
+        ?show-indicator=${args['show-indicator']}
         accessible-label=${args['accessible-label']}
         ?checked=${args.checked}
         ?disabled=${args.disabled}
@@ -140,7 +158,11 @@ Playground.args = {
   disabled: false,
   indeterminate: false,
   label: 'Label',
+  required: false,
+  'show-indicator': false,
   'helper-text': 'Helper text',
+  invalid: false,
+  'error-text': 'Error text',
   name: 'Test checkbox',
   value: 'Label',
   'accessible-label': 'Aria label',
@@ -186,6 +208,10 @@ Indeterminate.argTypes = {
   name: { control: { disable: true } },
   value: { control: { disable: true } },
   'accessible-label': { control: { disable: true } },
+  invalid: { control: { disable: true } },
+  'error-text': { control: { disable: true } },
+  required: { control: { disable: true } },
+  'show-indicator': { control: { disable: true } },
 };
 
 Indeterminate.parameters = {

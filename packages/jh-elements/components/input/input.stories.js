@@ -82,6 +82,8 @@ export default {
         @jh-input=${(e) => logCustomEvent('jh-input', e)}
         @jh-maxlength=${(e) => logCustomEvent('jh-maxlength', e)}
         @jh-input:clear-button-click=${(e) => logCustomEvent('jh-input:clear-button-click', e)}
+        @focusout=${(e) => logCustomEvent('focusout', e)}
+        @focusin=${(e) => logCustomEvent('focusin', e)}
       >
         ${story()}
       </div>

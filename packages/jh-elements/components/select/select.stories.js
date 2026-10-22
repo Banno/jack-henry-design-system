@@ -99,6 +99,8 @@ export default {
         <div class="story-decorator"
           @jh-change=${(e) => logCustomEvent('jh-change', e)}
           @jh-custom-add=${(e) => logCustomEvent('jh-custom-add', e)}
+          @focusout=${(e) => logCustomEvent('focusout', e)}
+          @focusin=${(e) => logCustomEvent('focusin', e)}
         >
           ${story()}
         </div>

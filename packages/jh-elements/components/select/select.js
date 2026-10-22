@@ -99,6 +99,8 @@ export class JhSelect extends JhInput {
   #boundDocumentClick;
   /** @type {(e: Event) => void} */
   #boundDocumentScroll;
+  /** @type {() => void} */
+  #boundWindowBlur;
 
   get #inputWrapper() {
     return this.renderRoot?.querySelector('.input-wrapper');
@@ -274,6 +276,7 @@ export class JhSelect extends JhInput {
     this.addEventListener('keydown', this.#handleKeydown);
     this.#boundDocumentClick = this.#handleDocumentClick.bind(this);
     this.#boundDocumentScroll = this.#handleDocumentScroll.bind(this);
+    this.#boundWindowBlur = this.#handleCloseSelect.bind(this);
   }
 
   disconnectedCallback() {
@@ -281,6 +284,7 @@ export class JhSelect extends JhInput {
     this.removeEventListener('keydown', this.#handleKeydown);
     document.removeEventListener('click', this.#boundDocumentClick, true);
     document.removeEventListener('scroll', this.#boundDocumentScroll, true);
+    window.removeEventListener('blur', this.#boundWindowBlur);
     clearTimeout(this.#timer);
     clearTimeout(this.#announceTimer);
   }
@@ -425,6 +429,8 @@ export class JhSelect extends JhInput {
     this.#flipMenu();
 
     document.addEventListener('click', this.#boundDocumentClick, true);
+    // document click can't see clicks outside the window (e.g. parent page of an iframe)
+    window.addEventListener('blur', this.#boundWindowBlur);
     // Delay adding scroll listener so the menu's own layout change doesn't trigger it
     requestAnimationFrame(() => {
       document.addEventListener('scroll', this.#boundDocumentScroll, true);
@@ -451,6 +457,7 @@ export class JhSelect extends JhInput {
     }
     document.removeEventListener('click', this.#boundDocumentClick, true);
     document.removeEventListener('scroll', this.#boundDocumentScroll, true);
+    window.removeEventListener('blur', this.#boundWindowBlur);
     this.#activeIndex = null;
     clearTimeout(this.#announceTimer);
     this.#liveMessage = '';

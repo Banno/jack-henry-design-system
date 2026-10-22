@@ -1275,6 +1275,14 @@
           ],
           "members": [
             {
+              "kind": "method",
+              "name": "checkValidity"
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback"
+            },
+            {
               "kind": "field",
               "name": "disabled",
               "privacy": "public",
@@ -1341,6 +1349,28 @@
               "description": "Describes the type of data to be collected.",
               "default": "null",
               "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "minRequired",
+              "privacy": "public",
+              "type": {
+                "text": "number | null"
+              },
+              "description": "Specifies the minimum number of child checkboxes that must be checked.",
+              "default": "0",
+              "attribute": "min-required"
+            },
+            {
+              "kind": "field",
+              "name": "maxRequired",
+              "privacy": "public",
+              "type": {
+                "text": "number | null"
+              },
+              "description": "Specifies the maximum number of child checkboxes that can be checked.",
+              "default": "null",
+              "attribute": "max-required"
             },
             {
               "kind": "field",
@@ -1455,6 +1485,26 @@
               "default": "null",
               "fieldName": "helperText",
               "attribute": "helper-text"
+            },
+            {
+              "name": "min-required",
+              "type": {
+                "text": "number | null"
+              },
+              "description": "Specifies the minimum number of child checkboxes that must be checked.",
+              "default": "0",
+              "fieldName": "minRequired",
+              "attribute": "min-required"
+            },
+            {
+              "name": "max-required",
+              "type": {
+                "text": "number | null"
+              },
+              "description": "Specifies the maximum number of child checkboxes that can be checked.",
+              "default": "null",
+              "fieldName": "maxRequired",
+              "attribute": "max-required"
             },
             {
               "name": "show-indicator",
@@ -2424,6 +2474,22 @@
               }
             },
             {
+              "kind": "method",
+              "name": "checkValidity",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "kind": "field",
               "name": "value",
               "privacy": "public",
@@ -2645,6 +2711,7 @@
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
               "default": "false",
               "attribute": "invalid",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -3657,6 +3724,22 @@
               }
             },
             {
+              "kind": "method",
+              "name": "checkValidity",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "kind": "field",
               "name": "value",
               "privacy": "public",
@@ -3878,6 +3961,7 @@
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
               "default": "false",
               "attribute": "invalid",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -5241,6 +5325,22 @@
               "attribute": "step"
             },
             {
+              "kind": "method",
+              "name": "checkValidity",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "kind": "field",
               "name": "value",
               "privacy": "public",
@@ -5477,6 +5577,7 @@
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
               "default": "false",
               "attribute": "invalid",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -6275,6 +6376,22 @@
               "reflects": true
             },
             {
+              "kind": "method",
+              "name": "checkValidity",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "kind": "field",
               "name": "value",
               "privacy": "public",
@@ -6511,6 +6628,7 @@
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
               "default": "false",
               "attribute": "invalid",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -7461,6 +7579,22 @@
           "name": "JhInputSearch",
           "members": [
             {
+              "kind": "method",
+              "name": "checkValidity",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "kind": "field",
               "name": "value",
               "privacy": "public",
@@ -7697,6 +7831,7 @@
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
               "default": "false",
               "attribute": "invalid",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -8671,6 +8806,22 @@
           "name": "JhInputTelephone",
           "members": [
             {
+              "kind": "method",
+              "name": "checkValidity",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "kind": "field",
               "name": "value",
               "privacy": "public",
@@ -8907,6 +9058,7 @@
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
               "default": "false",
               "attribute": "invalid",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -10237,6 +10389,22 @@
               }
             },
             {
+              "kind": "method",
+              "name": "checkValidity",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "kind": "field",
               "name": "value",
               "privacy": "public",
@@ -10473,6 +10641,7 @@
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
               "default": "false",
               "attribute": "invalid",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -11199,6 +11368,22 @@
           "name": "JhInputUrl",
           "members": [
             {
+              "kind": "method",
+              "name": "checkValidity",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "kind": "field",
               "name": "value",
               "privacy": "public",
@@ -11435,6 +11620,7 @@
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
               "default": "false",
               "attribute": "invalid",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -12557,6 +12743,14 @@
           ],
           "members": [
             {
+              "kind": "method",
+              "name": "checkValidity"
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback"
+            },
+            {
               "kind": "field",
               "name": "value",
               "privacy": "public",
@@ -12736,7 +12930,8 @@
               },
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
               "default": "false",
-              "attribute": "invalid"
+              "attribute": "invalid",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -14723,6 +14918,14 @@
           ],
           "members": [
             {
+              "kind": "method",
+              "name": "checkValidity"
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback"
+            },
+            {
               "kind": "field",
               "name": "value",
               "privacy": "public",
@@ -15901,6 +16104,22 @@
               "attribute": "no-results-text"
             },
             {
+              "kind": "method",
+              "name": "checkValidity",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "kind": "field",
               "name": "value",
               "privacy": "public",
@@ -16137,6 +16356,7 @@
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
               "default": "false",
               "attribute": "invalid",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"

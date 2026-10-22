@@ -389,6 +389,8 @@ export class JhRadio extends JhElement {
 
   #handleKeydown(e) {
     if (e.code === 'Space') {
+      // prevent the browser's default Space-key page scroll
+      e.preventDefault();
       this.#handleClick();
     }
   }

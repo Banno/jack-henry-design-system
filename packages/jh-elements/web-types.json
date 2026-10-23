@@ -74,7 +74,7 @@
               "name": "appearance",
               "description": "Determines the button color.",
               "value": {
-                "type": "'primary' | 'secondary' | 'tertiary' | 'danger'",
+                "type": "'primary' | 'secondary' | 'tertiary' | 'danger' | 'neutral'",
                 "default": "'secondary'"
               }
             },
@@ -202,7 +202,7 @@
               {
                 "name": "appearance",
                 "description": "Determines the button color.",
-                "type": "'primary' | 'secondary' | 'tertiary' | 'danger'"
+                "type": "'primary' | 'secondary' | 'tertiary' | 'danger' | 'neutral'"
               },
               {
                 "name": "block",
@@ -426,6 +426,22 @@
               }
             },
             {
+              "name": "min-required",
+              "description": "Specifies the minimum number of child checkboxes that must be checked.",
+              "value": {
+                "type": "number | null",
+                "default": "0"
+              }
+            },
+            {
+              "name": "max-required",
+              "description": "Specifies the maximum number of child checkboxes that can be checked.",
+              "value": {
+                "type": "number | null",
+                "default": "null"
+              }
+            },
+            {
               "name": "show-indicator",
               "description": "Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required` property is also set. For the indicator to be displayed, the `label` property must also be set.",
               "value": {
@@ -517,6 +533,16 @@
                 "name": "label",
                 "description": "Describes the type of data to be collected.",
                 "type": "string | null"
+              },
+              {
+                "name": "minRequired",
+                "description": "Specifies the minimum number of child checkboxes that must be checked.",
+                "type": "number | null"
+              },
+              {
+                "name": "maxRequired",
+                "description": "Specifies the maximum number of child checkboxes that can be checked.",
+                "type": "number | null"
               },
               {
                 "name": "required",
@@ -7128,6 +7154,102 @@
         {
           "name": "--jh-button-progress-track-color-border-tertiary-pending",
           "description": "The progress indicator track-color when `appearance=\"tertiary\"`. Defaults to `--jh-color-control-enabled`."
+        },
+        {
+          "name": "--jh-button-color-background-neutral-enabled",
+          "description": "The button container background-color when enabled and `appearance=\"neutral\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-color-border-neutral-enabled",
+          "description": "The button container border-color when enabled and `appearance=\"neutral\"`. Defaults to `--jh-border-control-color`."
+        },
+        {
+          "name": "--jh-button-color-background-neutral-focus",
+          "description": "The button container background-color when in focus and `appearance=\"neutral\"`. Defaults to `--jh-color-container-neutral-hover`."
+        },
+        {
+          "name": "--jh-button-color-border-neutral-focus",
+          "description": "The button container border-color when in focus and `appearance=\"neutral\"`. Defaults to `--jh-border-control-color`."
+        },
+        {
+          "name": "--jh-button-color-background-neutral-hover",
+          "description": "The button container background-color when hovered and `appearance=\"neutral\"`. Defaults to `--jh-color-container-neutral-hover`."
+        },
+        {
+          "name": "--jh-button-color-border-neutral-hover",
+          "description": "The button container border-color when hovered and `appearance=\"neutral\"`. Defaults to `--jh-border-control-color`."
+        },
+        {
+          "name": "--jh-button-color-background-neutral-active",
+          "description": "The button container background-color when active and `appearance=\"neutral\"`. Defaults to `--jh-color-container-neutral-active`."
+        },
+        {
+          "name": "--jh-button-color-border-neutral-active",
+          "description": "The button container border-color when active and `appearance=\"neutral\"`. Defaults to `--jh-border-control-color`."
+        },
+        {
+          "name": "--jh-button-color-background-neutral-disabled",
+          "description": "The button container background-color when disabled and `appearance=\"neutral\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-color-border-neutral-disabled",
+          "description": "The button container border-color when disabled and `appearance=\"neutral\"`. Defaults to `--jh-border-control-color`."
+        },
+        {
+          "name": "--jh-button-color-background-neutral-pending",
+          "description": "The button container background-color when pending and `appearance=\"neutral\"`. Defaults to `transparent`."
+        },
+        {
+          "name": "--jh-button-color-border-neutral-pending",
+          "description": "The button container border-color when pending and `appearance=\"neutral\"`. Defaults to `--jh-border-control-color`."
+        },
+        {
+          "name": "--jh-button-label-color-text-neutral-enabled",
+          "description": "The label text color when enabled and `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-button-label-color-text-neutral-focus",
+          "description": "The label text color when in focus and `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-hover`."
+        },
+        {
+          "name": "--jh-button-label-color-text-neutral-hover",
+          "description": "The label text color when hovered and `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-hover`."
+        },
+        {
+          "name": "--jh-button-label-color-text-neutral-active",
+          "description": "The label text color when active and `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-active`."
+        },
+        {
+          "name": "--jh-button-label-color-text-neutral-disabled",
+          "description": "The label text color when disabled and `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-neutral-enabled",
+          "description": "The icon color when enabled and `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-neutral-focus",
+          "description": "The icon color when in focus and `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-hover`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-neutral-hover",
+          "description": "The icon color when hovered and `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-hover`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-neutral-active",
+          "description": "The icon color when active and `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-active`."
+        },
+        {
+          "name": "--jh-button-icon-color-fill-neutral-disabled",
+          "description": "The icon color when disabled and `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-button-progress-color-border-neutral-pending",
+          "description": "The progress indicator border-color when `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-button-progress-track-color-border-neutral-pending",
+          "description": "The progress indicator track-color when `appearance=\"neutral\"`. Defaults to `--jh-color-control-enabled`."
         },
         {
           "name": "--jh-button-color-background-danger-enabled",

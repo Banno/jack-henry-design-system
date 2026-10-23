@@ -9,6 +9,16 @@ import { ValidationController } from '../../controllers/validationController.js'
 import '../button/button.js';
 import '@jack-henry/jh-icons/icons-wc/icon-circle-xmark.js';
 
+// Elements inside the input wrapper that should take focus themselves when pressed
+const FOCUSABLE_SELECTORS = [
+  'button:not(:disabled)',
+  'a[href]',
+  'input:not(:disabled)',
+  'select:not(:disabled)',
+  'textarea:not(:disabled)',
+  '[tabindex]:not([tabindex="-1"])',
+].join(', ');
+
 /**
  * The input component offers a single-line text field for collecting user data.
  * 
@@ -597,15 +607,17 @@ export class JhInput extends JhElement {
     // clicking the wrapper should focus the input
     const wrapper = this.shadowRoot.querySelector('.input-wrapper');
     wrapper?.addEventListener('mousedown', (e) => {
-      if (e.target === wrapper || e.target.tagName === 'SLOT') {
-        //if the input already has focus, don't do anything. Prevent default to avoid flickering of the focus ring.
-        if (this.shadowRoot.activeElement === this.#inputEl) {
-          e.preventDefault();
-        } else {
-          //otherwise set focus to the input.
-          e.preventDefault();
-          this.#inputEl?.focus();
-        }
+      const path = e.composedPath();
+      const inWrapper = path.slice(0, path.indexOf(wrapper));
+      if (inWrapper.includes(this.#inputEl)) return;
+      // tabindex="-1" opts a control out of focus (e.g. number steppers), so keep focus on the input
+      const optedOut = inWrapper.some((el) => el instanceof Element && el.getAttribute('tabindex') === '-1');
+      if (!optedOut && inWrapper.some((el) => el instanceof Element && el.matches(FOCUSABLE_SELECTORS))) return;
+
+      // prevent default so focus isn't moved to body first, avoiding focus ring flicker
+      e.preventDefault();
+      if (this.shadowRoot.activeElement !== this.#inputEl) {
+        this.#inputEl?.focus();
       }
     });
   }

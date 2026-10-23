@@ -2171,7 +2171,7 @@
               "name": "--jh-divider-color-border"
             },
             {
-              "description": "The horizontal divider margin-left. Defaults to `0`.",
+              "description": "The horizontal divider inline-start. Defaults to `0`.",
               "name": "--jh-divider-space-inset"
             }
           ],
@@ -2183,7 +2183,7 @@
               "type": {
                 "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
               },
-              "description": "The alignment of the left edge of the horizontal divider.",
+              "description": "The alignment of the inline-start edge of the horizontal divider.",
               "default": "null",
               "attribute": "inset",
               "reflects": true
@@ -2247,7 +2247,7 @@
               "type": {
                 "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
               },
-              "description": "The alignment of the left edge of the horizontal divider.",
+              "description": "The alignment of the inline-start edge of the horizontal divider.",
               "default": "null",
               "fieldName": "inset"
             },

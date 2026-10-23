@@ -33,7 +33,11 @@ Declaring a `jh-divider`:
 
 ## Inset Override for Horizontal Dividers
 
-There are thirteen left-inset options available to help align the horizontal divider with its associated content. If an inset outside of the thirteen provided options is desired, use the `--jh-divider-space-inset` component token. Note that if both the `inset` property and `--jh-divider-space-inset` component token are present, the `inset` property will take priority for that instance of the component. 
+There are thirteen inset options available to help align the horizontal divider with its associated content. If an inset outside of the thirteen provided options is desired, use the `--jh-divider-space-inset` component token. Note that if both the `inset` property and `--jh-divider-space-inset` component token are present, the `inset` property will take priority for that instance of the component. 
+
+## Right-to-Left Support
+
+The divider uses logical properties for its inset and side spacing, so it mirrors when `dir="rtl"` is set. `--jh-divider-space-inset` applies from the inline-start edge. This support is specific to the divider for now and will move to a general page once broader right-to-left support lands.
 
 ## Accessibility
 

@@ -46,6 +46,12 @@ The notification component makes use of both required compositional and suggeste
 
 - `<jh-icon>`. [Iconography documentation](/docs/iconography-overview--docs).
 
+## Default Slot Guidance
+
+- The default slot is intended for the notification message. Keep messages concise and limited to a single idea so users can quickly understand the information being conveyed.
+- Text within the default slot wraps at word boundaries, and the notification grows in height to fit its content.
+- Long unbroken strings, such as URLs or account numbers, will not wrap and may overflow the notification. When needed, apply text wrap styles such as `overflow-wrap: anywhere` to the slotted content directly. 
+
 ## Action Slot Guidance
 
 - The action slot is intended to be a wrapper for action buttons for which we encourage the use of the `jh-button` component to streamline styles as well as to enhance the accessibility of the component as outlined in the Accessibility documentation.

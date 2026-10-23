@@ -30,6 +30,10 @@
           "description": "Sets the max count to show. Appends `+` to the `max-count` when value is exceeded.",
           "type": "?number",
           "default": "99"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "cssProperties": [
@@ -207,6 +211,10 @@
           "attribute": "value",
           "description": "Sets the value of the button.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -626,6 +634,12 @@
       "name": "forge-caption",
       "path": "./components/caption/caption.js",
       "description": "Caption",
+      "properties": [
+        {
+          "name": "uniqueId",
+          "type": "number"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -740,6 +754,10 @@
           "attribute": "header-title",
           "description": "Provides context for the content of the card.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -929,6 +947,10 @@
           "description": "Adds a visual indicator next to the label. Indicates that a value is optional (by default) or required if the `required` property is also set. For the indicator to be displayed, the `label` property must also be set.",
           "type": "?boolean",
           "default": "false"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -1074,6 +1096,10 @@
           "attribute": "accessible-label",
           "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -1297,6 +1323,10 @@
           "description": "Controls whether the text renders inline with adjacent text or as a standalone block that preserves whitespace and formatting. Defaults to 'inline'.",
           "type": "'inline'|'block'",
           "default": "\"inline\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -1341,6 +1371,10 @@
           "description": "The orientation of the divider.",
           "type": "'horizontal'|'vertical'",
           "default": "\"horizontal\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "cssProperties": [
@@ -1381,6 +1415,10 @@
           "description": "Sets the heading's place in the document outline, similar to `<h1>`–`<h6>`. Defaults to `2`.",
           "type": "1|2|3|4|5|6",
           "default": "2"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -1414,6 +1452,10 @@
           "description": "Sets the size of the icon.",
           "type": "'x-small'|'small'|'medium'|'large'|'x-large'|'xx-large'",
           "default": "\"medium\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -1745,6 +1787,10 @@
           "attribute": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -2239,6 +2285,10 @@
           "attribute": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -2796,6 +2846,10 @@
           "attribute": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -3263,6 +3317,10 @@
           "attribute": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -3722,6 +3780,10 @@
           "attribute": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -4239,6 +4301,10 @@
           "attribute": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -4702,6 +4768,10 @@
           "attribute": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -5160,6 +5230,10 @@
           "attribute": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -5400,6 +5474,10 @@
           "description": "Determines whether the slotted elements should wrap onto multiple lines.",
           "type": "boolean",
           "default": "false"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -5490,6 +5568,10 @@
           "description": "Determines whether the slotted elements should wrap onto multiple columns.",
           "type": "boolean",
           "default": "false"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -5541,6 +5623,10 @@
           "description": "Sets the alignment of layered elements along the inline (horizontal) axis.",
           "type": "'start' | 'end' | 'center' | 'stretch'",
           "default": "\"stretch\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -5577,6 +5663,10 @@
           "attribute": "accessible-label",
           "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -5703,6 +5793,10 @@
           "description": "Determines whether the divider is displayed below the list-item.",
           "type": "?boolean",
           "default": "false"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -5877,6 +5971,12 @@
     {
       "name": "jh-menu",
       "path": "./components/menu/menu.js",
+      "properties": [
+        {
+          "name": "uniqueId",
+          "type": "number"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -5986,6 +6086,10 @@
           "description": "Determines where in viewport notification is displayed. Alerts will follow typical content flow, while banners will break out of standard flow and go edge-to-edge within a container.",
           "type": "'alert'|'banner'",
           "default": "\"alert\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -6210,6 +6314,10 @@
           "description": "Sets the visual scale of the paragraph text. Defaults to `1`.",
           "type": "1|2",
           "default": "1"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -6354,6 +6462,10 @@
           "attribute": "accessible-valuetext",
           "description": "Sets `aria-valuetext` on progress indicator to provide text alternative of `aria-valuenow`. To be used when progress cannot be represented as a number.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "cssProperties": [
@@ -6528,6 +6640,10 @@
           "attribute": "value",
           "description": "Sets the value of the radio group.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -6644,6 +6760,10 @@
           "attribute": "value",
           "description": "Sets the value of the radio.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -7097,6 +7217,10 @@
           "attribute": "value",
           "description": "Sets the value of the input.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -7501,6 +7625,10 @@
           "attribute": "label",
           "description": "Describes the intent of the switch.",
           "type": "?string"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -7591,6 +7719,10 @@
           "description": "Sets the horizontal alignment of the content.",
           "type": "'left' | 'center' | 'right'",
           "default": "\"left\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -7719,6 +7851,10 @@
           "description": "Sets the order in which the items in the column are sorted.",
           "type": "'none' | 'ascending' | 'descending'",
           "default": "\"none\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -7944,6 +8080,12 @@
       "name": "jh-table-row",
       "path": "./components/table-row/table-row.js",
       "description": "Table Row",
+      "properties": [
+        {
+          "name": "uniqueId",
+          "type": "number"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -8072,6 +8214,10 @@
           "description": "Makes the table horizontally scrollable on smaller screens.",
           "type": "Boolean",
           "default": "false"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -8154,6 +8300,10 @@
           "description": "Sets the alignment of the tags.",
           "type": "'start'| 'end'",
           "default": "\"start\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [
@@ -8263,6 +8413,10 @@
           "description": "Removes the tag after the dismiss button is activated.",
           "type": "?Boolean",
           "default": "false"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -8423,6 +8577,10 @@
           "description": "Sets the role of the toast controller and establishes a live region to expose changes to assistive technologies.",
           "type": "'status'|'alert'",
           "default": "\"status\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -8499,6 +8657,10 @@
           "description": "Places action button(s) on new line, below default slot.",
           "type": "boolean",
           "default": "false"
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "events": [
@@ -8580,6 +8742,10 @@
           "description": "The position of the tooltip and its arrow.",
           "type": "?string",
           "default": "\"top-center\""
+        },
+        {
+          "name": "uniqueId",
+          "type": "number"
         }
       ],
       "slots": [

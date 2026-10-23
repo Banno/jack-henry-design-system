@@ -6973,7 +6973,7 @@
         },
         {
           "name": "--jh-button-color-background-secondary-focus",
-          "description": "The button container background-color when in focus and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The button container background-color when in focus and `appearance=\"secondary\"`. Defaults to `--jh-color-container-brand-hover`."
         },
         {
           "name": "--jh-button-color-border-secondary-focus",
@@ -6981,7 +6981,7 @@
         },
         {
           "name": "--jh-button-color-background-secondary-hover",
-          "description": "The button container background-color when hovered and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The button container background-color when hovered and `appearance=\"secondary\"`. Defaults to `--jh-color-container-brand-hover`."
         },
         {
           "name": "--jh-button-color-border-secondary-hover",
@@ -6989,7 +6989,7 @@
         },
         {
           "name": "--jh-button-color-background-secondary-active",
-          "description": "The button container background-color when active and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-active`."
+          "description": "The button container background-color when active and `appearance=\"secondary\"`. Defaults to `--jh-color-container-brand-active`."
         },
         {
           "name": "--jh-button-color-border-secondary-active",
@@ -7017,15 +7017,15 @@
         },
         {
           "name": "--jh-button-label-color-text-secondary-focus",
-          "description": "The label text color when in focus and `appearance=\"secondary\"`. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The label text color when in focus and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-button-label-color-text-secondary-hover",
-          "description": "The label text color when hovered and `appearance=\"secondary\"`. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The label text color when hovered and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-button-label-color-text-secondary-active",
-          "description": "The label text color when active and `appearance=\"secondary\"`. Defaults to `--jh-color-content-on-brand-active`."
+          "description": "The label text color when active and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-active`."
         },
         {
           "name": "--jh-button-label-color-text-secondary-disabled",
@@ -7037,15 +7037,15 @@
         },
         {
           "name": "--jh-button-icon-color-fill-secondary-focus",
-          "description": "The icon color when in focus and `appearance=\"secondary\"`. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The icon color when in focus and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-button-icon-color-fill-secondary-hover",
-          "description": "The icon color when hovered and `appearance=\"secondary\"`. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The icon color when hovered and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-button-icon-color-fill-secondary-active",
-          "description": "The icon color when active and `appearance=\"secondary\"`. Defaults to `--jh-color-content-on-brand-active`."
+          "description": "The icon color when active and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-active`."
         },
         {
           "name": "--jh-button-icon-color-fill-secondary-disabled",
@@ -7069,7 +7069,7 @@
         },
         {
           "name": "--jh-button-color-background-tertiary-focus",
-          "description": "The button container background-color when in focus and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The button container background-color when in focus and `appearance=\"tertiary\"`. Defaults to `--jh-color-container-brand-hover`."
         },
         {
           "name": "--jh-button-color-border-tertiary-focus",
@@ -7077,7 +7077,7 @@
         },
         {
           "name": "--jh-button-color-background-tertiary-hover",
-          "description": "The button container background-color when hovered and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-hover`."
+          "description": "The button container background-color when hovered and `appearance=\"tertiary\"`. Defaults to `--jh-color-container-brand-hover`."
         },
         {
           "name": "--jh-button-color-border-tertiary-hover",
@@ -7085,7 +7085,7 @@
         },
         {
           "name": "--jh-button-color-background-tertiary-active",
-          "description": "The button container background-color when active and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-active`."
+          "description": "The button container background-color when active and `appearance=\"tertiary\"`. Defaults to `--jh-color-container-brand-active`."
         },
         {
           "name": "--jh-button-color-border-tertiary-active",
@@ -7113,15 +7113,15 @@
         },
         {
           "name": "--jh-button-label-color-text-tertiary-focus",
-          "description": "The label text color when in focus and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The label text color when in focus and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-button-label-color-text-tertiary-hover",
-          "description": "The label text color when hovered and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The label text color when hovered and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-button-label-color-text-tertiary-active",
-          "description": "The label text color when active and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-on-brand-active`."
+          "description": "The label text color when active and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-active`."
         },
         {
           "name": "--jh-button-label-color-text-tertiary-disabled",
@@ -7133,15 +7133,15 @@
         },
         {
           "name": "--jh-button-icon-color-fill-tertiary-focus",
-          "description": "The icon color when in focus and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The icon color when in focus and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-button-icon-color-fill-tertiary-hover",
-          "description": "The icon color when hovered and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-on-brand-hover`."
+          "description": "The icon color when hovered and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-hover`."
         },
         {
           "name": "--jh-button-icon-color-fill-tertiary-active",
-          "description": "The icon color when active and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-on-brand-active`."
+          "description": "The icon color when active and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-active`."
         },
         {
           "name": "--jh-button-icon-color-fill-tertiary-disabled",

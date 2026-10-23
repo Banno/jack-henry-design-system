@@ -1,5 +1,25 @@
 # @jack-henry/jh-elements
 
+## 2.5.0
+
+### Minor Changes
+
+- [#357](https://github.com/Banno/jack-henry-design-system/pull/357) [`d29df3c`](https://github.com/Banno/jack-henry-design-system/commit/d29df3c656ce8b2228df8aae4cf672d0d6aa802a) Thanks [@stephhubka](https://github.com/stephhubka)! - Add a neutral appearance to jh-button for actions that should not draw attention. Neutral is outlined with a `--jh-border-control-color` border.
+
+- [#374](https://github.com/Banno/jack-henry-design-system/pull/374) [`11209a9`](https://github.com/Banno/jack-henry-design-system/commit/11209a91e085e8d6cb54c2f2930a140112d01d73) Thanks [@abissier](https://github.com/abissier)! - Adds validation controller.
+
+- [#381](https://github.com/Banno/jack-henry-design-system/pull/381) [`3907418`](https://github.com/Banno/jack-henry-design-system/commit/39074189f40b6bb70d0163fed1e035c3e58b0d52) Thanks [@abissier](https://github.com/abissier)! - Wraps text at word boundaries instead of splitting words mid-word in notification default slot.
+
+- [#375](https://github.com/Banno/jack-henry-design-system/pull/375) [`0ddfecd`](https://github.com/Banno/jack-henry-design-system/commit/0ddfecd4000cacfe3625823a0dbad7dd3e6b237f) Thanks [@abissier](https://github.com/abissier)! - Implements validation controller in input, checkbox group, and radio group.
+
+- [#377](https://github.com/Banno/jack-henry-design-system/pull/377) [`9ff3149`](https://github.com/Banno/jack-henry-design-system/commit/9ff3149c0757b612b1b5c85f86b881bc76102b47) Thanks [@abissier](https://github.com/abissier)! - Adds min and max required properties to checkbox group.
+
+- [#382](https://github.com/Banno/jack-henry-design-system/pull/382) [`34c57a1`](https://github.com/Banno/jack-henry-design-system/commit/34c57a16c2fbcd62cc3f5446fdd94a9f9ee94996) Thanks [@abissier](https://github.com/abissier)! - Radio: prevents page scroll when selected via space key
+
+### Patch Changes
+
+- [#383](https://github.com/Banno/jack-henry-design-system/pull/383) [`c0bf384`](https://github.com/Banno/jack-henry-design-system/commit/c0bf38482d0dc5c928ce7fa3df137a4f8a55adfe) Thanks [@mayabuserde](https://github.com/mayabuserde)! - [Input and Select] clicking icons or other non-interactive content inside the input field now focuses the input, so `focusin` and `focusout` fire as expected.
+
 ## 2.4.0
 
 ### Minor Changes

@@ -7306,10 +7306,6 @@
           "description": "The header subtitle text color. Defaults to `--jh-color-content-secondary-enabled`."
         },
         {
-          "name": "--jh-card-divider-space-inset",
-          "description": "The inset for the built-in header and footer dividers. Defaults to `0`. Overridden per divider by header-divider-inset / footer-divider-inset."
-        },
-        {
           "name": "--jh-checkbox-group-label-color-text",
           "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`."
         },

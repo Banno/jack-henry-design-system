@@ -37,7 +37,14 @@ There are thirteen inset options available to help align the horizontal divider 
 
 ## Right-to-Left Support
 
-The divider uses logical properties for its inset and side spacing, so it mirrors when `dir="rtl"` is set. `--jh-divider-space-inset` applies from the inline-start edge. This support is specific to the divider for now and will move to a general page once broader right-to-left support lands.
+Horizontal dividers support right-to-left (RTL) layouts. Set `dir="rtl"` on the divider or on any parent element, and the divider will flip to match.
+
+The inset starts at the inline-start edge (the left edge in left-to-right layouts and the right edge in right-to-left layouts). This applies to both the `inset` property and the `--jh-divider-space-inset` component token.
+
+```html
+<div dir="rtl">
+  <jh-divider inset="16"></jh-divider>
+</div>
 
 ## Accessibility
 

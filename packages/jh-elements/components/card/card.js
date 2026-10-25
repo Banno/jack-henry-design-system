@@ -29,6 +29,7 @@ import '../divider/divider.js';
  * `padding="none"` and `show-footer-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`.
  * @cssprop --jh-card-header-title-color-text - The header title text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-card-header-subtitle-color-text - The header subtitle text color. Defaults to `--jh-color-content-secondary-enabled`.
+ * @cssprop --jh-card-divider-space-inset - The inset for the built-in header and footer dividers. Defaults to `0`. Overridden per divider by header-divider-inset / footer-divider-inset.
  * 
  * @slot default - Use to insert card body content.
  * @slot jh-card-media - Use to insert media content in the top section of the card. User may need to add additional styling to elements such as border, object-fit, etc.
@@ -130,6 +131,7 @@ export class JhCard extends JhElement {
       .card-footer-divider {
         margin-top: 0px;
         margin-bottom: 0px;
+        --jh-divider-space-inset: var(--jh-card-divider-space-inset, 0);
       }
       /* padding */
       :host([padding='small']) .display-header,

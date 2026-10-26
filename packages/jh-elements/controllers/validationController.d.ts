@@ -10,6 +10,7 @@ export type ValidationControllerHost = ReactiveControllerHost &
   HTMLElement & {
     invalid: boolean;
     value?: string | null;
+    checked?: boolean;
     required?: boolean;
     maxlength?: number;
     minlength?: number;
@@ -42,7 +43,7 @@ export const VALIDATION_ERROR_TYPES: {
 export class ValidationController implements ReactiveController {
   host: ValidationControllerHost;
 
-  constructor(host: ValidationControllerHost, options?: { isGroupControl?: boolean });
+  constructor(host: ValidationControllerHost, options?: { isGroupControl?: boolean; isCheckable?: boolean });
 
   hostConnected(): void;
   hostDisconnected(): void;

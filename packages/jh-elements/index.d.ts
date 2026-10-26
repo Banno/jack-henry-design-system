@@ -40,6 +40,7 @@ import { JhLayoutZStack } from './components/layout-z-stack/layout-z-stack.js';
 import { ForgeParagraph } from './components/paragraph/paragraph.js';
 import { ForgeCaption } from './components/caption/caption.js';
 import { ForgeCode } from './components/code/code.js';
+import { ForgeHeading } from './components/heading/heading.js';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -81,5 +82,6 @@ declare global {
     'forge-paragraph': ForgeParagraph;
     'forge-caption': ForgeCaption;
     'forge-code': ForgeCode;
+    'forge-heading': ForgeHeading;
   }
 }

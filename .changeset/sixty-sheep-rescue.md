@@ -2,4 +2,4 @@
 "@jack-henry/jh-elements": minor
 ---
 
-adds typography components: heading, caption, paragraph, and code
+adds heading typography component.

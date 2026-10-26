@@ -244,6 +244,36 @@ export class MyTextInput extends LitElement {
 }
 customElements.define('my-text-input', MyTextInput);
 ```
+
+### Custom Checkable Components
+
+For a standalone checkable control (e.g., a single checkbox), pass `{ isCheckable: true }` when constructing the controller. This tells the controller to satisfy `required` using the host's `checked` property instead of its `value`. Otherwise, set up the host the same way as a single control component.
+
+```javascript
+// my-checkbox.js
+export class MyCheckbox extends LitElement {
+  static get formAssociated() {
+    return true;
+  }
+
+  // IMPORTANT: tell the controller `required` means `checked`
+  #validation = new ValidationController(this, { isCheckable: true });
+
+  static get properties() {
+    return {
+      checked: { type: Boolean, reflect: true },
+      invalid: { type: Boolean, reflect: true },
+      required: { type: Boolean, reflect: true },
+    };
+  }
+
+  formResetCallback() {
+    this.#validation.reset();
+  }
+  ...
+}
+```
+
 ### Custom Group Components
 
 For custom components functioning as control groups (e.g., checkbox or radio groups), pass `{ isGroupControl: true }` when constructing the controller. This tells the controller to validate using group-specific rules based on its children's `checked` states instead of the host's own `value`.

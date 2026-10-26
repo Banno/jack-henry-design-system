@@ -37,6 +37,7 @@ import { JhInputNumber } from './components/input-number/input-number.js';
 import { JhLayoutVStack } from './components/layout-v-stack/layout-v-stack.js';
 import { JhLayoutHStack } from './components/layout-h-stack/layout-h-stack.js';
 import { JhLayoutZStack } from './components/layout-z-stack/layout-z-stack.js';
+import { ForgeParagraph } from './components/paragraph/paragraph.js';
 import { ForgeHeading } from './components/heading/heading.js';
 
 declare global {
@@ -76,6 +77,7 @@ declare global {
     'jh-layout-v-stack': JhLayoutVStack;
     'jh-layout-h-stack': JhLayoutHStack;
     'jh-layout-z-stack': JhLayoutZStack;
+    'forge-paragraph': ForgeParagraph;
     'forge-heading': ForgeHeading;
   }
 }

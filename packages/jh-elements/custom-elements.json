@@ -623,6 +623,23 @@
       ]
     },
     {
+      "name": "forge-caption",
+      "path": "./components/caption/caption.js",
+      "description": "Caption",
+      "slots": [
+        {
+          "name": "default",
+          "description": "Use to insert the caption text."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--forge-caption-color-text-enabled",
+          "description": "The text color. Defaults to `--jh-color-content-secondary-enabled`."
+        }
+      ]
+    },
+    {
       "name": "jh-card",
       "path": "./components/card/card.js",
       "attributes": [

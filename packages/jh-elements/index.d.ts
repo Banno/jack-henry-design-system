@@ -39,6 +39,7 @@ import { JhLayoutHStack } from './components/layout-h-stack/layout-h-stack.js';
 import { JhLayoutZStack } from './components/layout-z-stack/layout-z-stack.js';
 import { ForgeParagraph } from './components/paragraph/paragraph.js';
 import { ForgeCaption } from './components/caption/caption.js';
+import { ForgeCode } from './components/code/code.js';
 import { ForgeHeading } from './components/heading/heading.js';
 
 declare global {
@@ -80,6 +81,7 @@ declare global {
     'jh-layout-z-stack': JhLayoutZStack;
     'forge-paragraph': ForgeParagraph;
     'forge-caption': ForgeCaption;
+    'forge-code': ForgeCode;
     'forge-heading': ForgeHeading;
   }
 }

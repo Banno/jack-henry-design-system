@@ -1266,53 +1266,6 @@
       ]
     },
     {
-      "name": "forge-code",
-      "path": "./components/code/code.js",
-      "description": "Code",
-      "attributes": [
-        {
-          "name": "size",
-          "description": "Sets the visual scale of the code text. Defaults to `1`.",
-          "type": "1|2",
-          "default": "1"
-        },
-        {
-          "name": "display",
-          "description": "Controls whether the text renders inline with adjacent text or as a standalone block that preserves whitespace and formatting. Defaults to 'inline'.",
-          "type": "'inline'|'block'",
-          "default": "\"inline\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "size",
-          "attribute": "size",
-          "description": "Sets the visual scale of the code text. Defaults to `1`.",
-          "type": "1|2",
-          "default": "1"
-        },
-        {
-          "name": "display",
-          "attribute": "display",
-          "description": "Controls whether the text renders inline with adjacent text or as a standalone block that preserves whitespace and formatting. Defaults to 'inline'.",
-          "type": "'inline'|'block'",
-          "default": "\"inline\""
-        }
-      ],
-      "slots": [
-        {
-          "name": "default",
-          "description": "Use to insert the code text."
-        }
-      ],
-      "cssProperties": [
-        {
-          "name": "--forge-code-color-text-enabled",
-          "description": "The text color. Defaults to `--jh-color-content-primary-enabled`."
-        }
-      ]
-    },
-    {
       "name": "jh-divider",
       "path": "./components/divider/divider.js",
       "attributes": [

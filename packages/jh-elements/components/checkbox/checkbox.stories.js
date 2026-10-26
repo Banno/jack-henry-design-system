@@ -27,6 +27,8 @@ const disableControls = {
   'accessible-label': { control: { disable: true } },
   checked: { control: { disable: true } },
   disabled: { control: { disable: true } },
+  required: { control: { disable: true } },
+  'show-indicator': { control: { disable: true } },
   indeterminate: { control: { disable: true } },
 };
 
@@ -203,15 +205,11 @@ Indeterminate.args = {
 };
 
 Indeterminate.argTypes = {
-  label: { control: { disable: true } },
-  'helper-text': { control: { disable: true } },
-  name: { control: { disable: true } },
-  value: { control: { disable: true } },
-  'accessible-label': { control: { disable: true } },
-  invalid: { control: { disable: true } },
-  'error-text': { control: { disable: true } },
-  required: { control: { disable: true } },
-  'show-indicator': { control: { disable: true } },
+  ...disableControls,
+  label: { control: { disable: false } },
+  checked: { control: { disable: false } },
+  indeterminate: { control: { disable: false } },
+  disabled: { control: { disable: false } },
 };
 
 Indeterminate.parameters = {
@@ -228,6 +226,9 @@ export const FormAssociated = {
           ?checked=${args.checked}
           ?disabled=${args.disabled}
           ?indeterminate=${args.indeterminate}
+          ?required=${args.required}
+          ?show-indicator=${args['show-indicator']}
+          error-text=${args['error-text']}
           value=${args.value}
           label=${args.label}
         ></jh-checkbox>
@@ -254,6 +255,9 @@ FormAssociated.args = {
   name: 'Demo checkbox name',
   value: 'Demo checkbox value',
   checked: false,
+  required: false,
+  'show-indicator': false,
+  'error-text': 'Error message',
   indeterminate: false,
   label: 'Label',
   disabled: false,

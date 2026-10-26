@@ -6128,6 +6128,40 @@
       ]
     },
     {
+      "name": "forge-paragraph",
+      "path": "./components/paragraph/paragraph.js",
+      "description": "Paragraph",
+      "attributes": [
+        {
+          "name": "size",
+          "description": "Sets the visual scale of the paragraph text. Defaults to `1`.",
+          "type": "1|2",
+          "default": "1"
+        }
+      ],
+      "properties": [
+        {
+          "name": "size",
+          "attribute": "size",
+          "description": "Sets the visual scale of the paragraph text. Defaults to `1`.",
+          "type": "1|2",
+          "default": "1"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "Use to insert the paragraph text."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--forge-paragraph-color-text-enabled",
+          "description": "The text color. Defaults to `--jh-color-content-primary-enabled`."
+        }
+      ]
+    },
+    {
       "name": "jh-progress",
       "path": "./components/progress/progress.js",
       "attributes": [

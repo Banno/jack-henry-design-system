@@ -5,6 +5,7 @@
 import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { JhElement } from '../element/element.js';
+import { ValidationController } from '../../controllers/validationController.js';
 
 /**
  * Checkboxes allow users to select one or more options from a group of options.
@@ -72,6 +73,8 @@ export class JhCheckbox extends JhElement {
   #indeterminate;
   /** @type {string | null} */
   #value;
+
+  #validation = new ValidationController(this, { isCheckable: true });
 
   static get styles() {
     return css`
@@ -553,7 +556,20 @@ export class JhCheckbox extends JhElement {
   }
   /** @type {ValidityState} */
   get validity() {
-    return this.internals.validity;
+    return this.#validation.validity;
+  }
+
+  checkValidity() {
+    return this.#validation.checkValidity();
+  }
+
+  formResetCallback() {
+    this.#validation.reset();
+  }
+
+  /** @param {boolean} disabled */
+  formDisabledCallback(disabled) {
+    this.disabled = disabled;
   }
   /**
    * Sets the value of the checkbox.

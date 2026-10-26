@@ -186,6 +186,10 @@ export class JhCheckbox extends JhElement {
     get form(): HTMLFormElement | null;
     /** @type {ValidityState} */
     get validity(): ValidityState;
+    checkValidity(): boolean;
+    formResetCallback(): void;
+    /** @param {boolean} disabled */
+    formDisabledCallback(disabled: boolean): void;
     /** @protected */
     protected render(): import("lit").TemplateResult<1>;
     #private;

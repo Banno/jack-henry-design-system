@@ -25,6 +25,7 @@
  * @customElement jh-checkbox-group
  */
 export class JhCheckboxGroup extends JhElement {
+    static get formAssociated(): boolean;
     static get styles(): import("lit").CSSResult;
     static get properties(): {
         accessibleLabel: {
@@ -49,6 +50,14 @@ export class JhCheckboxGroup extends JhElement {
         };
         label: {
             type: StringConstructor;
+        };
+        minRequired: {
+            type: NumberConstructor;
+            attribute: string;
+        };
+        maxRequired: {
+            type: NumberConstructor;
+            attribute: string;
         };
         required: {
             type: BooleanConstructor;
@@ -98,6 +107,18 @@ export class JhCheckboxGroup extends JhElement {
      */
     label: string | null;
     /**
+     * Specifies the minimum number of child checkboxes that must be checked.
+     * @attr min-required
+     * @type {number | null}
+     */
+    minRequired: number | null;
+    /**
+     * Specifies the maximum number of child checkboxes that can be checked.
+     * @attr max-required
+     * @type {number | null}
+     */
+    maxRequired: number | null;
+    /**
      * Indicates a value is required.
      * @type {boolean}
      */
@@ -115,6 +136,15 @@ export class JhCheckboxGroup extends JhElement {
     showIndicator: boolean;
     /** @protected */
     protected firstUpdated(): void;
+    /**
+     * Returns the checkbox group's parent form element.
+     * @type {HTMLFormElement | null}
+     */
+    get form(): HTMLFormElement | null;
+    /** @type {ValidityState} */
+    get validity(): ValidityState;
+    checkValidity(): boolean;
+    formResetCallback(): void;
     /** @protected */
     protected render(): import("lit").TemplateResult<1>;
     #private;

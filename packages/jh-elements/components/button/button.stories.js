@@ -44,7 +44,7 @@ export default {
   argTypes: {
     appearance: {
       control: 'select',
-      options: ['primary', 'secondary', 'tertiary', 'danger'],
+      options: ['primary', 'secondary', 'tertiary', 'danger', 'neutral'],
     },
     size: {
       control: 'select',

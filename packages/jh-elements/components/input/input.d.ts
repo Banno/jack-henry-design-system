@@ -102,6 +102,7 @@ export class JhInput extends JhElement {
         };
         invalid: {
             type: BooleanConstructor;
+            reflect: boolean;
         };
         label: {
             type: StringConstructor;
@@ -300,6 +301,10 @@ export class JhInput extends JhElement {
     protected firstUpdated(): void;
     /** @type {HTMLFormElement | null} */
     get form(): HTMLFormElement | null;
+    /** @type {ValidityState} */
+    get validity(): ValidityState;
+    checkValidity(): boolean;
+    formResetCallback(): void;
     /**
      * @protected
      * @param {InputEvent} e

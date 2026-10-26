@@ -138,10 +138,10 @@ export class JhCheckbox extends JhElement {
           --jh-checkbox-required-color-text-optional,
           var(--jh-color-content-primary-enabled)
         );
-        font-family: var(--jh-checkbox-helper-regular-font-family);
-        font-weight: var(--jh-checkbox-helper-regular-font-weight);
-        font-size: var(--jh-checkbox-helper-regular-font-size);
-        line-height: var(--jh-checkbox-helper-regular-line-height);
+        font-family: var(--jh-font-body-regular-1-font-family);
+        font-weight: var(--jh-font-body-regular-1-font-weight);
+        font-size: var(--jh-font-body-regular-1-font-size);
+        line-height: var(--jh-font-body-regular-1-line-height);
       }
       :host([show-indicator][required]) .indicator {
         color: var(

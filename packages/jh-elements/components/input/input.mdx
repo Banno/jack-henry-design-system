@@ -109,6 +109,10 @@ Set the `show-char-count` attribute to display a character counter.
 
 The `jh-maxlength` event is triggered when the character count hits the defined `maxlength`. This allows authors to apply the `invalid` property along with the corresponding `error-text` attribute, helping to inform the user that the character limit has been reached.
 
+## Validation
+
+Set constraint attributes such as `required`, `minlength`, `maxlength`, or `pattern` to validate the input's value. Validation runs when focus leaves the input. When validation fails, the `invalid` property is set automatically and a `jh-invalid` event is dispatched, which can be used to set the `error-text`. See the [Validation guide](/docs/guides-validation--docs) for more information on how validation rules are applied and how to handle validation events.
+
 ## Accessibility
 
 This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria.

@@ -50,7 +50,7 @@ The checkbox group component makes use of suggested content dependencies.
 
 ## Validation
 
-Set the `required` attribute to require that at least one checkbox is checked. Validation runs when focus leaves the entire group, and the `jh-invalid` event can be used to set the `invalid` property and `error-text`. See the [Validation guide](/docs/guides-validation--docs) for more information on how validation rules are applied and how to handle validation events.
+Set constraint attributes such as `required`, `min-required`, or `max-required` to validate the checkbox-group. Validation runs when focus leaves the entire group. When validation fails, the `invalid` property is set automatically and a `jh-invalid` event is dispatched, which can be used to set the `error-text`. See the [Validation guide](/docs/guides-validation--docs) for more information on how validation rules are applied and how to handle validation events.
 
 ## Accessibility
 

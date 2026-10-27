@@ -37,6 +37,10 @@ To use `<jh-checkbox>`:
 - Any interaction with an indeterminate checkbox will set its state to checked.
 - Indeterminate checkboxes do not participate in form submission, even if checked=true.
 
+## Validation
+
+Set the `required` attribute to require that the checkbox is checked. Validation runs when focus leaves the checkbox. When validation fails, the `invalid` property is set automatically and a `jh-invalid` event is dispatched, which can be used to set the `error-text`. See the [Validation guide](/docs/guides-validation--docs) for more information on how validation rules are applied and how to handle validation events.
+
 ## Accessibility
 
 This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria.

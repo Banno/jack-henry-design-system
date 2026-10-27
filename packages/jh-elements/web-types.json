@@ -586,6 +586,22 @@
               }
             },
             {
+              "name": "error-text",
+              "description": "Text to be displayed when the checkbox has failed validation and `invalid` is true.",
+              "value": {
+                "type": "string | null",
+                "default": "null"
+              }
+            },
+            {
+              "name": "show-indicator",
+              "description": "Determines whether the indicator is shown.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
               "name": "accessible-label",
               "description": "Sets an `aria-label` to assist screen reader users when no visible label is present.",
               "value": {
@@ -604,6 +620,14 @@
             {
               "name": "indeterminate",
               "description": "Sets the indeterminate state on the checkbox.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
+              "name": "invalid",
+              "description": "Sets an `aria-invalid` on the checkbox to indicate the value supplied was invalid and displays `error-text` when set.",
               "value": {
                 "type": "boolean",
                 "default": "false"
@@ -631,6 +655,14 @@
               "value": {
                 "type": "string | null",
                 "default": "null"
+              }
+            },
+            {
+              "name": "required",
+              "description": "Indicates a selection is required.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
               }
             },
             {
@@ -666,6 +698,11 @@
                 "type": "boolean"
               },
               {
+                "name": "invalid",
+                "description": "Sets an `aria-invalid` on the checkbox to indicate the value supplied was invalid and displays `error-text` when set.",
+                "type": "boolean"
+              },
+              {
                 "name": "disabled",
                 "description": "Disables the checkbox and prevents all user interactions. May cause checkbox to be ignored by assistive technologies(AT).",
                 "type": "boolean"
@@ -681,9 +718,24 @@
                 "type": "string | null"
               },
               {
+                "name": "errorText",
+                "description": "Text to be displayed when the checkbox has failed validation and `invalid` is true.",
+                "type": "string | null"
+              },
+              {
                 "name": "name",
                 "description": "Sets the name of the checkbox data when submitted in a form.",
                 "type": "string | null"
+              },
+              {
+                "name": "required",
+                "description": "Indicates a selection is required.",
+                "type": "boolean"
+              },
+              {
+                "name": "showIndicator",
+                "description": "Determines whether the indicator is shown.",
+                "type": "boolean"
               },
               {
                 "name": "accessibleLabel",
@@ -7454,6 +7506,10 @@
         {
           "name": "--jh-checkbox-helper-color-text",
           "description": "The helper text color. Defaults to `--jh-color-content-secondary-enabled`."
+        },
+        {
+          "name": "--jh-checkbox-error-color-text",
+          "description": "The error text color. Defaults to `--jh-color-content-negative-enabled`."
         },
         {
           "name": "--jh-checkbox-label-color-text",

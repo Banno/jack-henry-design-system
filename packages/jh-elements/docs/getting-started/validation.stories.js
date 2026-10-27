@@ -84,9 +84,16 @@ function handleInvalid(event) {
   const errors = event.detail.state.validity;
   // ValidationController's isGroupControl option isn't exposed on the host, so key off the tag name instead
   const isGroup = invalidElement.localName.endsWith('-group');
+  const isCheckbox = invalidElement.localName === 'jh-checkbox';
 
   if (errors.includes('valueMissing')) {
-    invalidElement.errorText = isGroup ? 'Please select at least one option.' : 'This field is required.';
+    if (isGroup) {
+      invalidElement.errorText = 'Please select at least one option.';
+    } else if (isCheckbox) {
+      invalidElement.errorText = 'Please check this box to continue.';
+    } else {
+      invalidElement.errorText = 'This field is required.';
+    }
   } else if (errors.includes('tooShort')) {
     invalidElement.errorText = isGroup
       ? `Please select at least ${invalidElement.minRequired} options.`
@@ -159,7 +166,7 @@ export default {
 
 /**
  * Demonstrates `ValidationController`'s single-control and group-control rules wired
- * into real design system components (`jh-input`, `jh-checkbox-group`, `jh-radio-group`).
+ * into real design system components (`jh-input`, `jh-checkbox`, `jh-checkbox-group`, `jh-radio-group`).
  * Tab through the fields (or click away) to trigger `focusout` validation and see
  * the `jh-invalid` listener populate contextual `error-text` messages.
  */
@@ -248,6 +255,14 @@ export const FormValidationExample = {
           <jh-radio label="Phone" value="phone"></jh-radio>
           <jh-radio label="Mail" value="mail"></jh-radio>
         </jh-radio-group>
+
+        <jh-checkbox
+          label="I agree to the terms and conditions"
+          name="terms"
+          value="agreed"
+          required
+          show-indicator
+        ></jh-checkbox>
 
       </form>
 

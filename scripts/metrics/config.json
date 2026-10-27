@@ -1,0 +1,35 @@
+{
+  "notion": {
+    "dataSourceId": "ccdb321b-c249-4a9e-b21b-d842be15b110",
+    "apiVersion": "2025-09-03"
+  },
+  "package": "@jack-henry/jh-elements",
+  "designSystemRepo": "Banno/jack-henry-design-system",
+  "teamLogins": ["stephhubka", "danberry-banno", "abissier", "mayabuserde"],
+  "products": [
+    {
+      "name": "Banno Online",
+      "repo": "Banno/platform-ux",
+      "paths": ["packages/banno-online"],
+      "overridesFile": null
+    },
+    {
+      "name": "JH Platform",
+      "repo": "Banno/digital-ux",
+      "paths": ["projects"],
+      "overridesFile": "projects/vite-plugin-jack-henry-theming"
+    },
+    {
+      "name": "Treasury",
+      "repo": "Banno/platform-ux",
+      "paths": ["packages/treasury"],
+      "overridesFile": null
+    }
+  ],
+  "metrics": {
+    "adoption": "Adoption by product",
+    "overrides": "Overrides & hard-coded values",
+    "releaseLag": "Time to adopt a release",
+    "contributions": "Contributions from other teams"
+  }
+}

@@ -106,6 +106,7 @@ native input keyboard support.
   - `Tab` will move focus to the next element in the tab order.
 - To satisfy [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html), 
 adequate spacing between radios is provided to ensure the input target size meets the 24 by 24 pixels requirement.
+- To satisfy [WCAG 3.3.1 Error Identification](https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html), when the `invalid` attribute is set, `aria-invalid="true"` is applied to the radio group and the `error-text` (when provided) is displayed and announced by assistive technologies.
 - To satisfy [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) 
 and [WCAG 3.3.3 Error Suggestion](https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html), 
 `aria-required=true` is set on radio groups with the attribute `required`.
@@ -118,9 +119,7 @@ the form to explain required radio groups are marked with a red asterisk.
 - To satisfy [WCAG 2.4.6 Headings and Labels](https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html) 
 and [WCAG 3.3.2 Labels or Instructions](https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html), 
 ensure the `label` property or `accessible-label` attribute are descriptive.
-- To satisfy [WCAG 3.3.1 Error Identification](https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html), 
-set the `invalid` attribute to generate an `aria-invalid` attribute on radio group to indicate an error. 
-Utilize the `error-text` attribute to provide feedback on a failed value.
+- To satisfy [WCAG 3.3.1 Error Identification](https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html), use the `error-text` attribute to describe the error in text.
 - To satisfy [WCAG 3.3.3 Error Suggestion](https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html), 
 use the `error-text` attribute to provide a suggestion to correct the error when appropriate.
 - To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value), 

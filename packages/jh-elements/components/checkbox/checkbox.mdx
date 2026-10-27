@@ -87,9 +87,7 @@ The size of the target for pointer inputs is at least 24 by 24 CSS pixels, excep
 - To satisfy [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum), 
 when using multiple checkboxes, use a `<jh-checkbox-group>`, which includes appropriate spacing between checkboxes by design. 
 When using  a single `<jh-checkbox>`, make sure to provide adequate spacing around the checkbox to meet the 24 by 24 pixels minimum target size requirement.
-- To satisfy [WCAG 3.3.1 Error Identification](https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html),
-set the `invalid` attribute to generate an `aria-invalid` attribute on the checkbox to indicate an error.
-Utilize the `error-text` attribute to describe the error in text; `error-text` is only displayed when `invalid` is set.
+- To satisfy [WCAG 3.3.1 Error Identification](https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html), use the `error-text` attribute to describe the error in text.
 - To satisfy [WCAG 3.3.3 Error Suggestion](https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html),
 use the `error-text` attribute to provide a suggestion to correct the error when appropriate.
 

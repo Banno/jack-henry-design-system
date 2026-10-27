@@ -108,7 +108,9 @@ All design system form controls are form-associated and expose the following nat
 
 *Note*: There is no `.reportValidity()` support. The browser's native validation bubble is never shown since `error-text` handles messaging and focus placement is left to the author.
 
-Click the buttons below to inspect `.form`, `.validity`, and `.checkValidity()` on a live `<jh-input>`, then reset the form to confirm `invalid` and the validity state clear automatically:
+Click the buttons below to inspect `.form`, `.validity`, and `.checkValidity()` on a live `<jh-input>`, then reset the form to confirm `invalid` and the validity state clear automatically.
+
+Click **FormData** to see which entries the form would submit. Note that the "Subscribe to the newsletter" checkbox is set to `indeterminate` and is left out of the form data because an indeterminate checkbox counts as unchecked:
 
 <Story of={stories.StandardFormControlApiExample} />
 

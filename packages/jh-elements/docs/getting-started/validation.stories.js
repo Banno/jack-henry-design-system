@@ -282,8 +282,7 @@ FormValidationExample.parameters = {
  * Demonstrates the standard form-control API (`.form`, `.validity`, `.checkValidity()`)
  * that `ValidationController` adds to form-associated components, and confirms that
  * resetting the parent `<form>` clears `invalid` and the control's validity state
- * automatically. Also shows that an indeterminate `jh-checkbox` is excluded from
- * the form's `FormData`.
+ * automatically.
  */
 export const StandardFormControlApiExample = {
   render: () => html`
@@ -309,15 +308,6 @@ export const StandardFormControlApiExample = {
           required
           minlength="3"
         ></jh-input>
-
-        <jh-checkbox
-          label="Subscribe to the newsletter"
-          helper-text="Starts checked and indeterminate, so it's excluded from form data"
-          name="newsletter"
-          value="subscribed"
-          checked
-          indeterminate
-        ></jh-checkbox>
 
         <div id="api-actions">
           <jh-button
@@ -345,14 +335,6 @@ export const StandardFormControlApiExample = {
               const demo = event.target.closest('#api-demo');
               const input = demo.querySelector('#api-input');
               logApiResult(demo.querySelector('#api-log'), '.checkValidity()', { returned: input.checkValidity() });
-            }}
-          ></jh-button>
-          <jh-button
-            label="FormData"
-            size="small"
-            @click=${(event) => {
-              const form = event.target.closest('form');
-              logApiResult(form.parentElement.querySelector('#api-log'), 'new FormData(form)', [...new FormData(form)]);
             }}
           ></jh-button>
           <jh-button

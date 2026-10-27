@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  * 
  * Do not edit directly, this file was auto-generated.
- * Generated on Fri, 02 Oct 2026 03:23:47 GMT
+ * Generated on Tue, 27 Oct 2026 19:41:00 GMT
  */
 
 export default `
@@ -247,6 +247,10 @@ export default `
     --jh-font-family-mono: 'Roboto Mono', monospace;
     --jh-font-family-sans: Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif;
     --jh-font-family-primary: var(--jh-font-family-sans);
+    --jh-breakpoint-xl: 1280px;
+    --jh-breakpoint-lg: 1024px;
+    --jh-breakpoint-md: 768px;
+    --jh-breakpoint-sm: 512px;
     --jh-border-radius-pill: 9999px;
     --jh-border-radius-circle: 50%;
     --jh-border-radius-400: 16px;

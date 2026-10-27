@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2026 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # Forge metrics
 
 Monthly collector that writes four design-system metrics to the Notion **Metrics** database (Forge Design System teamspace). Runs on the first Monday of each month via `.github/workflows/metrics.yaml`, or on demand from the Actions tab.

@@ -13,7 +13,7 @@ import { JhElement } from '../element/element.js';
  * @cssprop --jh-divider-border-width - The divider width. Defaults to `--jh-border-decorative-width`.
  * @cssprop --jh-divider-border-style - The divider style. Defaults to `--jh-border-decorative-style`.
  * @cssprop --jh-divider-color-border - The divider color. Defaults to `--jh-border-decorative-color`.
- * @cssprop --jh-divider-space-inset - The horizontal divider margin-left. Defaults to `0`.
+ * @cssprop --jh-divider-space-inset - The horizontal divider inline-start. Defaults to `0`.
  * 
  * @customElement jh-divider
  */
@@ -38,8 +38,7 @@ export class JhDivider extends JhElement {
           border-left-color: var(--jh-divider-color-border, var(--jh-border-decorative-color));
           margin-top: 0;
           margin-bottom: 0;
-          margin-left: var(--jh-dimension-400);
-          margin-right: var(--jh-dimension-400);
+          margin-inline: var(--jh-dimension-400);
           height: 100%;
           width: 0px;
           align-self: stretch;
@@ -85,7 +84,7 @@ export class JhDivider extends JhElement {
         }
         :host(:not([orientation='vertical'])),
         :host(:not([orientation='vertical'])[inset]) {
-          margin-left: var(--inset, var(--jh-divider-space-inset));
+          margin-inline-start: var(--inset, var(--jh-divider-space-inset));
         }
       `
   }
@@ -113,7 +112,7 @@ export class JhDivider extends JhElement {
     super();
     this.internals.role="separator"
     /**
-     * The alignment of the left edge of the horizontal divider.
+     * The alignment of the inline-start edge of the horizontal divider.
      * @type { 0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null }
      */
     this.inset = null;

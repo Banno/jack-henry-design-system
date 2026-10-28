@@ -42,6 +42,16 @@ To use `<jh-tooltip>`, place the originating element in the component's default 
 - By default tooltips flip to the opposite side when they reach the edge of the viewport. 
 The attribute `flip-disabled` can be set to disable this feature.
 
+## Sizing
+
+The width of tooltips caps at 160px by default, so longer text wraps to a new line. Override the width with the `--jh-tooltip-size-max-width` styling hook on `jh-tooltip`, for example `240px`, or `none` so content like dates or code stays on one line.
+
+```css
+jh-tooltip {
+  --jh-tooltip-size-max-width: 240px;
+}
+```
+
 ## Accessibility
 
 This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria. 

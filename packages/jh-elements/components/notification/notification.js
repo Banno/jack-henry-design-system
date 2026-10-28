@@ -148,7 +148,6 @@ export class JhNotification extends JhElement {
       font: var(--jh-font-body-regular-1);
       display: flex;
       flex: 1;
-      word-break: break-all;
     }
     /* Icon slot styling */
     slot[name="jh-notification-icon"] {

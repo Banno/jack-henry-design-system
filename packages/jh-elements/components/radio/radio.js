@@ -385,7 +385,6 @@ export class JhRadio extends JhElement {
     this.dispatchCustomEvent('jh-change', {
       state: {
         checked: this.checked,
-        value: this.value,
       },
     });
   }

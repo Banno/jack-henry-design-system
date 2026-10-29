@@ -263,7 +263,7 @@
               "name": "--jh-button-color-border-secondary-enabled"
             },
             {
-              "description": "The button container background-color when in focus and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-hover`.",
+              "description": "The button container background-color when in focus and `appearance=\"secondary\"`. Defaults to `--jh-color-container-brand-hover`.",
               "name": "--jh-button-color-background-secondary-focus"
             },
             {
@@ -271,7 +271,7 @@
               "name": "--jh-button-color-border-secondary-focus"
             },
             {
-              "description": "The button container background-color when hovered and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-hover`.",
+              "description": "The button container background-color when hovered and `appearance=\"secondary\"`. Defaults to `--jh-color-container-brand-hover`.",
               "name": "--jh-button-color-background-secondary-hover"
             },
             {
@@ -279,7 +279,7 @@
               "name": "--jh-button-color-border-secondary-hover"
             },
             {
-              "description": "The button container background-color when active and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-active`.",
+              "description": "The button container background-color when active and `appearance=\"secondary\"`. Defaults to `--jh-color-container-brand-active`.",
               "name": "--jh-button-color-background-secondary-active"
             },
             {
@@ -307,15 +307,15 @@
               "name": "--jh-button-label-color-text-secondary-enabled"
             },
             {
-              "description": "The label text color when in focus and `appearance=\"secondary\"`. Defaults to `--jh-color-content-on-brand-hover`.",
+              "description": "The label text color when in focus and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-hover`.",
               "name": "--jh-button-label-color-text-secondary-focus"
             },
             {
-              "description": "The label text color when hovered and `appearance=\"secondary\"`. Defaults to `--jh-color-content-on-brand-hover`.",
+              "description": "The label text color when hovered and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-hover`.",
               "name": "--jh-button-label-color-text-secondary-hover"
             },
             {
-              "description": "The label text color when active and `appearance=\"secondary\"`. Defaults to `--jh-color-content-on-brand-active`.",
+              "description": "The label text color when active and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-active`.",
               "name": "--jh-button-label-color-text-secondary-active"
             },
             {
@@ -327,15 +327,15 @@
               "name": "--jh-button-icon-color-fill-secondary-enabled"
             },
             {
-              "description": "The icon color when in focus and `appearance=\"secondary\"`. Defaults to `--jh-color-content-on-brand-hover`.",
+              "description": "The icon color when in focus and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-hover`.",
               "name": "--jh-button-icon-color-fill-secondary-focus"
             },
             {
-              "description": "The icon color when hovered and `appearance=\"secondary\"`. Defaults to `--jh-color-content-on-brand-hover`.",
+              "description": "The icon color when hovered and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-hover`.",
               "name": "--jh-button-icon-color-fill-secondary-hover"
             },
             {
-              "description": "The icon color when active and `appearance=\"secondary\"`. Defaults to `--jh-color-content-on-brand-active`.",
+              "description": "The icon color when active and `appearance=\"secondary\"`. Defaults to `--jh-color-content-brand-active`.",
               "name": "--jh-button-icon-color-fill-secondary-active"
             },
             {
@@ -359,7 +359,7 @@
               "name": "--jh-button-color-border-tertiary-enabled"
             },
             {
-              "description": "The button container background-color when in focus and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-hover`.",
+              "description": "The button container background-color when in focus and `appearance=\"tertiary\"`. Defaults to `--jh-color-container-brand-hover`.",
               "name": "--jh-button-color-background-tertiary-focus"
             },
             {
@@ -367,7 +367,7 @@
               "name": "--jh-button-color-border-tertiary-focus"
             },
             {
-              "description": "The button container background-color when hovered and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-hover`.",
+              "description": "The button container background-color when hovered and `appearance=\"tertiary\"`. Defaults to `--jh-color-container-brand-hover`.",
               "name": "--jh-button-color-background-tertiary-hover"
             },
             {
@@ -375,7 +375,7 @@
               "name": "--jh-button-color-border-tertiary-hover"
             },
             {
-              "description": "The button container background-color when active and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-active`.",
+              "description": "The button container background-color when active and `appearance=\"tertiary\"`. Defaults to `--jh-color-container-brand-active`.",
               "name": "--jh-button-color-background-tertiary-active"
             },
             {
@@ -403,15 +403,15 @@
               "name": "--jh-button-label-color-text-tertiary-enabled"
             },
             {
-              "description": "The label text color when in focus and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-on-brand-hover`.",
+              "description": "The label text color when in focus and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-hover`.",
               "name": "--jh-button-label-color-text-tertiary-focus"
             },
             {
-              "description": "The label text color when hovered and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-on-brand-hover`.",
+              "description": "The label text color when hovered and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-hover`.",
               "name": "--jh-button-label-color-text-tertiary-hover"
             },
             {
-              "description": "The label text color when active and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-on-brand-active`.",
+              "description": "The label text color when active and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-active`.",
               "name": "--jh-button-label-color-text-tertiary-active"
             },
             {
@@ -423,15 +423,15 @@
               "name": "--jh-button-icon-color-fill-tertiary-enabled"
             },
             {
-              "description": "The icon color when in focus and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-on-brand-hover`.",
+              "description": "The icon color when in focus and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-hover`.",
               "name": "--jh-button-icon-color-fill-tertiary-focus"
             },
             {
-              "description": "The icon color when hovered and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-on-brand-hover`.",
+              "description": "The icon color when hovered and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-hover`.",
               "name": "--jh-button-icon-color-fill-tertiary-hover"
             },
             {
-              "description": "The icon color when active and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-on-brand-active`.",
+              "description": "The icon color when active and `appearance=\"tertiary\"`. Defaults to `--jh-color-content-brand-active`.",
               "name": "--jh-button-icon-color-fill-tertiary-active"
             },
             {
@@ -445,6 +445,102 @@
             {
               "description": "The progress indicator track-color when `appearance=\"tertiary\"`. Defaults to `--jh-color-control-enabled`.",
               "name": "--jh-button-progress-track-color-border-tertiary-pending"
+            },
+            {
+              "description": "The button container background-color when enabled and `appearance=\"neutral\"`. Defaults to `transparent`.",
+              "name": "--jh-button-color-background-neutral-enabled"
+            },
+            {
+              "description": "The button container border-color when enabled and `appearance=\"neutral\"`. Defaults to `--jh-border-control-color`.",
+              "name": "--jh-button-color-border-neutral-enabled"
+            },
+            {
+              "description": "The button container background-color when in focus and `appearance=\"neutral\"`. Defaults to `--jh-color-container-neutral-hover`.",
+              "name": "--jh-button-color-background-neutral-focus"
+            },
+            {
+              "description": "The button container border-color when in focus and `appearance=\"neutral\"`. Defaults to `--jh-border-control-color`.",
+              "name": "--jh-button-color-border-neutral-focus"
+            },
+            {
+              "description": "The button container background-color when hovered and `appearance=\"neutral\"`. Defaults to `--jh-color-container-neutral-hover`.",
+              "name": "--jh-button-color-background-neutral-hover"
+            },
+            {
+              "description": "The button container border-color when hovered and `appearance=\"neutral\"`. Defaults to `--jh-border-control-color`.",
+              "name": "--jh-button-color-border-neutral-hover"
+            },
+            {
+              "description": "The button container background-color when active and `appearance=\"neutral\"`. Defaults to `--jh-color-container-neutral-active`.",
+              "name": "--jh-button-color-background-neutral-active"
+            },
+            {
+              "description": "The button container border-color when active and `appearance=\"neutral\"`. Defaults to `--jh-border-control-color`.",
+              "name": "--jh-button-color-border-neutral-active"
+            },
+            {
+              "description": "The button container background-color when disabled and `appearance=\"neutral\"`. Defaults to `transparent`.",
+              "name": "--jh-button-color-background-neutral-disabled"
+            },
+            {
+              "description": "The button container border-color when disabled and `appearance=\"neutral\"`. Defaults to `--jh-border-control-color`.",
+              "name": "--jh-button-color-border-neutral-disabled"
+            },
+            {
+              "description": "The button container background-color when pending and `appearance=\"neutral\"`. Defaults to `transparent`.",
+              "name": "--jh-button-color-background-neutral-pending"
+            },
+            {
+              "description": "The button container border-color when pending and `appearance=\"neutral\"`. Defaults to `--jh-border-control-color`.",
+              "name": "--jh-button-color-border-neutral-pending"
+            },
+            {
+              "description": "The label text color when enabled and `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-button-label-color-text-neutral-enabled"
+            },
+            {
+              "description": "The label text color when in focus and `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-hover`.",
+              "name": "--jh-button-label-color-text-neutral-focus"
+            },
+            {
+              "description": "The label text color when hovered and `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-hover`.",
+              "name": "--jh-button-label-color-text-neutral-hover"
+            },
+            {
+              "description": "The label text color when active and `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-active`.",
+              "name": "--jh-button-label-color-text-neutral-active"
+            },
+            {
+              "description": "The label text color when disabled and `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-button-label-color-text-neutral-disabled"
+            },
+            {
+              "description": "The icon color when enabled and `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-button-icon-color-fill-neutral-enabled"
+            },
+            {
+              "description": "The icon color when in focus and `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-hover`.",
+              "name": "--jh-button-icon-color-fill-neutral-focus"
+            },
+            {
+              "description": "The icon color when hovered and `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-hover`.",
+              "name": "--jh-button-icon-color-fill-neutral-hover"
+            },
+            {
+              "description": "The icon color when active and `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-active`.",
+              "name": "--jh-button-icon-color-fill-neutral-active"
+            },
+            {
+              "description": "The icon color when disabled and `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-button-icon-color-fill-neutral-disabled"
+            },
+            {
+              "description": "The progress indicator border-color when `appearance=\"neutral\"`. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-button-progress-color-border-neutral-pending"
+            },
+            {
+              "description": "The progress indicator track-color when `appearance=\"neutral\"`. Defaults to `--jh-color-control-enabled`.",
+              "name": "--jh-button-progress-track-color-border-neutral-pending"
             },
             {
               "description": "The button container background-color when enabled and `appearance=\"danger\"`. Defaults to `--jh-color-content-negative-enabled`.",
@@ -629,7 +725,7 @@
               "name": "appearance",
               "privacy": "public",
               "type": {
-                "text": "'primary' | 'secondary' | 'tertiary' | 'danger'"
+                "text": "'primary' | 'secondary' | 'tertiary' | 'danger' | 'neutral'"
               },
               "description": "Determines the button color.",
               "default": "'secondary'",
@@ -803,7 +899,7 @@
             {
               "name": "appearance",
               "type": {
-                "text": "'primary' | 'secondary' | 'tertiary' | 'danger'"
+                "text": "'primary' | 'secondary' | 'tertiary' | 'danger' | 'neutral'"
               },
               "description": "Determines the button color.",
               "default": "'secondary'",
@@ -1296,6 +1392,14 @@
           ],
           "members": [
             {
+              "kind": "method",
+              "name": "checkValidity"
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback"
+            },
+            {
               "kind": "field",
               "name": "disabled",
               "privacy": "public",
@@ -1362,6 +1466,28 @@
               "description": "Describes the type of data to be collected.",
               "default": "null",
               "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "minRequired",
+              "privacy": "public",
+              "type": {
+                "text": "number | null"
+              },
+              "description": "Specifies the minimum number of child checkboxes that must be checked.",
+              "default": "0",
+              "attribute": "min-required"
+            },
+            {
+              "kind": "field",
+              "name": "maxRequired",
+              "privacy": "public",
+              "type": {
+                "text": "number | null"
+              },
+              "description": "Specifies the maximum number of child checkboxes that can be checked.",
+              "default": "null",
+              "attribute": "max-required"
             },
             {
               "kind": "field",
@@ -1478,6 +1604,26 @@
               "attribute": "helper-text"
             },
             {
+              "name": "min-required",
+              "type": {
+                "text": "number | null"
+              },
+              "description": "Specifies the minimum number of child checkboxes that must be checked.",
+              "default": "0",
+              "fieldName": "minRequired",
+              "attribute": "min-required"
+            },
+            {
+              "name": "max-required",
+              "type": {
+                "text": "number | null"
+              },
+              "description": "Specifies the maximum number of child checkboxes that can be checked.",
+              "default": "null",
+              "fieldName": "maxRequired",
+              "attribute": "max-required"
+            },
+            {
               "name": "show-indicator",
               "type": {
                 "text": "boolean"
@@ -1576,6 +1722,10 @@
             {
               "description": "The helper text color. Defaults to `--jh-color-content-secondary-enabled`.",
               "name": "--jh-checkbox-helper-color-text"
+            },
+            {
+              "description": "The error text color. Defaults to `--jh-color-content-negative-enabled`.",
+              "name": "--jh-checkbox-error-color-text"
             },
             {
               "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`.",
@@ -1744,6 +1894,26 @@
           ],
           "members": [
             {
+              "kind": "method",
+              "name": "checkValidity"
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback"
+            },
+            {
+              "kind": "method",
+              "name": "formDisabledCallback",
+              "parameters": [
+                {
+                  "name": "disabled",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ]
+            },
+            {
               "kind": "field",
               "name": "value",
               "privacy": "public",
@@ -1804,6 +1974,18 @@
             },
             {
               "kind": "field",
+              "name": "invalid",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Sets an `aria-invalid` on the checkbox to indicate the value supplied was invalid and displays `error-text` when set.",
+              "default": "false",
+              "attribute": "invalid",
+              "reflects": true
+            },
+            {
+              "kind": "field",
               "name": "disabled",
               "privacy": "public",
               "type": {
@@ -1838,6 +2020,17 @@
             },
             {
               "kind": "field",
+              "name": "errorText",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to be displayed when the checkbox has failed validation and `invalid` is true.",
+              "default": "null",
+              "attribute": "error-text"
+            },
+            {
+              "kind": "field",
               "name": "name",
               "privacy": "public",
               "type": {
@@ -1846,6 +2039,30 @@
               "description": "Sets the name of the checkbox data when submitted in a form.",
               "default": "null",
               "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Indicates a selection is required.",
+              "default": "false",
+              "attribute": "required",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "showIndicator",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether the indicator is shown.",
+              "default": "false",
+              "attribute": "show-indicator",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -1917,6 +2134,26 @@
               "attribute": "helper-text"
             },
             {
+              "name": "error-text",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to be displayed when the checkbox has failed validation and `invalid` is true.",
+              "default": "null",
+              "fieldName": "errorText",
+              "attribute": "error-text"
+            },
+            {
+              "name": "show-indicator",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether the indicator is shown.",
+              "default": "false",
+              "fieldName": "showIndicator",
+              "attribute": "show-indicator"
+            },
+            {
               "name": "accessible-label",
               "type": {
                 "text": "string | null"
@@ -1961,6 +2198,15 @@
               "fieldName": "indeterminate"
             },
             {
+              "name": "invalid",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Sets an `aria-invalid` on the checkbox to indicate the value supplied was invalid and displays `error-text` when set.",
+              "default": "false",
+              "fieldName": "invalid"
+            },
+            {
               "name": "disabled",
               "type": {
                 "text": "boolean"
@@ -1986,6 +2232,15 @@
               "description": "Sets the name of the checkbox data when submitted in a form.",
               "default": "null",
               "fieldName": "name"
+            },
+            {
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Indicates a selection is required.",
+              "default": "false",
+              "fieldName": "required"
             },
             {
               "name": "value",
@@ -2046,7 +2301,7 @@
               "name": "--jh-divider-color-border"
             },
             {
-              "description": "The horizontal divider margin-left. Defaults to `0`.",
+              "description": "The horizontal divider inline-start. Defaults to `0`.",
               "name": "--jh-divider-space-inset"
             }
           ],
@@ -2058,7 +2313,7 @@
               "type": {
                 "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
               },
-              "description": "The alignment of the left edge of the horizontal divider.",
+              "description": "The alignment of the inline-start edge of the horizontal divider.",
               "default": "null",
               "attribute": "inset",
               "reflects": true
@@ -2122,7 +2377,7 @@
               "type": {
                 "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
               },
-              "description": "The alignment of the left edge of the horizontal divider.",
+              "description": "The alignment of the inline-start edge of the horizontal divider.",
               "default": "null",
               "fieldName": "inset"
             },
@@ -2445,6 +2700,22 @@
               }
             },
             {
+              "kind": "method",
+              "name": "checkValidity",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "kind": "field",
               "name": "value",
               "privacy": "public",
@@ -2666,6 +2937,7 @@
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
               "default": "false",
               "attribute": "invalid",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -3432,14 +3704,6 @@
               }
             },
             {
-              "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-input-field-color-border-active",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
               "description": "The input field border-color when disabled. Defaults to `--jh-border-control-color`.",
               "name": "--jh-input-field-color-border-disabled",
               "inheritedFrom": {
@@ -3686,6 +3950,22 @@
               }
             },
             {
+              "kind": "method",
+              "name": "checkValidity",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "kind": "field",
               "name": "value",
               "privacy": "public",
@@ -3907,6 +4187,7 @@
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
               "default": "false",
               "attribute": "invalid",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -4232,14 +4513,6 @@
             {
               "description": "The input field border-color when hovered. Defaults to `--jh-color-content-brand-hover`.",
               "name": "--jh-input-field-color-border-hover",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-input-field-color-border-active",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -5001,14 +5274,6 @@
               }
             },
             {
-              "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-input-field-color-border-active",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
               "description": "The input field border-color when disabled. Defaults to `--jh-border-control-color`.",
               "name": "--jh-input-field-color-border-disabled",
               "inheritedFrom": {
@@ -5286,6 +5551,22 @@
               "attribute": "step"
             },
             {
+              "kind": "method",
+              "name": "checkValidity",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "kind": "field",
               "name": "value",
               "privacy": "public",
@@ -5522,6 +5803,7 @@
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
               "default": "false",
               "attribute": "invalid",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -6320,6 +6602,22 @@
               "reflects": true
             },
             {
+              "kind": "method",
+              "name": "checkValidity",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "kind": "field",
               "name": "value",
               "privacy": "public",
@@ -6556,6 +6854,7 @@
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
               "default": "false",
               "attribute": "invalid",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -7275,14 +7574,6 @@
               }
             },
             {
-              "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-input-field-color-border-active",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
               "description": "The input field border-color when disabled. Defaults to `--jh-border-control-color`.",
               "name": "--jh-input-field-color-border-disabled",
               "inheritedFrom": {
@@ -7513,6 +7804,22 @@
           "description": "The input search component provides a single-line text field for search queries.\n\n[Input Search Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-input-search--docs)",
           "name": "JhInputSearch",
           "members": [
+            {
+              "kind": "method",
+              "name": "checkValidity",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
             {
               "kind": "field",
               "name": "value",
@@ -7750,6 +8057,7 @@
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
               "default": "false",
               "attribute": "invalid",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -8075,14 +8383,6 @@
             {
               "description": "The input field border-color when hovered. Defaults to `--jh-color-content-brand-hover`.",
               "name": "--jh-input-field-color-border-hover",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-input-field-color-border-active",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -8732,6 +9032,22 @@
           "name": "JhInputTelephone",
           "members": [
             {
+              "kind": "method",
+              "name": "checkValidity",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "kind": "field",
               "name": "value",
               "privacy": "public",
@@ -8968,6 +9284,7 @@
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
               "default": "false",
               "attribute": "invalid",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -9293,14 +9610,6 @@
             {
               "description": "The input field border-color when hovered. Defaults to `--jh-color-content-brand-hover`.",
               "name": "--jh-input-field-color-border-hover",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-input-field-color-border-active",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -10010,14 +10319,6 @@
               }
             },
             {
-              "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-input-field-color-border-active",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
               "description": "The input field border-color when disabled. Defaults to `--jh-border-control-color`.",
               "name": "--jh-input-field-color-border-disabled",
               "inheritedFrom": {
@@ -10314,6 +10615,22 @@
               }
             },
             {
+              "kind": "method",
+              "name": "checkValidity",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "kind": "field",
               "name": "value",
               "privacy": "public",
@@ -10550,6 +10867,7 @@
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
               "default": "false",
               "attribute": "invalid",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -11276,6 +11594,22 @@
           "name": "JhInputUrl",
           "members": [
             {
+              "kind": "method",
+              "name": "checkValidity",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
               "kind": "field",
               "name": "value",
               "privacy": "public",
@@ -11512,6 +11846,7 @@
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
               "default": "false",
               "attribute": "invalid",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -11837,14 +12172,6 @@
             {
               "description": "The input field border-color when hovered. Defaults to `--jh-color-content-brand-hover`.",
               "name": "--jh-input-field-color-border-hover",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-input-field-color-border-active",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -12522,10 +12849,6 @@
               "name": "--jh-input-field-color-border-hover"
             },
             {
-              "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-input-field-color-border-active"
-            },
-            {
               "description": "The input field border-color when disabled. Defaults to `--jh-border-control-color`.",
               "name": "--jh-input-field-color-border-disabled"
             },
@@ -12645,6 +12968,14 @@
             }
           ],
           "members": [
+            {
+              "kind": "method",
+              "name": "checkValidity"
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback"
+            },
             {
               "kind": "field",
               "name": "value",
@@ -12825,7 +13156,8 @@
               },
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
               "default": "false",
-              "attribute": "invalid"
+              "attribute": "invalid",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -14812,6 +15144,14 @@
           ],
           "members": [
             {
+              "kind": "method",
+              "name": "checkValidity"
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback"
+            },
+            {
               "kind": "field",
               "name": "value",
               "privacy": "public",
@@ -15450,36 +15790,11 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/select/filtering.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "JhFilter",
-          "type": {
-            "text": "object"
-          },
-          "default": "{ filterList(items, searchTerm, key = 'label') { if (!items || items.length === 0) { return []; } if (!searchTerm) { return items; } const lowerSearchTerm = searchTerm.toLowerCase(); return items.filter((item) => String(item[key] || '') .toLowerCase() .includes(lowerSearchTerm), ); }, // returns the first term that includes the search term in the specified key (default is 'label'), or null if not found. // Skip disabled items in the inline suggestions as they are not selectable. filterInline(items, searchTerm, key = 'label') { if (!searchTerm || !items || items.length === 0) { return null; } const lowerSearchTerm = searchTerm.toLowerCase(); return ( items.find( (item) => !item.disabled && String(item[key] || '') .toLowerCase() .startsWith(lowerSearchTerm), ) || null ); }, //returns the index of the first term that starts with the buffer, or -1 if not found // exclude disabled items from the search as they are not selectable. // when it is a multi-select, return selected items as well, so users can deselect easily. jumpAhead(items, buffer, activeIndex, key = 'label') { if (!buffer || !items || items.length === 0) { return -1; } // more than one character that are same. const allCharsSame = (str) => { if (str.length <= 1) return false; return str.split('').every((char) => char === str[0]); }; const safeActiveIndex = activeIndex ?? -1; const lowerBuffer = buffer.toLowerCase(); const char = lowerBuffer[0]; const isCycling = allCharsSame(lowerBuffer); if (isCycling) { // Find the next item that starts with the character after the active index const nextIndex = items.findIndex( (item, index) => index > safeActiveIndex && !item.disabled && String(item[key] || '') .toLowerCase() .startsWith(char), ); if (nextIndex !== -1) { return nextIndex; } // If not found, wrap around and search from the beginning up to the active index return items.findIndex( (item) => !item.disabled && String(item[key] || '') .toLowerCase() .startsWith(char), ); } return items.findIndex( (item) => !item.disabled && String(item[key] || '') .toLowerCase() .startsWith(lowerBuffer), ); }, }",
-          "description": "SPDX-FileCopyrightText: 2026 Jack Henry\n\nSPDX-License-Identifier: Apache-2.0"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JhFilter",
-          "declaration": {
-            "name": "JhFilter",
-            "module": "components/select/filtering.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/select/select.js",
       "declarations": [
         {
           "kind": "class",
-          "description": "Select",
+          "description": "The select component allows users to choose a single option from a list of predefined values.\n\n[Select Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-select--docs)",
           "name": "JhSelect",
           "cssProperties": [
             {
@@ -15567,10 +15882,6 @@
               "name": "--jh-select-input-field-color-border-hover"
             },
             {
-              "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-select-input-field-color-border-active"
-            },
-            {
               "description": "The input field border-color when disabled. Defaults to `--jh-border-control-color`.",
               "name": "--jh-select-input-field-color-border-disabled"
             },
@@ -15631,6 +15942,14 @@
               "name": "--jh-select-item-space-padding-left-indent"
             },
             {
+              "description": "The list item icon color, such as the custom-add option icon. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-select-item-icon-color-fill"
+            },
+            {
+              "description": "The text color for the \"no results\" message. Defaults to `--jh-color-content-secondary-enabled`.",
+              "name": "--jh-select-no-results-color-text"
+            },
+            {
               "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`.",
               "name": "--jh-input-label-color-text",
               "inheritedFrom": {
@@ -15681,14 +16000,6 @@
             {
               "description": "The input field border-color when hovered. Defaults to `--jh-color-content-brand-hover`.",
               "name": "--jh-input-field-color-border-hover",
-              "inheritedFrom": {
-                "name": "JhInput",
-                "module": "components/input/input.js"
-              }
-            },
-            {
-              "description": "The input field border-color when active. Defaults to `--jh-color-content-brand-active`.",
-              "name": "--jh-input-field-color-border-active",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -15943,6 +16254,15 @@
           ],
           "members": [
             {
+              "kind": "method",
+              "name": "renderData",
+              "parameters": [
+                {
+                  "name": "options"
+                }
+              ]
+            },
+            {
               "kind": "field",
               "name": "menuPosition",
               "privacy": "public",
@@ -15974,6 +16294,56 @@
               "description": "Prevents the dropdown menu from automatically flipping its position when there is insufficient viewport space.",
               "default": "false",
               "attribute": "flip-disabled"
+            },
+            {
+              "kind": "field",
+              "name": "searchable",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Allows users to type in the input field to filter the list of options.",
+              "default": "false",
+              "attribute": "searchable",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "allowCustom",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Allows users to enter custom values not present in the list of options. Only applies when `searchable` is set.",
+              "default": "false",
+              "attribute": "allow-custom"
+            },
+            {
+              "kind": "field",
+              "name": "noResultsText",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "description": "Sets the message shown in the menu when a search returns no matching options. Only applies when `searchable` is set.",
+              "default": "'No results found.'",
+              "attribute": "no-results-text"
+            },
+            {
+              "kind": "method",
+              "name": "checkValidity",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback",
+              "inheritedFrom": {
+                "name": "JhInput",
+                "module": "components/input/input.js"
+              }
             },
             {
               "kind": "field",
@@ -16212,6 +16582,7 @@
               "description": "Sets an `aria-invalid` attribute on input to indicate the value supplied was invalid. Also displays `error-text` and error state styling when set.",
               "default": "false",
               "attribute": "invalid",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -16463,6 +16834,10 @@
               }
             },
             {
+              "description": "Dispatched when a user commits a custom value not present in `options`. The value is available via `e.detail.state.value`. Authors can listen to persist the value into `options`.",
+              "name": "jh-custom-add"
+            },
+            {
               "description": "Dispatched when text is selected. Event payload contains the selected text, the starting index of the selection, and the ending index of the selection. These values can be accessed via `e.detail.state.selection`, `e.detail.state.selectionStart`, and `e.detail.state.selectionEnd`.",
               "name": "jh-select",
               "inheritedFrom": {
@@ -16515,6 +16890,35 @@
               "default": "false",
               "fieldName": "flipDisabled",
               "attribute": "flip-disabled"
+            },
+            {
+              "name": "allow-custom",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Allows users to enter custom values not present in the list of options. Only applies when `searchable` is set.",
+              "default": "false",
+              "fieldName": "allowCustom",
+              "attribute": "allow-custom"
+            },
+            {
+              "name": "no-results-text",
+              "type": {
+                "text": "string"
+              },
+              "description": "Sets the message shown in the menu when a search returns no matching options. Only applies when `searchable` is set.",
+              "default": "'No results found.'",
+              "fieldName": "noResultsText",
+              "attribute": "no-results-text"
+            },
+            {
+              "name": "searchable",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Allows users to type in the input field to filter the list of options.",
+              "default": "false",
+              "fieldName": "searchable"
             },
             {
               "name": "accessible-label",

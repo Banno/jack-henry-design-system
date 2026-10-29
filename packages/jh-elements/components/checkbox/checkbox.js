@@ -5,6 +5,7 @@
 import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { JhElement } from '../element/element.js';
+import { ValidationController } from '../../controllers/validationController.js';
 
 /**
  * Checkboxes allow users to select one or more options from a group of options.
@@ -15,6 +16,7 @@ import { JhElement } from '../element/element.js';
  * @cssprop --jh-checkbox-input-border-radius - The checkbox border radius. Defaults to `--jh-border-radius-50`.
  * @cssprop --jh-checkbox-color-focus - The checkbox outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.
  * @cssprop --jh-checkbox-helper-color-text - The helper text color. Defaults to `--jh-color-content-secondary-enabled`.
+ * @cssprop --jh-checkbox-error-color-text - The error text color. Defaults to `--jh-color-content-negative-enabled`.
  * @cssprop --jh-checkbox-label-color-text - The label text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-checkbox-input-color-background-unselected-enabled - The checkbox background-color when unselected. Defaults to `--jh-color-container-primary-enabled`.
  * @cssprop --jh-checkbox-input-color-border-unselected-enabled - The checkbox border-color when unselected. Defaults to `--jh-border-control-color`.
@@ -72,6 +74,8 @@ export class JhCheckbox extends JhElement {
   /** @type {string | null} */
   #value;
 
+  #validation = new ValidationController(this, { isCheckable: true });
+
   static get styles() {
     return css`
       :host {
@@ -91,7 +95,7 @@ export class JhCheckbox extends JhElement {
         z-index: 2;
         box-sizing: border-box;
       }
-      span {
+      input + span {
         background-color: var(
           --jh-checkbox-input-color-background-unselected-enabled,
           var(--jh-color-container-primary-enabled)
@@ -112,8 +116,8 @@ export class JhCheckbox extends JhElement {
         display: inline-block;
         position: relative;
       }
-      span::before,
-      span::after {
+      input + span::before,
+      input + span::after {
         content: '';
         position: absolute;
       }
@@ -122,7 +126,8 @@ export class JhCheckbox extends JhElement {
         flex: 1;
       }
       .label-text,
-      .helper-text {
+      .helper-text,
+      .error-text {
         word-break: break-word;
       }
       .label-text {
@@ -131,10 +136,37 @@ export class JhCheckbox extends JhElement {
           var(--jh-color-content-primary-enabled)
         );
       }
+      :host([show-indicator]) .indicator {
+        color: var(
+          --jh-checkbox-required-color-text-optional,
+          var(--jh-color-content-primary-enabled)
+        );
+        font-family: var(--jh-font-body-regular-1-font-family);
+        font-weight: var(--jh-font-body-regular-1-font-weight);
+        font-size: var(--jh-font-body-regular-1-font-size);
+        line-height: var(--jh-font-body-regular-1-line-height);
+      }
+      :host([show-indicator][required]) .indicator {
+        color: var(
+          --jh-checkbox-required-color-text,
+          var(--jh-color-content-negative-enabled)
+        );
+      }
       .helper-text {
         color: var(
           --jh-checkbox-helper-color-text,
           var(--jh-color-content-secondary-enabled)
+        );
+        font-family: var(--jh-font-helper-regular-font-family);
+        font-weight: var(--jh-font-helper-regular-font-weight);
+        font-size: var(--jh-font-helper-regular-font-size);
+        line-height: var(--jh-font-helper-regular-line-height);
+        margin: 0;
+      }
+      .error-text {
+        color: var(
+          --jh-checkbox-error-color-text,
+          var(--jh-color-content-negative-enabled)
         );
         font-family: var(--jh-font-helper-regular-font-family);
         font-weight: var(--jh-font-helper-regular-font-weight);
@@ -415,6 +447,10 @@ export class JhCheckbox extends JhElement {
         type: Boolean,
         reflect: true,
       },
+      invalid: {
+        type: Boolean,
+        reflect: true,
+      },
       disabled: {
         type: Boolean,
         reflect: true,
@@ -426,8 +462,21 @@ export class JhCheckbox extends JhElement {
         type: String,
         attribute: 'helper-text',
       },
+      errorText: {
+        type: String,
+        attribute: 'error-text',
+      },
       name: {
         type: String,
+      },
+      required: {
+        type: Boolean,
+        reflect: true,
+      },
+      showIndicator: {
+        type: Boolean,
+        reflect: true,
+        attribute: 'show-indicator'
       },
       value: {
         type: String,
@@ -446,6 +495,11 @@ export class JhCheckbox extends JhElement {
     /** @type {boolean} */
     this.indeterminate = false;
     /**
+     * Sets an `aria-invalid` on the checkbox to indicate the value supplied was invalid and displays `error-text` when set.
+     * @type {boolean}
+     */
+    this.invalid = false;
+    /**
      * Disables the checkbox and prevents all user interactions. May cause checkbox to be ignored by assistive technologies(AT).
      * @type {boolean}
      */
@@ -462,10 +516,27 @@ export class JhCheckbox extends JhElement {
      */
     this.helperText = null;
     /**
+     * Text to be displayed when the checkbox has failed validation and `invalid` is true.
+     * @attr error-text
+     * @type {string | null}
+     */
+    this.errorText = null;
+    /**
      * Sets the name of the checkbox data when submitted in a form.
      * @type {string | null}
      */
     this.name = null;
+    /**
+     * Indicates a selection is required.
+     * @type {boolean}
+     */
+    this.required = false;
+    /**
+     * Determines whether the indicator is shown.
+     * @attr show-indicator
+     * @type {boolean}
+     */
+    this.showIndicator = false;
     /** @type {string | null} */
     this.value = null;
     /**
@@ -485,7 +556,20 @@ export class JhCheckbox extends JhElement {
   }
   /** @type {ValidityState} */
   get validity() {
-    return this.internals.validity;
+    return this.#validation.validity;
+  }
+
+  checkValidity() {
+    return this.#validation.checkValidity();
+  }
+
+  formResetCallback() {
+    this.#validation.reset();
+  }
+
+  /** @param {boolean} disabled */
+  formDisabledCallback(disabled) {
+    this.disabled = disabled;
   }
   /**
    * Sets the value of the checkbox.
@@ -556,10 +640,24 @@ export class JhCheckbox extends JhElement {
     });
   }
 
+  #getAriaDescribedBy() {
+    const ids = [];
+    if (this.invalid && this.errorText) {
+      ids.push(`checkbox-error-text-${this.uniqueId}`);
+    }
+    if (this.label && this.helperText) {
+      ids.push(`checkbox-helper-text-${this.uniqueId}`);
+    }
+    return ids.length ? ids.join(' ') : undefined;
+  }
+
   /** @protected */
   render() {
+    let errorText;
     let helperText;
+    let indicator;
     let label;
+    let labelContainer;
 
     if (this.helperText) {
       helperText = html`
@@ -569,14 +667,34 @@ export class JhCheckbox extends JhElement {
       `;
     }
 
+    if (this.invalid && this.errorText) {
+      errorText = html`
+        <p class="error-text" id="checkbox-error-text-${this.uniqueId}">
+          ${this.errorText}
+        </p>
+      `;
+    }
+
+    if (this.showIndicator) {
+      if (this.required) {
+        indicator = html`<span class="indicator" aria-hidden="true"> *</span>`;
+      } else {
+        indicator = html`<span class="indicator"> (optional)</span>`;
+      }
+    }
+
     if (this.label) {
       label = html`
-        <div class="label-container">
-          <label class="label-text" for="checkbox-label-${this.uniqueId}">
-            ${this.label}
-          </label>
-          ${helperText}
-        </div>
+        <label class="label-text" for="checkbox-label-${this.uniqueId}">
+          ${this.label}${indicator}
+        </label>
+        ${helperText}
+      `;
+    }
+
+    if (label || errorText) {
+      labelContainer = html`
+        <div class="label-container">${label}${errorText}</div>
       `;
     }
 
@@ -592,12 +710,12 @@ export class JhCheckbox extends JhElement {
         value=${ifDefined(this.value)}
         name=${ifDefined(this.name)}
         id=${ifDefined(this.label ? `checkbox-label-${this.uniqueId}` : null)}
-        aria-describedby=${ifDefined(
-          this.helperText ? `checkbox-helper-text-${this.uniqueId}` : null
-        )}
+        aria-describedby=${ifDefined(this.#getAriaDescribedBy())}
+        aria-invalid=${ifDefined(this.invalid ? 'true' : undefined)}
+        ?required=${this.required}
       />
       <span aria-hidden="true"></span>
-      ${label}
+      ${labelContainer}
     `;
   }
 }

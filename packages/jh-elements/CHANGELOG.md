@@ -1,5 +1,49 @@
 # @jack-henry/jh-elements
 
+## 2.5.0
+
+### Minor Changes
+
+- [#358](https://github.com/Banno/jack-henry-design-system/pull/358) [`dacb9c2`](https://github.com/Banno/jack-henry-design-system/commit/dacb9c24c018534b7f1c953cd60cf62cee9b2ab6) Thanks [@stephhubka](https://github.com/stephhubka)! - Secondary and tertiary buttons tint on hover, focus, and active instead of filling solid brand blue. Only a primary button is a solid brand block.
+
+- [#357](https://github.com/Banno/jack-henry-design-system/pull/357) [`d29df3c`](https://github.com/Banno/jack-henry-design-system/commit/d29df3c656ce8b2228df8aae4cf672d0d6aa802a) Thanks [@stephhubka](https://github.com/stephhubka)! - Add a neutral appearance to jh-button for actions that should not draw attention. Neutral is outlined with a `--jh-border-control-color` border.
+
+- [#374](https://github.com/Banno/jack-henry-design-system/pull/374) [`11209a9`](https://github.com/Banno/jack-henry-design-system/commit/11209a91e085e8d6cb54c2f2930a140112d01d73) Thanks [@abissier](https://github.com/abissier)! - Adds validation controller.
+
+- [#381](https://github.com/Banno/jack-henry-design-system/pull/381) [`3907418`](https://github.com/Banno/jack-henry-design-system/commit/39074189f40b6bb70d0163fed1e035c3e58b0d52) Thanks [@abissier](https://github.com/abissier)! - Wraps text at word boundaries instead of splitting words mid-word in notification default slot.
+
+- [#375](https://github.com/Banno/jack-henry-design-system/pull/375) [`0ddfecd`](https://github.com/Banno/jack-henry-design-system/commit/0ddfecd4000cacfe3625823a0dbad7dd3e6b237f) Thanks [@abissier](https://github.com/abissier)! - Implements validation controller in input, checkbox group, and radio group.
+
+- [#391](https://github.com/Banno/jack-henry-design-system/pull/391) [`5ae5e1d`](https://github.com/Banno/jack-henry-design-system/commit/5ae5e1d61ca5831b3f4e5f90fc9d42a760a1be33) Thanks [@abissier](https://github.com/abissier)! - Adds validation support for single checkbox control.
+
+- [#377](https://github.com/Banno/jack-henry-design-system/pull/377) [`9ff3149`](https://github.com/Banno/jack-henry-design-system/commit/9ff3149c0757b612b1b5c85f86b881bc76102b47) Thanks [@abissier](https://github.com/abissier)! - Adds min and max required properties to checkbox group.
+
+- [#382](https://github.com/Banno/jack-henry-design-system/pull/382) [`34c57a1`](https://github.com/Banno/jack-henry-design-system/commit/34c57a16c2fbcd62cc3f5446fdd94a9f9ee94996) Thanks [@abissier](https://github.com/abissier)! - Radio: prevents page scroll when selected via space key
+
+- [#391](https://github.com/Banno/jack-henry-design-system/pull/391) [`6654cad`](https://github.com/Banno/jack-henry-design-system/commit/6654cadf0bffb1f84dc96f3fcabb754d2aa51424) Thanks [@abissier](https://github.com/abissier)! - Updates component documentation relating to validation.
+
+### Patch Changes
+
+- [#383](https://github.com/Banno/jack-henry-design-system/pull/383) [`c0bf384`](https://github.com/Banno/jack-henry-design-system/commit/c0bf38482d0dc5c928ce7fa3df137a4f8a55adfe) Thanks [@mayabuserde](https://github.com/mayabuserde)! - [Input and Select] clicking icons or other non-interactive content inside the input field now focuses the input, so `focusin` and `focusout` fire as expected.
+
+- [#356](https://github.com/Banno/jack-henry-design-system/pull/356) [`5428b3e`](https://github.com/Banno/jack-henry-design-system/commit/5428b3e60c1fd6cb32648a4bb03615f0a4c9692e) Thanks [@stephhubka](https://github.com/stephhubka)! - [Divider] uses logical margins so the horizontal inset starts from the inline-start edge in right-to-left layouts.
+
+## 2.4.0
+
+### Minor Changes
+
+- [#256](https://github.com/Banno/jack-henry-design-system/pull/256) [`dd7df61`](https://github.com/Banno/jack-henry-design-system/commit/dd7df6110e44c6c57529e25ac96dbdcf20ba05a8) Thanks [@mayabuserde](https://github.com/mayabuserde)! - [Select] adds searchable filtering, custom values (allow-custom), and screen-reader announcements; updates docs and stories.
+
+- [#348](https://github.com/Banno/jack-henry-design-system/pull/348) [`6710f3c`](https://github.com/Banno/jack-henry-design-system/commit/6710f3c57b3421f42de80dd7bbf2507114b73a5e) Thanks [@abissier](https://github.com/abissier)! - Sets type email on input element so component can be validated against type mismatch.
+
+### Patch Changes
+
+- [#328](https://github.com/Banno/jack-henry-design-system/pull/328) [`31d557a`](https://github.com/Banno/jack-henry-design-system/commit/31d557aa9aa9c63c14174c6997e64748a497c738) Thanks [@mayabuserde](https://github.com/mayabuserde)! - [Input and Select] removes unused active styles and related styling hooks.
+
+- Updated dependencies [[`265d0cc`](https://github.com/Banno/jack-henry-design-system/commit/265d0cc42f374fc890440c68e674b88f7420b199), [`a9ebb17`](https://github.com/Banno/jack-henry-design-system/commit/a9ebb17914447e25893ad73655bfa9e215ae3728), [`efbec00`](https://github.com/Banno/jack-henry-design-system/commit/efbec00e22ee28d6450b6c2030edf1a97de6f579), [`aec4f73`](https://github.com/Banno/jack-henry-design-system/commit/aec4f736781bac427d20d5459bdf2b1513ba289a)]:
+  - @jack-henry/jh-tokens@2.1.0
+  - @jack-henry/jh-icons@2.2.0
+
 ## 2.3.0
 
 ### Minor Changes

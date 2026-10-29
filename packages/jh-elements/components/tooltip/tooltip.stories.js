@@ -36,6 +36,14 @@ const storyStyles = css`
     align-items: center;
     width: 100%;
   }
+  .sizing {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 180px;
+    width: 100%;
+    padding-top: 120px;
+  }
 `;
 
 const disabledControls = {
@@ -212,6 +220,41 @@ ManuallyOpen.parameters = {
   styles: storyStyles,
 };
 ManuallyOpen.argTypes = {
+  'flip-disabled': { table: { disable: true } },
+};
+
+export const LongContent = {
+  render: (args) =>
+    html` <div class="sizing">
+      <jh-tooltip
+        position=${args.position}
+        ?open=${args.open}>
+        <span slot="jh-tooltip-content"
+          >Additional information about this action stays in the tooltip and
+          wraps when the text is longer than the default width.</span
+        >
+        <jh-button label="Default"></jh-button>
+      </jh-tooltip>
+      <jh-tooltip
+        style="--jh-tooltip-size-max-width: 320px"
+        position=${args.position}
+        ?open=${args.open}>
+        <span slot="jh-tooltip-content"
+          >Additional information about this action stays in the tooltip and
+          wraps when the text is longer than the default width.</span
+        >
+        <jh-button label="Wider"></jh-button>
+      </jh-tooltip>
+    </div>`,
+};
+LongContent.args = {
+  open: true,
+  position: 'top-center',
+};
+LongContent.parameters = {
+  styles: storyStyles,
+};
+LongContent.argTypes = {
   'flip-disabled': { table: { disable: true } },
 };
 

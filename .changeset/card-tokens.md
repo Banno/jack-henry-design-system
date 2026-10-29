@@ -1,5 +1,5 @@
 ---
-"@jack-henry/jh-elements": patch
+"@jack-henry/jh-elements": minor
 ---
 
-Card adds tokens for elevation, border width, and media corner radius.
+Card adds tokens for elevation and border width.

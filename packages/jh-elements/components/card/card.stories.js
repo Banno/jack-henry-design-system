@@ -258,13 +258,13 @@ export const Tokens = {
     <section class="padding-story">
       <jh-card
         header-title="Card tokens"
-        style="--jh-card-elevation: var(--jh-shadow-low); --jh-card-border-width: 2px; --jh-card-media-border-radius: 0;"
+        style="--jh-card-elevation: var(--jh-shadow-low); --jh-card-border-width: 2px;"
       >
         <img
           slot="jh-card-media"
           src="/images/markus-winkler-DJoG5GsXfMw-unsplash.jpg"
         />
-        <p>The card uses a low elevation, a 2px border, and square media corners.</p>
+        <p>The card uses a low elevation and a 2px border.</p>
       </jh-card>
     </section>
   `,

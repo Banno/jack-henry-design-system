@@ -227,3 +227,28 @@ Padding.argTypes = {
 Padding.parameters = {
   styles: storyStyles,
 };
+
+export const HeaderDividerInsetZero = {
+  render: () => html`
+    <section class="padding-story" style="--jh-card-divider-space-inset: 24px">
+      <jh-card show-header-divider header-title="Token only">
+        <div>The divider follows the 24px token.</div>
+      </jh-card>
+      <jh-card
+        show-header-divider
+        header-divider-inset="0"
+        header-title="Inset 0"
+      >
+        <div>header-divider-inset="0" keeps the divider flush.</div>
+      </jh-card>
+    </section>
+  `,
+};
+
+HeaderDividerInsetZero.argTypes = {
+  ...disableControls,
+};
+
+HeaderDividerInsetZero.parameters = {
+  styles: storyStyles,
+};

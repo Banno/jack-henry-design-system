@@ -10,13 +10,13 @@ import * as stories from './layout-composition.stories.js';
 
 # Layout Composition
 
-On their own, the layout primitives don't say much. Their value comes from
-composition: `<forge-row>` arranges its children in a row,
-`<forge-column>` arranges them in a column, and because a stack is itself a
-valid flex child, they nest freely.
+The real power of the layout primitives shows when you combine them.
+`<forge-row>` arranges its children in a row, `<forge-column>` arranges them in a
+column, and because a stack is itself a valid flex child, they nest freely, so
+you can compose them to build toolbars, cards, forms, and much more.
 
-The recipes below are named after the UI pattern they produce rather than the
-components they use — that's how you'll reach for them.
+The examples below are named after the UI pattern they produce rather than the
+components they use.
 
 ## Toolbar / split header
 
@@ -36,7 +36,7 @@ of navigation buttons from a set of actions.
 ## Card layout (nested stacks)
 
 A `<forge-column>` whose rows are `<forge-row>`s. Each header/footer
-row can use its own `align-x` and `align-y` — nesting works because a stack is just
+row can use its own `align-x` and `align-y`. Nesting works because a stack is just
 another flex child.
 
 <Canvas of={stories.CardLayout} />

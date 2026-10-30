@@ -146,10 +146,15 @@ export default {
       options: alignOptions,
     },
   },
+  parameters: {
+    actions: {
+      disable: true
+    },
+  },
 };
 
 /**
- * Overview — a media layer with a translucent caption overlay on top, and a
+ * Overview: a media layer with a translucent caption overlay on top, and a
  * corner badge positioned with `align-y`/`align-x`. Shows the two core uses of a
  * stack: overlaying content and anchoring an element to an edge.
  */
@@ -185,7 +190,7 @@ Overview.parameters = {
 };
 
 /**
- * Playground — layer two blocks and use the controls to change `align-y` and
+ * Playground: layer two blocks and use the controls to change `align-y` and
  * `align-x`. Alignment applies to every layer at once; use per-element
  * `align-self` / `justify-self` on a child to override it.
  */
@@ -212,7 +217,7 @@ Playground.parameters = {
 };
 
 /**
- * Alignment — the same two layers positioned to each corner and the center by
+ * Alignment: the same two layers positioned to each corner and the center by
  * combining `align-y` (block axis) with `align-x` (inline axis).
  */
 export const Alignment = {
@@ -250,7 +255,7 @@ Alignment.parameters = {
 };
 
 /**
- * Anchored badge — the most common stack pattern. A small element (badge, dot,
+ * Anchored badge: the most common stack pattern. A small element (badge, dot,
  * or tag) is layered over a base and pinned to an edge with `align-y`/`align-x`.
  * Use a `margin` to inset it from the corner or a `transform` to overhang it.
  */
@@ -291,7 +296,7 @@ AnchoredBadge.parameters = {
 };
 
 /**
- * Loading overlay — layer a translucent scrim and an indeterminate
+ * Loading overlay: layer a translucent scrim and an indeterminate
  * `jh-progress` over content while it loads. Because the scrim is the top
  * layer, it also blocks pointer events on the controls beneath it, so the user
  * can't interact with content that isn't ready yet.
@@ -336,7 +341,7 @@ LoadingOverlay.parameters = {
 };
 
 /**
- * Pointer events — a known stack gotcha. Because a top layer sits over the
+ * Pointer events: a known stack gotcha. Because a top layer sits over the
  * layers below it, it intercepts pointer events even where it looks empty. In
  * the first example the overlay blocks the button underneath (clicking it logs
  * nothing). In the second, the overlay sets `pointer-events: none`, so clicks
@@ -356,7 +361,7 @@ export const PointerEvents = {
         <div class="layer-overlay">Overlay intercepts clicks</div>
       </forge-stack>
       <span class="demo-caption">
-        Overlay on top — the button below cannot be clicked.
+        Overlay on top, so the button below cannot be clicked.
       </span>
     </div>
 
@@ -371,7 +376,7 @@ export const PointerEvents = {
         <div class="layer-overlay pass-through">pointer-events: none</div>
       </forge-stack>
       <span class="demo-caption">
-        Overlay uses <code>pointer-events: none</code> — clicks reach the button.
+        Overlay uses <code>pointer-events: none</code>, so clicks reach the button.
       </span>
     </div>
   `,
@@ -386,7 +391,7 @@ PointerEvents.parameters = {
 };
 
 /**
- * Component vs. CSS utility — the same layouts built two ways: with the
+ * Component vs. CSS utility: the same layouts built two ways: with the
  * `<forge-stack>` web component and with an inline `.jh-stack` CSS utility
  * (`data-align-*` for alignment). Both produce identical results; the utility
  * needs no element registration and keeps everything in one light-DOM tree. The
@@ -399,7 +404,7 @@ export const ComponentVsCssUtility = {
         <div class="layer-base">Component</div>
         <jh-badge count="8" class="inset"></jh-badge>
       </forge-stack>
-      <span class="demo-caption">&lt;forge-stack&gt; — web component</span>
+      <span class="demo-caption">&lt;forge-stack&gt;: web component</span>
     </div>
 
     <div class="demo-figure">
@@ -407,7 +412,7 @@ export const ComponentVsCssUtility = {
         <div class="layer-base">CSS utility</div>
         <jh-badge count="8" class="inset"></jh-badge>
       </div>
-      <span class="demo-caption">.jh-stack — CSS utility</span>
+      <span class="demo-caption">.jh-stack: CSS utility</span>
     </div>
 
     <div class="demo-figure">

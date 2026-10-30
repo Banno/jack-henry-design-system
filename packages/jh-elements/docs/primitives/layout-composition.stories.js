@@ -67,7 +67,7 @@ export default {
 };
 
 /**
- * Toolbar / split header — a title on the left with the actions grouped on the
+ * Toolbar / split header: a title on the left with the actions grouped on the
  * right. `align-x="between"` pushes the two groups to opposite ends of the row.
  */
 export const Toolbar = {
@@ -84,7 +84,7 @@ export const Toolbar = {
 
 
 /**
- * Split groups — two button groups pushed to opposite ends of the row with
+ * Split groups: two button groups pushed to opposite ends of the row with
  * `align-x="between"`, each nested group keeping its own `gap`. Shows the groups
  * separated rather than bunched at one edge.
  */
@@ -105,7 +105,7 @@ export const SplitGroups = {
 
 
 /**
- * Card composition — a `jh-card` provides the surface, header, and footer, while
+ * Card composition: a `jh-card` provides the surface, header, and footer, while
  * `forge-row` arranges the custom header row and footer actions. Shows the
  * primitives slotting cleanly into a higher-level component.
  */
@@ -117,7 +117,7 @@ export const CardLayout = {
         <jh-button appearance="secondary" size="small" label="Edit"></jh-button>
       </forge-row>
 
-      <span class="demo-block">Visa ending in 4242 — expires 08/28</span>
+      <span class="demo-block">Visa ending in 4242, expires 08/28</span>
 
       <forge-row slot="jh-card-footer" gap="100" align-x="end">
         <jh-button appearance="danger" label="Remove"></jh-button>
@@ -129,7 +129,7 @@ export const CardLayout = {
 
 
 /**
- * Form row — a vertical stack of labeled horizontal rows, using `align-y="baseline"`
+ * Form row: a vertical stack of labeled horizontal rows, using `align-y="baseline"`
  * to keep labels and controls on a shared baseline and `align-x="between"` to push
  * each value to the opposite end of its label.
  */
@@ -150,7 +150,7 @@ export const FormRow = {
 
 
 /**
- * Wrapping — a horizontal stack with `wrap` so children reflow onto new lines when
+ * Wrapping: a horizontal stack with `wrap` so children reflow onto new lines when
  * the container runs out of room. Resize the canvas to see the reflow.
  */
 export const Wrapping = {
@@ -167,7 +167,7 @@ export const Wrapping = {
 };
 
 /**
- * Larger form — a `jh-card` frames the form with a title and a divided footer,
+ * Larger form: a `jh-card` frames the form with a title and a divided footer,
  * while a `forge-column` stacks the inputs, a `forge-row` places the
  * two checkbox-groups side by side, and the footer actions are pushed to the end.
  * Shows the primitives scaling up inside a full component.

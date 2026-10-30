@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  * 
  * Do not edit directly, this file was auto-generated.
- * Generated on Tue, 06 Oct 2026 21:14:04 GMT
+ * Generated on Fri, 30 Oct 2026 17:11:30 GMT
  */
 
 export default `
@@ -247,6 +247,10 @@ export default `
     --jh-font-family-mono: 'Roboto Mono', monospace;
     --jh-font-family-sans: Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif;
     --jh-font-family-primary: var(--jh-font-family-sans);
+    --jh-breakpoint-xl: 1280px;
+    --jh-breakpoint-lg: 1024px;
+    --jh-breakpoint-md: 768px;
+    --jh-breakpoint-sm: 512px;
     --jh-border-radius-pill: 9999px;
     --jh-border-radius-circle: 50%;
     --jh-border-radius-400: 16px;
@@ -311,6 +315,7 @@ export default `
     --jh-color-violet-150: #e8cff6ff;
     --jh-color-violet-100: #f4e7faff;
     --jh-color-violet-50: #f7f2faff;
+    --jh-color-blue-alpha-10: #085ce51a;
     --jh-color-blue-950: #06185fff;
     --jh-color-blue-900: #132377ff;
     --jh-color-blue-850: #192a89ff;
@@ -444,7 +449,7 @@ export default `
     --jh-color-red-150: #f5cfc4ff;
     --jh-color-red-100: #fae7e2ff;
     --jh-color-red-50: #fdf1eeff;
-    --jh-color-gray-1000: #000000ff;
+    --jh-color-gray-1000: var(--jh-color-black-alpha-100);
     --jh-color-gray-950: #161616ff;
     --jh-color-gray-900: #202020ff;
     --jh-color-gray-850: #2c2c2cff;
@@ -464,7 +469,7 @@ export default `
     --jh-color-gray-150: #d7d7d7ff;
     --jh-color-gray-100: #ebebebff;
     --jh-color-gray-50: #f4f4f4ff;
-    --jh-color-gray-0: #ffffffff;
+    --jh-color-gray-0: var(--jh-color-white-alpha-100);
     --jh-color-white-alpha-100: #ffffffff;
     --jh-color-white-alpha-90: #ffffffe6;
     --jh-color-white-alpha-80: #ffffffcc;
@@ -544,6 +549,9 @@ export default `
     --jh-color-control-hover: var(--jh-color-gray-700);
     --jh-color-control-enabled: var(--jh-color-gray-750);
     --jh-color-overlay: var(--jh-color-black-alpha-70);
+    --jh-color-state-selected: var(--jh-color-blue-alpha-10);
+    --jh-color-state-active: var(--jh-color-white-alpha-20);
+    --jh-color-state-hover: var(--jh-color-white-alpha-10);
     --jh-color-container-negative-active: var(--jh-color-red-700);
     --jh-color-container-negative-hover: var(--jh-color-red-750);
     --jh-color-container-negative-enabled: var(--jh-color-red-800);

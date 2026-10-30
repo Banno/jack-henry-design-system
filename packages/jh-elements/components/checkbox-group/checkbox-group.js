@@ -4,6 +4,7 @@
 
 import { css, html } from 'lit';
 import { JhElement } from '../element/element.js';
+import { ValidationController } from '../../controllers/validationController.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
@@ -29,7 +30,11 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  * @customElement jh-checkbox-group
  */
 export class JhCheckboxGroup extends JhElement {
+  static get formAssociated() {
+    return true;
+  }
   #previousSelectedValue = [];
+  #validation = new ValidationController(this, { isGroupControl: true });
 
 
   static get styles() {
@@ -166,6 +171,14 @@ export class JhCheckboxGroup extends JhElement {
       label: {
         type: String,
       },
+      minRequired: {
+        type: Number,
+        attribute: 'min-required',
+      },
+      maxRequired: {
+        type: Number,
+        attribute: 'max-required',
+      },
       required: {
         type: Boolean,
         reflect: true,
@@ -217,6 +230,18 @@ export class JhCheckboxGroup extends JhElement {
      */
     this.label = null;
     /**
+     * Specifies the minimum number of child checkboxes that must be checked.
+     * @attr min-required
+     * @type {number | null}
+     */
+    this.minRequired = 0;
+    /**
+     * Specifies the maximum number of child checkboxes that can be checked.
+     * @attr max-required
+     * @type {number | null}
+     */
+    this.maxRequired = null;
+    /**
      * Indicates a value is required.
      * @type {boolean}
      */
@@ -255,6 +280,27 @@ export class JhCheckboxGroup extends JhElement {
   #handleSlotChange() {
     this.#syncDisabledToChildren();
     this.#getPreviousValues();
+  }
+
+  /**
+   * Returns the checkbox group's parent form element.
+   * @type {HTMLFormElement | null}
+   */
+  get form() {
+    return this.internals.form;
+  }
+
+  /** @type {ValidityState} */
+  get validity() {
+    return this.#validation.validity;
+  }
+
+  checkValidity() {
+    return this.#validation.checkValidity();
+  }
+
+  formResetCallback() {
+    this.#validation.reset();
   }
 
   #syncDisabledToChildren() {

@@ -293,6 +293,45 @@
     "deprecatedMessage": ""
   },
   {
+    "name": "Color State Hover",
+    "token": "jh-color-state-hover",
+    "alias": true,
+    "description": "Translucent layer painted over an interactive surface on hover. Stacks on any background.",
+    "category": "color",
+    "type": "state",
+    "item": "hover",
+    "value": "jh-color-white-alpha-10",
+    "computedValue": "#ffffff1a",
+    "deprecated": false,
+    "deprecatedMessage": ""
+  },
+  {
+    "name": "Color State Active",
+    "token": "jh-color-state-active",
+    "alias": true,
+    "description": "Translucent layer painted over an interactive surface while pressed.",
+    "category": "color",
+    "type": "state",
+    "item": "active",
+    "value": "jh-color-white-alpha-20",
+    "computedValue": "#ffffff33",
+    "deprecated": false,
+    "deprecatedMessage": ""
+  },
+  {
+    "name": "Color State Selected",
+    "token": "jh-color-state-selected",
+    "alias": true,
+    "description": "Translucent blue layer for the selected item in a list or menu. Does not follow brand theming yet.",
+    "category": "color",
+    "type": "state",
+    "item": "selected",
+    "value": "jh-color-blue-alpha-10",
+    "computedValue": "#085ce51a",
+    "deprecated": false,
+    "deprecatedMessage": ""
+  },
+  {
     "name": "Color Overlay",
     "token": "jh-color-overlay",
     "alias": true,
@@ -1385,12 +1424,12 @@
   {
     "name": "Color Gray 0",
     "token": "jh-color-gray-0",
-    "alias": false,
+    "alias": true,
     "description": "Gray 0",
     "category": "color",
     "type": "gray",
     "item": "0",
-    "value": "#ffffffff",
+    "value": "jh-color-white-alpha-100",
     "computedValue": "#ffffffff",
     "deprecated": false,
     "deprecatedMessage": ""
@@ -1645,12 +1684,12 @@
   {
     "name": "Color Gray 1000",
     "token": "jh-color-gray-1000",
-    "alias": false,
+    "alias": true,
     "description": "Gray 1000",
     "category": "color",
     "type": "gray",
     "item": "1000",
-    "value": "#000000ff",
+    "value": "jh-color-black-alpha-100",
     "computedValue": "#000000ff",
     "deprecated": false,
     "deprecatedMessage": ""
@@ -3385,6 +3424,20 @@
     "deprecatedMessage": ""
   },
   {
+    "name": "Color Blue Alpha 10",
+    "token": "jh-color-blue-alpha-10",
+    "alias": false,
+    "description": "Blue at 10% opacity",
+    "category": "color",
+    "type": "blue",
+    "item": "alpha",
+    "subItem": "10",
+    "value": "#085ce51a",
+    "computedValue": "#085ce51a",
+    "deprecated": false,
+    "deprecatedMessage": ""
+  },
+  {
     "name": "Color Violet 50",
     "token": "jh-color-violet-50",
     "alias": false,
@@ -4213,6 +4266,54 @@
     "item": "pill",
     "value": "9999px",
     "computedValue": "9999px",
+    "deprecated": false,
+    "deprecatedMessage": ""
+  },
+  {
+    "name": "Breakpoint Sm",
+    "token": "jh-breakpoint-sm",
+    "alias": true,
+    "description": "Viewport widths 512px–767px.",
+    "category": "breakpoint",
+    "type": "sm",
+    "value": "512px",
+    "computedValue": "512px",
+    "deprecated": false,
+    "deprecatedMessage": ""
+  },
+  {
+    "name": "Breakpoint Md",
+    "token": "jh-breakpoint-md",
+    "alias": true,
+    "description": "Viewport widths 768px–1023px.",
+    "category": "breakpoint",
+    "type": "md",
+    "value": "768px",
+    "computedValue": "768px",
+    "deprecated": false,
+    "deprecatedMessage": ""
+  },
+  {
+    "name": "Breakpoint Lg",
+    "token": "jh-breakpoint-lg",
+    "alias": true,
+    "description": "Viewport widths 1024px–1279px.",
+    "category": "breakpoint",
+    "type": "lg",
+    "value": "1024px",
+    "computedValue": "1024px",
+    "deprecated": false,
+    "deprecatedMessage": ""
+  },
+  {
+    "name": "Breakpoint Xl",
+    "token": "jh-breakpoint-xl",
+    "alias": true,
+    "description": "Viewport widths 1280px and above.",
+    "category": "breakpoint",
+    "type": "xl",
+    "value": "1280px",
+    "computedValue": "1280px",
     "deprecated": false,
     "deprecatedMessage": ""
   },

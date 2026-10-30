@@ -38,52 +38,76 @@ import '../progress/progress.js';
  * @cssprop --jh-button-progress-track-color-border-primary-pending - The progress indicator track-color when `appearance="primary"`. Defaults to `--jh-color-control-enabled`.
  * @cssprop --jh-button-color-background-secondary-enabled - The button container background-color when enabled and `appearance="secondary"`. Defaults to `transparent`.
  * @cssprop --jh-button-color-border-secondary-enabled - The button container border-color when enabled and `appearance="secondary"`. Defaults to `--jh-border-action-color`.
- * @cssprop --jh-button-color-background-secondary-focus - The button container background-color when in focus and `appearance="secondary"`. Defaults to `--jh-color-content-brand-hover`.
+ * @cssprop --jh-button-color-background-secondary-focus - The button container background-color when in focus and `appearance="secondary"`. Defaults to `--jh-color-container-brand-hover`.
  * @cssprop --jh-button-color-border-secondary-focus - The button container border-color when in focus and `appearance="secondary"`. Defaults to `--jh-color-content-brand-hover`.
- * @cssprop --jh-button-color-background-secondary-hover - The button container background-color when hovered and `appearance="secondary"`. Defaults to `--jh-color-content-brand-hover`.
+ * @cssprop --jh-button-color-background-secondary-hover - The button container background-color when hovered and `appearance="secondary"`. Defaults to `--jh-color-container-brand-hover`.
  * @cssprop --jh-button-color-border-secondary-hover - The button container border-color when hovered and `appearance="secondary"`. Defaults to `--jh-color-content-brand-hover`.
- * @cssprop --jh-button-color-background-secondary-active - The button container background-color when active and `appearance="secondary"`. Defaults to `--jh-color-content-brand-active`.
+ * @cssprop --jh-button-color-background-secondary-active - The button container background-color when active and `appearance="secondary"`. Defaults to `--jh-color-container-brand-active`.
  * @cssprop --jh-button-color-border-secondary-active - The button container border-color when active and `appearance="secondary"`. Defaults to `--jh-color-content-brand-active`.
  * @cssprop --jh-button-color-background-secondary-disabled - The button container background-color when disabled and `appearance="secondary"`. Defaults to `transparent`.
  * @cssprop --jh-button-color-border-secondary-disabled - The button container border-color when disabled and `appearance="secondary"`. Defaults to `--jh-border-action-color`.
  * @cssprop --jh-button-color-background-secondary-pending - The button container background-color when pending and `appearance="secondary"`. Defaults to `transparent`.
  * @cssprop --jh-button-color-border-secondary-pending - The button container border-color when pending and `appearance="secondary"`. Defaults to `--jh-border-action-color`.
  * @cssprop --jh-button-label-color-text-secondary-enabled - The label text color when enabled and `appearance="secondary"`. Defaults to `--jh-color-content-brand-enabled`.
- * @cssprop --jh-button-label-color-text-secondary-focus - The label text color when in focus and `appearance="secondary"`. Defaults to `--jh-color-content-on-brand-hover`.
- * @cssprop --jh-button-label-color-text-secondary-hover - The label text color when hovered and `appearance="secondary"`. Defaults to `--jh-color-content-on-brand-hover`.
- * @cssprop --jh-button-label-color-text-secondary-active - The label text color when active and `appearance="secondary"`. Defaults to `--jh-color-content-on-brand-active`.
+ * @cssprop --jh-button-label-color-text-secondary-focus - The label text color when in focus and `appearance="secondary"`. Defaults to `--jh-color-content-brand-hover`.
+ * @cssprop --jh-button-label-color-text-secondary-hover - The label text color when hovered and `appearance="secondary"`. Defaults to `--jh-color-content-brand-hover`.
+ * @cssprop --jh-button-label-color-text-secondary-active - The label text color when active and `appearance="secondary"`. Defaults to `--jh-color-content-brand-active`.
  * @cssprop --jh-button-label-color-text-secondary-disabled - The label text color when disabled and `appearance="secondary"`. Defaults to `--jh-color-content-brand-enabled`.
  * @cssprop --jh-button-icon-color-fill-secondary-enabled - The icon color when enabled and `appearance="secondary"`. Defaults to `--jh-color-content-brand-enabled`.
- * @cssprop --jh-button-icon-color-fill-secondary-focus - The icon color when in focus and `appearance="secondary"`. Defaults to `--jh-color-content-on-brand-hover`.
- * @cssprop --jh-button-icon-color-fill-secondary-hover - The icon color when hovered and `appearance="secondary"`. Defaults to `--jh-color-content-on-brand-hover`.
- * @cssprop --jh-button-icon-color-fill-secondary-active - The icon color when active and `appearance="secondary"`. Defaults to `--jh-color-content-on-brand-active`.
+ * @cssprop --jh-button-icon-color-fill-secondary-focus - The icon color when in focus and `appearance="secondary"`. Defaults to `--jh-color-content-brand-hover`.
+ * @cssprop --jh-button-icon-color-fill-secondary-hover - The icon color when hovered and `appearance="secondary"`. Defaults to `--jh-color-content-brand-hover`.
+ * @cssprop --jh-button-icon-color-fill-secondary-active - The icon color when active and `appearance="secondary"`. Defaults to `--jh-color-content-brand-active`.
  * @cssprop --jh-button-icon-color-fill-secondary-disabled - The icon color when disabled and `appearance="secondary"`. Defaults to `--jh-color-content-brand-enabled`.
  * @cssprop --jh-button-progress-color-border-secondary-pending - The progress indicator border-color when `appearance="secondary"`. Defaults to `--jh-color-content-brand-enabled`.
  * @cssprop --jh-button-progress-track-color-border-secondary-pending - The progress indicator track-color when `appearance="secondary"`. Defaults to `--jh-color-control-enabled`.
  * @cssprop --jh-button-color-background-tertiary-enabled - The button container background-color when enabled and `appearance="tertiary"`. Defaults to `transparent`.
  * @cssprop --jh-button-color-border-tertiary-enabled - The button container border-color when enabled and `appearance="tertiary"`. Defaults to `transparent`.
- * @cssprop --jh-button-color-background-tertiary-focus - The button container background-color when in focus and `appearance="tertiary"`. Defaults to `--jh-color-content-brand-hover`.
+ * @cssprop --jh-button-color-background-tertiary-focus - The button container background-color when in focus and `appearance="tertiary"`. Defaults to `--jh-color-container-brand-hover`.
  * @cssprop --jh-button-color-border-tertiary-focus - The button container border-color when in focus and `appearance="tertiary"`. Defaults to `transparent`.
- * @cssprop --jh-button-color-background-tertiary-hover - The button container background-color when hovered and `appearance="tertiary"`. Defaults to `--jh-color-content-brand-hover`.
+ * @cssprop --jh-button-color-background-tertiary-hover - The button container background-color when hovered and `appearance="tertiary"`. Defaults to `--jh-color-container-brand-hover`.
  * @cssprop --jh-button-color-border-tertiary-hover - The button container border-color when hovered and `appearance="tertiary"`. Defaults to `transparent`.
- * @cssprop --jh-button-color-background-tertiary-active - The button container background-color when active and `appearance="tertiary"`. Defaults to `--jh-color-content-brand-active`.
+ * @cssprop --jh-button-color-background-tertiary-active - The button container background-color when active and `appearance="tertiary"`. Defaults to `--jh-color-container-brand-active`.
  * @cssprop --jh-button-color-border-tertiary-active - The button container border-color when active and `appearance="tertiary"`. Defaults to `transparent`.
  * @cssprop --jh-button-color-background-tertiary-disabled - The button container background-color when disabled and `appearance="tertiary"`. Defaults to `transparent`.
  * @cssprop --jh-button-color-border-tertiary-disabled - The button container border-color when disabled and `appearance="tertiary"`. Defaults to `transparent`.
  * @cssprop --jh-button-color-background-tertiary-pending - The button container background-color when pending and `appearance="tertiary"`. Defaults to `transparent`.
  * @cssprop --jh-button-color-border-tertiary-pending - The button container border-color when pending and `appearance="tertiary"`. Defaults to `transparent`.
  * @cssprop --jh-button-label-color-text-tertiary-enabled - The label text color when enabled and `appearance="tertiary"`. Defaults to `--jh-color-content-brand-enabled`.
- * @cssprop --jh-button-label-color-text-tertiary-focus - The label text color when in focus and `appearance="tertiary"`. Defaults to `--jh-color-content-on-brand-hover`.
- * @cssprop --jh-button-label-color-text-tertiary-hover - The label text color when hovered and `appearance="tertiary"`. Defaults to `--jh-color-content-on-brand-hover`.
- * @cssprop --jh-button-label-color-text-tertiary-active - The label text color when active and `appearance="tertiary"`. Defaults to `--jh-color-content-on-brand-active`.
+ * @cssprop --jh-button-label-color-text-tertiary-focus - The label text color when in focus and `appearance="tertiary"`. Defaults to `--jh-color-content-brand-hover`.
+ * @cssprop --jh-button-label-color-text-tertiary-hover - The label text color when hovered and `appearance="tertiary"`. Defaults to `--jh-color-content-brand-hover`.
+ * @cssprop --jh-button-label-color-text-tertiary-active - The label text color when active and `appearance="tertiary"`. Defaults to `--jh-color-content-brand-active`.
  * @cssprop --jh-button-label-color-text-tertiary-disabled - The label text color when disabled and `appearance="tertiary"`. Defaults to `--jh-color-content-brand-enabled`.
  * @cssprop --jh-button-icon-color-fill-tertiary-enabled - The icon color when enabled and `appearance="tertiary"`. Defaults to `--jh-color-content-brand-enabled`.
- * @cssprop --jh-button-icon-color-fill-tertiary-focus - The icon color when in focus and `appearance="tertiary"`. Defaults to `--jh-color-content-on-brand-hover`.
- * @cssprop --jh-button-icon-color-fill-tertiary-hover - The icon color when hovered and `appearance="tertiary"`. Defaults to `--jh-color-content-on-brand-hover`.
- * @cssprop --jh-button-icon-color-fill-tertiary-active - The icon color when active and `appearance="tertiary"`. Defaults to `--jh-color-content-on-brand-active`.
+ * @cssprop --jh-button-icon-color-fill-tertiary-focus - The icon color when in focus and `appearance="tertiary"`. Defaults to `--jh-color-content-brand-hover`.
+ * @cssprop --jh-button-icon-color-fill-tertiary-hover - The icon color when hovered and `appearance="tertiary"`. Defaults to `--jh-color-content-brand-hover`.
+ * @cssprop --jh-button-icon-color-fill-tertiary-active - The icon color when active and `appearance="tertiary"`. Defaults to `--jh-color-content-brand-active`.
  * @cssprop --jh-button-icon-color-fill-tertiary-disabled - The icon color when disabled and `appearance="tertiary"`. Defaults to `--jh-color-content-brand-enabled`.
  * @cssprop --jh-button-progress-color-border-tertiary-pending - The progress indicator border-color when `appearance="tertiary"`. Defaults to `--jh-color-content-brand-enabled`.
  * @cssprop --jh-button-progress-track-color-border-tertiary-pending - The progress indicator track-color when `appearance="tertiary"`. Defaults to `--jh-color-control-enabled`.
+ * @cssprop --jh-button-color-background-neutral-enabled - The button container background-color when enabled and `appearance="neutral"`. Defaults to `transparent`.
+ * @cssprop --jh-button-color-border-neutral-enabled - The button container border-color when enabled and `appearance="neutral"`. Defaults to `--jh-border-control-color`.
+ * @cssprop --jh-button-color-background-neutral-focus - The button container background-color when in focus and `appearance="neutral"`. Defaults to `--jh-color-container-neutral-hover`.
+ * @cssprop --jh-button-color-border-neutral-focus - The button container border-color when in focus and `appearance="neutral"`. Defaults to `--jh-border-control-color`.
+ * @cssprop --jh-button-color-background-neutral-hover - The button container background-color when hovered and `appearance="neutral"`. Defaults to `--jh-color-container-neutral-hover`.
+ * @cssprop --jh-button-color-border-neutral-hover - The button container border-color when hovered and `appearance="neutral"`. Defaults to `--jh-border-control-color`.
+ * @cssprop --jh-button-color-background-neutral-active - The button container background-color when active and `appearance="neutral"`. Defaults to `--jh-color-container-neutral-active`.
+ * @cssprop --jh-button-color-border-neutral-active - The button container border-color when active and `appearance="neutral"`. Defaults to `--jh-border-control-color`.
+ * @cssprop --jh-button-color-background-neutral-disabled - The button container background-color when disabled and `appearance="neutral"`. Defaults to `transparent`.
+ * @cssprop --jh-button-color-border-neutral-disabled - The button container border-color when disabled and `appearance="neutral"`. Defaults to `--jh-border-control-color`.
+ * @cssprop --jh-button-color-background-neutral-pending - The button container background-color when pending and `appearance="neutral"`. Defaults to `transparent`.
+ * @cssprop --jh-button-color-border-neutral-pending - The button container border-color when pending and `appearance="neutral"`. Defaults to `--jh-border-control-color`.
+ * @cssprop --jh-button-label-color-text-neutral-enabled - The label text color when enabled and `appearance="neutral"`. Defaults to `--jh-color-content-primary-enabled`.
+ * @cssprop --jh-button-label-color-text-neutral-focus - The label text color when in focus and `appearance="neutral"`. Defaults to `--jh-color-content-primary-hover`.
+ * @cssprop --jh-button-label-color-text-neutral-hover - The label text color when hovered and `appearance="neutral"`. Defaults to `--jh-color-content-primary-hover`.
+ * @cssprop --jh-button-label-color-text-neutral-active - The label text color when active and `appearance="neutral"`. Defaults to `--jh-color-content-primary-active`.
+ * @cssprop --jh-button-label-color-text-neutral-disabled - The label text color when disabled and `appearance="neutral"`. Defaults to `--jh-color-content-primary-enabled`.
+ * @cssprop --jh-button-icon-color-fill-neutral-enabled - The icon color when enabled and `appearance="neutral"`. Defaults to `--jh-color-content-primary-enabled`.
+ * @cssprop --jh-button-icon-color-fill-neutral-focus - The icon color when in focus and `appearance="neutral"`. Defaults to `--jh-color-content-primary-hover`.
+ * @cssprop --jh-button-icon-color-fill-neutral-hover - The icon color when hovered and `appearance="neutral"`. Defaults to `--jh-color-content-primary-hover`.
+ * @cssprop --jh-button-icon-color-fill-neutral-active - The icon color when active and `appearance="neutral"`. Defaults to `--jh-color-content-primary-active`.
+ * @cssprop --jh-button-icon-color-fill-neutral-disabled - The icon color when disabled and `appearance="neutral"`. Defaults to `--jh-color-content-primary-enabled`.
+ * @cssprop --jh-button-progress-color-border-neutral-pending - The progress indicator border-color when `appearance="neutral"`. Defaults to `--jh-color-content-primary-enabled`.
+ * @cssprop --jh-button-progress-track-color-border-neutral-pending - The progress indicator track-color when `appearance="neutral"`. Defaults to `--jh-color-control-enabled`.
  * @cssprop --jh-button-color-background-danger-enabled - The button container background-color when enabled and `appearance="danger"`. Defaults to `--jh-color-content-negative-enabled`.
  * @cssprop --jh-button-color-border-danger-enabled - The button container border-color when enabled and `appearance="danger"`. Defaults to `transparent`.
  * @cssprop --jh-button-color-background-danger-focus - The button container background-color when in focus and `appearance="danger"`. Defaults to `--jh-color-content-negative-hover`.
@@ -326,11 +350,11 @@ export class JhButton extends JhElement {
       :host([appearance='secondary']) a:focus-visible {
         background-color: var(
           --jh-button-color-background-secondary-focus,
-          var(--jh-color-content-brand-hover)
+          var(--jh-color-container-brand-hover)
         );
         color: var(
           --jh-button-label-color-text-secondary-focus,
-          var(--jh-color-content-on-brand-hover)
+          var(--jh-color-content-brand-hover)
         );
         --button-border-color: var(
           --jh-button-color-border-secondary-focus,
@@ -338,18 +362,18 @@ export class JhButton extends JhElement {
         );
         --jh-icon-color-fill: var(
           --jh-button-icon-color-fill-secondary-focus,
-          var(--jh-color-content-on-brand-hover)
+          var(--jh-color-content-brand-hover)
         );
       }
       :host([appearance='secondary']) button:hover,
       :host([appearance='secondary']) a:hover {
         background-color: var(
           --jh-button-color-background-secondary-hover,
-          var(--jh-color-content-brand-hover)
+          var(--jh-color-container-brand-hover)
         );
         color: var(
           --jh-button-label-color-text-secondary-hover,
-          var(--jh-color-content-on-brand-hover)
+          var(--jh-color-content-brand-hover)
         );
         --button-border-color: var(
           --jh-button-color-border-secondary-hover,
@@ -357,18 +381,18 @@ export class JhButton extends JhElement {
         );
         --jh-icon-color-fill: var(
           --jh-button-icon-color-fill-secondary-hover,
-          var(--jh-color-content-on-brand-hover)
+          var(--jh-color-content-brand-hover)
         );
       }
       :host([appearance='secondary']) button:active,
       :host([appearance='secondary']) a:active {
         background-color: var(
           --jh-button-color-background-secondary-active,
-          var(--jh-color-content-brand-active)
+          var(--jh-color-container-brand-active)
         );
         color: var(
           --jh-button-label-color-text-secondary-active,
-          var(--jh-color-content-on-brand-active)
+          var(--jh-color-content-brand-active)
         );
         --button-border-color: var(
           --jh-button-color-border-secondary-active,
@@ -376,7 +400,7 @@ export class JhButton extends JhElement {
         );
         --jh-icon-color-fill: var(
           --jh-button-icon-color-fill-secondary-active,
-          var(--jh-color-content-on-brand-active)
+          var(--jh-color-content-brand-active)
         );
       }
       :host([appearance='secondary'][accessible-disabled='true'][pending])
@@ -427,11 +451,11 @@ export class JhButton extends JhElement {
       :host([appearance='tertiary']) a:focus-visible {
         background-color: var(
           --jh-button-color-background-tertiary-focus,
-          var(--jh-color-content-brand-hover)
+          var(--jh-color-container-brand-hover)
         );
         color: var(
           --jh-button-label-color-text-tertiary-focus,
-          var(--jh-color-content-on-brand-hover)
+          var(--jh-color-content-brand-hover)
         );
         --button-border-color: var(
           --jh-button-color-border-tertiary-focus,
@@ -439,18 +463,18 @@ export class JhButton extends JhElement {
         );
         --jh-icon-color-fill: var(
           --jh-button-icon-color-fill-tertiary-focus,
-          var(--jh-color-content-on-brand-hover)
+          var(--jh-color-content-brand-hover)
         );
       }
       :host([appearance='tertiary']) button:hover,
       :host([appearance='tertiary']) a:hover {
         background-color: var(
           --jh-button-color-background-tertiary-hover,
-          var(--jh-color-content-brand-hover)
+          var(--jh-color-container-brand-hover)
         );
         color: var(
           --jh-button-label-color-text-tertiary-hover,
-          var(--jh-color-content-on-brand-hover)
+          var(--jh-color-content-brand-hover)
         );
         --button-border-color: var(
           --jh-button-color-border-tertiary-hover,
@@ -458,18 +482,18 @@ export class JhButton extends JhElement {
         );
         --jh-icon-color-fill: var(
           --jh-button-icon-color-fill-tertiary-hover,
-          var(--jh-color-content-on-brand-hover)
+          var(--jh-color-content-brand-hover)
         );
       }
       :host([appearance='tertiary']) button:active,
       :host([appearance='tertiary']) a:active {
         background-color: var(
           --jh-button-color-background-tertiary-active,
-          var(--jh-color-content-brand-active)
+          var(--jh-color-container-brand-active)
         );
         color: var(
           --jh-button-label-color-text-tertiary-active,
-          var(--jh-color-content-on-brand-active)
+          var(--jh-color-content-brand-active)
         );
         --button-border-color: var(
           --jh-button-color-border-tertiary-active,
@@ -477,7 +501,7 @@ export class JhButton extends JhElement {
         );
         --jh-icon-color-fill: var(
           --jh-button-icon-color-fill-tertiary-active,
-          var(--jh-color-content-on-brand-active)
+          var(--jh-color-content-brand-active)
         );
       }
       :host([appearance='tertiary'][accessible-disabled='true'][pending])
@@ -507,6 +531,112 @@ export class JhButton extends JhElement {
         --jh-icon-color-fill: var(
           --jh-button-icon-color-fill-tertiary-disabled,
           var(--jh-color-content-brand-enabled)
+        );
+      }
+      /* appearance='neutral' */
+      :host([appearance='neutral']) button,
+      :host([appearance='neutral']) a {
+        background-color: var(
+          --jh-button-color-background-neutral-enabled,
+          transparent
+        );
+        color: var(
+          --jh-button-label-color-text-neutral-enabled,
+          var(--jh-color-content-primary-enabled)
+        );
+        --button-border-color: var(
+          --jh-button-color-border-neutral-enabled,
+          var(--jh-border-control-color)
+        );
+        --jh-icon-color-fill: var(
+          --jh-button-icon-color-fill-neutral-enabled,
+          var(--jh-color-content-primary-enabled)
+        );
+      }
+      :host([appearance='neutral']) button:focus-visible,
+      :host([appearance='neutral']) a:focus-visible {
+        background-color: var(
+          --jh-button-color-background-neutral-focus,
+          var(--jh-color-container-neutral-hover)
+        );
+        color: var(
+          --jh-button-label-color-text-neutral-focus,
+          var(--jh-color-content-primary-hover)
+        );
+        --button-border-color: var(
+          --jh-button-color-border-neutral-focus,
+          var(--jh-border-control-color)
+        );
+        --jh-icon-color-fill: var(
+          --jh-button-icon-color-fill-neutral-focus,
+          var(--jh-color-content-primary-hover)
+        );
+      }
+      :host([appearance='neutral']) button:hover,
+      :host([appearance='neutral']) a:hover {
+        background-color: var(
+          --jh-button-color-background-neutral-hover,
+          var(--jh-color-container-neutral-hover)
+        );
+        color: var(
+          --jh-button-label-color-text-neutral-hover,
+          var(--jh-color-content-primary-hover)
+        );
+        --button-border-color: var(
+          --jh-button-color-border-neutral-hover,
+          var(--jh-border-control-color)
+        );
+        --jh-icon-color-fill: var(
+          --jh-button-icon-color-fill-neutral-hover,
+          var(--jh-color-content-primary-hover)
+        );
+      }
+      :host([appearance='neutral']) button:active,
+      :host([appearance='neutral']) a:active {
+        background-color: var(
+          --jh-button-color-background-neutral-active,
+          var(--jh-color-container-neutral-active)
+        );
+        color: var(
+          --jh-button-label-color-text-neutral-active,
+          var(--jh-color-content-primary-active)
+        );
+        --button-border-color: var(
+          --jh-button-color-border-neutral-active,
+          var(--jh-border-control-color)
+        );
+        --jh-icon-color-fill: var(
+          --jh-button-icon-color-fill-neutral-active,
+          var(--jh-color-content-primary-active)
+        );
+      }
+      :host([appearance='neutral'][accessible-disabled='true'][pending])
+        button,
+      :host([appearance='neutral']) button[aria-disabled='true'],
+      :host([appearance='neutral']) a[aria-disabled='true'],
+      :host([appearance='neutral'][disabled][pending]) button,
+      :host([appearance='neutral']) button[disabled],
+      :host([appearance='neutral']) a[disabled] {
+        background-color: var(
+          --jh-button-color-background-neutral-disabled,
+          transparent
+        );
+        color: var(
+          --jh-button-label-color-text-neutral-disabled,
+          var(--jh-color-content-primary-enabled)
+        );
+        --button-border-color: var(
+          --jh-button-color-border-neutral-disabled,
+          var(--jh-border-control-color)
+        );
+      }
+      :host([appearance='neutral']) button[aria-disabled='true'],
+      :host([appearance='neutral']) a[aria-disabled='true'],
+      :host([appearance='neutral']) button[disabled],
+      :host([appearance='neutral']) a[disabled] {
+        --jh-icon-color-fill: var(
+          --jh-button-icon-color-fill-neutral-disabled,
+          var(--jh-color-content-primary-enabled)
         );
       }
       /* appearance='danger' */
@@ -684,6 +814,24 @@ export class JhButton extends JhElement {
         );
         --jh-progress-track-color: var(--jh-button-progress-track-color-border-tertiary-pending);
       }
+      :host([pending][appearance='neutral']) button,
+      :host([pending][appearance='neutral']) a {
+        background-color: var(
+          --jh-button-color-background-neutral-pending,
+          transparent
+        );
+        --button-border-color: var(
+          --jh-button-color-border-neutral-pending,
+          var(--jh-border-control-color)
+        );
+      }
+      :host([pending][appearance='neutral']) jh-progress {
+        --jh-progress-indicator-color: var(
+          --jh-button-progress-color-border-neutral-pending,
+          var(--jh-color-content-primary-enabled)
+        );
+        --jh-progress-track-color: var(--jh-button-progress-track-color-border-neutral-pending);
+      }
       :host([pending][appearance='danger']) button,
       :host([pending][appearance='danger']) a {
         background-color: var(
@@ -815,7 +963,7 @@ export class JhButton extends JhElement {
     this.accessibleLabel = null;
     /**
      * Determines the button color.
-     * @type { 'primary' | 'secondary' | 'tertiary' | 'danger' }
+     * @type { 'primary' | 'secondary' | 'tertiary' | 'danger' | 'neutral' }
      */
     this.appearance = 'secondary';
     /**

@@ -191,10 +191,10 @@
     },
     "gray": {
       "0": {
-        "$value": "#ffffffff",
+        "$value": "{color.white.alpha.100}",
         "$description": "Gray 0",
         "$extensions": {
-          "alias": false,
+          "alias": true,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -371,10 +371,10 @@
         }
       },
       "1000": {
-        "$value": "#000000ff",
+        "$value": "{color.black.alpha.100}",
         "$description": "Gray 1000",
         "$extensions": {
-          "alias": false,
+          "alias": true,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1588,6 +1588,17 @@
           "alias": false,
           "deprecated": false,
           "deprecatedMessage": ""
+        }
+      },
+      "alpha": {
+        "10": {
+          "$value": "#085ce51a",
+          "$description": "Blue at 10% opacity",
+          "$extensions": {
+            "alias": false,
+            "deprecated": false,
+            "deprecatedMessage": ""
+          }
         }
       }
     },

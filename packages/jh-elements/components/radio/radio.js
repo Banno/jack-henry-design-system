@@ -85,9 +85,9 @@ export class JhRadio extends JhElement {
       }
       .radio {
         border-color: var(
-            --jh-radio-input-color-border-unselected-enabled,
-            var(--jh-border-control-color)
-          );
+          --jh-radio-input-color-border-unselected-enabled,
+          var(--jh-border-control-color)
+        );
         border-style: var(--jh-border-control-style);
         border-width: var(--jh-border-control-width);
         background-color: var(
@@ -278,7 +278,7 @@ export class JhRadio extends JhElement {
         outline: none;
       }
     `;
-}
+  }
 
   static get properties() {
     return {
@@ -350,31 +350,29 @@ export class JhRadio extends JhElement {
   connectedCallback() {
     super.connectedCallback();
     this.setAttribute('tabindex', '0');
-    this.setAttribute('aria-checked', `${this.checked}`);
-    if (this.accessibleLabel) {
-      this.setAttribute('aria-label', `${this.accessibleLabel}`);
-    }
+    // aria-describedby issue remains and is documented.
     if (this.helperText) {
       this.setAttribute('aria-describedby', `radio-helper-text-${this.uniqueId}`);
     }
-
-    let observer = new MutationObserver(this.#updateArias.bind(this));
-    let options = {
-      attributes: true,
-    };
-    observer.observe(this, options);
   }
 
-  #updateArias(mutations) {
-    for (const mutation of mutations) {
-      if (mutation.attributeName === 'checked') {
-        this.setAttribute('aria-checked', `${this.checked}`);
-      }
-      if (mutation.attributeName === 'disabled') {
-        this.setAttribute('aria-disabled', `${this.disabled}`);
-      }
-      if (mutation.attributeName === 'accessible-label') {
-        this.setAttribute('aria-label', `${this.accessibleLabel}`);
+  /**
+   * @protected
+   * @param {import('lit').PropertyValues} changedProperties
+   */
+  updated(changedProperties) {
+    if (changedProperties.has('checked')) {
+      this.internals.ariaChecked = String(this.checked);
+    }
+    if (changedProperties.has('disabled')) {
+      this.internals.ariaDisabled = String(this.disabled);
+    }
+    // leaving as attribute for now so authors can see it in the DOM when they set it.
+    if (changedProperties.has('accessibleLabel')) {
+      if (this.accessibleLabel) {
+        this.setAttribute('aria-label', this.accessibleLabel);
+      } else {
+        this.removeAttribute('aria-label');
       }
     }
   }
@@ -384,11 +382,18 @@ export class JhRadio extends JhElement {
     if (this.checked) return;
 
     this.checked = true;
-    this.dispatchCustomEvent('jh-change', {state: { checked: this.checked }});
+    this.dispatchCustomEvent('jh-change', {
+      state: {
+        checked: this.checked,
+      },
+    });
   }
 
+  /** @param {KeyboardEvent} e */
   #handleKeydown(e) {
     if (e.code === 'Space') {
+      // prevent the browser's default Space-key page scroll
+      e.preventDefault();
       this.#handleClick();
     }
   }

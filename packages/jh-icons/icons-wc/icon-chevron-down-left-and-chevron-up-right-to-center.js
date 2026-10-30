@@ -20,6 +20,12 @@ export default class JhIconChevronDownLeftAndChevronUpRightToCenter extends LitE
         height: var(--icon-size);
         display: inline-block;
       }
+      :host(:not([size])) {
+        --icon-size: var(
+          --jh-icon-size-medium,
+          var(--jh-dimension-600)
+        );
+      }
       :host([size='x-small']) {
         --icon-size: var(
           --jh-icon-size-extra-small,

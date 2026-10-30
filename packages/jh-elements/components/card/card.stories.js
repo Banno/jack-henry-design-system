@@ -227,3 +227,53 @@ Padding.argTypes = {
 Padding.parameters = {
   styles: storyStyles,
 };
+
+export const HeaderDividerInsetZero = {
+  render: () => html`
+    <section class="padding-story" style="--jh-divider-space-inset: 24px">
+      <jh-card show-header-divider header-title="Token only">
+        <div>The divider follows the 24px token.</div>
+      </jh-card>
+      <jh-card
+        show-header-divider
+        header-divider-inset="0"
+        header-title="Inset 0"
+      >
+        <div>header-divider-inset="0" keeps the divider flush.</div>
+      </jh-card>
+    </section>
+  `,
+};
+
+HeaderDividerInsetZero.argTypes = {
+  ...disableControls,
+};
+
+HeaderDividerInsetZero.parameters = {
+  styles: storyStyles,
+};
+
+export const Tokens = {
+  render: () => html`
+    <section class="padding-story">
+      <jh-card
+        header-title="Card tokens"
+        style="--jh-card-elevation: var(--jh-shadow-low); --jh-card-border-width: 2px;"
+      >
+        <img
+          slot="jh-card-media"
+          src="/images/markus-winkler-DJoG5GsXfMw-unsplash.jpg"
+        />
+        <p>The card uses a low elevation and a 2px border.</p>
+      </jh-card>
+    </section>
+  `,
+};
+
+Tokens.argTypes = {
+  ...disableControls,
+};
+
+Tokens.parameters = {
+  styles: storyStyles,
+};

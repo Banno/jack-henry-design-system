@@ -1,0 +1,118 @@
+{/*
+SPDX-FileCopyrightText: 2026 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+ */}
+import { Meta, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as stories from './row.stories.js';
+
+<Meta title="Primitives/Row" of={stories} />
+
+# Row
+
+[Guidelines](https://jackhenry.design/pages/components/row/)
+
+<hr />
+
+Row is a layout primitive that arranges elements slotted into it in one or multiple horizontal rows.
+It uses the [CSS Flexbox layout model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox), under the hood, displaying slotted elements from left to right.
+Knowledge of the Flexbox layout model is helpful when using this component, but is not a requirement.
+
+## Usage
+
+Import the `<forge-row>` component:
+
+```javascript
+import '@jack-henry/jh-elements/components/row/row.js';
+```
+
+Place elements in the default slot. Each slotted element is stacked horizontally from left to right:
+
+```html
+<forge-row gap="100" align-y="center">
+  <jh-button label="Save"></jh-button>
+  <jh-button label="Cancel"></jh-button>
+</forge-row>
+```
+
+## Spacing between and around slotted elements
+
+The properties `gap` and `padding` both map to the `--jh-dimension-*` token scale, so spacing stays consistent with the rest of the Forge Design System.
+
+- `gap` sets the space between slotted elements.
+- `padding` sets the inner padding between the container edges and its slotted elements.
+
+Both accept the same values: `0`, `25`, `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, and `1000`.
+
+```html
+<forge-row gap="200" padding="100">
+  <!-- slotted elements -->
+</forge-row>
+```
+
+## Alignment
+
+`align-x` and `align-y` control how slotted elements are positioned along the horizontal and vertical axes of the container:
+
+- `align-x` sets the horizontal alignment and maps to `justify-content` in Flexbox terms. The possible values are: `start`, `end`, `center`, `between`, `around`, or `evenly`. Like Flexbox's `flex-start`/`flex-end`, `start` and `end` are relative to text direction.
+- `align-y` sets the vertical alignment and maps to `align-items` in Flexbox terms. The possible values are: `start`, `end`, `center`, `stretch`, or `baseline`.
+
+The distribution values `between`, `around`, and `evenly` apply to `align-x` on a row (the `justify-content` axis); on a `<forge-column>` they move to `align-y`. The `between`, `around`, and `evenly` values also need free space along the horizontal axis to have a visible effect.
+
+```html
+<forge-row align-x="between" align-y="center" >
+  <!-- slotted elements -->
+</forge-row>
+```
+
+## Reversing order
+
+Add the boolean `reverse` attribute to display slotted elements in the opposite order (Flexbox `row-reverse`). Because it reverses along the horizontal axis, the visual order is also relative to text direction.
+
+```html
+<forge-row reverse gap="100">
+  <!-- slotted elements -->
+</forge-row>
+```
+
+## Wrapping
+
+By default slotted elements stay on a single line and may overflow the container. 
+The `wrap` attribute (Flexbox `flex-wrap`) controls whether slotted elements reflow onto new lines when they run out of space along the horizontal axis, similar to how text wraps within a paragraph. It accepts three values:
+
+- `nowrap` (default) keeps all slotted elements on a single line.
+- `wrap` lets slotted elements reflow onto new lines below.
+- `wrap-reverse` lets slotted elements reflow onto new lines above.
+
+```html
+<forge-row wrap="wrap" gap="100">
+  <!-- slotted elements -->
+</forge-row>
+```
+
+### Aligning wrapped lines
+
+When `wrap` produces more than one line, `align-wrap` (Flexbox `align-content`) distributes those lines along the vertical axis of a `<forge-row>`. It has no effect on a single line. The possible values are: `start`, `end`, `center`, `between`, `around`, `evenly`, or `stretch` (default).
+
+```html
+<forge-row wrap="wrap" align-wrap="between" gap="100">
+  <!-- slotted elements -->
+</forge-row>
+```
+
+## Composition
+
+Layout primitives are designed to compose. `<forge-row>` can be used freely inside `<forge-column>` and other `<forge-row>` containers. See [Layout Composition](?path=/docs/primitives-layout-composition--docs) for common patterns such as toolbars, card layouts, and form rows.
+
+## Component API
+
+For boolean attributes, true indicates that the attribute has been set without a value: `<forge-row reverse></forge-row>`. While false indicates the attribute does not exist in the DOM: `<forge-row></forge-row>`.
+
+<ArgTypes />
+
+## Feedback
+
+Have an idea that will improve this component or have an issue to report? Let us know by submitting 
+an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
+
+Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

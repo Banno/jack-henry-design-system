@@ -1,0 +1,118 @@
+{/*
+SPDX-FileCopyrightText: 2026 Jack Henry
+
+SPDX-License-Identifier: Apache-2.0
+ */}
+import { Meta, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as stories from './column.stories.js';
+
+<Meta title="Primitives/Column" of={stories} />
+
+# Column
+
+[Guidelines](https://jackhenry.design/pages/components/column/)
+
+<hr />
+
+Column is a layout primitive that arranges elements slotted into it in one or multiple vertical columns.
+It uses the [CSS Flexbox layout model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox), under the hood, displaying slotted elements from top to bottom.
+Knowledge of the Flexbox layout model is helpful when using this component, but is not a requirement.
+
+## Usage
+
+Import the `<forge-column>` component:
+
+```javascript
+import '@jack-henry/jh-elements/components/column/column.js';
+```
+
+Place elements in the default slot. Each slotted element is stacked vertically from top to bottom:
+
+```html
+<forge-column gap="100">
+  <jh-button label="Save"></jh-button>
+  <jh-button label="Cancel"></jh-button>
+</forge-column>
+```
+
+## Spacing between and around slotted elements
+
+The properties `gap` and `padding` both map to the `--jh-dimension-*` token scale, so spacing stays consistent with the rest of the Forge Design System.
+
+- `gap` sets the space between slotted elements.
+- `padding` sets the inner padding between the container edges and its slotted elements.
+
+Both accept the same values: `0`, `25`, `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, and `1000`.
+
+```html
+<forge-column gap="200" padding="100">
+  <!-- slotted elements -->
+</forge-column>
+```
+
+## Alignment
+
+`align-x` and `align-y` control how slotted elements are positioned along the horizontal and vertical axes of the container:
+
+- `align-x` sets the horizontal alignment and maps to `align-items` in Flexbox terms. The possible values are: `start`, `end`, `center`, or `stretch`. Like Flexbox's `flex-start`/`flex-end`, `start` and `end` are relative to text direction.
+- `align-y` sets the vertical alignment and maps to `justify-content` in Flexbox terms. The possible values are: `start`, `end`, `center`, `between`, `around`, or `evenly`.
+
+The distribution values `between`, `around`, and `evenly` apply to `align-y` on a column (the `justify-content` axis); on a `<forge-row>` they move to `align-x`. The `between`, `around`, and `evenly` values also need free space along the vertical axis to have a visible effect.
+
+```html
+<forge-column align-x="center" align-y="between">
+  <!-- slotted elements -->
+</forge-column>
+```
+
+## Reversing order
+
+Add the boolean `reverse` attribute to display slotted elements in the opposite order, from bottom to top (Flexbox `column-reverse`).
+
+```html
+<forge-column reverse gap="100">
+  <!-- slotted elements -->
+</forge-column>
+```
+
+## Wrapping
+
+By default slotted elements stay in a single column and may overflow the container. 
+The `wrap` attribute (Flexbox `flex-wrap`) controls whether slotted elements reflow onto new columns when they run out of space along the vertical axis. It accepts three values:
+
+- `nowrap` (default) keeps all slotted elements in a single column.
+- `wrap` lets slotted elements reflow onto new columns.
+- `wrap-reverse` lets slotted elements reflow onto new columns in the reverse direction.
+
+```html
+<forge-column wrap="wrap" gap="100">
+  <!-- slotted elements -->
+</forge-column>
+```
+
+### Aligning wrapped columns
+
+When `wrap` produces more than one column, `align-wrap` (Flexbox `align-content`) distributes those columns along the horizontal axis of a `<forge-column>`. It has no effect on a single column. The possible values are: `start`, `end`, `center`, `between`, `around`, `evenly`, or `stretch` (default). Because it acts on the horizontal axis, `start` and `end` are relative to text direction.
+
+```html
+<forge-column wrap="wrap" align-wrap="between" gap="100">
+  <!-- slotted elements -->
+</forge-column>
+```
+
+## Composition
+
+Layout primitives are designed to compose. `<forge-column>` can be used freely inside `<forge-row>` and other `<forge-column>` containers. See [Layout Composition](?path=/docs/primitives-layout-composition--docs) for common patterns such as toolbars, card layouts, and form rows.
+
+## Component API
+
+For boolean attributes, true indicates that the attribute has been set without a value: `<forge-column reverse></forge-column>`. While false indicates the attribute does not exist in the DOM: `<forge-column></forge-column>`.
+
+<ArgTypes />
+
+## Feedback
+
+Have an idea that will improve this component or have an issue to report? Let us know by submitting 
+an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
+
+Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

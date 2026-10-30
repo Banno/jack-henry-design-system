@@ -10,7 +10,7 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Primitives
 
-Primitives are low-level, unopinionated building blocks for arranging other
+Primitives are low-level building blocks for arranging other
 components. They carry no visual styling of their own, and that is exactly what
 makes them powerful. They give you a consistent, token-aware way to handle
 spacing, alignment, and layering, so every screen in your app lines up the same
@@ -19,14 +19,14 @@ way with very little code.
 ## Layout primitives
 
 - **[Row](?path=/docs/primitives-row--docs)**: arranges its children in a
-  horizontal row (`display: flex; flex-direction: row`).
+  horizontal row.
 - **[Column](?path=/docs/primitives-column--docs)**: arranges its children in a
-  vertical column (`display: flex; flex-direction: column`).
+  vertical column.
 - **[Stack](?path=/docs/primitives-stack--docs)**: layers its children on top of
-  one another in a shared cell (`display: grid`).
+  one another in a shared cell.
 
 `Row` and `Column` expose `gap` and `padding` (mapped to dimension tokens) along
-with `align-x`, `align-y`, `wrap`, and `reverse` (mapped to Flexbox). `Stack`
+with `align-x`, `align-y`, `wrap`, and `reverse`. `Stack`
 exposes `align-x` and `align-y` for positioning its layers.
 
 ## Working with slotted items
@@ -55,12 +55,3 @@ can hold `Row`s, and a `Stack` is itself a valid flex child, so they nest freely
 to build toolbars, cards, form rows, and more. See
 **[Layout Composition](?path=/docs/primitives-layout-composition--docs)** for
 real-world patterns.
-
-## Resources
-
-These primitives are thin, friendly wrappers over native CSS layout. Knowledge of
-the underlying models is helpful but not required. To go deeper:
-
-- [CSS Flexbox layout (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout): the model behind `Row` and `Column`.
-- [Basic concepts of Flexbox (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox): a gentle introduction to flex containers and items.
-- [CSS Grid layout (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout): the model behind `Stack`.

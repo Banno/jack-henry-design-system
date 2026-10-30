@@ -7,7 +7,6 @@
 import { html, css } from 'lit';
 import { action } from 'storybook/actions';
 import './column.js';
-import '../button/button.js';
 
 const storyStyles = css`
   .demo-container {
@@ -24,13 +23,32 @@ const storyStyles = css`
   }
   .demo-box.is-wrapping {
     width: 280px;
-    height: 180px;
+    height: 120px;
+  }
+  .demo-box.is-overview {
+    width: 200px;
+    height: 120px;
+  }
+  .demo-overview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--jh-dimension-400);
+  }
+  .demo-item {
+    padding: var(--jh-dimension-100) var(--jh-dimension-200);
+    background-color: var(--jh-color-container-neutral-enabled);
+    border: 1px solid var(--jh-border-control-color);
+    /* border-radius: var(--jh-border-radius-100); */
+    color: var(--jh-color-content-primary-enabled);
+    font-family: var(--jh-font-helper-regular-font-family);
+    font-size: var(--jh-font-helper-regular-font-size);
+    line-height: var(--jh-font-helper-regular-line-height);
   }
 `;
 
 const dimensionOptions = ['0', '25', '50', '100', '200', '300', '400', '500', '600', '700', '800', '900', '1000'];
 
-const alignOptions = ['start', 'end', 'center', 'stretch', 'baseline'];
+const alignOptions = ['start', 'end', 'center', 'stretch'];
 
 const justifyOptions = ['start', 'end', 'center', 'between', 'around', 'evenly'];
 
@@ -89,15 +107,47 @@ export default {
 };
 
 export const Overview = { render: (args) => html`
-  <forge-column>
-    <jh-button label="Button 1"></jh-button>
-    <jh-button label="Button 2"></jh-button>
-    <jh-button label="Button 3"></jh-button>
-  </forge-column>
+  <div class="demo-overview">
+    <div class="demo-container">
+      <forge-column class="demo-box is-overview" gap="100" padding="100" align-x="center" align-y="center">
+        <div class="demo-item">Item 1</div>
+        <div class="demo-item">Item 2</div>
+        <div class="demo-item">Item 3</div>
+      </forge-column>
+    </div>
+    <div class="demo-container">
+      <forge-column class="demo-box is-overview" gap="100" padding="100" align-x="start" align-y="between">
+        <div class="demo-item">Item 1</div>
+        <div class="demo-item">Item 2</div>
+        <div class="demo-item">Item 3</div>
+      </forge-column>
+    </div>
+    <div class="demo-container">
+      <forge-column class="demo-box is-overview" gap="100" padding="100" wrap="wrap">
+        <div class="demo-item">Item 1</div>
+        <div class="demo-item">Item 2</div>
+        <div class="demo-item">Item 3</div>
+        <div class="demo-item">Item 4</div>
+        <div class="demo-item">Item 5</div>
+        <div class="demo-item">Item 6</div>
+      </forge-column>
+    </div>
+    <div class="demo-container">
+      <forge-column class="demo-box is-overview" gap="100" padding="100" align-x="end" reverse>
+        <div class="demo-item">Item 1</div>
+        <div class="demo-item">Item 2</div>
+        <div class="demo-item">Item 3</div>
+      </forge-column>
+    </div>
+  </div>
 `};
 
 Overview.argTypes = {
   ...disableControls,
+};
+
+Overview.parameters = {
+  styles: storyStyles,
 };
 
 export const Playground = { render: (args) => html`
@@ -110,9 +160,9 @@ export const Playground = { render: (args) => html`
       align-y=${args['align-y']}
       ?reverse=${args.reverse}
     >
-      <jh-button label="Button 1"></jh-button>
-      <jh-button label="Button 2"></jh-button>
-      <jh-button label="Button 3"></jh-button>
+      <div class="demo-item">Item 1</div>
+      <div class="demo-item">Longer item 2</div>
+      <div class="demo-item">The longest item 3</div>
     </forge-column>
   </div>
 `};
@@ -143,12 +193,12 @@ export const Wrapping = { render: (args) => html`
       wrap=${args.wrap}
       align-wrap=${args['align-wrap']}
     >
-      <jh-button label="Button 1"></jh-button>
-      <jh-button label="Button 2"></jh-button>
-      <jh-button label="Button 3"></jh-button>
-      <jh-button label="Button 4"></jh-button>
-      <jh-button label="Button 5"></jh-button>
-      <jh-button label="Button 6"></jh-button>
+      <div class="demo-item">Item 1</div>
+      <div class="demo-item">Item 2</div>
+      <div class="demo-item">Item 3</div>
+      <div class="demo-item">Item 4</div>
+      <div class="demo-item">Item 5</div>
+      <div class="demo-item">Item 6</div>
     </forge-column>
   </div>
 `};

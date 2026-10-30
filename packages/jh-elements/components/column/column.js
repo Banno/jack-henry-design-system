@@ -56,7 +56,6 @@ export class ForgeColumn extends JhElement {
       :host([align-x="end"]) { align-items: flex-end; }
       :host([align-x="center"]) { align-items: center; }
       :host([align-x="stretch"]) { align-items: stretch; }
-      :host([align-x="baseline"]) { align-items: baseline; }
       :host([align-y="start"]) { justify-content: flex-start; }
       :host([align-y="end"]) { justify-content: flex-end; }
       :host([align-y="center"]) { justify-content: center; }
@@ -102,7 +101,7 @@ export class ForgeColumn extends JhElement {
     this.gap = '0';
     /** @type {'0' | '25' | '50' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900' | '1000'} */
     this.padding = '0';
-    /** @type {'start' | 'end' | 'center' | 'stretch' | 'baseline'} */
+    /** @type {'start' | 'end' | 'center' | 'stretch'} */
     this.alignX = 'stretch';
     /** @type {'start' | 'end' | 'center' | 'between' | 'around' | 'evenly'} */
     this.alignY = 'start';

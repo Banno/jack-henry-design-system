@@ -1288,7 +1288,7 @@
         {
           "name": "align-x",
           "description": "Sets the alignment of slotted elements along the horizontal axis.",
-          "type": "'start' | 'end' | 'center' | 'stretch' | 'baseline'",
+          "type": "'start' | 'end' | 'center' | 'stretch'",
           "default": "\"stretch\""
         },
         {
@@ -1335,7 +1335,7 @@
           "name": "alignX",
           "attribute": "align-x",
           "description": "Sets the alignment of slotted elements along the horizontal axis.",
-          "type": "'start' | 'end' | 'center' | 'stretch' | 'baseline'",
+          "type": "'start' | 'end' | 'center' | 'stretch'",
           "default": "\"stretch\""
         },
         {

@@ -11,6 +11,7 @@
  * @typedef {ReactiveControllerHost & HTMLElement & {
  *   invalid: boolean,
  *   value?: string | null,
+ *   checked?: boolean,
  *   required?: boolean,
  *   maxlength?: number,
  *   minlength?: number,
@@ -48,6 +49,9 @@ const isSet = (val) => val !== undefined && val !== null && val !== '';
  * callbacks to this controller, since those callbacks are only invoked on the custom
  * element itself, never on its controllers.
  *
+ * Pass `{ isCheckable: true }` for single checkable controls (e.g. checkbox) so that
+ * `required` is satisfied by the host's `checked` state rather than its `value`.
+ *
  * @example
  * export class JhInput extends JhElement {
  *   static get formAssociated() { return true; }
@@ -73,6 +77,8 @@ class ValidationController {
   host;
   /** @type {boolean} */
   #isGroupControl;
+  /** @type {boolean} */
+  #isCheckable;
   /** @type {ElementInternals | null} */
   #internals = null;
   /** @type {number} */
@@ -80,7 +86,7 @@ class ValidationController {
 
   #singleControlRules = [
     {
-      condition: () => this.host.required && !isSet(this.host.value),
+      condition: () => this.host.required && (this.#isCheckable ? !this.host.checked : !isSet(this.host.value)),
       type: VALIDATION_ERROR_TYPES.VALUE_MISSING,
     },
     {
@@ -143,11 +149,12 @@ class ValidationController {
 
   /**
    * @param {ValidationControllerHost} host
-   * @param {{ isGroupControl?: boolean }} [options]
+   * @param {{ isGroupControl?: boolean, isCheckable?: boolean }} [options]
    */
-  constructor(host, { isGroupControl = false } = {}) {
+  constructor(host, { isGroupControl = false, isCheckable = false } = {}) {
     this.host = host;
     this.#isGroupControl = isGroupControl;
+    this.#isCheckable = isCheckable;
     host.addController(this);
   }
 

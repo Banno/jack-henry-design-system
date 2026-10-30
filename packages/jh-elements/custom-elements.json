@@ -1703,6 +1703,10 @@
               "name": "--jh-checkbox-helper-color-text"
             },
             {
+              "description": "The error text color. Defaults to `--jh-color-content-negative-enabled`.",
+              "name": "--jh-checkbox-error-color-text"
+            },
+            {
               "description": "The label text color. Defaults to `--jh-color-content-primary-enabled`.",
               "name": "--jh-checkbox-label-color-text"
             },
@@ -1869,6 +1873,26 @@
           ],
           "members": [
             {
+              "kind": "method",
+              "name": "checkValidity"
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback"
+            },
+            {
+              "kind": "method",
+              "name": "formDisabledCallback",
+              "parameters": [
+                {
+                  "name": "disabled",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ]
+            },
+            {
               "kind": "field",
               "name": "value",
               "privacy": "public",
@@ -1929,6 +1953,18 @@
             },
             {
               "kind": "field",
+              "name": "invalid",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Sets an `aria-invalid` on the checkbox to indicate the value supplied was invalid and displays `error-text` when set.",
+              "default": "false",
+              "attribute": "invalid",
+              "reflects": true
+            },
+            {
+              "kind": "field",
               "name": "disabled",
               "privacy": "public",
               "type": {
@@ -1963,6 +1999,17 @@
             },
             {
               "kind": "field",
+              "name": "errorText",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to be displayed when the checkbox has failed validation and `invalid` is true.",
+              "default": "null",
+              "attribute": "error-text"
+            },
+            {
+              "kind": "field",
               "name": "name",
               "privacy": "public",
               "type": {
@@ -1971,6 +2018,30 @@
               "description": "Sets the name of the checkbox data when submitted in a form.",
               "default": "null",
               "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Indicates a selection is required.",
+              "default": "false",
+              "attribute": "required",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "showIndicator",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether the indicator is shown.",
+              "default": "false",
+              "attribute": "show-indicator",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -2042,6 +2113,26 @@
               "attribute": "helper-text"
             },
             {
+              "name": "error-text",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Text to be displayed when the checkbox has failed validation and `invalid` is true.",
+              "default": "null",
+              "fieldName": "errorText",
+              "attribute": "error-text"
+            },
+            {
+              "name": "show-indicator",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether the indicator is shown.",
+              "default": "false",
+              "fieldName": "showIndicator",
+              "attribute": "show-indicator"
+            },
+            {
               "name": "accessible-label",
               "type": {
                 "text": "string | null"
@@ -2086,6 +2177,15 @@
               "fieldName": "indeterminate"
             },
             {
+              "name": "invalid",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Sets an `aria-invalid` on the checkbox to indicate the value supplied was invalid and displays `error-text` when set.",
+              "default": "false",
+              "fieldName": "invalid"
+            },
+            {
               "name": "disabled",
               "type": {
                 "text": "boolean"
@@ -2111,6 +2211,15 @@
               "description": "Sets the name of the checkbox data when submitted in a form.",
               "default": "null",
               "fieldName": "name"
+            },
+            {
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Indicates a selection is required.",
+              "default": "false",
+              "fieldName": "required"
             },
             {
               "name": "value",
@@ -2171,7 +2280,7 @@
               "name": "--jh-divider-color-border"
             },
             {
-              "description": "The horizontal divider margin-left. Defaults to `0`.",
+              "description": "The horizontal divider inline-start. Defaults to `0`.",
               "name": "--jh-divider-space-inset"
             }
           ],
@@ -2183,7 +2292,7 @@
               "type": {
                 "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
               },
-              "description": "The alignment of the left edge of the horizontal divider.",
+              "description": "The alignment of the inline-start edge of the horizontal divider.",
               "default": "null",
               "attribute": "inset",
               "reflects": true
@@ -2247,7 +2356,7 @@
               "type": {
                 "text": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96 | null"
               },
-              "description": "The alignment of the left edge of the horizontal divider.",
+              "description": "The alignment of the inline-start edge of the horizontal divider.",
               "default": "null",
               "fieldName": "inset"
             },

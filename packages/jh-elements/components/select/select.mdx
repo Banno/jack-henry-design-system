@@ -183,7 +183,7 @@ const customizedData = manageSelectDataset({
 
 ## Validation
 
-Set the `required` attribute to require an option be selected. Validation runs when focus leaves the control, and the `jh-invalid` event can be used to set the `invalid` property and `error-text`. See the [Validation guide](/docs/guides-validation--docs) for more information on how validation rules are applied and how to handle validation events.
+Set the `required` attribute to require an option be selected. Validation runs when focus leaves the control. When validation fails, the `invalid` property is set automatically and a `jh-invalid` event is dispatched, which can be used to set the `error-text`. See the [Validation guide](/docs/guides-validation--docs) for more information on how validation rules are applied and how to handle validation events.
 
 ## Dependencies
 
@@ -233,13 +233,14 @@ The following success criteria are of concern:
 - To satisfy [WCAG 1.4.11 Non-text Contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html) and [WCAG 2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html), interactive elements include focus styles and the active option receives a visible highlight.
 - To satisfy [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html), the select supports full keyboard navigation including arrow keys, Enter, Space, Escape, Tab, and type-ahead character matching.
 - To satisfy [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html), the target size for the input field is at least 24 by 24 pixels so users can easily activate the control.
+- To satisfy [WCAG 3.3.1 Error Identification](https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html), when the `invalid` attribute is set, `aria-invalid="true"` is applied to the select and the `error-text` (when provided) is displayed and announced by assistive technologies.
 - To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value), list items use `role="option"` with `aria-selected` to communicate the selected state. Disabled options are marked with the `disabled` attribute.
 
 ### Author Guidance
 
 - To satisfy [WCAG 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html), when using the `required` property and `show-indicator` attribute, include instructions at the top of the form to explain required inputs are marked with a red asterisk.
 - To satisfy [WCAG 2.4.6 Headings and Labels](https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html) and [WCAG 3.3.2 Labels or Instructions](https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html), ensure the `label` property or the `accessible-label` attribute are descriptive.
-- To satisfy [WCAG 3.3.1 Error Identification](https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html), set the `invalid` attribute to indicate an error. Utilize the `error-text` attribute to provide feedback on a failed selection.
+- To satisfy [WCAG 3.3.1 Error Identification](https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html), use the `error-text` attribute to describe the error in text.
 - To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value), set the `accessible-label` attribute to generate an `aria-label` when a visible label cannot be used.
 
 ### Keyboard Interaction

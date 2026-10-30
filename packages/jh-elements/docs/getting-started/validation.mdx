@@ -14,21 +14,26 @@ import * as stories from './validation.stories.js';
 
 Forge offers a `ValidationController` that centralizes common validation rules. The controller is used internally by the design system's form control components, and can be composed into custom components to get the same validation behavior.
 
-## Getting Started with ValidationController
+## Validating Design System Form Controls
 
-Design system form controls consume the controller internally. If you're authoring a custom control, you can add a `ValidationController` instance to your component to hook into the same validation lifecycle.
+Design system form controls (e.g. `<jh-input>` and its variants, `<jh-select>`, `<jh-checkbox>`, `<jh-checkbox-group>`, `<jh-radio-group>`) consume the controller internally, so there's nothing to set up. Add constraint attributes such as `required`, `pattern`, or `minlength` to the component, then listen for the `jh-invalid` event to provide error messaging.
 
-The controller inspects host properties such as `required`, `pattern`, or `minlength` and runs validation against constraints on `focusout`, once focus has truly left the control (or, for groups, left the whole group).
+Validation runs against the constraints on `focusout`, once focus has truly left the control (or, for groups, left the whole group).
 
-Tab (or click) through the fields below to trigger `focusout` validation and see the `jh-invalid` listener populate contextual `error-text` messages:
+To validate a design system form control:
 
-<Story of={stories.FormValidationExample} />
+1. **Add constraint attributes** to the component, such as `required`, `pattern`, or `minlength`. See [Validation Properties](#validation-properties) for the full list.
+2. **Listen for the `jh-invalid` event** on the component or any parent container.
+3. **Read the failed validation types** from the event payload: `event.detail.state.validity`, which contains an array of the validation error types that failed (e.g. `['valueMissing', 'tooShort']`). The component's underlying `ValidityState` object is also available at `event.detail.state.validityState`.
+4. **Set a contextual error message** on the failing component through its `error-text` property. The component is already marked `invalid` by the validation controller, so it renders the message with invalid styles automatically.
+
+See [Responding to Validation Events](#responding-to-validation-events) for a complete example, and the [Demo](#demo) to try it out.
 
 ### Validation Properties
 
-The controller supports the following validation properties on its host:
+The following validation properties are supported:
 
-#### For Single Control Components (e.g `<jh-input>`, `<jh-select>`)
+#### Single Control Components (e.g `<jh-input>`, `<jh-select>`)
 
 - `required`: Boolean. Specifies that the field must have a value. A value of `0` or an empty string are treated as distinct: `0` counts as a value, an empty string does not.
 - `minlength="number"`: Specifies the minimum number of characters required.
@@ -38,93 +43,21 @@ The controller supports the following validation properties on its host:
 - `max="number"`: Specifies the maximum numeric value allowed.
 - `step="number"`: Specifies that the value must be a multiple of this number.
 
-#### For Group Control Components (e.g `<jh-checkbox-group>`)
+#### Group Control Components (e.g `<jh-checkbox-group>`)
 
 - `required`: Boolean. Specifies that at least one child control must be checked.
 - `min-required="number"`: Specifies the minimum number of child controls that must be checked.
 - `max-required="number"`: Specifies the maximum number of child controls that can be checked.
 
-The controller reads the `checked` property of each direct child element (e.g. `myCheckboxElement.checked`) to determine the current selection count. Children must be direct children of the host element as wrapping them in another element (e.g. a `<div>`) prevents the controller from seeing them.
+**Note** Because the controller reads the `checked` property of each direct child element to determine the current selection count, checkboxes must be direct children of the group element as wrapping them in another element (e.g. a `<div>`) prevents the controller from seeing them.
 
 #### Type Mismatch Error
 
 `<jh-input-email>` and `<jh-input-url>` validate the format of their value automatically and fail with a `typeMismatch` error when the value doesn't conform. There's no property to set for this check.
 
-### Standard Form-Control API
-
-Components whose host is form-associated (`static formAssociated = true`) get the following native form control behavior delegated through the controller:
-
-- `.form`: Returns the control's parent `<form>`, if any.
-- `.validity`: Returns the underlying `ValidityState`.
-- `.checkValidity()`: Delegates to `ElementInternals`, matching native input behavior.
-
-*Note*: There is no `.reportValidity()` support. The controller never shows the browser's native validation bubble since `error-text` handles messaging and focus placement is left to the author.
-
-*Note*: `static formAssociated = true` is required on every host that uses `ValidationController`, including group components — the controller unconditionally calls `ElementInternals.setValidity()` when validation runs, which throws if the host isn't form-associated. `<jh-checkbox-group>` and `<jh-radio-group>` are both form-associated and get the full `.form`/`.validity`/`.checkValidity()` API.
-
-Click the buttons below to inspect `.form`, `.validity`, and `.checkValidity()` on a live `<jh-input>`, then reset the form to confirm `invalid` and the validity state clear automatically:
-
-<Story of={stories.StandardFormControlApiExample} />
-
-#### Form Reset Behavior
-
-Form-associated hosts should delegate the native `formResetCallback()` to the controller's `reset()` method. The browser automatically invokes `formResetCallback()` when the parent `<form>` is reset.
-
-When a reset occurs, `reset()` automatically:
-
-- Clears the invalid property (resets it to false).
-- Resets the component's ElementInternals validity state (`setValidity({})`) so `.checkValidity()` reports valid.
-
-*Note*: `reset()` does not automatically restore the control's value. Unlike native `<input>` elements (which revert to defaultValue or defaultChecked), form-associated custom elements only receive `formResetCallback()` as a notification. By default, our design system controls leave value and checked unchanged on reset.
-
-##### Restoring Default Values
-
-If your custom element requires native-like reset behavior, capture the initial state when the component connects and implement `formResetCallback()` to restore it alongside the controller's `reset()`:
-
-```javascript
-export class MyCheckboxGroup extends LitElement {
-  static get formAssociated() {
-    return true;
-  }
-
-  #validation = new ValidationController(this, { isGroupControl: true });
-  #defaultChecked;
-
-  connectedCallback() {
-    super.connectedCallback();
-    // capture each child's author-set checked state before any user interaction can change it
-    this.#defaultChecked ??= [...this.children].map((child) => child.hasAttribute('checked'));
-  }
-
-  formResetCallback() {
-    this.#validation.reset();
-    [...this.children].forEach((child, i) => {
-      child.checked = this.#defaultChecked[i];
-    });
-  }
-}
-```
-
-### When Validation Fails
-
-When a component fails validation, the controller will:
-
-1. Set the `invalid` property on the host (the host must declare and reflect this property itself — the controller only reads/writes it). For design system components, the `invalid` property will automatically display invalid styles and render the `error-text` message if one is defined.
-2. Update the host's native `ElementInternals` validity state, so `.checkValidity()` and native form submission behave consistently with the `invalid` property. This requires the host to be form-associated (`static formAssociated = true`).
-3. Dispatch a `jh-invalid` event.
-
-#### Event Payload
-
-You can listen for the `jh-invalid` event on the component or any parent container.
-
-The event target (`event.target`) is the component that failed validation. The `event.detail` property includes the following information:
-
-- `detail.state.validity`: An array of the validation error types that failed (e.g., `['valueMissing', 'tooLong']`).
-- `detail.state.validityState`: The component's underlying `ValidityState` object.
-
 ### Responding to Validation Events
 
-When validation fails, the controller dispatches a jh-invalid event. Authors should listen for this event and respond with helpful, contextual error messages.
+Listen for the `jh-invalid` event and respond with helpful, contextual error messages.
 
 Below is an example of how to set error messages dynamically:
 
@@ -165,11 +98,81 @@ export class AppContainer extends LitElement {
 }
 ```
 
-## Creating Custom Components with ValidationController
+### Standard Form-Control API
 
-To ensure consistent validation behavior across your application, authors can add a `ValidationController` instance to their custom components. Below are examples of how to integrate the controller into custom form controls.
+All design system form controls are form-associated and expose the following native form control behavior:
+
+- `.form`: Returns the control's parent `<form>`, if any.
+- `.validity`: Returns the underlying `ValidityState`.
+- `.checkValidity()`: Delegates to `ElementInternals`, matching native input behavior.
+
+*Note*: There is no `.reportValidity()` support. The browser's native validation bubble is never shown since `error-text` handles messaging and focus placement is left to the author.
+
+Click the buttons below to inspect `.form`, `.validity`, and `.checkValidity()` on a live `<jh-input>`, then reset the form to confirm `invalid` and the validity state clear automatically.
+
+<Story of={stories.StandardFormControlApiExample} />
+
+### Form Reset Behavior
+
+When the parent `<form>` is reset, design system form controls automatically:
+
+- Clear the `invalid` property (reset it to `false`).
+- Reset their `ElementInternals` validity state so `.checkValidity()` reports valid.
+
+*Note*: Resetting a form does not restore the control's value. Unlike native `<input>` elements (which revert to `defaultValue` or `defaultChecked`), design system controls leave `value` and `checked` unchanged on reset.
+
+### Demo
+
+Tab (or click) through the fields below to trigger `focusout` validation and see the `jh-invalid` listener populate contextual `error-text` messages:
+
+<Story of={stories.FormValidationExample} />
+
+## Adding Validation to Custom Components
+
+To ensure consistent validation behavior across your application, you can add a `ValidationController` instance to your custom components to hook into the same validation lifecycle used by the design system's form controls.
+
+Once added, the controller:
+
+- Reads the same [validation properties](#validation-properties) from the host (e.g. `required`, `minlength`, `min-required`).
+- Runs validation on `focusout`, once focus has truly left the control (or, for groups, left the whole group).
+- On failure, sets the host's `invalid` property, updates its `ElementInternals` validity state, and dispatches the same `jh-invalid` event, so consumers can handle errors from your component the same way they would for design system components.
+
+### Host Requirements
+
+Any host using `ValidationController` must:
+
+1. **Be form-associated** by setting `static formAssociated = true`. This is required on every host, including group components — the controller unconditionally calls `ElementInternals.setValidity()` when validation runs, which throws if the host isn't form-associated.
+2. **Declare and reflect an `invalid` property**. The controller only reads/writes it; it doesn't declare it for you. Use it to apply invalid styles and render error messaging.
+3. **Declare the constraint properties** it supports (e.g. `required`, `minlength`, `maxlength`).
+4. **Delegate `formResetCallback()` to the controller's `reset()` method**. The browser automatically invokes `formResetCallback()` when the parent `<form>` is reset, and `reset()` clears `invalid` and resets the `ElementInternals` validity state (`setValidity({})`).
+
+#### Exposing the Standard Form-Control API
+
+The controller exposes `form`, `validity`, and `checkValidity()`, but they aren't added to your host automatically. To expose the [standard form-control API](#standard-form-control-api), add getters that delegate to the controller:
+
+```javascript
+export class MyTextInput extends LitElement {
+  #validation = new ValidationController(this);
+
+  /** @type {HTMLFormElement | null} */
+  get form() {
+    return this.#validation.form;
+  }
+
+  /** @type {ValidityState} */
+  get validity() {
+    return this.#validation.validity;
+  }
+
+  checkValidity() {
+    return this.#validation.checkValidity();
+  }
+  ...
+}
+```
 
 ### Custom Single Control Components
+
 ```javascript
 // my-text-input.js
 
@@ -244,9 +247,41 @@ export class MyTextInput extends LitElement {
 }
 customElements.define('my-text-input', MyTextInput);
 ```
+
+### Custom Checkable Components
+
+For a standalone checkable control (e.g., a single checkbox), pass `{ isCheckable: true }` when constructing the controller. This tells the controller to satisfy `required` using the host's `checked` property instead of its `value`. Otherwise, set up the host the same way as a single control component.
+
+```javascript
+// my-checkbox.js
+export class MyCheckbox extends LitElement {
+  static get formAssociated() {
+    return true;
+  }
+
+  // IMPORTANT: tell the controller `required` means `checked`
+  #validation = new ValidationController(this, { isCheckable: true });
+
+  static get properties() {
+    return {
+      checked: { type: Boolean, reflect: true },
+      invalid: { type: Boolean, reflect: true },
+      required: { type: Boolean, reflect: true },
+    };
+  }
+
+  formResetCallback() {
+    this.#validation.reset();
+  }
+  ...
+}
+```
+
 ### Custom Group Components
 
 For custom components functioning as control groups (e.g., checkbox or radio groups), pass `{ isGroupControl: true }` when constructing the controller. This tells the controller to validate using group-specific rules based on its children's `checked` states instead of the host's own `value`.
+
+The controller reads the `checked` property of each direct child of the host, so child controls must be slotted directly into the host rather than wrapped in another element.
 
 ```javascript
 // my-checkbox-group.js
@@ -325,4 +360,30 @@ export class MyCheckboxGroup extends LitElement {
 customElements.define('my-checkbox-group', MyCheckboxGroup);
 ```
 
-*Note*: Any host using `ValidationController` must set `static formAssociated = true` (plus delegate `formResetCallback()` to the controller's `reset()`, as shown above). The controller always calls `ElementInternals.setValidity()` when validation fails, which throws if the host isn't form-associated. Add `.form`/`.validity`/`.checkValidity()` getters (shown in the single-control example) if you also want to expose the standard form-control API.
+### Restoring Default Values on Reset
+
+The controller's `reset()` does not restore the control's value. Form-associated custom elements only receive `formResetCallback()` as a notification, so if your custom element requires native-like reset behavior, capture the initial state when the component connects and implement `formResetCallback()` to restore it alongside the controller's `reset()`:
+
+```javascript
+export class MyCheckboxGroup extends LitElement {
+  static get formAssociated() {
+    return true;
+  }
+
+  #validation = new ValidationController(this, { isGroupControl: true });
+  #defaultChecked;
+
+  connectedCallback() {
+    super.connectedCallback();
+    // capture each child's author-set checked state before any user interaction can change it
+    this.#defaultChecked ??= [...this.children].map((child) => child.hasAttribute('checked'));
+  }
+
+  formResetCallback() {
+    this.#validation.reset();
+    [...this.children].forEach((child, i) => {
+      child.checked = this.#defaultChecked[i];
+    });
+  }
+}
+```

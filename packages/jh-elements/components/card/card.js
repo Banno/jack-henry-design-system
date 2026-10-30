@@ -263,7 +263,7 @@ export class JhCard extends JhElement {
      */
     this.titleHeadingLevel = 2;
     /**
-     * Sets padding on all slots. none removes horizontal padding from the default slot only; vertical padding and header/footer padding are unchanged. To override, set the component token for the desired slot.
+     * Sets padding on all slots. Setting to `none` removes horizontal padding from the default slot only; vertical padding and header/footer padding are unchanged. To override, set the component token for the desired slot.
      * @type { 'small' | 'medium' | 'none' }
      */
     this.padding = 'medium';

@@ -1,0 +1,41 @@
+{
+  "breakpoint": {
+    "$type": "dimension",
+    "sm": {
+      "$value": "512px",
+      "$description": "Viewport widths 512px–767px.",
+      "$extensions": {
+        "alias": true,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "md": {
+      "$value": "768px",
+      "$description": "Viewport widths 768px–1023px.",
+      "$extensions": {
+        "alias": true,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "lg": {
+      "$value": "1024px",
+      "$description": "Viewport widths 1024px–1279px.",
+      "$extensions": {
+        "alias": true,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    },
+    "xl": {
+      "$value": "1280px",
+      "$description": "Viewport widths 1280px and above.",
+      "$extensions": {
+        "alias": true,
+        "deprecated": false,
+        "deprecatedMessage": ""
+      }
+    }
+  }
+}

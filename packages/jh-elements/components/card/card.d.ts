@@ -9,6 +9,8 @@
  * @cssprop --jh-card-color-background - The card background-color. Defaults to `--jh-color-container-primary-enabled`.
  * @cssprop --jh-card-border-radius - The card border-radius. Defaults to `--jh-border-radius-200`. Also applied to the top corners of the media slot.
  * @cssprop --jh-card-color-border - The card border color. Defaults to `--jh-border-decorative-color`.
+ * @cssprop --jh-card-border-width - The card border width. Defaults to `--jh-border-decorative-width`.
+ * @cssprop --jh-card-elevation - The card box-shadow. Defaults to `none`. Recommended value: `--jh-shadow-low`.
  * @cssprop --jh-card-media-aspect-ratio - The media slot aspect-ratio. Defaults to `auto`.
  * @cssprop --jh-card-media-space-padding - The media slot padding. Defaults to `0`.
  * @cssprop --jh-card-header-color-text - The header text color. Defaults to `--jh-color-content-primary-enabled`.

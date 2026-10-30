@@ -942,6 +942,14 @@
               "name": "--jh-card-color-border"
             },
             {
+              "description": "The card border width. Defaults to `--jh-border-decorative-width`.",
+              "name": "--jh-card-border-width"
+            },
+            {
+              "description": "The card box-shadow. Defaults to `none`. Recommended value: `--jh-shadow-low`.",
+              "name": "--jh-card-elevation"
+            },
+            {
               "description": "The media slot aspect-ratio. Defaults to `auto`.",
               "name": "--jh-card-media-aspect-ratio"
             },

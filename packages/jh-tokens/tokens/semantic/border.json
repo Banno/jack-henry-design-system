@@ -9,7 +9,7 @@
             },
             "$description": "used for purely decorative styling such as on table borders, dividers, and edges of layout elements; does not meet the contrast minimum against the primary container",
             "$extensions" : {
-                "alias": true,
+                "semantic": true,
                 "deprecated": false,
                 "deprecatedMessage": ""
             }
@@ -22,7 +22,7 @@
             },
             "$description": "used on interactive elements such as form controls; meets the contrast minimum against the primary container",
             "$extensions" : {
-                "alias": true,
+                "semantic": true,
                 "deprecated": false,
                 "deprecatedMessage": ""
             }
@@ -35,7 +35,7 @@
             },
             "$description": "used to style containers with a border such as buttons; meets the contrast minimum against the primary container",
             "$extensions" : {
-                "alias": true,
+                "semantic": true,
                 "deprecated": false,
                 "deprecatedMessage": ""
             }
@@ -48,7 +48,7 @@
             },
             "$description": "used to style bordered implementations of the focus ring",
             "$extensions" : {
-                "alias": true,
+                "semantic": true,
                 "deprecated": false,
                 "deprecatedMessage": ""
             }
@@ -61,7 +61,7 @@
             },
             "$description": "used on selected elements such as list items and tabs",
             "$extensions" : {
-                "alias": true,
+                "semantic": true,
                 "deprecated": false,
                 "deprecatedMessage": ""
             }
@@ -74,7 +74,7 @@
             },
             "$description": "used to denote an error or invalid state on elements",
             "$extensions" : {
-                "alias": true,
+                "semantic": true,
                 "deprecated": false,
                 "deprecatedMessage": ""
             }

@@ -32,3 +32,31 @@
   font-weight: 100 700;
   font-display: swap;
 }
+@font-face {
+  font-family: 'Figtree';
+  src: url(./Figtree-VariableFont.woff2) format('woff2');
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Figtree';
+  src: url(./Figtree-Italic-VariableFont.woff2) format('woff2');
+  font-style: italic;
+  font-weight: 300 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url(./JetBrainsMono-VariableFont.woff2) format('woff2');
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url(./JetBrainsMono-Italic-VariableFont.woff2) format('woff2');
+  font-style: italic;
+  font-weight: 100 800;
+  font-display: swap;
+}

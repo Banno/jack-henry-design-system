@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  * 
  * Do not edit directly, this file was auto-generated.
- * Generated on Fri, 30 Oct 2026 17:11:30 GMT
+ * Generated on Mon, 02 Nov 2026 20:59:15 GMT
  */
 
 export default `

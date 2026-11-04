@@ -230,7 +230,7 @@ Padding.parameters = {
 
 export const HeaderDividerInsetZero = {
   render: () => html`
-    <section class="padding-story" style="--jh-divider-space-inset: 24px">
+    <section class="padding-story" style="--jh-card-divider-space-inset: 24px">
       <jh-card show-header-divider header-title="Token only">
         <div>The divider follows the 24px token.</div>
       </jh-card>

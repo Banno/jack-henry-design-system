@@ -3,11 +3,14 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { css, html } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import { JhElement } from '../element/element.js';
 
-let id = 0;
 const openAttr = 'open';
+const positions = ['left', 'right', 'top-start', 'top-end', 'top-center', 'bottom-start', 'bottom-end', 'bottom-center'];
+const closeDelay = 100;
+const openDelay = 100;
+/** @type {JhTooltip | undefined} */
+let activeTooltip;
 
 /**
  * Tooltips are floating components that appears when a user hovers or focuses onto an originating element 
@@ -27,13 +30,19 @@ const openAttr = 'open';
  */
 export class JhTooltip extends JhElement {
 
+  /** @type {number | undefined} */
+  #closeTimer;
+  /** @type {number | undefined} */
+  #openTimer;
+
   static get styles() {
     return css`
       :host {
         display: inline-block;
-        position: relative;
+        anchor-name: --jh-tooltip-anchor;
       }
       :host span {
+        position-anchor: --jh-tooltip-anchor;
         background-color: var(
           --jh-tooltip-color-background,
           var(--jh-color-content-primary-enabled)
@@ -50,14 +59,12 @@ export class JhTooltip extends JhElement {
         font-size: var(--jh-font-helper-bold-font-size);
         line-height: var(--jh-font-helper-bold-line-height);
         width: max-content;
-        position: absolute;
         box-sizing: border-box;
-        z-index: 1061;
         word-wrap: break-word;
-        display: inline-block;
-        transition: visibility cubic-bezier(0.1, 0.5, 0.1, 1) 0.09s;
-        visibility: hidden;
-        opacity: 0;
+        border: 0;
+        overflow: visible; /* keeps the ::before arrow from being clipped */
+        margin: 0;
+        inset: auto;
       }
       span::before {
         position: absolute;
@@ -68,44 +75,9 @@ export class JhTooltip extends JhElement {
         content: '';
         border: 4px solid transparent;
       }
-      :host span.show {
-        transition: opacity 0.3s cubic-bezier(0.1, 0.5, 0.1, 1) 0s;
-        visibility: visible;
-        opacity: 1;
-      }
-
-      /* padding and margin used to extend hover surface for tooltip persistence */
-      :host([position='bottom-center']),
-      :host([position='bottom-start']),
-      :host([position='bottom-end']) {
-        padding-bottom: 8px;
-        margin-bottom: -8px;
-      }
-      :host([position='top-center']),
-      :host([position='top-start']),
-      :host([position='top-end']) {
-        padding-top: 8px;
-        margin-top: -8px;
-      }
-      :host([position='left']) {
-        padding-left: 8px;
-        margin-left: -8px;
-      }
-      :host([position='right']) {
-        padding-right: 8px;
-        margin-right: -8px;
-      }
-
-      /* placement of tooltip and arrow. Default is top-center */
-      :host([position='bottom-center']) span,
-      :host([position='bottom-start']) span,
-      :host([position='bottom-end']) span {
-        top: 100%;
-        right: 50%;
-      }
-      :host([position='bottom-center']) span::before,
-      :host([position='bottom-start']) span::before,
-      :host([position='bottom-end']) span::before {
+      .content.placement-bottom-center::before,
+      .content.placement-bottom-start::before,
+      .content.placement-bottom-end::before {
         border-bottom-color: var(
           --jh-tooltip-color-background,
           var(--jh-color-content-primary-enabled)
@@ -113,33 +85,19 @@ export class JhTooltip extends JhElement {
         top: auto;
         bottom: 100%;
       }
-      :host([position='bottom-center']) span::before {
+      .content.placement-bottom-center::before {
         margin-right: calc(var(--jh-dimension-200) * -0.5);
         right: 50%;
       }
-      :host([position='bottom-start']) span::before {
+      .content.placement-bottom-start::before {
         left: var(--jh-dimension-200);
       }
-      :host([position='bottom-end']) span::before {
+      .content.placement-bottom-end::before {
         right: var(--jh-dimension-200);
       }
-      :host([position='bottom-start']) span {
-        margin-left: calc(var(--jh-dimension-200) * -1.5);
-        right: auto;
-        left: 50%;
-      }
-      :host([position='bottom-end']) span {
-        margin-right: calc(var(--jh-dimension-200) * -1.5);
-      }
-      :host([position='top-center']) span,
-      :host([position='top-start']) span,
-      :host([position='top-end']) span {
-        right: 50%;
-        bottom: 100%;
-      }
-      :host([position='top-center']) span::before,
-      :host([position='top-start']) span::before,
-      :host([position='top-end']) span::before {
+      .content.placement-top-center::before,
+      .content.placement-top-start::before,
+      .content.placement-top-end::before {
         border-top-color: var(
           --jh-tooltip-color-background,
           var(--jh-color-content-primary-enabled)
@@ -147,34 +105,17 @@ export class JhTooltip extends JhElement {
         top: 100%;
         bottom: auto;
       }
-      :host([position='top-center']) span::before {
+      .content.placement-top-center::before {
         margin-right: calc(var(--jh-dimension-200) * -0.5);
         right: 50%;
       }
-      :host([position='top-start']) span::before {
+      .content.placement-top-start::before {
         left: var(--jh-dimension-200);
       }
-      :host([position='top-end']) span::before {
+      .content.placement-top-end::before {
         right: var(--jh-dimension-200);
       }
-      :host([position='top-start']) span {
-        margin-left: calc(var(--jh-dimension-200) * -1.5);
-        right: auto;
-        left: 50%;
-      }
-      :host([position='top-end']) span {
-        margin-right: calc(var(--jh-dimension-200) * -1.5);
-      }
-      :host([position='bottom-center']) span,
-      :host([position='top-center']) span {
-        transform: translateX(50%);
-      }
-      :host([position='left']) span {
-        right: 100%;
-        bottom: 50%;
-        transform: translateY(50%);
-      }
-      :host([position='left']) span::before {
+      .content.placement-left::before {
         border-left-color: var(
           --jh-tooltip-color-background,
           var(--jh-color-content-primary-enabled)
@@ -184,12 +125,7 @@ export class JhTooltip extends JhElement {
         bottom: 50%;
         left: 100%;
       }
-      :host([position='right']) span {
-        bottom: 50%;
-        left: 100%;
-        transform: translateY(50%);
-      }
-      :host([position='right']) span::before {
+      .content.placement-right::before {
         border-right-color: var(
           --jh-tooltip-color-background,
           var(--jh-color-content-primary-enabled)
@@ -198,6 +134,51 @@ export class JhTooltip extends JhElement {
         top: 50%;
         right: 100%;
         bottom: 50%;
+      }
+            @supports (anchor-name: --a) {
+        /* main axis: place against the trigger with the 8px gap */
+        .content.placement-top-start,
+        .content.placement-top-center,
+        .content.placement-top-end {
+          bottom: anchor(top);
+          margin-bottom: var(--jh-dimension-200);
+        }
+        .content.placement-bottom-start,
+        .content.placement-bottom-center,
+        .content.placement-bottom-end {
+          top: anchor(bottom);
+          margin-top: var(--jh-dimension-200);
+        }
+        .content.placement-left {
+          right: anchor(left);
+          margin-right: var(--jh-dimension-200);
+        }
+        .content.placement-right {
+          left: anchor(right);
+          margin-left: var(--jh-dimension-200);
+        }
+
+        /* cross axis: center on the trigger; translate doesn't affect layout, so the browser never shifts it */
+        .content.placement-top-center,
+        .content.placement-bottom-center {
+          left: anchor(center);
+          translate: -50% 0;
+        }
+        .content.placement-left,
+        .content.placement-right {
+          top: anchor(center);
+          translate: 0 -50%;
+        }
+
+        /* start/end: the arrow (1.5 × dimension-200 in from the edge) lines up with the anchor's center */
+        .content.placement-top-start,
+        .content.placement-bottom-start {
+          left: calc(anchor(center) - var(--jh-dimension-200) * 1.5);
+        }
+        .content.placement-top-end,
+        .content.placement-bottom-end {
+          right: calc(anchor(center) - var(--jh-dimension-200) * 1.5);
+        }
       }
     `;
   }
@@ -215,6 +196,10 @@ export class JhTooltip extends JhElement {
       position: {
         type: String,
         reflect: true,
+      },
+      _placement: { 
+        type: String, 
+        state: true 
       },
     };
   }
@@ -237,21 +222,26 @@ export class JhTooltip extends JhElement {
      * @type { 'left' | 'right' | 'top-start' | 'top-end' | 'top-center' | 'bottom-start' | 'bottom-end' | 'bottom-center' }
      */
     this.position = 'top-center';
+     /** @internal @type {string | undefined} */
+    this._placement = undefined;
   }
 
   connectedCallback() {
     super.connectedCallback();
     /** @ignore */
-    this.id = `tooltip-describedby-${id++}`;
-  }
+    this.id = `tooltip-describedby-${this.uniqueId}`;
+   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    this.removeEventListener('focus', this.#handleOpenTooltip);
-    this.removeEventListener('mouseenter', this.#handleOpenTooltip);
-    this.removeEventListener('blur', this.#handleCloseTooltip);
-    this.removeEventListener('mouseleave', this.#handleCloseTooltip);
-    this.removeEventListener('keydown', this.#handleKeyDown);
+    this.removeEventListener('focus', this.#handleOpenTooltip, true);
+    this.removeEventListener('mouseenter', this.#handleMouseEnter);
+    this.removeEventListener('blur', this.#handleCloseTooltip, true);
+    this.removeEventListener('mouseleave', this.#handleMouseLeave);
+    document.removeEventListener('keydown', this.#handleKeyDown);
+    clearTimeout(this.#openTimer);
+    clearTimeout(this.#closeTimer);
+    if (activeTooltip === this) activeTooltip = undefined;
   }
 
   #handleContentSlotChange(e) {
@@ -261,18 +251,16 @@ export class JhTooltip extends JhElement {
     if (hasContent) {
       this.internals.role = 'tooltip';
       this.addEventListener('focus', this.#handleOpenTooltip, true);
-      this.addEventListener('mouseenter', this.#handleOpenTooltip);
+      this.addEventListener('mouseenter', this.#handleMouseEnter);
       this.addEventListener('blur', this.#handleCloseTooltip, true);
-      this.addEventListener('mouseleave', this.#handleCloseTooltip);
-      this.addEventListener('keydown', this.#handleKeyDown);
+      this.addEventListener('mouseleave', this.#handleMouseLeave);
     } else {
       this.internals.role = '';
       this.#handleCloseTooltip();
-      this.removeEventListener('focus', this.#handleOpenTooltip);
-      this.removeEventListener('mouseenter', this.#handleOpenTooltip);
-      this.removeEventListener('blur', this.#handleCloseTooltip);
-      this.removeEventListener('mouseleave', this.#handleCloseTooltip);
-      this.removeEventListener('keydown', this.#handleKeyDown);
+      this.removeEventListener('focus', this.#handleOpenTooltip, true);
+      this.removeEventListener('mouseenter', this.#handleMouseEnter);
+      this.removeEventListener('blur', this.#handleCloseTooltip, true);
+      this.removeEventListener('mouseleave', this.#handleMouseLeave);
     }
   }
 
@@ -295,92 +283,102 @@ export class JhTooltip extends JhElement {
 
   //calls flipTooltip whenever the tooltip is updated, including manually opened with 'open' property.
   /** @protected */
-  updated() {
-    if (this.open) this.#flipTooltip();
+  updated(changedProperties) {
+    if (changedProperties.has('open')) {
+      this.shadowRoot.querySelector('.content').togglePopover(this.open);
+      if (this.open) {
+        document.addEventListener('keydown', this.#handleKeyDown);
+      } else {
+        document.removeEventListener('keydown', this.#handleKeyDown);
+      }
+    }
+    if (this.open && !changedProperties.has('_placement')) {
+      this._placement = this.#getPlacement();
+    }
   }
 
-  #handleKeyDown(e) {
+  #handleKeyDown = (e) => {
     if (e.key === 'Escape') this.#handleCloseTooltip();
   }
 
   #handleOpenTooltip() {
-      this.setAttribute(openAttr, '');
+    if (activeTooltip !== this) activeTooltip?.#handleCloseTooltip();
+    activeTooltip = this;
+    this.setAttribute(openAttr, '');
   }
 
   #handleCloseTooltip() {
+    clearTimeout(this.#openTimer);
+    clearTimeout(this.#closeTimer);
+    if (activeTooltip === this) activeTooltip = undefined;
     this.removeAttribute(openAttr);
   }
 
-  //method to flip the tooltip if it is not fully visible on the viewport
-  #flipTooltip() {
-    //get current position from attribute on hover 
-    const currentPosition = this.getAttribute('position');
+  #handleMouseEnter = () => {
+    clearTimeout(this.#closeTimer);
+    if (this.open) return;
+    clearTimeout(this.#openTimer);
+    this.#openTimer = setTimeout(() => this.#handleOpenTooltip(), openDelay);
+  };
 
-    //check if current position is a valid position otherwise make it fail.
-    if (!['left', 'right', 'top-start', 'top-end', 'top-center', 'bottom-start', 'bottom-end', 'bottom-center'].includes(currentPosition)) return;
-    
-    if (this.flipDisabled === false) {
-     
-      //break current position into tooltop position and arrow position
-      const [currentTooltip, currentArrow] = currentPosition.split('-');
+  #handleMouseLeave = () => {
+    clearTimeout(this.#openTimer);
+    clearTimeout(this.#closeTimer);
+    this.#closeTimer = setTimeout(() => this.#handleCloseTooltip(), closeDelay);
+  };
 
-      //get an array of the available positions
-      const availablePositions = this.#getValidPositions();
+  // returns the placement to render: the consumer's position, or a flipped one if it doesn't fit
+  #getPlacement() {
+    const position = this.position;
+    if (!positions.includes(position)) return 'top-center';
+    if (this.flipDisabled) return position;
 
-      //check if position selected by developer is available
-      const currentPositionAvailable = (position) =>
-        currentPosition === position;
+    const availablePositions = this.#getValidPositions();
+    if (availablePositions.includes(position)) return position;
 
-      //check if there is an available position with the same tooltipPosition but a different arrowPosition (top-end -> top-center)
-      const hasSameTooltipDifferentArrow = (position) =>
-        currentTooltip === position.split('-')[0];
+    const [currentTooltip, currentArrow] = position.split('-');
 
-      //check if the opposite position is available
-      const hasOppositePosition = (position) => {
-        const [newTooltip, newArrow] = position.split('-');
+    // same side, different arrow (top-end -> top-center)
+    const hasSameTooltipDifferentArrow = (p) => currentTooltip === p.split('-')[0];
 
-        return (
-          (currentPosition === 'left' && position === 'right') ||
-          (currentPosition === 'right' && position === 'left') ||
-          (currentTooltip === 'bottom' &&
-            newTooltip === 'top' &&
-            currentArrow === newArrow) ||
-          (currentTooltip === 'top' &&
-            newTooltip === 'bottom' &&
-            currentArrow === newArrow)
-        );
-      };
-  
-      //set the position attribute if the position selected by developer is valid but not available.
-        if (!availablePositions.some(currentPositionAvailable)) {
-          const newPosition =
-            availablePositions.find(hasSameTooltipDifferentArrow) ||
-            availablePositions.find(hasOppositePosition) ||
-            availablePositions[0];
-  
-          this.setAttribute('position', newPosition);
-        }
-      }
-    }
+    // opposite side, same arrow (top-end -> bottom-end, left -> right)
+    const hasOppositePosition = (p) => {
+      const [newTooltip, newArrow] = p.split('-');
+      return (
+        (position === 'left' && p === 'right') ||
+        (position === 'right' && p === 'left') ||
+        (currentTooltip === 'bottom' && newTooltip === 'top' && currentArrow === newArrow) ||
+        (currentTooltip === 'top' && newTooltip === 'bottom' && currentArrow === newArrow)
+      );
+    };
+
+    return (
+      availablePositions.find(hasSameTooltipDifferentArrow) ||
+      availablePositions.find(hasOppositePosition) ||
+      availablePositions[0] ||
+      position
+    );
+  }
 
   //method to check if the tooltip is fully visible on the screen
   #getValidPositions() {
+    const gap = 8; // matches the var(--jh-dimension-200) margin between tooltip and trigger
     const { tooltipWidth, tooltipHeight, elemHeight, elemWidth } =
       this.#getDimensions();
 
     const { elemLeft, elemRight, elemTop, elemBottom } = this.#getCoordinates();
 
     //Returns false if tooltip with position top (start/center/end) is out of the screen on the top
-    const topOutTop = elemTop - tooltipHeight > 0;
+    const topOutTop = elemTop - tooltipHeight - gap > 0;
 
     //Returns false if tooltip with position bottom (start/center/end) is out of the screen on the bottom
-    const bottomOutBottom = elemBottom - tooltipHeight > 0;
+    const bottomOutBottom = elemBottom - tooltipHeight - gap > 0;
 
     //Returns false if tooltip with position right is out of the screen on the right
-    const rightOutRight = elemRight - tooltipWidth > 0;
+    const rightOutRight = elemRight - tooltipWidth - gap > 0;
 
     //Returns false if tooltip with position left is out of the screen on the left
-    const leftOutLeft = elemLeft - tooltipWidth > 0;
+    const leftOutLeft = elemLeft - tooltipWidth - gap > 0;
 
     //Returns false if tooltip with position left or right is out of the screen on the top
     const sideOutTop = this.#calculateSimmetricPositions(
@@ -475,8 +473,7 @@ export class JhTooltip extends JhElement {
     return html`
       <slot @slotchange=${this.#handleSlotChange}></slot>
       <span
-        class="content ${ifDefined(this.open ? 'show' : null)}"
-        aria-hidden=${this.open ? 'false' : 'true'}>
+        class="content placement-${this._placement ?? this.position}" popover="manual">
         <slot name="jh-tooltip-content" @slotchange=${this.#handleContentSlotChange}></slot>
       </span>
 

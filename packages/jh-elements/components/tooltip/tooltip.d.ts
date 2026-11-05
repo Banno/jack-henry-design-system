@@ -33,6 +33,10 @@ export class JhTooltip extends JhElement {
             type: StringConstructor;
             reflect: boolean;
         };
+        _placement: {
+            type: StringConstructor;
+            state: boolean;
+        };
     };
     /**
      * Determines whether the tooltip flips to a different position when it reaches the edge of the viewport.
@@ -50,8 +54,12 @@ export class JhTooltip extends JhElement {
      * @type { 'left' | 'right' | 'top-start' | 'top-end' | 'top-center' | 'bottom-start' | 'bottom-end' | 'bottom-center' }
      */
     position: "left" | "right" | "top-start" | "top-end" | "top-center" | "bottom-start" | "bottom-end" | "bottom-center";
+    /**
+     * The placement of the tooltip when it needs to flip.
+     * @internal @type {string | undefined} */
+    _placement: string | undefined;
     /** @protected */
-    protected updated(): void;
+    protected updated(changedProperties: any): void;
     /** @protected */
     protected render(): import("lit").TemplateResult<1>;
     #private;

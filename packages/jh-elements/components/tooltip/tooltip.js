@@ -34,6 +34,10 @@ export class JhTooltip extends JhElement {
   #closeTimer;
   /** @type {number | undefined} */
   #openTimer;
+  /** @type {Element | null} */
+  #describedElement = null;
+  /** @type {number} */
+  #descriptionRequest = 0;
 
   static get styles() {
     return css`
@@ -222,15 +226,11 @@ export class JhTooltip extends JhElement {
      * @type { 'left' | 'right' | 'top-start' | 'top-end' | 'top-center' | 'bottom-start' | 'bottom-end' | 'bottom-center' }
      */
     this.position = 'top-center';
-     /** @internal @type {string | undefined} */
+     /** 
+      * The placement of the tooltip when it needs to flip.
+      * @internal @type {string | undefined} */
     this._placement = undefined;
   }
-
-  connectedCallback() {
-    super.connectedCallback();
-    /** @ignore */
-    this.id = `tooltip-describedby-${this.uniqueId}`;
-   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
@@ -249,24 +249,23 @@ export class JhTooltip extends JhElement {
     const hasContent = slot.assignedNodes().length > 0;
 
     if (hasContent) {
-      this.internals.role = 'tooltip';
       this.addEventListener('focus', this.#handleOpenTooltip, true);
       this.addEventListener('mouseenter', this.#handleMouseEnter);
       this.addEventListener('blur', this.#handleCloseTooltip, true);
       this.addEventListener('mouseleave', this.#handleMouseLeave);
     } else {
-      this.internals.role = '';
       this.#handleCloseTooltip();
       this.removeEventListener('focus', this.#handleOpenTooltip, true);
       this.removeEventListener('mouseenter', this.#handleMouseEnter);
       this.removeEventListener('blur', this.#handleCloseTooltip, true);
       this.removeEventListener('mouseleave', this.#handleMouseLeave);
     }
+    this.#updateDescription();
   }
 
   #handleSlotChange(e) {
-    //get id set previously in the constructor and set it to reference aria-describedby on the first element in the slot
-    const tooltipId = this.getAttribute('id');
+    this.#updateDescription();
+
     const slottedElements = e.target.assignedElements();
     const tooltipContent = this.shadowRoot.querySelector('slot[name="jh-tooltip-content"]').assignedElements();
 
@@ -274,14 +273,36 @@ export class JhTooltip extends JhElement {
       return;
     }
     const triggerElement = slottedElements[0];
-    triggerElement.setAttribute('aria-describedby', tooltipId);
 
     //get display property of element in slot and set it on the jh-tooltip.
     const tooltipDisplay = window.getComputedStyle(triggerElement).display;
     this.style.setProperty('display', tooltipDisplay );
   }
 
-  //calls flipTooltip whenever the tooltip is updated, including manually opened with 'open' property.
+  // for aria-describedby: links the focusable element to the tooltip content; it may be inside the trigger's shadow root (e.g. jh-button)
+  async #updateDescription() {
+    const request = ++this.#descriptionRequest;
+    const [trigger] = this.shadowRoot.querySelector('slot:not([name])').assignedElements();
+    const content = this.shadowRoot.querySelector('slot[name="jh-tooltip-content"]').assignedElements();
+
+    if (this.#describedElement) this.#describedElement.ariaDescribedByElements = null;
+    this.#describedElement = null;
+    if (!trigger || content.length === 0) return;
+
+    // Lit triggers render their shadow content asynchronously
+    await trigger.updateComplete;
+    // a newer slot change superseded this one while waiting
+    if (request !== this.#descriptionRequest) return;
+
+    const focusable = 'button, a[href], input, select, textarea, [tabindex]';
+    const focusTarget = trigger.matches(focusable)
+      ? trigger
+      : trigger.shadowRoot?.querySelector(focusable) ?? trigger;
+    focusTarget.ariaDescribedByElements = content;
+    this.#describedElement = focusTarget;
+  }
+
+  //calls getPlacement() whenever the tooltip is updated, including manually opened with 'open' property.
   /** @protected */
   updated(changedProperties) {
     if (changedProperties.has('open')) {
@@ -302,7 +323,7 @@ export class JhTooltip extends JhElement {
   }
 
   #handleOpenTooltip() {
-    if (activeTooltip !== this) activeTooltip?.#handleCloseTooltip();
+    if (activeTooltip && activeTooltip !== this) activeTooltip.#handleCloseTooltip();
     activeTooltip = this;
     this.setAttribute(openAttr, '');
   }
@@ -473,7 +494,9 @@ export class JhTooltip extends JhElement {
     return html`
       <slot @slotchange=${this.#handleSlotChange}></slot>
       <span
-        class="content placement-${this._placement ?? this.position}" popover="manual">
+        class="content placement-${this._placement ?? this.position}"
+        role="tooltip"
+        popover="manual">
         <slot name="jh-tooltip-content" @slotchange=${this.#handleContentSlotChange}></slot>
       </span>
 

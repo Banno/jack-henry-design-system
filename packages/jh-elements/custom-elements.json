@@ -19393,6 +19393,13 @@
               "description": "The position of the tooltip and its arrow.",
               "default": "'top-center'",
               "fieldName": "position"
+            },
+            {
+              "name": "_placement",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "_placement"
             }
           ],
           "superclass": {

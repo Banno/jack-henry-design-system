@@ -6865,6 +6865,12 @@
                 "type": "'left' | 'right' | 'top-start' | 'top-end' | 'top-center' | 'bottom-start' | 'bottom-end' | 'bottom-center'",
                 "default": "'top-center'"
               }
+            },
+            {
+              "name": "_placement",
+              "value": {
+                "type": "string"
+              }
             }
           ],
           "slots": [

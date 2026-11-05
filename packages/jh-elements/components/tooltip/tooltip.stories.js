@@ -319,7 +319,7 @@ export const InScrollingMenu = {
 };
 InScrollingMenu.args = {
   position: 'right',
-  open: false,
+  open: true,
   'flip-disabled': false,
 };
 InScrollingMenu.parameters = { styles: storyStyles };

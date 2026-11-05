@@ -5,6 +5,8 @@
 import { html, css } from 'lit';
 import './tooltip.js';
 import '../button/button.js';
+import '../menu/menu.js';
+import '../list-item/list-item.js';
 import '@jack-henry/jh-icons/icons-wc/icon-ellipsis.js';
 
 const storyStyles = css`
@@ -44,7 +46,14 @@ const storyStyles = css`
     width: 100%;
     padding-top: 120px;
   }
+  .menu-wrapper {
+    height: 200px;
+    width: 220px;
+    margin: 40px auto;
+  }
 `;
+
+const menuItems = Array.from({ length: 12 }, (_, i) => i + 1);
 
 const disabledControls = {
   position: { control: { disable: true } },
@@ -284,3 +293,33 @@ FlippingTooltip.argTypes = {
   open: { table: { disable: true } },
   'flip-disabled': { table: { disable: true } },
 };
+
+// `open` forces the tooltip on Item 3 open, to check how it behaves when Item 3 scrolls out of view
+export const InScrollingMenu = {
+  render: (args) => html`
+    <div class="menu-wrapper">
+      <jh-menu>
+        ${menuItems.map(
+          (n) => html`
+            <jh-list-item
+                role="menuitem"
+                ?show-divider=${n !== menuItems.length}>
+            <jh-tooltip
+              position=${args.position}
+              ?open=${args.open && n === 3}
+              ?flip-disabled=${args['flip-disabled']}>
+              <span slot="jh-tooltip-content">Details about item ${n}</span>
+              <jh-button label="Item ${n}"></jh-button>
+            </jh-tooltip>
+            </jh-list-item>
+          `
+        )}
+      </jh-menu>
+    </div>`,
+};
+InScrollingMenu.args = {
+  position: 'right',
+  open: false,
+  'flip-disabled': false,
+};
+InScrollingMenu.parameters = { styles: storyStyles };

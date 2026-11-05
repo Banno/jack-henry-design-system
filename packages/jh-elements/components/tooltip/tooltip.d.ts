@@ -3,8 +3,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 /**
- * Tooltips are floating components that appears when a user hovers or focuses onto an originating element
- * such as a button, icon or link. They display additional information about the originating element which is not
+ * Tooltips are floating components that appear when a user hovers or focuses onto a focusable originating element
+ * such as a button or link. They display additional information about the originating element which is not
  * critical in nature.
  *
  * [Tooltip Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tooltip--docs)
@@ -50,13 +50,15 @@ export class JhTooltip extends JhElement {
      */
     open: boolean;
     /**
-     * The position of the tooltip and its arrow.
+     * The position of the tooltip and its arrow. If the tooltip doesn't fit, it renders on another side;
+     * the attribute keeps the value you set.
      * @type { 'left' | 'right' | 'top-start' | 'top-end' | 'top-center' | 'bottom-start' | 'bottom-end' | 'bottom-center' }
      */
     position: "left" | "right" | "top-start" | "top-end" | "top-center" | "bottom-start" | "bottom-end" | "bottom-center";
     /**
      * The placement of the tooltip when it needs to flip.
-     * @internal @type {string | undefined} */
+     * @internal @type {string | undefined}
+     */
     _placement: string | undefined;
     /** @protected */
     protected updated(changedProperties: any): void;

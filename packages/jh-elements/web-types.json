@@ -6839,7 +6839,7 @@
         },
         {
           "name": "jh-tooltip",
-          "description": "Tooltips are floating components that appears when a user hovers or focuses onto an originating element \nsuch as a button, icon or link. They display additional information about the originating element which is not \ncritical in nature.\n\n[Tooltip Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tooltip--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert the element that triggers the tooltip.\n- **jh-tooltip-content** - Use to insert the content of the tooltip.",
+          "description": "Tooltips are floating components that appear when a user hovers or focuses onto a focusable originating element \nsuch as a button or link. They display additional information about the originating element which is not \ncritical in nature.\n\n[Tooltip Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tooltip--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert the element that triggers the tooltip.\n- **jh-tooltip-content** - Use to insert the content of the tooltip.",
           "doc-url": "",
           "attributes": [
             {
@@ -6860,7 +6860,7 @@
             },
             {
               "name": "position",
-              "description": "The position of the tooltip and its arrow.",
+              "description": "The position of the tooltip and its arrow. If the tooltip doesn't fit, it renders on another side;\nthe attribute keeps the value you set.",
               "value": {
                 "type": "'left' | 'right' | 'top-start' | 'top-end' | 'top-center' | 'bottom-start' | 'bottom-end' | 'bottom-center'",
                 "default": "'top-center'"
@@ -6898,7 +6898,7 @@
               },
               {
                 "name": "position",
-                "description": "The position of the tooltip and its arrow.",
+                "description": "The position of the tooltip and its arrow. If the tooltip doesn't fit, it renders on another side;\nthe attribute keeps the value you set.",
                 "type": "'left' | 'right' | 'top-start' | 'top-end' | 'top-center' | 'bottom-start' | 'bottom-end' | 'bottom-center'"
               },
               {

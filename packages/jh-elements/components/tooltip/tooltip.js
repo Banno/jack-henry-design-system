@@ -7,14 +7,19 @@ import { JhElement } from '../element/element.js';
 
 const openAttr = 'open';
 const positions = ['left', 'right', 'top-start', 'top-end', 'top-center', 'bottom-start', 'bottom-end', 'bottom-center'];
+// time the pointer has to cross the gap between the trigger and the tooltip
 const closeDelay = 100;
+// time the pointer has to rest on the trigger before the tooltip opens
 const openDelay = 100;
-/** @type {JhTooltip | undefined} */
+/** 
+ * the tooltip last opened by hover or focus; only one is open at a time
+ * @type {JhTooltip | undefined} 
+ */
 let activeTooltip;
 
 /**
- * Tooltips are floating components that appears when a user hovers or focuses onto an originating element 
- * such as a button, icon or link. They display additional information about the originating element which is not 
+ * Tooltips are floating components that appear when a user hovers or focuses onto a focusable originating element 
+ * such as a button or link. They display additional information about the originating element which is not 
  * critical in nature.
  * 
  * [Tooltip Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tooltip--docs)
@@ -69,10 +74,18 @@ export class JhTooltip extends JhElement {
         overflow: visible; /* keeps the ::before arrow from being clipped */
         margin: 0;
         inset: auto;
+        position-visibility: anchors-visible;
+      }
+      .content:popover-open {
+        transition: opacity 0.3s cubic-bezier(0.1, 0.5, 0.1, 1);
+      }
+      @starting-style {
+        .content:popover-open {
+          opacity: 0;
+        }
       }
       span::before {
         position: absolute;
-        z-index: 1060;
         width: 0;
         height: 0;
         pointer-events: none;
@@ -139,7 +152,7 @@ export class JhTooltip extends JhElement {
         right: 100%;
         bottom: 50%;
       }
-            @supports (anchor-name: --a) {
+      @supports (anchor-name: --a) {
         /* main axis: place against the trigger with the 8px gap */
         .content.placement-top-start,
         .content.placement-top-center,
@@ -222,26 +235,30 @@ export class JhTooltip extends JhElement {
      */
     this.open = false;
     /**
-     * The position of the tooltip and its arrow.
+     * The position of the tooltip and its arrow. If the tooltip doesn't fit, it renders on another side;
+     * the attribute keeps the value you set.
      * @type { 'left' | 'right' | 'top-start' | 'top-end' | 'top-center' | 'bottom-start' | 'bottom-end' | 'bottom-center' }
      */
     this.position = 'top-center';
-     /** 
-      * The placement of the tooltip when it needs to flip.
-      * @internal @type {string | undefined} */
+    /** 
+     * The placement of the tooltip when it needs to flip.
+     * @internal @type {string | undefined} 
+     */
     this._placement = undefined;
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    // the browser hides a popover when it's removed; reopen it if the tooltip is reconnected while open
+    if (this.hasUpdated) this.requestUpdate('open', false);
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    this.removeEventListener('focus', this.#handleOpenTooltip, true);
-    this.removeEventListener('mouseenter', this.#handleMouseEnter);
-    this.removeEventListener('blur', this.#handleCloseTooltip, true);
-    this.removeEventListener('mouseleave', this.#handleMouseLeave);
-    document.removeEventListener('keydown', this.#handleKeyDown);
+    if (activeTooltip === this) this.#handleCloseTooltip();
     clearTimeout(this.#openTimer);
     clearTimeout(this.#closeTimer);
-    if (activeTooltip === this) activeTooltip = undefined;
+    document.removeEventListener('keydown', this.#handleKeyDown);
   }
 
   #handleContentSlotChange(e) {
@@ -319,8 +336,8 @@ export class JhTooltip extends JhElement {
   }
 
   #handleKeyDown = (e) => {
-    if (e.key === 'Escape') this.#handleCloseTooltip();
-  }
+    if (e.key === 'Escape' && activeTooltip === this) this.#handleCloseTooltip();
+  };
 
   #handleOpenTooltip() {
     if (activeTooltip && activeTooltip !== this) activeTooltip.#handleCloseTooltip();
@@ -499,7 +516,6 @@ export class JhTooltip extends JhElement {
         popover="manual">
         <slot name="jh-tooltip-content" @slotchange=${this.#handleContentSlotChange}></slot>
       </span>
-
     `;
   }
 }

@@ -14,7 +14,7 @@ import * as stories from './dialog.stories.js';
 
 <hr />
 
-*Introduce the component*
+Dialogs are modal windows that appear on top of the main content to focus the user's attention on a task or important information.
 
 ## Usage
 
@@ -24,49 +24,72 @@ Import the `<jh-dialog>` component:
 import '@jack-henry/jh-elements/components/dialog/dialog.js';
 ```
 
-To use `<jh-dialog>`: *can include details about slot or anything relevant. Keep this short as it is just a code snippet to get the author started.* 
+To use `<jh-dialog>`, supply content within the corresponding slots and open the dialog by setting the `open` property or calling the `show()` method.
 
 ```html
-//code snippet goes here
+<jh-button label="Open dialog" id="trigger"></jh-button>
+<jh-dialog id="dialog" show-dismiss-button>
+  <h2 slot="jh-dialog-header">Dialog header</h2>
+  <p>Dialog body content</p>
+  <div slot="jh-dialog-footer">
+    <jh-button appearance="primary" label="Confirm"></jh-button>
+  </div>
+</jh-dialog>
 ```
 
-## Unique Details
-*Identify anything the author needs to know about this component. This can be broken out per section as needed. Ex. Behaviors, Layouts, Interactivity etc.*
+## Dependencies
+The dialog component makes use of both required compositional and suggested content related dependencies.
+
+1. Composition - the following required dependencies are automatically imported:
+
+- `<jh-button>`. [Button component documentation](/docs/components-button--docs).
+- `<jh-divider>`. [Divider component documentation](/docs/components-divider--docs).
+- `<jh-icon-xmark>`. [Iconography documentation](/docs/iconography-overview--docs).
+
+2. Content -  the following suggested dependencies should be imported when needed: 
+
+- `<jh-button>`. [Button component documentation](/docs/components-button--docs).
+
+## Opening and closing
+
+The dialog is rendered with a native `<dialog>` element and is opened as a modal in the top layer, which makes the rest of the page inert and displays a backdrop.
+
+- Open the dialog by setting the `open` attribute/property or by calling `show()`.
+- Close the dialog by removing the `open` attribute/property, calling `close()`, pressing the `Escape` key, activating the dismiss button or, when `show-dismiss-button` is set, clicking the backdrop outside the dialog.
+- The `jh-open` event is dispatched when the dialog opens and the `jh-close` event is dispatched when the dialog closes. The method used to close the dialog is available via `e.detail.reference.closeMethod` and is one of `backdrop-click`, `dismiss-button`, `escape` or `programmatic`.
 
 ## Accessibility
 
-This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria. 
+This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria.
 The following success criteria are of concern:
 
-- *[WCAG 1.1.1 Non-text Content](https://www.w3.org/TR/WCAG22/#non-text-content): All non-text content that is presented to the user has a text alternative that serves the equivalent purpose.*
+- [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html): Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.
+- [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html): All functionality of the content is operable through a keyboard interface.
+- [WCAG 2.1.2 No Keyboard Trap](https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html): If keyboard focus can be moved to a component of the page using a keyboard interface, then focus can be moved away from that component using only a keyboard interface.
+- [WCAG 2.4.3 Focus Order](https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html): Focusable components receive focus in an order that preserves meaning and operability.
+- [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html): For all user interface components, the name and role can be programmatically determined.
 
 ### What we provide
 
-*Highlight built-in accessibility features and reference any WCAG guideline(s) it satisfies.*
+- To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html), the dialog is rendered with a native `<dialog>` element and is named by the content of the `jh-dialog-header` slot. The dismiss button has an accessible label of "Close" by default, which can be changed with the `dismiss-button-accessible-label` attribute.
+- To satisfy [WCAG 2.4.3 Focus Order](https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html), focus moves into the dialog when it opens, is contained within the dialog while it is open and returns to the previously focused element when it closes.
+- To satisfy [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html) and [WCAG 2.1.2 No Keyboard Trap](https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html), the dialog can be closed with the `Escape` key and, when the body content overflows, the body region is keyboard focusable so it can be scrolled with the keyboard.
 
 ### Author Guidance
 
-*Highlight accessibility considerations that authors need to take into account to effectively ensure the component can be made accessible. These are features that we have either not built-in or exposed for the author to use. Reference all WCAG guidelines that the features satisfy.*
+- To satisfy [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html), use a heading element with the appropriate level within the `jh-dialog-header` slot.
+- To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html), always provide `jh-dialog-header` content so the dialog has an accessible name. Provide alternative text for meaningful content placed in the `jh-dialog-media` slot, or an empty `alt` for decorative images.
+- To satisfy [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html), ensure the dialog can always be closed. If the dismiss button is hidden, include an action in the footer that closes the dialog.
 
 ## Component API
 
-*Include any special instructions for example:*
-
-For boolean attributes, true indicates that the attribute has been set without a value: `<jh-dialog add-relevant-boolean></jh-dialog>`. While false indicates the attribute does not exist in the DOM: `<jh-dialog></jh-dialog>`.
+For boolean attributes, true indicates that the attribute has been set without a value: `<jh-dialog show-dismiss-button></jh-dialog>`. While false indicates the attribute does not exist in the DOM: `<jh-dialog></jh-dialog>`.
 
 <ArgTypes />
 
-## Unique Story #1
-
-*(Optional) Highlight unique details an author will need to know along with a story demonstration*
-
-## Unique Story #2
-
-*(Optional) Highlight unique details an author will need to know along with a story demonstration*
-
 ## Feedback
 
-Have an idea that will improve this component or have an issue to report? Let us know by submitting 
+Have an idea that will improve this component or have an issue to report? Let us know by submitting
 an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
 
 Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).

@@ -63,12 +63,32 @@ To control which layer is on top, reorder the elements in your markup. If the so
 
 `alignment` sets where layers sit within the stack. By default it is `fill`, so each layer covers the whole stack. Any other value pins every layer to that edge or corner at its natural size:
 
-| Value | Position |
-|---|---|
-| `fill` (default) | Layers cover the whole stack |
-| `top-leading`, `top`, `top-trailing` | Top edge: leading corner, centered, trailing corner |
-| `leading`, `center`, `trailing` | Middle row: leading edge, centered, trailing edge |
-| `bottom-leading`, `bottom`, `bottom-trailing` | Bottom edge: leading corner, centered, trailing corner |
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Position</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>fill</code> (default)</td>
+      <td>Layers cover the whole stack</td>
+    </tr>
+    <tr>
+      <td><code>top-leading</code>, <code>top</code>, <code>top-trailing</code></td>
+      <td>Top edge: leading corner, centered, trailing corner</td>
+    </tr>
+    <tr>
+      <td><code>leading</code>, <code>center</code>, <code>trailing</code></td>
+      <td>Middle row: leading edge, centered, trailing edge</td>
+    </tr>
+    <tr>
+      <td><code>bottom-leading</code>, <code>bottom</code>, <code>bottom-trailing</code></td>
+      <td>Bottom edge: leading corner, centered, trailing corner</td>
+    </tr>
+  </tbody>
+</table>
 
 `leading` and `trailing` are the logical equivalents of left and right, so they follow the writing direction: in right-to-left languages, `top-trailing` is the top-left corner.
 

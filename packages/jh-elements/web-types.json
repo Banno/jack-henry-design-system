@@ -756,6 +756,179 @@
           }
         },
         {
+          "name": "jh-dialog",
+          "description": "Dialogs are modal windows that appear on top of the main content to focus the user's attention on a task or important information.\n\n[Dialog Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-dialog--docs)\n---\n\n\n### **Events:**\n - **jh-open** - Dispatched when the dialog opens.\n- **jh-close** - Dispatched when the dialog closes. Event payload includes the close method of the dialog and can be accessed via `e.detail.reference.closeMethod`. Possible values are `backdrop-click`, `dismiss-button`, `escape` and `programmatic`.\n\n### **Methods:**\n - **show()** - Opens the dialog as a modal.\n- **close()** - Closes the dialog.\n\n### **Slots:**\n - **default** - Use to insert dialog body content.\n- **jh-dialog-media** - Use to insert media content at the top of the dialog. User may need to add additional styling to elements such as border, object-fit, etc.\n- **jh-dialog-header** - Use to insert custom dialog header layout. Used as the accessible name of the dialog.\n- **jh-dialog-footer** - Use to insert custom dialog footer layout, such as action buttons.\n- **jh-dialog-dismiss-icon** - Use to change the default icon within the dismiss button.",
+          "doc-url": "",
+          "attributes": [
+            {
+              "name": "dismiss-button-accessible-label",
+              "description": "Adds an aria-label to the dismiss button to assist screen readers.",
+              "value": {
+                "type": "string",
+                "default": "'Close'"
+              }
+            },
+            {
+              "name": "footer-inset",
+              "description": "Sets the alignment of the left edge of the divider above the footer.",
+              "value": {
+                "type": "\"0\"|\"8\"|\"16\"|\"24\"|\"32\"|\"40\"|\"48\"|\"56\"|\"64\"|\"72\"|\"80\"|\"88\"|\"96\"",
+                "default": "0"
+              }
+            },
+            {
+              "name": "header-inset",
+              "description": "Sets the alignment of the left edge of the divider below the header.",
+              "value": {
+                "type": "\"0\"|\"8\"|\"16\"|\"24\"|\"32\"|\"40\"|\"48\"|\"56\"|\"64\"|\"72\"|\"80\"|\"88\"|\"96\"",
+                "default": "0"
+              }
+            },
+            {
+              "name": "show-dismiss-button",
+              "description": "Displays a dismiss button. When true, the dialog can also be closed by clicking the backdrop outside the dialog.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
+              "name": "show-footer-divider",
+              "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
+              "name": "show-header-divider",
+              "description": "Adds a divider below the header to create a clearer definition between the header and body.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
+              "name": "open",
+              "description": "Determines whether the dialog is open or closed.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
+              "name": "size",
+              "description": "Sets the max-width of the dialog container.",
+              "value": {
+                "type": "'small' | 'medium' | 'large'",
+                "default": "'medium'"
+              }
+            },
+            {
+              "name": "_hasHeader",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "_isOverflowing",
+              "value": {
+                "type": "string"
+              }
+            }
+          ],
+          "slots": [
+            {
+              "name": "default",
+              "description": "Use to insert dialog body content."
+            },
+            {
+              "name": "jh-dialog-media",
+              "description": "Use to insert media content at the top of the dialog. User may need to add additional styling to elements such as border, object-fit, etc."
+            },
+            {
+              "name": "jh-dialog-header",
+              "description": "Use to insert custom dialog header layout. Used as the accessible name of the dialog."
+            },
+            {
+              "name": "jh-dialog-footer",
+              "description": "Use to insert custom dialog footer layout, such as action buttons."
+            },
+            {
+              "name": "jh-dialog-dismiss-icon",
+              "description": "Use to change the default icon within the dismiss button."
+            }
+          ],
+          "events": [
+            {
+              "name": "jh-open",
+              "description": "Dispatched when the dialog opens."
+            },
+            {
+              "name": "jh-close",
+              "description": "Dispatched when the dialog closes. Event payload includes the close method of the dialog and can be accessed via `e.detail.reference.closeMethod`. Possible values are `backdrop-click`, `dismiss-button`, `escape` and `programmatic`."
+            }
+          ],
+          "js": {
+            "properties": [
+              {
+                "name": "dismissButtonAccessibleLabel",
+                "description": "Adds an aria-label to the dismiss button to assist screen readers.",
+                "type": "string"
+              },
+              {
+                "name": "footerInset",
+                "description": "Sets the alignment of the left edge of the divider above the footer.",
+                "type": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96"
+              },
+              {
+                "name": "headerInset",
+                "description": "Sets the alignment of the left edge of the divider below the header.",
+                "type": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96"
+              },
+              {
+                "name": "open",
+                "description": "Determines whether the dialog is open or closed.",
+                "type": "boolean"
+              },
+              {
+                "name": "showDismissButton",
+                "description": "Displays a dismiss button. When true, the dialog can also be closed by clicking the backdrop outside the dialog.",
+                "type": "boolean"
+              },
+              {
+                "name": "showFooterDivider",
+                "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
+                "type": "boolean"
+              },
+              {
+                "name": "showHeaderDivider",
+                "description": "Adds a divider below the header to create a clearer definition between the header and body.",
+                "type": "boolean"
+              },
+              {
+                "name": "size",
+                "description": "Sets the max-width of the dialog container.",
+                "type": "'small' | 'medium' | 'large'"
+              },
+              {
+                "name": "uniqueId",
+                "type": "number"
+              }
+            ],
+            "events": [
+              {
+                "name": "jh-open",
+                "description": "Dispatched when the dialog opens."
+              },
+              {
+                "name": "jh-close",
+                "description": "Dispatched when the dialog closes. Event payload includes the close method of the dialog and can be accessed via `e.detail.reference.closeMethod`. Possible values are `backdrop-click`, `dismiss-button`, `escape` and `programmatic`."
+              }
+            ]
+          }
+        },
+        {
           "name": "jh-divider",
           "description": "Dividers are used to group content vertically at the page or component level and should be used when whitespace does not provide a clear enough separation.\n\n[Divider Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-divider--docs)\n---\n",
           "doc-url": "",
@@ -7682,6 +7855,54 @@
         {
           "name": "--jh-checkbox-status-color-border-indeterminate-disabled",
           "description": "The checkbox color when indeterminate status mark when disabled. Defaults to `--jh-color-content-on-brand-enabled`."
+        },
+        {
+          "name": "--jh-dialog-color-background",
+          "description": "The dialog background-color. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-dialog-border-radius",
+          "description": "The dialog border-radius. Defaults to `--jh-border-radius-300`. When the viewport is 440px or smaller, defaults to `0`."
+        },
+        {
+          "name": "--jh-dialog-shadow",
+          "description": "The dialog box-shadow. Defaults to `--jh-shadow-overlay`. When the viewport is 440px or smaller, defaults to `none`."
+        },
+        {
+          "name": "--jh-dialog-dimension-padding-horizontal",
+          "description": "The horizontal padding for the dialog content. Defaults to `--jh-dimension-600`."
+        },
+        {
+          "name": "--jh-dialog-overlay-color-background",
+          "description": "The backdrop color displayed behind the dialog. Defaults to `--jh-color-overlay`."
+        },
+        {
+          "name": "--jh-dialog-overlay-dimension-padding-vertical",
+          "description": "The vertical padding for the dialog overlay. Defaults to `--jh-dimension-1000`."
+        },
+        {
+          "name": "--jh-dialog-overlay-dimension-padding-horizontal",
+          "description": "The horizontal padding for the dialog overlay. Defaults to `--jh-dimension-1000`."
+        },
+        {
+          "name": "--jh-dialog-dimension-max-width",
+          "description": "The dialog max-width. Defaults to `480px` when `size=\"small\"`, `640px` when `size=\"medium\"` and `800px` when `size=\"large\"`."
+        },
+        {
+          "name": "--jh-dialog-media-aspect-ratio",
+          "description": "The media slot aspect-ratio. Defaults to `auto`."
+        },
+        {
+          "name": "--jh-dialog-header-color-text",
+          "description": "The header slot text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-dialog-default-color-text",
+          "description": "The default slot text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-dialog-footer-color-text",
+          "description": "The footer slot text color. Defaults to `--jh-color-content-secondary-enabled`."
         },
         {
           "name": "--jh-divider-border-width",

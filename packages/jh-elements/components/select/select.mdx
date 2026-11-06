@@ -54,7 +54,8 @@ Authors must provide the options as an array of objects to the `.options` proper
 - Options can be made disabled by setting the `disabled: true` flag. 
 - Flag an option as `selected: true` to set the initial default when no `value` is provided. 
 Once a `value` is set — either by the author or by user interaction — the `selected` flag is ignored. Use the `value` attribute or property to control the selected option.
-- An empty option can be included by providing an `option` object with a `label` string and an empty string for the `value` (e.g. `{ label: "Select a state...", value: "" }`). 
+- An empty option can be included by providing an `option` object with a `label` string and an empty string for the `value` (e.g. `{ label: "Select a state...", value: "" }`).
+- An optional `leading` field renders content before the label, in the option's left slot. Pass a Lit template or a string, such as an icon. An optional `secondary` string renders as a second line under the label. Filtering still matches `label`, and the input shows the label. Items in `groupValues` accept `leading` and `secondary` the same way. 
 
 Options can be provided in a flat structure or grouped by category: 
 - Flat options are displayed as `jh-list-item` elements, 
@@ -67,6 +68,29 @@ const flatOptions = [
   { label: "Basic Checking", value: "checking-01" },
   { label: "High-Yield Savings", value: "savings-01", disabled: true },
   { label: "Money Market", value: "money-market-01", selected: true },
+];
+```
+
+Pass an icon as `leading` when an option should show content before its label. Set `secondary` for a second line under the label:
+
+```javascript
+import { html } from 'lit';
+import '@jack-henry/jh-icons/icons-wc/icon-wallet.js';
+import '@jack-henry/jh-icons/icons-wc/icon-piggy-bank.js';
+
+const optionsWithLeading = [
+  {
+    label: "Basic Checking",
+    value: "checking-01",
+    leading: html`<jh-icon-wallet></jh-icon-wallet>`,
+    secondary: "Everyday spending",
+  },
+  {
+    label: "High-Yield Savings",
+    value: "savings-01",
+    leading: html`<jh-icon-piggy-bank></jh-icon-piggy-bank>`,
+    secondary: "Earns interest",
+  },
 ];
 ```
 

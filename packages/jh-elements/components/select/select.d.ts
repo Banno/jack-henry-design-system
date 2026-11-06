@@ -15,6 +15,7 @@
  * @cssprop --jh-select-menu-shadow - The menu box-shadow. Defaults to `--jh-shadow-high`.
  * @cssprop --jh-select-menu-color-background - The menu container background-color. Defaults to `--jh-color-container-primary-enabled`.
  * @cssprop --jh-select-menu-space-padding - The menu container padding. Defaults to `--jh-dimension-200 0`.
+ * @cssprop --jh-select-menu-space-offset - The gap between the input and the menu. Defaults to `var(--jh-dimension-100)`.
  * @cssprop --jh-select-menu-size-max-width - The menu maximum width. Defaults to `none`.
  * @cssprop --jh-select-menu-size-min-width - The menu minimum width. Defaults to `none`.
  * @cssprop --jh-select-menu-size-max-height - The menu maximum height. Defaults to `480px`.

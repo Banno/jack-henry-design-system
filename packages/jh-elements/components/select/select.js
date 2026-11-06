@@ -28,6 +28,7 @@ import { JhFilter } from './filtering.js';
  * @cssprop --jh-select-menu-shadow - The menu box-shadow. Defaults to `--jh-shadow-high`.
  * @cssprop --jh-select-menu-color-background - The menu container background-color. Defaults to `--jh-color-container-primary-enabled`.
  * @cssprop --jh-select-menu-space-padding - The menu container padding. Defaults to `--jh-dimension-200 0`.
+ * @cssprop --jh-select-menu-space-offset - The gap between the input and the menu. Defaults to `var(--jh-dimension-100)`.
  * @cssprop --jh-select-menu-size-max-width - The menu maximum width. Defaults to `none`.
  * @cssprop --jh-select-menu-size-min-width - The menu minimum width. Defaults to `none`.
  * @cssprop --jh-select-menu-size-max-height - The menu maximum height. Defaults to `480px`.
@@ -701,20 +702,33 @@ export class JhSelect extends JhInput {
     //check if current position is a valid position otherwise make it fail.
     if (!['top', 'bottom'].includes(currentPosition)) return;
 
+    const offset = this.#menuSpaceOffset();
+
     if (this.flipDisabled) {
-      this.#setMenuAnchor(currentPosition);
+      this.#setMenuAnchor(currentPosition, offset);
       return;
     }
 
     //get an array of the available positions
-    const availablePositions = this.#getValidPositions();
+    const availablePositions = this.#getValidPositions(offset);
 
     //if only 1 position is available, set the menu anchor to that position, otherwise keep the current position.
     const newPosition = availablePositions.length === 1 ? availablePositions[0] : currentPosition;
-    this.#setMenuAnchor(newPosition);
+    this.#setMenuAnchor(newPosition, offset);
   }
 
-  #setMenuAnchor(position) {
+  // Resolved pixel value of --jh-select-menu-space-offset (default --jh-dimension-100).
+  #menuSpaceOffset() {
+    const probe = document.createElement('div');
+    probe.style.cssText =
+      'position:absolute;visibility:hidden;pointer-events:none;height:var(--jh-select-menu-space-offset, var(--jh-dimension-100));';
+    this.shadowRoot.append(probe);
+    const offset = probe.getBoundingClientRect().height;
+    probe.remove();
+    return offset;
+  }
+
+  #setMenuAnchor(position, offset) {
     const hostRect = this.getBoundingClientRect();
     const inputRect = this.#inputWrapper.getBoundingClientRect();
 
@@ -726,29 +740,30 @@ export class JhSelect extends JhInput {
     this.#menuContainer.style.bottom = '';
 
     if (position === 'bottom') {
-      // Menu opens right below the native input
-      this.#menuContainer.style.top = `${inputBottomRelative}px`;
+      // Menu opens below the input, leaving the offset so it clears the focus ring
+      this.#menuContainer.style.top = `${inputBottomRelative + offset}px`;
     } else if (position === 'top') {
-      // Menu opens right above the native input
+      // Menu opens above the input, leaving the same offset
       // bottom is relative to the bottom of :host
       const inputTopFromHostBottom = hostRect.height - inputTopRelative;
-      this.#menuContainer.style.bottom = `${inputTopFromHostBottom}px`;
+      this.#menuContainer.style.bottom = `${inputTopFromHostBottom + offset}px`;
     }
   }
 
   //method to check if the menu is fully visible on the screen
-  #getValidPositions() {
+  #getValidPositions(offset) {
     const { menuHeight } = this.#getDimensions();
 
     const { elemTop, elemBottom } = this.#getCoordinates();
 
     const elemFromBottom = window.innerHeight - elemBottom;
 
-    //Returns false if menu with position top is out of the screen on the top
-    const topOutTop = elemTop - menuHeight > 0;
+    // Include the gap so a menu that still fits with the offset does not flip.
+    // Returns false if menu with position top is out of the screen on the top
+    const topOutTop = elemTop - menuHeight - offset > 0;
 
-    //Returns false if menu with position bottom is out of the screen on the bottom
-    const bottomOutBottom = elemFromBottom - menuHeight > 0;
+    // Returns false if menu with position bottom is out of the screen on the bottom
+    const bottomOutBottom = elemFromBottom - menuHeight - offset > 0;
 
     //returns true if the condition is met.
     const allPositions = {

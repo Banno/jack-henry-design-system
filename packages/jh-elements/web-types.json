@@ -9556,6 +9556,10 @@
           "description": "The menu container padding. Defaults to `--jh-dimension-200 0`."
         },
         {
+          "name": "--jh-select-menu-space-offset",
+          "description": "The gap between the input and the menu. Defaults to `var(--jh-dimension-100)`."
+        },
+        {
           "name": "--jh-select-menu-size-max-width",
           "description": "The menu maximum width. Defaults to `none`."
         },

@@ -37,6 +37,7 @@ const pageHtml = `<!doctype html>
             label: 'Basic Checking',
             value: 'checking-01',
             leading: html\`<span class="lead-mark">lead-checking</span>\`,
+            secondary: 'Everyday spending',
           },
           { label: 'High-Yield Savings', value: 'savings-01' },
           { label: 'Money Market', value: 'money-market-01', leading: 'MM' },
@@ -47,6 +48,7 @@ const pageHtml = `<!doctype html>
                 label: 'Travel Rewards',
                 value: 'cc-travel',
                 leading: html\`<span class="lead-mark">lead-travel</span>\`,
+                secondary: 'Rewards on travel',
               },
             ],
           },
@@ -65,15 +67,24 @@ const pageHtml = `<!doctype html>
           checking?.shadowRoot?.querySelector('slot[name="jh-list-item-left"]')?.classList.contains('has-content'),
           'list-item did not treat the left slot as filled',
         );
+        check(
+          checking?.getAttribute('secondary-text') === 'Everyday spending',
+          'option with secondary did not render secondary-text',
+        );
 
         const savings = option('High-Yield Savings');
         check(savings && !leftSlot(savings), 'option without leading rendered left-slot content');
+        check(savings && !savings.hasAttribute('secondary-text'), 'option without secondary rendered secondary-text');
 
         const moneyMarket = option('Money Market');
         check(leftSlot(moneyMarket)?.textContent.trim() === 'MM', 'string leading did not render in the left slot');
 
         const travel = option('Travel Rewards');
         check(leftSlot(travel)?.textContent.includes('lead-travel'), 'grouped option leading did not render in the left slot');
+        check(
+          travel?.getAttribute('secondary-text') === 'Rewards on travel',
+          'grouped option secondary did not render secondary-text',
+        );
 
         select.value = 'checking-01';
         await select.updateComplete;
@@ -97,6 +108,27 @@ const pageHtml = `<!doctype html>
         await select.updateComplete;
         const byLeading = options().map((item) => item.getAttribute('primary-text'));
         check(!byLeading.includes('Basic Checking'), 'filtering matched leading content: ' + byLeading.join(', '));
+
+        input.value = 'Checking';
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+        await select.updateComplete;
+        await select.updateComplete;
+        const byLabel = options().map((item) => item.getAttribute('primary-text'));
+        check(
+          byLabel.length === 1 && byLabel[0] === 'Basic Checking',
+          'filtering by label failed when secondary is set: ' + byLabel.join(', '),
+        );
+        check(
+          option('Basic Checking')?.getAttribute('secondary-text') === 'Everyday spending',
+          'filtered option lost secondary-text',
+        );
+
+        input.value = 'Everyday';
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+        await select.updateComplete;
+        await select.updateComplete;
+        const bySecondary = options().map((item) => item.getAttribute('primary-text'));
+        check(!bySecondary.includes('Basic Checking'), 'filtering matched secondary text: ' + bySecondary.join(', '));
 
         window.__failures = failures;
       } catch (error) {
@@ -143,7 +175,7 @@ function send(ws, method, params = {}, sessionId) {
   });
 }
 
-test('leading content renders in the left slot and stays out of filtering', async () => {
+test('leading content and secondary text render on options and stay out of filtering', async () => {
   const executable = chromePath();
   assert.ok(executable, 'Set CHROME_PATH to a Chrome or Chromium binary to run select tests');
 
@@ -243,7 +275,7 @@ test('leading content renders in the left slot and stays out of filtering', asyn
       await new Promise((resolve) => setTimeout(resolve, 100));
     }
 
-    assert.ok(payload, 'select leading test did not finish');
+    assert.ok(payload, 'select option content test did not finish');
     assert.equal(payload.error, '');
     assert.deepEqual(payload.failures, []);
     ws.close();

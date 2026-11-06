@@ -249,9 +249,11 @@ export class JhSelect extends JhInput {
     this.menuPosition = 'bottom';
     /**
      * Sets the list of options to display in the dropdown menu. Accepts flat options
-     * `{ value, label, disabled, selected, leading }` or grouped options `{ groupLabel, groupValues }`.
-     * Each option, including items in `groupValues`, may set `leading` to a Lit `TemplateResult` or a string.
-     * `leading` renders in the option's `jh-list-item-left` slot. It is not used for filtering or for the text shown in the input.
+     * `{ value, label, disabled, selected, leading, secondary }` or grouped options `{ groupLabel, groupValues }`.
+     * Each option, including items in `groupValues`, may set `leading` to a Lit `TemplateResult` or a string
+     * and `secondary` to a string.
+     * `leading` renders in the option's `jh-list-item-left` slot. `secondary` renders as the option's `secondary-text`.
+     * Neither is used for filtering or for the text shown in the input.
      * See documentation for the expected data format.
      * @type {Array}
      */
@@ -862,6 +864,7 @@ export class JhSelect extends JhInput {
       id=${this.#optionId(option)}
       class="${this.#activeIndex === idx ? (this.#keyboardNav ? 'is-active is-keyboard' : 'is-active') : ''}"
       primary-text=${primaryText}
+      secondary-text=${ifDefined(option.secondary)}
       >${option.custom
         ? html`<jh-icon-plus slot="jh-list-item-left" size="medium"></jh-icon-plus>`
         : option.leading

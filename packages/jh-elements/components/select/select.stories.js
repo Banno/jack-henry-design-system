@@ -272,6 +272,7 @@ const leadingOptions = [
     label: "Basic Checking",
     value: "checking-01",
     leading: html`<jh-icon-wallet size="medium"></jh-icon-wallet>`,
+    secondary: "Everyday spending",
   },
   {
     label: "High-Yield Savings",
@@ -282,6 +283,7 @@ const leadingOptions = [
     label: "Travel Rewards",
     value: "cc-travel",
     leading: html`<jh-icon-credit-card size="medium"></jh-icon-credit-card>`,
+    secondary: "Rewards on travel",
   },
 ];
 

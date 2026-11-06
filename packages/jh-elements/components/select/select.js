@@ -248,7 +248,11 @@ export class JhSelect extends JhInput {
      */
     this.menuPosition = 'bottom';
     /**
-     * Sets the list of options to display in the dropdown menu. Accepts an array of flat options or grouped options. See documentation for the expected data format.
+     * Sets the list of options to display in the dropdown menu. Accepts flat options
+     * `{ value, label, disabled, selected, leading }` or grouped options `{ groupLabel, groupValues }`.
+     * Each option, including items in `groupValues`, may set `leading` to a Lit `TemplateResult` or a string.
+     * `leading` renders in the option's `jh-list-item-left` slot. It is not used for filtering or for the text shown in the input.
+     * See documentation for the expected data format.
      * @type {Array}
      */
     this.options = [];
@@ -860,7 +864,9 @@ export class JhSelect extends JhInput {
       primary-text=${primaryText}
       >${option.custom
         ? html`<jh-icon-plus slot="jh-list-item-left" size="medium"></jh-icon-plus>`
-        : null}</jh-list-item>`;
+        : option.leading
+          ? html`<span slot="jh-list-item-left">${option.leading}</span>`
+          : null}</jh-list-item>`;
   }
 
   #renderNoResults() {

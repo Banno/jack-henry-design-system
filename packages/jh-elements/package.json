@@ -32,6 +32,7 @@
     "analyze": "cem analyze --config scripts/custom-elements-manifest.config.js && node scripts/generate-web-types.js",
     "types": "find components -name '*.d.ts' -delete && tsc -p tsconfig.build.json && node scripts/generate-tag-maps.js",
     "define": "pnpm run analyze && pnpm run types",
+    "test:select": "node --test test/select.test.js",
     "prepack": "cp ../../NOTICE .",
     "postpack": "rm -f NOTICE"
   },

@@ -1053,6 +1053,7 @@
             },
             {
               "name": "readonly",
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "value": {
                 "type": "boolean",
                 "default": "false"
@@ -1251,6 +1252,7 @@
               },
               {
                 "name": "readonly",
+                "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
                 "type": "boolean"
               },
               {
@@ -1495,6 +1497,7 @@
             },
             {
               "name": "readonly",
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "value": {
                 "type": "boolean",
                 "default": "false"
@@ -1673,6 +1676,7 @@
               },
               {
                 "name": "readonly",
+                "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
                 "type": "boolean"
               },
               {
@@ -1941,6 +1945,7 @@
             },
             {
               "name": "readonly",
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "value": {
                 "type": "boolean",
                 "default": "false"
@@ -2142,6 +2147,7 @@
               },
               {
                 "name": "readonly",
+                "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
                 "type": "boolean"
               },
               {
@@ -2410,6 +2416,7 @@
             },
             {
               "name": "readonly",
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "value": {
                 "type": "boolean",
                 "default": "false"
@@ -2611,6 +2618,7 @@
               },
               {
                 "name": "readonly",
+                "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
                 "type": "boolean"
               },
               {
@@ -2855,6 +2863,7 @@
             },
             {
               "name": "readonly",
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "value": {
                 "type": "boolean",
                 "default": "false"
@@ -3033,6 +3042,7 @@
               },
               {
                 "name": "readonly",
+                "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
                 "type": "boolean"
               },
               {
@@ -3277,6 +3287,7 @@
             },
             {
               "name": "readonly",
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "value": {
                 "type": "boolean",
                 "default": "false"
@@ -3455,6 +3466,7 @@
               },
               {
                 "name": "readonly",
+                "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
                 "type": "boolean"
               },
               {
@@ -4188,6 +4200,7 @@
             },
             {
               "name": "readonly",
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "value": {
                 "type": "boolean",
                 "default": "false"
@@ -4366,6 +4379,7 @@
               },
               {
                 "name": "readonly",
+                "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
                 "type": "boolean"
               },
               {
@@ -4610,6 +4624,7 @@
             },
             {
               "name": "readonly",
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "value": {
                 "type": "boolean",
                 "default": "false"
@@ -4788,6 +4803,7 @@
               },
               {
                 "name": "readonly",
+                "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
                 "type": "boolean"
               },
               {
@@ -5834,6 +5850,7 @@
             },
             {
               "name": "readonly",
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "value": {
                 "type": "boolean",
                 "default": "false"
@@ -6058,6 +6075,7 @@
               },
               {
                 "name": "readonly",
+                "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
                 "type": "boolean"
               },
               {

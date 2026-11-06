@@ -105,52 +105,38 @@ const storyStyles = css`
   }
 `;
 
-/* Inline CSS-utility equivalent of <forge-stack>, Storybook-only for side-by-side comparison. Not shipped. */
-const stackUtilityStyles = css`
-  .jh-stack {
-    display: grid;
-  }
-  .jh-stack > * {
-    grid-area: 1 / 1;
-    min-width: 0;
-    min-height: 0;
-  }
-  .jh-stack[data-align-y='start'] { align-items: start; }
-  .jh-stack[data-align-y='end'] { align-items: end; }
-  .jh-stack[data-align-y='center'] { align-items: center; }
-  .jh-stack[data-align-y='stretch'] { align-items: stretch; }
-  .jh-stack[data-align-x='start'] { justify-items: start; }
-  .jh-stack[data-align-x='end'] { justify-items: end; }
-  .jh-stack[data-align-x='center'] { justify-items: center; }
-  .jh-stack[data-align-x='stretch'] { justify-items: stretch; }
-`;
-
 const disableControls = {
-  'align-y': { control: { disable: true } },
-  'align-x': { control: { disable: true } },
+  alignment: { control: { disable: true } },
 };
 
-const alignOptions = ['start', 'end', 'center', 'stretch'];
+const alignmentOptions = [
+  'fill',
+  'top-leading',
+  'top',
+  'top-trailing',
+  'leading',
+  'center',
+  'trailing',
+  'bottom-leading',
+  'bottom',
+  'bottom-trailing',
+];
 
 export default {
   component: 'forge-stack',
   title: 'Primitives/Stack',
   tags: ['beta'],
   argTypes: {
-    'align-y': {
+    alignment: {
       control: 'select',
-      options: alignOptions,
-    },
-    'align-x': {
-      control: 'select',
-      options: alignOptions,
+      options: alignmentOptions,
     },
   },
 };
 
 /**
  * Overview — a media layer with a translucent caption overlay on top, and a
- * corner badge positioned with `align-y`/`align-x`. Shows the two core uses of a
+ * corner badge positioned with `alignment`. Shows the two core uses of a
  * stack: overlaying content and anchoring an element to an edge.
  */
 export const Overview = {
@@ -164,13 +150,12 @@ export const Overview = {
     </div>
 
     <div class="demo-figure">
-      <forge-stack align-y="start" align-x="end">
+      <forge-stack alignment="top-trailing">
         <div class="layer-base">Avatar</div>
         <jh-badge count="8" class="inset"></jh-badge>
       </forge-stack>
       <span class="demo-caption">
-        A badge anchored to the top-right with <code>align-y="start"</code> +
-        <code>align-x="end"</code>.
+        A badge anchored to the top corner with <code>alignment="top-trailing"</code>.
       </span>
     </div>
   `,
@@ -185,16 +170,13 @@ Overview.parameters = {
 };
 
 /**
- * Playground — layer two blocks and use the controls to change `align-y` and
- * `align-x`. Alignment applies to every layer at once; use per-element
- * `align-self` / `justify-self` on a child to override it.
+ * Playground — layer two blocks and use the control to change `alignment`.
+ * Alignment applies to every layer at once, so give a base layer an explicit
+ * size when it should keep its dimensions.
  */
 export const Playground = {
   render: (args) => html`
-    <forge-stack
-      align-y=${args['align-y']}
-      align-x=${args['align-x']}
-    >
+    <forge-stack alignment=${args.alignment}>
       <div class="layer-base">Base layer</div>
       <div class="layer-overlay" style="width: 120px; height: 60px;">Top layer</div>
     </forge-stack>
@@ -202,8 +184,7 @@ export const Playground = {
 };
 
 Playground.args = {
-  'align-y': 'center',
-  'align-x': 'center',
+  alignment: 'center',
 };
 
 Playground.parameters = {
@@ -212,32 +193,24 @@ Playground.parameters = {
 };
 
 /**
- * Alignment — the same two layers positioned to each corner and the center by
- * combining `align-y` (block axis) with `align-x` (inline axis).
+ * Alignment — the same two layers pinned to each of the nine positions, plus
+ * the default `fill`, where a layer covers the whole stack.
  */
 export const Alignment = {
   render: () => html`
-    <div class="demo-figure">
-      <forge-stack align-y="start" align-x="start">
-        <div class="layer-base"></div>
-        <jh-badge count="1" class="inset"></jh-badge>
-      </forge-stack>
-      <span class="demo-caption">align-y="start" align-x="start"</span>
-    </div>
-    <div class="demo-figure">
-      <forge-stack align-y="center" align-x="center">
-        <div class="layer-base"></div>
-        <jh-badge count="2"></jh-badge>
-      </forge-stack>
-      <span class="demo-caption">align-y="center" align-x="center"</span>
-    </div>
-    <div class="demo-figure">
-      <forge-stack align-y="end" align-x="end">
-        <div class="layer-base"></div>
-        <jh-badge count="3" class="inset"></jh-badge>
-      </forge-stack>
-      <span class="demo-caption">align-y="end" align-x="end"</span>
-    </div>
+    ${alignmentOptions.map(
+      (alignment) => html`
+        <div class="demo-figure">
+          <forge-stack alignment=${alignment}>
+            <div class="layer-base"></div>
+            ${alignment === 'fill'
+              ? html`<div class="layer-overlay">Overlay</div>`
+              : html`<jh-badge count="1" class="inset"></jh-badge>`}
+          </forge-stack>
+          <span class="demo-caption">alignment="${alignment}"</span>
+        </div>
+      `
+    )}
   `,
 };
 
@@ -251,13 +224,13 @@ Alignment.parameters = {
 
 /**
  * Anchored badge — the most common stack pattern. A small element (badge, dot,
- * or tag) is layered over a base and pinned to an edge with `align-y`/`align-x`.
+ * or tag) is layered over a base and pinned to an edge with `alignment`.
  * Use a `margin` to inset it from the corner or a `transform` to overhang it.
  */
 export const AnchoredBadge = {
   render: () => html`
     <div class="demo-figure">
-      <forge-stack align-y="start" align-x="end">
+      <forge-stack alignment="top-trailing">
         <jh-button label="Notifications"></jh-button>
         <jh-badge count="8" class="overhang"></jh-badge>
       </forge-stack>
@@ -265,7 +238,7 @@ export const AnchoredBadge = {
     </div>
 
     <div class="demo-figure">
-      <forge-stack align-y="start" align-x="end">
+      <forge-stack alignment="top-trailing">
         <div class="avatar"><jh-icon-user size="large"></jh-icon-user></div>
         <jh-badge></jh-badge>
       </forge-stack>
@@ -273,7 +246,7 @@ export const AnchoredBadge = {
     </div>
 
     <div class="demo-figure">
-      <forge-stack align-y="start" align-x="end">
+      <forge-stack alignment="top-trailing">
         <jh-card header-title="Card title">Card content</jh-card>
         <jh-tag label="New" class="inset"></jh-tag>
       </forge-stack>
@@ -383,55 +356,4 @@ PointerEvents.argTypes = {
 
 PointerEvents.parameters = {
   styles: storyStyles,
-};
-
-/**
- * Component vs. CSS utility — the same layouts built two ways: with the
- * `<forge-stack>` web component and with an inline `.jh-stack` CSS utility
- * (`data-align-*` for alignment). Both produce identical results; the utility
- * needs no element registration and keeps everything in one light-DOM tree. The
- * `.jh-stack` styles here are Storybook-only and are not published yet.
- */
-export const ComponentVsCssUtility = {
-  render: () => html`
-    <div class="demo-figure">
-      <forge-stack align-y="start" align-x="end">
-        <div class="layer-base">Component</div>
-        <jh-badge count="8" class="inset"></jh-badge>
-      </forge-stack>
-      <span class="demo-caption">&lt;forge-stack&gt; — web component</span>
-    </div>
-
-    <div class="demo-figure">
-      <div class="jh-stack" data-align-y="start" data-align-x="end">
-        <div class="layer-base">CSS utility</div>
-        <jh-badge count="8" class="inset"></jh-badge>
-      </div>
-      <span class="demo-caption">.jh-stack — CSS utility</span>
-    </div>
-
-    <div class="demo-figure">
-      <forge-stack>
-        <div class="layer-base">Base</div>
-        <div class="layer-overlay">Overlay</div>
-      </forge-stack>
-      <span class="demo-caption">&lt;forge-stack&gt; overlay</span>
-    </div>
-
-    <div class="demo-figure">
-      <div class="jh-stack">
-        <div class="layer-base">Base</div>
-        <div class="layer-overlay">Overlay</div>
-      </div>
-      <span class="demo-caption">.jh-stack overlay</span>
-    </div>
-  `,
-};
-
-ComponentVsCssUtility.argTypes = {
-  ...disableControls,
-};
-
-ComponentVsCssUtility.parameters = {
-  styles: css`${storyStyles} ${stackUtilityStyles}`,
 };

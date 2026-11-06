@@ -28,33 +28,30 @@ export class ForgeStack extends JhElement {
         isolation: isolate;
       }
 
-      :host([align-y="start"]) { align-items: start; }
-      :host([align-y="end"]) { align-items: end; }
-      :host([align-y="center"]) { align-items: center; }
-      :host([align-y="stretch"]) { align-items: stretch; }
-
-      :host([align-x="start"]) { justify-items: start; }
-      :host([align-x="end"]) { justify-items: end; }
-      :host([align-x="center"]) { justify-items: center; }
-      :host([align-x="stretch"]) { justify-items: stretch; }
+      :host([alignment='fill']) { place-items: stretch; }
+      :host([alignment='top-leading']) { place-items: start start; }
+      :host([alignment='top']) { place-items: start center; }
+      :host([alignment='top-trailing']) { place-items: start end; }
+      :host([alignment='leading']) { place-items: center start; }
+      :host([alignment='center']) { place-items: center; }
+      :host([alignment='trailing']) { place-items: center end; }
+      :host([alignment='bottom-leading']) { place-items: end start; }
+      :host([alignment='bottom']) { place-items: end center; }
+      :host([alignment='bottom-trailing']) { place-items: end end; }
     `;
   }
 
   static get properties() {
     return {
-      /** Sets the alignment of layered elements along the vertical axis. */
-      alignY: { type: String, reflect: true, attribute: 'align-y' },
-      /** Sets the alignment of layered elements along the horizontal axis. */
-      alignX: { type: String, reflect: true, attribute: 'align-x' }
+      /** Sets where layers sit within the stack. `fill` makes each layer cover the whole stack; the other values pin every layer to that edge or corner at its natural size. */
+      alignment: { type: String, reflect: true }
     };
   }
 
   constructor() {
     super();
-    /** @type {'start' | 'end' | 'center' | 'stretch'} */
-    this.alignY = 'stretch';
-    /** @type {'start' | 'end' | 'center' | 'stretch'} */
-    this.alignX = 'stretch';
+    /** @type {'fill' | 'top-leading' | 'top' | 'top-trailing' | 'leading' | 'center' | 'trailing' | 'bottom-leading' | 'bottom' | 'bottom-trailing'} */
+    this.alignment = 'fill';
   }
 
   render() {

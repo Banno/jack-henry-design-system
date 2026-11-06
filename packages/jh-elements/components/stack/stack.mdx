@@ -15,7 +15,7 @@ import * as stories from './stack.stories.js';
 <hr />
 
 Stack is a layout primitive that layers the elements slotted into it on top of one another along the z-axis.
-It uses CSS Grid under the hood: every slotted element occupies the same grid cell, so they overlap instead of flowing in a row or column. Use it for overlays, badges anchored to a corner, or any UI where elements need to share the same space.
+Every slotted element shares the same space, so they overlap instead of flowing in a row or column. Use it for overlays, badges anchored to a corner, or any UI where elements need to share the same space.
 
 ## When to use it
 
@@ -57,23 +57,35 @@ Place elements in the default slot. Each slotted element becomes its own layer, 
 
 Slotted elements stack in source order — the first element is the bottom layer and each following element sits above the previous one, so the **last** element renders on top. The stack sizes itself to its largest layer.
 
-To control which layer is on top, reorder the elements in your markup.
+To control which layer is on top, reorder the elements in your markup. If the source order must stay as it is for reading order, set `z-index` on the layer that should be raised instead.
 
 ## Alignment
 
-`align-y` and `align-x` position every layer within the shared cell:
+`alignment` sets where layers sit within the stack. By default it is `fill`, so each layer covers the whole stack. Any other value pins every layer to that edge or corner at its natural size:
 
-- `align-y` sets the block (vertical) axis via `align-items`: `start`, `end`, `center`, or `stretch`.
-- `align-x` sets the inline (horizontal) axis via `justify-items`: `start`, `end`, `center`, or `stretch`.
+| Value | Position |
+|---|---|
+| `fill` (default) | Layers cover the whole stack |
+| `top-leading`, `top`, `top-trailing` | Top edge: leading corner, centered, trailing corner |
+| `leading`, `center`, `trailing` | Middle row: leading edge, centered, trailing edge |
+| `bottom-leading`, `bottom`, `bottom-trailing` | Bottom edge: leading corner, centered, trailing corner |
 
-Combine the two to anchor a layer to an edge or corner — for example `align-y="start"` with `align-x="end"` pins a badge to the top-right. Alignment applies to all layers at once; to position a single layer differently, set `align-self` / `justify-self` on that element.
+`leading` and `trailing` are the logical equivalents of left and right, so they follow the writing direction: in right-to-left languages, `top-trailing` is the top-left corner.
 
 ```html
-<forge-stack align-y="start" align-x="end">
+<forge-stack alignment="top-trailing">
   <div class="avatar"></div>
-  <jh-badge count="8" class="inset"></jh-badge>
+  <jh-badge count="5" class="inset"></jh-badge>
 </forge-stack>
 ```
+
+### One alignment per stack
+
+`alignment` applies to every layer in the stack, so a stack has a single anchor. You can't pin a badge to the top-trailing corner and a label to the bottom-leading corner in the same stack. Nest a stack inside a layer, or use two stacks, when you need more than one anchor.
+
+Because every layer is aligned, any layer with an automatic size shrinks to its content when `alignment` is not `fill`. A base layer should be the largest layer or have an explicit size so it keeps its dimensions.
+
+To span an edge, such as a caption bar along the bottom of an image, give the layer an explicit `width: 100%` and use `alignment="bottom"`.
 
 ### Anchoring inside or outside the corner
 
@@ -120,17 +132,13 @@ A full-cover layer can dim content and block the mouse while something loads. Bu
 
 Layout primitives are designed to compose. A `<forge-stack>` can hold `<forge-row>` and `<forge-column>` containers as layers (and vice versa), letting you arrange content within a layer while still stacking layers on the z-axis.
 
-## Component vs. CSS utility
-
-Stacking is a thin layer over CSS Grid, so the same behavior can be delivered as a small CSS utility instead of a web component. See [Stack CSS Utility](?path=/docs/primitives-stack--css-utility) for a side-by-side comparison, the stylesheet, and the trade-offs between the two approaches.
-
 ## Accessibility
 
 The stack component contains no implicit accessibility features. 
 
 ### Author Guidance
 
-- **Reading order follows source order.** Because the top layer must be *last* in the DOM to render on top, it is also read *last*. A visually prominent corner element — such as a status tag — is announced after the content it sits on. If it needs to be perceived earlier, associate it with ARIA rather than reordering the DOM; moving it earlier would drop it behind.
+- **Reading order follows source order.** Because the top layer must be *last* in the DOM to render on top, it is also read *last*. A visually prominent corner element — such as a status tag — is announced after the content it sits on. If it needs to be perceived earlier, associate it with ARIA rather than reordering the DOM; moving it earlier would drop it behind unless you also raise it with `z-index`.
 - **Visually covered is not hidden from assistive tech.** Covered content stays in the focus order and accessibility tree. Use `inert` / `aria-hidden` (and `aria-busy` while loading) when a layer should truly block interaction — `pointer-events` only affects the mouse.
 - **Anchor meaning to the right element.** For a badge on a control, fold the value into the control's accessible name (for example a button's `accessible-label`) and mark the visual badge `aria-hidden="true"` so it is not announced as a stray value.
 - **ARIA references do not cross shadow boundaries.** `aria-describedby` and `aria-labelledby` only resolve within a single tree, so you can reference a sibling element but not something rendered inside another component's shadow root. Prefer putting meaningful status into a component's own content or accessible name.

@@ -10,11 +10,11 @@ import formatDocs from './formats/json-flat.js';
 function getStyleDictionary(theme, platform) {
   return new StyleDictionary({
     source: [
-      `tokens/global/**/*.json`
+      `tokens/primitive/**/*.json`
       ],
     include: [
       `tokens/${theme}/**/*.json`,
-      `tokens/alias/**/*.json`
+      `tokens/semantic/**/*.json`
     ],
     hooks: {
       fileHeaders: { 

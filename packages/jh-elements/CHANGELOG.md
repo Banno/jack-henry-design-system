@@ -1,5 +1,24 @@
 # @jack-henry/jh-elements
 
+## 2.6.0
+
+### Minor Changes
+
+- [#355](https://github.com/Banno/jack-henry-design-system/pull/355) [`c3c15fc`](https://github.com/Banno/jack-henry-design-system/commit/c3c15fc3602c04b919b6d3304cf5e17aea56bc67) Thanks [@stephhubka](https://github.com/stephhubka)! - Card adds tokens for elevation and border width.
+
+- [#402](https://github.com/Banno/jack-henry-design-system/pull/402) [`509d333`](https://github.com/Banno/jack-henry-design-system/commit/509d333c281575b309d4099ebf728ecc8a04cf9f) Thanks [@mayabuserde](https://github.com/mayabuserde)! - [Tooltip] refactors tooltip to use the Popover API and anchor() and other improvements.
+
+- [#400](https://github.com/Banno/jack-henry-design-system/pull/400) [`0bb4b06`](https://github.com/Banno/jack-henry-design-system/commit/0bb4b06488c0f0abc8959b6dd87a0cd785deada9) Thanks [@abissier](https://github.com/abissier)! - Replaces global and alias token references with primitive and semantic namespace.
+
+- [#398](https://github.com/Banno/jack-henry-design-system/pull/398) [`b8eb97a`](https://github.com/Banno/jack-henry-design-system/commit/b8eb97a7b2992807475c4efd1f9c88849cfb76d7) Thanks [@mayabuserde](https://github.com/mayabuserde)! - [Radio] Move aria-checked and aria-disabled to ElementInternals.
+
+### Patch Changes
+
+- [#353](https://github.com/Banno/jack-henry-design-system/pull/353) [`9eca4a4`](https://github.com/Banno/jack-henry-design-system/commit/9eca4a4a435dfd5cd5d8871291c4693729dcefe9) Thanks [@stephhubka](https://github.com/stephhubka)! - Card keeps `header-divider-inset="0"` and `footer-divider-inset="0"`, and the media slot follows `--jh-card-border-radius`. Docs for padding, the header slot, and the media radius are corrected.
+
+- Updated dependencies [[`243d092`](https://github.com/Banno/jack-henry-design-system/commit/243d09243d15022a418ee8cf2e7dec1287eb5192), [`805e876`](https://github.com/Banno/jack-henry-design-system/commit/805e876cf2a90c0bf05860c08082176fa96bed57), [`2f4fcd1`](https://github.com/Banno/jack-henry-design-system/commit/2f4fcd1a9cb3dfceed849fd580de57c3fb80454a), [`0b891fb`](https://github.com/Banno/jack-henry-design-system/commit/0b891fb7988d3a9598bd1fdc280a7de8c97502e4)]:
+  - @jack-henry/jh-tokens@2.2.0
+
 ## 2.5.0
 
 ### Minor Changes

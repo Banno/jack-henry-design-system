@@ -7,7 +7,7 @@
           "$value": "#0000001a",
           "$description": "Black at 10% opacity",
           "$extensions": {
-            "alias": false,
+            "semantic": false,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -16,7 +16,7 @@
           "$value": "#00000033",
           "$description": "Black at 20% opacity",
           "$extensions": {
-            "alias": false,
+            "semantic": false,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -25,7 +25,7 @@
           "$value": "#0000004d",
           "$description": "Black at 30% opacity",
           "$extensions": {
-            "alias": false,
+            "semantic": false,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -34,7 +34,7 @@
           "$value": "#00000066",
           "$description": "Black at 40% opacity",
           "$extensions": {
-            "alias": false,
+            "semantic": false,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -43,7 +43,7 @@
           "$value": "#00000080",
           "$description": "Black at 50% opacity",
           "$extensions": {
-            "alias": false,
+            "semantic": false,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -52,7 +52,7 @@
           "$value": "#00000099",
           "$description": "Black at 60% opacity",
           "$extensions": {
-            "alias": false,
+            "semantic": false,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -61,7 +61,7 @@
           "$value": "#000000b3",
           "$description": "Black at 70% opacity",
           "$extensions": {
-            "alias": false,
+            "semantic": false,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -70,7 +70,7 @@
           "$value": "#000000cc",
           "$description": "Black at 80% opacity",
           "$extensions": {
-            "alias": false,
+            "semantic": false,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -79,7 +79,7 @@
           "$value": "#000000e6",
           "$description": "Black at 90% opacity",
           "$extensions": {
-            "alias": false,
+            "semantic": false,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -88,7 +88,7 @@
           "$value": "#000000ff",
           "$description": "Black at 100% opacity",
           "$extensions": {
-            "alias": false,
+            "semantic": false,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -101,7 +101,7 @@
           "$value": "#ffffff1a",
           "$description": "White at 10% opacity",
           "$extensions": {
-            "alias": false,
+            "semantic": false,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -110,7 +110,7 @@
           "$value": "#ffffff33",
           "$description": "White at 20% opacity",
           "$extensions": {
-            "alias": false,
+            "semantic": false,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -119,7 +119,7 @@
           "$value": "#ffffff4d",
           "$description": "White at 30% opacity",
           "$extensions": {
-            "alias": false,
+            "semantic": false,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -128,7 +128,7 @@
           "$value": "#ffffff66",
           "$description": "White at 40% opacity",
           "$extensions": {
-            "alias": false,
+            "semantic": false,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -137,7 +137,7 @@
           "$value": "#ffffff80",
           "$description": "White at 50% opacity",
           "$extensions": {
-            "alias": false,
+            "semantic": false,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -146,7 +146,7 @@
           "$value": "#ffffff99",
           "$description": "White at 60% opacity",
           "$extensions": {
-            "alias": false,
+            "semantic": false,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -155,7 +155,7 @@
           "$value": "#ffffffb3",
           "$description": "White at 70% opacity",
           "$extensions": {
-            "alias": false,
+            "semantic": false,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -164,7 +164,7 @@
           "$value": "#ffffffcc",
           "$description": "White at 80% opacity",
           "$extensions": {
-            "alias": false,
+            "semantic": false,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -173,7 +173,7 @@
           "$value": "#ffffffe6",
           "$description": "White at 90% opacity",
           "$extensions": {
-            "alias": false,
+            "semantic": false,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -182,7 +182,7 @@
           "$value": "#ffffffff",
           "$description": "White at 100% opacity",
           "$extensions": {
-            "alias": false,
+            "semantic": false,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -194,7 +194,7 @@
         "$value": "{color.white.alpha.100}",
         "$description": "Gray 0",
         "$extensions": {
-          "alias": true,
+          "semantic": true,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -203,7 +203,7 @@
         "$value": "#f4f4f4ff",
         "$description": "Gray 50",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -212,7 +212,7 @@
         "$value": "#ebebebff",
         "$description": "Gray 100; Brand color: Light cool gray",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -221,7 +221,7 @@
         "$value": "#d7d7d7ff",
         "$description": "Gray 150",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -230,7 +230,7 @@
         "$value": "#cdcdcdff",
         "$description": "Gray 200",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -239,7 +239,7 @@
         "$value": "#bababaff",
         "$description": "Gray 250; Brand color: Medium cool gray",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -248,7 +248,7 @@
         "$value": "#afafafff",
         "$description": "Gray 300",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -257,7 +257,7 @@
         "$value": "#a2a2a2ff",
         "$description": "Gray 350",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -266,7 +266,7 @@
         "$value": "#989898ff",
         "$description": "Gray 400",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -275,7 +275,7 @@
         "$value": "#8a8a8aff",
         "$description": "Gray 450",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -284,7 +284,7 @@
         "$value": "#747474ff",
         "$description": "Gray 500",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -293,7 +293,7 @@
         "$value": "#6a6a6aff",
         "$description": "Gray 550",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -302,7 +302,7 @@
         "$value": "#636363ff",
         "$description": "Gray 600",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -311,7 +311,7 @@
         "$value": "#595959ff",
         "$description": "Gray 650; Brand color: Dark cool gray",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -320,7 +320,7 @@
         "$value": "#515151ff",
         "$description": "Gray 700",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -329,7 +329,7 @@
         "$value": "#474747ff",
         "$description": "Gray 750",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -338,7 +338,7 @@
         "$value": "#343434ff",
         "$description": "Gray 800",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -347,7 +347,7 @@
         "$value": "#2c2c2cff",
         "$description": "Gray 850",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -356,7 +356,7 @@
         "$value": "#202020ff",
         "$description": "Gray 900",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -365,7 +365,7 @@
         "$value": "#161616ff",
         "$description": "Gray 950",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -374,7 +374,7 @@
         "$value": "{color.black.alpha.100}",
         "$description": "Gray 1000",
         "$extensions": {
-          "alias": true,
+          "semantic": true,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -385,7 +385,7 @@
         "$value": "#fdf1eeff",
         "$description": "Red 50",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -394,7 +394,7 @@
         "$value": "#fae7e2ff",
         "$description": "Red 100",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -403,7 +403,7 @@
         "$value": "#f5cfc4ff",
         "$description": "Red 150",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -412,7 +412,7 @@
         "$value": "#fbbfaeff",
         "$description": "Red 200",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -421,7 +421,7 @@
         "$value": "#f8a48eff",
         "$description": "Red 250",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -430,7 +430,7 @@
         "$value": "#fa9176ff",
         "$description": "Red 300",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -439,7 +439,7 @@
         "$value": "#f97b5eff",
         "$description": "Red 350",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -448,7 +448,7 @@
         "$value": "#f96749ff",
         "$description": "Red 400",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -457,7 +457,7 @@
         "$value": "#f15135ff",
         "$description": "Red 450",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -466,7 +466,7 @@
         "$value": "#db3520ff",
         "$description": "Red 500",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -475,7 +475,7 @@
         "$value": "#ca2515ff",
         "$description": "Red 550",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -484,7 +484,7 @@
         "$value": "#bd2113ff",
         "$description": "Red 600",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -493,7 +493,7 @@
         "$value": "#ae180dff",
         "$description": "Red 650",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -502,7 +502,7 @@
         "$value": "#9e150bff",
         "$description": "Red 700",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -511,7 +511,7 @@
         "$value": "#8b150aff",
         "$description": "Red 750",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -520,7 +520,7 @@
         "$value": "#77190dff",
         "$description": "Red 800",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -529,7 +529,7 @@
         "$value": "#601b0eff",
         "$description": "Red 850",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -538,7 +538,7 @@
         "$value": "#4e1a0fff",
         "$description": "Red 900",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -547,7 +547,7 @@
         "$value": "#391307ff",
         "$description": "Red 950",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -558,7 +558,7 @@
         "$value": "#faf2ebff",
         "$description": "Orange 50",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -567,7 +567,7 @@
         "$value": "#fbe8d5ff",
         "$description": "Orange 100",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -576,7 +576,7 @@
         "$value": "#f5d0a9ff",
         "$description": "Orange 150",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -585,7 +585,7 @@
         "$value": "#fcc17fff",
         "$description": "Orange 200",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -594,7 +594,7 @@
         "$value": "#f0ab58ff",
         "$description": "Orange 250",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -603,7 +603,7 @@
         "$value": "#e89e3eff",
         "$description": "Orange 300",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -612,7 +612,7 @@
         "$value": "#db912cff",
         "$description": "Orange 350",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -621,7 +621,7 @@
         "$value": "#cf8722ff",
         "$description": "Orange 400",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -630,7 +630,7 @@
         "$value": "#bf7a17ff",
         "$description": "Orange 450",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -639,7 +639,7 @@
         "$value": "#a4670cff",
         "$description": "Orange 500",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -648,7 +648,7 @@
         "$value": "#935d11ff",
         "$description": "Orange 550",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -657,7 +657,7 @@
         "$value": "#885818ff",
         "$description": "Orange 600",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -666,7 +666,7 @@
         "$value": "#7a5019ff",
         "$description": "Orange 650",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -675,7 +675,7 @@
         "$value": "#6e4818ff",
         "$description": "Orange 700",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -684,7 +684,7 @@
         "$value": "#604018ff",
         "$description": "Orange 750",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -693,7 +693,7 @@
         "$value": "#523714ff",
         "$description": "Orange 800",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -702,7 +702,7 @@
         "$value": "#462e11ff",
         "$description": "Orange 850",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -711,7 +711,7 @@
         "$value": "#3b270fff",
         "$description": "Orange 900",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -720,7 +720,7 @@
         "$value": "#2c1c04ff",
         "$description": "Orange 950",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -731,7 +731,7 @@
         "$value": "#f9f3e7ff",
         "$description": "Yellow 50",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -740,7 +740,7 @@
         "$value": "#f8eac7ff",
         "$description": "Yellow 100",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -749,7 +749,7 @@
         "$value": "#ecd595ff",
         "$description": "Yellow 150",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -758,7 +758,7 @@
         "$value": "#e9ca65ff",
         "$description": "Yellow 200",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -767,7 +767,7 @@
         "$value": "#d8b63bff",
         "$description": "Yellow 250",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -776,7 +776,7 @@
         "$value": "#ccab28ff",
         "$description": "Yellow 300",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -785,7 +785,7 @@
         "$value": "#be9e1fff",
         "$description": "Yellow 350",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -794,7 +794,7 @@
         "$value": "#b19524ff",
         "$description": "Yellow 400",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -803,7 +803,7 @@
         "$value": "#a28823ff",
         "$description": "Yellow 450",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -812,7 +812,7 @@
         "$value": "#8a7318ff",
         "$description": "Yellow 500",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -821,7 +821,7 @@
         "$value": "#7d6815ff",
         "$description": "Yellow 550",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -830,7 +830,7 @@
         "$value": "#746118ff",
         "$description": "Yellow 600",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -839,7 +839,7 @@
         "$value": "#695716ff",
         "$description": "Yellow 650",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -848,7 +848,7 @@
         "$value": "#5f4f13ff",
         "$description": "Yellow 700",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -857,7 +857,7 @@
         "$value": "#544511ff",
         "$description": "Yellow 750",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -866,7 +866,7 @@
         "$value": "#483b0fff",
         "$description": "Yellow 800",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -875,7 +875,7 @@
         "$value": "#3d320cff",
         "$description": "Yellow 850",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -884,7 +884,7 @@
         "$value": "#332a0dff",
         "$description": "Yellow 900",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -893,7 +893,7 @@
         "$value": "#261f04ff",
         "$description": "Yellow 950",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -904,7 +904,7 @@
         "$value": "#ecf7e7ff",
         "$description": "Green 50",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -913,7 +913,7 @@
         "$value": "#d1f5c3ff",
         "$description": "Green 100",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -922,7 +922,7 @@
         "$value": "#a9e794ff",
         "$description": "Green 150",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -931,7 +931,7 @@
         "$value": "#88e26eff",
         "$description": "Green 200",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -940,7 +940,7 @@
         "$value": "#6ad150ff",
         "$description": "Green 250",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -949,7 +949,7 @@
         "$value": "#5fc445ff",
         "$description": "Green 300",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -958,7 +958,7 @@
         "$value": "#57b640ff",
         "$description": "Green 350",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -967,7 +967,7 @@
         "$value": "#56aa41ff",
         "$description": "Green 400",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -976,7 +976,7 @@
         "$value": "#539b40ff",
         "$description": "Green 450",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -985,7 +985,7 @@
         "$value": "#438332ff",
         "$description": "Green 500",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -994,7 +994,7 @@
         "$value": "#3e772fff",
         "$description": "Green 550",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1003,7 +1003,7 @@
         "$value": "#3b6f2dff",
         "$description": "Green 600",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1012,7 +1012,7 @@
         "$value": "#366429ff",
         "$description": "Green 650",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1021,7 +1021,7 @@
         "$value": "#325a26ff",
         "$description": "Green 700",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1030,7 +1030,7 @@
         "$value": "#2d4f23ff",
         "$description": "Green 750",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1039,7 +1039,7 @@
         "$value": "#28451fff",
         "$description": "Green 800",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1048,7 +1048,7 @@
         "$value": "#22391aff",
         "$description": "Green 850",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1057,7 +1057,7 @@
         "$value": "#1d3017ff",
         "$description": "Green 900",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1066,7 +1066,7 @@
         "$value": "#12240aff",
         "$description": "Green 950",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1077,7 +1077,7 @@
         "$value": "#e7f8eeff",
         "$description": "Mint 50",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1086,7 +1086,7 @@
         "$value": "#c0f8dbff",
         "$description": "Mint 100",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1095,7 +1095,7 @@
         "$value": "#90eabeff",
         "$description": "Mint 150",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1104,7 +1104,7 @@
         "$value": "#65e4acff",
         "$description": "Mint 200",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1113,7 +1113,7 @@
         "$value": "#34d395ff",
         "$description": "Mint 250",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1122,7 +1122,7 @@
         "$value": "#18c789ff",
         "$description": "Mint 300",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1131,7 +1131,7 @@
         "$value": "#02b97eff",
         "$description": "Mint 350",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1140,7 +1140,7 @@
         "$value": "#14ad77ff",
         "$description": "Mint 400",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1149,7 +1149,7 @@
         "$value": "#1a9e6dff",
         "$description": "Mint 450",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1158,7 +1158,7 @@
         "$value": "#07865bff",
         "$description": "Mint 500",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1167,7 +1167,7 @@
         "$value": "#177954ff",
         "$description": "Mint 550",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1176,7 +1176,7 @@
         "$value": "#237050ff",
         "$description": "Mint 600",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1185,7 +1185,7 @@
         "$value": "#236548ff",
         "$description": "Mint 650",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1194,7 +1194,7 @@
         "$value": "#205b41ff",
         "$description": "Mint 700",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1203,7 +1203,7 @@
         "$value": "#1f503aff",
         "$description": "Mint 750",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1212,7 +1212,7 @@
         "$value": "#1c4633ff",
         "$description": "Mint 800",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1221,7 +1221,7 @@
         "$value": "#173a2aff",
         "$description": "Mint 850",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1230,7 +1230,7 @@
         "$value": "#163124ff",
         "$description": "Mint 900",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1239,7 +1239,7 @@
         "$value": "#0e2319ff",
         "$description": "Mint 950",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1250,7 +1250,7 @@
         "$value": "#e8f7f7ff",
         "$description": "Cyan 50; Brand color: Open sky",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1259,7 +1259,7 @@
         "$value": "#ccf2fbff",
         "$description": "Cyan 100",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1268,7 +1268,7 @@
         "$value": "#9ce3fcff",
         "$description": "Cyan 150",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1277,7 +1277,7 @@
         "$value": "#76dcfdff",
         "$description": "Cyan 200; Brand color: Tech blue",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1286,7 +1286,7 @@
         "$value": "#48caf0ff",
         "$description": "Cyan 250",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1295,7 +1295,7 @@
         "$value": "#29bfe6ff",
         "$description": "Cyan 300",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1304,7 +1304,7 @@
         "$value": "#18b2d7ff",
         "$description": "Cyan 350",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1313,7 +1313,7 @@
         "$value": "#1aa7c9ff",
         "$description": "Cyan 400",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1322,7 +1322,7 @@
         "$value": "#2098b7ff",
         "$description": "Cyan 450",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1331,7 +1331,7 @@
         "$value": "#1b809aff",
         "$description": "Cyan 500",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1340,7 +1340,7 @@
         "$value": "#25748bff",
         "$description": "Cyan 550",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1349,7 +1349,7 @@
         "$value": "#266c81ff",
         "$description": "Cyan 600",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1358,7 +1358,7 @@
         "$value": "#246174ff",
         "$description": "Cyan 650",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1367,7 +1367,7 @@
         "$value": "#205869ff",
         "$description": "Cyan 700",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1376,7 +1376,7 @@
         "$value": "#1e4d5cff",
         "$description": "Cyan 750",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1385,7 +1385,7 @@
         "$value": "#1b4350ff",
         "$description": "Cyan 800",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1394,7 +1394,7 @@
         "$value": "#153843ff",
         "$description": "Cyan 850",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1403,7 +1403,7 @@
         "$value": "#0d303aff",
         "$description": "Cyan 900",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1412,7 +1412,7 @@
         "$value": "#03232cff",
         "$description": "Cyan 950",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1423,7 +1423,7 @@
         "$value": "#ecf5feff",
         "$description": "Blue 50",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1432,7 +1432,7 @@
         "$value": "#daeeffff",
         "$description": "Blue 100",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1441,7 +1441,7 @@
         "$value": "#badcfbff",
         "$description": "Blue 150",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1450,7 +1450,7 @@
         "$value": "#a3d4ffff",
         "$description": "Blue 200",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1459,7 +1459,7 @@
         "$value": "#86c1f8ff",
         "$description": "Blue 250",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1468,7 +1468,7 @@
         "$value": "#76b4f8ff",
         "$description": "Blue 300",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1477,7 +1477,7 @@
         "$value": "#67a6f8ff",
         "$description": "Blue 350",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1486,7 +1486,7 @@
         "$value": "#5c9afcff",
         "$description": "Blue 400",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1495,7 +1495,7 @@
         "$value": "#4a8afbff",
         "$description": "Blue 450",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1504,7 +1504,7 @@
         "$value": "#1470ebff",
         "$description": "Blue 500",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1513,7 +1513,7 @@
         "$value": "#1665ebff",
         "$description": "Blue 550",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1522,7 +1522,7 @@
         "$value": "#085ce5ff",
         "$description": "Blue 600; Brand color: Vibrant cobalt",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1531,7 +1531,7 @@
         "$value": "#264fd5ff",
         "$description": "Blue 650",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1540,7 +1540,7 @@
         "$value": "#3343c4ff",
         "$description": "Blue 700",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1549,7 +1549,7 @@
         "$value": "#2a3bb1ff",
         "$description": "Blue 750",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1558,7 +1558,7 @@
         "$value": "#23339eff",
         "$description": "Blue 800",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1567,7 +1567,7 @@
         "$value": "#192a89ff",
         "$description": "Blue 850",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1576,7 +1576,7 @@
         "$value": "#132377ff",
         "$description": "Blue 900",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1585,7 +1585,7 @@
         "$value": "#06185fff",
         "$description": "Blue 950; Brand color: Legacy navy",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1595,7 +1595,7 @@
           "$value": "#085ce51a",
           "$description": "Blue at 10% opacity",
           "$extensions": {
-            "alias": false,
+            "semantic": false,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -1607,7 +1607,7 @@
         "$value": "#f7f2faff",
         "$description": "Violet 50",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1616,7 +1616,7 @@
         "$value": "#f4e7faff",
         "$description": "Violet 100",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1625,7 +1625,7 @@
         "$value": "#e8cff6ff",
         "$description": "Violet 150",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1634,7 +1634,7 @@
         "$value": "#e5c0faff",
         "$description": "Violet 200",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1643,7 +1643,7 @@
         "$value": "#d8a9f4ff",
         "$description": "Violet 250",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1652,7 +1652,7 @@
         "$value": "#d298f6ff",
         "$description": "Violet 300",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1661,7 +1661,7 @@
         "$value": "#ca87f5ff",
         "$description": "Violet 350",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1670,7 +1670,7 @@
         "$value": "#c676fcff",
         "$description": "Violet 400",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1679,7 +1679,7 @@
         "$value": "#bd5ffeff",
         "$description": "Violet 450",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1688,7 +1688,7 @@
         "$value": "#a83df3ff",
         "$description": "Violet 500",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1697,7 +1697,7 @@
         "$value": "#9e2aefff",
         "$description": "Violet 550",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1706,7 +1706,7 @@
         "$value": "#961ee7ff",
         "$description": "Violet 600",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1715,7 +1715,7 @@
         "$value": "#8818d3ff",
         "$description": "Violet 650",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1724,7 +1724,7 @@
         "$value": "#7b17bfff",
         "$description": "Violet 700",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1733,7 +1733,7 @@
         "$value": "#6d14aaff",
         "$description": "Violet 750",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1742,7 +1742,7 @@
         "$value": "#5e0c96ff",
         "$description": "Violet 800",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1751,7 +1751,7 @@
         "$value": "#510981ff",
         "$description": "Violet 850",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1760,7 +1760,7 @@
         "$value": "#45086eff",
         "$description": "Violet 900",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1769,7 +1769,7 @@
         "$value": "#340257ff",
         "$description": "Violet 950",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1780,7 +1780,7 @@
         "$value": "#ffeffbff",
         "$description": "Magenta 50",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1789,7 +1789,7 @@
         "$value": "#ffe3f8ff",
         "$description": "Magenta 100",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1798,7 +1798,7 @@
         "$value": "#fac9efff",
         "$description": "Magenta 150",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1807,7 +1807,7 @@
         "$value": "#fdb8edff",
         "$description": "Magenta 200",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1816,7 +1816,7 @@
         "$value": "#fb99e8ff",
         "$description": "Magenta 250",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1825,7 +1825,7 @@
         "$value": "#fc82e6ff",
         "$description": "Magenta 300",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1834,7 +1834,7 @@
         "$value": "#f76ddfff",
         "$description": "Magenta 350",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1843,7 +1843,7 @@
         "$value": "#f359daff",
         "$description": "Magenta 400",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1852,7 +1852,7 @@
         "$value": "#e547cdff",
         "$description": "Magenta 450",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1861,7 +1861,7 @@
         "$value": "#ca2ab4ff",
         "$description": "Magenta 500",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1870,7 +1870,7 @@
         "$value": "#bd1ca8ff",
         "$description": "Magenta 550",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1879,7 +1879,7 @@
         "$value": "#b11a9dff",
         "$description": "Magenta 600",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1888,7 +1888,7 @@
         "$value": "#a0188eff",
         "$description": "Magenta 650",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1897,7 +1897,7 @@
         "$value": "#8f1a7fff",
         "$description": "Magenta 700",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1906,7 +1906,7 @@
         "$value": "#7f1771ff",
         "$description": "Magenta 750",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1915,7 +1915,7 @@
         "$value": "#6e1662ff",
         "$description": "Magenta 800",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1924,7 +1924,7 @@
         "$value": "#5d1153ff",
         "$description": "Magenta 850",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1933,7 +1933,7 @@
         "$value": "#500e46ff",
         "$description": "Magenta 900",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -1942,7 +1942,7 @@
         "$value": "#3f0237ff",
         "$description": "Magenta 950",
         "$extensions": {
-          "alias": false,
+          "semantic": false,
           "deprecated": false,
           "deprecatedMessage": ""
         }

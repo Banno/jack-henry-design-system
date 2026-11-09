@@ -69,6 +69,7 @@ include built-in support should you need interactivity.
 
 - List items can be made interactive by setting `tabindex="0"`. 
 - Interactive list items have states such as hover, focus, active, selected and disabled.
+- Hover and active are drawn as a translucent state layer (`--jh-color-state-hover` / `-active`), focus shows the outline only, and selected uses a tinted fill with no left bar; the bar is opt-in via `--jh-list-item-border-selected-width` for navigation lists.
 - Disabled interactive list-items are not editable or operable but are announced by assistive technologies. 
 
 ## Divider inset

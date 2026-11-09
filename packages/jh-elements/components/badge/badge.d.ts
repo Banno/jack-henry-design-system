@@ -8,8 +8,8 @@
  * [Badge Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-badge--docs)
  *
  * @cssprop --jh-badge-border-radius - The badge border radius. Defaults to `--jh-border-radius-pill`.
- * @cssprop --jh-badge-color-background-enabled - The badge background color. Defaults to `--jh-color-content-negative-enabled`.
- * @cssprop --jh-badge-color-text-enabled - The badge text color. Defaults to `--jh-color-content-on-negative-enabled`.
+ * @cssprop --jh-badge-color-background-enabled - The badge background color for the `negative` (default) appearance only. Defaults to `--jh-color-content-negative-enabled`.
+ * @cssprop --jh-badge-color-text-enabled - The badge text color for the `negative` (default) appearance only. Defaults to `--jh-color-content-on-negative-enabled`.
  *
  * @customElement jh-badge
  */
@@ -23,6 +23,10 @@ export class JhBadge extends JhElement {
             type: NumberConstructor;
             attribute: string;
         };
+        appearance: {
+            type: StringConstructor;
+            reflect: boolean;
+        };
     };
     /** Number to show within the badge. If no `count` is supplied, Badge will render as a dot.
     * @type {number | null} */
@@ -32,6 +36,10 @@ export class JhBadge extends JhElement {
     * @attr max-count
     * @type {number | null} */
     maxCount: number | null;
+    /**
+    * `negative` (default) means act — unread, overdue, failed. `neutral` means count — items, selected. `neutral` is not customizable.
+    * @type {'negative' | 'neutral'} */
+    appearance: "negative" | "neutral";
     /** @protected */
     protected render(): import("lit").TemplateResult<1>;
 }

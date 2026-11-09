@@ -157,18 +157,6 @@
                 "type": "string | null",
                 "default": "null"
               }
-            },
-            {
-              "name": "_hasLeftSlotContent",
-              "value": {
-                "type": "boolean"
-              }
-            },
-            {
-              "name": "_hasRightSlotContent",
-              "value": {
-                "type": "boolean"
-              }
             }
           ],
           "slots": [
@@ -4966,24 +4954,6 @@
                 "type": "boolean",
                 "default": "false"
               }
-            },
-            {
-              "name": "_showFallback",
-              "value": {
-                "type": "boolean"
-              }
-            },
-            {
-              "name": "_hasLeftSlotContent",
-              "value": {
-                "type": "boolean"
-              }
-            },
-            {
-              "name": "_hasRightSlotContent",
-              "value": {
-                "type": "boolean"
-              }
             }
           ],
           "slots": [
@@ -6864,12 +6834,6 @@
               "value": {
                 "type": "'left' | 'right' | 'top-start' | 'top-end' | 'top-center' | 'bottom-start' | 'bottom-end' | 'bottom-center'",
                 "default": "'top-center'"
-              }
-            },
-            {
-              "name": "_placement",
-              "value": {
-                "type": "string"
               }
             }
           ],

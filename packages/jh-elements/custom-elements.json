@@ -981,20 +981,6 @@
               ],
               "default": "null",
               "fieldName": "value"
-            },
-            {
-              "name": "_hasLeftSlotContent",
-              "type": {
-                "text": "boolean"
-              },
-              "fieldName": "_hasLeftSlotContent"
-            },
-            {
-              "name": "_hasRightSlotContent",
-              "type": {
-                "text": "boolean"
-              },
-              "fieldName": "_hasRightSlotContent"
             }
           ],
           "superclass": {
@@ -14156,27 +14142,6 @@
               "description": "Determines whether an interactive list-item is selected.",
               "default": "false",
               "fieldName": "selected"
-            },
-            {
-              "name": "_showFallback",
-              "type": {
-                "text": "boolean"
-              },
-              "fieldName": "_showFallback"
-            },
-            {
-              "name": "_hasLeftSlotContent",
-              "type": {
-                "text": "boolean"
-              },
-              "fieldName": "_hasLeftSlotContent"
-            },
-            {
-              "name": "_hasRightSlotContent",
-              "type": {
-                "text": "boolean"
-              },
-              "fieldName": "_hasRightSlotContent"
             }
           ],
           "superclass": {
@@ -19393,13 +19358,6 @@
               "description": "The position of the tooltip and its arrow. If the tooltip doesn't fit, it renders on another side;\nthe attribute keeps the value you set.",
               "default": "'top-center'",
               "fieldName": "position"
-            },
-            {
-              "name": "_placement",
-              "type": {
-                "text": "string"
-              },
-              "fieldName": "_placement"
             }
           ],
           "superclass": {

@@ -36,6 +36,13 @@ export function filterPrivatePropertiesPlugin() {
             return true;
           });
         }
+
+        // The lit analyzer ignores `state: true` and emits an attribute for internal reactive state
+        if (declaration.attributes) {
+          declaration.attributes = declaration.attributes.filter(
+            attr => !attr.name?.startsWith('_') && !attr.fieldName?.startsWith('_')
+          );
+        }
       });
     });
   }

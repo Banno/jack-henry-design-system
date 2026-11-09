@@ -23,7 +23,7 @@ import '@jack-henry/jh-icons/icons-wc/icon-xmark.js';
  * @cssprop --jh-dialog-overlay-color-background - The backdrop color displayed behind the dialog. Defaults to `--jh-color-overlay`.
  * @cssprop --jh-dialog-overlay-dimension-padding-vertical - The vertical padding for the dialog overlay. Defaults to `--jh-dimension-1000`.
  * @cssprop --jh-dialog-overlay-dimension-padding-horizontal - The horizontal padding for the dialog overlay. Defaults to `--jh-dimension-1000`.
- * @cssprop --jh-dialog-dimension-max-width - The dialog max-width. Defaults to `480px` when `size="small"`, `640px` when `size="medium"` and `800px` when `size="large"`.
+ * @cssprop --jh-dialog-dimension-max-width - The dialog max-width. Defaults to `480px` when `size="small"`, `640px` when `size="medium"` and `800px` when `size="large"`. Not applied when the viewport is 440px or smaller, where the dialog fills the full viewport width and height.
  * @cssprop --jh-dialog-media-aspect-ratio - The media slot aspect-ratio. Defaults to `auto`.
  * @cssprop --jh-dialog-header-color-text - The header slot text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-dialog-default-color-text - The default slot text color. Defaults to `--jh-color-content-primary-enabled`.
@@ -62,7 +62,6 @@ export class JhDialog extends JhElement {
         );
         box-shadow: var(--jh-dialog-shadow, var(--jh-shadow-overlay));
         color: var(--jh-color-content-primary-enabled);
-        max-height: calc(100% - (var(--margin) * 2));
         box-sizing: border-box;
         width: 100%;
         word-break: break-word;
@@ -94,12 +93,13 @@ export class JhDialog extends JhElement {
       slot[name='jh-dialog-footer'].display-slot {
         display: block;
       }
-      :host ::slotted([slot='jh-dialog-header']),
-      .body,
+      .header.display-slot,
+      :host([show-dismiss-button]) .header,
       slot[name='jh-dialog-footer'] {
         padding: var(--jh-dimension-400) var(--jh-dialog-dimension-padding-horizontal, var(--jh-dimension-600));
       }
-      .header.display-slot {
+      .header.display-slot,
+      :host([show-dismiss-button]) .header {
         gap: var(--jh-dimension-200);
         display: flex;
         align-items: flex-start;
@@ -141,6 +141,7 @@ export class JhDialog extends JhElement {
         margin-bottom: 0;
       }
       .body {
+        padding: 0 var(--jh-dialog-dimension-padding-horizontal, var(--jh-dimension-600));
         color: var(
           --jh-dialog-default-color-text,
           var(--jh-color-content-primary-enabled)
@@ -159,19 +160,22 @@ export class JhDialog extends JhElement {
           --jh-dialog-footer-color-text,
           var(--jh-color-content-secondary-enabled)
         );
-        font-family: var(--jh-font-helper-regular-1-font-family);
-        font-weight: var(--jh-font-helper-regular-1-font-weight);
-        font-size: var(--jh-font-helper-regular-1-font-size);
-        line-height: var(--jh-font-helper-regular-1-line-height);
+        font-family: var(--jh-font-helper-regular-font-family);
+        font-weight: var(--jh-font-helper-regular-font-weight);
+        font-size: var(--jh-font-helper-regular-font-size);
+        line-height: var(--jh-font-helper-regular-line-height);
       }
       :host([show-footer-divider]) .body {
         padding-bottom: var(--jh-dimension-400);
       }
       @media (max-width: 440px) {
-        :host {
-          --margin: var(--jh-dialog-space-margin, var(--jh-dimension-400));
-        }
         dialog {
+          width: 100%;
+          height: 100vh;
+          height: 100dvh;
+          max-width: none;
+          max-height: none;
+          margin: 0;
           border-radius: var(--jh-dialog-border-radius, 0);
           box-shadow: var(--jh-dialog-shadow, none);
         }
@@ -216,7 +220,6 @@ export class JhDialog extends JhElement {
         type: String,
         reflect: true,
       },
-      _hasHeader: { state: true },
       _isOverflowing: { state: true },
     };
   }
@@ -275,11 +278,6 @@ export class JhDialog extends JhElement {
      * @type { 'small' | 'medium' | 'large' }
      */
     this.size = 'medium';
-    /**
-     * @internal
-     * @type {boolean}
-     */
-    this._hasHeader = false;
     /**
      * @internal
      * @type {boolean}
@@ -521,7 +519,13 @@ export class JhDialog extends JhElement {
   }
 
   #handleHeaderSlotChange(e) {
-    this._hasHeader = this.#checkSlotContent(e.target);
+    const hasHeader = this.#checkSlotContent(e.target);
+    this.shadowRoot.querySelector('.header').classList.toggle('display-slot', hasHeader);
+    if (hasHeader) {
+      this.#dialog.setAttribute('aria-labelledby', 'header');
+    } else {
+      this.#dialog.removeAttribute('aria-labelledby');
+    }
   }
 
   /** @protected */
@@ -529,7 +533,6 @@ export class JhDialog extends JhElement {
     let dismissBtn;
     let headerDivider;
     let footerDivider;
-    const showHeader = this._hasHeader || this.showDismissButton;
 
     if (this.showDismissButton) {
       dismissBtn = html`
@@ -562,7 +565,6 @@ export class JhDialog extends JhElement {
     return html`
       <dialog
         part="dialog"
-        aria-labelledby=${ifDefined(this._hasHeader ? 'header' : undefined)}
         @cancel=${this.#handleCancel}
         @close=${this.#handleClose}
         @keydown=${this.#handleKeydown}
@@ -570,7 +572,7 @@ export class JhDialog extends JhElement {
         @click=${this.#handleClick}
       >
         <slot name="jh-dialog-media" @slotchange=${this.#handleSlotChange}></slot>
-        <div class="header ${showHeader ? 'display-slot' : ''}">
+        <div class="header">
           <div id="header" class="header-content">
             <slot name="jh-dialog-header" @slotchange=${this.#handleHeaderSlotChange}></slot>
           </div>

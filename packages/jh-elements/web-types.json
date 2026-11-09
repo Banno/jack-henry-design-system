@@ -825,12 +825,6 @@
               }
             },
             {
-              "name": "_hasHeader",
-              "value": {
-                "type": "string"
-              }
-            },
-            {
               "name": "_isOverflowing",
               "value": {
                 "type": "string"
@@ -7886,7 +7880,7 @@
         },
         {
           "name": "--jh-dialog-dimension-max-width",
-          "description": "The dialog max-width. Defaults to `480px` when `size=\"small\"`, `640px` when `size=\"medium\"` and `800px` when `size=\"large\"`."
+          "description": "The dialog max-width. Defaults to `480px` when `size=\"small\"`, `640px` when `size=\"medium\"` and `800px` when `size=\"large\"`. Not applied when the viewport is 440px or smaller, where the dialog fills the full viewport width and height."
         },
         {
           "name": "--jh-dialog-media-aspect-ratio",

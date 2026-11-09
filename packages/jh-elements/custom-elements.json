@@ -2304,7 +2304,7 @@
               "name": "--jh-dialog-overlay-dimension-padding-horizontal"
             },
             {
-              "description": "The dialog max-width. Defaults to `480px` when `size=\"small\"`, `640px` when `size=\"medium\"` and `800px` when `size=\"large\"`.",
+              "description": "The dialog max-width. Defaults to `480px` when `size=\"small\"`, `640px` when `size=\"medium\"` and `800px` when `size=\"large\"`. Not applied when the viewport is 440px or smaller, where the dialog fills the full viewport width and height.",
               "name": "--jh-dialog-dimension-max-width"
             },
             {
@@ -2579,10 +2579,6 @@
               "description": "Sets the max-width of the dialog container.",
               "default": "'medium'",
               "fieldName": "size"
-            },
-            {
-              "name": "_hasHeader",
-              "fieldName": "_hasHeader"
             },
             {
               "name": "_isOverflowing",

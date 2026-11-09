@@ -17,14 +17,11 @@ const storyStyles = css`
     flex-wrap: wrap;
     gap: var(--jh-dimension-400);
   }
-  jh-dialog p {
-    margin: 0 0 var(--jh-dimension-400);
-  }
-  jh-dialog p:last-child {
-    margin-bottom: 0;
+  jh-dialog p,
+  jh-dialog h2 {
+    margin: 0;
   }
   jh-dialog .custom-header {
-    // center the header content
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,12 +31,10 @@ const storyStyles = css`
     justify-content: flex-end;
     gap: var(--jh-dimension-200);
   }
-  @media (max-width: 440px) {
-    .footer-actions {
-      flex-direction: column-reverse;
-    }
-  }
   img {
+    display: block;
+    width: 100%;
+    height: 180px;
     object-fit: cover;
   }
 `;
@@ -124,9 +119,9 @@ export default {
 
 export const Overview = { render: (args) => html`<section>
   <jh-dialog open id="overview-basic" show-header-divider show-footer-divider show-dismiss-button>
-    <h2 slot="jh-dialog-header">Dialog header</h2>
+    <h2 slot="jh-dialog-header">Header Slot</h2>
     <p>Dialog body slot: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec lorem varius, congue tellus at, tempor mauris.</p>
-    ${footerActions}
+    <p slot="jh-dialog-footer">Dialog footer slot: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
   </jh-dialog>
 </section>`};
 
@@ -168,41 +163,25 @@ Playground.args = {
   open: false,
 };
 
-export const Default = { render: (args) => html`<section>
-  <jh-button label="Open dialog" @click=${openDialog('default')}></jh-button>
-  <jh-dialog id="default">
-    <h2 slot="jh-dialog-header">Dialog header</h2>
-    <p>Dialog body slot: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    ${footerActions}
-  </jh-dialog>
-</section>`};
-
-Default.argTypes = {
-  ...disableControls,
-};
-
-export const Scrollable = {
-  render: (args) => html`<section>
-    <jh-button label="Open scrollable dialog" @click=${openDialog('scrollable')}></jh-button>
-    <jh-dialog id="scrollable" ?open=${args.open} show-header-divider show-footer-divider show-dismiss-button>
-      <h2 slot="jh-dialog-header">Scrollable dialog</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec lorem varius, congue tellus at, tempor mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec vitae mi at nibh fringilla tincidunt. Amet, consectetur adipiscing elit. Praesent nec lorem varius, congue tellus at, tempor mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec vitae mi at nibh fringilla tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec lorem varius, congue tellus at, tempor mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec vitae mi at nibh fringilla tincidunt. Amet, consectetur adipiscing elit. Praesent nec lorem varius, congue tellus at, tempor mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec vitae mi at nibh fringilla tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec lorem varius, congue tellus at, tempor mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec vitae mi at nibh fringilla tincidunt. Amet, consectetur adipiscing elit. Praesent nec lorem varius, congue tellus at, tempor mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec vitae mi at nibh fringilla tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec lorem varius, congue tellus at, tempor mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec vitae mi at nibh fringilla tincidunt. Amet, consectetur adipiscing elit. Praesent nec lorem varius, congue tellus at, tempor mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec vitae mi at nibh fringilla tincidunt.</p>
-      ${footerActions}
-    </jh-dialog>
-  </section>`,
+Playground.parameters = {
+  styles: storyStyles,
 };
 
 export const CustomHeader = {
   render: (args) => html`<section>
     <jh-button label="Open custom header dialog" @click=${openDialog('custom-header')}></jh-button>
-    <jh-dialog id="custom-header" ?open=${args.open}>
+    <jh-dialog id="custom-header" scrollable ?open=${args.open}>
       <img src="/images/markus-winkler-DJoG5GsXfMw-unsplash.jpg" alt="Custom header image" slot="jh-dialog-media">
       <div class="custom-header" slot="jh-dialog-header">
         <h2>Custom Header</h2>
         <p>Header subtitle</p>
       </div>
-      <p>Dialog body slot: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p>Dialog body slot: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, consectetur adipiscing elit. Praesent nec lorem varius, congue tellus at, tempor mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec vitae mi at nibh fringilla tincidunt.</p>
       ${footerActions}
     </jh-dialog>
   </section>`,
 }
+
+CustomHeader.parameters = {
+  styles: storyStyles,
+};

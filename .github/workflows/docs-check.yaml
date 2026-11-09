@@ -1,0 +1,78 @@
+# SPDX-FileCopyrightText: 2026 Jack Henry
+#
+# SPDX-License-Identifier: Apache-2.0
+
+name: 'Component Docs Check'
+on:
+  pull_request:
+    paths:
+      - 'packages/jh-elements/**'
+      - '.github/workflows/docs-check.yaml'
+
+jobs:
+  docs-check:
+    name: Manifest and intent files agree
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Install dependencies
+        uses: ./.github/workflows/actions/install-dependencies
+
+      # The manifest must be regenerated and committed with any JSDoc or API change.
+      - name: Regenerate manifest
+        run: pnpm analyze:jh-elements
+
+      - name: Manifest is committed
+        working-directory: packages/jh-elements
+        run: |
+          if ! git diff --quiet -- custom-elements.json web-types.json; then
+            echo "::error::custom-elements.json is out of date. Run 'pnpm define:jh-elements' and commit the result."
+            git --no-pager diff --stat -- custom-elements.json web-types.json
+            exit 1
+          fi
+
+      - name: Intent files match the manifest
+        working-directory: packages/jh-elements
+        run: node scripts/check-component-docs.js --strict
+
+      # Everything below is informational: what changed in the public API on this PR,
+      # and which intent-file sections probably need a look.
+      - name: Save base manifest
+        run: |
+          git show "origin/${{ github.base_ref }}:packages/jh-elements/custom-elements.json" \
+            > /tmp/base-manifest.json 2>/dev/null || echo '{"modules":[]}' > /tmp/base-manifest.json
+
+      - name: Describe API drift
+        id: drift
+        working-directory: packages/jh-elements
+        run: |
+          node scripts/describe-manifest-drift.js /tmp/base-manifest.json custom-elements.json > /tmp/drift.md
+          echo "has_drift=$([ -s /tmp/drift.md ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+
+      - name: Comment on PR
+        if: steps.drift.outputs.has_drift == 'true'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('/tmp/drift.md', 'utf8');
+            const marker = '<!-- component-docs-check -->';
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              per_page: 100,
+            });
+            const existing = comments.find(c => c.body && c.body.includes(marker));
+            const payload = { owner: context.repo.owner, repo: context.repo.repo, body: `${marker}\n${body}` };
+            if (existing) {
+              await github.rest.issues.updateComment({ ...payload, comment_id: existing.id });
+            } else {
+              await github.rest.issues.createComment({ ...payload, issue_number: context.issue.number });
+            }

@@ -235,9 +235,9 @@ export class JhDialog extends JhElement {
     /**
      * Adds an aria-label to the dismiss button to assist screen readers.
      * @attr dismiss-button-accessible-label
-     * @type {string}
+     * @type {string | null}
      */
-    this.dismissButtonAccessibleLabel = 'Close';
+    this.dismissButtonAccessibleLabel = null;
     /**
      * Sets the alignment of the left edge of the divider above the footer.
      * @attr footer-inset

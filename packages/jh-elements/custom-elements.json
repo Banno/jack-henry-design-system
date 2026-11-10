@@ -2348,10 +2348,10 @@
               "name": "dismissButtonAccessibleLabel",
               "privacy": "public",
               "type": {
-                "text": "string"
+                "text": "string | null"
               },
               "description": "Adds an aria-label to the dismiss button to assist screen readers.",
-              "default": "'Close'",
+              "default": "null",
               "attribute": "dismiss-button-accessible-label"
             },
             {
@@ -2491,10 +2491,10 @@
             {
               "name": "dismiss-button-accessible-label",
               "type": {
-                "text": "string"
+                "text": "string | null"
               },
               "description": "Adds an aria-label to the dismiss button to assist screen readers.",
-              "default": "'Close'",
+              "default": "null",
               "fieldName": "dismissButtonAccessibleLabel",
               "attribute": "dismiss-button-accessible-label"
             },
@@ -2565,10 +2565,6 @@
               "description": "Sets the max-width of the dialog container.",
               "default": "'medium'",
               "fieldName": "size"
-            },
-            {
-              "name": "_isOverflowing",
-              "fieldName": "_isOverflowing"
             }
           ],
           "superclass": {

@@ -752,8 +752,8 @@
               "name": "dismiss-button-accessible-label",
               "description": "Adds an aria-label to the dismiss button to assist screen readers.",
               "value": {
-                "type": "string",
-                "default": "'Close'"
+                "type": "string | null",
+                "default": "null"
               }
             },
             {
@@ -811,12 +811,6 @@
                 "type": "'small' | 'medium' | 'large'",
                 "default": "'medium'"
               }
-            },
-            {
-              "name": "_isOverflowing",
-              "value": {
-                "type": "string"
-              }
             }
           ],
           "slots": [
@@ -856,7 +850,7 @@
               {
                 "name": "dismissButtonAccessibleLabel",
                 "description": "Adds an aria-label to the dismiss button to assist screen readers.",
-                "type": "string"
+                "type": "string | null"
               },
               {
                 "name": "footerInset",

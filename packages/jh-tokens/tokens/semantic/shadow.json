@@ -20,7 +20,7 @@
       ],
       "$description": "Used on surface-level content and components such as cards and control thumbs",
       "$extensions": {
-        "alias": true,
+        "semantic": true,
         "deprecated": false,
         "deprecatedMessage": ""
       }
@@ -44,7 +44,7 @@
       ],
       "$description": "Used on elevated components such as FABs and toasts",
       "$extensions": {
-        "alias": true,
+        "semantic": true,
         "deprecated": false,
         "deprecatedMessage": ""
       }
@@ -68,7 +68,7 @@
       ],
       "$description": "Used on menus and dropdowns",
       "$extensions": {
-        "alias": true,
+        "semantic": true,
         "deprecated": false,
         "deprecatedMessage": ""
       }
@@ -92,7 +92,7 @@
       ],
       "$description": "Used on components that should overlay the entire UI such as modals and dialogs",
       "$extensions": {
-        "alias": true,
+        "semantic": true,
         "deprecated": false,
         "deprecatedMessage": ""
       }

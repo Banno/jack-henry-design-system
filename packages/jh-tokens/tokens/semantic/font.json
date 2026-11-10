@@ -7,7 +7,7 @@
         "$value": "{font.family.sans}",
         "$description": "Used to set the default typeface for the system",
         "$extensions": {
-          "alias": true,
+          "semantic": true,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -23,7 +23,7 @@
         },
         "$description": "Used for fine-print text and small snippets of text with limited space within a component",
         "$extensions": {
-          "alias": true,
+          "semantic": true,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -37,7 +37,7 @@
         },
         "$description": "Used for fine-print text and small snippets of text with limited space within a component",
         "$extensions": {
-          "alias": true,
+          "semantic": true,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -51,7 +51,7 @@
         },
         "$description": "Used for fine-print text and small snippets of text with limited space within a component",
         "$extensions": {
-          "alias": true,
+          "semantic": true,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -67,7 +67,7 @@
         },
         "$description": "Used for secondary or explanatory text as well as field labels",
         "$extensions": {
-          "alias": true,
+          "semantic": true,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -81,7 +81,7 @@
         },
         "$description": "Used for secondary or explanatory text as well as field labels",
         "$extensions": {
-          "alias": true,
+          "semantic": true,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -95,7 +95,7 @@
         },
         "$description": "Used for secondary or explanatory text as well as field labels.",
         "$extensions": {
-          "alias": true,
+          "semantic": true,
           "deprecated": false,
           "deprecatedMessage": ""
         }
@@ -112,7 +112,7 @@
           },
           "$description": "Used for blocks of text and most content displayed within components",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -126,7 +126,7 @@
           },
           "$description": "Used for intro or leading blocks of text",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -142,7 +142,7 @@
           },
           "$description": "Used for blocks of text and most content displayed within components",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -156,7 +156,7 @@
           },
           "$description": "Used for intro or leading blocks of text",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -172,7 +172,7 @@
           },
           "$description": "Used for blocks of text and most content displayed within components",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -186,7 +186,7 @@
           },
           "$description": "Used for intro or leading blocks of text",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -204,7 +204,7 @@
           },
           "$description": "Used for code references in standard blocks of text",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -218,7 +218,7 @@
           },
           "$description": "Used for code references in intro or leading blocks of text",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -236,7 +236,7 @@
           },
           "$description": "Used to create visual emphasis through size without being misconstrued as a heading",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -250,7 +250,7 @@
           },
           "$description": "Used to create visual emphasis through size without being misconstrued as a heading",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -264,7 +264,7 @@
           },
           "$description": "Used to create visual emphasis through size without being misconstrued as a heading",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -282,7 +282,7 @@
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -296,7 +296,7 @@
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -310,7 +310,7 @@
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -324,7 +324,7 @@
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -338,7 +338,7 @@
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -352,7 +352,7 @@
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -368,7 +368,7 @@
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -382,7 +382,7 @@
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -396,7 +396,7 @@
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -410,7 +410,7 @@
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -424,7 +424,7 @@
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -438,7 +438,7 @@
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -454,7 +454,7 @@
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -468,7 +468,7 @@
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -482,7 +482,7 @@
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -496,7 +496,7 @@
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -510,7 +510,7 @@
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }
@@ -524,7 +524,7 @@
           },
           "$description": "Used to create visual hierarchy on a page and within a component",
           "$extensions": {
-            "alias": true,
+            "semantic": true,
             "deprecated": false,
             "deprecatedMessage": ""
           }

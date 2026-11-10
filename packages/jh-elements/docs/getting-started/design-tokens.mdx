@@ -22,7 +22,7 @@ Design tokens ensure:
 
 Our design tokens are built with specific structures in mind that allow them to be incorporated and extended in a consistent and predictable manner.
 
-Design tokens provide two methods for styling: **Alias Tokens** for large-scale theming and **Styling Hooks** for granular, component-specific adjustments. Both are applied using CSS Custom Properties, which leverage the cascading nature of CSS to allow for fine-grained style control at various levels of your application's DOM structure.
+Design tokens provide two methods for styling: **Semantic Tokens** for large-scale theming and **Styling Hooks** for granular, component-specific adjustments. Both are applied using CSS Custom Properties, which leverage the cascading nature of CSS to allow for fine-grained style control at various levels of your application's DOM structure.
 
 ### Application-Level Overrides
 
@@ -142,7 +142,7 @@ Example of token metadata:
   {
     "name": "Color Container Page",
     "token": "jh-color-container-page",
-    "alias": true,
+    "semantic": true,
     "description": "Used on page-level containers that make up large portions of the overall background",
     "category": "color",
     "type": "container",

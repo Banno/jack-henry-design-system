@@ -2,7 +2,7 @@
   {
     "name": "Color Container Page",
     "token": "jh-color-container-page",
-    "alias": true,
+    "semantic": true,
     "description": "Used on page-level containers that make up large portions of the overall background",
     "category": "color",
     "type": "container",
@@ -15,7 +15,7 @@
   {
     "name": "Color Container Primary Enabled",
     "token": "jh-color-container-primary-enabled",
-    "alias": true,
+    "semantic": true,
     "description": "Used on the major containers throughout the user interface such as cards and dialogs",
     "category": "color",
     "type": "container",
@@ -29,7 +29,7 @@
   {
     "name": "Color Container Primary Hover",
     "token": "jh-color-container-primary-hover",
-    "alias": true,
+    "semantic": true,
     "description": "Hover color for primary container",
     "category": "color",
     "type": "container",
@@ -43,7 +43,7 @@
   {
     "name": "Color Container Primary Active",
     "token": "jh-color-container-primary-active",
-    "alias": true,
+    "semantic": true,
     "description": "Active color for primary container",
     "category": "color",
     "type": "container",
@@ -57,7 +57,7 @@
   {
     "name": "Color Container Primary Selected",
     "token": "jh-color-container-primary-selected",
-    "alias": true,
+    "semantic": true,
     "description": "Selected color for primary container",
     "category": "color",
     "type": "container",
@@ -71,7 +71,7 @@
   {
     "name": "Color Container Secondary Enabled",
     "token": "jh-color-container-secondary-enabled",
-    "alias": true,
+    "semantic": true,
     "description": "Used on containers and sections that will sit on top of or within a primary container",
     "category": "color",
     "type": "container",
@@ -85,7 +85,7 @@
   {
     "name": "Color Container Secondary Hover",
     "token": "jh-color-container-secondary-hover",
-    "alias": true,
+    "semantic": true,
     "description": "Hover color for secondary container",
     "category": "color",
     "type": "container",
@@ -99,7 +99,7 @@
   {
     "name": "Color Container Secondary Active",
     "token": "jh-color-container-secondary-active",
-    "alias": true,
+    "semantic": true,
     "description": "Active color for secondary container",
     "category": "color",
     "type": "container",
@@ -113,7 +113,7 @@
   {
     "name": "Color Container Secondary Selected",
     "token": "jh-color-container-secondary-selected",
-    "alias": true,
+    "semantic": true,
     "description": "Selected color for secondary container",
     "category": "color",
     "type": "container",
@@ -127,7 +127,7 @@
   {
     "name": "Color Container Neutral Enabled",
     "token": "jh-color-container-neutral-enabled",
-    "alias": true,
+    "semantic": true,
     "description": "Used on containers that have a neutral context",
     "category": "color",
     "type": "container",
@@ -141,7 +141,7 @@
   {
     "name": "Color Container Neutral Hover",
     "token": "jh-color-container-neutral-hover",
-    "alias": true,
+    "semantic": true,
     "description": "Hover color for neutral container",
     "category": "color",
     "type": "container",
@@ -155,7 +155,7 @@
   {
     "name": "Color Container Neutral Active",
     "token": "jh-color-container-neutral-active",
-    "alias": true,
+    "semantic": true,
     "description": "Active color for neutral container",
     "category": "color",
     "type": "container",
@@ -169,7 +169,7 @@
   {
     "name": "Color Container Brand Enabled",
     "token": "jh-color-container-brand-enabled",
-    "alias": true,
+    "semantic": true,
     "description": "Used on containers that have a branded context",
     "category": "color",
     "type": "container",
@@ -183,7 +183,7 @@
   {
     "name": "Color Container Brand Hover",
     "token": "jh-color-container-brand-hover",
-    "alias": true,
+    "semantic": true,
     "description": "Hover color for branded container",
     "category": "color",
     "type": "container",
@@ -197,7 +197,7 @@
   {
     "name": "Color Container Brand Active",
     "token": "jh-color-container-brand-active",
-    "alias": true,
+    "semantic": true,
     "description": "Active color for branded container",
     "category": "color",
     "type": "container",
@@ -211,7 +211,7 @@
   {
     "name": "Color Container Positive Enabled",
     "token": "jh-color-container-positive-enabled",
-    "alias": true,
+    "semantic": true,
     "description": "Used on containers that have a positive context",
     "category": "color",
     "type": "container",
@@ -225,7 +225,7 @@
   {
     "name": "Color Container Positive Hover",
     "token": "jh-color-container-positive-hover",
-    "alias": true,
+    "semantic": true,
     "description": "Hover color for positive container",
     "category": "color",
     "type": "container",
@@ -239,7 +239,7 @@
   {
     "name": "Color Container Positive Active",
     "token": "jh-color-container-positive-active",
-    "alias": true,
+    "semantic": true,
     "description": "Active color for positive container",
     "category": "color",
     "type": "container",
@@ -253,7 +253,7 @@
   {
     "name": "Color Container Negative Enabled",
     "token": "jh-color-container-negative-enabled",
-    "alias": true,
+    "semantic": true,
     "description": "Used on containers that have a negative context",
     "category": "color",
     "type": "container",
@@ -267,7 +267,7 @@
   {
     "name": "Color Container Negative Hover",
     "token": "jh-color-container-negative-hover",
-    "alias": true,
+    "semantic": true,
     "description": "Hover color for negative container",
     "category": "color",
     "type": "container",
@@ -281,7 +281,7 @@
   {
     "name": "Color Container Negative Active",
     "token": "jh-color-container-negative-active",
-    "alias": true,
+    "semantic": true,
     "description": "Active color for negative container",
     "category": "color",
     "type": "container",
@@ -295,7 +295,7 @@
   {
     "name": "Color State Hover",
     "token": "jh-color-state-hover",
-    "alias": true,
+    "semantic": true,
     "description": "Translucent layer painted over an interactive surface on hover. Stacks on any background.",
     "category": "color",
     "type": "state",
@@ -308,7 +308,7 @@
   {
     "name": "Color State Active",
     "token": "jh-color-state-active",
-    "alias": true,
+    "semantic": true,
     "description": "Translucent layer painted over an interactive surface while pressed.",
     "category": "color",
     "type": "state",
@@ -321,7 +321,7 @@
   {
     "name": "Color State Selected",
     "token": "jh-color-state-selected",
-    "alias": true,
+    "semantic": true,
     "description": "Translucent blue layer for the selected item in a list or menu. Does not follow brand theming yet.",
     "category": "color",
     "type": "state",
@@ -334,7 +334,7 @@
   {
     "name": "Color Overlay",
     "token": "jh-color-overlay",
-    "alias": true,
+    "semantic": true,
     "description": "Used to distinguish the modal layer from the layer underneath",
     "category": "color",
     "type": "overlay",
@@ -346,7 +346,7 @@
   {
     "name": "Color Control Enabled",
     "token": "jh-color-control-enabled",
-    "alias": true,
+    "semantic": true,
     "description": "Used on the containers of interactive elements such as slider and switch tracks",
     "category": "color",
     "type": "control",
@@ -359,7 +359,7 @@
   {
     "name": "Color Control Hover",
     "token": "jh-color-control-hover",
-    "alias": true,
+    "semantic": true,
     "description": "Hover color for control",
     "category": "color",
     "type": "control",
@@ -372,7 +372,7 @@
   {
     "name": "Color Control Active",
     "token": "jh-color-control-active",
-    "alias": true,
+    "semantic": true,
     "description": "Active color for control",
     "category": "color",
     "type": "control",
@@ -385,7 +385,7 @@
   {
     "name": "Color Divider Primary",
     "token": "jh-color-divider-primary",
-    "alias": true,
+    "semantic": true,
     "description": "Used on border elements that require more visual emphasis such as input fields",
     "category": "color",
     "type": "divider",
@@ -398,7 +398,7 @@
   {
     "name": "Color Divider Secondary",
     "token": "jh-color-divider-secondary",
-    "alias": true,
+    "semantic": true,
     "description": "Used on subtle border elements such as dividers and table borders",
     "category": "color",
     "type": "divider",
@@ -411,7 +411,7 @@
   {
     "name": "Color Divider Inverse",
     "token": "jh-color-divider-inverse",
-    "alias": true,
+    "semantic": true,
     "description": "Used on backgrounds that don't provide sufficient contrast with primary or secondary dividers",
     "category": "color",
     "type": "divider",
@@ -424,7 +424,7 @@
   {
     "name": "Color Brand Primary",
     "token": "jh-color-brand-primary",
-    "alias": true,
+    "semantic": true,
     "description": "Used to emphasize areas of importance such as feature areas or primary calls-to-action",
     "category": "color",
     "type": "brand",
@@ -437,7 +437,7 @@
   {
     "name": "Color Brand Secondary",
     "token": "jh-color-brand-secondary",
-    "alias": true,
+    "semantic": true,
     "description": "Used when another layer of visual hierarchy is needed within feature areas or on secondary calls-to-action",
     "category": "color",
     "type": "brand",
@@ -450,7 +450,7 @@
   {
     "name": "Color Brand Tertiary",
     "token": "jh-color-brand-tertiary",
-    "alias": true,
+    "semantic": true,
     "description": "Used to add thoughtful branded touches to components such as accent bars",
     "category": "color",
     "type": "brand",
@@ -463,7 +463,7 @@
   {
     "name": "Color Brand Gradient Light",
     "token": "jh-color-brand-gradient-light",
-    "alias": true,
+    "semantic": true,
     "description": "Used to accent branded elements with content such as ads or other calls-to-action",
     "category": "color",
     "type": "brand",
@@ -477,7 +477,7 @@
   {
     "name": "Color Brand Gradient Medium",
     "token": "jh-color-brand-gradient-medium",
-    "alias": true,
+    "semantic": true,
     "description": "Used to accents branded elements without content",
     "category": "color",
     "type": "brand",
@@ -491,7 +491,7 @@
   {
     "name": "Color Brand Gradient Dark",
     "token": "jh-color-brand-gradient-dark",
-    "alias": true,
+    "semantic": true,
     "description": "Used to accent branded elements with content such as ads or other calls-to-action",
     "category": "color",
     "type": "brand",
@@ -505,7 +505,7 @@
   {
     "name": "Color Brand On Primary",
     "token": "jh-color-brand-on-primary",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that sits on the primary brand color",
     "category": "color",
     "type": "brand",
@@ -519,7 +519,7 @@
   {
     "name": "Color Brand On Secondary",
     "token": "jh-color-brand-on-secondary",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that sits on the secondary brand color",
     "category": "color",
     "type": "brand",
@@ -533,7 +533,7 @@
   {
     "name": "Color Brand On Tertiary",
     "token": "jh-color-brand-on-tertiary",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that sits on the tertiary brand color",
     "category": "color",
     "type": "brand",
@@ -547,7 +547,7 @@
   {
     "name": "Color Brand On Gradient Light",
     "token": "jh-color-brand-on-gradient-light",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that sits on the light brand gradient",
     "category": "color",
     "type": "brand",
@@ -561,7 +561,7 @@
   {
     "name": "Color Brand On Gradient Dark",
     "token": "jh-color-brand-on-gradient-dark",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that sits on the dark brand gradient",
     "category": "color",
     "type": "brand",
@@ -575,7 +575,7 @@
   {
     "name": "Color Content Brand Enabled",
     "token": "jh-color-content-brand-enabled",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that needs to have a strong branded presence",
     "category": "color",
     "type": "content",
@@ -589,7 +589,7 @@
   {
     "name": "Color Content Brand Hover",
     "token": "jh-color-content-brand-hover",
-    "alias": true,
+    "semantic": true,
     "description": "Hover color for branded content",
     "category": "color",
     "type": "content",
@@ -603,7 +603,7 @@
   {
     "name": "Color Content Brand Active",
     "token": "jh-color-content-brand-active",
-    "alias": true,
+    "semantic": true,
     "description": "Active color for branded content",
     "category": "color",
     "type": "content",
@@ -617,7 +617,7 @@
   {
     "name": "Color Content Primary Enabled",
     "token": "jh-color-content-primary-enabled",
-    "alias": true,
+    "semantic": true,
     "description": "Used for the majority of fundamental content within a layout such as body copy and headers as well as neutral messages",
     "category": "color",
     "type": "content",
@@ -631,7 +631,7 @@
   {
     "name": "Color Content Primary Hover",
     "token": "jh-color-content-primary-hover",
-    "alias": true,
+    "semantic": true,
     "description": "Hover color for primary content",
     "category": "color",
     "type": "content",
@@ -645,7 +645,7 @@
   {
     "name": "Color Content Primary Active",
     "token": "jh-color-content-primary-active",
-    "alias": true,
+    "semantic": true,
     "description": "Active color for primary content",
     "category": "color",
     "type": "content",
@@ -659,7 +659,7 @@
   {
     "name": "Color Content Secondary Enabled",
     "token": "jh-color-content-secondary-enabled",
-    "alias": true,
+    "semantic": true,
     "description": "Used for supportive content such as labels, subtitles, and placeholder text",
     "category": "color",
     "type": "content",
@@ -673,7 +673,7 @@
   {
     "name": "Color Content Secondary Hover",
     "token": "jh-color-content-secondary-hover",
-    "alias": true,
+    "semantic": true,
     "description": "Hover color for secondary content",
     "category": "color",
     "type": "content",
@@ -687,7 +687,7 @@
   {
     "name": "Color Content Secondary Active",
     "token": "jh-color-content-secondary-active",
-    "alias": true,
+    "semantic": true,
     "description": "Active color for secondary content",
     "category": "color",
     "type": "content",
@@ -701,7 +701,7 @@
   {
     "name": "Color Content Positive Enabled",
     "token": "jh-color-content-positive-enabled",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that conveys a positive response such as a deposit",
     "category": "color",
     "type": "content",
@@ -715,7 +715,7 @@
   {
     "name": "Color Content Positive Hover",
     "token": "jh-color-content-positive-hover",
-    "alias": true,
+    "semantic": true,
     "description": "Hover color for positive content",
     "category": "color",
     "type": "content",
@@ -729,7 +729,7 @@
   {
     "name": "Color Content Positive Active",
     "token": "jh-color-content-positive-active",
-    "alias": true,
+    "semantic": true,
     "description": "Active color for positive content",
     "category": "color",
     "type": "content",
@@ -743,7 +743,7 @@
   {
     "name": "Color Content Negative Enabled",
     "token": "jh-color-content-negative-enabled",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that conveys a negative response such as an error message",
     "category": "color",
     "type": "content",
@@ -757,7 +757,7 @@
   {
     "name": "Color Content Negative Hover",
     "token": "jh-color-content-negative-hover",
-    "alias": true,
+    "semantic": true,
     "description": "Hover color for negative content",
     "category": "color",
     "type": "content",
@@ -771,7 +771,7 @@
   {
     "name": "Color Content Negative Active",
     "token": "jh-color-content-negative-active",
-    "alias": true,
+    "semantic": true,
     "description": "Active color for negative content",
     "category": "color",
     "type": "content",
@@ -785,7 +785,7 @@
   {
     "name": "Color Content Inverse Enabled",
     "token": "jh-color-content-inverse-enabled",
-    "alias": true,
+    "semantic": true,
     "description": "Used on backgrounds that don't provide sufficient contrast with other content colors",
     "category": "color",
     "type": "content",
@@ -799,7 +799,7 @@
   {
     "name": "Color Content Inverse Hover",
     "token": "jh-color-content-inverse-hover",
-    "alias": true,
+    "semantic": true,
     "description": "Hover color for inverse content",
     "category": "color",
     "type": "content",
@@ -813,7 +813,7 @@
   {
     "name": "Color Content Inverse Active",
     "token": "jh-color-content-inverse-active",
-    "alias": true,
+    "semantic": true,
     "description": "Active color for inverse content",
     "category": "color",
     "type": "content",
@@ -827,7 +827,7 @@
   {
     "name": "Color Content On Brand Enabled",
     "token": "jh-color-content-on-brand-enabled",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that sits on the content brand color",
     "category": "color",
     "type": "content",
@@ -841,7 +841,7 @@
   {
     "name": "Color Content On Brand Hover",
     "token": "jh-color-content-on-brand-hover",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that sits on the content brand hover color",
     "category": "color",
     "type": "content",
@@ -855,7 +855,7 @@
   {
     "name": "Color Content On Brand Active",
     "token": "jh-color-content-on-brand-active",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that sits on the content brand active color",
     "category": "color",
     "type": "content",
@@ -869,7 +869,7 @@
   {
     "name": "Color Content On Primary Enabled",
     "token": "jh-color-content-on-primary-enabled",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that sits on the content primary color",
     "category": "color",
     "type": "content",
@@ -883,7 +883,7 @@
   {
     "name": "Color Content On Primary Hover",
     "token": "jh-color-content-on-primary-hover",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that sits on the content primary hover color",
     "category": "color",
     "type": "content",
@@ -897,7 +897,7 @@
   {
     "name": "Color Content On Primary Active",
     "token": "jh-color-content-on-primary-active",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that sits on the content primary active color",
     "category": "color",
     "type": "content",
@@ -911,7 +911,7 @@
   {
     "name": "Color Content On Secondary Enabled",
     "token": "jh-color-content-on-secondary-enabled",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that sits on the content secondary color",
     "category": "color",
     "type": "content",
@@ -925,7 +925,7 @@
   {
     "name": "Color Content On Secondary Hover",
     "token": "jh-color-content-on-secondary-hover",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that sits on the content secondary hover color",
     "category": "color",
     "type": "content",
@@ -939,7 +939,7 @@
   {
     "name": "Color Content On Secondary Active",
     "token": "jh-color-content-on-secondary-active",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that sits on the content secondary active color",
     "category": "color",
     "type": "content",
@@ -953,7 +953,7 @@
   {
     "name": "Color Content On Positive Enabled",
     "token": "jh-color-content-on-positive-enabled",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that sits on the content positive color",
     "category": "color",
     "type": "content",
@@ -967,7 +967,7 @@
   {
     "name": "Color Content On Positive Hover",
     "token": "jh-color-content-on-positive-hover",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that sits on the content positive hover color",
     "category": "color",
     "type": "content",
@@ -981,7 +981,7 @@
   {
     "name": "Color Content On Positive Active",
     "token": "jh-color-content-on-positive-active",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that sits on the content positive active color",
     "category": "color",
     "type": "content",
@@ -995,7 +995,7 @@
   {
     "name": "Color Content On Negative Enabled",
     "token": "jh-color-content-on-negative-enabled",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that sits on the content negative color",
     "category": "color",
     "type": "content",
@@ -1009,7 +1009,7 @@
   {
     "name": "Color Content On Negative Hover",
     "token": "jh-color-content-on-negative-hover",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that sits on the content negative hover color",
     "category": "color",
     "type": "content",
@@ -1023,7 +1023,7 @@
   {
     "name": "Color Content On Negative Active",
     "token": "jh-color-content-on-negative-active",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that sits on the content negative active color",
     "category": "color",
     "type": "content",
@@ -1037,7 +1037,7 @@
   {
     "name": "Color Content On Inverse Enabled",
     "token": "jh-color-content-on-inverse-enabled",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that sits on the content inverse color",
     "category": "color",
     "type": "content",
@@ -1051,7 +1051,7 @@
   {
     "name": "Color Content On Inverse Hover",
     "token": "jh-color-content-on-inverse-hover",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that sits on the content inverse hover color",
     "category": "color",
     "type": "content",
@@ -1065,7 +1065,7 @@
   {
     "name": "Color Content On Inverse Active",
     "token": "jh-color-content-on-inverse-active",
-    "alias": true,
+    "semantic": true,
     "description": "Used for content that sits on the content inverse active color",
     "category": "color",
     "type": "content",
@@ -1079,7 +1079,7 @@
   {
     "name": "Color Interactive Focus",
     "token": "jh-color-interactive-focus",
-    "alias": true,
+    "semantic": true,
     "description": "Used for the outermost part of the focus ring",
     "category": "color",
     "type": "interactive",
@@ -1092,7 +1092,7 @@
   {
     "name": "Color Interactive Highlight",
     "token": "jh-color-interactive-highlight",
-    "alias": true,
+    "semantic": true,
     "description": "Used for highlighting content on the page",
     "category": "color",
     "type": "interactive",
@@ -1105,7 +1105,7 @@
   {
     "name": "Color Interactive Visited",
     "token": "jh-color-interactive-visited",
-    "alias": true,
+    "semantic": true,
     "description": "Used for visited links",
     "category": "color",
     "type": "interactive",
@@ -1118,7 +1118,7 @@
   {
     "name": "Color Shadow Primary",
     "token": "jh-color-shadow-primary",
-    "alias": true,
+    "semantic": true,
     "description": "Used on menus and dropdowns",
     "category": "color",
     "type": "shadow",
@@ -1131,7 +1131,7 @@
   {
     "name": "Color Shadow Secondary",
     "token": "jh-color-shadow-secondary",
-    "alias": true,
+    "semantic": true,
     "description": "Used on components that should overlay the entire UI such as modals and dialogs",
     "category": "color",
     "type": "shadow",
@@ -1144,7 +1144,7 @@
   {
     "name": "Color Black Alpha 10",
     "token": "jh-color-black-alpha-10",
-    "alias": false,
+    "semantic": false,
     "description": "Black at 10% opacity",
     "category": "color",
     "type": "black",
@@ -1158,7 +1158,7 @@
   {
     "name": "Color Black Alpha 20",
     "token": "jh-color-black-alpha-20",
-    "alias": false,
+    "semantic": false,
     "description": "Black at 20% opacity",
     "category": "color",
     "type": "black",
@@ -1172,7 +1172,7 @@
   {
     "name": "Color Black Alpha 30",
     "token": "jh-color-black-alpha-30",
-    "alias": false,
+    "semantic": false,
     "description": "Black at 30% opacity",
     "category": "color",
     "type": "black",
@@ -1186,7 +1186,7 @@
   {
     "name": "Color Black Alpha 40",
     "token": "jh-color-black-alpha-40",
-    "alias": false,
+    "semantic": false,
     "description": "Black at 40% opacity",
     "category": "color",
     "type": "black",
@@ -1200,7 +1200,7 @@
   {
     "name": "Color Black Alpha 50",
     "token": "jh-color-black-alpha-50",
-    "alias": false,
+    "semantic": false,
     "description": "Black at 50% opacity",
     "category": "color",
     "type": "black",
@@ -1214,7 +1214,7 @@
   {
     "name": "Color Black Alpha 60",
     "token": "jh-color-black-alpha-60",
-    "alias": false,
+    "semantic": false,
     "description": "Black at 60% opacity",
     "category": "color",
     "type": "black",
@@ -1228,7 +1228,7 @@
   {
     "name": "Color Black Alpha 70",
     "token": "jh-color-black-alpha-70",
-    "alias": false,
+    "semantic": false,
     "description": "Black at 70% opacity",
     "category": "color",
     "type": "black",
@@ -1242,7 +1242,7 @@
   {
     "name": "Color Black Alpha 80",
     "token": "jh-color-black-alpha-80",
-    "alias": false,
+    "semantic": false,
     "description": "Black at 80% opacity",
     "category": "color",
     "type": "black",
@@ -1256,7 +1256,7 @@
   {
     "name": "Color Black Alpha 90",
     "token": "jh-color-black-alpha-90",
-    "alias": false,
+    "semantic": false,
     "description": "Black at 90% opacity",
     "category": "color",
     "type": "black",
@@ -1270,7 +1270,7 @@
   {
     "name": "Color Black Alpha 100",
     "token": "jh-color-black-alpha-100",
-    "alias": false,
+    "semantic": false,
     "description": "Black at 100% opacity",
     "category": "color",
     "type": "black",
@@ -1284,7 +1284,7 @@
   {
     "name": "Color White Alpha 10",
     "token": "jh-color-white-alpha-10",
-    "alias": false,
+    "semantic": false,
     "description": "White at 10% opacity",
     "category": "color",
     "type": "white",
@@ -1298,7 +1298,7 @@
   {
     "name": "Color White Alpha 20",
     "token": "jh-color-white-alpha-20",
-    "alias": false,
+    "semantic": false,
     "description": "White at 20% opacity",
     "category": "color",
     "type": "white",
@@ -1312,7 +1312,7 @@
   {
     "name": "Color White Alpha 30",
     "token": "jh-color-white-alpha-30",
-    "alias": false,
+    "semantic": false,
     "description": "White at 30% opacity",
     "category": "color",
     "type": "white",
@@ -1326,7 +1326,7 @@
   {
     "name": "Color White Alpha 40",
     "token": "jh-color-white-alpha-40",
-    "alias": false,
+    "semantic": false,
     "description": "White at 40% opacity",
     "category": "color",
     "type": "white",
@@ -1340,7 +1340,7 @@
   {
     "name": "Color White Alpha 50",
     "token": "jh-color-white-alpha-50",
-    "alias": false,
+    "semantic": false,
     "description": "White at 50% opacity",
     "category": "color",
     "type": "white",
@@ -1354,7 +1354,7 @@
   {
     "name": "Color White Alpha 60",
     "token": "jh-color-white-alpha-60",
-    "alias": false,
+    "semantic": false,
     "description": "White at 60% opacity",
     "category": "color",
     "type": "white",
@@ -1368,7 +1368,7 @@
   {
     "name": "Color White Alpha 70",
     "token": "jh-color-white-alpha-70",
-    "alias": false,
+    "semantic": false,
     "description": "White at 70% opacity",
     "category": "color",
     "type": "white",
@@ -1382,7 +1382,7 @@
   {
     "name": "Color White Alpha 80",
     "token": "jh-color-white-alpha-80",
-    "alias": false,
+    "semantic": false,
     "description": "White at 80% opacity",
     "category": "color",
     "type": "white",
@@ -1396,7 +1396,7 @@
   {
     "name": "Color White Alpha 90",
     "token": "jh-color-white-alpha-90",
-    "alias": false,
+    "semantic": false,
     "description": "White at 90% opacity",
     "category": "color",
     "type": "white",
@@ -1410,7 +1410,7 @@
   {
     "name": "Color White Alpha 100",
     "token": "jh-color-white-alpha-100",
-    "alias": false,
+    "semantic": false,
     "description": "White at 100% opacity",
     "category": "color",
     "type": "white",
@@ -1424,7 +1424,7 @@
   {
     "name": "Color Gray 0",
     "token": "jh-color-gray-0",
-    "alias": true,
+    "semantic": true,
     "description": "Gray 0",
     "category": "color",
     "type": "gray",
@@ -1437,7 +1437,7 @@
   {
     "name": "Color Gray 50",
     "token": "jh-color-gray-50",
-    "alias": false,
+    "semantic": false,
     "description": "Gray 50",
     "category": "color",
     "type": "gray",
@@ -1450,7 +1450,7 @@
   {
     "name": "Color Gray 100",
     "token": "jh-color-gray-100",
-    "alias": false,
+    "semantic": false,
     "description": "Gray 100; Brand color: Light cool gray",
     "category": "color",
     "type": "gray",
@@ -1463,7 +1463,7 @@
   {
     "name": "Color Gray 150",
     "token": "jh-color-gray-150",
-    "alias": false,
+    "semantic": false,
     "description": "Gray 150",
     "category": "color",
     "type": "gray",
@@ -1476,7 +1476,7 @@
   {
     "name": "Color Gray 200",
     "token": "jh-color-gray-200",
-    "alias": false,
+    "semantic": false,
     "description": "Gray 200",
     "category": "color",
     "type": "gray",
@@ -1489,7 +1489,7 @@
   {
     "name": "Color Gray 250",
     "token": "jh-color-gray-250",
-    "alias": false,
+    "semantic": false,
     "description": "Gray 250; Brand color: Medium cool gray",
     "category": "color",
     "type": "gray",
@@ -1502,7 +1502,7 @@
   {
     "name": "Color Gray 300",
     "token": "jh-color-gray-300",
-    "alias": false,
+    "semantic": false,
     "description": "Gray 300",
     "category": "color",
     "type": "gray",
@@ -1515,7 +1515,7 @@
   {
     "name": "Color Gray 350",
     "token": "jh-color-gray-350",
-    "alias": false,
+    "semantic": false,
     "description": "Gray 350",
     "category": "color",
     "type": "gray",
@@ -1528,7 +1528,7 @@
   {
     "name": "Color Gray 400",
     "token": "jh-color-gray-400",
-    "alias": false,
+    "semantic": false,
     "description": "Gray 400",
     "category": "color",
     "type": "gray",
@@ -1541,7 +1541,7 @@
   {
     "name": "Color Gray 450",
     "token": "jh-color-gray-450",
-    "alias": false,
+    "semantic": false,
     "description": "Gray 450",
     "category": "color",
     "type": "gray",
@@ -1554,7 +1554,7 @@
   {
     "name": "Color Gray 500",
     "token": "jh-color-gray-500",
-    "alias": false,
+    "semantic": false,
     "description": "Gray 500",
     "category": "color",
     "type": "gray",
@@ -1567,7 +1567,7 @@
   {
     "name": "Color Gray 550",
     "token": "jh-color-gray-550",
-    "alias": false,
+    "semantic": false,
     "description": "Gray 550",
     "category": "color",
     "type": "gray",
@@ -1580,7 +1580,7 @@
   {
     "name": "Color Gray 600",
     "token": "jh-color-gray-600",
-    "alias": false,
+    "semantic": false,
     "description": "Gray 600",
     "category": "color",
     "type": "gray",
@@ -1593,7 +1593,7 @@
   {
     "name": "Color Gray 650",
     "token": "jh-color-gray-650",
-    "alias": false,
+    "semantic": false,
     "description": "Gray 650; Brand color: Dark cool gray",
     "category": "color",
     "type": "gray",
@@ -1606,7 +1606,7 @@
   {
     "name": "Color Gray 700",
     "token": "jh-color-gray-700",
-    "alias": false,
+    "semantic": false,
     "description": "Gray 700",
     "category": "color",
     "type": "gray",
@@ -1619,7 +1619,7 @@
   {
     "name": "Color Gray 750",
     "token": "jh-color-gray-750",
-    "alias": false,
+    "semantic": false,
     "description": "Gray 750",
     "category": "color",
     "type": "gray",
@@ -1632,7 +1632,7 @@
   {
     "name": "Color Gray 800",
     "token": "jh-color-gray-800",
-    "alias": false,
+    "semantic": false,
     "description": "Gray 800",
     "category": "color",
     "type": "gray",
@@ -1645,7 +1645,7 @@
   {
     "name": "Color Gray 850",
     "token": "jh-color-gray-850",
-    "alias": false,
+    "semantic": false,
     "description": "Gray 850",
     "category": "color",
     "type": "gray",
@@ -1658,7 +1658,7 @@
   {
     "name": "Color Gray 900",
     "token": "jh-color-gray-900",
-    "alias": false,
+    "semantic": false,
     "description": "Gray 900",
     "category": "color",
     "type": "gray",
@@ -1671,7 +1671,7 @@
   {
     "name": "Color Gray 950",
     "token": "jh-color-gray-950",
-    "alias": false,
+    "semantic": false,
     "description": "Gray 950",
     "category": "color",
     "type": "gray",
@@ -1684,7 +1684,7 @@
   {
     "name": "Color Gray 1000",
     "token": "jh-color-gray-1000",
-    "alias": true,
+    "semantic": true,
     "description": "Gray 1000",
     "category": "color",
     "type": "gray",
@@ -1697,7 +1697,7 @@
   {
     "name": "Color Red 50",
     "token": "jh-color-red-50",
-    "alias": false,
+    "semantic": false,
     "description": "Red 50",
     "category": "color",
     "type": "red",
@@ -1710,7 +1710,7 @@
   {
     "name": "Color Red 100",
     "token": "jh-color-red-100",
-    "alias": false,
+    "semantic": false,
     "description": "Red 100",
     "category": "color",
     "type": "red",
@@ -1723,7 +1723,7 @@
   {
     "name": "Color Red 150",
     "token": "jh-color-red-150",
-    "alias": false,
+    "semantic": false,
     "description": "Red 150",
     "category": "color",
     "type": "red",
@@ -1736,7 +1736,7 @@
   {
     "name": "Color Red 200",
     "token": "jh-color-red-200",
-    "alias": false,
+    "semantic": false,
     "description": "Red 200",
     "category": "color",
     "type": "red",
@@ -1749,7 +1749,7 @@
   {
     "name": "Color Red 250",
     "token": "jh-color-red-250",
-    "alias": false,
+    "semantic": false,
     "description": "Red 250",
     "category": "color",
     "type": "red",
@@ -1762,7 +1762,7 @@
   {
     "name": "Color Red 300",
     "token": "jh-color-red-300",
-    "alias": false,
+    "semantic": false,
     "description": "Red 300",
     "category": "color",
     "type": "red",
@@ -1775,7 +1775,7 @@
   {
     "name": "Color Red 350",
     "token": "jh-color-red-350",
-    "alias": false,
+    "semantic": false,
     "description": "Red 350",
     "category": "color",
     "type": "red",
@@ -1788,7 +1788,7 @@
   {
     "name": "Color Red 400",
     "token": "jh-color-red-400",
-    "alias": false,
+    "semantic": false,
     "description": "Red 400",
     "category": "color",
     "type": "red",
@@ -1801,7 +1801,7 @@
   {
     "name": "Color Red 450",
     "token": "jh-color-red-450",
-    "alias": false,
+    "semantic": false,
     "description": "Red 450",
     "category": "color",
     "type": "red",
@@ -1814,7 +1814,7 @@
   {
     "name": "Color Red 500",
     "token": "jh-color-red-500",
-    "alias": false,
+    "semantic": false,
     "description": "Red 500",
     "category": "color",
     "type": "red",
@@ -1827,7 +1827,7 @@
   {
     "name": "Color Red 550",
     "token": "jh-color-red-550",
-    "alias": false,
+    "semantic": false,
     "description": "Red 550",
     "category": "color",
     "type": "red",
@@ -1840,7 +1840,7 @@
   {
     "name": "Color Red 600",
     "token": "jh-color-red-600",
-    "alias": false,
+    "semantic": false,
     "description": "Red 600",
     "category": "color",
     "type": "red",
@@ -1853,7 +1853,7 @@
   {
     "name": "Color Red 650",
     "token": "jh-color-red-650",
-    "alias": false,
+    "semantic": false,
     "description": "Red 650",
     "category": "color",
     "type": "red",
@@ -1866,7 +1866,7 @@
   {
     "name": "Color Red 700",
     "token": "jh-color-red-700",
-    "alias": false,
+    "semantic": false,
     "description": "Red 700",
     "category": "color",
     "type": "red",
@@ -1879,7 +1879,7 @@
   {
     "name": "Color Red 750",
     "token": "jh-color-red-750",
-    "alias": false,
+    "semantic": false,
     "description": "Red 750",
     "category": "color",
     "type": "red",
@@ -1892,7 +1892,7 @@
   {
     "name": "Color Red 800",
     "token": "jh-color-red-800",
-    "alias": false,
+    "semantic": false,
     "description": "Red 800",
     "category": "color",
     "type": "red",
@@ -1905,7 +1905,7 @@
   {
     "name": "Color Red 850",
     "token": "jh-color-red-850",
-    "alias": false,
+    "semantic": false,
     "description": "Red 850",
     "category": "color",
     "type": "red",
@@ -1918,7 +1918,7 @@
   {
     "name": "Color Red 900",
     "token": "jh-color-red-900",
-    "alias": false,
+    "semantic": false,
     "description": "Red 900",
     "category": "color",
     "type": "red",
@@ -1931,7 +1931,7 @@
   {
     "name": "Color Red 950",
     "token": "jh-color-red-950",
-    "alias": false,
+    "semantic": false,
     "description": "Red 950",
     "category": "color",
     "type": "red",
@@ -1944,7 +1944,7 @@
   {
     "name": "Color Orange 50",
     "token": "jh-color-orange-50",
-    "alias": false,
+    "semantic": false,
     "description": "Orange 50",
     "category": "color",
     "type": "orange",
@@ -1957,7 +1957,7 @@
   {
     "name": "Color Orange 100",
     "token": "jh-color-orange-100",
-    "alias": false,
+    "semantic": false,
     "description": "Orange 100",
     "category": "color",
     "type": "orange",
@@ -1970,7 +1970,7 @@
   {
     "name": "Color Orange 150",
     "token": "jh-color-orange-150",
-    "alias": false,
+    "semantic": false,
     "description": "Orange 150",
     "category": "color",
     "type": "orange",
@@ -1983,7 +1983,7 @@
   {
     "name": "Color Orange 200",
     "token": "jh-color-orange-200",
-    "alias": false,
+    "semantic": false,
     "description": "Orange 200",
     "category": "color",
     "type": "orange",
@@ -1996,7 +1996,7 @@
   {
     "name": "Color Orange 250",
     "token": "jh-color-orange-250",
-    "alias": false,
+    "semantic": false,
     "description": "Orange 250",
     "category": "color",
     "type": "orange",
@@ -2009,7 +2009,7 @@
   {
     "name": "Color Orange 300",
     "token": "jh-color-orange-300",
-    "alias": false,
+    "semantic": false,
     "description": "Orange 300",
     "category": "color",
     "type": "orange",
@@ -2022,7 +2022,7 @@
   {
     "name": "Color Orange 350",
     "token": "jh-color-orange-350",
-    "alias": false,
+    "semantic": false,
     "description": "Orange 350",
     "category": "color",
     "type": "orange",
@@ -2035,7 +2035,7 @@
   {
     "name": "Color Orange 400",
     "token": "jh-color-orange-400",
-    "alias": false,
+    "semantic": false,
     "description": "Orange 400",
     "category": "color",
     "type": "orange",
@@ -2048,7 +2048,7 @@
   {
     "name": "Color Orange 450",
     "token": "jh-color-orange-450",
-    "alias": false,
+    "semantic": false,
     "description": "Orange 450",
     "category": "color",
     "type": "orange",
@@ -2061,7 +2061,7 @@
   {
     "name": "Color Orange 500",
     "token": "jh-color-orange-500",
-    "alias": false,
+    "semantic": false,
     "description": "Orange 500",
     "category": "color",
     "type": "orange",
@@ -2074,7 +2074,7 @@
   {
     "name": "Color Orange 550",
     "token": "jh-color-orange-550",
-    "alias": false,
+    "semantic": false,
     "description": "Orange 550",
     "category": "color",
     "type": "orange",
@@ -2087,7 +2087,7 @@
   {
     "name": "Color Orange 600",
     "token": "jh-color-orange-600",
-    "alias": false,
+    "semantic": false,
     "description": "Orange 600",
     "category": "color",
     "type": "orange",
@@ -2100,7 +2100,7 @@
   {
     "name": "Color Orange 650",
     "token": "jh-color-orange-650",
-    "alias": false,
+    "semantic": false,
     "description": "Orange 650",
     "category": "color",
     "type": "orange",
@@ -2113,7 +2113,7 @@
   {
     "name": "Color Orange 700",
     "token": "jh-color-orange-700",
-    "alias": false,
+    "semantic": false,
     "description": "Orange 700",
     "category": "color",
     "type": "orange",
@@ -2126,7 +2126,7 @@
   {
     "name": "Color Orange 750",
     "token": "jh-color-orange-750",
-    "alias": false,
+    "semantic": false,
     "description": "Orange 750",
     "category": "color",
     "type": "orange",
@@ -2139,7 +2139,7 @@
   {
     "name": "Color Orange 800",
     "token": "jh-color-orange-800",
-    "alias": false,
+    "semantic": false,
     "description": "Orange 800",
     "category": "color",
     "type": "orange",
@@ -2152,7 +2152,7 @@
   {
     "name": "Color Orange 850",
     "token": "jh-color-orange-850",
-    "alias": false,
+    "semantic": false,
     "description": "Orange 850",
     "category": "color",
     "type": "orange",
@@ -2165,7 +2165,7 @@
   {
     "name": "Color Orange 900",
     "token": "jh-color-orange-900",
-    "alias": false,
+    "semantic": false,
     "description": "Orange 900",
     "category": "color",
     "type": "orange",
@@ -2178,7 +2178,7 @@
   {
     "name": "Color Orange 950",
     "token": "jh-color-orange-950",
-    "alias": false,
+    "semantic": false,
     "description": "Orange 950",
     "category": "color",
     "type": "orange",
@@ -2191,7 +2191,7 @@
   {
     "name": "Color Yellow 50",
     "token": "jh-color-yellow-50",
-    "alias": false,
+    "semantic": false,
     "description": "Yellow 50",
     "category": "color",
     "type": "yellow",
@@ -2204,7 +2204,7 @@
   {
     "name": "Color Yellow 100",
     "token": "jh-color-yellow-100",
-    "alias": false,
+    "semantic": false,
     "description": "Yellow 100",
     "category": "color",
     "type": "yellow",
@@ -2217,7 +2217,7 @@
   {
     "name": "Color Yellow 150",
     "token": "jh-color-yellow-150",
-    "alias": false,
+    "semantic": false,
     "description": "Yellow 150",
     "category": "color",
     "type": "yellow",
@@ -2230,7 +2230,7 @@
   {
     "name": "Color Yellow 200",
     "token": "jh-color-yellow-200",
-    "alias": false,
+    "semantic": false,
     "description": "Yellow 200",
     "category": "color",
     "type": "yellow",
@@ -2243,7 +2243,7 @@
   {
     "name": "Color Yellow 250",
     "token": "jh-color-yellow-250",
-    "alias": false,
+    "semantic": false,
     "description": "Yellow 250",
     "category": "color",
     "type": "yellow",
@@ -2256,7 +2256,7 @@
   {
     "name": "Color Yellow 300",
     "token": "jh-color-yellow-300",
-    "alias": false,
+    "semantic": false,
     "description": "Yellow 300",
     "category": "color",
     "type": "yellow",
@@ -2269,7 +2269,7 @@
   {
     "name": "Color Yellow 350",
     "token": "jh-color-yellow-350",
-    "alias": false,
+    "semantic": false,
     "description": "Yellow 350",
     "category": "color",
     "type": "yellow",
@@ -2282,7 +2282,7 @@
   {
     "name": "Color Yellow 400",
     "token": "jh-color-yellow-400",
-    "alias": false,
+    "semantic": false,
     "description": "Yellow 400",
     "category": "color",
     "type": "yellow",
@@ -2295,7 +2295,7 @@
   {
     "name": "Color Yellow 450",
     "token": "jh-color-yellow-450",
-    "alias": false,
+    "semantic": false,
     "description": "Yellow 450",
     "category": "color",
     "type": "yellow",
@@ -2308,7 +2308,7 @@
   {
     "name": "Color Yellow 500",
     "token": "jh-color-yellow-500",
-    "alias": false,
+    "semantic": false,
     "description": "Yellow 500",
     "category": "color",
     "type": "yellow",
@@ -2321,7 +2321,7 @@
   {
     "name": "Color Yellow 550",
     "token": "jh-color-yellow-550",
-    "alias": false,
+    "semantic": false,
     "description": "Yellow 550",
     "category": "color",
     "type": "yellow",
@@ -2334,7 +2334,7 @@
   {
     "name": "Color Yellow 600",
     "token": "jh-color-yellow-600",
-    "alias": false,
+    "semantic": false,
     "description": "Yellow 600",
     "category": "color",
     "type": "yellow",
@@ -2347,7 +2347,7 @@
   {
     "name": "Color Yellow 650",
     "token": "jh-color-yellow-650",
-    "alias": false,
+    "semantic": false,
     "description": "Yellow 650",
     "category": "color",
     "type": "yellow",
@@ -2360,7 +2360,7 @@
   {
     "name": "Color Yellow 700",
     "token": "jh-color-yellow-700",
-    "alias": false,
+    "semantic": false,
     "description": "Yellow 700",
     "category": "color",
     "type": "yellow",
@@ -2373,7 +2373,7 @@
   {
     "name": "Color Yellow 750",
     "token": "jh-color-yellow-750",
-    "alias": false,
+    "semantic": false,
     "description": "Yellow 750",
     "category": "color",
     "type": "yellow",
@@ -2386,7 +2386,7 @@
   {
     "name": "Color Yellow 800",
     "token": "jh-color-yellow-800",
-    "alias": false,
+    "semantic": false,
     "description": "Yellow 800",
     "category": "color",
     "type": "yellow",
@@ -2399,7 +2399,7 @@
   {
     "name": "Color Yellow 850",
     "token": "jh-color-yellow-850",
-    "alias": false,
+    "semantic": false,
     "description": "Yellow 850",
     "category": "color",
     "type": "yellow",
@@ -2412,7 +2412,7 @@
   {
     "name": "Color Yellow 900",
     "token": "jh-color-yellow-900",
-    "alias": false,
+    "semantic": false,
     "description": "Yellow 900",
     "category": "color",
     "type": "yellow",
@@ -2425,7 +2425,7 @@
   {
     "name": "Color Yellow 950",
     "token": "jh-color-yellow-950",
-    "alias": false,
+    "semantic": false,
     "description": "Yellow 950",
     "category": "color",
     "type": "yellow",
@@ -2438,7 +2438,7 @@
   {
     "name": "Color Green 50",
     "token": "jh-color-green-50",
-    "alias": false,
+    "semantic": false,
     "description": "Green 50",
     "category": "color",
     "type": "green",
@@ -2451,7 +2451,7 @@
   {
     "name": "Color Green 100",
     "token": "jh-color-green-100",
-    "alias": false,
+    "semantic": false,
     "description": "Green 100",
     "category": "color",
     "type": "green",
@@ -2464,7 +2464,7 @@
   {
     "name": "Color Green 150",
     "token": "jh-color-green-150",
-    "alias": false,
+    "semantic": false,
     "description": "Green 150",
     "category": "color",
     "type": "green",
@@ -2477,7 +2477,7 @@
   {
     "name": "Color Green 200",
     "token": "jh-color-green-200",
-    "alias": false,
+    "semantic": false,
     "description": "Green 200",
     "category": "color",
     "type": "green",
@@ -2490,7 +2490,7 @@
   {
     "name": "Color Green 250",
     "token": "jh-color-green-250",
-    "alias": false,
+    "semantic": false,
     "description": "Green 250",
     "category": "color",
     "type": "green",
@@ -2503,7 +2503,7 @@
   {
     "name": "Color Green 300",
     "token": "jh-color-green-300",
-    "alias": false,
+    "semantic": false,
     "description": "Green 300",
     "category": "color",
     "type": "green",
@@ -2516,7 +2516,7 @@
   {
     "name": "Color Green 350",
     "token": "jh-color-green-350",
-    "alias": false,
+    "semantic": false,
     "description": "Green 350",
     "category": "color",
     "type": "green",
@@ -2529,7 +2529,7 @@
   {
     "name": "Color Green 400",
     "token": "jh-color-green-400",
-    "alias": false,
+    "semantic": false,
     "description": "Green 400",
     "category": "color",
     "type": "green",
@@ -2542,7 +2542,7 @@
   {
     "name": "Color Green 450",
     "token": "jh-color-green-450",
-    "alias": false,
+    "semantic": false,
     "description": "Green 450",
     "category": "color",
     "type": "green",
@@ -2555,7 +2555,7 @@
   {
     "name": "Color Green 500",
     "token": "jh-color-green-500",
-    "alias": false,
+    "semantic": false,
     "description": "Green 500",
     "category": "color",
     "type": "green",
@@ -2568,7 +2568,7 @@
   {
     "name": "Color Green 550",
     "token": "jh-color-green-550",
-    "alias": false,
+    "semantic": false,
     "description": "Green 550",
     "category": "color",
     "type": "green",
@@ -2581,7 +2581,7 @@
   {
     "name": "Color Green 600",
     "token": "jh-color-green-600",
-    "alias": false,
+    "semantic": false,
     "description": "Green 600",
     "category": "color",
     "type": "green",
@@ -2594,7 +2594,7 @@
   {
     "name": "Color Green 650",
     "token": "jh-color-green-650",
-    "alias": false,
+    "semantic": false,
     "description": "Green 650",
     "category": "color",
     "type": "green",
@@ -2607,7 +2607,7 @@
   {
     "name": "Color Green 700",
     "token": "jh-color-green-700",
-    "alias": false,
+    "semantic": false,
     "description": "Green 700",
     "category": "color",
     "type": "green",
@@ -2620,7 +2620,7 @@
   {
     "name": "Color Green 750",
     "token": "jh-color-green-750",
-    "alias": false,
+    "semantic": false,
     "description": "Green 750",
     "category": "color",
     "type": "green",
@@ -2633,7 +2633,7 @@
   {
     "name": "Color Green 800",
     "token": "jh-color-green-800",
-    "alias": false,
+    "semantic": false,
     "description": "Green 800",
     "category": "color",
     "type": "green",
@@ -2646,7 +2646,7 @@
   {
     "name": "Color Green 850",
     "token": "jh-color-green-850",
-    "alias": false,
+    "semantic": false,
     "description": "Green 850",
     "category": "color",
     "type": "green",
@@ -2659,7 +2659,7 @@
   {
     "name": "Color Green 900",
     "token": "jh-color-green-900",
-    "alias": false,
+    "semantic": false,
     "description": "Green 900",
     "category": "color",
     "type": "green",
@@ -2672,7 +2672,7 @@
   {
     "name": "Color Green 950",
     "token": "jh-color-green-950",
-    "alias": false,
+    "semantic": false,
     "description": "Green 950",
     "category": "color",
     "type": "green",
@@ -2685,7 +2685,7 @@
   {
     "name": "Color Mint 50",
     "token": "jh-color-mint-50",
-    "alias": false,
+    "semantic": false,
     "description": "Mint 50",
     "category": "color",
     "type": "mint",
@@ -2698,7 +2698,7 @@
   {
     "name": "Color Mint 100",
     "token": "jh-color-mint-100",
-    "alias": false,
+    "semantic": false,
     "description": "Mint 100",
     "category": "color",
     "type": "mint",
@@ -2711,7 +2711,7 @@
   {
     "name": "Color Mint 150",
     "token": "jh-color-mint-150",
-    "alias": false,
+    "semantic": false,
     "description": "Mint 150",
     "category": "color",
     "type": "mint",
@@ -2724,7 +2724,7 @@
   {
     "name": "Color Mint 200",
     "token": "jh-color-mint-200",
-    "alias": false,
+    "semantic": false,
     "description": "Mint 200",
     "category": "color",
     "type": "mint",
@@ -2737,7 +2737,7 @@
   {
     "name": "Color Mint 250",
     "token": "jh-color-mint-250",
-    "alias": false,
+    "semantic": false,
     "description": "Mint 250",
     "category": "color",
     "type": "mint",
@@ -2750,7 +2750,7 @@
   {
     "name": "Color Mint 300",
     "token": "jh-color-mint-300",
-    "alias": false,
+    "semantic": false,
     "description": "Mint 300",
     "category": "color",
     "type": "mint",
@@ -2763,7 +2763,7 @@
   {
     "name": "Color Mint 350",
     "token": "jh-color-mint-350",
-    "alias": false,
+    "semantic": false,
     "description": "Mint 350",
     "category": "color",
     "type": "mint",
@@ -2776,7 +2776,7 @@
   {
     "name": "Color Mint 400",
     "token": "jh-color-mint-400",
-    "alias": false,
+    "semantic": false,
     "description": "Mint 400",
     "category": "color",
     "type": "mint",
@@ -2789,7 +2789,7 @@
   {
     "name": "Color Mint 450",
     "token": "jh-color-mint-450",
-    "alias": false,
+    "semantic": false,
     "description": "Mint 450",
     "category": "color",
     "type": "mint",
@@ -2802,7 +2802,7 @@
   {
     "name": "Color Mint 500",
     "token": "jh-color-mint-500",
-    "alias": false,
+    "semantic": false,
     "description": "Mint 500",
     "category": "color",
     "type": "mint",
@@ -2815,7 +2815,7 @@
   {
     "name": "Color Mint 550",
     "token": "jh-color-mint-550",
-    "alias": false,
+    "semantic": false,
     "description": "Mint 550",
     "category": "color",
     "type": "mint",
@@ -2828,7 +2828,7 @@
   {
     "name": "Color Mint 600",
     "token": "jh-color-mint-600",
-    "alias": false,
+    "semantic": false,
     "description": "Mint 600",
     "category": "color",
     "type": "mint",
@@ -2841,7 +2841,7 @@
   {
     "name": "Color Mint 650",
     "token": "jh-color-mint-650",
-    "alias": false,
+    "semantic": false,
     "description": "Mint 650",
     "category": "color",
     "type": "mint",
@@ -2854,7 +2854,7 @@
   {
     "name": "Color Mint 700",
     "token": "jh-color-mint-700",
-    "alias": false,
+    "semantic": false,
     "description": "Mint 700",
     "category": "color",
     "type": "mint",
@@ -2867,7 +2867,7 @@
   {
     "name": "Color Mint 750",
     "token": "jh-color-mint-750",
-    "alias": false,
+    "semantic": false,
     "description": "Mint 750",
     "category": "color",
     "type": "mint",
@@ -2880,7 +2880,7 @@
   {
     "name": "Color Mint 800",
     "token": "jh-color-mint-800",
-    "alias": false,
+    "semantic": false,
     "description": "Mint 800",
     "category": "color",
     "type": "mint",
@@ -2893,7 +2893,7 @@
   {
     "name": "Color Mint 850",
     "token": "jh-color-mint-850",
-    "alias": false,
+    "semantic": false,
     "description": "Mint 850",
     "category": "color",
     "type": "mint",
@@ -2906,7 +2906,7 @@
   {
     "name": "Color Mint 900",
     "token": "jh-color-mint-900",
-    "alias": false,
+    "semantic": false,
     "description": "Mint 900",
     "category": "color",
     "type": "mint",
@@ -2919,7 +2919,7 @@
   {
     "name": "Color Mint 950",
     "token": "jh-color-mint-950",
-    "alias": false,
+    "semantic": false,
     "description": "Mint 950",
     "category": "color",
     "type": "mint",
@@ -2932,7 +2932,7 @@
   {
     "name": "Color Cyan 50",
     "token": "jh-color-cyan-50",
-    "alias": false,
+    "semantic": false,
     "description": "Cyan 50; Brand color: Open sky",
     "category": "color",
     "type": "cyan",
@@ -2945,7 +2945,7 @@
   {
     "name": "Color Cyan 100",
     "token": "jh-color-cyan-100",
-    "alias": false,
+    "semantic": false,
     "description": "Cyan 100",
     "category": "color",
     "type": "cyan",
@@ -2958,7 +2958,7 @@
   {
     "name": "Color Cyan 150",
     "token": "jh-color-cyan-150",
-    "alias": false,
+    "semantic": false,
     "description": "Cyan 150",
     "category": "color",
     "type": "cyan",
@@ -2971,7 +2971,7 @@
   {
     "name": "Color Cyan 200",
     "token": "jh-color-cyan-200",
-    "alias": false,
+    "semantic": false,
     "description": "Cyan 200; Brand color: Tech blue",
     "category": "color",
     "type": "cyan",
@@ -2984,7 +2984,7 @@
   {
     "name": "Color Cyan 250",
     "token": "jh-color-cyan-250",
-    "alias": false,
+    "semantic": false,
     "description": "Cyan 250",
     "category": "color",
     "type": "cyan",
@@ -2997,7 +2997,7 @@
   {
     "name": "Color Cyan 300",
     "token": "jh-color-cyan-300",
-    "alias": false,
+    "semantic": false,
     "description": "Cyan 300",
     "category": "color",
     "type": "cyan",
@@ -3010,7 +3010,7 @@
   {
     "name": "Color Cyan 350",
     "token": "jh-color-cyan-350",
-    "alias": false,
+    "semantic": false,
     "description": "Cyan 350",
     "category": "color",
     "type": "cyan",
@@ -3023,7 +3023,7 @@
   {
     "name": "Color Cyan 400",
     "token": "jh-color-cyan-400",
-    "alias": false,
+    "semantic": false,
     "description": "Cyan 400",
     "category": "color",
     "type": "cyan",
@@ -3036,7 +3036,7 @@
   {
     "name": "Color Cyan 450",
     "token": "jh-color-cyan-450",
-    "alias": false,
+    "semantic": false,
     "description": "Cyan 450",
     "category": "color",
     "type": "cyan",
@@ -3049,7 +3049,7 @@
   {
     "name": "Color Cyan 500",
     "token": "jh-color-cyan-500",
-    "alias": false,
+    "semantic": false,
     "description": "Cyan 500",
     "category": "color",
     "type": "cyan",
@@ -3062,7 +3062,7 @@
   {
     "name": "Color Cyan 550",
     "token": "jh-color-cyan-550",
-    "alias": false,
+    "semantic": false,
     "description": "Cyan 550",
     "category": "color",
     "type": "cyan",
@@ -3075,7 +3075,7 @@
   {
     "name": "Color Cyan 600",
     "token": "jh-color-cyan-600",
-    "alias": false,
+    "semantic": false,
     "description": "Cyan 600",
     "category": "color",
     "type": "cyan",
@@ -3088,7 +3088,7 @@
   {
     "name": "Color Cyan 650",
     "token": "jh-color-cyan-650",
-    "alias": false,
+    "semantic": false,
     "description": "Cyan 650",
     "category": "color",
     "type": "cyan",
@@ -3101,7 +3101,7 @@
   {
     "name": "Color Cyan 700",
     "token": "jh-color-cyan-700",
-    "alias": false,
+    "semantic": false,
     "description": "Cyan 700",
     "category": "color",
     "type": "cyan",
@@ -3114,7 +3114,7 @@
   {
     "name": "Color Cyan 750",
     "token": "jh-color-cyan-750",
-    "alias": false,
+    "semantic": false,
     "description": "Cyan 750",
     "category": "color",
     "type": "cyan",
@@ -3127,7 +3127,7 @@
   {
     "name": "Color Cyan 800",
     "token": "jh-color-cyan-800",
-    "alias": false,
+    "semantic": false,
     "description": "Cyan 800",
     "category": "color",
     "type": "cyan",
@@ -3140,7 +3140,7 @@
   {
     "name": "Color Cyan 850",
     "token": "jh-color-cyan-850",
-    "alias": false,
+    "semantic": false,
     "description": "Cyan 850",
     "category": "color",
     "type": "cyan",
@@ -3153,7 +3153,7 @@
   {
     "name": "Color Cyan 900",
     "token": "jh-color-cyan-900",
-    "alias": false,
+    "semantic": false,
     "description": "Cyan 900",
     "category": "color",
     "type": "cyan",
@@ -3166,7 +3166,7 @@
   {
     "name": "Color Cyan 950",
     "token": "jh-color-cyan-950",
-    "alias": false,
+    "semantic": false,
     "description": "Cyan 950",
     "category": "color",
     "type": "cyan",
@@ -3179,7 +3179,7 @@
   {
     "name": "Color Blue 50",
     "token": "jh-color-blue-50",
-    "alias": false,
+    "semantic": false,
     "description": "Blue 50",
     "category": "color",
     "type": "blue",
@@ -3192,7 +3192,7 @@
   {
     "name": "Color Blue 100",
     "token": "jh-color-blue-100",
-    "alias": false,
+    "semantic": false,
     "description": "Blue 100",
     "category": "color",
     "type": "blue",
@@ -3205,7 +3205,7 @@
   {
     "name": "Color Blue 150",
     "token": "jh-color-blue-150",
-    "alias": false,
+    "semantic": false,
     "description": "Blue 150",
     "category": "color",
     "type": "blue",
@@ -3218,7 +3218,7 @@
   {
     "name": "Color Blue 200",
     "token": "jh-color-blue-200",
-    "alias": false,
+    "semantic": false,
     "description": "Blue 200",
     "category": "color",
     "type": "blue",
@@ -3231,7 +3231,7 @@
   {
     "name": "Color Blue 250",
     "token": "jh-color-blue-250",
-    "alias": false,
+    "semantic": false,
     "description": "Blue 250",
     "category": "color",
     "type": "blue",
@@ -3244,7 +3244,7 @@
   {
     "name": "Color Blue 300",
     "token": "jh-color-blue-300",
-    "alias": false,
+    "semantic": false,
     "description": "Blue 300",
     "category": "color",
     "type": "blue",
@@ -3257,7 +3257,7 @@
   {
     "name": "Color Blue 350",
     "token": "jh-color-blue-350",
-    "alias": false,
+    "semantic": false,
     "description": "Blue 350",
     "category": "color",
     "type": "blue",
@@ -3270,7 +3270,7 @@
   {
     "name": "Color Blue 400",
     "token": "jh-color-blue-400",
-    "alias": false,
+    "semantic": false,
     "description": "Blue 400",
     "category": "color",
     "type": "blue",
@@ -3283,7 +3283,7 @@
   {
     "name": "Color Blue 450",
     "token": "jh-color-blue-450",
-    "alias": false,
+    "semantic": false,
     "description": "Blue 450",
     "category": "color",
     "type": "blue",
@@ -3296,7 +3296,7 @@
   {
     "name": "Color Blue 500",
     "token": "jh-color-blue-500",
-    "alias": false,
+    "semantic": false,
     "description": "Blue 500",
     "category": "color",
     "type": "blue",
@@ -3309,7 +3309,7 @@
   {
     "name": "Color Blue 550",
     "token": "jh-color-blue-550",
-    "alias": false,
+    "semantic": false,
     "description": "Blue 550",
     "category": "color",
     "type": "blue",
@@ -3322,7 +3322,7 @@
   {
     "name": "Color Blue 600",
     "token": "jh-color-blue-600",
-    "alias": false,
+    "semantic": false,
     "description": "Blue 600; Brand color: Vibrant cobalt",
     "category": "color",
     "type": "blue",
@@ -3335,7 +3335,7 @@
   {
     "name": "Color Blue 650",
     "token": "jh-color-blue-650",
-    "alias": false,
+    "semantic": false,
     "description": "Blue 650",
     "category": "color",
     "type": "blue",
@@ -3348,7 +3348,7 @@
   {
     "name": "Color Blue 700",
     "token": "jh-color-blue-700",
-    "alias": false,
+    "semantic": false,
     "description": "Blue 700",
     "category": "color",
     "type": "blue",
@@ -3361,7 +3361,7 @@
   {
     "name": "Color Blue 750",
     "token": "jh-color-blue-750",
-    "alias": false,
+    "semantic": false,
     "description": "Blue 750",
     "category": "color",
     "type": "blue",
@@ -3374,7 +3374,7 @@
   {
     "name": "Color Blue 800",
     "token": "jh-color-blue-800",
-    "alias": false,
+    "semantic": false,
     "description": "Blue 800",
     "category": "color",
     "type": "blue",
@@ -3387,7 +3387,7 @@
   {
     "name": "Color Blue 850",
     "token": "jh-color-blue-850",
-    "alias": false,
+    "semantic": false,
     "description": "Blue 850",
     "category": "color",
     "type": "blue",
@@ -3400,7 +3400,7 @@
   {
     "name": "Color Blue 900",
     "token": "jh-color-blue-900",
-    "alias": false,
+    "semantic": false,
     "description": "Blue 900",
     "category": "color",
     "type": "blue",
@@ -3413,7 +3413,7 @@
   {
     "name": "Color Blue 950",
     "token": "jh-color-blue-950",
-    "alias": false,
+    "semantic": false,
     "description": "Blue 950; Brand color: Legacy navy",
     "category": "color",
     "type": "blue",
@@ -3426,7 +3426,7 @@
   {
     "name": "Color Blue Alpha 10",
     "token": "jh-color-blue-alpha-10",
-    "alias": false,
+    "semantic": false,
     "description": "Blue at 10% opacity",
     "category": "color",
     "type": "blue",
@@ -3440,7 +3440,7 @@
   {
     "name": "Color Violet 50",
     "token": "jh-color-violet-50",
-    "alias": false,
+    "semantic": false,
     "description": "Violet 50",
     "category": "color",
     "type": "violet",
@@ -3453,7 +3453,7 @@
   {
     "name": "Color Violet 100",
     "token": "jh-color-violet-100",
-    "alias": false,
+    "semantic": false,
     "description": "Violet 100",
     "category": "color",
     "type": "violet",
@@ -3466,7 +3466,7 @@
   {
     "name": "Color Violet 150",
     "token": "jh-color-violet-150",
-    "alias": false,
+    "semantic": false,
     "description": "Violet 150",
     "category": "color",
     "type": "violet",
@@ -3479,7 +3479,7 @@
   {
     "name": "Color Violet 200",
     "token": "jh-color-violet-200",
-    "alias": false,
+    "semantic": false,
     "description": "Violet 200",
     "category": "color",
     "type": "violet",
@@ -3492,7 +3492,7 @@
   {
     "name": "Color Violet 250",
     "token": "jh-color-violet-250",
-    "alias": false,
+    "semantic": false,
     "description": "Violet 250",
     "category": "color",
     "type": "violet",
@@ -3505,7 +3505,7 @@
   {
     "name": "Color Violet 300",
     "token": "jh-color-violet-300",
-    "alias": false,
+    "semantic": false,
     "description": "Violet 300",
     "category": "color",
     "type": "violet",
@@ -3518,7 +3518,7 @@
   {
     "name": "Color Violet 350",
     "token": "jh-color-violet-350",
-    "alias": false,
+    "semantic": false,
     "description": "Violet 350",
     "category": "color",
     "type": "violet",
@@ -3531,7 +3531,7 @@
   {
     "name": "Color Violet 400",
     "token": "jh-color-violet-400",
-    "alias": false,
+    "semantic": false,
     "description": "Violet 400",
     "category": "color",
     "type": "violet",
@@ -3544,7 +3544,7 @@
   {
     "name": "Color Violet 450",
     "token": "jh-color-violet-450",
-    "alias": false,
+    "semantic": false,
     "description": "Violet 450",
     "category": "color",
     "type": "violet",
@@ -3557,7 +3557,7 @@
   {
     "name": "Color Violet 500",
     "token": "jh-color-violet-500",
-    "alias": false,
+    "semantic": false,
     "description": "Violet 500",
     "category": "color",
     "type": "violet",
@@ -3570,7 +3570,7 @@
   {
     "name": "Color Violet 550",
     "token": "jh-color-violet-550",
-    "alias": false,
+    "semantic": false,
     "description": "Violet 550",
     "category": "color",
     "type": "violet",
@@ -3583,7 +3583,7 @@
   {
     "name": "Color Violet 600",
     "token": "jh-color-violet-600",
-    "alias": false,
+    "semantic": false,
     "description": "Violet 600",
     "category": "color",
     "type": "violet",
@@ -3596,7 +3596,7 @@
   {
     "name": "Color Violet 650",
     "token": "jh-color-violet-650",
-    "alias": false,
+    "semantic": false,
     "description": "Violet 650",
     "category": "color",
     "type": "violet",
@@ -3609,7 +3609,7 @@
   {
     "name": "Color Violet 700",
     "token": "jh-color-violet-700",
-    "alias": false,
+    "semantic": false,
     "description": "Violet 700",
     "category": "color",
     "type": "violet",
@@ -3622,7 +3622,7 @@
   {
     "name": "Color Violet 750",
     "token": "jh-color-violet-750",
-    "alias": false,
+    "semantic": false,
     "description": "Violet 750",
     "category": "color",
     "type": "violet",
@@ -3635,7 +3635,7 @@
   {
     "name": "Color Violet 800",
     "token": "jh-color-violet-800",
-    "alias": false,
+    "semantic": false,
     "description": "Violet 800",
     "category": "color",
     "type": "violet",
@@ -3648,7 +3648,7 @@
   {
     "name": "Color Violet 850",
     "token": "jh-color-violet-850",
-    "alias": false,
+    "semantic": false,
     "description": "Violet 850",
     "category": "color",
     "type": "violet",
@@ -3661,7 +3661,7 @@
   {
     "name": "Color Violet 900",
     "token": "jh-color-violet-900",
-    "alias": false,
+    "semantic": false,
     "description": "Violet 900",
     "category": "color",
     "type": "violet",
@@ -3674,7 +3674,7 @@
   {
     "name": "Color Violet 950",
     "token": "jh-color-violet-950",
-    "alias": false,
+    "semantic": false,
     "description": "Violet 950",
     "category": "color",
     "type": "violet",
@@ -3687,7 +3687,7 @@
   {
     "name": "Color Magenta 50",
     "token": "jh-color-magenta-50",
-    "alias": false,
+    "semantic": false,
     "description": "Magenta 50",
     "category": "color",
     "type": "magenta",
@@ -3700,7 +3700,7 @@
   {
     "name": "Color Magenta 100",
     "token": "jh-color-magenta-100",
-    "alias": false,
+    "semantic": false,
     "description": "Magenta 100",
     "category": "color",
     "type": "magenta",
@@ -3713,7 +3713,7 @@
   {
     "name": "Color Magenta 150",
     "token": "jh-color-magenta-150",
-    "alias": false,
+    "semantic": false,
     "description": "Magenta 150",
     "category": "color",
     "type": "magenta",
@@ -3726,7 +3726,7 @@
   {
     "name": "Color Magenta 200",
     "token": "jh-color-magenta-200",
-    "alias": false,
+    "semantic": false,
     "description": "Magenta 200",
     "category": "color",
     "type": "magenta",
@@ -3739,7 +3739,7 @@
   {
     "name": "Color Magenta 250",
     "token": "jh-color-magenta-250",
-    "alias": false,
+    "semantic": false,
     "description": "Magenta 250",
     "category": "color",
     "type": "magenta",
@@ -3752,7 +3752,7 @@
   {
     "name": "Color Magenta 300",
     "token": "jh-color-magenta-300",
-    "alias": false,
+    "semantic": false,
     "description": "Magenta 300",
     "category": "color",
     "type": "magenta",
@@ -3765,7 +3765,7 @@
   {
     "name": "Color Magenta 350",
     "token": "jh-color-magenta-350",
-    "alias": false,
+    "semantic": false,
     "description": "Magenta 350",
     "category": "color",
     "type": "magenta",
@@ -3778,7 +3778,7 @@
   {
     "name": "Color Magenta 400",
     "token": "jh-color-magenta-400",
-    "alias": false,
+    "semantic": false,
     "description": "Magenta 400",
     "category": "color",
     "type": "magenta",
@@ -3791,7 +3791,7 @@
   {
     "name": "Color Magenta 450",
     "token": "jh-color-magenta-450",
-    "alias": false,
+    "semantic": false,
     "description": "Magenta 450",
     "category": "color",
     "type": "magenta",
@@ -3804,7 +3804,7 @@
   {
     "name": "Color Magenta 500",
     "token": "jh-color-magenta-500",
-    "alias": false,
+    "semantic": false,
     "description": "Magenta 500",
     "category": "color",
     "type": "magenta",
@@ -3817,7 +3817,7 @@
   {
     "name": "Color Magenta 550",
     "token": "jh-color-magenta-550",
-    "alias": false,
+    "semantic": false,
     "description": "Magenta 550",
     "category": "color",
     "type": "magenta",
@@ -3830,7 +3830,7 @@
   {
     "name": "Color Magenta 600",
     "token": "jh-color-magenta-600",
-    "alias": false,
+    "semantic": false,
     "description": "Magenta 600",
     "category": "color",
     "type": "magenta",
@@ -3843,7 +3843,7 @@
   {
     "name": "Color Magenta 650",
     "token": "jh-color-magenta-650",
-    "alias": false,
+    "semantic": false,
     "description": "Magenta 650",
     "category": "color",
     "type": "magenta",
@@ -3856,7 +3856,7 @@
   {
     "name": "Color Magenta 700",
     "token": "jh-color-magenta-700",
-    "alias": false,
+    "semantic": false,
     "description": "Magenta 700",
     "category": "color",
     "type": "magenta",
@@ -3869,7 +3869,7 @@
   {
     "name": "Color Magenta 750",
     "token": "jh-color-magenta-750",
-    "alias": false,
+    "semantic": false,
     "description": "Magenta 750",
     "category": "color",
     "type": "magenta",
@@ -3882,7 +3882,7 @@
   {
     "name": "Color Magenta 800",
     "token": "jh-color-magenta-800",
-    "alias": false,
+    "semantic": false,
     "description": "Magenta 800",
     "category": "color",
     "type": "magenta",
@@ -3895,7 +3895,7 @@
   {
     "name": "Color Magenta 850",
     "token": "jh-color-magenta-850",
-    "alias": false,
+    "semantic": false,
     "description": "Magenta 850",
     "category": "color",
     "type": "magenta",
@@ -3908,7 +3908,7 @@
   {
     "name": "Color Magenta 900",
     "token": "jh-color-magenta-900",
-    "alias": false,
+    "semantic": false,
     "description": "Magenta 900",
     "category": "color",
     "type": "magenta",
@@ -3921,7 +3921,7 @@
   {
     "name": "Color Magenta 950",
     "token": "jh-color-magenta-950",
-    "alias": false,
+    "semantic": false,
     "description": "Magenta 950",
     "category": "color",
     "type": "magenta",
@@ -3934,7 +3934,7 @@
   {
     "name": "Border Decorative Color",
     "token": "jh-border-decorative-color",
-    "alias": true,
+    "semantic": true,
     "description": "used for purely decorative styling such as on table borders, dividers, and edges of layout elements; does not meet the contrast minimum against the primary container",
     "category": "border",
     "type": "decorative",
@@ -3947,7 +3947,7 @@
   {
     "name": "Border Decorative Width",
     "token": "jh-border-decorative-width",
-    "alias": true,
+    "semantic": true,
     "description": "used for purely decorative styling such as on table borders, dividers, and edges of layout elements; does not meet the contrast minimum against the primary container",
     "category": "border",
     "type": "decorative",
@@ -3960,7 +3960,7 @@
   {
     "name": "Border Decorative Style",
     "token": "jh-border-decorative-style",
-    "alias": true,
+    "semantic": true,
     "description": "used for purely decorative styling such as on table borders, dividers, and edges of layout elements; does not meet the contrast minimum against the primary container",
     "category": "border",
     "type": "decorative",
@@ -3973,7 +3973,7 @@
   {
     "name": "Border Control Color",
     "token": "jh-border-control-color",
-    "alias": true,
+    "semantic": true,
     "description": "used on interactive elements such as form controls; meets the contrast minimum against the primary container",
     "category": "border",
     "type": "control",
@@ -3986,7 +3986,7 @@
   {
     "name": "Border Control Width",
     "token": "jh-border-control-width",
-    "alias": true,
+    "semantic": true,
     "description": "used on interactive elements such as form controls; meets the contrast minimum against the primary container",
     "category": "border",
     "type": "control",
@@ -3999,7 +3999,7 @@
   {
     "name": "Border Control Style",
     "token": "jh-border-control-style",
-    "alias": true,
+    "semantic": true,
     "description": "used on interactive elements such as form controls; meets the contrast minimum against the primary container",
     "category": "border",
     "type": "control",
@@ -4012,7 +4012,7 @@
   {
     "name": "Border Action Color",
     "token": "jh-border-action-color",
-    "alias": true,
+    "semantic": true,
     "description": "used to style containers with a border such as buttons; meets the contrast minimum against the primary container",
     "category": "border",
     "type": "action",
@@ -4025,7 +4025,7 @@
   {
     "name": "Border Action Width",
     "token": "jh-border-action-width",
-    "alias": true,
+    "semantic": true,
     "description": "used to style containers with a border such as buttons; meets the contrast minimum against the primary container",
     "category": "border",
     "type": "action",
@@ -4038,7 +4038,7 @@
   {
     "name": "Border Action Style",
     "token": "jh-border-action-style",
-    "alias": true,
+    "semantic": true,
     "description": "used to style containers with a border such as buttons; meets the contrast minimum against the primary container",
     "category": "border",
     "type": "action",
@@ -4051,7 +4051,7 @@
   {
     "name": "Border Focus Color",
     "token": "jh-border-focus-color",
-    "alias": true,
+    "semantic": true,
     "description": "used to style bordered implementations of the focus ring",
     "category": "border",
     "type": "focus",
@@ -4064,7 +4064,7 @@
   {
     "name": "Border Focus Width",
     "token": "jh-border-focus-width",
-    "alias": true,
+    "semantic": true,
     "description": "used to style bordered implementations of the focus ring",
     "category": "border",
     "type": "focus",
@@ -4077,7 +4077,7 @@
   {
     "name": "Border Focus Style",
     "token": "jh-border-focus-style",
-    "alias": true,
+    "semantic": true,
     "description": "used to style bordered implementations of the focus ring",
     "category": "border",
     "type": "focus",
@@ -4090,7 +4090,7 @@
   {
     "name": "Border Selected Color",
     "token": "jh-border-selected-color",
-    "alias": true,
+    "semantic": true,
     "description": "used on selected elements such as list items and tabs",
     "category": "border",
     "type": "selected",
@@ -4103,7 +4103,7 @@
   {
     "name": "Border Selected Width",
     "token": "jh-border-selected-width",
-    "alias": true,
+    "semantic": true,
     "description": "used on selected elements such as list items and tabs",
     "category": "border",
     "type": "selected",
@@ -4116,7 +4116,7 @@
   {
     "name": "Border Selected Style",
     "token": "jh-border-selected-style",
-    "alias": true,
+    "semantic": true,
     "description": "used on selected elements such as list items and tabs",
     "category": "border",
     "type": "selected",
@@ -4129,7 +4129,7 @@
   {
     "name": "Border Error Color",
     "token": "jh-border-error-color",
-    "alias": true,
+    "semantic": true,
     "description": "used to denote an error or invalid state on elements",
     "category": "border",
     "type": "error",
@@ -4142,7 +4142,7 @@
   {
     "name": "Border Error Width",
     "token": "jh-border-error-width",
-    "alias": true,
+    "semantic": true,
     "description": "used to denote an error or invalid state on elements",
     "category": "border",
     "type": "error",
@@ -4155,7 +4155,7 @@
   {
     "name": "Border Error Style",
     "token": "jh-border-error-style",
-    "alias": true,
+    "semantic": true,
     "description": "used to denote an error or invalid state on elements",
     "category": "border",
     "type": "error",
@@ -4168,7 +4168,7 @@
   {
     "name": "Border Radius 0",
     "token": "jh-border-radius-0",
-    "alias": false,
+    "semantic": false,
     "description": "No border radius",
     "category": "border",
     "type": "radius",
@@ -4181,7 +4181,7 @@
   {
     "name": "Border Radius 50",
     "token": "jh-border-radius-50",
-    "alias": false,
+    "semantic": false,
     "description": "Border radius 50",
     "category": "border",
     "type": "radius",
@@ -4194,7 +4194,7 @@
   {
     "name": "Border Radius 100",
     "token": "jh-border-radius-100",
-    "alias": false,
+    "semantic": false,
     "description": "Border radius 100",
     "category": "border",
     "type": "radius",
@@ -4207,7 +4207,7 @@
   {
     "name": "Border Radius 200",
     "token": "jh-border-radius-200",
-    "alias": false,
+    "semantic": false,
     "description": "Border radius 200",
     "category": "border",
     "type": "radius",
@@ -4220,7 +4220,7 @@
   {
     "name": "Border Radius 300",
     "token": "jh-border-radius-300",
-    "alias": false,
+    "semantic": false,
     "description": "Border radius 300",
     "category": "border",
     "type": "radius",
@@ -4233,7 +4233,7 @@
   {
     "name": "Border Radius 400",
     "token": "jh-border-radius-400",
-    "alias": false,
+    "semantic": false,
     "description": "Border radius 400",
     "category": "border",
     "type": "radius",
@@ -4246,7 +4246,7 @@
   {
     "name": "Border Radius Circle",
     "token": "jh-border-radius-circle",
-    "alias": false,
+    "semantic": false,
     "description": "Circular border radius",
     "category": "border",
     "type": "radius",
@@ -4259,7 +4259,7 @@
   {
     "name": "Border Radius Pill",
     "token": "jh-border-radius-pill",
-    "alias": false,
+    "semantic": false,
     "description": "Pill border radius",
     "category": "border",
     "type": "radius",
@@ -4272,7 +4272,7 @@
   {
     "name": "Breakpoint Sm",
     "token": "jh-breakpoint-sm",
-    "alias": true,
+    "semantic": true,
     "description": "Viewport widths 512px–767px.",
     "category": "breakpoint",
     "type": "sm",
@@ -4284,7 +4284,7 @@
   {
     "name": "Breakpoint Md",
     "token": "jh-breakpoint-md",
-    "alias": true,
+    "semantic": true,
     "description": "Viewport widths 768px–1023px.",
     "category": "breakpoint",
     "type": "md",
@@ -4296,7 +4296,7 @@
   {
     "name": "Breakpoint Lg",
     "token": "jh-breakpoint-lg",
-    "alias": true,
+    "semantic": true,
     "description": "Viewport widths 1024px–1279px.",
     "category": "breakpoint",
     "type": "lg",
@@ -4308,7 +4308,7 @@
   {
     "name": "Breakpoint Xl",
     "token": "jh-breakpoint-xl",
-    "alias": true,
+    "semantic": true,
     "description": "Viewport widths 1280px and above.",
     "category": "breakpoint",
     "type": "xl",
@@ -4320,7 +4320,7 @@
   {
     "name": "Font Family Primary",
     "token": "jh-font-family-primary",
-    "alias": true,
+    "semantic": true,
     "description": "Used to set the default typeface for the system",
     "category": "font",
     "type": "family",
@@ -4333,7 +4333,7 @@
   {
     "name": "Font Family Sans",
     "token": "jh-font-family-sans",
-    "alias": false,
+    "semantic": false,
     "description": "Sans-serif font family",
     "category": "font",
     "type": "family",
@@ -4346,7 +4346,7 @@
   {
     "name": "Font Family Mono",
     "token": "jh-font-family-mono",
-    "alias": false,
+    "semantic": false,
     "description": "Monospace font family",
     "category": "font",
     "type": "family",
@@ -4359,7 +4359,7 @@
   {
     "name": "Font Micro Regular Font Family",
     "token": "jh-font-micro-regular-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used for fine-print text and small snippets of text with limited space within a component",
     "category": "font",
     "type": "micro",
@@ -4373,7 +4373,7 @@
   {
     "name": "Font Micro Regular Font Size",
     "token": "jh-font-micro-regular-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used for fine-print text and small snippets of text with limited space within a component",
     "category": "font",
     "type": "micro",
@@ -4387,7 +4387,7 @@
   {
     "name": "Font Micro Regular Font Weight",
     "token": "jh-font-micro-regular-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used for fine-print text and small snippets of text with limited space within a component",
     "category": "font",
     "type": "micro",
@@ -4401,7 +4401,7 @@
   {
     "name": "Font Micro Regular Line Height",
     "token": "jh-font-micro-regular-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used for fine-print text and small snippets of text with limited space within a component",
     "category": "font",
     "type": "micro",
@@ -4415,7 +4415,7 @@
   {
     "name": "Font Micro Medium Font Family",
     "token": "jh-font-micro-medium-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used for fine-print text and small snippets of text with limited space within a component",
     "category": "font",
     "type": "micro",
@@ -4429,7 +4429,7 @@
   {
     "name": "Font Micro Medium Font Size",
     "token": "jh-font-micro-medium-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used for fine-print text and small snippets of text with limited space within a component",
     "category": "font",
     "type": "micro",
@@ -4443,7 +4443,7 @@
   {
     "name": "Font Micro Medium Font Weight",
     "token": "jh-font-micro-medium-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used for fine-print text and small snippets of text with limited space within a component",
     "category": "font",
     "type": "micro",
@@ -4457,7 +4457,7 @@
   {
     "name": "Font Micro Medium Line Height",
     "token": "jh-font-micro-medium-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used for fine-print text and small snippets of text with limited space within a component",
     "category": "font",
     "type": "micro",
@@ -4471,7 +4471,7 @@
   {
     "name": "Font Micro Bold Font Family",
     "token": "jh-font-micro-bold-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used for fine-print text and small snippets of text with limited space within a component",
     "category": "font",
     "type": "micro",
@@ -4485,7 +4485,7 @@
   {
     "name": "Font Micro Bold Font Size",
     "token": "jh-font-micro-bold-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used for fine-print text and small snippets of text with limited space within a component",
     "category": "font",
     "type": "micro",
@@ -4499,7 +4499,7 @@
   {
     "name": "Font Micro Bold Font Weight",
     "token": "jh-font-micro-bold-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used for fine-print text and small snippets of text with limited space within a component",
     "category": "font",
     "type": "micro",
@@ -4513,7 +4513,7 @@
   {
     "name": "Font Micro Bold Line Height",
     "token": "jh-font-micro-bold-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used for fine-print text and small snippets of text with limited space within a component",
     "category": "font",
     "type": "micro",
@@ -4527,7 +4527,7 @@
   {
     "name": "Font Helper Regular Font Family",
     "token": "jh-font-helper-regular-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used for secondary or explanatory text as well as field labels",
     "category": "font",
     "type": "helper",
@@ -4541,7 +4541,7 @@
   {
     "name": "Font Helper Regular Font Size",
     "token": "jh-font-helper-regular-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used for secondary or explanatory text as well as field labels",
     "category": "font",
     "type": "helper",
@@ -4555,7 +4555,7 @@
   {
     "name": "Font Helper Regular Font Weight",
     "token": "jh-font-helper-regular-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used for secondary or explanatory text as well as field labels",
     "category": "font",
     "type": "helper",
@@ -4569,7 +4569,7 @@
   {
     "name": "Font Helper Regular Line Height",
     "token": "jh-font-helper-regular-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used for secondary or explanatory text as well as field labels",
     "category": "font",
     "type": "helper",
@@ -4583,7 +4583,7 @@
   {
     "name": "Font Helper Medium Font Family",
     "token": "jh-font-helper-medium-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used for secondary or explanatory text as well as field labels",
     "category": "font",
     "type": "helper",
@@ -4597,7 +4597,7 @@
   {
     "name": "Font Helper Medium Font Size",
     "token": "jh-font-helper-medium-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used for secondary or explanatory text as well as field labels",
     "category": "font",
     "type": "helper",
@@ -4611,7 +4611,7 @@
   {
     "name": "Font Helper Medium Font Weight",
     "token": "jh-font-helper-medium-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used for secondary or explanatory text as well as field labels",
     "category": "font",
     "type": "helper",
@@ -4625,7 +4625,7 @@
   {
     "name": "Font Helper Medium Line Height",
     "token": "jh-font-helper-medium-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used for secondary or explanatory text as well as field labels",
     "category": "font",
     "type": "helper",
@@ -4639,7 +4639,7 @@
   {
     "name": "Font Helper Bold Font Family",
     "token": "jh-font-helper-bold-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used for secondary or explanatory text as well as field labels.",
     "category": "font",
     "type": "helper",
@@ -4653,7 +4653,7 @@
   {
     "name": "Font Helper Bold Font Size",
     "token": "jh-font-helper-bold-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used for secondary or explanatory text as well as field labels.",
     "category": "font",
     "type": "helper",
@@ -4667,7 +4667,7 @@
   {
     "name": "Font Helper Bold Font Weight",
     "token": "jh-font-helper-bold-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used for secondary or explanatory text as well as field labels.",
     "category": "font",
     "type": "helper",
@@ -4681,7 +4681,7 @@
   {
     "name": "Font Helper Bold Line Height",
     "token": "jh-font-helper-bold-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used for secondary or explanatory text as well as field labels.",
     "category": "font",
     "type": "helper",
@@ -4695,7 +4695,7 @@
   {
     "name": "Font Body Regular 1 Font Family",
     "token": "jh-font-body-regular-1-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used for blocks of text and most content displayed within components",
     "category": "font",
     "type": "body",
@@ -4709,7 +4709,7 @@
   {
     "name": "Font Body Regular 1 Font Size",
     "token": "jh-font-body-regular-1-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used for blocks of text and most content displayed within components",
     "category": "font",
     "type": "body",
@@ -4723,7 +4723,7 @@
   {
     "name": "Font Body Regular 1 Font Weight",
     "token": "jh-font-body-regular-1-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used for blocks of text and most content displayed within components",
     "category": "font",
     "type": "body",
@@ -4737,7 +4737,7 @@
   {
     "name": "Font Body Regular 1 Line Height",
     "token": "jh-font-body-regular-1-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used for blocks of text and most content displayed within components",
     "category": "font",
     "type": "body",
@@ -4751,7 +4751,7 @@
   {
     "name": "Font Body Regular 2 Font Family",
     "token": "jh-font-body-regular-2-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used for intro or leading blocks of text",
     "category": "font",
     "type": "body",
@@ -4765,7 +4765,7 @@
   {
     "name": "Font Body Regular 2 Font Size",
     "token": "jh-font-body-regular-2-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used for intro or leading blocks of text",
     "category": "font",
     "type": "body",
@@ -4779,7 +4779,7 @@
   {
     "name": "Font Body Regular 2 Font Weight",
     "token": "jh-font-body-regular-2-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used for intro or leading blocks of text",
     "category": "font",
     "type": "body",
@@ -4793,7 +4793,7 @@
   {
     "name": "Font Body Regular 2 Line Height",
     "token": "jh-font-body-regular-2-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used for intro or leading blocks of text",
     "category": "font",
     "type": "body",
@@ -4807,7 +4807,7 @@
   {
     "name": "Font Body Medium 1 Font Family",
     "token": "jh-font-body-medium-1-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used for blocks of text and most content displayed within components",
     "category": "font",
     "type": "body",
@@ -4821,7 +4821,7 @@
   {
     "name": "Font Body Medium 1 Font Size",
     "token": "jh-font-body-medium-1-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used for blocks of text and most content displayed within components",
     "category": "font",
     "type": "body",
@@ -4835,7 +4835,7 @@
   {
     "name": "Font Body Medium 1 Font Weight",
     "token": "jh-font-body-medium-1-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used for blocks of text and most content displayed within components",
     "category": "font",
     "type": "body",
@@ -4849,7 +4849,7 @@
   {
     "name": "Font Body Medium 1 Line Height",
     "token": "jh-font-body-medium-1-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used for blocks of text and most content displayed within components",
     "category": "font",
     "type": "body",
@@ -4863,7 +4863,7 @@
   {
     "name": "Font Body Medium 2 Font Family",
     "token": "jh-font-body-medium-2-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used for intro or leading blocks of text",
     "category": "font",
     "type": "body",
@@ -4877,7 +4877,7 @@
   {
     "name": "Font Body Medium 2 Font Size",
     "token": "jh-font-body-medium-2-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used for intro or leading blocks of text",
     "category": "font",
     "type": "body",
@@ -4891,7 +4891,7 @@
   {
     "name": "Font Body Medium 2 Font Weight",
     "token": "jh-font-body-medium-2-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used for intro or leading blocks of text",
     "category": "font",
     "type": "body",
@@ -4905,7 +4905,7 @@
   {
     "name": "Font Body Medium 2 Line Height",
     "token": "jh-font-body-medium-2-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used for intro or leading blocks of text",
     "category": "font",
     "type": "body",
@@ -4919,7 +4919,7 @@
   {
     "name": "Font Body Bold 1 Font Family",
     "token": "jh-font-body-bold-1-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used for blocks of text and most content displayed within components",
     "category": "font",
     "type": "body",
@@ -4933,7 +4933,7 @@
   {
     "name": "Font Body Bold 1 Font Size",
     "token": "jh-font-body-bold-1-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used for blocks of text and most content displayed within components",
     "category": "font",
     "type": "body",
@@ -4947,7 +4947,7 @@
   {
     "name": "Font Body Bold 1 Font Weight",
     "token": "jh-font-body-bold-1-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used for blocks of text and most content displayed within components",
     "category": "font",
     "type": "body",
@@ -4961,7 +4961,7 @@
   {
     "name": "Font Body Bold 1 Line Height",
     "token": "jh-font-body-bold-1-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used for blocks of text and most content displayed within components",
     "category": "font",
     "type": "body",
@@ -4975,7 +4975,7 @@
   {
     "name": "Font Body Bold 2 Font Family",
     "token": "jh-font-body-bold-2-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used for intro or leading blocks of text",
     "category": "font",
     "type": "body",
@@ -4989,7 +4989,7 @@
   {
     "name": "Font Body Bold 2 Font Size",
     "token": "jh-font-body-bold-2-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used for intro or leading blocks of text",
     "category": "font",
     "type": "body",
@@ -5003,7 +5003,7 @@
   {
     "name": "Font Body Bold 2 Font Weight",
     "token": "jh-font-body-bold-2-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used for intro or leading blocks of text",
     "category": "font",
     "type": "body",
@@ -5017,7 +5017,7 @@
   {
     "name": "Font Body Bold 2 Line Height",
     "token": "jh-font-body-bold-2-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used for intro or leading blocks of text",
     "category": "font",
     "type": "body",
@@ -5031,7 +5031,7 @@
   {
     "name": "Font Code Regular 1 Font Family",
     "token": "jh-font-code-regular-1-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used for code references in standard blocks of text",
     "category": "font",
     "type": "code",
@@ -5045,7 +5045,7 @@
   {
     "name": "Font Code Regular 1 Font Size",
     "token": "jh-font-code-regular-1-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used for code references in standard blocks of text",
     "category": "font",
     "type": "code",
@@ -5059,7 +5059,7 @@
   {
     "name": "Font Code Regular 1 Font Weight",
     "token": "jh-font-code-regular-1-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used for code references in standard blocks of text",
     "category": "font",
     "type": "code",
@@ -5073,7 +5073,7 @@
   {
     "name": "Font Code Regular 1 Line Height",
     "token": "jh-font-code-regular-1-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used for code references in standard blocks of text",
     "category": "font",
     "type": "code",
@@ -5087,7 +5087,7 @@
   {
     "name": "Font Code Regular 2 Font Family",
     "token": "jh-font-code-regular-2-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used for code references in intro or leading blocks of text",
     "category": "font",
     "type": "code",
@@ -5101,7 +5101,7 @@
   {
     "name": "Font Code Regular 2 Font Size",
     "token": "jh-font-code-regular-2-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used for code references in intro or leading blocks of text",
     "category": "font",
     "type": "code",
@@ -5115,7 +5115,7 @@
   {
     "name": "Font Code Regular 2 Font Weight",
     "token": "jh-font-code-regular-2-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used for code references in intro or leading blocks of text",
     "category": "font",
     "type": "code",
@@ -5129,7 +5129,7 @@
   {
     "name": "Font Code Regular 2 Line Height",
     "token": "jh-font-code-regular-2-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used for code references in intro or leading blocks of text",
     "category": "font",
     "type": "code",
@@ -5143,7 +5143,7 @@
   {
     "name": "Font Display Light 1 Font Family",
     "token": "jh-font-display-light-1-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual emphasis through size without being misconstrued as a heading",
     "category": "font",
     "type": "display",
@@ -5157,7 +5157,7 @@
   {
     "name": "Font Display Light 1 Font Size",
     "token": "jh-font-display-light-1-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual emphasis through size without being misconstrued as a heading",
     "category": "font",
     "type": "display",
@@ -5171,7 +5171,7 @@
   {
     "name": "Font Display Light 1 Font Weight",
     "token": "jh-font-display-light-1-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual emphasis through size without being misconstrued as a heading",
     "category": "font",
     "type": "display",
@@ -5185,7 +5185,7 @@
   {
     "name": "Font Display Light 1 Line Height",
     "token": "jh-font-display-light-1-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual emphasis through size without being misconstrued as a heading",
     "category": "font",
     "type": "display",
@@ -5199,7 +5199,7 @@
   {
     "name": "Font Display Light 2 Font Family",
     "token": "jh-font-display-light-2-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual emphasis through size without being misconstrued as a heading",
     "category": "font",
     "type": "display",
@@ -5213,7 +5213,7 @@
   {
     "name": "Font Display Light 2 Font Size",
     "token": "jh-font-display-light-2-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual emphasis through size without being misconstrued as a heading",
     "category": "font",
     "type": "display",
@@ -5227,7 +5227,7 @@
   {
     "name": "Font Display Light 2 Font Weight",
     "token": "jh-font-display-light-2-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual emphasis through size without being misconstrued as a heading",
     "category": "font",
     "type": "display",
@@ -5241,7 +5241,7 @@
   {
     "name": "Font Display Light 2 Line Height",
     "token": "jh-font-display-light-2-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual emphasis through size without being misconstrued as a heading",
     "category": "font",
     "type": "display",
@@ -5255,7 +5255,7 @@
   {
     "name": "Font Display Light 3 Font Family",
     "token": "jh-font-display-light-3-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual emphasis through size without being misconstrued as a heading",
     "category": "font",
     "type": "display",
@@ -5269,7 +5269,7 @@
   {
     "name": "Font Display Light 3 Font Size",
     "token": "jh-font-display-light-3-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual emphasis through size without being misconstrued as a heading",
     "category": "font",
     "type": "display",
@@ -5283,7 +5283,7 @@
   {
     "name": "Font Display Light 3 Font Weight",
     "token": "jh-font-display-light-3-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual emphasis through size without being misconstrued as a heading",
     "category": "font",
     "type": "display",
@@ -5297,7 +5297,7 @@
   {
     "name": "Font Display Light 3 Line Height",
     "token": "jh-font-display-light-3-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual emphasis through size without being misconstrued as a heading",
     "category": "font",
     "type": "display",
@@ -5311,7 +5311,7 @@
   {
     "name": "Font Heading Regular 1 Font Family",
     "token": "jh-font-heading-regular-1-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5325,7 +5325,7 @@
   {
     "name": "Font Heading Regular 1 Font Size",
     "token": "jh-font-heading-regular-1-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5339,7 +5339,7 @@
   {
     "name": "Font Heading Regular 1 Font Weight",
     "token": "jh-font-heading-regular-1-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5353,7 +5353,7 @@
   {
     "name": "Font Heading Regular 1 Line Height",
     "token": "jh-font-heading-regular-1-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5367,7 +5367,7 @@
   {
     "name": "Font Heading Regular 2 Font Family",
     "token": "jh-font-heading-regular-2-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5381,7 +5381,7 @@
   {
     "name": "Font Heading Regular 2 Font Size",
     "token": "jh-font-heading-regular-2-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5395,7 +5395,7 @@
   {
     "name": "Font Heading Regular 2 Font Weight",
     "token": "jh-font-heading-regular-2-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5409,7 +5409,7 @@
   {
     "name": "Font Heading Regular 2 Line Height",
     "token": "jh-font-heading-regular-2-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5423,7 +5423,7 @@
   {
     "name": "Font Heading Regular 3 Font Family",
     "token": "jh-font-heading-regular-3-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5437,7 +5437,7 @@
   {
     "name": "Font Heading Regular 3 Font Size",
     "token": "jh-font-heading-regular-3-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5451,7 +5451,7 @@
   {
     "name": "Font Heading Regular 3 Font Weight",
     "token": "jh-font-heading-regular-3-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5465,7 +5465,7 @@
   {
     "name": "Font Heading Regular 3 Line Height",
     "token": "jh-font-heading-regular-3-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5479,7 +5479,7 @@
   {
     "name": "Font Heading Regular 4 Font Family",
     "token": "jh-font-heading-regular-4-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5493,7 +5493,7 @@
   {
     "name": "Font Heading Regular 4 Font Size",
     "token": "jh-font-heading-regular-4-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5507,7 +5507,7 @@
   {
     "name": "Font Heading Regular 4 Font Weight",
     "token": "jh-font-heading-regular-4-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5521,7 +5521,7 @@
   {
     "name": "Font Heading Regular 4 Line Height",
     "token": "jh-font-heading-regular-4-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5535,7 +5535,7 @@
   {
     "name": "Font Heading Regular 5 Font Family",
     "token": "jh-font-heading-regular-5-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5549,7 +5549,7 @@
   {
     "name": "Font Heading Regular 5 Font Size",
     "token": "jh-font-heading-regular-5-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5563,7 +5563,7 @@
   {
     "name": "Font Heading Regular 5 Font Weight",
     "token": "jh-font-heading-regular-5-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5577,7 +5577,7 @@
   {
     "name": "Font Heading Regular 5 Line Height",
     "token": "jh-font-heading-regular-5-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5591,7 +5591,7 @@
   {
     "name": "Font Heading Regular 6 Font Family",
     "token": "jh-font-heading-regular-6-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5605,7 +5605,7 @@
   {
     "name": "Font Heading Regular 6 Font Size",
     "token": "jh-font-heading-regular-6-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5619,7 +5619,7 @@
   {
     "name": "Font Heading Regular 6 Font Weight",
     "token": "jh-font-heading-regular-6-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5633,7 +5633,7 @@
   {
     "name": "Font Heading Regular 6 Line Height",
     "token": "jh-font-heading-regular-6-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5647,7 +5647,7 @@
   {
     "name": "Font Heading Medium 1 Font Family",
     "token": "jh-font-heading-medium-1-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5661,7 +5661,7 @@
   {
     "name": "Font Heading Medium 1 Font Size",
     "token": "jh-font-heading-medium-1-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5675,7 +5675,7 @@
   {
     "name": "Font Heading Medium 1 Font Weight",
     "token": "jh-font-heading-medium-1-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5689,7 +5689,7 @@
   {
     "name": "Font Heading Medium 1 Line Height",
     "token": "jh-font-heading-medium-1-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5703,7 +5703,7 @@
   {
     "name": "Font Heading Medium 2 Font Family",
     "token": "jh-font-heading-medium-2-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5717,7 +5717,7 @@
   {
     "name": "Font Heading Medium 2 Font Size",
     "token": "jh-font-heading-medium-2-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5731,7 +5731,7 @@
   {
     "name": "Font Heading Medium 2 Font Weight",
     "token": "jh-font-heading-medium-2-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5745,7 +5745,7 @@
   {
     "name": "Font Heading Medium 2 Line Height",
     "token": "jh-font-heading-medium-2-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5759,7 +5759,7 @@
   {
     "name": "Font Heading Medium 3 Font Family",
     "token": "jh-font-heading-medium-3-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5773,7 +5773,7 @@
   {
     "name": "Font Heading Medium 3 Font Size",
     "token": "jh-font-heading-medium-3-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5787,7 +5787,7 @@
   {
     "name": "Font Heading Medium 3 Font Weight",
     "token": "jh-font-heading-medium-3-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5801,7 +5801,7 @@
   {
     "name": "Font Heading Medium 3 Line Height",
     "token": "jh-font-heading-medium-3-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5815,7 +5815,7 @@
   {
     "name": "Font Heading Medium 4 Font Family",
     "token": "jh-font-heading-medium-4-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5829,7 +5829,7 @@
   {
     "name": "Font Heading Medium 4 Font Size",
     "token": "jh-font-heading-medium-4-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5843,7 +5843,7 @@
   {
     "name": "Font Heading Medium 4 Font Weight",
     "token": "jh-font-heading-medium-4-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5857,7 +5857,7 @@
   {
     "name": "Font Heading Medium 4 Line Height",
     "token": "jh-font-heading-medium-4-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5871,7 +5871,7 @@
   {
     "name": "Font Heading Medium 5 Font Family",
     "token": "jh-font-heading-medium-5-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5885,7 +5885,7 @@
   {
     "name": "Font Heading Medium 5 Font Size",
     "token": "jh-font-heading-medium-5-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5899,7 +5899,7 @@
   {
     "name": "Font Heading Medium 5 Font Weight",
     "token": "jh-font-heading-medium-5-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5913,7 +5913,7 @@
   {
     "name": "Font Heading Medium 5 Line Height",
     "token": "jh-font-heading-medium-5-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5927,7 +5927,7 @@
   {
     "name": "Font Heading Medium 6 Font Family",
     "token": "jh-font-heading-medium-6-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5941,7 +5941,7 @@
   {
     "name": "Font Heading Medium 6 Font Size",
     "token": "jh-font-heading-medium-6-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5955,7 +5955,7 @@
   {
     "name": "Font Heading Medium 6 Font Weight",
     "token": "jh-font-heading-medium-6-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5969,7 +5969,7 @@
   {
     "name": "Font Heading Medium 6 Line Height",
     "token": "jh-font-heading-medium-6-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5983,7 +5983,7 @@
   {
     "name": "Font Heading Bold 1 Font Family",
     "token": "jh-font-heading-bold-1-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -5997,7 +5997,7 @@
   {
     "name": "Font Heading Bold 1 Font Size",
     "token": "jh-font-heading-bold-1-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -6011,7 +6011,7 @@
   {
     "name": "Font Heading Bold 1 Font Weight",
     "token": "jh-font-heading-bold-1-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -6025,7 +6025,7 @@
   {
     "name": "Font Heading Bold 1 Line Height",
     "token": "jh-font-heading-bold-1-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -6039,7 +6039,7 @@
   {
     "name": "Font Heading Bold 2 Font Family",
     "token": "jh-font-heading-bold-2-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -6053,7 +6053,7 @@
   {
     "name": "Font Heading Bold 2 Font Size",
     "token": "jh-font-heading-bold-2-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -6067,7 +6067,7 @@
   {
     "name": "Font Heading Bold 2 Font Weight",
     "token": "jh-font-heading-bold-2-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -6081,7 +6081,7 @@
   {
     "name": "Font Heading Bold 2 Line Height",
     "token": "jh-font-heading-bold-2-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -6095,7 +6095,7 @@
   {
     "name": "Font Heading Bold 3 Font Family",
     "token": "jh-font-heading-bold-3-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -6109,7 +6109,7 @@
   {
     "name": "Font Heading Bold 3 Font Size",
     "token": "jh-font-heading-bold-3-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -6123,7 +6123,7 @@
   {
     "name": "Font Heading Bold 3 Font Weight",
     "token": "jh-font-heading-bold-3-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -6137,7 +6137,7 @@
   {
     "name": "Font Heading Bold 3 Line Height",
     "token": "jh-font-heading-bold-3-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -6151,7 +6151,7 @@
   {
     "name": "Font Heading Bold 4 Font Family",
     "token": "jh-font-heading-bold-4-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -6165,7 +6165,7 @@
   {
     "name": "Font Heading Bold 4 Font Size",
     "token": "jh-font-heading-bold-4-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -6179,7 +6179,7 @@
   {
     "name": "Font Heading Bold 4 Font Weight",
     "token": "jh-font-heading-bold-4-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -6193,7 +6193,7 @@
   {
     "name": "Font Heading Bold 4 Line Height",
     "token": "jh-font-heading-bold-4-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -6207,7 +6207,7 @@
   {
     "name": "Font Heading Bold 5 Font Family",
     "token": "jh-font-heading-bold-5-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -6221,7 +6221,7 @@
   {
     "name": "Font Heading Bold 5 Font Size",
     "token": "jh-font-heading-bold-5-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -6235,7 +6235,7 @@
   {
     "name": "Font Heading Bold 5 Font Weight",
     "token": "jh-font-heading-bold-5-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -6249,7 +6249,7 @@
   {
     "name": "Font Heading Bold 5 Line Height",
     "token": "jh-font-heading-bold-5-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -6263,7 +6263,7 @@
   {
     "name": "Font Heading Bold 6 Font Family",
     "token": "jh-font-heading-bold-6-font-family",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -6277,7 +6277,7 @@
   {
     "name": "Font Heading Bold 6 Font Size",
     "token": "jh-font-heading-bold-6-font-size",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -6291,7 +6291,7 @@
   {
     "name": "Font Heading Bold 6 Font Weight",
     "token": "jh-font-heading-bold-6-font-weight",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -6305,7 +6305,7 @@
   {
     "name": "Font Heading Bold 6 Line Height",
     "token": "jh-font-heading-bold-6-line-height",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -6319,7 +6319,7 @@
   {
     "name": "Font Line Height 300",
     "token": "jh-font-line-height-300",
-    "alias": false,
+    "semantic": false,
     "description": "Line-height 300",
     "category": "font",
     "type": "line-height",
@@ -6332,7 +6332,7 @@
   {
     "name": "Font Line Height 400",
     "token": "jh-font-line-height-400",
-    "alias": false,
+    "semantic": false,
     "description": "Line-height 400",
     "category": "font",
     "type": "line-height",
@@ -6345,7 +6345,7 @@
   {
     "name": "Font Line Height 500",
     "token": "jh-font-line-height-500",
-    "alias": false,
+    "semantic": false,
     "description": "Line-height 500",
     "category": "font",
     "type": "line-height",
@@ -6358,7 +6358,7 @@
   {
     "name": "Font Line Height 600",
     "token": "jh-font-line-height-600",
-    "alias": false,
+    "semantic": false,
     "description": "Line-height 600",
     "category": "font",
     "type": "line-height",
@@ -6371,7 +6371,7 @@
   {
     "name": "Font Line Height 700",
     "token": "jh-font-line-height-700",
-    "alias": false,
+    "semantic": false,
     "description": "Line-height 700",
     "category": "font",
     "type": "line-height",
@@ -6384,7 +6384,7 @@
   {
     "name": "Font Line Height 800",
     "token": "jh-font-line-height-800",
-    "alias": false,
+    "semantic": false,
     "description": "Line-height 800",
     "category": "font",
     "type": "line-height",
@@ -6397,7 +6397,7 @@
   {
     "name": "Font Line Height 900",
     "token": "jh-font-line-height-900",
-    "alias": false,
+    "semantic": false,
     "description": "Line-height 900",
     "category": "font",
     "type": "line-height",
@@ -6410,7 +6410,7 @@
   {
     "name": "Font Line Height 1000",
     "token": "jh-font-line-height-1000",
-    "alias": false,
+    "semantic": false,
     "description": "Line-height 1000",
     "category": "font",
     "type": "line-height",
@@ -6423,7 +6423,7 @@
   {
     "name": "Font Line Height 1100",
     "token": "jh-font-line-height-1100",
-    "alias": false,
+    "semantic": false,
     "description": "Line-height 1100",
     "category": "font",
     "type": "line-height",
@@ -6436,7 +6436,7 @@
   {
     "name": "Font Line Height 1300",
     "token": "jh-font-line-height-1300",
-    "alias": false,
+    "semantic": false,
     "description": "Line-height 1300",
     "category": "font",
     "type": "line-height",
@@ -6449,7 +6449,7 @@
   {
     "name": "Font Line Height 1500",
     "token": "jh-font-line-height-1500",
-    "alias": false,
+    "semantic": false,
     "description": "Line-height 1500",
     "category": "font",
     "type": "line-height",
@@ -6462,7 +6462,7 @@
   {
     "name": "Font Line Height 1600",
     "token": "jh-font-line-height-1600",
-    "alias": false,
+    "semantic": false,
     "description": "Line-height 1600",
     "category": "font",
     "type": "line-height",
@@ -6475,7 +6475,7 @@
   {
     "name": "Font Line Height 1800",
     "token": "jh-font-line-height-1800",
-    "alias": false,
+    "semantic": false,
     "description": "Line-height 1800",
     "category": "font",
     "type": "line-height",
@@ -6488,7 +6488,7 @@
   {
     "name": "Font Line Height 2000",
     "token": "jh-font-line-height-2000",
-    "alias": false,
+    "semantic": false,
     "description": "Line-height 2000",
     "category": "font",
     "type": "line-height",
@@ -6501,7 +6501,7 @@
   {
     "name": "Font Line Height 2300",
     "token": "jh-font-line-height-2300",
-    "alias": false,
+    "semantic": false,
     "description": "Line-height 2300",
     "category": "font",
     "type": "line-height",
@@ -6514,7 +6514,7 @@
   {
     "name": "Font Line Height 2500",
     "token": "jh-font-line-height-2500",
-    "alias": false,
+    "semantic": false,
     "description": "Line-height 2500",
     "category": "font",
     "type": "line-height",
@@ -6527,7 +6527,7 @@
   {
     "name": "Font Line Height 2700",
     "token": "jh-font-line-height-2700",
-    "alias": false,
+    "semantic": false,
     "description": "Line-height 2700",
     "category": "font",
     "type": "line-height",
@@ -6540,7 +6540,7 @@
   {
     "name": "Font Weight 300",
     "token": "jh-font-weight-300",
-    "alias": false,
+    "semantic": false,
     "description": "Font weight 300",
     "category": "font",
     "type": "weight",
@@ -6553,7 +6553,7 @@
   {
     "name": "Font Weight 400",
     "token": "jh-font-weight-400",
-    "alias": false,
+    "semantic": false,
     "description": "Font weight 400",
     "category": "font",
     "type": "weight",
@@ -6566,7 +6566,7 @@
   {
     "name": "Font Weight 500",
     "token": "jh-font-weight-500",
-    "alias": false,
+    "semantic": false,
     "description": "Font weight 500",
     "category": "font",
     "type": "weight",
@@ -6579,7 +6579,7 @@
   {
     "name": "Font Weight 700",
     "token": "jh-font-weight-700",
-    "alias": false,
+    "semantic": false,
     "description": "Font weight 700",
     "category": "font",
     "type": "weight",
@@ -6592,7 +6592,7 @@
   {
     "name": "Font Size 250",
     "token": "jh-font-size-250",
-    "alias": false,
+    "semantic": false,
     "description": "Font size 250",
     "category": "font",
     "type": "size",
@@ -6605,7 +6605,7 @@
   {
     "name": "Font Size 300",
     "token": "jh-font-size-300",
-    "alias": false,
+    "semantic": false,
     "description": "Font size 300",
     "category": "font",
     "type": "size",
@@ -6618,7 +6618,7 @@
   {
     "name": "Font Size 350",
     "token": "jh-font-size-350",
-    "alias": false,
+    "semantic": false,
     "description": "Font size 350",
     "category": "font",
     "type": "size",
@@ -6631,7 +6631,7 @@
   {
     "name": "Font Size 400",
     "token": "jh-font-size-400",
-    "alias": false,
+    "semantic": false,
     "description": "Font size 400",
     "category": "font",
     "type": "size",
@@ -6644,7 +6644,7 @@
   {
     "name": "Font Size 450",
     "token": "jh-font-size-450",
-    "alias": false,
+    "semantic": false,
     "description": "Font size 450",
     "category": "font",
     "type": "size",
@@ -6657,7 +6657,7 @@
   {
     "name": "Font Size 500",
     "token": "jh-font-size-500",
-    "alias": false,
+    "semantic": false,
     "description": "Font size 500",
     "category": "font",
     "type": "size",
@@ -6670,7 +6670,7 @@
   {
     "name": "Font Size 600",
     "token": "jh-font-size-600",
-    "alias": false,
+    "semantic": false,
     "description": "Font size 600",
     "category": "font",
     "type": "size",
@@ -6683,7 +6683,7 @@
   {
     "name": "Font Size 700",
     "token": "jh-font-size-700",
-    "alias": false,
+    "semantic": false,
     "description": "Font size 700",
     "category": "font",
     "type": "size",
@@ -6696,7 +6696,7 @@
   {
     "name": "Font Size 800",
     "token": "jh-font-size-800",
-    "alias": false,
+    "semantic": false,
     "description": "Font size 800",
     "category": "font",
     "type": "size",
@@ -6709,7 +6709,7 @@
   {
     "name": "Font Size 900",
     "token": "jh-font-size-900",
-    "alias": false,
+    "semantic": false,
     "description": "Font size 900",
     "category": "font",
     "type": "size",
@@ -6722,7 +6722,7 @@
   {
     "name": "Font Size 1050",
     "token": "jh-font-size-1050",
-    "alias": false,
+    "semantic": false,
     "description": "Font size 1050",
     "category": "font",
     "type": "size",
@@ -6735,7 +6735,7 @@
   {
     "name": "Font Size 1200",
     "token": "jh-font-size-1200",
-    "alias": false,
+    "semantic": false,
     "description": "Font size 1200",
     "category": "font",
     "type": "size",
@@ -6748,7 +6748,7 @@
   {
     "name": "Font Size 1350",
     "token": "jh-font-size-1350",
-    "alias": false,
+    "semantic": false,
     "description": "Font size 1350",
     "category": "font",
     "type": "size",
@@ -6761,7 +6761,7 @@
   {
     "name": "Font Size 1500",
     "token": "jh-font-size-1500",
-    "alias": false,
+    "semantic": false,
     "description": "Font size 1500",
     "category": "font",
     "type": "size",
@@ -6774,7 +6774,7 @@
   {
     "name": "Font Size 1700",
     "token": "jh-font-size-1700",
-    "alias": false,
+    "semantic": false,
     "description": "Font size 1700",
     "category": "font",
     "type": "size",
@@ -6787,7 +6787,7 @@
   {
     "name": "Font Size 1900",
     "token": "jh-font-size-1900",
-    "alias": false,
+    "semantic": false,
     "description": "Font size 1900",
     "category": "font",
     "type": "size",
@@ -6800,7 +6800,7 @@
   {
     "name": "Font Size 2100",
     "token": "jh-font-size-2100",
-    "alias": false,
+    "semantic": false,
     "description": "Font size 2100",
     "category": "font",
     "type": "size",
@@ -6813,7 +6813,7 @@
   {
     "name": "Font Size 2300",
     "token": "jh-font-size-2300",
-    "alias": false,
+    "semantic": false,
     "description": "Font size 2300",
     "category": "font",
     "type": "size",
@@ -6826,7 +6826,7 @@
   {
     "name": "Opacity 0",
     "token": "jh-opacity-0",
-    "alias": false,
+    "semantic": false,
     "description": "Transparent",
     "category": "opacity",
     "type": "0",
@@ -6838,7 +6838,7 @@
   {
     "name": "Opacity 100",
     "token": "jh-opacity-100",
-    "alias": false,
+    "semantic": false,
     "description": "Opacity 100",
     "category": "opacity",
     "type": "100",
@@ -6850,7 +6850,7 @@
   {
     "name": "Opacity 200",
     "token": "jh-opacity-200",
-    "alias": false,
+    "semantic": false,
     "description": "Opacity 200",
     "category": "opacity",
     "type": "200",
@@ -6862,7 +6862,7 @@
   {
     "name": "Opacity 300",
     "token": "jh-opacity-300",
-    "alias": false,
+    "semantic": false,
     "description": "Opacity 300",
     "category": "opacity",
     "type": "300",
@@ -6874,7 +6874,7 @@
   {
     "name": "Opacity 400",
     "token": "jh-opacity-400",
-    "alias": false,
+    "semantic": false,
     "description": "Opacity 400",
     "category": "opacity",
     "type": "400",
@@ -6886,7 +6886,7 @@
   {
     "name": "Opacity 500",
     "token": "jh-opacity-500",
-    "alias": false,
+    "semantic": false,
     "description": "Opacity 500",
     "category": "opacity",
     "type": "500",
@@ -6898,7 +6898,7 @@
   {
     "name": "Opacity 600",
     "token": "jh-opacity-600",
-    "alias": false,
+    "semantic": false,
     "description": "Opacity 600",
     "category": "opacity",
     "type": "600",
@@ -6910,7 +6910,7 @@
   {
     "name": "Opacity 700",
     "token": "jh-opacity-700",
-    "alias": false,
+    "semantic": false,
     "description": "Opacity 700",
     "category": "opacity",
     "type": "700",
@@ -6922,7 +6922,7 @@
   {
     "name": "Opacity 800",
     "token": "jh-opacity-800",
-    "alias": false,
+    "semantic": false,
     "description": "Opacity 800",
     "category": "opacity",
     "type": "800",
@@ -6934,7 +6934,7 @@
   {
     "name": "Opacity 900",
     "token": "jh-opacity-900",
-    "alias": false,
+    "semantic": false,
     "description": "Opacity 900",
     "category": "opacity",
     "type": "900",
@@ -6946,7 +6946,7 @@
   {
     "name": "Opacity 1000",
     "token": "jh-opacity-1000",
-    "alias": false,
+    "semantic": false,
     "description": "Fully opaque",
     "category": "opacity",
     "type": "1000",
@@ -6958,7 +6958,7 @@
   {
     "name": "Opacity Disabled",
     "token": "jh-opacity-disabled",
-    "alias": true,
+    "semantic": true,
     "category": "opacity",
     "type": "disabled",
     "value": "jh-opacity-300",
@@ -6969,7 +6969,7 @@
   {
     "name": "Shadow Low",
     "token": "jh-shadow-low",
-    "alias": true,
+    "semantic": true,
     "description": "Used on surface-level content and components such as cards and control thumbs",
     "category": "shadow",
     "type": "low",
@@ -6981,7 +6981,7 @@
   {
     "name": "Shadow Mid",
     "token": "jh-shadow-mid",
-    "alias": true,
+    "semantic": true,
     "description": "Used on elevated components such as FABs and toasts",
     "category": "shadow",
     "type": "mid",
@@ -6993,7 +6993,7 @@
   {
     "name": "Shadow High",
     "token": "jh-shadow-high",
-    "alias": true,
+    "semantic": true,
     "description": "Used on menus and dropdowns",
     "category": "shadow",
     "type": "high",
@@ -7005,7 +7005,7 @@
   {
     "name": "Shadow Overlay",
     "token": "jh-shadow-overlay",
-    "alias": true,
+    "semantic": true,
     "description": "Used on components that should overlay the entire UI such as modals and dialogs",
     "category": "shadow",
     "type": "overlay",
@@ -7017,7 +7017,7 @@
   {
     "name": "Dimension 0",
     "token": "jh-dimension-0",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 0",
     "category": "dimension",
     "type": "0",
@@ -7029,7 +7029,7 @@
   {
     "name": "Dimension 25",
     "token": "jh-dimension-25",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 25",
     "category": "dimension",
     "type": "25",
@@ -7041,7 +7041,7 @@
   {
     "name": "Dimension 50",
     "token": "jh-dimension-50",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 50",
     "category": "dimension",
     "type": "50",
@@ -7053,7 +7053,7 @@
   {
     "name": "Dimension 100",
     "token": "jh-dimension-100",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 100",
     "category": "dimension",
     "type": "100",
@@ -7065,7 +7065,7 @@
   {
     "name": "Dimension 200",
     "token": "jh-dimension-200",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 200",
     "category": "dimension",
     "type": "200",
@@ -7077,7 +7077,7 @@
   {
     "name": "Dimension 300",
     "token": "jh-dimension-300",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 300",
     "category": "dimension",
     "type": "300",
@@ -7089,7 +7089,7 @@
   {
     "name": "Dimension 400",
     "token": "jh-dimension-400",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 400",
     "category": "dimension",
     "type": "400",
@@ -7101,7 +7101,7 @@
   {
     "name": "Dimension 500",
     "token": "jh-dimension-500",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 500",
     "category": "dimension",
     "type": "500",
@@ -7113,7 +7113,7 @@
   {
     "name": "Dimension 600",
     "token": "jh-dimension-600",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 600",
     "category": "dimension",
     "type": "600",
@@ -7125,7 +7125,7 @@
   {
     "name": "Dimension 700",
     "token": "jh-dimension-700",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 700",
     "category": "dimension",
     "type": "700",
@@ -7137,7 +7137,7 @@
   {
     "name": "Dimension 800",
     "token": "jh-dimension-800",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 800",
     "category": "dimension",
     "type": "800",
@@ -7149,7 +7149,7 @@
   {
     "name": "Dimension 900",
     "token": "jh-dimension-900",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 900",
     "category": "dimension",
     "type": "900",
@@ -7161,7 +7161,7 @@
   {
     "name": "Dimension 1000",
     "token": "jh-dimension-1000",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 1000",
     "category": "dimension",
     "type": "1000",
@@ -7173,7 +7173,7 @@
   {
     "name": "Dimension 1100",
     "token": "jh-dimension-1100",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 1100",
     "category": "dimension",
     "type": "1100",
@@ -7185,7 +7185,7 @@
   {
     "name": "Dimension 1200",
     "token": "jh-dimension-1200",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 1200",
     "category": "dimension",
     "type": "1200",
@@ -7197,7 +7197,7 @@
   {
     "name": "Dimension 1300",
     "token": "jh-dimension-1300",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 1300",
     "category": "dimension",
     "type": "1300",
@@ -7209,7 +7209,7 @@
   {
     "name": "Dimension 1400",
     "token": "jh-dimension-1400",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 1400",
     "category": "dimension",
     "type": "1400",
@@ -7221,7 +7221,7 @@
   {
     "name": "Dimension 1500",
     "token": "jh-dimension-1500",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 1500",
     "category": "dimension",
     "type": "1500",
@@ -7233,7 +7233,7 @@
   {
     "name": "Dimension 1600",
     "token": "jh-dimension-1600",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 1600",
     "category": "dimension",
     "type": "1600",
@@ -7245,7 +7245,7 @@
   {
     "name": "Dimension 1700",
     "token": "jh-dimension-1700",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 1700",
     "category": "dimension",
     "type": "1700",
@@ -7257,7 +7257,7 @@
   {
     "name": "Dimension 1800",
     "token": "jh-dimension-1800",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 1800",
     "category": "dimension",
     "type": "1800",
@@ -7269,7 +7269,7 @@
   {
     "name": "Dimension 1900",
     "token": "jh-dimension-1900",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 1900",
     "category": "dimension",
     "type": "1900",
@@ -7281,7 +7281,7 @@
   {
     "name": "Dimension 2000",
     "token": "jh-dimension-2000",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 2000",
     "category": "dimension",
     "type": "2000",
@@ -7293,7 +7293,7 @@
   {
     "name": "Dimension 2100",
     "token": "jh-dimension-2100",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 2100",
     "category": "dimension",
     "type": "2100",
@@ -7305,7 +7305,7 @@
   {
     "name": "Dimension 2200",
     "token": "jh-dimension-2200",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 2200",
     "category": "dimension",
     "type": "2200",
@@ -7317,7 +7317,7 @@
   {
     "name": "Dimension 2300",
     "token": "jh-dimension-2300",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 2300",
     "category": "dimension",
     "type": "2300",
@@ -7329,7 +7329,7 @@
   {
     "name": "Dimension 2400",
     "token": "jh-dimension-2400",
-    "alias": false,
+    "semantic": false,
     "description": "Dimension 2400",
     "category": "dimension",
     "type": "2400",
@@ -7341,7 +7341,7 @@
   {
     "name": "Z Index 0",
     "token": "jh-z-index-0",
-    "alias": false,
+    "semantic": false,
     "description": "Z-index 0",
     "category": "z-index",
     "type": "0",
@@ -7353,7 +7353,7 @@
   {
     "name": "Z Index Negative 100",
     "token": "jh-z-index-negative-100",
-    "alias": false,
+    "semantic": false,
     "description": "Z-index -100",
     "category": "z-index",
     "type": "negative",
@@ -7366,7 +7366,7 @@
   {
     "name": "Z Index Positive 100",
     "token": "jh-z-index-positive-100",
-    "alias": false,
+    "semantic": false,
     "description": "Z-index 100",
     "category": "z-index",
     "type": "positive",
@@ -7379,7 +7379,7 @@
   {
     "name": "Z Index Positive 200",
     "token": "jh-z-index-positive-200",
-    "alias": false,
+    "semantic": false,
     "description": "Z-index 200",
     "category": "z-index",
     "type": "positive",
@@ -7392,7 +7392,7 @@
   {
     "name": "Z Index Positive 300",
     "token": "jh-z-index-positive-300",
-    "alias": false,
+    "semantic": false,
     "description": "Z-index 300",
     "category": "z-index",
     "type": "positive",
@@ -7405,7 +7405,7 @@
   {
     "name": "Z Index Positive 400",
     "token": "jh-z-index-positive-400",
-    "alias": false,
+    "semantic": false,
     "description": "Z-index 400",
     "category": "z-index",
     "type": "positive",
@@ -7418,7 +7418,7 @@
   {
     "name": "Z Index Positive 500",
     "token": "jh-z-index-positive-500",
-    "alias": false,
+    "semantic": false,
     "description": "Z-index 500",
     "category": "z-index",
     "type": "positive",
@@ -7431,7 +7431,7 @@
   {
     "name": "Z Index Positive 600",
     "token": "jh-z-index-positive-600",
-    "alias": false,
+    "semantic": false,
     "description": "Z-index 600",
     "category": "z-index",
     "type": "positive",
@@ -7444,7 +7444,7 @@
   {
     "name": "Z Index Positive 700",
     "token": "jh-z-index-positive-700",
-    "alias": false,
+    "semantic": false,
     "description": "Z-index 700",
     "category": "z-index",
     "type": "positive",
@@ -7457,7 +7457,7 @@
   {
     "name": "Z Index Positive 800",
     "token": "jh-z-index-positive-800",
-    "alias": false,
+    "semantic": false,
     "description": "Z-index 800",
     "category": "z-index",
     "type": "positive",
@@ -7470,7 +7470,7 @@
   {
     "name": "Z Index Positive 900",
     "token": "jh-z-index-positive-900",
-    "alias": false,
+    "semantic": false,
     "description": "Z-index 900",
     "category": "z-index",
     "type": "positive",
@@ -7483,7 +7483,7 @@
   {
     "name": "Z Index Positive 1000",
     "token": "jh-z-index-positive-1000",
-    "alias": false,
+    "semantic": false,
     "description": "Z-index 1000",
     "category": "z-index",
     "type": "positive",
@@ -7496,7 +7496,7 @@
   {
     "name": "Font Micro Regular",
     "token": "jh-font-micro-regular",
-    "alias": true,
+    "semantic": true,
     "description": "Used for fine-print text and small snippets of text with limited space within a component",
     "category": "font",
     "type": "micro",
@@ -7509,7 +7509,7 @@
   {
     "name": "Font Micro Medium",
     "token": "jh-font-micro-medium",
-    "alias": true,
+    "semantic": true,
     "description": "Used for fine-print text and small snippets of text with limited space within a component",
     "category": "font",
     "type": "micro",
@@ -7522,7 +7522,7 @@
   {
     "name": "Font Micro Bold",
     "token": "jh-font-micro-bold",
-    "alias": true,
+    "semantic": true,
     "description": "Used for fine-print text and small snippets of text with limited space within a component",
     "category": "font",
     "type": "micro",
@@ -7535,7 +7535,7 @@
   {
     "name": "Font Helper Regular",
     "token": "jh-font-helper-regular",
-    "alias": true,
+    "semantic": true,
     "description": "Used for secondary or explanatory text as well as field labels",
     "category": "font",
     "type": "helper",
@@ -7548,7 +7548,7 @@
   {
     "name": "Font Helper Medium",
     "token": "jh-font-helper-medium",
-    "alias": true,
+    "semantic": true,
     "description": "Used for secondary or explanatory text as well as field labels",
     "category": "font",
     "type": "helper",
@@ -7561,7 +7561,7 @@
   {
     "name": "Font Helper Bold",
     "token": "jh-font-helper-bold",
-    "alias": true,
+    "semantic": true,
     "description": "Used for secondary or explanatory text as well as field labels.",
     "category": "font",
     "type": "helper",
@@ -7574,7 +7574,7 @@
   {
     "name": "Font Body Regular 1",
     "token": "jh-font-body-regular-1",
-    "alias": true,
+    "semantic": true,
     "description": "Used for blocks of text and most content displayed within components",
     "category": "font",
     "type": "body",
@@ -7588,7 +7588,7 @@
   {
     "name": "Font Body Regular 2",
     "token": "jh-font-body-regular-2",
-    "alias": true,
+    "semantic": true,
     "description": "Used for intro or leading blocks of text",
     "category": "font",
     "type": "body",
@@ -7602,7 +7602,7 @@
   {
     "name": "Font Body Medium 1",
     "token": "jh-font-body-medium-1",
-    "alias": true,
+    "semantic": true,
     "description": "Used for blocks of text and most content displayed within components",
     "category": "font",
     "type": "body",
@@ -7616,7 +7616,7 @@
   {
     "name": "Font Body Medium 2",
     "token": "jh-font-body-medium-2",
-    "alias": true,
+    "semantic": true,
     "description": "Used for intro or leading blocks of text",
     "category": "font",
     "type": "body",
@@ -7630,7 +7630,7 @@
   {
     "name": "Font Body Bold 1",
     "token": "jh-font-body-bold-1",
-    "alias": true,
+    "semantic": true,
     "description": "Used for blocks of text and most content displayed within components",
     "category": "font",
     "type": "body",
@@ -7644,7 +7644,7 @@
   {
     "name": "Font Body Bold 2",
     "token": "jh-font-body-bold-2",
-    "alias": true,
+    "semantic": true,
     "description": "Used for intro or leading blocks of text",
     "category": "font",
     "type": "body",
@@ -7658,7 +7658,7 @@
   {
     "name": "Font Code Regular 1",
     "token": "jh-font-code-regular-1",
-    "alias": true,
+    "semantic": true,
     "description": "Used for code references in standard blocks of text",
     "category": "font",
     "type": "code",
@@ -7672,7 +7672,7 @@
   {
     "name": "Font Code Regular 2",
     "token": "jh-font-code-regular-2",
-    "alias": true,
+    "semantic": true,
     "description": "Used for code references in intro or leading blocks of text",
     "category": "font",
     "type": "code",
@@ -7686,7 +7686,7 @@
   {
     "name": "Font Display Light 1",
     "token": "jh-font-display-light-1",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual emphasis through size without being misconstrued as a heading",
     "category": "font",
     "type": "display",
@@ -7700,7 +7700,7 @@
   {
     "name": "Font Display Light 2",
     "token": "jh-font-display-light-2",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual emphasis through size without being misconstrued as a heading",
     "category": "font",
     "type": "display",
@@ -7714,7 +7714,7 @@
   {
     "name": "Font Display Light 3",
     "token": "jh-font-display-light-3",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual emphasis through size without being misconstrued as a heading",
     "category": "font",
     "type": "display",
@@ -7728,7 +7728,7 @@
   {
     "name": "Font Heading Regular 1",
     "token": "jh-font-heading-regular-1",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -7742,7 +7742,7 @@
   {
     "name": "Font Heading Regular 2",
     "token": "jh-font-heading-regular-2",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -7756,7 +7756,7 @@
   {
     "name": "Font Heading Regular 3",
     "token": "jh-font-heading-regular-3",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -7770,7 +7770,7 @@
   {
     "name": "Font Heading Regular 4",
     "token": "jh-font-heading-regular-4",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -7784,7 +7784,7 @@
   {
     "name": "Font Heading Regular 5",
     "token": "jh-font-heading-regular-5",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -7798,7 +7798,7 @@
   {
     "name": "Font Heading Regular 6",
     "token": "jh-font-heading-regular-6",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -7812,7 +7812,7 @@
   {
     "name": "Font Heading Medium 1",
     "token": "jh-font-heading-medium-1",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -7826,7 +7826,7 @@
   {
     "name": "Font Heading Medium 2",
     "token": "jh-font-heading-medium-2",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -7840,7 +7840,7 @@
   {
     "name": "Font Heading Medium 3",
     "token": "jh-font-heading-medium-3",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -7854,7 +7854,7 @@
   {
     "name": "Font Heading Medium 4",
     "token": "jh-font-heading-medium-4",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -7868,7 +7868,7 @@
   {
     "name": "Font Heading Medium 5",
     "token": "jh-font-heading-medium-5",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -7882,7 +7882,7 @@
   {
     "name": "Font Heading Medium 6",
     "token": "jh-font-heading-medium-6",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -7896,7 +7896,7 @@
   {
     "name": "Font Heading Bold 1",
     "token": "jh-font-heading-bold-1",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -7910,7 +7910,7 @@
   {
     "name": "Font Heading Bold 2",
     "token": "jh-font-heading-bold-2",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -7924,7 +7924,7 @@
   {
     "name": "Font Heading Bold 3",
     "token": "jh-font-heading-bold-3",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -7938,7 +7938,7 @@
   {
     "name": "Font Heading Bold 4",
     "token": "jh-font-heading-bold-4",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -7952,7 +7952,7 @@
   {
     "name": "Font Heading Bold 5",
     "token": "jh-font-heading-bold-5",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",
@@ -7966,7 +7966,7 @@
   {
     "name": "Font Heading Bold 6",
     "token": "jh-font-heading-bold-6",
-    "alias": true,
+    "semantic": true,
     "description": "Used to create visual hierarchy on a page and within a component",
     "category": "font",
     "type": "heading",

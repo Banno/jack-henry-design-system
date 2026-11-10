@@ -64,22 +64,36 @@ This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success cr
 The following success criteria are of concern:
 
 - [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html): Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.
+- [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html): Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.
 - [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html): All functionality of the content is operable through a keyboard interface.
 - [WCAG 2.1.2 No Keyboard Trap](https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html): If keyboard focus can be moved to a component of the page using a keyboard interface, then focus can be moved away from that component using only a keyboard interface.
 - [WCAG 2.4.3 Focus Order](https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html): Focusable components receive focus in an order that preserves meaning and operability.
+- [WCAG 2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html):
+  Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.
+- [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html): The size of the target for pointer inputs is at least 24 by 24 CSS pixels, except where:
+  - Spacing: Undersized targets (those less than 24 by 24 CSS pixels) are positioned so that if a 24 CSS pixel diameter circle is centered on the bounding box of each, the circles do not intersect another target or the circle for another undersized target;
+  - Equivalent: The function can be achieved through a different control on the same page that meets this criterion;
+  - Inline: The target is in a sentence or its size is otherwise constrained by the line-height of non-target text;
+  - User agent control: The size of the target is determined by the user agent and is not modified by the author;
+  - Essential: A particular presentation of the target is essential or is legally required for the information being conveyed.
 - [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html): For all user interface components, the name and role can be programmatically determined.
 
 ### What we provide
 
-- To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html), the dialog is rendered with a native `<dialog>` element and is named by the content of the `jh-dialog-header` slot. The dismiss button has an accessible label of "Close" by default, which can be changed with the `dismiss-button-accessible-label` attribute.
-- To satisfy [WCAG 2.4.3 Focus Order](https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html), focus moves into the dialog when it opens, is contained within the dialog while it is open and returns to the previously focused element when it closes.
+- To satisfy [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html), Notification can be resized without assistive technology up to 200 percent without loss of content or functionality.
 - To satisfy [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html) and [WCAG 2.1.2 No Keyboard Trap](https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html), the dialog can be closed with the `Escape` key and, when the body content overflows, the body region is keyboard focusable so it can be scrolled with the keyboard.
+- To satisfy [WCAG 2.4.3 Focus Order](https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html), focus moves into the dialog when it opens, is contained within the dialog while it is open and returns to the previously focused element when it closes.
+- To satisfy [WCAG 2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html), the dismiss button contains focus visible styles to help users determine which element has keyboard focus.
+- To satisfy [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html), the target size of the dismiss button is at least 24 by 24 pixels for users to easily activate it.
+- To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html), the dialog is rendered with a native `<dialog>` element and is named by the content of the `jh-dialog-header` slot.
+
 
 ### Author Guidance
 
 - To satisfy [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html), use a heading element with the appropriate level within the `jh-dialog-header` slot.
-- To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html), always provide `jh-dialog-header` content so the dialog has an accessible name. Provide alternative text for meaningful content placed in the `jh-dialog-media` slot, or an empty `alt` for decorative images.
 - To satisfy [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html), ensure the dialog can always be closed. If the dismiss button is hidden, include an action in the footer that closes the dialog.
+- To satisfy [WCAG 2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html) when slotting buttons within the action slot, ensure that the buttons contain focus visible styles to help users determine which element has keyboard focus. Use of the `jh-button` component will also satisfy this success criterion. 
+- To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html), provide `jh-dialog-header` content so the dialog has an accessible name. Provide alternative text for meaningful content placed in the `jh-dialog-media` slot, or an empty `alt` for decorative images. Set the `dismiss-button-accessible-label` when `show-dismiss-button` is true to support screen reader users.
 
 ## Component API
 

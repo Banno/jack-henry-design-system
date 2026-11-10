@@ -39,7 +39,7 @@ import { JhElement } from '../element/element.js';
  * Defaults to `--jh-color-container-primary-enabled`.
  * @cssprop --jh-radio-input-color-border-selected-enabled - The radio border-color when selected.
  * Defaults to `--jh-border-control-color`.
- * @cssprop --jh-radio-status-color-background-selected-enabled- The status mark color when selected.
+ * @cssprop --jh-radio-status-color-background-selected-enabled - The status mark color when selected.
  * Defaults to `--jh-color-content-brand-enabled`.
  * @cssprop --jh-radio-input-color-background-selected-focus - The radio background-color when selected and focused. Defaults to `--jh-color-container-primary-enabled`.
  * @cssprop --jh-radio-input-color-border-selected-focus - The radio border-color when selected and focused.

@@ -2998,6 +2998,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "default": "false",
               "attribute": "readonly",
               "inheritedFrom": {
@@ -3519,6 +3520,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "default": "false",
               "fieldName": "readonly",
               "inheritedFrom": {
@@ -4263,6 +4265,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "default": "false",
               "attribute": "readonly",
               "inheritedFrom": {
@@ -5002,6 +5005,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "default": "false",
               "fieldName": "readonly",
               "inheritedFrom": {
@@ -5879,6 +5883,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "default": "false",
               "attribute": "readonly",
               "inheritedFrom": {
@@ -6347,6 +6352,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "default": "false",
               "fieldName": "readonly",
               "inheritedFrom": {
@@ -6930,6 +6936,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "default": "false",
               "attribute": "readonly",
               "inheritedFrom": {
@@ -7415,6 +7422,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "default": "false",
               "fieldName": "readonly",
               "inheritedFrom": {
@@ -8133,6 +8141,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "default": "false",
               "attribute": "readonly",
               "inheritedFrom": {
@@ -8872,6 +8881,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "default": "false",
               "fieldName": "readonly",
               "inheritedFrom": {
@@ -9360,6 +9370,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "default": "false",
               "attribute": "readonly",
               "inheritedFrom": {
@@ -10099,6 +10110,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "default": "false",
               "fieldName": "readonly",
               "inheritedFrom": {
@@ -10579,9 +10591,9 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Prevents users from changing the input value.",
               "default": "false",
               "attribute": "readonly",
-              "description": "Prevents users from changing the input value.",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -11147,9 +11159,9 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Prevents users from changing the input value.",
               "default": "false",
               "fieldName": "readonly",
-              "description": "Prevents users from changing the input value.",
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -11922,6 +11934,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "default": "false",
               "attribute": "readonly",
               "inheritedFrom": {
@@ -12661,6 +12674,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "default": "false",
               "fieldName": "readonly",
               "inheritedFrom": {
@@ -13205,6 +13219,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "default": "false",
               "attribute": "readonly"
             },
@@ -13552,6 +13567,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "default": "false",
               "fieldName": "readonly"
             },
@@ -15496,7 +15512,7 @@
             },
             {
               "description": "The status mark color when selected. Defaults to `--jh-color-content-brand-enabled`.",
-              "name": "--jh-radio-status-color-background-selected-enabled-"
+              "name": "--jh-radio-status-color-background-selected-enabled"
             },
             {
               "description": "The radio background-color when selected and focused. Defaults to `--jh-color-container-primary-enabled`.",
@@ -16637,6 +16653,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "default": "false",
               "attribute": "readonly",
               "inheritedFrom": {
@@ -17173,6 +17190,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "default": "false",
               "fieldName": "readonly",
               "inheritedFrom": {
@@ -18549,19 +18567,19 @@
             },
             {
               "description": "The tag background color. Defaults to `--jh-color-container-neutral-enabled`.",
-              "name": "--jh-tag-color-background-enabled-"
+              "name": "--jh-tag-color-background-enabled"
             },
             {
               "description": "The tag background color when focused. Defaults to `--jh-color-container-neutral-hover`.",
-              "name": "--jh-tag-color-background-focus-"
+              "name": "--jh-tag-color-background-focus"
             },
             {
               "description": "The tag background color when hovered. Defaults to `--jh-color-container-neutral-hover`.",
-              "name": "--jh-tag-color-background-hover-"
+              "name": "--jh-tag-color-background-hover"
             },
             {
               "description": "The tag background color when active. Defaults to `--jh-color-container-neutral-active`.",
-              "name": "--jh-tag-color-background-active-"
+              "name": "--jh-tag-color-background-active"
             },
             {
               "description": "The tag border color. Defaults to `transparent`.",

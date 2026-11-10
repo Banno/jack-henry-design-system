@@ -539,7 +539,10 @@ export class JhInput extends JhElement {
      * @type {string | null} 
      */
     this.prefix = null;
-    /** @type {boolean} */
+    /**
+     * Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.
+     * @type {boolean}
+     */
     this.readonly = false;
     /**
      * Indicates a value is required.

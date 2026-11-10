@@ -9,10 +9,10 @@
  *
  * @cssprop --jh-tag-color-focus - The tag outline when it receives keyboard focus. Defaults to `--jh-border-focus-color`.
  * @cssprop --jh-tag-border-radius - The tag border radius. Defaults to `--jh-border-radius-pill`.
- * @cssprop --jh-tag-color-background-enabled- The tag background color. Defaults to `--jh-color-container-neutral-enabled`.
- * @cssprop --jh-tag-color-background-focus- The tag background color when focused. Defaults to `--jh-color-container-neutral-hover`.
- * @cssprop --jh-tag-color-background-hover- The tag background color when hovered. Defaults to `--jh-color-container-neutral-hover`.
- * @cssprop --jh-tag-color-background-active- The tag background color when active. Defaults to `--jh-color-container-neutral-active`.
+ * @cssprop --jh-tag-color-background-enabled - The tag background color. Defaults to `--jh-color-container-neutral-enabled`.
+ * @cssprop --jh-tag-color-background-focus - The tag background color when focused. Defaults to `--jh-color-container-neutral-hover`.
+ * @cssprop --jh-tag-color-background-hover - The tag background color when hovered. Defaults to `--jh-color-container-neutral-hover`.
+ * @cssprop --jh-tag-color-background-active - The tag background color when active. Defaults to `--jh-color-container-neutral-active`.
  * @cssprop --jh-tag-color-border-enabled - The tag border color. Defaults to `transparent`.
  * @cssprop --jh-tag-color-border-focus - The tag border color when focused. Defaults to `transparent`.
  * @cssprop --jh-tag-color-border-hover - The tag border color when hovered. Defaults to `transparent`.

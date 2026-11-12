@@ -72,7 +72,7 @@ const preview = {
           'Design Tokens',
           'Guides',
           ['Extending'],
-          'Components', ['Badge', 'Button', 'Card', 'Checkbox Group', 'Checkbox', 'Divider', 'Icon', 'Input', '*'],
+          'Components', ['Badge', 'Button', 'Card', 'Checkbox Group', 'Checkbox', 'Dialog', 'Divider', 'Icon', 'Input', '*'],
           ['*',
           ['Table', 'Table Row', 'Table Data Cell', 'Table Header Cell'],
         ],

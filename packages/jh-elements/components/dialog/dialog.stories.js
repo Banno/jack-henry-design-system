@@ -86,6 +86,7 @@ const footerActions = html`
 export default {
   component: 'jh-dialog',
   title: 'Components/Dialog',
+  tags: ['new'],
   decorators: [
     (story) => html`
       <div

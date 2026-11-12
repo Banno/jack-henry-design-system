@@ -7413,32 +7413,19 @@
       "description": "Stack",
       "attributes": [
         {
-          "name": "align-y",
-          "description": "Sets the alignment of layered elements along the vertical axis.",
-          "type": "'start' | 'end' | 'center' | 'stretch'",
-          "default": "\"stretch\""
-        },
-        {
-          "name": "align-x",
-          "description": "Sets the alignment of layered elements along the horizontal axis.",
-          "type": "'start' | 'end' | 'center' | 'stretch'",
-          "default": "\"stretch\""
+          "name": "alignment",
+          "description": "Sets where layers sit within the stack. `fill` makes each auto-sized layer cover the whole stack; the other values pin every layer to that edge or corner at its natural size.",
+          "type": "'fill' | 'top-leading' | 'top' | 'top-trailing' | 'leading' | 'center' | 'trailing' | 'bottom-leading' | 'bottom' | 'bottom-trailing'",
+          "default": "\"fill\""
         }
       ],
       "properties": [
         {
-          "name": "alignY",
-          "attribute": "align-y",
-          "description": "Sets the alignment of layered elements along the vertical axis.",
-          "type": "'start' | 'end' | 'center' | 'stretch'",
-          "default": "\"stretch\""
-        },
-        {
-          "name": "alignX",
-          "attribute": "align-x",
-          "description": "Sets the alignment of layered elements along the horizontal axis.",
-          "type": "'start' | 'end' | 'center' | 'stretch'",
-          "default": "\"stretch\""
+          "name": "alignment",
+          "attribute": "alignment",
+          "description": "Sets where layers sit within the stack. `fill` makes each auto-sized layer cover the whole stack; the other values pin every layer to that edge or corner at its natural size.",
+          "type": "'fill' | 'top-leading' | 'top' | 'top-trailing' | 'leading' | 'center' | 'trailing' | 'bottom-leading' | 'bottom' | 'bottom-trailing'",
+          "default": "\"fill\""
         },
         {
           "name": "uniqueId",

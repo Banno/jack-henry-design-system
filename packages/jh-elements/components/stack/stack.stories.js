@@ -163,7 +163,7 @@ export default {
 };
 
 /**
- * Overview — an overlay covering a base layer, and a corner badge positioned
+ * Overview: an overlay covering a base layer, and a corner badge positioned
  * with `alignment`. Shows the two core uses of a stack: overlaying content and
  * anchoring an element to an edge.
  */
@@ -180,7 +180,7 @@ export const Overview = {
     <div class="demo-figure">
       <forge-stack alignment="top-trailing">
         <div class="layer-base">Avatar</div>
-        <jh-badge count="8" class="inset"></jh-badge>
+        <jh-badge count="8" aria-hidden="true" class="inset"></jh-badge>
       </forge-stack>
       <span class="demo-caption">
         A badge anchored to the top corner with <code>alignment="top-trailing"</code>.
@@ -198,7 +198,7 @@ Overview.parameters = {
 };
 
 /**
- * Playground — layer two blocks and use the control to change `alignment`.
+ * Playground: layer two blocks and use the control to change `alignment`.
  * Alignment applies to every layer at once. The base layer has an explicit size
  * so it keeps its dimensions; the top layer is auto-sized, so it covers the
  * stack with `fill` and shrinks to its content for every other value.
@@ -222,7 +222,7 @@ Playground.parameters = {
 };
 
 /**
- * Alignment — the same two layers pinned to each of the nine positions, plus
+ * Alignment: the same two layers pinned to each of the nine positions, plus
  * the default `fill`, where a layer covers the whole stack.
  */
 export const Alignment = {
@@ -234,7 +234,7 @@ export const Alignment = {
             <div class="layer-base"></div>
             ${alignment === 'fill'
               ? html`<div class="layer-overlay">Overlay</div>`
-              : html`<jh-badge count="1" class="inset"></jh-badge>`}
+              : html`<jh-badge count="1" aria-hidden="true" class="inset"></jh-badge>`}
           </forge-stack>
           <span class="demo-caption">alignment="${alignment}"</span>
         </div>
@@ -252,7 +252,7 @@ Alignment.parameters = {
 };
 
 /**
- * Anchored badge — the most common stack pattern. A small element (badge, dot,
+ * Anchored badge: the most common stack pattern. A small element (badge, dot,
  * or tag) is layered over a base and pinned to an edge with `alignment`.
  * Use a `margin` to inset it from the corner or a `transform` to overhang it.
  * The badges are visual only, so they are hidden from assistive tech and their
@@ -301,7 +301,7 @@ AnchoredBadge.parameters = {
 };
 
 /**
- * Accessible badge — the badge is purely visual, so it is hidden from
+ * Accessible badge: the badge is purely visual, so it is hidden from
  * assistive tech with `aria-hidden="true"`, and the information it shows is
  * folded into the accessible name of the control beneath it. A screen reader
  * announces "Inbox, 3 unread messages, button" once, instead of "Inbox, button"
@@ -334,7 +334,7 @@ AccessibleBadge.parameters = {
 };
 
 /**
- * Caption over an image — a caption bar spans the bottom edge of an image. The
+ * Caption over an image: a caption bar spans the bottom edge of an image. The
  * stack uses `alignment="bottom"`, and the caption gets an explicit
  * `width: 100%` so it spans the image instead of shrinking to its text.
  */
@@ -359,7 +359,7 @@ CaptionOverImage.parameters = {
 };
 
 /**
- * Composition — a stack layer can itself be a layout primitive. Here the top
+ * Composition: a stack layer can itself be a layout primitive. Here the top
  * layer is a `forge-row` that places a caption and a duration tag at opposite
  * ends of the bottom edge of the image.
  */
@@ -387,28 +387,31 @@ Composition.parameters = {
 };
 
 /**
- * Loading overlay — layer a translucent scrim and an indeterminate
+ * Loading overlay: layer a translucent scrim and an indeterminate
  * `jh-progress` over content while it loads. The scrim blocks the mouse, but
  * covering content does not remove it from the focus order or the
  * accessibility tree. So the covered card is also made `inert`, which blocks
- * keyboard and assistive tech, and the stack is marked `aria-busy`.
+ * keyboard and assistive tech. Because `inert` content is removed from the
+ * accessibility tree, `aria-busy` goes on a wrapper around the card.
  */
 export const LoadingOverlay = {
   render: () => html`
     <div class="demo-figure">
-      <forge-stack aria-busy="true">
-        <jh-card
-          inert
-          header-title="Account balance"
-          class="loading-card"
-        >
-          <p>Checking •••• 4821</p>
-          <jh-button
-            slot="jh-card-footer"
-            label="Transfer"
-            @click=${(e) => action('transfer-click (blocked)')(e.type)}
-          ></jh-button>
-        </jh-card>
+      <forge-stack>
+        <div aria-busy="true">
+          <jh-card
+            inert
+            header-title="Account balance"
+            class="loading-card"
+          >
+            <p>Checking •••• 4821</p>
+            <jh-button
+              slot="jh-card-footer"
+              label="Transfer"
+              @click=${(e) => action('transfer-click (blocked)')(e.type)}
+            ></jh-button>
+          </jh-card>
+        </div>
         <div class="loading-scrim">
           <jh-progress
             type="circular"
@@ -434,7 +437,7 @@ LoadingOverlay.parameters = {
 };
 
 /**
- * Pointer events — a known stack gotcha. Because a top layer sits over the
+ * Pointer events: a known stack gotcha. Because a top layer sits over the
  * layers below it, it intercepts pointer events even where it looks empty. In
  * the first example the overlay blocks the button underneath (clicking it logs
  * nothing). In the second, the overlay sets `pointer-events: none`, so clicks
@@ -454,7 +457,7 @@ export const PointerEvents = {
         <div class="layer-overlay">Overlay intercepts clicks</div>
       </forge-stack>
       <span class="demo-caption">
-        Overlay on top — the button below cannot be clicked.
+        Overlay on top: the button below cannot be clicked.
       </span>
     </div>
 
@@ -469,7 +472,7 @@ export const PointerEvents = {
         <div class="layer-overlay pass-through">pointer-events: none</div>
       </forge-stack>
       <span class="demo-caption">
-        Overlay uses <code>pointer-events: none</code> — clicks reach the button.
+        Overlay uses <code>pointer-events: none</code>, so clicks reach the button.
       </span>
     </div>
   `,

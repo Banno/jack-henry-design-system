@@ -22,20 +22,16 @@ Every slotted element shares the same space, so they overlap instead of flowing 
 Reach for a stack when you need to overlap **independent, meaningful, non-blocking** elements and their source order already matches the order they should be read in. Good fits include:
 
 - Caption or heading text over an image or media
-- A badge or dot on an avatar, icon, or button. See [Accessible badge](#accessible-badge) for how to keep it accessible.
-- A value label centered on a chart or sparkline
+- A badge or dot on an avatar, icon, or button. See [Badges on controls](#badges-on-controls) for how to keep it accessible.
 - A duration or "LIVE" tag on a media thumbnail
-- A skeleton placeholder over content while it loads
 
 ## When not to use it
 
-Layering is purely visual — it carries no semantics — so some patterns are better solved another way:
+Layering is purely visual and carries no semantics, so some patterns are better solved another way:
 
-- **A status or label that belongs to a component** — put it in that component's own flow (for example, a tag in a card's header slot). Reading order and association come for free, with no overlap risk.
-- **Blocking interaction while loading or disabled** — this is a *state*, not a layout. Use `inert` (with `aria-busy`), a `disabled` control, or a native `<dialog>`; these also block keyboard and assistive tech, which `pointer-events` cannot.
-- **A visual effect on a single element** (a gradient, border, or watermark) — a CSS `background`, pseudo-element, or SVG does it without an extra element. Reach for a stack when layering separate components.
-
-Switching to `position: absolute` instead of a stack does not reduce the risks of the first two cases — it is the same visual layering with the same hazards. The safety comes from the semantics, not the positioning method.
+- **A status or label that belongs to a component:** put it in that component's own flow (for example, a tag in a card's header slot). Reading order and association come for free, with no overlap risk.
+- **Blocking interaction while loading or disabled:** this is a *state*, not a layout. Use `inert` (with `aria-busy`), a `disabled` control, or a `<jh-dialog>`. These also block keyboard and assistive tech, which `pointer-events` cannot. If you do layer a loading indicator over content, see [Loading overlays and covered content](#loading-overlays-and-covered-content).
+- **A visual effect on a single element** (a gradient, border, or watermark): a CSS `background`, pseudo-element, or SVG does it without an extra element. Reach for a stack when layering separate components.
 
 ## Usage
 
@@ -58,9 +54,9 @@ Place elements in the default slot. Each slotted element becomes its own layer, 
 
 ## Layering
 
-Slotted elements stack in source order — the first element is the bottom layer and each following element sits above the previous one, so the **last** element renders on top. The stack sizes itself to its largest layer.
+Slotted elements stack in source order. The first element is the bottom layer and each following element sits above the previous one, so the **last** element renders on top. The stack sizes itself to its largest layer.
 
-To control which layer is on top, reorder the elements in your markup. If the source order must stay as it is for reading order, set `z-index` on the layer that should be raised instead.
+To control which layer is on top, reorder the elements in your markup.
 
 ## Alignment
 
@@ -116,7 +112,7 @@ To span an edge, such as a caption bar along the bottom of an image, give the la
 
 ### Anchoring inside or outside the corner
 
-Alignment pins an element to an edge; to fine-tune where it sits relative to that edge, offset the element itself:
+Alignment pins an element to an edge. To fine-tune where it sits relative to that edge, offset the element itself:
 
 - Tuck it **inside** the corner with a `margin`.
 - Make it **overhang** the corner with a `transform`.
@@ -125,35 +121,14 @@ Alignment pins an element to an edge; to fine-tune where it sits relative to tha
 /* tucked inside the corner */
 .inset { margin: var(--jh-dimension-200); }
 
-/* hanging off the corner — the classic notification badge */
+/* hanging off the corner, the classic notification badge */
 .overhang { transform: translate(50%, -50%); }
+
+/* trailing flips in right-to-left, so the offset flips with it */
+.overhang:dir(rtl) { transform: translate(-50%, -50%); }
 ```
 
 An overhanging element is clipped by any ancestor with `overflow: hidden`.
-
-<Canvas of={stories.AnchoredBadge} />
-
-## Pointer events
-
-Because layers overlap, a top layer sits over the ones beneath it and **intercepts pointer events across its whole area** — even where it looks transparent or empty. This means interactive elements on a lower layer (buttons, links, inputs) may not be clickable when a layer covers them.
-
-When an upper layer is purely decorative, set `pointer-events: none` on it so clicks pass through to the layer below:
-
-```css
-.decorative-overlay {
-  pointer-events: none;
-}
-```
-
-Toggle between the blocked and pass-through examples below and watch the Actions panel to see the difference.
-
-<Canvas of={stories.PointerEvents} />
-
-## Overlays and loading states
-
-A full-cover layer can dim content and block the mouse while something loads. But covering a layer does **not** remove it from the focus order or accessibility tree — users can still tab to and operate the controls beneath it. Because blocking is a state rather than a layout, pair the visual overlay with `inert` on the covered content (or disable its controls) and set `aria-busy="true"` on the region so assistive tech knows it is loading.
-
-<Canvas of={stories.LoadingOverlay} />
 
 ## Composition
 
@@ -165,29 +140,168 @@ Stack uses a single `alignment` attribute to place layers, while Row and Column 
 
 ## Accessibility
 
-The stack component contains no implicit accessibility features. 
+Stack has no built-in accessibility features. It only changes how elements look, so the accessibility of a stack comes from the elements you put in it. Layering creates a few common mistakes, each covered below with the accessible pattern to use.
 
-### Author Guidance
+<table>
+  <thead>
+    <tr>
+      <th>Mistake</th>
+      <th>Fix</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>A badge is announced as a stray value</td>
+      <td>Put the information in the control's accessible name and hide the badge with <code>aria-hidden="true"</code></td>
+    </tr>
+    <tr>
+      <td>Covered content can still be reached by keyboard or screen reader</td>
+      <td>Make it <code>inert</code> and mark the loading region with <code>aria-busy="true"</code></td>
+    </tr>
+    <tr>
+      <td>An overlay blocks clicks on the content below</td>
+      <td>Set <code>pointer-events: none</code> on decorative layers</td>
+    </tr>
+    <tr>
+      <td>A layer is announced in the wrong order</td>
+      <td>Keep source order equal to reading order, or don't use a stack</td>
+    </tr>
+    <tr>
+      <td>Text over an image is hard to read</td>
+      <td>Put the text on a scrim or gradient that meets contrast requirements</td>
+    </tr>
+    <tr>
+      <td>A backdrop image is announced along with its caption</td>
+      <td>Give decorative images empty alt text (<code>alt=""</code>)</td>
+    </tr>
+  </tbody>
+</table>
 
-- **Reading order follows source order.** Because the top layer must be *last* in the DOM to render on top, it is also read *last*. A visually prominent corner element — such as a status tag — is announced after the content it sits on. If it needs to be perceived earlier, associate it with ARIA rather than reordering the DOM; moving it earlier would drop it behind unless you also raise it with `z-index`.
-- **Visually covered is not hidden from assistive tech.** Covered content stays in the focus order and accessibility tree. Use `inert` (and `aria-busy` while loading) when a layer should truly block interaction — `pointer-events` only affects the mouse, and `aria-hidden` alone would leave focusable content reachable by keyboard.
-- **Anchor meaning to the right element.** For a badge on a control, fold the value into the control's accessible name (for example a button's `accessible-label`) and mark the visual badge `aria-hidden="true"` so it is not announced as a stray value. See [Accessible badge](#accessible-badge).
-- **ARIA references do not cross shadow boundaries.** `aria-describedby` and `aria-labelledby` only resolve within a single tree, so you can reference a sibling element but not something rendered inside another component's shadow root. Prefer putting meaningful status into a component's own content or accessible name.
-
-### Accessible badge
+### Badges on controls
 
 A badge layered on a control is visual only. Hide it from assistive technology and put the information it shows into the accessible name of the control beneath it. Start the accessible name with the control's visible label so it still matches what sighted users see.
 
 ```html
+<!-- Do: the count lives in the button's name, the badge is hidden -->
 <forge-stack alignment="top-trailing">
   <jh-button label="Inbox" accessible-label="Inbox, 3 unread messages"></jh-button>
   <jh-badge count="3" aria-hidden="true" class="overhang"></jh-badge>
 </forge-stack>
 ```
 
-Set `aria-hidden="true"` on the badge yourself for now; `jh-badge` is planned to apply it automatically. Keep the `accessible-label` in sync with the badge's `count`.
-
 <Canvas of={stories.AccessibleBadge} />
+
+A screen reader announces "Inbox, 3 unread messages, button" once.
+
+```html
+<!-- Avoid: the badge is announced as a stray "3" after "Inbox, button" -->
+<forge-stack alignment="top-trailing">
+  <jh-button label="Inbox"></jh-button>
+  <jh-badge count="3" class="overhang"></jh-badge>
+</forge-stack>
+```
+
+Set `aria-hidden="true"` on the badge yourself, because `jh-badge` does not hide itself from assistive technology (To be removed if added to badge in V3). Keep the `accessible-label` in sync with the badge's `count`.
+
+The same rule applies to a presence dot on an avatar: hide the dot and describe the state in the avatar's accessible name (for example `role="img"` with `aria-label="User, online"`).
+
+A tag that contains real text, such as a "Live" tag on a thumbnail, is meaningful content rather than a decoration. Leave it visible to assistive technology and place it in source order where it should be read.
+
+<Canvas of={stories.AnchoredBadge} />
+
+### Loading overlays and covered content
+
+A full-cover layer can dim content and block the mouse while something loads. For this use case, you would typically use a `<jh-dialog>` or similar component. However, if you do layer a loading indicator over content, be aware that covering content does **not** remove it from the focus order or the accessibility tree. Users can still tab to and operate the controls beneath it.
+
+Because blocking is a state rather than a layout, pair the visual overlay with `inert` on the covered content (or disable its controls). Set `aria-busy="true"` on the region that is loading, so assistive tech knows its content is not ready. Because `inert` content is removed from the accessibility tree, put `aria-busy` on a wrapper around the inert content rather than on the inert element itself.
+
+```html
+<!-- Do: inert blocks mouse, keyboard, and assistive tech -->
+<forge-stack>
+  <div aria-busy="true">
+    <jh-card inert header-title="Account balance">...</jh-card>
+  </div>
+  <div class="loading-scrim">
+    <jh-progress type="circular" indeterminate accessible-label="Loading account"></jh-progress>
+  </div>
+</forge-stack>
+```
+
+<Canvas of={stories.LoadingOverlay} />
+
+```html
+<!-- Avoid: the scrim only blocks the mouse; the card is still reachable by keyboard -->
+<forge-stack>
+  <jh-card header-title="Account balance">...</jh-card>
+  <div class="loading-scrim"></div>
+</forge-stack>
+```
+
+Do not rely on `aria-hidden` alone for this. It would leave focusable content reachable by keyboard.
+
+### Pointer events
+
+Because layers overlap, a top layer sits over the ones beneath it and **intercepts pointer events across its whole area**, even where it looks transparent or empty. Interactive elements on a lower layer (buttons, links, inputs) may not be clickable when a layer covers them.
+
+When an upper layer is purely decorative, set `pointer-events: none` on it so clicks pass through to the layer below:
+
+```css
+.decorative-overlay {
+  pointer-events: none;
+}
+```
+
+Compare the two examples below, and watch the Actions panel to see the difference. `pointer-events` only affects the mouse. It is not a way to disable content. For that, see [Loading overlays and covered content](#loading-overlays-and-covered-content).
+
+<Canvas of={stories.PointerEvents} />
+
+### Reading order
+
+Reading order follows source order. Because the top layer must be *last* in the DOM to render on top, it is also read *last*. A visually prominent corner element, such as a status tag, is announced after the content it sits on.
+
+- Write layers in the order they should be read. The last layer renders on top.
+- If a layer needs to be read before the layers beneath it, a stack is not the right fit, because the visual order and the reading order cannot be separated. Put the information in the content or accessible name of the element it belongs to instead.
+- `aria-describedby` and `aria-labelledby` only resolve within a single tree, so you can reference a sibling element but not something rendered inside another component's shadow root. Prefer putting meaningful status into a component's own content or accessible name.
+
+### Text over media
+
+Text layered over an image or video must stay readable. The image behind it changes with the content, so a design that passes contrast with one photo can fail with another. Give the text its own backing, such as a solid scrim or a gradient that is dark enough behind the text, and don't rely on the image to provide contrast. Text must meet a contrast ratio of at least 4.5:1 against everything behind it.
+
+```html
+<!-- Do: the caption has its own gradient backing -->
+<forge-stack alignment="bottom">
+  <img src="cover.jpg" alt="" />
+  <span class="caption-bar">Mountain lake at sunrise</span>
+</forge-stack>
+```
+
+```html
+<!-- Avoid: white text sits directly on the photo and may not be readable -->
+<forge-stack alignment="bottom">
+  <img src="cover.jpg" alt="" />
+  <span style="color: white">Mountain lake at sunrise</span>
+</forge-stack>
+```
+
+### Decorative images
+
+When an image is only a backdrop for overlaid text, give it empty alt text (`alt=""`) so it is not announced. If the image carries meaning of its own, describe it in `alt` without repeating the text layered over it.
+
+```html
+<!-- Do: the caption is the content; the backdrop is decorative -->
+<forge-stack alignment="bottom">
+  <img src="cover.jpg" alt="" />
+  <span class="caption-bar">Mountain lake at sunrise</span>
+</forge-stack>
+```
+
+```html
+<!-- Avoid: the same text is announced twice -->
+<forge-stack alignment="bottom">
+  <img src="cover.jpg" alt="Mountain lake at sunrise" />
+  <span class="caption-bar">Mountain lake at sunrise</span>
+</forge-stack>
+```
 
 ## Component API
 

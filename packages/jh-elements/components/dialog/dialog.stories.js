@@ -149,7 +149,10 @@ export const Playground = { render: (args) => html`<section>
   >
     <h2 slot="jh-dialog-header">Dialog header</h2>
     <p>Dialog body slot: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    ${footerActions}
+    <div slot="jh-dialog-footer" class="footer-actions">
+    <jh-button appearance="secondary" label="Cancel"></jh-button>
+    <jh-button appearance="primary" label="Confirm"></jh-button>
+  </div>
   </jh-dialog>
 </section>`};
 
@@ -168,21 +171,21 @@ Playground.parameters = {
   styles: storyStyles,
 };
 
-export const CustomHeader = {
+export const ActionButtons = {
   render: (args) => html`<section>
-    <jh-button label="Open custom header dialog" @click=${openDialog('custom-header')}></jh-button>
+    <jh-button label="Open custom dialog" @click=${openDialog('custom-header')}></jh-button>
     <jh-dialog id="custom-header" scrollable ?open=${args.open}>
       <img src="/images/markus-winkler-DJoG5GsXfMw-unsplash.jpg" alt="Custom header image" slot="jh-dialog-media">
       <div class="custom-header" slot="jh-dialog-header">
         <h2>Custom Header</h2>
         <p>Header subtitle</p>
       </div>
-      <p>Dialog body slot: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, consectetur adipiscing elit. Praesent nec lorem varius, congue tellus at, tempor mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec vitae mi at nibh fringilla tincidunt.</p>
+      <p>The action buttons have been configured to close the dialog when clicked.</p>
       ${footerActions}
     </jh-dialog>
   </section>`,
 }
 
-CustomHeader.parameters = {
+ActionButtons.parameters = {
   styles: storyStyles,
 };

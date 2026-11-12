@@ -43,7 +43,7 @@ export class ForgeStack extends JhElement {
 
   static get properties() {
     return {
-      /** Sets where layers sit within the stack. `fill` makes each layer cover the whole stack; the other values pin every layer to that edge or corner at its natural size. */
+      /** Sets where layers sit within the stack. `fill` makes each auto-sized layer cover the whole stack; the other values pin every layer to that edge or corner at its natural size. */
       alignment: { type: String, reflect: true }
     };
   }

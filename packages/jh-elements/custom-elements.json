@@ -7414,7 +7414,7 @@
       "attributes": [
         {
           "name": "alignment",
-          "description": "Sets where layers sit within the stack. `fill` makes each layer cover the whole stack; the other values pin every layer to that edge or corner at its natural size.",
+          "description": "Sets where layers sit within the stack. `fill` makes each auto-sized layer cover the whole stack; the other values pin every layer to that edge or corner at its natural size.",
           "type": "'fill' | 'top-leading' | 'top' | 'top-trailing' | 'leading' | 'center' | 'trailing' | 'bottom-leading' | 'bottom' | 'bottom-trailing'",
           "default": "\"fill\""
         }
@@ -7423,7 +7423,7 @@
         {
           "name": "alignment",
           "attribute": "alignment",
-          "description": "Sets where layers sit within the stack. `fill` makes each layer cover the whole stack; the other values pin every layer to that edge or corner at its natural size.",
+          "description": "Sets where layers sit within the stack. `fill` makes each auto-sized layer cover the whole stack; the other values pin every layer to that edge or corner at its natural size.",
           "type": "'fill' | 'top-leading' | 'top' | 'top-trailing' | 'leading' | 'center' | 'trailing' | 'bottom-leading' | 'bottom' | 'bottom-trailing'",
           "default": "\"fill\""
         },

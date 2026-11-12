@@ -22,6 +22,7 @@ Every slotted element shares the same space, so they overlap instead of flowing 
 Reach for a stack when you need to overlap **independent, meaningful, non-blocking** elements and their source order already matches the order they should be read in. Good fits include:
 
 - Caption or heading text over an image or media
+- A badge or dot on an avatar, icon, or button. See [Accessible badge](#accessible-badge) for how to keep it accessible.
 - A value label centered on a chart or sparkline
 - A duration or "LIVE" tag on a media thumbnail
 - A skeleton placeholder over content while it loads
@@ -32,9 +33,9 @@ Layering is purely visual — it carries no semantics — so some patterns are b
 
 - **A status or label that belongs to a component** — put it in that component's own flow (for example, a tag in a card's header slot). Reading order and association come for free, with no overlap risk.
 - **Blocking interaction while loading or disabled** — this is a *state*, not a layout. Use `inert` (with `aria-busy`), a `disabled` control, or a native `<dialog>`; these also block keyboard and assistive tech, which `pointer-events` cannot.
-- **Purely decorative layering** (gradients, watermarks) — a CSS `background`, pseudo-element, or single SVG never enters the accessibility tree.
+- **A visual effect on a single element** (a gradient, border, or watermark) — a CSS `background`, pseudo-element, or SVG does it without an extra element. Reach for a stack when layering separate components.
 
-Switching to `position: absolute` instead of a stack does not reduce any of these risks — it is the same visual layering with the same hazards. The safety comes from the semantics, not the positioning method.
+Switching to `position: absolute` instead of a stack does not reduce the risks of the first two cases — it is the same visual layering with the same hazards. The safety comes from the semantics, not the positioning method.
 
 ## Usage
 
@@ -44,14 +45,16 @@ Import the `<forge-stack>` component:
 import '@jack-henry/jh-elements/components/stack/stack.js';
 ```
 
-Place elements in the default slot. Each slotted element becomes its own layer, stacked in source order with the last element on top:
+Place elements in the default slot. Each slotted element becomes its own layer, stacked in source order with the last element on top. Use `alignment` to pin the layers, for example `bottom` for a caption along the bottom edge:
 
 ```html
-<forge-stack>
+<forge-stack alignment="bottom">
   <img src="cover.jpg" alt="" />
-  <span>Overlaid caption</span>
+  <span class="caption-bar">Overlaid caption</span>
 </forge-stack>
 ```
+
+<Canvas of={stories.CaptionOverImage} />
 
 ## Layering
 
@@ -61,7 +64,7 @@ To control which layer is on top, reorder the elements in your markup. If the so
 
 ## Alignment
 
-`alignment` sets where layers sit within the stack. By default it is `fill`, so each layer covers the whole stack. Any other value pins every layer to that edge or corner at its natural size:
+`alignment` sets where layers sit within the stack. By default it is `fill`, so each layer with an automatic size covers the whole stack. Any other value pins every layer to that edge or corner at its natural size. A layer with an explicit `width` or `height` keeps that size in every case. An unrecognized value falls back to `fill`.
 
 <table>
   <thead>
@@ -73,7 +76,7 @@ To control which layer is on top, reorder the elements in your markup. If the so
   <tbody>
     <tr>
       <td><code>fill</code> (default)</td>
-      <td>Layers cover the whole stack</td>
+      <td>Layers with an automatic size cover the whole stack</td>
     </tr>
     <tr>
       <td><code>top-leading</code>, <code>top</code>, <code>top-trailing</code></td>
@@ -94,10 +97,14 @@ To control which layer is on top, reorder the elements in your markup. If the so
 
 ```html
 <forge-stack alignment="top-trailing">
-  <div class="avatar"></div>
-  <jh-badge count="5" class="inset"></jh-badge>
+  <img src="maya.jpg" alt="Maya, online" />
+  <jh-badge aria-hidden="true" class="inset"></jh-badge>
 </forge-stack>
 ```
+
+See all ten values side by side:
+
+<Canvas of={stories.Alignment} />
 
 ### One alignment per stack
 
@@ -105,7 +112,7 @@ To control which layer is on top, reorder the elements in your markup. If the so
 
 Because every layer is aligned, any layer with an automatic size shrinks to its content when `alignment` is not `fill`. A base layer should be the largest layer or have an explicit size so it keeps its dimensions.
 
-To span an edge, such as a caption bar along the bottom of an image, give the layer an explicit `width: 100%` and use `alignment="bottom"`.
+To span an edge, such as a caption bar along the bottom of an image, give the layer an explicit `width: 100%` and use `alignment="bottom"`. See the caption example in [Usage](#usage).
 
 ### Anchoring inside or outside the corner
 
@@ -152,6 +159,10 @@ A full-cover layer can dim content and block the mouse while something loads. Bu
 
 Layout primitives are designed to compose. A `<forge-stack>` can hold `<forge-row>` and `<forge-column>` containers as layers (and vice versa), letting you arrange content within a layer while still stacking layers on the z-axis.
 
+Stack uses a single `alignment` attribute to place layers, while Row and Column use `align-x` and `align-y` to distribute their children.
+
+<Canvas of={stories.Composition} />
+
 ## Accessibility
 
 The stack component contains no implicit accessibility features. 
@@ -159,9 +170,24 @@ The stack component contains no implicit accessibility features.
 ### Author Guidance
 
 - **Reading order follows source order.** Because the top layer must be *last* in the DOM to render on top, it is also read *last*. A visually prominent corner element — such as a status tag — is announced after the content it sits on. If it needs to be perceived earlier, associate it with ARIA rather than reordering the DOM; moving it earlier would drop it behind unless you also raise it with `z-index`.
-- **Visually covered is not hidden from assistive tech.** Covered content stays in the focus order and accessibility tree. Use `inert` / `aria-hidden` (and `aria-busy` while loading) when a layer should truly block interaction — `pointer-events` only affects the mouse.
-- **Anchor meaning to the right element.** For a badge on a control, fold the value into the control's accessible name (for example a button's `accessible-label`) and mark the visual badge `aria-hidden="true"` so it is not announced as a stray value.
+- **Visually covered is not hidden from assistive tech.** Covered content stays in the focus order and accessibility tree. Use `inert` (and `aria-busy` while loading) when a layer should truly block interaction — `pointer-events` only affects the mouse, and `aria-hidden` alone would leave focusable content reachable by keyboard.
+- **Anchor meaning to the right element.** For a badge on a control, fold the value into the control's accessible name (for example a button's `accessible-label`) and mark the visual badge `aria-hidden="true"` so it is not announced as a stray value. See [Accessible badge](#accessible-badge).
 - **ARIA references do not cross shadow boundaries.** `aria-describedby` and `aria-labelledby` only resolve within a single tree, so you can reference a sibling element but not something rendered inside another component's shadow root. Prefer putting meaningful status into a component's own content or accessible name.
+
+### Accessible badge
+
+A badge layered on a control is visual only. Hide it from assistive technology and put the information it shows into the accessible name of the control beneath it. Start the accessible name with the control's visible label so it still matches what sighted users see.
+
+```html
+<forge-stack alignment="top-trailing">
+  <jh-button label="Inbox" accessible-label="Inbox, 3 unread messages"></jh-button>
+  <jh-badge count="3" aria-hidden="true" class="overhang"></jh-badge>
+</forge-stack>
+```
+
+Set `aria-hidden="true"` on the badge yourself for now; `jh-badge` is planned to apply it automatically. Keep the `accessible-label` in sync with the badge's `count`.
+
+<Canvas of={stories.AccessibleBadge} />
 
 ## Component API
 

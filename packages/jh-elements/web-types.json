@@ -773,6 +773,14 @@
               }
             },
             {
+              "name": "remove-on-dismiss",
+              "description": "Closes the dialog when dismissed via the dismiss button, backdrop click, or Escape key.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
               "name": "show-dismiss-button",
               "description": "Displays a dismiss button. When true, the dialog can also be closed by clicking the backdrop outside the dialog.",
               "value": {
@@ -865,6 +873,11 @@
               {
                 "name": "open",
                 "description": "Determines whether the dialog is open or closed.",
+                "type": "boolean"
+              },
+              {
+                "name": "removeOnDismiss",
+                "description": "Closes the dialog when dismissed via the dismiss button, backdrop click, or Escape key.",
                 "type": "boolean"
               },
               {

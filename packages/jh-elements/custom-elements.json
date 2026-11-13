@@ -2390,6 +2390,17 @@
             },
             {
               "kind": "field",
+              "name": "removeOnDismiss",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Closes the dialog when dismissed via the dismiss button, backdrop click, or Escape key.",
+              "default": "false",
+              "attribute": "remove-on-dismiss"
+            },
+            {
+              "kind": "field",
               "name": "showDismissButton",
               "privacy": "public",
               "type": {
@@ -2517,6 +2528,16 @@
               "default": "0",
               "fieldName": "headerInset",
               "attribute": "header-inset"
+            },
+            {
+              "name": "remove-on-dismiss",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Closes the dialog when dismissed via the dismiss button, backdrop click, or Escape key.",
+              "default": "false",
+              "fieldName": "removeOnDismiss",
+              "attribute": "remove-on-dismiss"
             },
             {
               "name": "show-dismiss-button",

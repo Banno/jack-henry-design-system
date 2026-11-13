@@ -55,7 +55,8 @@ The dialog component makes use of both required compositional and suggested cont
 The dialog is rendered with a native `<dialog>` element and is opened as a modal in the top layer, which makes the rest of the page inert and displays a backdrop.
 
 - Open the dialog by setting the `open` attribute/property or by calling `show()`.
-- Close the dialog by removing the `open` attribute/property, calling `close()`, pressing the `Escape` key, activating the dismiss button or, when `show-dismiss-button` is set, clicking the backdrop outside the dialog.
+- Close the dialog by removing the `open` attribute/property, calling `close()`. 
+- When `remove-on-dismiss` is set, users can close the dialog by pressing the `Escape` key, activating the dismiss button or, when `show-dismiss-button` is set, clicking the backdrop outside the dialog.
 - The `jh-open` event is dispatched when the dialog opens and the `jh-close` event is dispatched when the dialog closes. The method used to close the dialog is available via `e.detail.reference.closeMethod` and is one of `backdrop-click`, `dismiss-button`, `escape` or `programmatic`.
 
 ## Accessibility
@@ -81,7 +82,7 @@ The following success criteria are of concern:
 ### What we provide
 
 - To satisfy [WCAG 1.4.4 Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html), Dialog can be resized without assistive technology up to 200 percent without loss of content or functionality.
-- To satisfy [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html) and [WCAG 2.1.2 No Keyboard Trap](https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html), the dialog can be closed with the `Escape` key and, when the body content overflows, the body region is keyboard focusable so it can be scrolled with the keyboard.
+- To satisfy [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html) and [WCAG 2.1.2 No Keyboard Trap](https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html), the dialog can be closed with the `Escape` key when `remove-on-dismiss` is set. And when the body content overflows, the body region is keyboard focusable so it can be scrolled with the keyboard.
 - To satisfy [WCAG 2.4.3 Focus Order](https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html), focus moves into the dialog when it opens, is contained within the dialog while it is open and returns to the previously focused element when it closes.
 - To satisfy [WCAG 2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html), the dismiss button contains focus visible styles to help users determine which element has keyboard focus.
 - To satisfy [WCAG 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html), the target size of the dismiss button is at least 24 by 24 pixels for users to easily activate it.

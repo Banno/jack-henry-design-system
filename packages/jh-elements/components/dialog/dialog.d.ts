@@ -50,6 +50,10 @@ export class JhDialog extends JhElement {
             type: BooleanConstructor;
             reflect: boolean;
         };
+        removeOnDismiss: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
         showDismissButton: {
             type: BooleanConstructor;
             attribute: string;
@@ -96,6 +100,12 @@ export class JhDialog extends JhElement {
      * @type {boolean}
      */
     open: boolean;
+    /**
+     * Closes the dialog when dismissed via the dismiss button, backdrop click, or Escape key.
+     * @attr remove-on-dismiss
+     * @type {boolean}
+     */
+    removeOnDismiss: boolean;
     /**
      * Displays a dismiss button. When true, the dialog can also be closed by clicking the backdrop outside the dialog.
      * @attr show-dismiss-button

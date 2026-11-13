@@ -201,6 +201,10 @@ export class JhDialog extends JhElement {
         type: Boolean,
         reflect: true,
       },
+      removeOnDismiss: {
+        type: Boolean,
+        attribute: 'remove-on-dismiss',
+      },
       showDismissButton: {
         type: Boolean,
         attribute: 'show-dismiss-button',
@@ -255,6 +259,12 @@ export class JhDialog extends JhElement {
      * @type {boolean}
      */
     this.open = false;
+    /**
+     * Closes the dialog when dismissed via the dismiss button, backdrop click, or Escape key.
+     * @attr remove-on-dismiss
+     * @type {boolean}
+     */
+    this.removeOnDismiss = false;
     /**
      * Displays a dismiss button. When true, the dialog can also be closed by clicking the backdrop outside the dialog.
      * @attr show-dismiss-button
@@ -353,7 +363,11 @@ export class JhDialog extends JhElement {
     }
   }
 
-  #handleCancel() {
+  #handleCancel(e) {
+    if (!this.removeOnDismiss) {
+      e.preventDefault();
+      return;
+    }
     this.#closeMethod = 'escape';
   }
 
@@ -362,11 +376,13 @@ export class JhDialog extends JhElement {
     this.#closeMethod = 'programmatic';
     this.open = false;
     this.dispatchCustomEvent('jh-close', { reference: { closeMethod } });
-  }
+}
 
   #handleDismissal() {
-    this.#closeMethod = 'dismiss-button';
-    this.open = false;
+    if (this.removeOnDismiss) {
+      this.#closeMethod = 'dismiss-button';
+      this.open = false;
+    }
   }
 
   // Clicks on the backdrop target the dialog element itself but land outside its bounds.
@@ -395,12 +411,20 @@ export class JhDialog extends JhElement {
     if (!this.showDismissButton || !startedOnBackdrop || !this.#isBackdropEvent(e)) {
       return;
     }
-    this.#closeMethod = 'backdrop-click';
-    this.open = false;
+    if (this.removeOnDismiss) {
+      this.#closeMethod = 'backdrop-click';
+      this.open = false;
+    }
   }
 
-  // Keeps Tab and Shift + Tab focus movement contained within the modal dialog.
+  // Keeps Tab and Shift + Tab focus movement contained within the modal dialog, and blocks Escape from closing the dialog unless removeOnDismiss is set.
   #handleKeydown(e) {
+
+    if (e.key === 'Escape' && !this.removeOnDismiss) {
+      e.preventDefault();
+      return;
+    }
+
     if (e.key !== 'Tab' || e.altKey || e.ctrlKey || e.metaKey) {
       return;
     }

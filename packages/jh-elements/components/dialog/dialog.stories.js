@@ -145,6 +145,7 @@ export const Playground = { render: (args) => html`<section>
     header-inset=${ifDefined(args['header-inset'])}
     footer-inset=${ifDefined(args['footer-inset'])}
     ?open=${args.open}
+    ?remove-on-dismiss=${args['remove-on-dismiss']}
     ?show-dismiss-button=${args['show-dismiss-button']}
     ?show-header-divider=${args['show-header-divider']}
     ?show-footer-divider=${args['show-footer-divider']}
@@ -177,7 +178,14 @@ Playground.parameters = {
 export const ActionButtons = {
   render: (args) => html`<section>
     <jh-button label="Open custom dialog" @click=${openDialog('custom-header')}></jh-button>
-    <jh-dialog id="custom-header" scrollable ?open=${args.open}>
+    <jh-dialog id="custom-header" 
+    ?show-dismiss-button=${args['show-dismiss-button']} dismiss-button-accessible-label=${ifDefined(args['dismiss-button-accessible-label'])} 
+    header-inset=${ifDefined(args['header-inset'])} 
+    footer-inset=${ifDefined(args['footer-inset'])} 
+    ?remove-on-dismiss=${args['remove-on-dismiss']}
+    ?show-footer-divider=${args['show-footer-divider']} 
+    ?show-header-divider=${args['show-header-divider']} 
+    ?open=${args.open}>
       <img src="/images/markus-winkler-DJoG5GsXfMw-unsplash.jpg" alt="Custom header image" slot="jh-dialog-media">
       <div class="custom-header" slot="jh-dialog-header">
         <h2>Custom Header</h2>
@@ -198,7 +206,7 @@ ActionButtons.args = {
   'dismiss-button-accessible-label': 'Close dialog',
   'footer-inset': 0,
   'header-inset': 0,
-  'remove-on-dismiss': false,
+  'remove-on-dismiss': true,
   'show-dismiss-button': true,
   'show-footer-divider': false,
   'show-header-divider': false,

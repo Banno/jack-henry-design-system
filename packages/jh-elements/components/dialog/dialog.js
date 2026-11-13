@@ -68,6 +68,7 @@ export class JhDialog extends JhElement {
         overflow: hidden;
         padding: 0;
         border: none;
+        overscroll-behavior: contain;
       }
       dialog::backdrop {
         background-color: var(--jh-dialog-overlay-color-background, var(--jh-color-overlay));

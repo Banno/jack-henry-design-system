@@ -192,3 +192,15 @@ export const ActionButtons = {
 ActionButtons.parameters = {
   styles: storyStyles,
 };
+
+ActionButtons.args = {
+  open: false,
+  'dismiss-button-accessible-label': 'Close dialog',
+  'footer-inset': 0,
+  'header-inset': 0,
+  'remove-on-dismiss': false,
+  'show-dismiss-button': true,
+  'show-footer-divider': false,
+  'show-header-divider': false,
+  size: 'medium',
+}

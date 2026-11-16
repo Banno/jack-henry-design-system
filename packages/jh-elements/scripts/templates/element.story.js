@@ -1,23 +1,23 @@
----
-to: components/<%= unprefixedName %>/<%= unprefixedName %>.stories.js
-#
-# SPDX-FileCopyrightText: 2025 Jack Henry
-# 
-# SPDX-License-Identifier: Apache-2.0
----
+// SPDX-FileCopyrightText: 2025 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
 /**
-* SPDX-FileCopyrightText: <%= new Date().getFullYear() %> Jack Henry
+ * @param {{ elementName: string, unprefixedName: string, title: string, year: number }} ctx
+ */
+export default ({ elementName, unprefixedName, title, year }) => `/**
+* SPDX-FileCopyrightText: ${year} Jack Henry
 *
 * SPDX-License-Identifier: Apache-2.0
 */
 
 import { html, css } from 'lit';
 import { action } from 'storybook/actions';
-import './<%= unprefixedName %>.js';
+import './${unprefixedName}.js';
 
-const storyStyles = css`
+const storyStyles = css\`
 
-`;
+\`;
 
 const disableControls = {
   attribute: { control: { disable: true } },
@@ -41,16 +41,17 @@ function logCustomEvent(name, e) {
 }
 
 export default {
-  component: '<%= elementName %>',
-  title: 'Components/<%= h.changeCase.title(unprefixedName) %>',
+  component: '${elementName}',
+  title: 'Components/${title}',
+  tags: ['new'],
   decorators: [
-    (story) => html`
+    (story) => html\`
       <div
-        @jh-event=${(e) => logCustomEvent('jh-event', e)}
+        @jh-event=\${(e) => logCustomEvent('jh-event', e)}
       >
-        ${story()}
+        \${story()}
       </div>
-    `,
+    \`,
   ],
   argTypes: {
     'some-attribute': {
@@ -62,17 +63,17 @@ export default {
   },
 };
 
-export const Overview = { render: (args) => html`
-  <<%= elementName %>></<%= elementName %>>
-`};
+export const Overview = { render: (args) => html\`
+  <${elementName}></${elementName}>
+\`};
 
 Overview.argTypes = {
   ...disableControls,
 };
 
-export const Playground = { render: (args) => html`
-  <<%= elementName %>></<%= elementName %>>
-`};
+export const Playground = { render: (args) => html\`
+  <${elementName}></${elementName}>
+\`};
 
 Playground.args = {
 
@@ -82,13 +83,11 @@ Playground.parameters = {
   theme: 'both-themes',
 };
 
-export const Default = { render: (args) => html`
-  <<%= elementName %>></<%= elementName %>>
-`};
+export const Default = { render: (args) => html\`
+  <${elementName}></${elementName}>
+\`};
 
 Default.argTypes = {
   ...disableControls,
 };
-
-
-
+`;

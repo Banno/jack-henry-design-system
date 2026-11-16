@@ -1,23 +1,23 @@
----
-to: components/<%= unprefixedName %>/<%= unprefixedName %>.mdx
-#
-# SPDX-FileCopyrightText: 2025 Jack Henry
-# 
-# SPDX-License-Identifier: Apache-2.0
----
-{/*
-SPDX-FileCopyrightText: <%= new Date().getFullYear() %> Jack Henry
+// SPDX-FileCopyrightText: 2025 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
+/**
+ * @param {{ elementName: string, unprefixedName: string, title: string, year: number }} ctx
+ */
+export default ({ elementName, unprefixedName, title, year }) => `{/*
+SPDX-FileCopyrightText: ${year} Jack Henry
 
 SPDX-License-Identifier: Apache-2.0
  */}
 import { Meta, ArgTypes } from '@storybook/addon-docs/blocks';
-import * as stories from './<%= unprefixedName %>.stories.js';
+import * as stories from './${unprefixedName}.stories.js';
 
-<Meta title="Components/<%= h.changeCase.title(unprefixedName) %>" of={stories} />
+<Meta title="Components/${title}" of={stories} />
 
-# <%= h.changeCase.title(unprefixedName) %>
+# ${title}
 
-[Guidelines](https://jackhenry.design/pages/components/<%= unprefixedName %>/)
+[Guidelines](https://jackhenry.design/pages/components/${unprefixedName}/)
 
 <hr />
 
@@ -25,17 +25,17 @@ import * as stories from './<%= unprefixedName %>.stories.js';
 
 ## Usage
 
-Import the `<<%= elementName %>>` component:
+Import the \`<${elementName}>\` component:
 
-```javascript
-import '@jack-henry/jh-elements/components/<%= unprefixedName %>/<%= unprefixedName %>.js';
-```
+\`\`\`javascript
+import '@jack-henry/jh-elements/components/${unprefixedName}/${unprefixedName}.js';
+\`\`\`
 
-To use `<<%= elementName %>>`: *can include details about slot or anything relevant. Keep this short as it is just a code snippet to get the author started.* 
+To use \`<${elementName}>\`: *can include details about slot or anything relevant. Keep this short as it is just a code snippet to get the author started.* 
 
-```html
+\`\`\`html
 //code snippet goes here
-```
+\`\`\`
 
 ## Unique Details
 *Identify anything the author needs to know about this component. This can be broken out per section as needed. Ex. Behaviors, Layouts, Interactivity etc.*
@@ -59,7 +59,7 @@ The following success criteria are of concern:
 
 *Include any special instructions for example:*
 
-For boolean attributes, true indicates that the attribute has been set without a value: `<<%= elementName %> add-relevant-boolean></<%= elementName %>>`. While false indicates the attribute does not exist in the DOM: `<<%= elementName %>></<%= elementName %>>`.
+For boolean attributes, true indicates that the attribute has been set without a value: \`<${elementName} add-relevant-boolean></${elementName}>\`. While false indicates the attribute does not exist in the DOM: \`<${elementName}></${elementName}>\`.
 
 <ArgTypes />
 
@@ -76,4 +76,4 @@ For boolean attributes, true indicates that the attribute has been set without a
 Have an idea that will improve this component or have an issue to report? Let us know by submitting 
 an issue on [GitHub](https://github.com/Banno/jack-henry-design-system/issues).
 
-Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).
+Engage with the community on our [GitHub discussion board](https://github.com/Banno/jack-henry-design-system/discussions).`;

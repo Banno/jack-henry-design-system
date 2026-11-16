@@ -66,18 +66,34 @@ export class JhDialog extends JhElement {
         width: 100%;
         word-break: break-word;
         overflow: hidden;
+        flex-direction: column;
         padding: 0;
         border: none;
         overscroll-behavior: contain;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease,
+          display 0.5s allow-discrete,
+          overlay 0.5s allow-discrete;
+      }
+      dialog[open] {
+        display: flex;
+        outline: none;
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* Triggers the transition on open */
+      @starting-style {
+        dialog[open] {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
       }
       dialog::backdrop {
         background-color: var(--jh-dialog-overlay-color-background, var(--jh-color-overlay));
         padding: var(--jh-dialog-overlay-dimension-padding-vertical, var(--jh-dimension-1000)), var(--jh-dialog-overlay-dimension-padding-horizontal, var(--jh-dimension-1000));
-      }
-      dialog[open] {
-        display: flex;
-        flex-direction: column;
-        outline: none;
       }
       slot[name='jh-dialog-media'],
       .header,

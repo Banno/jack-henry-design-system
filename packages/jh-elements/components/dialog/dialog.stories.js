@@ -163,7 +163,7 @@ Playground.args = {
   'dismiss-button-accessible-label': 'Close dialog',
   'footer-inset': 0,
   'header-inset': 0,
-  'remove-on-dismiss': false,
+  'remove-on-dismiss': true,
   'show-dismiss-button': true,
   'show-footer-divider': false,
   'show-header-divider': false,

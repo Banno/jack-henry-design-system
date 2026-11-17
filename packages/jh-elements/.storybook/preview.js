@@ -42,7 +42,27 @@ customElements.modules?.forEach(module => {
 
 setCustomElements(customElements);
 
+const CATEGORY_ORDER = [
+  'attributes',
+  'events',
+  'slots',
+  'Methods',
+  'css custom properties',
+];
+
+const orderArgTypeCategories = ({ argTypes }) => {
+  const rank = (argType) => {
+    const index = CATEGORY_ORDER.indexOf(argType?.table?.category);
+    return index === -1 ? CATEGORY_ORDER.length : index;
+  };
+  return Object.fromEntries(
+    Object.entries(argTypes).sort(([, a], [, b]) => rank(a) - rank(b))
+  );
+};
+orderArgTypeCategories.secondPass = true;
+
 const preview = {
+  argTypesEnhancers: [orderArgTypeCategories],
   parameters: {
     backgrounds: { disabled: true },
     controls: {

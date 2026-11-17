@@ -94,7 +94,10 @@ The following success criteria are of concern:
 - To satisfy [WCAG 1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html), use a heading element with the appropriate level within the `jh-dialog-header` slot.
 - To satisfy [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html), ensure the dialog can always be closed. If the dismiss button is hidden, include an action in the footer that closes the dialog.
 - To satisfy [WCAG 2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html) when slotting buttons within the action slot, ensure that the buttons contain focus visible styles to help users determine which element has keyboard focus. Use of the `jh-button` component will also satisfy this success criterion. 
-- To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html), provide `jh-dialog-header` content so the dialog has an accessible name. Provide alternative text for meaningful content placed in the `jh-dialog-media` slot, or an empty `alt` for decorative images. Set the `dismiss-button-accessible-label` when `show-dismiss-button` is true to support screen reader users.
+- To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html):
+  - provide `jh-dialog-header` content so the dialog has an accessible name. 
+  - provide alternative text for meaningful content placed in the `jh-dialog-media` slot, or an empty `alt` for decorative images. 
+  - set the `dismiss-button-accessible-label` when `show-dismiss-button` is true to support screen reader users.
 
 ## Component API
 

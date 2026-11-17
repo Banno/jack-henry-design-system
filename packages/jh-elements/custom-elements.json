@@ -2336,12 +2336,22 @@
             {
               "kind": "method",
               "name": "show",
-              "description": "Opens the dialog as a modal."
+              "description": "Opens the dialog as a modal. Equivalent to setting `open` to `true`. Dispatches `jh-open`.",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
             },
             {
               "kind": "method",
               "name": "close",
-              "description": "Closes the dialog."
+              "description": "Closes the dialog. Equivalent to setting `open` to `false`.\nDispatches `jh-close` with `closeMethod: 'programmatic'`.",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
             },
             {
               "kind": "field",

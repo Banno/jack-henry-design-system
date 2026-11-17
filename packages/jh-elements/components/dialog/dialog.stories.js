@@ -49,6 +49,8 @@ const disableControls = {
   'show-footer-divider': { control: { disable: true } },
   'show-header-divider': { control: { disable: true } },
   size: { control: { disable: true } },
+  show: { table: { disable: true } },
+  close: { table: { disable: true } }
 };
 
 const insetOptions = [0, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96];
@@ -117,6 +119,28 @@ export default {
       options: ['small', 'medium', 'large'],
     },
     open: { control: 'boolean' },
+    show: {
+      description:'Opens the dialog as a modal in the top layer, making the rest of the page inert. Equivalent to setting `open` to `true`. Dispatches `jh-open`. Has no effect if the dialog is already open or not connected to the DOM.',
+      table: {
+        category: 'Methods',
+        type: {
+          summary: '() => void',
+          detail: "document.querySelector('jh-dialog').show();",
+        },
+      },
+      control: false,
+    },
+    close: {
+      description: 'Closes the dialog. Equivalent to setting `open` to `false`. Dispatches `jh-close` with `e.detail.reference.closeMethod` set to `programmatic`. Works regardless of `remove-on-dismiss`.',
+      table: {
+        category: 'Methods',
+        type: {
+          summary: '() => void',
+          detail: "document.querySelector('jh-dialog').close();",
+        },
+      },
+     control: false,
+    },
   }
 };
 
@@ -159,6 +183,10 @@ export const Playground = { render: (args) => html`<section>
   </jh-dialog>
 </section>`};
 
+Playground.argTypes = {
+  ...disableControls,
+};
+
 Playground.args = {
   'dismiss-button-accessible-label': 'Close dialog',
   'footer-inset': 0,
@@ -199,6 +227,10 @@ export const ActionButtons = {
 
 ActionButtons.parameters = {
   styles: storyStyles,
+};
+
+ActionButtons.argTypes = {
+  ...disableControls,
 };
 
 ActionButtons.args = {

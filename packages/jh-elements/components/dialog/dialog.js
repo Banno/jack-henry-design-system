@@ -326,18 +326,21 @@ export class JhDialog extends JhElement {
   }
 
   /**
-   * Opens the dialog as a modal.
-   */
-  show() {
-    this.open = true;
-  }
+ * Opens the dialog as a modal. Equivalent to setting `open` to `true`. Dispatches `jh-open`.
+ * @returns {void}
+ */
+show() { 
+  this.open = true; 
+}
 
-  /**
-   * Closes the dialog.
-   */
-  close() {
-    this.open = false;
-  }
+/**
+ * Closes the dialog. Equivalent to setting `open` to `false`.
+ * Dispatches `jh-close` with `closeMethod: 'programmatic'`.
+ * @returns {void}
+ */
+close() { 
+  this.open = false; 
+}
 
   /** @protected */
   connectedCallback() {

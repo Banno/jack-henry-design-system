@@ -135,11 +135,14 @@ export class JhDialog extends JhElement {
      */
     _isOverflowing: boolean;
     /**
-     * Opens the dialog as a modal.
-     */
+   * Opens the dialog as a modal. Equivalent to setting `open` to `true`. Dispatches `jh-open`.
+   * @returns {void}
+   */
     show(): void;
     /**
-     * Closes the dialog.
+     * Closes the dialog. Equivalent to setting `open` to `false`.
+     * Dispatches `jh-close` with `closeMethod: 'programmatic'`.
+     * @returns {void}
      */
     close(): void;
     /** @protected */

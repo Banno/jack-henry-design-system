@@ -56,7 +56,7 @@ The dialog is rendered with a native `<dialog>` element and is opened as a modal
 
 - Open the dialog by setting the `open` attribute/property or by calling `show()`.
 - Close the dialog by removing the `open` attribute/property, calling `close()`. 
-- When `remove-on-dismiss` is set, users can close the dialog by pressing the `Escape` key, activating the dismiss button or, when `show-dismiss-button` is set, clicking the backdrop outside the dialog.
+- When `remove-on-dismiss` is set, users can close the dialog by pressing the `Escape` key, activating the dismiss button or, when `show-dismiss-button` is set, clicking the backdrop outside the dialog (when show-dismiss-button is set).
 - The `jh-open` event is dispatched when the dialog opens and the `jh-close` event is dispatched when the dialog closes. The method used to close the dialog is available via `e.detail.reference.closeMethod` and is one of `backdrop-click`, `dismiss-button`, `escape` or `programmatic`.
 
 ## Accessibility

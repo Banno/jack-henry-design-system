@@ -111,12 +111,12 @@ export class JhDialog extends JhElement {
         display: block;
       }
       .header.display-slot,
-      :host([show-dismiss-button]) .header,
+      :host(:not([hide-dismiss-button])) .header,
       slot[name='jh-dialog-footer'] {
         padding: var(--jh-dimension-400) var(--jh-dialog-dimension-padding-horizontal, var(--jh-dimension-600));
       }
       .header.display-slot,
-      :host([show-dismiss-button]) .header {
+      :host(:not([hide-dismiss-button])) .header {
         gap: var(--jh-dimension-200);
         display: flex;
         align-items: flex-start;
@@ -214,6 +214,11 @@ export class JhDialog extends JhElement {
         type: Number,
         attribute: 'header-inset',
       },
+      hideDismissButton: {
+        type: Boolean,
+        attribute: 'hide-dismiss-button',
+        reflect: true,
+      },
       open: {
         type: Boolean,
         reflect: true,
@@ -221,11 +226,6 @@ export class JhDialog extends JhElement {
       removeOnDismiss: {
         type: Boolean,
         attribute: 'remove-on-dismiss',
-      },
-      showDismissButton: {
-        type: Boolean,
-        attribute: 'show-dismiss-button',
-        reflect: true,
       },
       showFooterDivider: {
         type: Boolean,
@@ -272,6 +272,12 @@ export class JhDialog extends JhElement {
      */
     this.headerInset = 0;
     /**
+     * Hides the dismiss button. When true, the dialog cannot be closed by clicking the backdrop outside the dialog.
+     * @attr hide-dismiss-button
+     * @type {boolean}
+     */
+    this.hideDismissButton = false;
+    /**
      * Determines whether the dialog is open or closed.
      * @type {boolean}
      */
@@ -282,12 +288,6 @@ export class JhDialog extends JhElement {
      * @type {boolean}
      */
     this.removeOnDismiss = false;
-    /**
-     * Displays a dismiss button. When true, the dialog can also be closed by clicking the backdrop outside the dialog.
-     * @attr show-dismiss-button
-     * @type {boolean}
-     */
-    this.showDismissButton = false;
     /**
      * Adds a divider above the footer to create a clearer definition between the body and footer.
      * @attr show-footer-divider
@@ -428,7 +428,7 @@ close() {
   #handleClick(e) {
     const startedOnBackdrop = this.#pointerDownOnBackdrop;
     this.#pointerDownOnBackdrop = false;
-    if (!this.showDismissButton || !startedOnBackdrop || !this.#isBackdropEvent(e)) {
+    if (this.hideDismissButton || !startedOnBackdrop || !this.#isBackdropEvent(e)) {
       return;
     }
     if (this.removeOnDismiss) {
@@ -578,7 +578,7 @@ close() {
     let headerDivider;
     let footerDivider;
 
-    if (this.showDismissButton) {
+    if (!this.hideDismissButton) {
       dismissBtn = html`
         <jh-button
           class="dismiss-button"

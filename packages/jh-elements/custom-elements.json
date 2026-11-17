@@ -2388,6 +2388,18 @@
             },
             {
               "kind": "field",
+              "name": "hideDismissButton",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the dismiss button. When true, the dialog cannot be closed by clicking the backdrop outside the dialog.",
+              "default": "false",
+              "attribute": "hide-dismiss-button",
+              "reflects": true
+            },
+            {
+              "kind": "field",
               "name": "open",
               "privacy": "public",
               "type": {
@@ -2408,18 +2420,6 @@
               "description": "Closes the dialog when dismissed via the dismiss button, backdrop click, or Escape key.",
               "default": "false",
               "attribute": "remove-on-dismiss"
-            },
-            {
-              "kind": "field",
-              "name": "showDismissButton",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays a dismiss button. When true, the dialog can also be closed by clicking the backdrop outside the dialog.",
-              "default": "false",
-              "attribute": "show-dismiss-button",
-              "reflects": true
             },
             {
               "kind": "field",
@@ -2540,6 +2540,16 @@
               "attribute": "header-inset"
             },
             {
+              "name": "hide-dismiss-button",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the dismiss button. When true, the dialog cannot be closed by clicking the backdrop outside the dialog.",
+              "default": "false",
+              "fieldName": "hideDismissButton",
+              "attribute": "hide-dismiss-button"
+            },
+            {
               "name": "remove-on-dismiss",
               "type": {
                 "text": "boolean"
@@ -2548,16 +2558,6 @@
               "default": "false",
               "fieldName": "removeOnDismiss",
               "attribute": "remove-on-dismiss"
-            },
-            {
-              "name": "show-dismiss-button",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays a dismiss button. When true, the dialog can also be closed by clicking the backdrop outside the dialog.",
-              "default": "false",
-              "fieldName": "showDismissButton",
-              "attribute": "show-dismiss-button"
             },
             {
               "name": "show-footer-divider",

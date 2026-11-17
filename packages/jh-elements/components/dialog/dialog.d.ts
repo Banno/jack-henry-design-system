@@ -46,6 +46,11 @@ export class JhDialog extends JhElement {
             type: NumberConstructor;
             attribute: string;
         };
+        hideDismissButton: {
+            type: BooleanConstructor;
+            attribute: string;
+            reflect: boolean;
+        };
         open: {
             type: BooleanConstructor;
             reflect: boolean;
@@ -53,11 +58,6 @@ export class JhDialog extends JhElement {
         removeOnDismiss: {
             type: BooleanConstructor;
             attribute: string;
-        };
-        showDismissButton: {
-            type: BooleanConstructor;
-            attribute: string;
-            reflect: boolean;
         };
         showFooterDivider: {
             type: BooleanConstructor;
@@ -96,6 +96,12 @@ export class JhDialog extends JhElement {
      */
     headerInset: 0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96;
     /**
+     * Hides the dismiss button. When true, the dialog cannot be closed by clicking the backdrop outside the dialog.
+     * @attr hide-dismiss-button
+     * @type {boolean}
+     */
+    hideDismissButton: boolean;
+    /**
      * Determines whether the dialog is open or closed.
      * @type {boolean}
      */
@@ -106,12 +112,6 @@ export class JhDialog extends JhElement {
      * @type {boolean}
      */
     removeOnDismiss: boolean;
-    /**
-     * Displays a dismiss button. When true, the dialog can also be closed by clicking the backdrop outside the dialog.
-     * @attr show-dismiss-button
-     * @type {boolean}
-     */
-    showDismissButton: boolean;
     /**
      * Adds a divider above the footer to create a clearer definition between the body and footer.
      * @attr show-footer-divider

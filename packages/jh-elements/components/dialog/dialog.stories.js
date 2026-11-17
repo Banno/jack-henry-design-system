@@ -43,9 +43,9 @@ const disableControls = {
   'dismiss-button-accessible-label': { control: { disable: true } },
   'footer-inset': { control: { disable: true } },
   'header-inset': { control: { disable: true } },
+  'hide-dismiss-button': { control: { disable: true } },
   open: { control: { disable: true } },
   'remove-on-dismiss': { control: { disable: true } },
-  'show-dismiss-button': { control: { disable: true } },
   'show-footer-divider': { control: { disable: true } },
   'show-header-divider': { control: { disable: true } },
   size: { control: { disable: true } },
@@ -110,8 +110,8 @@ export default {
       control: 'select',
       options: insetOptions,
     },
+    'hide-dismiss-button': { control: 'boolean' },
     'remove-on-dismiss': { control: 'boolean' } ,
-    'show-dismiss-button': { control: 'boolean' },
     'show-footer-divider': { control: 'boolean' },
     'show-header-divider': { control: 'boolean' },
     size: {
@@ -145,7 +145,7 @@ export default {
 };
 
 export const Overview = { render: (args) => html`<section>
-  <jh-dialog open id="overview-basic" show-header-divider show-footer-divider show-dismiss-button>
+  <jh-dialog open id="overview-basic" show-header-divider show-footer-divider>
     <h2 slot="jh-dialog-header">Header Slot</h2>
     <p>Dialog body slot: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec lorem varius, congue tellus at, tempor mauris.</p>
     <p slot="jh-dialog-footer">Dialog footer slot: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -170,7 +170,7 @@ export const Playground = { render: (args) => html`<section>
     footer-inset=${ifDefined(args['footer-inset'])}
     ?open=${args.open}
     ?remove-on-dismiss=${args['remove-on-dismiss']}
-    ?show-dismiss-button=${args['show-dismiss-button']}
+    ?hide-dismiss-button=${args['hide-dismiss-button']}
     ?show-header-divider=${args['show-header-divider']}
     ?show-footer-divider=${args['show-footer-divider']}
   >
@@ -191,8 +191,8 @@ Playground.args = {
   'dismiss-button-accessible-label': 'Close dialog',
   'footer-inset': 0,
   'header-inset': 0,
+  'hide-dismiss-button': false,
   'remove-on-dismiss': true,
-  'show-dismiss-button': true,
   'show-footer-divider': false,
   'show-header-divider': false,
   size: 'medium',
@@ -207,7 +207,7 @@ export const ActionButtons = {
   render: (args) => html`<section>
     <jh-button label="Open custom dialog" @click=${openDialog('custom-header')}></jh-button>
     <jh-dialog id="custom-header" 
-    ?show-dismiss-button=${args['show-dismiss-button']} dismiss-button-accessible-label=${ifDefined(args['dismiss-button-accessible-label'])} 
+    ?hide-dismiss-button=${args['hide-dismiss-button']} dismiss-button-accessible-label=${ifDefined(args['dismiss-button-accessible-label'])} 
     header-inset=${ifDefined(args['header-inset'])} 
     footer-inset=${ifDefined(args['footer-inset'])} 
     ?remove-on-dismiss=${args['remove-on-dismiss']}
@@ -239,8 +239,8 @@ ActionButtons.args = {
   'dismiss-button-accessible-label': 'Close dialog',
   'footer-inset': 0,
   'header-inset': 0,
+  'hide-dismiss-button': false,
   'remove-on-dismiss': true,
-  'show-dismiss-button': true,
   'show-footer-divider': false,
   'show-header-divider': false,
   size: 'medium',

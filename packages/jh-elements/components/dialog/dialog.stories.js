@@ -213,6 +213,7 @@ export const ActionButtons = {
     ?remove-on-dismiss=${args['remove-on-dismiss']}
     ?show-footer-divider=${args['show-footer-divider']} 
     ?show-header-divider=${args['show-header-divider']} 
+    size=${ifDefined(args.size)}
     ?open=${args.open}>
       <img src="/images/markus-winkler-DJoG5GsXfMw-unsplash.jpg" alt="Custom header image" slot="jh-dialog-media">
       <div class="custom-header" slot="jh-dialog-header">

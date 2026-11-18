@@ -35,7 +35,7 @@ import '@jack-henry/jh-icons/icons-wc/icon-xmark.js';
  * @slot jh-dialog-dismiss-icon - Use to change the default icon within the dismiss button.
  *
  * @event jh-open - Dispatched when the dialog opens.
- * @event jh-close - Dispatched when the dialog closes. Event payload includes the close method of the dialog and can be accessed via `e.detail.reference.closeMethod`.
+ * @event jh-close - Dispatched when the dialog closes or the user attempts to dismiss it, regardless of `remove-on-dismiss`. Event payload includes the close method of the dialog and can be accessed via `e.detail.reference.closeMethod`.
  * Possible values are `backdrop-click`, `dismiss-button`, `escape` and `programmatic`.
  *
  * @customElement jh-dialog
@@ -245,8 +245,8 @@ export class JhDialog extends JhElement {
     };
   }
 
-  /** @type {string} */
-  #closeMethod = 'programmatic';
+  /** @type {boolean} */
+  #closeDispatched = false;
 
   /** @type {boolean} */
   #pointerDownOnBackdrop = false;
@@ -383,26 +383,34 @@ close() {
     }
   }
 
-  #handleCancel(e) {
-    if (!this.removeOnDismiss) {
-      e.preventDefault();
-      return;
+  // Always dispatches jh-close for user dismissals; only closes the dialog when removeOnDismiss is set.
+  #dismiss(closeMethod) {
+    this.dispatchCustomEvent('jh-close', { reference: { closeMethod } });
+    if (this.removeOnDismiss) {
+      this.open = false;
     }
-    this.#closeMethod = 'escape';
+    // Covers both removeOnDismiss and authors who close the dialog synchronously in their jh-close handler.
+    if (!this.open) {
+      this.#closeDispatched = true;
+    }
+  }
+
+  #handleCancel(e) {
+    e.preventDefault();
+    this.#dismiss('escape');
   }
 
   #handleClose() {
-    const closeMethod = this.#closeMethod;
-    this.#closeMethod = 'programmatic';
     this.open = false;
-    this.dispatchCustomEvent('jh-close', { reference: { closeMethod } });
-}
+    if (this.#closeDispatched) {
+      this.#closeDispatched = false;
+      return;
+    }
+    this.dispatchCustomEvent('jh-close', { reference: { closeMethod: 'programmatic' } });
+  }
 
   #handleDismissal() {
-    if (this.removeOnDismiss) {
-      this.#closeMethod = 'dismiss-button';
-      this.open = false;
-    }
+    this.#dismiss('dismiss-button');
   }
 
   // Clicks on the backdrop target the dialog element itself but land outside its bounds.
@@ -431,17 +439,15 @@ close() {
     if (this.hideDismissButton || !startedOnBackdrop || !this.#isBackdropEvent(e)) {
       return;
     }
-    if (this.removeOnDismiss) {
-      this.#closeMethod = 'backdrop-click';
-      this.open = false;
-    }
+    this.#dismiss('backdrop-click');
   }
 
-  // Keeps Tab and Shift + Tab focus movement contained within the modal dialog, and blocks Escape from closing the dialog unless removeOnDismiss is set.
+  // Keeps Tab and Shift + Tab focus movement contained within the modal dialog, and routes Escape through #dismiss.
   #handleKeydown(e) {
-
-    if (e.key === 'Escape' && !this.removeOnDismiss) {
+    if (e.key === 'Escape') {
+      // Handled here so Chrome's close-watcher can't force-close the dialog after repeated cancels.
       e.preventDefault();
+      this.#dismiss('escape');
       return;
     }
 

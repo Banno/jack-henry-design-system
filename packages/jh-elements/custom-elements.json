@@ -2504,7 +2504,7 @@
               "name": "jh-open"
             },
             {
-              "description": "Dispatched when the dialog closes. Event payload includes the close method of the dialog and can be accessed via `e.detail.reference.closeMethod`. Possible values are `backdrop-click`, `dismiss-button`, `escape` and `programmatic`.",
+              "description": "Dispatched when the dialog closes or the user attempts to dismiss it, regardless of `remove-on-dismiss`. Event payload includes the close method of the dialog and can be accessed via `e.detail.reference.closeMethod`. Possible values are `backdrop-click`, `dismiss-button`, `escape` and `programmatic`.",
               "name": "jh-close"
             }
           ],

@@ -58,7 +58,7 @@ The dialog renders using a native `<dialog>` element and opens as a modal in the
 - Close the dialog programmatically by removing the `open` property or calling `close()`. This always closes the dialog, regardless of whether `remove-on-dismiss` is set.
 - By default, authors are responsible for managing the dialog's dismissal logic manually. Set the `remove-on-dismiss` attribute to automatically close the dialog when `jh-close` is fired.
 - When `remove-on-dismiss` is set, users can close the dialog by pressing `Escape`, activating the dismiss button, or clicking the backdrop.
-- The component dispatches `jh-open` when the dialog opens and `jh-close` when it closes. The close trigger is exposed via `e.detail.reference.closeMethod` as `backdrop-click`, `dismiss-button`, `escape`, or `programmatic`.
+- The component dispatches `jh-open` when the dialog opens and `jh-close` when it closes or the user attempts to dismiss it, regardless of whether `remove-on-dismiss` is set. The close trigger is exposed via `e.detail.reference.closeMethod` as `backdrop-click`, `dismiss-button`, `escape`, or `programmatic`.
 
 ## Accessibility
 

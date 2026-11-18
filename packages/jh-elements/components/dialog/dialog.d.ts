@@ -26,7 +26,7 @@
  * @slot jh-dialog-dismiss-icon - Use to change the default icon within the dismiss button.
  *
  * @event jh-open - Dispatched when the dialog opens.
- * @event jh-close - Dispatched when the dialog closes. Event payload includes the close method of the dialog and can be accessed via `e.detail.reference.closeMethod`.
+ * @event jh-close - Dispatched when the dialog closes or the user attempts to dismiss it, regardless of `remove-on-dismiss`. Event payload includes the close method of the dialog and can be accessed via `e.detail.reference.closeMethod`.
  * Possible values are `backdrop-click`, `dismiss-button`, `escape` and `programmatic`.
  *
  * @customElement jh-dialog

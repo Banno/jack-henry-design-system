@@ -80,7 +80,7 @@ const preview = {
     },
     options: {
       storySort: {
-        method: '',
+        method: 'alphabetical',
         order: [
           'Welcome',
           'What\'s New',
@@ -92,7 +92,7 @@ const preview = {
           'Design Tokens',
           'Guides',
           ['Extending'],
-          'Components', ['Badge', 'Button', 'Card', 'Checkbox Group', 'Checkbox', 'Dialog', 'Divider', 'Icon', 'Input', '*'],
+          'Components', ['*', ['Table', 'Table Row', 'Table Data Cell', 'Table Header Cell']],
           ['*',
           ['Table', 'Table Row', 'Table Data Cell', 'Table Header Cell'],
         ],

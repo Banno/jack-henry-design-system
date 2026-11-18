@@ -184,7 +184,8 @@ export const Playground = { render: (args) => html`<section>
 </section>`};
 
 Playground.argTypes = {
-  ...disableControls,
+  show: { table: { disable: true } },
+  close: { table: { disable: true } }
 };
 
 Playground.args = {
@@ -231,7 +232,8 @@ ActionButtons.parameters = {
 };
 
 ActionButtons.argTypes = {
-  ...disableControls,
+  show: { table: { disable: true } },
+  close: { table: { disable: true } }
 };
 
 ActionButtons.args = {

@@ -46,7 +46,7 @@ const CATEGORY_ORDER = [
   'attributes',
   'events',
   'slots',
-  'Methods',
+  'methods',
   'css custom properties',
 ];
 

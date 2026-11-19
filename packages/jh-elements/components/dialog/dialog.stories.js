@@ -122,7 +122,7 @@ export default {
     show: {
       description:'Opens the dialog as a modal in the top layer, making the rest of the page inert. Equivalent to setting `open` to `true`. Dispatches `jh-open`. Has no effect if the dialog is already open or not connected to the DOM.',
       table: {
-        category: 'Methods',
+        category: 'methods',
         type: {
           summary: '() => void',
           detail: "document.querySelector('jh-dialog').show();",
@@ -133,7 +133,7 @@ export default {
     close: {
       description: 'Closes the dialog. Equivalent to setting `open` to `false`. Dispatches `jh-close` with `e.detail.reference.closeMethod` set to `programmatic`. Works regardless of `remove-on-dismiss`.',
       table: {
-        category: 'Methods',
+        category: 'methods',
         type: {
           summary: '() => void',
           detail: "document.querySelector('jh-dialog').close();",

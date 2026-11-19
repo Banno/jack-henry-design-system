@@ -12,8 +12,8 @@
  * @cssprop --jh-dialog-shadow - The dialog box-shadow. Defaults to `--jh-shadow-overlay`. When the viewport is 440px or smaller, defaults to `none`.
  * @cssprop --jh-dialog-dimension-padding-horizontal - The horizontal padding for the dialog content. Defaults to `--jh-dimension-600`.
  * @cssprop --jh-dialog-overlay-color-background - The backdrop color displayed behind the dialog. Defaults to `--jh-color-overlay`.
- * @cssprop --jh-dialog-overlay-dimension-padding-vertical - The vertical padding for the dialog overlay. Defaults to `--jh-dimension-1000`.
- * @cssprop --jh-dialog-overlay-dimension-padding-horizontal - The horizontal padding for the dialog overlay. Defaults to `--jh-dimension-1000`.
+ * @cssprop --jh-dialog-overlay-dimension-padding-vertical - The vertical padding between the viewport edges and the dialog. Defaults to `--jh-dimension-1000`.
+ * @cssprop --jh-dialog-overlay-dimension-padding-horizontal - The horizontal padding between the viewport edges and the dialog. Defaults to `--jh-dimension-1000`.
  * @cssprop --jh-dialog-dimension-max-width - The dialog max-width. Defaults to `480px` when `size="small"`, `640px` when `size="medium"` and `800px` when `size="large"`. Not applied when the viewport is 440px or smaller, where the dialog fills the full viewport width and height.
  * @cssprop --jh-dialog-media-aspect-ratio - The media slot aspect-ratio. Defaults to `auto`.
  * @cssprop --jh-dialog-media-space-padding - The padding around the media slot. Defaults to `0`.

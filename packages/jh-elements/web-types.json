@@ -7849,11 +7849,11 @@
         },
         {
           "name": "--jh-dialog-overlay-dimension-padding-vertical",
-          "description": "The vertical padding for the dialog overlay. Defaults to `--jh-dimension-1000`."
+          "description": "The vertical padding between the viewport edges and the dialog. Defaults to `--jh-dimension-1000`."
         },
         {
           "name": "--jh-dialog-overlay-dimension-padding-horizontal",
-          "description": "The horizontal padding for the dialog overlay. Defaults to `--jh-dimension-1000`."
+          "description": "The horizontal padding between the viewport edges and the dialog. Defaults to `--jh-dimension-1000`."
         },
         {
           "name": "--jh-dialog-dimension-max-width",

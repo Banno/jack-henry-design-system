@@ -63,14 +63,6 @@ For boolean attributes, true indicates that the attribute has been set without a
 
 <ArgTypes />
 
-## Unique Story #1
-
-*(Optional) Highlight unique details an author will need to know along with a story demonstration*
-
-## Unique Story #2
-
-*(Optional) Highlight unique details an author will need to know along with a story demonstration*
-
 ## Feedback
 
 Have an idea that will improve this component or have an issue to report? Let us know by submitting 

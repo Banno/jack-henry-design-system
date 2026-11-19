@@ -2,8 +2,6 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-// Kebab-case to PascalCase, matching hygen's h.inflection.camelize on the
-// underscored name: segments after the first are lowercased before capitalizing.
 const camelize = (str) =>
   str
     .split('-')

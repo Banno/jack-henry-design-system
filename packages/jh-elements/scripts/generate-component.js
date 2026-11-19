@@ -6,9 +6,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
-import element from './templates/element.js';
-import stories from './templates/element.story.js';
-import docs from './templates/element.mdx.js';
+import component from './templates/component.template.js';
+import stories from './templates/component.stories.template.js';
+import docs from './templates/component.mdx.template.js';
 
 const PREFIX = 'jh-';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -46,7 +46,7 @@ const ctx = {
 
 const dir = path.join(root, 'components', unprefixedName);
 const outputs = {
-  [`${unprefixedName}.js`]: element,
+  [`${unprefixedName}.js`]: component,
   [`${unprefixedName}.stories.js`]: stories,
   [`${unprefixedName}.mdx`]: docs,
 };

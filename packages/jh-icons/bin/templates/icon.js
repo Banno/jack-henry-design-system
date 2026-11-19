@@ -17,13 +17,13 @@ const escapeSvg = (svg) =>
   svg.replace(/\\/g, '\\\\').replace(/`/g, '\\`').replace(/\$\{/g, '\\${');
 
 /**
- * @param {{ name: string, prefix: string, svg: string }} ctx
+ * @param {{ name: string, prefix: string, svg: string, year: string | number }} ctx
  */
-module.exports = ({ name, prefix, svg }) => {
+module.exports = ({ name, prefix, svg, year }) => {
   const className = `${camelize(prefix)}Icon${camelize(name)}`;
 
   return `/**
-* SPDX-FileCopyrightText: 2025 Jack Henry
+* SPDX-FileCopyrightText: ${year} Jack Henry
 *
 * SPDX-License-Identifier: Apache-2.0
 */

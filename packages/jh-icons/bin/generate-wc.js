@@ -46,10 +46,23 @@ const icons = iconFiles
     };
   });
 
+// Keep the copyright year of an already-generated icon so regenerating doesn't
+// bump every file; only icons without existing output get the current year.
+function copyrightYear(filePath) {
+  if (fs.existsSync(filePath)) {
+    const match = fs
+      .readFileSync(filePath, 'utf8')
+      .match(/SPDX-FileCopyrightText:\s*(\d{4}(?:\s*-\s*\d{4})?)/);
+    if (match) return match[1];
+  }
+  return new Date().getFullYear();
+}
+
 function generate(icon) {
+  const filePath = path.join(outputPath, `icon-${icon.name}.js`);
   fs.writeFileSync(
-    path.join(outputPath, `icon-${icon.name}.js`),
-    template({ name: icon.name, prefix, svg: icon.contents })
+    filePath,
+    template({ name: icon.name, prefix, svg: icon.contents, year: copyrightYear(filePath) })
   );
 }
 

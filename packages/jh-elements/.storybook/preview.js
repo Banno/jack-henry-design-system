@@ -91,7 +91,7 @@ const preview = {
           ['Overview', 'Gallery'],
           'Design Tokens',
           'Guides',
-          ['Extending'],
+          ['Accessibility', 'Creating Components', 'Extending Components', 'Datasets Package'],
           'Components', ['*', ['Table', 'Table Row', 'Table Data Cell', 'Table Header Cell']],
           ['*',
           ['Table', 'Table Row', 'Table Data Cell', 'Table Header Cell'],

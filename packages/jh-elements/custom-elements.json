@@ -2298,6 +2298,10 @@
               "name": "--jh-dialog-media-aspect-ratio"
             },
             {
+              "description": "The padding around the media slot. Defaults to `0`.",
+              "name": "--jh-dialog-media-space-padding"
+            },
+            {
               "description": "The header slot text color. Defaults to `--jh-color-content-primary-enabled`.",
               "name": "--jh-dialog-header-color-text"
             },

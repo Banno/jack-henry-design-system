@@ -7864,6 +7864,10 @@
           "description": "The media slot aspect-ratio. Defaults to `auto`."
         },
         {
+          "name": "--jh-dialog-media-space-padding",
+          "description": "The padding around the media slot. Defaults to `0`."
+        },
+        {
           "name": "--jh-dialog-header-color-text",
           "description": "The header slot text color. Defaults to `--jh-color-content-primary-enabled`."
         },

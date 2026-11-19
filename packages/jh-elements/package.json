@@ -26,7 +26,7 @@
     "NOTICE"
   ],
   "scripts": {
-    "generate": "node scripts/generate-component.js",
+    "generate": "node scripts/component-generation/generate-component.js",
     "storybook": "storybook dev --port 6006",
     "build-storybook": "storybook build",
     "analyze": "cem analyze --config scripts/custom-elements-manifest.config.js && node scripts/generate-web-types.js",

@@ -6,12 +6,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
-import component from './templates/component.template.js';
-import stories from './templates/component.stories.template.js';
-import docs from './templates/component.mdx.template.js';
+import component from './_templates/component.template.js';
+import stories from './_templates/component.stories.template.js';
+import docs from './_templates/component.mdx.template.js';
 
 const PREFIX = 'jh-';
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
 const { values, positionals } = parseArgs({
   options: { name: { type: 'string' } },

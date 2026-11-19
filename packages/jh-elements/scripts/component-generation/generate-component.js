@@ -51,14 +51,15 @@ const outputs = {
   [`${unprefixedName}.mdx`]: docs,
 };
 
+// prevent adding files to an existing component
+if (fs.existsSync(dir)) {
+  console.error(`error: ${path.relative(root, dir)} already exists`);
+  process.exit(1);
+}
+
 fs.mkdirSync(dir, { recursive: true });
 for (const [file, render] of Object.entries(outputs)) {
   const target = path.join(dir, file);
-  // prevent overwriting an existing component
-  if (fs.existsSync(target)) {
-    console.log(`skipped: ${path.relative(root, target)} (already exists)`);
-    continue;
-  }
   fs.writeFileSync(target, render(ctx));
   console.log(`added: ${path.relative(root, target)}`);
 }

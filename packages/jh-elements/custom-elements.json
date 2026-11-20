@@ -2282,11 +2282,11 @@
               "name": "--jh-dialog-overlay-color-background"
             },
             {
-              "description": "The vertical padding for the dialog overlay. Defaults to `--jh-dimension-1000`.",
+              "description": "The vertical padding between the viewport edges and the dialog. Defaults to `--jh-dimension-1000`.",
               "name": "--jh-dialog-overlay-dimension-padding-vertical"
             },
             {
-              "description": "The horizontal padding for the dialog overlay. Defaults to `--jh-dimension-1000`.",
+              "description": "The horizontal padding between the viewport edges and the dialog. Defaults to `--jh-dimension-1000`.",
               "name": "--jh-dialog-overlay-dimension-padding-horizontal"
             },
             {
@@ -2296,6 +2296,10 @@
             {
               "description": "The media slot aspect-ratio. Defaults to `auto`.",
               "name": "--jh-dialog-media-aspect-ratio"
+            },
+            {
+              "description": "The padding around the media slot. Defaults to `0`.",
+              "name": "--jh-dialog-media-space-padding"
             },
             {
               "description": "The header slot text color. Defaults to `--jh-color-content-primary-enabled`.",

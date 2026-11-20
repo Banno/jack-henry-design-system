@@ -21,10 +21,11 @@ import '@jack-henry/jh-icons/icons-wc/icon-xmark.js';
  * @cssprop --jh-dialog-shadow - The dialog box-shadow. Defaults to `--jh-shadow-overlay`. When the viewport is 440px or smaller, defaults to `none`.
  * @cssprop --jh-dialog-dimension-padding-horizontal - The horizontal padding for the dialog content. Defaults to `--jh-dimension-600`.
  * @cssprop --jh-dialog-overlay-color-background - The backdrop color displayed behind the dialog. Defaults to `--jh-color-overlay`.
- * @cssprop --jh-dialog-overlay-dimension-padding-vertical - The vertical padding for the dialog overlay. Defaults to `--jh-dimension-1000`.
- * @cssprop --jh-dialog-overlay-dimension-padding-horizontal - The horizontal padding for the dialog overlay. Defaults to `--jh-dimension-1000`.
+ * @cssprop --jh-dialog-overlay-dimension-padding-vertical - The vertical padding between the viewport edges and the dialog. Defaults to `--jh-dimension-1000`.
+ * @cssprop --jh-dialog-overlay-dimension-padding-horizontal - The horizontal padding between the viewport edges and the dialog. Defaults to `--jh-dimension-1000`.
  * @cssprop --jh-dialog-dimension-max-width - The dialog max-width. Defaults to `480px` when `size="small"`, `640px` when `size="medium"` and `800px` when `size="large"`. Not applied when the viewport is 440px or smaller, where the dialog fills the full viewport width and height.
  * @cssprop --jh-dialog-media-aspect-ratio - The media slot aspect-ratio. Defaults to `auto`.
+ * @cssprop --jh-dialog-media-space-padding - The padding around the media slot. Defaults to `0`.
  * @cssprop --jh-dialog-header-color-text - The header slot text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-dialog-default-color-text - The default slot text color. Defaults to `--jh-color-content-primary-enabled`.
  * @cssprop --jh-dialog-footer-color-text - The footer slot text color. Defaults to `--jh-color-content-secondary-enabled`.
@@ -54,7 +55,11 @@ export class JhDialog extends JhElement {
         --max-width: 800px;
       }
       dialog {
-        max-width: var(--jh-dialog-dimension-max-width, var(--max-width));
+        max-width: min(
+          var(--jh-dialog-dimension-max-width, var(--max-width)),
+          calc(100% - 2 * var(--jh-dialog-overlay-dimension-padding-horizontal, var(--jh-dimension-1000)))
+        );
+        max-height: calc(100% - 2 * var(--jh-dialog-overlay-dimension-padding-vertical, var(--jh-dimension-1000)));
         border-radius: var(--jh-dialog-border-radius, var(--jh-border-radius-300));
         background-color: var(
           --jh-dialog-color-background,
@@ -93,7 +98,6 @@ export class JhDialog extends JhElement {
       }
       dialog::backdrop {
         background-color: var(--jh-dialog-overlay-color-background, var(--jh-color-overlay));
-        padding: var(--jh-dialog-overlay-dimension-padding-vertical, var(--jh-dimension-1000)), var(--jh-dialog-overlay-dimension-padding-horizontal, var(--jh-dimension-1000));
       }
       slot[name='jh-dialog-media'],
       .header,
@@ -125,8 +129,10 @@ export class JhDialog extends JhElement {
         padding-top: var(--jh-dimension-400);
       }
       ::slotted([slot='jh-dialog-media']) {
-        display: block;
         aspect-ratio: var(--jh-dialog-media-aspect-ratio, auto);
+        padding: var(--jh-dialog-media-space-padding, 0);
+        box-sizing: border-box;
+        display: block;
         width: 100%;
       }
       .header-content {

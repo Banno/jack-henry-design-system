@@ -34,7 +34,6 @@ const storyStyles = css`
   img {
     display: block;
     width: 100%;
-    height: 180px;
     object-fit: cover;
   }
 `;

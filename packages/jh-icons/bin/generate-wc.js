@@ -4,7 +4,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const template = require('./templates/icon');
+const template = require('./_templates/icon.template');
 
 const args = process.argv.slice(2); // args[0] = sourcePath, args[1] = outputPath, args[2] = prefix
 const [sourcePath, outputPath, prefix] = args;

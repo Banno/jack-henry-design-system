@@ -1,5 +1,11 @@
 # @jack-henry/jh-icons
 
+## 2.2.1
+
+### Patch Changes
+
+- [#408](https://github.com/Banno/jack-henry-design-system/pull/408) [`24c1de0`](https://github.com/Banno/jack-henry-design-system/commit/24c1de0704af2a21582c0403e187e5e70ea5cfb5) Thanks [@abissier](https://github.com/abissier)! - `generate-wc.js` now renders icon components with a node template instead of hygen.
+
 ## 2.2.0
 
 ### Minor Changes

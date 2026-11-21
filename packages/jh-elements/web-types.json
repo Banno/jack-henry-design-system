@@ -1215,6 +1215,7 @@
             },
             {
               "name": "readonly",
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "value": {
                 "type": "boolean",
                 "default": "false"
@@ -1413,6 +1414,7 @@
               },
               {
                 "name": "readonly",
+                "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
                 "type": "boolean"
               },
               {
@@ -1657,6 +1659,7 @@
             },
             {
               "name": "readonly",
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "value": {
                 "type": "boolean",
                 "default": "false"
@@ -1835,6 +1838,7 @@
               },
               {
                 "name": "readonly",
+                "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
                 "type": "boolean"
               },
               {
@@ -2103,6 +2107,7 @@
             },
             {
               "name": "readonly",
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "value": {
                 "type": "boolean",
                 "default": "false"
@@ -2304,6 +2309,7 @@
               },
               {
                 "name": "readonly",
+                "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
                 "type": "boolean"
               },
               {
@@ -2572,6 +2578,7 @@
             },
             {
               "name": "readonly",
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "value": {
                 "type": "boolean",
                 "default": "false"
@@ -2773,6 +2780,7 @@
               },
               {
                 "name": "readonly",
+                "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
                 "type": "boolean"
               },
               {
@@ -3017,6 +3025,7 @@
             },
             {
               "name": "readonly",
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "value": {
                 "type": "boolean",
                 "default": "false"
@@ -3195,6 +3204,7 @@
               },
               {
                 "name": "readonly",
+                "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
                 "type": "boolean"
               },
               {
@@ -3439,6 +3449,7 @@
             },
             {
               "name": "readonly",
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "value": {
                 "type": "boolean",
                 "default": "false"
@@ -3617,6 +3628,7 @@
               },
               {
                 "name": "readonly",
+                "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
                 "type": "boolean"
               },
               {
@@ -4350,6 +4362,7 @@
             },
             {
               "name": "readonly",
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "value": {
                 "type": "boolean",
                 "default": "false"
@@ -4528,6 +4541,7 @@
               },
               {
                 "name": "readonly",
+                "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
                 "type": "boolean"
               },
               {
@@ -4772,6 +4786,7 @@
             },
             {
               "name": "readonly",
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "value": {
                 "type": "boolean",
                 "default": "false"
@@ -4950,6 +4965,7 @@
               },
               {
                 "name": "readonly",
+                "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
                 "type": "boolean"
               },
               {
@@ -5978,6 +5994,7 @@
             },
             {
               "name": "readonly",
+              "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
               "value": {
                 "type": "boolean",
                 "default": "false"
@@ -6202,6 +6219,7 @@
               },
               {
                 "name": "readonly",
+                "description": "Makes the field non-editable while keeping its value visible, focusable, and submitted with the form. Use `disabled` when the field should be excluded from the form.",
                 "type": "boolean"
               },
               {
@@ -9668,7 +9686,7 @@
           "description": "The radio border-color when selected. Defaults to `--jh-border-control-color`."
         },
         {
-          "name": "--jh-radio-status-color-background-selected-enabled-",
+          "name": "--jh-radio-status-color-background-selected-enabled",
           "description": "The status mark color when selected. Defaults to `--jh-color-content-brand-enabled`."
         },
         {
@@ -10392,19 +10410,19 @@
           "description": "The tag border radius. Defaults to `--jh-border-radius-pill`."
         },
         {
-          "name": "--jh-tag-color-background-enabled-",
+          "name": "--jh-tag-color-background-enabled",
           "description": "The tag background color. Defaults to `--jh-color-container-neutral-enabled`."
         },
         {
-          "name": "--jh-tag-color-background-focus-",
+          "name": "--jh-tag-color-background-focus",
           "description": "The tag background color when focused. Defaults to `--jh-color-container-neutral-hover`."
         },
         {
-          "name": "--jh-tag-color-background-hover-",
+          "name": "--jh-tag-color-background-hover",
           "description": "The tag background color when hovered. Defaults to `--jh-color-container-neutral-hover`."
         },
         {
-          "name": "--jh-tag-color-background-active-",
+          "name": "--jh-tag-color-background-active",
           "description": "The tag background color when active. Defaults to `--jh-color-container-neutral-active`."
         },
         {

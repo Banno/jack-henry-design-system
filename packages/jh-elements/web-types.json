@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
   "name": "@jack-henry/jh-elements",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "description-markup": "markdown",
   "contributions": {
     "html": {
@@ -157,18 +157,6 @@
                 "type": "string | null",
                 "default": "null"
               }
-            },
-            {
-              "name": "_hasLeftSlotContent",
-              "value": {
-                "type": "boolean"
-              }
-            },
-            {
-              "name": "_hasRightSlotContent",
-              "value": {
-                "type": "boolean"
-              }
             }
           ],
           "slots": [
@@ -259,7 +247,7 @@
         },
         {
           "name": "jh-card",
-          "description": "Cards are content structures that provide an entry point for more complex and detailed information.\n\n[Card Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-card--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert card body content.\n- **jh-card-media** - Use to insert media content in the top section of the card. User may need to add addtional styling to elements such as border, object-fit, etc.\n- **jh-card-header** - Use to insert custom card header layout. Default layout includes `headerTitle` and `headerSubtitle` properties.\n- **jh-card-footer** - Use to insert card footer content.",
+          "description": "Cards are content structures that provide an entry point for more complex and detailed information.\n\n[Card Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-card--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert card body content.\n- **jh-card-media** - Use to insert media content in the top section of the card. User may need to add additional styling to elements such as border, object-fit, etc.\n- **jh-card-header** - Use to insert custom card header layout. Replaces the default layout; header-title and header-subtitle are ignored when this slot is filled.\n- **jh-card-footer** - Use to insert card footer content.",
           "doc-url": "",
           "attributes": [
             {
@@ -320,7 +308,7 @@
             },
             {
               "name": "padding",
-              "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
+              "description": "Sets padding on all slots. Setting to `none` removes horizontal padding from the default slot only; vertical padding and header/footer padding are unchanged. To override, set the component token for the desired slot.",
               "value": {
                 "type": "'small' | 'medium' | 'none'",
                 "default": "'medium'"
@@ -334,11 +322,11 @@
             },
             {
               "name": "jh-card-media",
-              "description": "Use to insert media content in the top section of the card. User may need to add addtional styling to elements such as border, object-fit, etc."
+              "description": "Use to insert media content in the top section of the card. User may need to add additional styling to elements such as border, object-fit, etc."
             },
             {
               "name": "jh-card-header",
-              "description": "Use to insert custom card header layout. Default layout includes `headerTitle` and `headerSubtitle` properties."
+              "description": "Use to insert custom card header layout. Replaces the default layout; header-title and header-subtitle are ignored when this slot is filled."
             },
             {
               "name": "jh-card-footer",
@@ -365,7 +353,7 @@
               },
               {
                 "name": "padding",
-                "description": "Sets padding on all slots. Set `padding='none'` to remove padding solely from default slot. To override padding property, set component level token for desired slot.",
+                "description": "Sets padding on all slots. Setting to `none` removes horizontal padding from the default slot only; vertical padding and header/footer padding are unchanged. To override, set the component token for the desired slot.",
                 "type": "'small' | 'medium' | 'none'"
               },
               {
@@ -751,6 +739,180 @@
               {
                 "name": "jh-change",
                 "description": "Dispatched when the state of the checkbox has changed. Event payload includes the value and checked state of the checkbox and can be accessed via `e.detail.state.value` and `e.detail.state.checked`."
+              }
+            ]
+          }
+        },
+        {
+          "name": "jh-dialog",
+          "description": "Dialogs are modal windows that appear on top of the main content to focus the user's attention on a task or important information.\n\n[Dialog Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-dialog--docs)\n---\n\n\n### **Events:**\n - **jh-open** - Dispatched when the dialog opens.\n- **jh-close** - Dispatched when the dialog closes or the user attempts to dismiss it, regardless of `remove-on-dismiss`. Event payload includes the close method of the dialog and can be accessed via `e.detail.reference.closeMethod`. Possible values are `backdrop-click`, `dismiss-button`, `escape` and `programmatic`.\n\n### **Methods:**\n - **show(): _void_** - Opens the dialog as a modal. Equivalent to setting `open` to `true`. Dispatches `jh-open`.\n- **close(): _void_** - Closes the dialog. Equivalent to setting `open` to `false`.\nDispatches `jh-close` with `closeMethod: 'programmatic'`.\n\n### **Slots:**\n - **default** - Use to insert dialog body content.\n- **jh-dialog-media** - Use to insert media content at the top of the dialog. User may need to add additional styling to elements such as border, object-fit, etc.\n- **jh-dialog-header** - Use to insert custom dialog header layout. Used as the accessible name of the dialog.\n- **jh-dialog-footer** - Use to insert custom dialog footer layout, such as action buttons.\n- **jh-dialog-dismiss-icon** - Use to change the default icon within the dismiss button.",
+          "doc-url": "",
+          "attributes": [
+            {
+              "name": "dismiss-button-accessible-label",
+              "description": "Adds an aria-label to the dismiss button to assist screen readers.",
+              "value": {
+                "type": "string | null",
+                "default": "null"
+              }
+            },
+            {
+              "name": "footer-inset",
+              "description": "Sets the alignment of the left edge of the divider above the footer.",
+              "value": {
+                "type": "\"0\"|\"8\"|\"16\"|\"24\"|\"32\"|\"40\"|\"48\"|\"56\"|\"64\"|\"72\"|\"80\"|\"88\"|\"96\"",
+                "default": "0"
+              }
+            },
+            {
+              "name": "header-inset",
+              "description": "Sets the alignment of the left edge of the divider below the header.",
+              "value": {
+                "type": "\"0\"|\"8\"|\"16\"|\"24\"|\"32\"|\"40\"|\"48\"|\"56\"|\"64\"|\"72\"|\"80\"|\"88\"|\"96\"",
+                "default": "0"
+              }
+            },
+            {
+              "name": "hide-dismiss-button",
+              "description": "Hides the dismiss button. When true, the dialog cannot be closed by clicking the backdrop outside the dialog.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
+              "name": "remove-on-dismiss",
+              "description": "Closes the dialog when dismissed via the dismiss button, backdrop click, or Escape key.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
+              "name": "show-footer-divider",
+              "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
+              "name": "show-header-divider",
+              "description": "Adds a divider below the header to create a clearer definition between the header and body.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
+              "name": "open",
+              "description": "Determines whether the dialog is open or closed.",
+              "value": {
+                "type": "boolean",
+                "default": "false"
+              }
+            },
+            {
+              "name": "size",
+              "description": "Sets the max-width of the dialog container.",
+              "value": {
+                "type": "'small' | 'medium' | 'large'",
+                "default": "'medium'"
+              }
+            }
+          ],
+          "slots": [
+            {
+              "name": "default",
+              "description": "Use to insert dialog body content."
+            },
+            {
+              "name": "jh-dialog-media",
+              "description": "Use to insert media content at the top of the dialog. User may need to add additional styling to elements such as border, object-fit, etc."
+            },
+            {
+              "name": "jh-dialog-header",
+              "description": "Use to insert custom dialog header layout. Used as the accessible name of the dialog."
+            },
+            {
+              "name": "jh-dialog-footer",
+              "description": "Use to insert custom dialog footer layout, such as action buttons."
+            },
+            {
+              "name": "jh-dialog-dismiss-icon",
+              "description": "Use to change the default icon within the dismiss button."
+            }
+          ],
+          "events": [
+            {
+              "name": "jh-open",
+              "description": "Dispatched when the dialog opens."
+            },
+            {
+              "name": "jh-close",
+              "description": "Dispatched when the dialog closes or the user attempts to dismiss it, regardless of `remove-on-dismiss`. Event payload includes the close method of the dialog and can be accessed via `e.detail.reference.closeMethod`. Possible values are `backdrop-click`, `dismiss-button`, `escape` and `programmatic`."
+            }
+          ],
+          "js": {
+            "properties": [
+              {
+                "name": "dismissButtonAccessibleLabel",
+                "description": "Adds an aria-label to the dismiss button to assist screen readers.",
+                "type": "string | null"
+              },
+              {
+                "name": "footerInset",
+                "description": "Sets the alignment of the left edge of the divider above the footer.",
+                "type": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96"
+              },
+              {
+                "name": "headerInset",
+                "description": "Sets the alignment of the left edge of the divider below the header.",
+                "type": "0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 88 | 96"
+              },
+              {
+                "name": "hideDismissButton",
+                "description": "Hides the dismiss button. When true, the dialog cannot be closed by clicking the backdrop outside the dialog.",
+                "type": "boolean"
+              },
+              {
+                "name": "open",
+                "description": "Determines whether the dialog is open or closed.",
+                "type": "boolean"
+              },
+              {
+                "name": "removeOnDismiss",
+                "description": "Closes the dialog when dismissed via the dismiss button, backdrop click, or Escape key.",
+                "type": "boolean"
+              },
+              {
+                "name": "showFooterDivider",
+                "description": "Adds a divider above the footer to create a clearer definition between the body and footer.",
+                "type": "boolean"
+              },
+              {
+                "name": "showHeaderDivider",
+                "description": "Adds a divider below the header to create a clearer definition between the header and body.",
+                "type": "boolean"
+              },
+              {
+                "name": "size",
+                "description": "Sets the max-width of the dialog container.",
+                "type": "'small' | 'medium' | 'large'"
+              },
+              {
+                "name": "uniqueId",
+                "type": "number"
+              }
+            ],
+            "events": [
+              {
+                "name": "jh-open",
+                "description": "Dispatched when the dialog opens."
+              },
+              {
+                "name": "jh-close",
+                "description": "Dispatched when the dialog closes or the user attempts to dismiss it, regardless of `remove-on-dismiss`. Event payload includes the close method of the dialog and can be accessed via `e.detail.reference.closeMethod`. Possible values are `backdrop-click`, `dismiss-button`, `escape` and `programmatic`."
               }
             ]
           }
@@ -4966,24 +5128,6 @@
                 "type": "boolean",
                 "default": "false"
               }
-            },
-            {
-              "name": "_showFallback",
-              "value": {
-                "type": "boolean"
-              }
-            },
-            {
-              "name": "_hasLeftSlotContent",
-              "value": {
-                "type": "boolean"
-              }
-            },
-            {
-              "name": "_hasRightSlotContent",
-              "value": {
-                "type": "boolean"
-              }
             }
           ],
           "slots": [
@@ -6839,7 +6983,7 @@
         },
         {
           "name": "jh-tooltip",
-          "description": "Tooltips are floating components that appears when a user hovers or focuses onto an originating element \nsuch as a button, icon or link. They display additional information about the originating element which is not \ncritical in nature.\n\n[Tooltip Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tooltip--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert the element that triggers the tooltip.\n- **jh-tooltip-content** - Use to insert the content of the tooltip.",
+          "description": "Tooltips are floating components that appear when a user hovers or focuses onto a focusable originating element \nsuch as a button or link. They display additional information about the originating element which is not \ncritical in nature.\n\n[Tooltip Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tooltip--docs)\n---\n\n\n### **Slots:**\n - **default** - Use to insert the element that triggers the tooltip.\n- **jh-tooltip-content** - Use to insert the content of the tooltip.",
           "doc-url": "",
           "attributes": [
             {
@@ -6860,7 +7004,7 @@
             },
             {
               "name": "position",
-              "description": "The position of the tooltip and its arrow.",
+              "description": "The position of the tooltip and its arrow. If the tooltip doesn't fit, it renders on another side;\nthe attribute keeps the value you set.",
               "value": {
                 "type": "'left' | 'right' | 'top-start' | 'top-end' | 'top-center' | 'bottom-start' | 'bottom-end' | 'bottom-center'",
                 "default": "'top-center'"
@@ -6892,7 +7036,7 @@
               },
               {
                 "name": "position",
-                "description": "The position of the tooltip and its arrow.",
+                "description": "The position of the tooltip and its arrow. If the tooltip doesn't fit, it renders on another side;\nthe attribute keeps the value you set.",
                 "type": "'left' | 'right' | 'top-start' | 'top-end' | 'top-center' | 'bottom-start' | 'bottom-end' | 'bottom-center'"
               },
               {
@@ -7421,11 +7565,19 @@
         },
         {
           "name": "--jh-card-border-radius",
-          "description": "The card border-radius. Defaults to `--jh-border-radius-200`."
+          "description": "The card border-radius. Defaults to `--jh-border-radius-200`. Also applied to the top corners of the media slot."
         },
         {
           "name": "--jh-card-color-border",
           "description": "The card border color. Defaults to `--jh-border-decorative-color`."
+        },
+        {
+          "name": "--jh-card-border-width",
+          "description": "The card border width. Defaults to `--jh-border-decorative-width`."
+        },
+        {
+          "name": "--jh-card-elevation",
+          "description": "The card box-shadow. Defaults to `none`. Recommended value: `--jh-shadow-low`."
         },
         {
           "name": "--jh-card-media-aspect-ratio",
@@ -7441,7 +7593,7 @@
         },
         {
           "name": "--jh-card-header-space-padding",
-          "description": "The header slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600 0`. When `padding=\"small\"`, defaults to `--jh-dimension-400 --jh-dimension-400 0`. When `padding=\"small\"` and `show-header-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none'` and `show-header-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`."
+          "description": "The header slot padding. Defaults to `--jh-dimension-400 --jh-dimension-600 0`. When `padding=\"small\"`, defaults to `--jh-dimension-400 --jh-dimension-400 0`. When `padding=\"small\"` and `show-header-divider`, defaults to `--jh-dimension-400`. When `padding=\"medium\"` or `padding=\"none\"` and `show-header-divider`, defaults to `--jh-dimension-400 --jh-dimension-600`."
         },
         {
           "name": "--jh-card-default-color-text",
@@ -7674,6 +7826,58 @@
         {
           "name": "--jh-checkbox-status-color-border-indeterminate-disabled",
           "description": "The checkbox color when indeterminate status mark when disabled. Defaults to `--jh-color-content-on-brand-enabled`."
+        },
+        {
+          "name": "--jh-dialog-color-background",
+          "description": "The dialog background-color. Defaults to `--jh-color-container-primary-enabled`."
+        },
+        {
+          "name": "--jh-dialog-border-radius",
+          "description": "The dialog border-radius. Defaults to `--jh-border-radius-300`. When the viewport is 440px or smaller, defaults to `0`."
+        },
+        {
+          "name": "--jh-dialog-shadow",
+          "description": "The dialog box-shadow. Defaults to `--jh-shadow-overlay`. When the viewport is 440px or smaller, defaults to `none`."
+        },
+        {
+          "name": "--jh-dialog-dimension-padding-horizontal",
+          "description": "The horizontal padding for the dialog content. Defaults to `--jh-dimension-600`."
+        },
+        {
+          "name": "--jh-dialog-overlay-color-background",
+          "description": "The backdrop color displayed behind the dialog. Defaults to `--jh-color-overlay`."
+        },
+        {
+          "name": "--jh-dialog-overlay-dimension-padding-vertical",
+          "description": "The vertical padding between the viewport edges and the dialog. Defaults to `--jh-dimension-1000`."
+        },
+        {
+          "name": "--jh-dialog-overlay-dimension-padding-horizontal",
+          "description": "The horizontal padding between the viewport edges and the dialog. Defaults to `--jh-dimension-1000`."
+        },
+        {
+          "name": "--jh-dialog-dimension-max-width",
+          "description": "The dialog max-width. Defaults to `480px` when `size=\"small\"`, `640px` when `size=\"medium\"` and `800px` when `size=\"large\"`. Not applied when the viewport is 440px or smaller, where the dialog fills the full viewport width and height."
+        },
+        {
+          "name": "--jh-dialog-media-aspect-ratio",
+          "description": "The media slot aspect-ratio. Defaults to `auto`."
+        },
+        {
+          "name": "--jh-dialog-media-space-padding",
+          "description": "The padding around the media slot. Defaults to `0`."
+        },
+        {
+          "name": "--jh-dialog-header-color-text",
+          "description": "The header slot text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-dialog-default-color-text",
+          "description": "The default slot text color. Defaults to `--jh-color-content-primary-enabled`."
+        },
+        {
+          "name": "--jh-dialog-footer-color-text",
+          "description": "The footer slot text color. Defaults to `--jh-color-content-secondary-enabled`."
         },
         {
           "name": "--jh-divider-border-width",

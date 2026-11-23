@@ -22,11 +22,11 @@ Design tokens ensure:
 
 Our design tokens are built with specific structures in mind that allow them to be incorporated and extended in a consistent and predictable manner.
 
-Design tokens provide two methods for styling: **Alias Tokens** for large-scale theming and **Styling Hooks** for granular, component-specific adjustments. Both are applied using CSS Custom Properties, which leverage the cascading nature of CSS to allow for fine-grained style control at various levels of your application's DOM structure.
+Design tokens provide two methods for styling: **Semantic Tokens** for large-scale theming and **Styling Hooks** for granular, component-specific adjustments. Both are applied using CSS Custom Properties, which leverage the cascading nature of CSS to allow for fine-grained style control at various levels of your application's DOM structure.
 
 ### Application-Level Overrides
 
-To apply a style change across your entire application, you should override our alias tokens at the highest possible scope, typically on the `:root` pseudo-class, or the `<html>` or `<body>` tag.
+To apply a style change across your entire application, you should override our semantic tokens at the highest possible scope, typically on the `:root` pseudo-class, or the `<html>` or `<body>` tag.
 
 For example, to change the value of `--jh-color-content-brand-enabled` throughout the entire application, you would override the token:
 
@@ -142,7 +142,7 @@ Example of token metadata:
   {
     "name": "Color Container Page",
     "token": "jh-color-container-page",
-    "alias": true,
+    "semantic": true,
     "description": "Used on page-level containers that make up large portions of the overall background",
     "category": "color",
     "type": "container",

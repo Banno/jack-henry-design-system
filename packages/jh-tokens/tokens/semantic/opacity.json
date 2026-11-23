@@ -4,7 +4,7 @@
     "disabled": {
       "$value": "{opacity.300}",
       "$extensions": {
-        "alias": true,
+        "semantic": true,
         "deprecated": false,
         "deprecatedMessage": ""
       }

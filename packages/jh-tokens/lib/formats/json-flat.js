@@ -21,7 +21,7 @@ function formatDocs({ dictionary, options }) {
   let newMap = dictionary.allTokens.map((token) => {
     let value = token.$value;
 
-    // if token is an alias, return the referenced value rather than the computed value.
+    // if token is semantic, return the referenced value rather than the computed value.
     // ie jh-color-container-primary-active -> jh-color-gray-100 (NOT #ffffffff)
     // using unfilteredTokens so that all tokens are available even when filtering for typography tokens only.
     if (options.outputReferences) {
@@ -40,7 +40,7 @@ function formatDocs({ dictionary, options }) {
     return {
       name: formatTokenName(token.name),
       token: token.name,
-      alias: token.$extensions.alias,
+      semantic: token.$extensions.semantic,
       description: token.$description,
       category: token.attributes.category,
       type: token.attributes.type,

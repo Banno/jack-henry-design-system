@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  * 
  * Do not edit directly, this file was auto-generated.
- * Generated on Fri, 02 Oct 2026 03:23:47 GMT
+ * Generated on Fri, 20 Nov 2026 19:51:29 GMT
  */
 
 export default `
@@ -247,6 +247,10 @@ export default `
     --jh-font-family-mono: 'Roboto Mono', monospace;
     --jh-font-family-sans: Figtree, 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif;
     --jh-font-family-primary: var(--jh-font-family-sans);
+    --jh-breakpoint-xl: 1280px;
+    --jh-breakpoint-lg: 1024px;
+    --jh-breakpoint-md: 768px;
+    --jh-breakpoint-sm: 512px;
     --jh-border-radius-pill: 9999px;
     --jh-border-radius-circle: 50%;
     --jh-border-radius-400: 16px;
@@ -444,10 +448,11 @@ export default `
     --jh-color-red-150: #f5cfc4ff;
     --jh-color-red-100: #fae7e2ff;
     --jh-color-red-50: #fdf1eeff;
-    --jh-color-gray-950: #202020ff;
-    --jh-color-gray-900: #2c2c2cff;
-    --jh-color-gray-850: #343434ff;
-    --jh-color-gray-800: #3e3e3eff;
+    --jh-color-gray-1000: var(--jh-color-black-alpha-100);
+    --jh-color-gray-950: #161616ff;
+    --jh-color-gray-900: #202020ff;
+    --jh-color-gray-850: #2c2c2cff;
+    --jh-color-gray-800: #343434ff;
     --jh-color-gray-750: #474747ff;
     --jh-color-gray-700: #515151ff;
     --jh-color-gray-650: #595959ff;
@@ -463,6 +468,7 @@ export default `
     --jh-color-gray-150: #d7d7d7ff;
     --jh-color-gray-100: #ebebebff;
     --jh-color-gray-50: #f4f4f4ff;
+    --jh-color-gray-0: var(--jh-color-white-alpha-100);
     --jh-color-white-alpha-100: #ffffffff;
     --jh-color-white-alpha-90: #ffffffe6;
     --jh-color-white-alpha-80: #ffffffcc;

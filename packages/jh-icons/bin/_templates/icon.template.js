@@ -1,24 +1,40 @@
----
-to: <%= outputPath %>/icon-<%= name %>.js
-force: true
-#
-# SPDX-FileCopyrightText: 2025 Jack Henry
-# 
-# SPDX-License-Identifier: Apache-2.0
----
+// SPDX-FileCopyrightText: 2025 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
+const camelize = (str) =>
+  str
+    .split('-')
+    .map((part, i) => {
+      const word = i === 0 ? part : part.toLowerCase();
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join('');
+
+// The svg is placed inside an html`` literal, so escape anything that would end
+// the literal or start an interpolation.
+const escapeSvg = (svg) =>
+  svg.replace(/\\/g, '\\\\').replace(/`/g, '\\`').replace(/\$\{/g, '\\${');
+
 /**
-* SPDX-FileCopyrightText: 2025 Jack Henry
+ * @param {{ name: string, prefix: string, svg: string, year: string | number }} ctx
+ */
+module.exports = ({ name, prefix, svg, year }) => {
+  const className = `${camelize(prefix)}Icon${camelize(name)}`;
+
+  return `/**
+* SPDX-FileCopyrightText: ${year} Jack Henry
 *
 * SPDX-License-Identifier: Apache-2.0
 */
 import {LitElement, css, html} from 'lit';
 
-export default class <%= h.inflection.camelize(prefix.replace(/-/gi,'_')) %>Icon<%= h.inflection.camelize(name.replace(/-/gi,'_')) %> extends LitElement {
+export default class ${className} extends LitElement {
   /** @type {ElementInternals} */
   #internals;
 
   static get styles() {
-    return css`
+    return css\`
       :host {
         fill: var(
           --jh-icon-color-fill,
@@ -74,7 +90,7 @@ export default class <%= h.inflection.camelize(prefix.replace(/-/gi,'_')) %>Icon
         width: 100%;
         height: 100%;
       }
-    `;
+    \`;
   }
 
   static get properties() {
@@ -99,10 +115,11 @@ export default class <%= h.inflection.camelize(prefix.replace(/-/gi,'_')) %>Icon
   }
 
   render() {
-    return html`
-      <%- svg.replace(/\\/g, '\\\\').replace(/`/g, '\\`').replace(/\$\{/g, '\\${') %>
-    `;
+    return html\`
+      ${escapeSvg(svg)}
+    \`;
   }
 }
 
-customElements.define('<%= prefix %>-icon-<%= name %>', <%= h.inflection.camelize(prefix.replace(/-/gi,'_')) %>Icon<%= h.inflection.camelize(name.replace(/-/gi,'_')) %>);
+customElements.define('${prefix}-icon-${name}', ${className});`;
+};

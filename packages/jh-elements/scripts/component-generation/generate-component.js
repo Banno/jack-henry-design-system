@@ -1,0 +1,65 @@
+// SPDX-FileCopyrightText: 2025 Jack Henry
+//
+// SPDX-License-Identifier: Apache-2.0
+
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { parseArgs } from 'node:util';
+import component from './_templates/component.template.js';
+import stories from './_templates/component.stories.template.js';
+import docs from './_templates/component.mdx.template.js';
+
+const PREFIX = 'jh-';
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+
+const { values, positionals } = parseArgs({
+  options: { name: { type: 'string' } },
+  allowPositionals: true,
+});
+// Accept multi-word names, e.g. `test group` or "Test Group" -> test-group
+const input = [values.name ?? '', ...positionals]
+  .join(' ')
+  .trim()
+  .toLowerCase()
+  .split(/[\s_-]+/)
+  .filter(Boolean)
+  .join('-');
+
+if (!input || !/^[a-z][a-z0-9]*(-[a-z0-9]+)*$/.test(input)) {
+  console.error('Usage: pnpm generate <name>   (e.g. avatar-group, "test group", or jh-avatar-group)');
+  process.exit(1);
+}
+
+// Accept the name with or without the prefix
+const unprefixedName = input.startsWith(PREFIX) ? input.slice(PREFIX.length) : input;
+const elementName = `${PREFIX}${unprefixedName}`;
+const capitalize = (w) => w[0].toUpperCase() + w.slice(1);
+
+const ctx = {
+  elementName,
+  unprefixedName,
+  className: elementName.split('-').map(capitalize).join(''),   
+  title: unprefixedName.split('-').map(capitalize).join(' '), 
+  year: new Date().getFullYear(),
+};
+
+const dir = path.join(root, 'components', unprefixedName);
+const outputs = {
+  [`${unprefixedName}.js`]: component,
+  [`${unprefixedName}.stories.js`]: stories,
+  [`${unprefixedName}.mdx`]: docs,
+};
+
+// prevent adding files to an existing component
+if (fs.existsSync(dir)) {
+  console.error(`error: ${path.relative(root, dir)} already exists`);
+  process.exit(1);
+}
+
+fs.mkdirSync(dir, { recursive: true });
+for (const [file, render] of Object.entries(outputs)) {
+  const target = path.join(dir, file);
+  fs.writeFileSync(target, render(ctx));
+  console.log(`added: ${path.relative(root, target)}`);
+}

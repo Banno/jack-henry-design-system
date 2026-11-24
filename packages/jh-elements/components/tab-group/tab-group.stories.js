@@ -8,7 +8,10 @@ import { html, css } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from 'storybook/actions';
 import '@jack-henry/jh-icons/icons-wc/icon-bell.js';
+import '@jack-henry/jh-icons/icons-wc/icon-box-archive.js';
 import '@jack-henry/jh-icons/icons-wc/icon-chart-pie.js';
+import '@jack-henry/jh-icons/icons-wc/icon-gear.js';
+import '@jack-henry/jh-icons/icons-wc/icon-house.js';
 import './tab-group.js';
 import '../table/table.js';
 import '../select/select.js';
@@ -101,7 +104,7 @@ export default {
   },
 };
 
-export const Overview = { render: () => html`
+export const Overview = { render: (args) => html`
   <jh-tab-group accessible-label="Account">
     <jh-tab slot="jh-tab-group-tabs" label="Overview"></jh-tab>
     <jh-tab slot="jh-tab-group-tabs" label="Reports"></jh-tab>
@@ -118,12 +121,26 @@ Overview.argTypes = {
 
 export const Playground = { render: (args) => html`
   <jh-tab-group accessible-label=${ifDefined(args['accessible-label'] || null)}>
-    <jh-tab slot="jh-tab-group-tabs" label="Overview"></jh-tab>
-    <jh-tab slot="jh-tab-group-tabs" label="Reports"></jh-tab>
-    <jh-tab slot="jh-tab-group-tabs" label="Settings"></jh-tab>
+    <jh-tab slot="jh-tab-group-tabs" label="Overview">
+      <jh-icon-house slot="jh-tab-left"></jh-icon-house>
+    </jh-tab>
+    <jh-tab slot="jh-tab-group-tabs" label="Reports" selected>
+      <jh-icon-chart-pie slot="jh-tab-left"></jh-icon-chart-pie>
+    </jh-tab>
+    <jh-tab slot="jh-tab-group-tabs" label="Settings">
+      <jh-icon-gear slot="jh-tab-left"></jh-icon-gear>
+    </jh-tab>
+    <jh-tab slot="jh-tab-group-tabs" accessible-label="Notifications" selected>
+      <jh-icon-bell slot="jh-tab-left"></jh-icon-bell>
+    </jh-tab>
+    <jh-tab slot="jh-tab-group-tabs" label="Archived" disabled>
+      <jh-icon-box-archive slot="jh-tab-left"></jh-icon-box-archive>
+    </jh-tab>
     <jh-tab-panel>Overview content</jh-tab-panel>
     <jh-tab-panel>Reports content</jh-tab-panel>
     <jh-tab-panel>Settings content</jh-tab-panel>
+    <jh-tab-panel>Notifications content</jh-tab-panel>
+    <jh-tab-panel>Archived content</jh-tab-panel>
   </jh-tab-group>
 `};
 
@@ -135,41 +152,7 @@ Playground.parameters = {
   theme: 'both-themes',
 };
 
-export const IconsAndDisabledTab = { render: () => html`
-  <jh-tab-group accessible-label="Account">
-    <jh-tab slot="jh-tab-group-tabs" label="Reports">
-      <jh-icon-chart-pie slot="jh-tab-left"></jh-icon-chart-pie>
-    </jh-tab>
-    <jh-tab slot="jh-tab-group-tabs" accessible-label="Notifications">
-      <jh-icon-bell slot="jh-tab-left"></jh-icon-bell>
-    </jh-tab>
-    <jh-tab slot="jh-tab-group-tabs" label="Archived" disabled></jh-tab>
-    <jh-tab-panel>Reports content</jh-tab-panel>
-    <jh-tab-panel>Notifications content</jh-tab-panel>
-    <jh-tab-panel>Archived content</jh-tab-panel>
-  </jh-tab-group>
-`};
-
-IconsAndDisabledTab.argTypes = {
-  ...disableControls,
-};
-
-export const InitialSelection = { render: () => html`
-  <jh-tab-group accessible-label="Account">
-    <jh-tab slot="jh-tab-group-tabs" label="Overview"></jh-tab>
-    <jh-tab slot="jh-tab-group-tabs" label="Reports" selected></jh-tab>
-    <jh-tab slot="jh-tab-group-tabs" label="Settings"></jh-tab>
-    <jh-tab-panel>Overview content</jh-tab-panel>
-    <jh-tab-panel>Reports content</jh-tab-panel>
-    <jh-tab-panel>Settings content</jh-tab-panel>
-  </jh-tab-group>
-`};
-
-InitialSelection.argTypes = {
-  ...disableControls,
-};
-
-export const Overflow = { render: () => html`
+export const Overflow = { render: (args) => html`
   <div class="overflow-container">
     <jh-tab-group accessible-label="Accounts">
       <jh-tab slot="jh-tab-group-tabs" label="Checking"></jh-tab>
@@ -196,7 +179,7 @@ Overflow.argTypes = {
   ...disableControls,
 };
 
-export const RealisticContent = { render: () => html`
+export const RealisticContent = { render: (args) => html`
   <jh-tab-group accessible-label="Banking">
     <jh-tab slot="jh-tab-group-tabs" label="Accounts"></jh-tab>
     <jh-tab slot="jh-tab-group-tabs" label="Transfer"></jh-tab>

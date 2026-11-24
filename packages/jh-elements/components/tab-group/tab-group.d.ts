@@ -5,6 +5,8 @@
 /**
  * Tab groups provide a way to navigate between multiple groups of related content within the same context.
  *
+ * [Tab Group Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tab-tab-group--docs)
+ *
  * @cssprop --jh-tab-group-list-color-border - The color of the border below the tab list. Defaults to `--jh-border-decorative-color`.
  *
  * @slot default - Use to insert `jh-tab-panel` elements. Each panel is matched to the tab in the same position.

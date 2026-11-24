@@ -50,31 +50,9 @@ The tab group makes use of suggested content related dependencies.
 ## Behaviors
 
 - Each tab is matched to the tab panel in the same position, so the first tab displays the first panel. Provide the same number of tabs and panels.
-- By default the first tab is selected. To start with a different tab, set `selected` on it. 
-- Only one tab can be selected at a time and only the panel of the selected tab is displayed.
+- By default the first tab is selected. To start with a different tab, set `selected` on it. Only one tab can be selected at a time and only the panel of the selected tab is displayed.
 - Tabs are activated manually. Moving focus between tabs does not change the selection. A tab is selected when it is clicked, or when it is focused and the `Enter` or `Space` key is pressed.
-- Tabs align to the start of the tab list. 
-
-### Overflow
-
-When there are more tabs than fit in the available space, the tab list can be scrolled. No scrollbar is displayed. Previous and next controls appear on either side of the tab list. Each click scrolls the list only as far as needed to reveal one tab, like the arrow keys do: next reveals the first tab hidden on the right, and previous reveals the first tab hidden on the left. When there is nothing further to reveal, the next control wraps around to the start, and the previous control wraps around to the end. 
-
-The controls are for pointer users only. They are not part of the keyboard tab sequence and are hidden from assistive technology, because keyboard users reach every tab with the arrow keys, which also scroll the focused tab into view.
-
-### Events
-
-The `jh-change` event is dispatched when the user selects a different tab. The index of the selected tab is available as `e.detail.state.selectedIndex`, and the selected tab and its panel are available as `e.detail.reference.tab` and `e.detail.reference.panel`. 
-
-- The event is not dispatched when the selection is changed programmatically, for example by setting `selected` on a tab.
-- `jh-change` events from components placed inside tab panels, such as inputs, also bubble through the tab group. To handle only the tab group's event, check that `e.detail.reference.originHost` is `jh-tab-group`.
-
-```javascript
-tabGroup.addEventListener('jh-change', (e) => {
-  if (e.detail.reference.originHost === 'jh-tab-group') {
-    console.log(e.detail.state.selectedIndex);
-  }
-});
-```
+- When there are more tabs than fit in the available space, the tab list can be scrolled. No scrollbar is displayed. Previous and next buttons appear on either side of the tab list to scroll it. 
 
 ## Keyboard Interaction
 
@@ -88,7 +66,7 @@ tabGroup.addEventListener('jh-change', (e) => {
   <tbody>
     <tr>
       <td><code>Tab</code></td>
-      <td>Moves focus into the tab list, onto the selected tab. When focus is in the tab list, moves focus to the selected tab panel.</td>
+      <td>Moves focus into the tab list, onto the selected tab.</td>
     </tr>
     <tr>
       <td><code>Right Arrow</code></td>
@@ -105,8 +83,6 @@ tabGroup.addEventListener('jh-change', (e) => {
   </tbody>
 </table>
 
-Disabled tabs are skipped.
-
 ## Accessibility
 
 This component satisfies [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA success criteria. 
@@ -120,18 +96,15 @@ The following success criteria are of concern:
 ### What we provide
 
 - To satisfy [WCAG 1.3.1 Information and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) and [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html):
-  - the tabs are contained in an element with the `tablist` role,
-  - each `jh-tab` has the `tab` role and each `jh-tab-panel` has the `tabpanel` role,
-  - `aria-controls` is set on each tab and `aria-labelledby` is set on each panel to relate them to each other, with ids generated when they are not set,
-  - `aria-selected` is set on the tabs to indicate the selected tab.
+  - the tabs are contained in an element with the `tablist` role.
+  - each `jh-tab` has the `tab` role and each `jh-tab-panel` has the `tabpanel` role.
 - To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html), the `accessible-label` attribute sets an `aria-label` on the tab list.
-- To satisfy [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard), only the selected tab is in the page tab sequence and the arrow keys move focus between the other tabs. The selected tab panel is always added to the tab sequence, so keyboard users can reach its content whether or not it contains anything focusable.
-- To satisfy [WCAG 2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible), the focus indicator of the tabs and the tab panel is not clipped when the tabs overflow.
+- To satisfy [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard), the arrow keys move focus between tabs and Enter or Escape can be used to select a tab. The tab panel is reached by pressing Tab after selecting a tab.
+- To satisfy [WCAG 2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible), the focus indicator is visible when a tab or the tab panel receives keyboard focus.
 
 ### Author Guidance
 
 - To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html), set an `accessible-label` that describes the set of tabs, for example "Account".
-- To satisfy [WCAG 4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html), set an `accessible-label` on tabs that only have an icon. See the [tab documentation](?path=/docs/components-tab-tab--docs).
 - To satisfy [WCAG 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard), make sure interactive content in a tab panel can be reached with the keyboard.
 
 ## Component API

@@ -3295,6 +3295,7 @@
               "description": "Identifies what data should be entered into the input field.",
               "default": "null",
               "attribute": "label",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -4545,6 +4546,7 @@
               "description": "Identifies what data should be entered into the input field.",
               "default": "null",
               "attribute": "label",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -6161,6 +6163,7 @@
               "description": "Identifies what data should be entered into the input field.",
               "default": "null",
               "attribute": "label",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -7212,6 +7215,7 @@
               "description": "Identifies what data should be entered into the input field.",
               "default": "null",
               "attribute": "label",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -8415,6 +8419,7 @@
               "description": "Identifies what data should be entered into the input field.",
               "default": "null",
               "attribute": "label",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -9642,6 +9647,7 @@
               "description": "Identifies what data should be entered into the input field.",
               "default": "null",
               "attribute": "label",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -11225,6 +11231,7 @@
               "description": "Identifies what data should be entered into the input field.",
               "default": "null",
               "attribute": "label",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -12204,6 +12211,7 @@
               "description": "Identifies what data should be entered into the input field.",
               "default": "null",
               "attribute": "label",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"
@@ -13510,7 +13518,8 @@
               },
               "description": "Identifies what data should be entered into the input field.",
               "default": "null",
-              "attribute": "label"
+              "attribute": "label",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -16919,6 +16928,7 @@
               "description": "Identifies what data should be entered into the input field.",
               "default": "null",
               "attribute": "label",
+              "reflects": true,
               "inheritedFrom": {
                 "name": "JhInput",
                 "module": "components/input/input.js"

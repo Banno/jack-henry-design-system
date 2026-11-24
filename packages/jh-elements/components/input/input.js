@@ -411,7 +411,7 @@ export class JhInput extends JhElement {
       inputMask: { type: String, attribute: 'input-mask' },
       inputmode: { type: String },
       invalid: { type: Boolean, reflect: true },
-      label: { type: String },
+      label: { type: String, reflect: true },
       maxlength: { type: Number },
       minlength: { type: Number },
       name: { type: String },

@@ -17896,6 +17896,103 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/tab-panel/tab-panel.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Tab panels hold the content for their respective tab. Place them in the default slot of `jh-tab-group`.",
+          "name": "JhTabPanel",
+          "cssProperties": [
+            {
+              "description": "The top padding of the tab panel. Defaults to `--jh-dimension-400`.",
+              "name": "--jh-tab-panel-space-padding-top"
+            },
+            {
+              "description": "The right padding of the tab panel. Defaults to `--jh-dimension-400`.",
+              "name": "--jh-tab-panel-space-padding-right"
+            },
+            {
+              "description": "The bottom padding of the tab panel. Defaults to `--jh-dimension-400`.",
+              "name": "--jh-tab-panel-space-padding-bottom"
+            },
+            {
+              "description": "The left padding of the tab panel. Defaults to `--jh-dimension-400`.",
+              "name": "--jh-tab-panel-space-padding-left"
+            },
+            {
+              "description": "The default text color of the tab panel content. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-tab-panel-color-text"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Use to insert the tab panel content.",
+              "name": "default"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "uniqueId",
+              "type": {
+                "text": "number"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "dispatchCustomEvent",
+              "parameters": [
+                {
+                  "name": "eventName",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "default": "{}",
+                  "optional": true,
+                  "type": {
+                    "text": "Object"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
+                }
+              ],
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "JhElement",
+            "module": "/components/element/element.js"
+          },
+          "tagName": "jh-tab-panel",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JhTabPanel",
+          "declaration": {
+            "name": "JhTabPanel",
+            "module": "components/tab-panel/tab-panel.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/tab/tab.js",
       "declarations": [
         {

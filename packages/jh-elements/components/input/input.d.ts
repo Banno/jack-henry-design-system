@@ -106,6 +106,7 @@ export class JhInput extends JhElement {
         };
         label: {
             type: StringConstructor;
+            reflect: boolean;
         };
         maxlength: {
             type: NumberConstructor;

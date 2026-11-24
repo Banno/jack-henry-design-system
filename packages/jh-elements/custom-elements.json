@@ -17896,6 +17896,289 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/tab/tab.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Tabs provide a way to navigate between multiple groups of related content within the same context.\n\n[Tab Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tab-tab--docs)",
+          "name": "JhTab",
+          "cssProperties": [
+            {
+              "description": "The tab height. Defaults to `--jh-dimension-800` when `size=\"small\"` and `--jh-dimension-1000` when `size=\"medium\"`.",
+              "name": "--jh-tab-size"
+            },
+            {
+              "description": "The tab background-color when enabled. Defaults to `transparent`.",
+              "name": "--jh-tab-color-background-enabled"
+            },
+            {
+              "description": "The tab border-color when enabled. Defaults to `transparent`.",
+              "name": "--jh-tab-color-border-enabled"
+            },
+            {
+              "description": "The label text color when enabled. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-tab-label-color-text-enabled"
+            },
+            {
+              "description": "The icon color when enabled. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-tab-icon-color-fill-enabled"
+            },
+            {
+              "description": "The focus outline color. Defaults to `--jh-border-focus-color`.",
+              "name": "--jh-tab-color-focus"
+            },
+            {
+              "description": "The tab background-color when in focus. Defaults to `--jh-color-container-neutral-hover`.",
+              "name": "--jh-tab-color-background-focus"
+            },
+            {
+              "description": "The tab border-color when in focus. Defaults to `transparent`.",
+              "name": "--jh-tab-color-border-focus"
+            },
+            {
+              "description": "The label text color when in focus. Defaults to `--jh-color-content-primary-hover`.",
+              "name": "--jh-tab-label-color-text-focus"
+            },
+            {
+              "description": "The icon color when in focus. Defaults to `--jh-color-content-primary-hover`.",
+              "name": "--jh-tab-icon-color-fill-focus"
+            },
+            {
+              "description": "The tab background-color when hovered. Defaults to `--jh-color-container-neutral-hover`.",
+              "name": "--jh-tab-color-background-hover"
+            },
+            {
+              "description": "The tab border-color when hovered. Defaults to `transparent`.",
+              "name": "--jh-tab-color-border-hover"
+            },
+            {
+              "description": "The label text color when hovered. Defaults to `--jh-color-content-primary-hover`.",
+              "name": "--jh-tab-label-color-text-hover"
+            },
+            {
+              "description": "The icon color when hovered. Defaults to `--jh-color-content-primary-hover`.",
+              "name": "--jh-tab-icon-color-fill-hover"
+            },
+            {
+              "description": "The tab background-color when active. Defaults to `--jh-color-container-neutral-active`.",
+              "name": "--jh-tab-color-background-active"
+            },
+            {
+              "description": "The tab border-color when active. Defaults to `transparent`.",
+              "name": "--jh-tab-color-border-active"
+            },
+            {
+              "description": "The label text color when active. Defaults to `--jh-color-content-primary-active`.",
+              "name": "--jh-tab-label-color-text-active"
+            },
+            {
+              "description": "The icon color when active. Defaults to `--jh-color-content-primary-active`.",
+              "name": "--jh-tab-icon-color-fill-active"
+            },
+            {
+              "description": "The tab opacity when disabled. Defaults to `--jh-opacity-disabled`.",
+              "name": "--jh-tab-opacity-disabled"
+            },
+            {
+              "description": "The tab background-color when disabled. Defaults to `transparent`.",
+              "name": "--jh-tab-color-background-disabled"
+            },
+            {
+              "description": "The tab border-color when disabled. Defaults to `transparent`.",
+              "name": "--jh-tab-color-border-disabled"
+            },
+            {
+              "description": "The label text color when disabled. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-tab-label-color-text-disabled"
+            },
+            {
+              "description": "The icon color when disabled. Defaults to `--jh-color-content-primary-enabled`.",
+              "name": "--jh-tab-icon-color-fill-disabled"
+            },
+            {
+              "description": "The selected indicator color. Defaults to `--jh-border-selected-color`.",
+              "name": "--jh-tab-color-border-selected"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Use to insert an icon on the left side of the tab.",
+              "name": "jh-tab-left"
+            },
+            {
+              "description": "Use to insert an icon on the right side of the tab.",
+              "name": "jh-tab-right"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "accessibleLabel",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets an `aria-label` on the tab. Required for icon-only tabs.",
+              "default": "null",
+              "attribute": "accessible-label"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Disables the tab and prevents all user interactions.",
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "The tab text. When omitted, an icon-only tab is displayed.",
+              "default": "null",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "selected",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Whether the tab is selected.",
+              "default": "false",
+              "attribute": "selected",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "privacy": "public",
+              "type": {
+                "text": "'small' | 'medium'"
+              },
+              "description": "Sets the size of the tab.",
+              "default": "'medium'",
+              "attribute": "size",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "uniqueId",
+              "type": {
+                "text": "number"
+              },
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "dispatchCustomEvent",
+              "parameters": [
+                {
+                  "name": "eventName",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "detail",
+                  "default": "{}",
+                  "optional": true,
+                  "type": {
+                    "text": "Object"
+                  }
+                },
+                {
+                  "name": "options",
+                  "default": "{}"
+                }
+              ],
+              "inheritedFrom": {
+                "name": "JhElement",
+                "module": "components/element/element.js"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "accessible-label",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Sets an `aria-label` on the tab. Required for icon-only tabs.",
+              "default": "null",
+              "fieldName": "accessibleLabel",
+              "attribute": "accessible-label"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Disables the tab and prevents all user interactions.",
+              "default": "false",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "The tab text. When omitted, an icon-only tab is displayed.",
+              "default": "null",
+              "fieldName": "label"
+            },
+            {
+              "name": "selected",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Whether the tab is selected.",
+              "default": "false",
+              "fieldName": "selected"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "'small' | 'medium'"
+              },
+              "description": "Sets the size of the tab.",
+              "default": "'medium'",
+              "fieldName": "size"
+            }
+          ],
+          "superclass": {
+            "name": "JhElement",
+            "module": "/components/element/element.js"
+          },
+          "tagName": "jh-tab",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JhTab",
+          "declaration": {
+            "name": "JhTab",
+            "module": "components/tab/tab.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/table-data-cell/table-data-cell.js",
       "declarations": [
         {

@@ -8,6 +8,10 @@ import { css, html } from 'lit';
 import { JhElement } from '../element/element.js';
 
 /**
+ * Tabs provide a way to navigate between multiple groups of related content within the same context.
+ * 
+ * [Tab Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tab-tab--docs)
+ * 
  * @cssprop --jh-tab-size - The tab height. Defaults to `--jh-dimension-800` when `size="small"` and `--jh-dimension-1000` when `size="medium"`.
  * @cssprop --jh-tab-color-background-enabled - The tab background-color when enabled. Defaults to `transparent`.
  * @cssprop --jh-tab-color-border-enabled - The tab border-color when enabled. Defaults to `transparent`.

@@ -1,5 +1,11 @@
 # @jack-henry/jh-elements
 
+## 2.7.0
+
+### Minor Changes
+
+- [#417](https://github.com/Banno/jack-henry-design-system/pull/417) [`501b8ab`](https://github.com/Banno/jack-henry-design-system/commit/501b8ab7fea0c2fa0b91d462cc6cefbdc5606618) Thanks [@abissier](https://github.com/abissier)! - Reflects the input label.
+
 ## 2.6.0
 
 ### Minor Changes

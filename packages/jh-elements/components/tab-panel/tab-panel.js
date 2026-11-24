@@ -9,6 +9,8 @@ import { JhElement } from '../element/element.js';
 
 /**
  * Tab panels hold the content for their respective tab. Place them in the default slot of `jh-tab-group`.
+ * 
+ * [Tab Panel Storybook Documentation](https://main--68f8e6a25b256d0ef89b13e6.chromatic.com/?path=/docs/components-tab-tab-panel--docs)
  *
  * @cssprop --jh-tab-panel-space-padding-top - The top padding of the tab panel. Defaults to `--jh-dimension-400`.
  * @cssprop --jh-tab-panel-space-padding-right - The right padding of the tab panel. Defaults to `--jh-dimension-400`.

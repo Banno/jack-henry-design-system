@@ -14,7 +14,7 @@ import * as stories from './tab-panel.stories.js';
 
 <hr />
 
-Tab panels hold the content for their respective tab. Place tab panels in the default slot of [`jh-tab-group`](?path=/docs/components-tab-tab-group--docs), which displays the panel of the selected tab and hides the others.
+Tab panels hold the content for their respective tab. Place tab panels in the `default` slot of `jh-tab-group`, which displays the panel of the selected tab and hides the others.
 
 ## Usage
 
@@ -29,13 +29,6 @@ To use `<jh-tab-panel>`, place the content in the default slot.
 ```html
 <jh-tab-panel>Tab content</jh-tab-panel>
 ```
-
-## Unique Details
-
-- Tab panel content can be any combination of Forge components, product-specific elements and native HTML. 
-- Default text styling is provided for basic text content. Text wraps to the next line when it reaches the edge of the container.
-- Padding is applied by the tab panel, so the tab group slot does not add any. Adjust it with the `--jh-tab-panel-space-padding-*` styling hooks.
-- The tab group hides the panels of tabs that are not selected using the `hidden` attribute. 
 
 ## Accessibility
 

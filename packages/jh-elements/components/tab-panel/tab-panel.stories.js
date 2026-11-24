@@ -24,17 +24,18 @@ export default {
   parameters: {
     actions: { disable: true },
     interactions: { disable: true },
+    controls: { disable: true },
     styles: storyStyles,
   },
 };
 
 const loremIpsum = 'Lorem ipsum dolor sit amet consectetur. Urna ornare dignissim aliquam hac in at non. Proin sit mi iaculis neque cursus. Maecenas magna faucibus massa etiam pretium neque commodo venenatis sodales. Commodo lectus praesent mauris adipiscing donec rhoncus nullam tortor.';
 
-export const Overview = { render: () => html`
+export const Overview = { render: (args) => html`
   <jh-tab-panel>${loremIpsum}</jh-tab-panel>
 `};
 
-export const Playground = { render: () => html`
+export const Playground = { render: (args) => html`
   <jh-tab-panel>${loremIpsum}</jh-tab-panel>
 `};
 
@@ -42,17 +43,6 @@ Playground.parameters = {
   theme: 'both-themes',
 };
 
-export const RichContent = { render: () => html`
-  <jh-tab-panel>
-    <h3>Heading</h3>
-    <p>${loremIpsum}</p>
-    <a href="#">A link</a>
-  </jh-tab-panel>
-`};
-
-export const CustomStyleHooks = { render: () => html`
-  <jh-tab-panel class="custom-hooks">${loremIpsum}</jh-tab-panel>
-`};
 
 
 

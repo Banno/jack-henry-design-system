@@ -9,6 +9,8 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from 'storybook/actions';
 import './select.js';
 import "@jack-henry/jh-icons/icons-wc/icon-piggy-bank.js";
+import "@jack-henry/jh-icons/icons-wc/icon-wallet.js";
+import "@jack-henry/jh-icons/icons-wc/icon-credit-card.js";
 import "@jack-henry/jh-icons/icons-wc/icon-arrow-up-small.js";
 import "@jack-henry/jh-icons/icons-wc/icon-arrow-down-small.js";
 import "../button/button.js";
@@ -262,6 +264,49 @@ CustomValues.argTypes = {
 };
 
 CustomValues.parameters = {
+  styles: storyStyles,
+};
+
+const leadingOptions = [
+  {
+    label: "Basic Checking",
+    value: "checking-01",
+    leading: html`<jh-icon-wallet size="medium"></jh-icon-wallet>`,
+    secondary: "Everyday spending",
+  },
+  {
+    label: "High-Yield Savings",
+    value: "savings-01",
+    leading: html`<jh-icon-piggy-bank size="medium"></jh-icon-piggy-bank>`,
+  },
+  {
+    label: "Travel Rewards",
+    value: "cc-travel",
+    leading: html`<jh-icon-credit-card size="medium"></jh-icon-credit-card>`,
+    secondary: "Rewards on travel",
+  },
+];
+
+export const WithLeadingContent = {
+  name: 'With leading content',
+  render: () => html`
+    <div class="select-container">
+      <jh-select
+        label="Account type"
+        helper-text="Choose an account"
+        .options=${leadingOptions}
+      ></jh-select>
+    </div>
+  `,
+};
+
+WithLeadingContent.tags = ['new'];
+
+WithLeadingContent.argTypes = {
+  ...disableControls,
+};
+
+WithLeadingContent.parameters = {
   styles: storyStyles,
 };
 
